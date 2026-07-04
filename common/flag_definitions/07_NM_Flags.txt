@@ -1,0 +1,227 @@
+﻿GEN = { # Genoa Merchant Republic
+	flag_definition = {
+		coa = GEN
+#		subject_canton = ENG
+#		allow_overlord_canton = yes
+#		overlord_canton_scale = { @canton_scale_cross_x @canton_scale_cross_y }
+		allow_overlord_canton = no
+		priority = 1
+	}
+}
+
+GR4 = { # Naples
+	flag_definition = {
+		coa = HRE_atheist
+		coa_with_overlord_canton = SIC_subject
+		priority = 1
+	}
+}
+
+GR3 = { # Sicily
+	flag_definition = {
+		coa = SIC_dictatorship
+#		subject_canton = SIC_dictatorship
+		priority = 1
+	}
+}
+
+GR5 = { # Santo Domingo
+	flag_definition = {
+		coa = PCO_spa_burgundy
+		priority = 1
+	}
+}
+
+IREK = { # Kingdom of Ireland
+	flag_definition = {
+		coa = IRE_coa
+		priority = 1
+	}
+}
+
+BEO = { # Belgium Old
+	flag_definition = {
+		coa = BEL
+		subject_canton = BEL
+		allow_overlord_canton = yes
+		coa_with_overlord_canton = BEL_subject
+		priority = 1
+	}
+	flag_definition = {
+		coa = BEL_absolute_monarchy
+		subject_canton = BEL_absolute_monarchy
+		priority = 20
+		trigger = {
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = BEL_republic
+		subject_canton = BEL_republic
+		priority = 10
+		trigger = {
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = BEL_dictatorship
+		subject_canton = BEL_dictatorship
+		priority = 20
+		trigger = {
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = BEL_communist
+		priority = 1500
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = BEL_fascist
+		subject_canton = BEL_fascist
+		priority = 1500
+		trigger = {
+			coa_def_fascist_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = BEL_subject
+		subject_canton = BEL
+		allow_overlord_canton = yes
+		overlord_canton_offset = { 0.01 0.015 }
+		overlord_canton_scale = { 0.48 0.47 }
+		priority = 50
+		trigger = {
+			coa_def_french_ensign_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = BEL_subject
+		subject_canton = BEL
+		allow_overlord_canton = yes
+		overlord_canton_offset = { 0.01 0.015 }
+		overlord_canton_scale = { 0.48 0.47 }
+		priority = 50
+		trigger = {
+			coa_def_spanish_ensign_trigger = yes
+		}
+	}
+}
+
+DUR = { # Afghanistan
+	flag_definition = {
+		coa = DUR
+		subject_canton = DUR
+		priority = 1
+	}
+	flag_definition = {
+		coa = AFG_republic
+		subject_canton = AFG_republic
+		priority = 10
+		trigger = {
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = AFG_dictatorship
+		subject_canton = AFG_dictatorship
+		priority = 20
+		trigger = {
+			coa_def_dictatorship_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = AFG_theocracy
+		subject_canton = AFG_theocracy
+		priority = 30
+		trigger = {
+			coa_def_theocracy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = AFG_subject_GBR
+		allow_overlord_canton = yes
+		priority = 40
+		trigger = {
+			coa_def_british_ensign_trigger = yes
+		}
+	}
+}
+
+MARATH = { # Maratha Empire
+	flag_definition = {
+		coa = MARATH
+		allow_overlord_canton = no
+	}
+}
+
+DENNOR = { # Denmark-Norway
+	flag_definition = {
+		coa = DENNOR
+		subject_canton = DENNOR
+		priority = 1
+	}
+	flag_definition = {
+		coa = DEN_absolute_monarchy
+		subject_canton = DEN_absolute_monarchy
+		priority = 20
+		trigger = {
+			coa_def_absolute_monarchy_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = DEN
+		coa_with_overlord_canton = DEN
+		allow_overlord_canton = yes
+		overlord_canton_scale = { @canton_scale_denmark_x @canton_scale_denmark_y }
+		subject_canton = DEN_canton
+		priority = 20
+		trigger = {
+			coa_def_republic_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = DEN_communist
+		priority = 1500
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+	flag_definition = {
+		coa = DEN_fascist
+		subject_canton = DEN_fascist
+		priority = 10
+		trigger = {
+			coa_def_fascist_flag_trigger = yes
+		}
+	}
+}
+
+MAA = { # Malaysia
+	flag_definition = {
+		coa = MAA_oligarchy
+		subject_canton = MAA_oligarchy
+		allow_overlord_canton = no
+		priority = 20
+	}
+	flag_definition = {
+		coa = BRU_subject
+#		subject_canton = BRU_subject
+		allow_overlord_canton = yes
+		priority = 20
+		trigger = {
+			scope:actor ?= {
+				is_subject = yes
+			}
+		}
+	}
+	flag_definition = {
+		coa = CHV_communist
+		priority = 15
+		trigger = {
+			coa_def_communist_flag_trigger = yes
+		}
+	}
+}

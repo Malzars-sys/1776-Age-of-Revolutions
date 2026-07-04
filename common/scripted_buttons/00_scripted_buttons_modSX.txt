@@ -1,0 +1,144 @@
+﻿je_sell_florida_button = {
+	name = "je_sell_florida_button"
+	desc = "je_sell_florida_button_desc"
+
+	visible = {
+
+	}
+
+	cooldown = { days = 365 }
+
+	ai_chance = {
+		value = 0
+		if = {
+			limit = {
+				scaled_debt > 0
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				has_modifier = declared_bankruptcy
+			}
+			add = 50
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOT = { this = root }
+					country_rank >= root.country_rank
+					has_interest_marker_in_region = sr:region_dixie
+					relations:root <= relations_threshold:poor
+				}
+			}
+			add = 25
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOT = { this = root }
+					country_rank >= root.country_rank
+					has_interest_marker_in_region = sr:region_dixie
+					relations:root <= relations_threshold:cold
+				}
+			}
+			add = 50
+		}
+	}
+
+	possible = {
+		OR = {
+			has_state_in_state_region = STATE_FLORIDA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_FLORIDA
+			}
+		}
+		custom_tooltip = {
+			text = friendly_nation_with_interest_in_florida_tt
+			any_country_in_north_america = {
+				NOT = { is_subject = yes }
+				NOT = { this = root }
+				relations:root >= 0
+				country_rank >= rank_value:great_power
+				any_scope_state = {
+					region = sr:region_dixie
+					is_incorporated = yes
+				}
+			}
+		}
+	}
+
+	effect = {
+		save_scope_as = florida_seller
+		set_variable = { name = florida_sale_cooldown days = 365 }
+		random_country = {
+			limit = {
+				NOT = { is_subject = yes }
+				NOT = { this = root }
+				is_in_geographic_region = geographic_region_north_america
+				relations:root >= 0
+				country_rank >= rank_value:great_power
+				any_scope_state = {
+					region = sr:region_dixie
+					is_incorporated = yes
+				}
+			}
+			trigger_event = { id = florida.4 popup = yes }
+		}
+	}
+}
+
+je_buy_florida_button = {
+	name = "je_buy_florida_button"
+	desc = "je_buy_florida_button_desc"
+
+	visible = {
+
+	}
+
+	cooldown = { days = 365 }
+
+	ai_chance = {
+		value = 100
+	}
+
+	possible = {
+		is_subject = no
+		s:STATE_FLORIDA = {
+			any_scope_state = {
+				owner = {
+					NOT = {
+						root = this
+						AND = {
+							is_subject_of = root
+							capital = {
+								state_region = s:STATE_FLORIDA
+							}
+						}
+						is_country_type = decentralized
+					}
+					relations:root >= 0
+					OR = {
+						custom_tooltip = {
+							text = unfriendly_nation_with_interest_in_florida_tt
+							any_country = {
+								country_rank >= prev.country_rank
+								NOT = { this = prev }
+								has_interest_marker_in_region = sr:region_dixie
+								relations:prev < relations_threshold:cordial
+							}
+						}
+						scaled_debt > 0
+					}
+				}
+			}
+		}
+	}
+
+	effect = {
+		trigger_event = {
+			id = florida.4
+			popup = yes
+		}
+	}
+}

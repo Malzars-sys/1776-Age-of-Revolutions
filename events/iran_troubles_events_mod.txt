@@ -1,0 +1,733 @@
+﻿namespace = qajar_pulse_events
+
+qajar_pulse_events.1 = { # Industrialists Scared
+	type = country_event
+	placement = scope:investor_mod_affected_state
+
+	title = coup_pulse_events.4.t
+	desc = coup_pulse_events.4.d
+	flavor = coup_pulse_events.4.f
+
+	event_image = {
+		video = "unspecific_factory_closed"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+		capital = {
+			any_scope_building = {
+				OR = {
+					is_building_group = bg_light_industry
+					is_building_group = bg_heavy_industry
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			ig_counts_as_marginal = no
+		}
+	}
+
+	immediate = {
+		capital = {
+			save_scope_as = investor_mod_affected_state
+		}
+		ig:ig_industrialists ?= {
+			save_scope_as = investor_mod_ig
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = coup_pulse_events.4.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_wary_investors_country
+			days = normal_modifier_time
+		}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = -10 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_retreat_30_mod_tt
+	}
+	option = {
+		name = coup_pulse_events.4.b
+		capital = {
+			random_scope_building = {
+				limit = {
+					is_building_group = bg_light_industry
+					NOT = {
+						has_modifier = modifier_wary_investors_building
+					}
+				}
+				add_modifier = {
+					name = modifier_wary_investors_building
+					months = 12
+				}
+			}
+			random_scope_building = {
+				limit = {
+					is_building_group = bg_heavy_industry
+					NOT = {
+						has_modifier = modifier_wary_investors_building
+					}
+				}
+				add_modifier = {
+					name = modifier_wary_investors_building
+					months = 12
+				}
+			}
+		}
+		ig:ig_industrialists ?= {
+			add_modifier = {
+				name = modifier_economic_uncertainty
+				days = normal_modifier_time
+			}
+		}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = 30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_advance_30_mod_tt
+	}
+}
+
+qajar_pulse_events.2 = { # Landowners Scared
+	type = country_event
+	placement = root
+
+	title = qajar_pulse_events.2.t
+	desc = qajar_pulse_events.2.d
+	flavor = qajar_pulse_events.2.f
+
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = qajar_pulse_events.2.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_in_too_deep
+			days = normal_modifier_time
+		}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = -30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_retreat_30_mod_tt
+	}
+	option = {
+		name = qajar_pulse_events.2.b
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = modifier_economic_uncertainty
+				days = normal_modifier_time
+			}
+		}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = 30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_advance_30_mod_tt
+	}
+}
+
+qajar_pulse_events.3 = { # Sus death
+	type = country_event
+	placement = root
+
+	title = qajar_pulse_events.3.t
+	desc = qajar_pulse_events.3.d
+	flavor = qajar_pulse_events.3.f
+
+	event_image = {
+		video = "votp_agitators_sneaking"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = qajar_pulse_events.3.a
+		default_option = yes
+		ig:ig_landowners ?= {
+	        add_modifier = {
+	            name = modifier_disregarded_suspicious_death
+	            days = normal_modifier_time
+	        }
+		}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = 30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_advance_30_mod_tt
+	}
+	option = {
+		name = qajar_pulse_events.3.b
+		ig:ig_landowners ?= {
+	        add_modifier = {
+	            name = modifier_investigating_suspicious_death
+	            days = normal_modifier_time
+	        }
+		}
+		trigger_event = { id = qajar_pulse_events.4 days = 7 }
+	}
+}
+
+qajar_pulse_events.4 = { # Who killed em?
+	type = country_event
+	placement = root
+
+	title = qajar_pulse_events.4.t
+	desc = qajar_pulse_events.4.d
+	flavor = qajar_pulse_events.4.f
+
+	event_image = {
+		video = "unspecific_politicians_arguing"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = qajar_pulse_events.4.a
+		default_option = yes
+		trigger = {
+			ig:ig_rural_folk ?= {
+				ig_approval < 0
+			}
+		}
+		ig:ig_landowners ?= {
+	        add_modifier = {
+	            name = ig_unappeased
+	            months = 36
+	        }
+		}
+		ig:ig_rural_folk ?= {
+	        add_modifier = {
+	            name = modifier_growing_extremist_movement
+	            days = normal_modifier_time
+	        }
+		}
+		ig:ig_devot ?= {
+	        add_modifier = {
+	            name = modifier_growing_extremist_movement
+	            days = normal_modifier_time
+	        }
+		}
+		add_modifier = {
+			name = modifier_widespread_protests
+			days = normal_modifier_time
+		}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = 30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_advance_30_mod_tt
+	}
+	option = {
+		name = qajar_pulse_events.4.b
+		default_option = yes
+		trigger = {
+			ig:ig_rural_folk ?= {
+				ig_approval > 0
+			}
+		}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = -30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_retreat_30_mod_tt
+	}
+}
+
+qajar_pulse_events.5 = { # Devout Concerns
+	type = country_event
+	placement = root
+
+	title = qajar_pulse_events.5.t
+	desc = qajar_pulse_events.5.d
+	flavor = qajar_pulse_events.5.f
+
+	event_image = {
+		video = "middleeast_courtroom_upheaval"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = qajar_pulse_events.5.a
+		default_option = yes
+		ai_chance = {
+			base = 10
+			modifier = {
+				trigger = {
+					OR = {
+						tax_level < high
+						net_total_income > money_amount_multiplier_medium
+					}
+				}
+				add = 35
+			}
+			modifier = { #don't do if broke
+				trigger = {
+					AND = {
+						net_total_income < 0
+						tax_level >= high
+					}
+				}
+				add = -50
+			}
+		}
+		trigger = {
+			ig:ig_landowners ?= {
+				ig_approval > 0
+			}
+		}
+		ig:ig_devout ?= {
+	        add_modifier = {
+	            name = bureaucracy_ig_benefits
+	            months = 36
+				multiplier = 0.5
+	        }
+		}
+	    add_modifier = {
+			name = modifier_developing_can_opener
+			multiplier = money_amount_multiplier_medium
+			days = normal_modifier_time
+			is_decaying = yes
+	    }
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = -10 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_retreat_10_mod_tt
+	}
+	option = {
+		name = qajar_pulse_events.5.b
+		trigger = {
+
+		}
+		ai_chance = {
+			base = 10
+			modifier = { # well they already hate 
+				trigger = {
+					ig:ig_devout ?= {
+						ig_approval < 0
+					}
+				}
+				add = 35
+			}
+			modifier = { # may aswell if they love you
+				trigger = {
+					ig:ig_devout ?= {
+						ig_approval > 10
+					}
+				}
+				add = 50
+			}
+		}
+
+		ig:ig_devout ?= {
+	        add_modifier = {
+	            name = ig_mass_arrests
+	            months = 12
+	        }
+		}
+
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = -30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_retreat_30_mod_tt
+	}
+	option = {
+		name = qajar_pulse_events.5.c
+		trigger = {
+
+		}
+		ai_chance = {
+			base = 10
+		}
+
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = 10 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_advance_10_mod_tt
+	}
+}
+
+qajar_pulse_events.6 = {
+	type = country_event
+	placement = scope:barracks_theft_state
+
+	title = coup_pulse_events.10.t
+	desc = coup_pulse_events.10.d
+	flavor = coup_pulse_events.10.f
+
+	event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+		any_scope_state = {
+			has_building = building_barrack
+			is_incorporated = yes
+		}
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				has_building = building_barrack
+				is_incorporated = yes
+			}
+			save_scope_as = barracks_theft_state
+			random_scope_building = {
+				limit = {
+					is_building_type = building_barrack
+				}
+				save_scope_as = barracks_theft_building
+			}
+		}
+		ig:ig_armed_forces ?= {
+			save_scope_as = armed_forces_ig
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = coup_pulse_events.10.a
+		default_option = yes
+		scope:barracks_theft_building = {
+			add_modifier = {
+				name = modifier_siphoning_of_arms
+				days = short_modifier_time
+			}
+		}
+	}
+	option = {
+		name = coup_pulse_events.10.b
+		scope:armed_forces_ig = {
+			add_modifier = {
+				name = modifier_accused_of_theft
+				days = short_modifier_time
+			}
+		}
+	}
+}
+
+qajar_pulse_events.7 = { # successful raid
+	type = country_event
+	placement = scope:raid_state
+
+	title = qajar_pulse_events.7.t
+	desc = qajar_pulse_events.7.d
+	flavor = qajar_pulse_events.7.f
+
+	event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+			}
+			save_scope_as = raid_state
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = qajar_pulse_events.7.a
+		default_option = yes
+		scope:raid_state = {
+			add_modifier = {
+				name = modifier_villages_burned
+				days = short_modifier_time
+			}
+			this.state_region = {
+				add_devastation = 10
+			}
+		}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = 30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_advance_30_mod_tt
+	}
+}
+
+qajar_pulse_events.8 = { # unsuccessful raid
+	type = country_event
+	placement = scope:raid_state
+
+	title = qajar_pulse_events.8.t
+	desc = qajar_pulse_events.8.d
+	flavor = qajar_pulse_events.8.f
+
+	event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+			}
+			save_scope_as = raid_state
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = coup_pulse_events.8.a
+		default_option = yes
+		scope:raid_state = {
+			this.state_region = {
+				add_devastation = 5
+			}
+		}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = -30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_retreat_30_mod_tt
+	}
+}
+
+qajar_pulse_events.9 = { # supply convoy attacked
+	type = country_event
+	placement = scope:raid_state
+
+	title = qajar_pulse_events.9.t
+	desc = qajar_pulse_events.9.d
+	flavor = qajar_pulse_events.9.f
+
+	event_image = {
+		video = "europenorthamerica_before_the_battle"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+			}
+			save_scope_as = raid_state
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = qajar_pulse_events.7.a
+		default_option = yes
+		scope:raid_state = {
+			add_modifier = {
+				name = modifier_attacked_supply_train
+				months = 13
+				multiplier = 1.5
+			}		
+		}
+	}
+}
+
+qajar_pulse_events.10 = { # arguments about the true heir pulse
+	type = country_event
+	placement = root
+
+	title = qajar_pulse_events.10.t
+	desc = qajar_pulse_events.10.d
+	flavor = qajar_pulse_events.10.f
+
+	event_image = {
+		video = "votp_conspiring"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	duration = 3
+
+
+	cooldown = { days = normal_modifier_time }
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_deputy_of_the_people
+		}
+	}
+
+	option = {
+		name = qajar_pulse_events.10.a
+		default_option = yes
+			add_modifier = {
+				name = modifier_squables_for_power_mod
+				days = long_modifier_time
+			}
+		je:je_deputy_of_the_people ?= {
+			add_progress = { value = 30 name = je_qajar_coup_progress_bar }
+		}
+		custom_tooltip = coup_advance_30_mod_tt
+	}
+}
+

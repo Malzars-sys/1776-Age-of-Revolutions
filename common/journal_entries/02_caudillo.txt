@@ -1,0 +1,70 @@
+﻿je_caudillo = {
+	icon = "gfx/interface/icons/ig_icons/armed_forces.dds"
+
+	group = je_group_internal_affairs
+
+	# see also: exiling an armed forces character depletes the progress bar
+
+	scripted_button = caudillo_decree_button
+
+	scripted_progress_bar = je_caudillo_progress_bar
+
+	immediate = {
+		save_scope_as = caudillo_country_scope
+	}
+
+	complete = {
+		ig:ig_armed_forces ?= {
+			is_in_government = no
+		}
+		custom_tooltip = {
+			text = caudillo_complete
+			"scope:journal_entry.scripted_bar_progress(je_caudillo_progress_bar)" < 0
+		}
+	}
+
+	on_complete = {
+		trigger_event = { id = caudillo.2 popup = yes }
+		show_as_tooltip = {
+			ig:ig_armed_forces ?= {
+				remove_ideology = ideology_caudillismo
+			}
+			remove_modifier = age_of_caudillos_modifier
+		}
+	}
+
+	fail = {
+		ig:ig_armed_forces ?= {
+			is_in_government = yes
+		}
+		custom_tooltip = {
+			text = je_caudillo_goal_tt
+			"scope:journal_entry.scripted_bar_progress(je_caudillo_progress_bar)" >= 1200
+		}
+	}
+
+	on_fail = {
+		trigger_event = { id = caudillo.3 popup = yes }
+		show_as_tooltip = {
+			add_modifier = {
+				name = age_of_caudillos_modifier
+				multiplier = 2
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+		random_events = {
+			# Pulse events affect the progress bar
+			120 = 0
+			10 = caudillo.4
+			25 = caudillo.6
+		}
+	}
+
+	weight = 100
+
+	can_revolution_inherit = yes
+	transferable = yes
+	should_be_pinned_by_default = yes
+}

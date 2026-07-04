@@ -1,0 +1,384 @@
+﻿MILITARY_FORMATIONS = {
+	c:USA ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_dixie
+			name = Army_of_Observation
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TENNESSEE
+				count = 20
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SOUTH_CAROLINA
+				count = 20
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_SOUTH_CAROLINA
+				count = 20
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_NEW_YORK
+				count = 5
+			}
+			save_scope_as = dannys_army
+		}
+		
+		create_character = {
+			is_general = yes
+			historical = yes
+			culture = cu:dixie
+			birth_date = 1725.3.20
+			save_scope_as = danny_gen
+		}
+
+		scope:danny_gen = {
+			transfer_to_formation = scope:dannys_army
+		}
+		
+		create_character = {
+			is_general = yes
+			culture = cu:dixie
+			birth_date = 1730.3.20
+			save_scope_as = babby_gen
+		}
+
+		scope:babby_gen = {
+			transfer_to_formation = scope:dannys_army
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_new_england
+			name = Regular_Army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NEW_YORK
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MASSACHUSETTS
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MASSACHUSETTS
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_PENNSYLVANIA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MASSACHUSETTS
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NORTH_CAROLINA
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_VIRGINIA
+				count = 10
+			}
+			save_scope_as = regular_army
+		}
+
+		create_character = {
+			is_general = yes
+			first_name = Edmund_P
+			last_name = Gaines
+			historical = yes
+			culture = cu:dixie
+			birth_date = 1727.3.20
+			save_scope_as = gaines_gen
+		}
+
+		scope:gaines_gen = {
+			transfer_to_formation = scope:regular_army
+		}
+		
+		create_character = {
+			is_general = yes
+			culture = cu:dixie
+			birth_date = 1737.3.20
+			save_scope_as = babes_gen
+		}
+
+		scope:babes_gen = {
+			transfer_to_formation = scope:regular_army
+		}
+		
+		create_character = {
+			is_general = yes
+			culture = cu:dixie
+			birth_date = 1750.3.20
+			save_scope_as = gabes_gen
+		}
+
+		scope:gabes_gen = {
+			transfer_to_formation = scope:regular_army
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_dixie
+			name = Army_of_Florida
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MASSACHUSETTS
+				count = 15
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_GEORGIA
+				count = 9
+			}
+			save_scope_as = nabes_army
+		}
+		
+		create_character = {
+			is_general = yes
+			culture = cu:dixie
+			birth_date = 1737.3.20
+			save_scope_as = nabes_gen
+		}
+
+		scope:nabes_gen = {
+			transfer_to_formation = scope:nabes_army
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_dixie
+			name = Navy_Yard_Gosport
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_VIRGINIA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_VIRGINIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_MASSACHUSETTS
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_MASSACHUSETTS
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_SOUTH_CAROLINA
+				count = 1
+			}
+
+			combat_unit = { # Ahistorical
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_SOUTH_CAROLINA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_MASSACHUSETTS
+				count = 1
+			}
+			save_scope_as = saber_navy
+		}
+		create_character = {
+			is_admiral = yes
+			culture = cu:dixie
+			birth_date = 1733.3.20
+			save_scope_as = saber_gen
+		}
+		
+		scope:saber_gen = {
+			transfer_to_formation = scope:saber_navy
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_new_england
+			name = Navy_Yard_New_York
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_NEW_YORK
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_NEW_YORK
+				count = 2
+			}
+
+			combat_unit = { # Ahistorical
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_NEW_YORK
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_man_o_war
+				state_region = s:STATE_MASSACHUSETTS
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_MASSACHUSETTS
+				count = 1
+			}
+
+			combat_unit = { # Ahistorical
+				type = unit_type:combat_unit_type_frigate
+				state_region = s:STATE_MASSACHUSETTS
+				count = 1
+			}
+			save_scope_as = navy_yard_new_york_fleet
+		}
+		
+
+
+		create_character = { # USA, Admiral
+			is_admiral = yes
+			first_name = Frederick
+			last_name = Lavallette
+			historical = yes
+			culture = cu:dixie
+			interest_group = ig_armed_forces
+			ideology = ideology_royalist
+			birth_date = 1731.6.10 # exact date unknown
+			traits = {
+				basic_colonial_administrator
+				wrathful
+			}
+
+			save_scope_as = lavallette_gen
+		}
+
+		scope:lavallette_gen = {
+			transfer_to_formation = scope:navy_yard_new_york_fleet
+		}
+
+
+	}
+	c:HAI ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_caribbean
+			name = ArmeeIndigene
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HAITI
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HAITI
+				count = 14
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_HAITI
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_HAITI
+				count = 1
+			}
+		}
+	}
+	c:CUB ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_caribbean
+			name = MiliciasdeCuba
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WESTERN_CUBA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EASTERN_CUBA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CENTRAL_CUBA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_WESTERN_CUBA
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_WESTERN_CUBA
+				count = 1
+			}
+		}
+	}
+	c:PCO ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_caribbean
+			name = MiliciasDiciplinadas
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PUERTO_RICO
+				count = 6
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_PUERTO_RICO
+				count = 1
+			}
+		}
+	}
+}

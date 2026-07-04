@@ -1,0 +1,53 @@
+﻿je_french_revolution_skip = {
+	name = "je_french_revolution_skip"
+	desc = "je_french_revolution_skip_desc"
+
+	visible = {
+		c:FRA ?= {
+			is_player = yes
+		}
+	}
+
+	cooldown = { days = 7 }
+
+	possible = {
+		is_at_war = no
+	}
+
+	effect = {
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_freedom_of_conscience
+		je:je_fr_rev_summon_estates ?= {
+			add_progress = { value = 120 name = je_estates_reform_bar }
+		}
+		trigger_event = { 
+			id = french_revolution_mod_events.19 popup = yes 
+		}
+	}
+}
+
+je_french_revolution_skip_revolutionary = {
+	name = "je_french_revolution_skip_revolutionary"
+	desc = "je_french_revolution_skip_revolutionary_desc"
+
+	visible = {
+		c:FRA ?= {
+			is_player = yes
+		}
+	}
+
+	cooldown = { days = 7 }
+
+	possible = {
+		is_at_war = no
+	}
+
+	effect = {
+		je:je_fr_rev_summon_estates ?= {
+			add_progress = { value = 120 name = je_estates_reform_bar }
+		}
+		trigger_event = { 
+			id = french_revolution_mod_events.18 popup = yes 
+		} 
+	}
+}

@@ -1,0 +1,605 @@
+﻿je_plc_reform = { 
+    icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+    group = je_group_historical_content
+
+    is_shown_in_lobby = {
+        c:PLC ?= THIS
+    }
+
+    possible = {
+        # triggered by history
+    }
+	
+	is_shown_when_inactive = {
+		AND = {
+			exists = c:PLC
+			c:PLC = THIS
+		}
+	}
+
+    immediate = { 
+		ig:ig_landowners = {
+			save_scope_as = pole_landowners
+		}
+    }
+
+    complete = {
+		literacy_rate > 0.20
+		root.average_sol > 8
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		ig:ig_petty_bourgeoisie ?= { 
+			ig_counts_as_marginal = no
+		}
+		ig:ig_intelligentsia ?= { 
+			ig_counts_as_marginal = no
+		}
+    }
+
+    on_complete = {
+        add_modifier = {
+            name = the_white_eagle_reborn
+        }
+		ig:ig_landowners ?= {
+			remove_ideology = ideology_polish_szlachta
+			add_ideology = ideology_magnatial
+		}
+		trigger_event = { id = plc_reform_modevents.1 }
+		add_journal_entry = { type = je_plc_reform_industry }	
+		add_journal_entry = { type = je_plc_reform_trade }
+		add_journal_entry = { type = je_plc_reform_education }
+		add_journal_entry = { type = je_plc_reform_railways }
+		add_journal_entry = { type = je_plc_reform_farming }
+		add_journal_entry = { type = je_plc_reform_military }	
+		
+    }
+	
+	current_value = {
+		value = root.gdp
+	}
+
+	goal_add_value = {
+		add = 9000000
+	}
+	
+	timeout = 6000
+	
+	on_timeout = {
+		custom_tooltip = {
+			text = partition_begins_tt
+		}
+		c:RUS ?= {
+			trigger_event = { id = random_mod_events.1 }
+		}
+		c:AUS ?= {
+			trigger_event = { id = random_mod_events.1 }
+		}
+		c:PRU ?= {
+			trigger_event = { id = random_mod_events.1 }
+		}
+		hidden_effect = {
+			# Russia Annex
+			random_state = {
+				limit = {
+					state_region = s:STATE_MINSK
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:RUS
+			}
+			random_state = {
+				limit = {
+					state_region = s:STATE_KAUNAS
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:RUS
+			}
+			random_state = {
+				limit = {
+					state_region = s:STATE_VILNIUS
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:RUS
+			}
+			random_state = {
+				limit = {
+					state_region = s:STATE_BREST
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:RUS
+			}
+			random_state = {
+				limit = {
+					state_region = s:STATE_VOLHYNIA
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:RUS
+			}
+			random_state = {
+				limit = {
+					state_region = s:STATE_KIEV
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:RUS
+			}
+			random_state = {
+				limit = {
+					state_region = s:STATE_COURLAND
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:RUS
+			}	
+			# Prussia
+			random_state = {
+				limit = {
+					state_region = s:STATE_POSEN
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:PRU
+			}
+			random_state = {
+				limit = {
+					state_region = s:STATE_MAZOVIA
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:PRU
+			}
+			random_state = {
+				limit = {
+					state_region = s:STATE_WEST_PRUSSIA
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:PRU
+			}
+			# Austria
+			random_state = {
+				limit = {
+					state_region = s:STATE_LESSER_POLAND
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:AUS
+			}
+			random_state = {
+				limit = {
+					state_region = s:STATE_GREATER_POLAND
+					owner = {
+						OR = {
+							this = root
+							is_subject_of = root
+						}
+					}
+				}
+				set_state_owner = c:AUS
+			}			
+		}
+		
+		
+	}
+	
+	progressbar = yes
+
+    weight = 100
+    should_be_pinned_by_default = yes
+}
+
+je_plc_reform_industry = { # Industrialise
+    icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+    group = je_group_historical_content
+
+    possible = {
+        # triggered by history
+    }
+
+    immediate = { 
+
+    }
+
+    complete = {
+		NOT = { has_law = law_type:law_traditionalism }
+		
+		any_scope_state = {
+            OR = {
+              state_has_building_group_levels = {
+                   type = bg_light_industry
+                   value >= 16
+                 }
+                    state_has_building_group_levels = {
+                        type = bg_heavy_industry
+                        value >= 8
+                    }
+                    state_has_building_group_levels = {
+                        type = bg_military_industry
+                        value >= 8
+                    }
+                }
+                count >= 4
+		}
+    }
+
+    on_complete = {
+#           ig:ig_industrialists ?= {
+                add_modifier = {
+                    name = mod_polish_miracle
+                    days = even_longer_modifier_time
+                    multiplier = 0.5
+                }
+#            }
+            hidden_effect = {
+                every_scope_state = {
+                    limit = {
+                        OR = {
+                            state_has_building_group_levels = {
+                                type = bg_light_industry
+                                value >= 7
+                            }
+                            state_has_building_group_levels = {
+                                type = bg_heavy_industry
+                                value >= 4
+                            }
+                            state_has_building_group_levels = {
+                                type = bg_military_industry
+                                value >= 4
+                            }
+                        }
+                    }
+                    add_modifier = {
+                        name = mod_polish_miracle_state
+                        days = even_longer_modifier_time
+                    }
+                }
+            }		
+    }
+
+    weight = 100
+    should_be_pinned_by_default = yes
+}
+
+je_plc_reform_trade = { 
+    icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+    group = je_group_historical_content
+
+    possible = {
+        # triggered by history
+    }
+
+    immediate = { 
+
+    }
+
+    status_desc = {
+        desc = je_cuba_la_vida_dulce_trade_tracker
+    }
+
+    complete = {
+        custom_tooltip = {
+            text = CUB_total_country_exports_greater_than_tt
+            total_country_exports > je_cuba_la_vida_dulce_export_target
+        }
+    }
+
+    on_complete = {
+        add_modifier = {
+            name = mod_plc_dominate_market
+        }
+    }
+	
+    weight = 100
+    should_be_pinned_by_default = yes
+}
+
+je_plc_reform_education = { # Education
+    icon = "gfx/interface/icons/event_icons/event_newspaper.dds"
+
+    group = je_group_historical_content
+
+    possible = {
+        # triggered by history
+    }
+
+    immediate = { 
+
+    }
+	
+
+    complete = {
+		any_scope_state = {
+			has_building = building_university
+			value >= 5
+		}
+    }
+
+    on_complete = {
+
+             add_modifier = {
+                 name = mod_polish_eductaion
+                 days = even_longer_modifier_time
+             }
+
+#            hidden_effect = {
+                every_scope_state = {
+                    limit = {
+						has_building = building_university
+                    }
+                    add_modifier = {
+                        name = mod_polish_eductaion_state
+                        days = even_longer_modifier_time
+                    }
+                }
+#            }		
+    }
+
+    weight = 100
+    should_be_pinned_by_default = yes
+}
+
+je_plc_reform_railways = { # Railways
+    icon = "gfx/interface/icons/invention_icons/railways.dds"
+	
+    group = je_group_historical_content
+
+    possible = {
+        # triggered by history
+    }
+
+    immediate = { 
+
+    }
+	
+    on_yearly_pulse = {
+		random_events = {
+			40 = 0
+			10 = plc_reform_modevents.2 # Industrialists help
+			10 = plc_reform_modevents.3 # Farmers unhappy
+		}
+    }
+
+    complete = {
+	
+            any_scope_state = {
+#                region = sr:region_iberia
+                any_scope_building = {
+                    is_building_type = building_railway
+                    level >= 3
+                }
+                count >= 6
+            }
+    }
+
+    on_complete = {
+		add_modifier = {
+			name = mod_polish_rail_throughput
+			days = very_long_modifier_time
+			multiplier = 0.5
+		}
+		add_modifier = {
+			name = mod_polish_rail_magnates
+			days = very_long_modifier_time
+			multiplier = 0.5
+		}	
+    }
+
+    weight = 100
+    should_be_pinned_by_default = yes
+}
+
+je_plc_reform_farming = { # Farming Revolution
+    icon = "gfx/interface/icons/invention_icons/threshing_machine.dds"
+
+    group = je_group_historical_content
+
+    possible = {
+        # triggered by history
+    }
+
+    immediate = { 
+
+    }
+
+    complete = {
+		NOT = { has_law = law_type:law_serfdom }
+		
+		any_scope_state = {
+            any_scope_building = {
+                filter = {
+                    is_building_group = bg_staple_crops
+                    state = {
+                        state_region = {
+                            is_homeland = cu:polish
+                        }
+                    }
+                }
+                OR = {
+                    has_active_production_method = pm_soil_enriching_farming
+                    hidden_trigger = {
+                        has_active_production_method = pm_soil_enriching_farming_building_rice_farm
+                    }
+                }
+                percent >= 0.8
+            }
+            any_scope_building = {
+                filter = {
+                    is_building_group = bg_staple_crops
+                    state = {
+                        state_region = {
+                            is_homeland = cu:polish
+                        }
+                    }
+                }
+                OR = {
+                    has_active_production_method = pm_tools
+                    hidden_trigger = {
+                        has_active_production_method = pm_tools_building_rice_farm
+                    }
+                }
+                percent >= 0.8
+            }
+        }
+        country_has_building_group_levels = {
+                type = bg_staple_crops
+                value  >= 15
+            }
+    }
+
+    on_complete = {
+		add_modifier = {
+			name = modifier_polish_farming_boom
+			days = even_longer_modifier_time
+			multiplier = 0.5
+		}		
+    }
+
+    weight = 100
+    should_be_pinned_by_default = yes
+}
+
+je_plc_reform_military = { # Reform Military
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+    group = je_group_historical_content
+
+    possible = {
+        # triggered by history
+    }
+
+    immediate = { 
+
+    }
+
+    complete = {
+		NOT = { has_law = law_type:law_peasant_levies }
+		has_technology_researched = napoleonic_warfare
+		NOR = {
+			any_scope_building = {
+				is_building_type = building_barrack
+				has_active_production_method = pm_no_organization
+			}
+			any_military_formation = {
+				filter = {
+					is_army = yes
+				}
+				any_combat_unit = {
+					has_unit_type = unit_type:combat_unit_type_irregular_infantry
+				}
+				percent >= 0.25
+			}
+		}
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+    }
+
+    on_complete = {
+		add_modifier = {
+			name = mod_poland_stronk
+			days = even_longer_modifier_time
+			multiplier = 0.5
+		}
+		add_journal_entry = { type = je_plc_reform_great_power }		
+    }
+	
+	current_value = {
+		value = root.army_power_projection
+	}
+
+	goal_add_value = {
+		value = root.army_power_projection
+		multiply = 0.25
+	}
+
+	progressbar = yes
+
+    weight = 100
+    should_be_pinned_by_default = yes
+}
+
+je_plc_reform_great_power = { # Poland Can Into Great Power
+    icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+    group = je_group_historical_content
+
+    possible = {
+        # triggered by history
+    }
+
+    immediate = { 
+
+    }
+
+    complete = { 
+		country_rank >= rank_value:great_power
+    }
+
+    on_complete = {
+        remove_modifier = {
+            name = the_white_eagle_reborn
+        }
+        add_modifier = {
+            name = the_white_eagle_takes_flight
+        }
+    }
+	
+#	fail = {
+#		is_subject = yes
+#	}
+
+    weight = 100
+    should_be_pinned_by_default = yes
+}

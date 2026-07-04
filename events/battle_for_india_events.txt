@@ -1,0 +1,113 @@
+﻿namespace = battle_for_india_events
+
+
+battle_for_india_events.1 = { # Durrani Empire conquers a good bit of India event
+	type = country_event
+	placement = root
+
+	title = battle_for_india_events.1.t
+	desc = battle_for_india_events.1.d
+	flavor = battle_for_india_events.1.f
+	
+	event_image = {
+		video = "middleeast_middleclass_cafe"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	cooldown = { days = stupidly_long_modifier_time }
+
+	duration = 3
+	
+	trigger = {
+
+	}
+
+	immediate = { # Replaces the default hierarchy and sets the Caste Not Enforced law
+		set_social_hierarchy = british_indian_caste_system
+		activate_law = law_type:law_hindu_caste_not_enforced
+		post_notification = caste_hierarchy_appears
+		
+		every_country = {
+			limit = {
+				OR = {
+					has_diplomatic_relevance = c:BIC
+					has_diplomatic_relevance = c:DUR
+				}
+			}
+			post_notification = durrani_abandons_mughal_sov #post_notification = aberdeen_act_notification
+		}
+		
+		if = {
+			limit = {
+				c:MUG = {
+					is_subject_of = root
+				}
+			}
+			annex = c:MUG
+		}
+		
+		every_state = {
+			limit = {
+				is_in_geographic_region = geographic_region_india
+				NOT = {
+					owner = ROOT
+					has_claim_by = ROOT
+				}
+			}
+			state_region = {
+				add_claim = ROOT
+			}
+		}	
+	}
+	
+	option = {
+		name = battle_for_india_events.1.a
+		default_option = yes
+		ai_chance = {
+			base = 5
+			modifier = {
+				trigger = {
+					has_law_or_variant = law_type:law_state_religion
+				}
+				add = 5
+			}
+			modifier = {
+				trigger = {
+					has_strategy = ai_strategy_conservative_agenda
+				}
+				add = 5
+			}
+		}
+        add_modifier = {
+            name = modifier_conversion_of_hindustan_mod
+			months = 108
+        }
+	}
+	
+	option = {
+		name = battle_for_india_events.1.b
+		ai_chance = {
+			base = 5
+			modifier = {
+				trigger = {
+					has_law_or_variant = law_type:law_total_separation
+				}
+				add = 5
+			}
+			modifier = {
+				trigger = {
+					has_strategy = ai_strategy_placate_population
+				}
+				add = 5
+			}
+		}
+        add_modifier = {
+            name = modifier_coop_hindustan_mod
+			months = 108
+        }
+	}
+
+}

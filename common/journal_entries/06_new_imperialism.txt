@@ -1,0 +1,71 @@
+﻿je_new_imperialism = {
+	icon = "gfx/interface/icons/invention_icons/colonization.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		NOT = { is_country_type = unrecognized }
+		NOT = { is_country_type = colonial }
+		any_primary_culture = {
+			has_discrimination_trait_group = heritage_group_european
+		}
+		OR = {
+			has_interest_marker_in_region = sr:region_arabic # Arabia
+			has_interest_marker_in_region = sr:region_oceania
+			has_interest_marker_in_region = sr:region_bengal
+			has_interest_marker_in_region = sr:region_bombay
+			has_interest_marker_in_region = sr:region_central_india
+			has_interest_marker_in_region = sr:region_punjab
+			has_interest_marker_in_region = sr:region_madras
+			has_interest_marker_in_region = sr:region_indochina
+		}
+	}
+
+	possible = {
+		NOT = { is_country_type = unrecognized }
+		is_subject = no
+		any_primary_culture = {
+			has_discrimination_trait_group = heritage_group_european
+		}
+		has_technology_researched = colonization
+	}
+
+	immediate = {
+
+	}
+	
+	# Expand British India
+	
+	scripted_button = je_colonial_administration_button_expand_for_bic
+
+	# Establish Colonial Administration
+	scripted_button = je_colonial_administration_button_east_india_company
+	scripted_button = je_colonial_administration_button_arabic
+	scripted_button = je_colonial_administration_button_oceania
+	scripted_button = je_colonial_administration_button_bengal
+	scripted_button = je_colonial_administration_button_bombay
+	scripted_button = je_colonial_administration_button_indochina
+	scripted_button = je_colonial_administration_button_punjab
+	scripted_button = je_colonial_administration_button_madras
+	scripted_button = je_colonial_administration_button_central_india
+	scripted_button = je_colonial_administration_button_persia
+	scripted_button = je_colonial_administration_button_malaya
+
+	# Expand Colonial Administration
+	scripted_button = je_colonial_administration_button_expand_east_india
+	scripted_button = je_colonial_administration_button_expand_arabic
+	scripted_button = je_colonial_administration_button_expand_oceania
+	scripted_button = je_colonial_administration_button_expand_bengal
+	scripted_button = je_colonial_administration_button_expand_bombay
+	scripted_button = je_colonial_administration_button_expand_indochina
+	scripted_button = je_colonial_administration_button_expand_punjab
+	scripted_button = je_colonial_administration_button_expand_madras
+	scripted_button = je_colonial_administration_button_expand_central_india
+	scripted_button = je_colonial_administration_button_expand_persia
+	scripted_button = je_colonial_administration_button_expand_malaya
+	
+
+	weight = 100
+
+	should_be_pinned_by_default = yes
+}

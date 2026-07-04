@@ -1,0 +1,70 @@
+﻿COUNTRIES = {
+	c:PLC ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_conservative = yes
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+			set_interest_group_name = polish_aristocracy
+		}
+		ig:ig_armed_forces = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_rural_folk = {
+			add_ruling_interest_group = yes
+		}
+
+		set_tax_level = medium
+		
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_oligarchy
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_guild_system
+		
+		active_law:lawgroup_distribution_of_power ?= { # The Veto
+			add_amendment = {
+				type = amendment_liberum_veto
+				sponsor = PREV.ig:ig_landowners 
+			}
+		}
+		
+		active_law:lawgroup_governance_principles ?= { # Elective Monarch
+			add_amendment = {
+				type = amendment_elective_monarchy
+				sponsor = PREV.ig:ig_landowners 
+			}
+		}
+		
+		set_import_tariff_level = { 
+			goods = g:sugar
+			level = high_subventions
+		}
+		
+		set_export_tariff_level = { 
+			goods = g:liquor
+			level = low_subventions
+		}
+		
+		add_journal_entry = {
+			type = je_plc_reform
+		}
+		
+		set_capital = STATE_GREATER_POLAND
+		
+#		set_market_capital = STATE_NEW_YORK	
+
+#		add_modifier = plc_liberum_veto
+	}
+}

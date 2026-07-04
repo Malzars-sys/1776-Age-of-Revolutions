@@ -1,0 +1,1893 @@
+﻿namespace = french_revolution_mod_events
+
+french_revolution_mod_events.1 = { # French failed American Revolution, triggers fiscal crisis
+	type = country_event
+	placement = root
+
+	title = french_revolution_mod_events.1.t
+	desc = french_revolution_mod_events.1.d
+	flavor = french_revolution_mod_events.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+
+	option = { # Summon the Estates
+		name = french_revolution_mod_events.1.a
+		default_option = yes
+		add_modifier = {
+			name = debt_usa_big_money
+			months = 84
+		}
+		cu:french ?= {
+			add_fervor = 10
+		}
+		add_journal_entry = {
+			type = je_fr_rev_summon_estates
+		}
+	}
+}
+
+french_revolution_mod_events.2 = { # USA Rejects or Accepts Paying Loans
+	type = country_event
+	placement = root
+
+	title = french_revolution_mod_events.2.t
+	desc = french_revolution_mod_events.2.d
+	flavor = french_revolution_mod_events.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+
+	option = { # Reject paying
+		name = french_revolution_mod_events.2.a
+		default_option = yes
+		ai_chance = {
+			base = 50
+		}
+		cu:french ?= {
+			add_fervor = 10
+		}
+		change_infamy = 25
+		change_relations = {
+			country = c:FRA
+			value = -30
+		}
+		c:FRA ?= {
+			trigger_event = { id = french_revolution_mod_events.4 }
+		}
+	}
+	
+	option = { # Accept paying
+		name = french_revolution_mod_events.2.b
+#		trigger = { # Can be used to remove the AI picking the first option
+#			root ?= {
+#				is_player = yes
+#			}
+#		}
+		ai_chance = {
+			base = 5
+		}
+		change_relations = {
+			country = c:FRA
+			value = 30
+		}
+		add_modifier = {
+			name = debt_usa_big_money
+			months = 84
+		}
+		c:FRA ?= {
+			trigger_event = { id = french_revolution_mod_events.3 }
+		}
+	}
+}
+
+french_revolution_mod_events.3 = { # thanks for paying usa
+	type = country_event
+	placement = root
+
+	title = french_revolution_mod_events.3.t
+	desc = french_revolution_mod_events.3.d
+	flavor = french_revolution_mod_events.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+
+	option = { # thanks
+		name = french_revolution_mod_events.3.a
+		default_option = yes
+		change_relations = {
+			country = c:USA
+			value = 30
+		}
+		add_modifier = {
+			name = debt_payback_fra_big_money
+			months = 84
+		}
+	}
+}
+
+french_revolution_mod_events.4 = { # rude USA not paying them
+	type = country_event
+	placement = root
+
+	title = french_revolution_mod_events.4.t
+	desc = french_revolution_mod_events.4.d
+	flavor = french_revolution_mod_events.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+
+	}
+
+	immediate = {
+		if = { # Just so French doesn't get hit with two big loan payments if they capitulate the war
+			limit = {
+				has_modifier = debt_usa_big_money
+			}
+			remove_modifier = debt_usa_big_money
+		}
+	}
+
+	option = { # summon estates
+		name = french_revolution_mod_events.1.a
+		default_option = yes
+		add_modifier = {
+			name = debt_usa_big_money
+			months = 84
+		}
+		cu:french ?= {
+			add_fervor = 20
+		}
+		add_journal_entry = {
+			type = je_fr_rev_summon_estates
+		}
+	}
+}
+
+french_revolution_mod_events.5 = { # Rise of Radicalism
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.5.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = 1848.4.d
+				trigger = {
+					any_interest_group = {
+						OR = {
+							is_powerful = yes
+							is_insurrectionary = yes
+						}
+						leader = {
+							has_ideology = ideology:ideology_radical
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				desc = 1848.4.d_no_leader
+				trigger = {
+					NOT = {
+						any_interest_group = {
+							OR = {
+								is_powerful = yes
+								is_insurrectionary = yes
+							}
+							leader = {
+								has_ideology = ideology:ideology_radical
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	flavor = french_revolution_mod_events.5.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		# triggered by journal entry start
+	}
+
+	immediate = {
+		random_interest_group = {
+			limit = {
+				OR = {
+					is_powerful = yes
+					is_insurrectionary = yes
+				}
+				leader = {
+					has_ideology = ideology:ideology_radical
+				}
+			}
+			leader = {
+				save_scope_as = radical_fra_leader_scope
+			}
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_fr_rev_summon_estates
+		}
+	}
+
+	option = { # reactionary option
+		name = 1848.4.a
+		default_option = yes
+		scope:radical_leader_scope ?= {
+			add_modifier = {
+				name = 1848_popular_radical
+			}
+		}
+		show_as_tooltip = {
+			if = {
+				limit = {
+					NOT = {
+						any_political_movement = {
+							is_political_movement_type = movement_radical
+						}
+					}
+				}
+				create_political_movement = { type = movement_radical }
+			}
+		}
+#		scope:radical_fra_movement_scope = {
+#			add_modifier = {
+#				name = suppressed_rally_ig
+#				days = normal_modifier_time
+#			}
+#		}
+		add_modifier = {
+			name = suppressing_radicals
+			days = short_modifier_time
+		}
+		add_loyalists = {
+			strata = upper
+			value = very_large_radicals
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = lower
+		}
+		ai_chance = {
+			base = 66
+		}
+	}
+	option = { # radical option
+		name = 1848.4.b
+		custom_tooltip = {
+			text = fr_rev_summon_estates_advance_30_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = 30 name = je_estates_reform_bar }
+			}
+		}
+		scope:radical_leader_scope ?= {
+			add_modifier = {
+				name = 1848_popular_radical
+			}
+		}
+		if = {
+			limit = {
+				any_interest_group = {
+					ig_counts_as_marginal = no
+					can_have_radical_leader = yes
+					is_in_government = no
+				}
+			}
+			random_interest_group = {
+				limit = {
+					ig_counts_as_marginal = no
+					can_have_radical_leader = yes
+					is_in_government = no
+				}
+				leader = {
+					set_ideology = ideology:ideology_radical
+					add_modifier = {
+						name = 1848_popular_radical
+					}
+				}
+			}
+		}
+		show_as_tooltip = {
+			if = {
+				limit = {
+					NOT = {
+						any_political_movement = {
+							is_political_movement_type = movement_radical
+						}
+					}
+				}
+				create_political_movement = { type = movement_radical }
+			}
+		}
+		add_radicals = {
+			value = very_large_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = very_large_radicals
+			strata = lower
+		}
+		add_radicals = {
+			value = medium_radicals
+		}
+		ai_chance = {
+			base = 33
+		}
+	}
+}
+
+french_revolution_mod_events.6 = { # Bread Riots
+	type = country_event
+	placement = scope:bready_state
+	title = french_revolution_mod_events.6.t
+	desc = french_revolution_mod_events.6.d
+	flavor = french_revolution_mod_events.6.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+			}
+			save_scope_as = bready_state
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_fr_rev_summon_estates
+		}
+	}
+
+	option = { # supress_radicals
+		name = french_revolution_mod_events.6.a
+		default_option = yes
+		scope:bready_state = {
+			add_modifier = {
+				name = modifier_attacked_supply_train
+				days = short_modifier_time
+			}
+			this.state_region = {
+				add_devastation = 5
+			}
+			add_radicals_in_state = {
+				value = large_radicals
+				strata = lower
+			}
+		}
+		scope:radical_fra_movement_scope = {
+			add_modifier = {
+				name = suppressed_rally_ig
+				days = normal_modifier_time
+			}
+		}
+		add_modifier = {
+			name = suppressing_radicals
+			days = short_modifier_time
+		}
+		add_loyalists = {
+			strata = upper
+			value = very_large_radicals
+		}
+		add_radicals = {
+			value = medium_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = medium_radicals
+			strata = lower
+		}
+		ai_chance = {
+			base = 66
+		}
+	}
+
+	option = { # let them run wild
+		name = french_revolution_mod_events.6.b
+		default_option = yes
+		scope:bready_state = {
+			add_modifier = {
+				name = modifier_attacked_supply_train
+				days = short_modifier_time
+			}
+			this.state_region = {
+				add_devastation = 15
+			}
+			add_radicals_in_state = {
+				value = small_radicals
+				strata = upper
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+				pop_type = officers
+			}
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = lower
+		}
+		ai_chance = {
+			base = 66
+		}
+	}
+}
+
+french_revolution_mod_events.7 = { # Capital Riot
+	type = country_event
+	placement = scope:capital_french
+	title = french_revolution_mod_events.7.t
+	desc = french_revolution_mod_events.7.d
+	flavor = french_revolution_mod_events.7.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_political_extremism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+		capital = {
+			save_scope_as = capital_french
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_fr_rev_summon_estates
+		}
+	}
+
+	option = { # supress_radicals
+		name = french_revolution_mod_events.6.a
+		default_option = yes
+		scope:capital_french = {
+			add_modifier = {
+				name = modifier_attacked_supply_train
+				days = short_modifier_time
+			}
+			this.state_region = {
+				add_devastation = 5
+			}
+			add_radicals_in_state = {
+				value = large_radicals
+				strata = lower
+			}
+		}
+		add_modifier = {
+			name = suppressing_radicals
+			days = short_modifier_time
+		}
+		add_loyalists = {
+			strata = upper
+			value = very_large_radicals
+		}
+		add_radicals = {
+			value = medium_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = medium_radicals
+			strata = lower
+		}
+		ai_chance = {
+			base = 66
+		}
+	}
+
+	option = { # let them run wild
+		name = french_revolution_mod_events.6.b
+		default_option = yes
+		scope:capital_french = {
+			add_modifier = {
+				name = modifier_attacked_supply_train
+				days = short_modifier_time
+			}
+			this.state_region = {
+				add_devastation = 15
+			}
+			add_radicals_in_state = {
+				value = small_radicals
+				strata = upper
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+				pop_type = officers
+			}
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = lower
+		}
+		ai_chance = {
+			base = 66
+		}
+	}
+}
+
+french_revolution_mod_events.8 = { # Aristocracy hates reform
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.8.t
+	desc = french_revolution_mod_events.8.d
+	flavor = french_revolution_mod_events.8.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_realist_household"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+		capital = {
+			save_scope_as = capital_french
+		}
+	}
+
+#	cancellation_trigger = {
+#		NOT = {
+#			has_journal_entry = je_fr_rev_summon_estates
+#		}
+#	}
+
+	option = { # nothing you can do
+		name = french_revolution_mod_events.8.a
+		default_option = yes
+		custom_tooltip = {
+			text = fr_rev_summon_estates_retreats_10_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = -10 name = je_estates_reform_bar }
+			}
+		}
+		add_modifier = {
+			name = against_reform_mod
+			days = long_modifier_time
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = lower
+		}
+	}
+}
+
+french_revolution_mod_events.9 = { # A divided pulpit
+	type = country_event
+	placement = root
+
+	title = french_revolution_mod_events.9.t
+	desc = french_revolution_mod_events.9.d
+	flavor = french_revolution_mod_events.9.f
+
+	event_image = {
+		video = "europenorthamerica_judaism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	immediate = {
+		if = {
+			limit = {
+				has_modifier = helping_clergy_mod
+			}
+			remove_modifier = helping_clergy_mod
+		}
+		if = {
+			limit = {
+				has_modifier = undermining_clergy_mod
+			}
+			remove_modifier = undermining_clergy_mod
+		}
+	}
+
+	option = {
+		name = french_revolution_mod_events.9.a
+		default_option = yes
+		custom_tooltip = {
+			text = fr_rev_summon_estates_advance_10_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = 10 name = je_estates_reform_bar }
+			}
+		}
+		ig:ig_devout ?= {
+			add_modifier = {
+				name = angry_devout_mod
+				days = normal_modifier_time
+			}
+		}
+		add_modifier = {
+			name = undermining_clergy_mod
+			days = long_modifier_time
+		}
+	}
+	
+	option = {
+		name = french_revolution_mod_events.9.b
+		custom_tooltip = {
+			text = fr_rev_summon_estates_retreats_10_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = -10 name = je_estates_reform_bar }
+			}
+		}
+		ig:ig_rural_folk ?= {
+			add_modifier = {
+				name = angry_rural_folk_mod
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = angry_rural_folk_mod
+				days = normal_modifier_time
+			}
+		}
+		add_modifier = {
+			name = helping_clergy_mod
+			days = long_modifier_time
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = middle
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = lower
+		}
+	}
+}
+
+french_revolution_mod_events.10 = { # Clergy break ranks
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.10.t
+	desc = french_revolution_mod_events.10.d
+	flavor = french_revolution_mod_events.10.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_judaism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_fr_rev_summon_estates
+		}
+	}
+
+	option = { # support
+		name = french_revolution_mod_events.10.a
+		default_option = yes
+		ai_chance = {
+			base = 20
+		}
+		custom_tooltip = {
+			text = fr_rev_summon_estates_advance_10_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = 10 name = je_estates_reform_bar }
+			}
+		}
+		ig:ig_devout ?= {
+			add_modifier = {
+				name = break_ranks_mod_bad
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_rural_folk ?= {
+			add_modifier = {
+				name = break_ranks_mod_good
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = break_ranks_mod_good
+				days = normal_modifier_time
+			}
+		}
+	}
+	
+	option = { # reject
+		name = french_revolution_mod_events.10.b
+		ai_chance = {
+			base = 5
+		}
+		custom_tooltip = {
+			text = fr_rev_summon_estates_retreats_10_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = -10 name = je_estates_reform_bar }
+			}
+		}
+		add_modifier = {
+			name = cooperative_mod
+			days = short_modifier_time
+		}
+		ig:ig_devout ?= {
+			add_modifier = {
+				name = saved_mod
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_rural_folk ?= {
+			add_modifier = {
+				name = angry_rural_folk_mod
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = angry_rural_folk_mod
+				days = normal_modifier_time
+			}
+		}
+		add_radicals = {
+			value = small_radicals
+			strata = lower
+		}
+	}
+}
+
+french_revolution_mod_events.11 = { # A generous gift
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.11.t
+	desc = french_revolution_mod_events.11.d
+	flavor = french_revolution_mod_events.11.f
+
+	duration = 3
+
+	event_image = {
+		video = "europenorthamerica_judaism"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+
+	}
+
+	option = { # accept
+		name = french_revolution_mod_events.11.a
+		default_option = yes
+		add_modifier = {
+			name = clergy_taxes_mod
+			days = normal_modifier_time
+		}
+	}
+}
+
+french_revolution_mod_events.12 = { # growing frustration
+	type = country_event
+	placement = root
+	title = 1848.10.t
+	desc = 1848.10.d
+	flavor = 1848.10.f
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+
+	}
+
+	immediate = {
+		random_interest_group = {
+			limit = {
+				can_have_radical_leader = yes
+				is_powerful = no
+				is_insurrectionary = no
+				ig_approval < 0
+			}
+			save_scope_as = disgruntled_ig
+			leader = {
+				save_scope_as = disgruntled_ig_leader
+			}
+		}
+	}
+
+	option = {
+		name = 1848.10.a
+		default_option = yes
+
+		random_list = {
+			1 = {
+				scope:disgruntled_ig_leader = {
+					set_ideology = ideology:ideology_radical
+				}
+			}
+			1 = {
+				scope:disgruntled_ig = {
+					add_modifier = {
+						name = directionless_frustration
+						days = normal_modifier_time
+					}
+				}
+			}
+			1 = {
+				add_modifier = {
+					name = spreading_frustration
+					days = normal_modifier_time
+				}
+			}
+		}
+	}
+
+
+	option = {
+		name = 1848.10.b
+
+		scope:disgruntled_ig = {
+			add_modifier = {
+				name = we_are_listened_to
+				days = normal_modifier_time
+			}
+		}
+		random_list = {
+			1 = {
+				add_modifier = {
+					name = government_is_trying_to_listen
+					days = normal_modifier_time
+				}
+			}
+			1 = {
+				# nothing happens
+			}
+		}
+		random_list = {
+			1 = {
+				add_modifier = {
+					name = out_of_the_spotlight
+					days = normal_modifier_time
+				}
+			}
+			1 = {
+				# nothing happens
+			}
+		}
+	}
+}
+
+french_revolution_mod_events.13 = { # voting franchise
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.13.t
+	desc = french_revolution_mod_events.13.d
+	flavor = french_revolution_mod_events.13.f
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+
+	}
+	
+	cancellation_trigger = {
+#		country_has_voting_franchise = yes
+		OR = {
+			has_law = law_type:law_census_voting
+			has_law = law_type:law_universal_suffrage
+#			is_enacting_law = law_type:law_census_voting
+#			is_enacting_law = law_type:law_universal_suffrage
+			enacting_any_law = no
+		}
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = french_revolution_mod_events.13.a
+		default_option = yes
+		add_modifier = {
+			name = enact_bonus_mod
+			days = normal_modifier_time
+		}		
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = we_are_listened_to_mod
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = we_are_listened_to_mod
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = we_are_listened_to_mod
+				days = normal_modifier_time
+			}
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = angry_landowners_mod
+				days = normal_modifier_time
+			}
+		}
+		add_radicals = {
+			strata = upper
+			value = very_large_radicals
+		}
+		add_loyalists = {
+			value = medium_radicals
+			strata = middle
+		}
+		add_loyalists = {
+			value = medium_radicals
+			strata = lower
+		}
+
+	}
+
+
+	option = {
+		name = french_revolution_mod_events.13.b
+		add_loyalists = {
+			strata = upper
+			value = very_large_radicals
+		}
+	}
+}
+
+french_revolution_mod_events.14 = { # Revolution
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.14.t
+	desc = french_revolution_mod_events.14.d
+	flavor = french_revolution_mod_events.14.f
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				has_modifier = debt_usa_big_money
+			}
+			remove_modifier = debt_usa_big_money
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_technology_researched = currency_standards
+				}
+			}
+			add_technology_researched = currency_standards
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_technology_researched = empiricism
+				}
+			}
+			add_technology_researched = empiricism
+		}
+		ig:ig_petty_bourgeoisie = {
+			leader = {
+				set_ideology = ideology:ideology_radical
+			}
+		}
+		ig:ig_rural_folk = {
+			leader = {
+				set_ideology = ideology:ideology_radical
+			}
+		}
+		ig:ig_intelligentsia = {
+			leader = {
+				set_ideology = ideology:ideology_radical
+			}
+		}
+		ig:ig_armed_forces = {
+			leader = {
+				set_ideology = ideology:ideology_radical
+			}
+		}
+	}
+
+	option = {
+		name = french_revolution_mod_events.14.a
+		default_option = yes
+		ai_chance = {
+			base = 10
+		}		
+#		ig:ig_petty_bourgeoisie = {
+#			leader = {
+#				set_ideology = ideology:ideology_radical
+#			}
+#		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_universal_suffrage
+				}
+			}
+			activate_law = law_type:law_universal_suffrage
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_homesteading
+				}
+			}
+			activate_law = law_type:law_homesteading
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_total_separation
+				}
+			}
+			activate_law = law_type:law_total_separation
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_land_based_taxation
+				}
+			}
+			activate_law = law_type:law_per_capita_taxation
+		}
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_law = law_type:law_appointed_bureaucrats
+						has_law = law_type:law_elected_bureaucrats
+					}
+				}
+			}
+			activate_law = law_type:law_appointed_bureaucrats
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_guaranteed_liberties
+				}
+			}
+			activate_law = law_type:law_guaranteed_liberties
+		}
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = kicked_in
+				months = 108
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = kicked_in
+				months = 108
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = kicked_in
+				months = 108
+			}
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = kicked_out
+				months = 108
+			}
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = kicked_out
+				months = 108
+			}
+		}
+
+	}
+
+
+	option = {
+		name = french_revolution_mod_events.14.b
+		ai_chance = {
+			base = 10
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_universal_suffrage
+				}
+			}
+			activate_law = law_type:law_universal_suffrage
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_homesteading
+				}
+			}
+			activate_law = law_type:law_homesteading
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_land_based_taxation
+				}
+			}
+			activate_law = law_type:law_per_capita_taxation
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_total_separation
+				}
+			}
+			activate_law = law_type:law_total_separation
+		}
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_law = law_type:law_appointed_bureaucrats
+						has_law = law_type:law_elected_bureaucrats
+					}
+				}
+			}
+			activate_law = law_type:law_appointed_bureaucrats
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_guaranteed_liberties
+				}
+			}
+			activate_law = law_type:law_guaranteed_liberties
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_parliamentary_republic
+				}
+			}
+			activate_law = law_type:law_parliamentary_republic
+		}
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = kicked_in
+				months = 108
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = kicked_in
+				months = 108
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = kicked_in
+				days = very_long_modifier_time
+			}
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = kicked_out
+				months = 108
+			}
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = kicked_out
+				months = 108
+			}
+		}
+	}
+}
+
+french_revolution_mod_events.15 = { # Agriculture shortage
+	type = country_event
+	placement = scope:bad_agri_state
+	title = french_revolution_mod_events.15.t
+	desc = french_revolution_mod_events.15.d
+	flavor = french_revolution_mod_events.15.f
+
+	duration = 3
+
+	event_image = {
+		video = "asia_dead_cattle_poor_harvest"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+			}
+			save_scope_as = bad_agri_state
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_fr_rev_summon_estates
+		}
+	}
+
+	option = { # let them eat cake
+		name = french_revolution_mod_events.15.a
+		default_option = yes
+		scope:bad_agri_state = {
+			add_modifier = {
+				name = modifier_local_farm_shutdowns
+				days = normal_modifier_time
+			}
+			this.state_region = {
+				add_devastation = 5
+			}
+			add_radicals_in_state = {
+				value = small_radicals
+				strata = middle
+			}
+			add_radicals_in_state = {
+				value = small_radicals
+				strata = lower
+			}
+		}
+	}
+}
+
+french_revolution_mod_events.16 = { # Landlord Extortion
+	type = country_event
+	placement = scope:extortion_state
+	title = french_revolution_mod_events.16.t
+	desc = french_revolution_mod_events.16.d
+	flavor = revolution_pulse_events.35.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_realist_household"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				is_incorporated = yes
+			}
+			save_scope_as = extortion_state
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_fr_rev_summon_estates
+		}
+	}
+
+	option = { # arrest landlords
+		name = revolution_pulse_events.35.b
+		ai_chance = {
+			base = 10
+		}
+		default_option = yes
+		custom_tooltip = {
+			text = fr_rev_summon_estates_advance_10_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = 10 name = je_estates_reform_bar }
+			}
+		}
+		add_modifier = {
+			name = modifier_arrested_landlords_exortion
+			days = normal_modifier_time
+		}
+	}
+	option = { # let them eat cake
+		name = revolution_pulse_events.35.a
+		ai_chance = {
+			base = 10
+		}
+		custom_tooltip = {
+			text = fr_rev_summon_estates_advance_20_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = 20 name = je_estates_reform_bar }
+			}
+		}
+		ig:ig_landowners ?= {
+			add_modifier = {
+				name = modifier_arrested_landlords_for_collusion
+				days = normal_modifier_time
+			}
+		}
+		scope:extortion_state = {
+			add_radicals_in_state = {
+				value = medium_radicals
+				pop_type = aristocrats
+			}
+		}
+	}
+	option = {
+		name = revolution_pulse_events.35.c
+		ai_chance = {
+			base = 10
+		}
+		custom_tooltip = {
+			text = fr_rev_summon_estates_advance_30_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = 30 name = je_estates_reform_bar }
+			}
+		}
+		scope:extortion_state = {
+			add_radicals_in_state = {
+				value = small_radicals
+				pop_type = aristocrats
+			}
+			add_modifier = {
+				name = modifier_light_rent_controls
+				days = normal_modifier_time
+			}
+		}
+	}
+}
+
+french_revolution_mod_events.17 = { # National Guard
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.17.t
+	desc = french_revolution_mod_events.17.d
+	flavor = french_revolution_mod_events.17.f
+
+	duration = 3
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	trigger = {
+		# triggered by journal entry
+	}
+
+	immediate = {
+
+	}
+
+	option = { # pass national guard
+		name = french_revolution_mod_events.17.a
+		trigger = {
+			NOT = {
+				has_law = law_type:law_national_guard
+			}
+		}
+		ai_chance = {
+			base = 30
+		}
+		default_option = yes
+		custom_tooltip = {
+			text = fr_rev_summon_estates_advance_20_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = 20 name = je_estates_reform_bar }
+			}
+		}
+		activate_law = law_type:law_national_guard
+	}
+	option = { # try to pass guaranteed liberties
+		name = french_revolution_mod_events.17.b
+		ai_chance = {
+			base = 10
+		}
+		trigger = {
+			NOT = {
+				has_law = law_type:law_guaranteed_liberties
+			}
+		}
+		custom_tooltip = {
+			text = fr_rev_summon_estates_advance_20_tt
+			je:je_fr_rev_summon_estates ?= {
+				add_progress = { value = 20 name = je_estates_reform_bar }
+			}
+		}
+		random_list = {
+			1 = {
+				activate_law = law_type:law_guaranteed_liberties
+			}
+			1 = {
+				# nothing happens
+			}
+		}
+	}
+	option = { # already have one
+		name = french_revolution_mod_events.17.c
+		ai_chance = {
+			base = 10
+		}
+		trigger = {
+			OR = {
+				has_law = law_type:law_guaranteed_liberties
+				has_law = law_type:law_national_guard
+			}
+		}
+	}
+}
+
+french_revolution_mod_events.18 = { # Cheat
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.18.t
+	desc = french_revolution_mod_events.18.d
+	flavor = french_revolution_mod_events.18.f
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	event_image = {
+		video = "europenorthamerica_london_center"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_technology_researched = currency_standards
+				}
+			}
+			add_technology_researched = currency_standards
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_technology_researched = empiricism
+				}
+			}
+			add_technology_researched = empiricism
+		}
+		ig:ig_petty_bourgeoisie = {
+			leader = {
+				set_ideology = ideology:ideology_radical
+			}
+		}
+		ig:ig_rural_folk = {
+			leader = {
+				set_ideology = ideology:ideology_radical
+			}
+		}
+		ig:ig_intelligentsia = {
+			leader = {
+				set_ideology = ideology:ideology_radical
+			}
+		}
+		ig:ig_armed_forces = {
+			leader = {
+				set_ideology = ideology:ideology_radical
+			}
+		}
+	}
+	option = {
+		name = french_revolution_mod_events.18.a
+		ai_chance = {
+			base = 10
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_universal_suffrage
+				}
+			}
+			activate_law = law_type:law_universal_suffrage
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_homesteading
+				}
+			}
+			activate_law = law_type:law_homesteading
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_land_based_taxation
+				}
+			}
+			activate_law = law_type:law_per_capita_taxation
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_total_separation
+				}
+			}
+			activate_law = law_type:law_total_separation
+		}
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_law = law_type:law_appointed_bureaucrats
+						has_law = law_type:law_elected_bureaucrats
+					}
+				}
+			}
+			activate_law = law_type:law_appointed_bureaucrats
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_guaranteed_liberties
+				}
+			}
+			activate_law = law_type:law_guaranteed_liberties
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law = law_type:law_parliamentary_republic
+				}
+			}
+			activate_law = law_type:law_parliamentary_republic
+		}
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = kicked_in
+				months = 108
+			}
+		}
+		ig:ig_petty_bourgeoisie = {
+			add_modifier = {
+				name = kicked_in
+				months = 108
+			}
+		}
+		ig:ig_intelligentsia ?= {
+			add_modifier = {
+				name = kicked_in
+				days = very_long_modifier_time
+			}
+		}
+		ig:ig_landowners = {
+			add_modifier = {
+				name = kicked_out
+				months = 108
+			}
+		}
+		ig:ig_devout = {
+			add_modifier = {
+				name = kicked_out
+				months = 108
+			}
+		}
+	}
+}
+
+french_revolution_mod_events.19 = { # Cheat 2
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.19.t
+	desc = french_revolution_mod_events.19.d
+	flavor = french_revolution_mod_events.19.f
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	event_image = {
+		video = "europenorthamerica_london_center"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+
+	}
+
+	immediate = {
+
+	}
+	option = {
+		name = french_revolution_mod_events.19.a
+		default_option = yes
+
+	}
+}
+
+french_revolution_mod_events.20 = { # Beat The Revolution
+	type = country_event
+	placement = root
+	title = french_revolution_mod_events.20.t
+	desc = french_revolution_mod_events.20.d
+	flavor = french_revolution_mod_events.20.f
+
+	duration = 3
+
+	cooldown = { days = normal_modifier_time }
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+
+	}
+	
+	cancellation_trigger = {
+		NOT = {
+			has_law = law_type:law_monarchy
+		}
+	}
+
+	immediate = {
+
+	}
+	option = {
+		name = french_revolution_mod_events.20.a
+		default_option = yes
+		ai_chance = {
+			base = 10
+		}
+		add_modifier = {
+			name = god_save_the_king_mod
+			days = very_long_modifier_time
+		}
+		add_modifier = {
+			name = more_reforms_needed_mod
+			days = very_long_modifier_time
+		}
+		add_loyalists = {
+			value = very_large_radicals
+			strata = upper
+		}
+		add_loyalists = {
+			value = very_large_radicals
+			strata = middle
+		}
+		add_loyalists = {
+			value = very_large_radicals
+			strata = lower
+		}
+	}
+	
+	option = {
+		name = french_revolution_mod_events.20.b
+		ai_chance = {
+			base = 10
+		}
+		add_modifier = {
+			name = god_save_the_king_mod
+			days = very_long_modifier_time
+		}
+		add_modifier = {
+			name = stability_needed_mod
+			days = very_long_modifier_time
+		}
+		add_loyalists = {
+			value = very_large_radicals
+			strata = upper
+		}
+		add_loyalists = {
+			value = very_large_radicals
+			strata = middle
+		}
+		add_loyalists = {
+			value = very_large_radicals
+			strata = lower
+		}
+	}
+	
+	option = {
+		name = french_revolution_mod_events.20.c
+		ai_chance = {
+			base = 10
+		}
+		add_modifier = {
+			name = god_save_the_king_mod
+			days = very_long_modifier_time
+		}
+		add_modifier = {
+			name = taxes_to_rebuild_mod
+			days = normal_modifier_time
+		}
+		add_loyalists = {
+			value = very_large_radicals
+			strata = upper
+		}
+		add_loyalists = {
+			value = very_large_radicals
+			strata = middle
+		}
+		add_loyalists = {
+			value = very_large_radicals
+			strata = lower
+		}
+	}
+}

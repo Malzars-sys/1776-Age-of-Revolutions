@@ -1,0 +1,101 @@
+﻿je_victoria = {
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	group = je_group_historical_content
+
+	complete = {
+		trigger_if = {
+			limit = {
+				c:GBR ?= {
+					NOT = {
+						has_variable = ruler_selector_var
+					}
+				}
+				c:HAN ?= {
+					NOT = {
+						has_variable = ruler_selector_var
+					}
+				}
+			}
+			custom_tooltip = {
+				text = billy_died
+				ruler = {
+					NOT = {
+						has_variable = is_billy
+					}
+				}
+			}
+		}
+		trigger_else = {
+			hidden_trigger = {
+				always = no 
+			}
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = hanover_union_ends
+		if = {
+			limit = {
+				exists = c:GBR
+				c:GBR = ROOT
+			}
+			trigger_event = { id = victoria.1 }
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					exists = c:GBR
+					c:GBR = ROOT
+					ruler = {
+						has_variable = is_billy
+					}
+				}
+				random_list = {
+					11 = { }
+					1 = {
+						ruler = {
+							kill_character = yes 
+						}
+					}
+				}
+			}
+		}
+	}
+
+	invalid = {
+		OR = {
+			NOT = {
+				exists = c:GBR
+			}
+			NOT = {
+				exists = c:HAN
+			}
+			c:HAN ?= {
+				NOT = {
+					is_subject_of = c:GBR
+				}
+			}
+			c:GBR ?= {
+				has_variable = ruler_selector_var
+			}
+			c:GBR ?= {
+				custom_tooltip = {
+					text = "DEBUG_NO_CHARACTER_IN_GBR_IS_VICTORIA"
+					NOT = {
+						any_scope_character = {
+							has_variable = is_victoria
+						}
+					}
+				}
+			}
+		}
+	}
+
+	weight = 10
+
+	should_be_pinned_by_default = yes
+}

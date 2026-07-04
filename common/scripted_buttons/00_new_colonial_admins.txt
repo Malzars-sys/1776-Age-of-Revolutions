@@ -1,0 +1,2328 @@
+﻿je_colonial_administration_button_malaya = {
+	name = "je_colonial_administration_button_malaya"
+	desc = "je_colonial_administration_button_malaya_desc"
+
+	visible = {
+		any_scope_state = {
+			region = sr:region_indonesia
+		}
+		NOT = {
+			any_subject_or_below = {
+				has_variable = malaya_subject_var
+			}
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_indonesia
+#			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_indonesia
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_indonesia
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_indonesia
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_indonesia
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = malaya_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+je_colonial_administration_button_persia = {
+	name = "je_colonial_administration_button_persia"
+	desc = "je_colonial_administration_button_persia_desc"
+
+	visible = {
+		any_scope_state = {
+			region = sr:region_persia
+		}
+		NOT = {
+			any_subject_or_below = {
+				has_variable = persia_subject_var
+			}
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_persia
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_persia
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_persia
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_persia
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_persia
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = persia_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.2 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+je_colonial_administration_button_east_india_company = {
+	name = "je_colonial_administration_button_india"
+	desc = "je_colonial_administration_button_india_desc"
+
+	visible = {
+		any_scope_state = {
+			OR = {
+				region = sr:region_central_india
+				region = sr:region_bombay
+				region = sr:region_bengal
+				region = sr:region_madras
+				region = sr:region_punjab
+			}
+		}
+		NOT = {
+			any_subject_or_below = {
+				OR = {
+					has_variable = india_mod_subject_var
+					has_variable = new_imperialism_mod_var
+				}
+			}
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			OR = {
+				region = sr:region_central_india
+				region = sr:region_bombay
+				region = sr:region_bengal
+				region = sr:region_madras
+				region = sr:region_punjab
+			}
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					OR = {
+						region = sr:region_central_india
+						region = sr:region_bombay
+						region = sr:region_bengal
+						region = sr:region_madras
+						region = sr:region_punjab
+					}
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					OR = {
+						region = sr:region_central_india
+						region = sr:region_bombay
+						region = sr:region_bengal
+						region = sr:region_madras
+						region = sr:region_punjab
+					}
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					OR = {
+						region = sr:region_central_india
+						region = sr:region_bombay
+						region = sr:region_bengal
+						region = sr:region_madras
+						region = sr:region_punjab
+					}
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				OR = {
+					region = sr:region_central_india
+					region = sr:region_bombay
+					region = sr:region_bengal
+					region = sr:region_madras
+					region = sr:region_punjab
+				}
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = india_mod_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+#				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration_76
+				}
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = chartered_company
+			}
+		}
+		trigger_event = { id = new_imperialism_events.3 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+je_colonial_administration_button_central_india = {
+	name = "je_colonial_administration_button_central_india"
+	desc = "je_colonial_administration_button_central_india_desc"
+
+	visible = {
+		always = no
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_central_india
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_central_india
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_central_india
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_central_india
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_central_india
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = central_india_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+je_colonial_administration_button_madras = {
+	name = "je_colonial_administration_button_madras"
+	desc = "je_colonial_administration_button_madras_desc"
+
+	visible = {
+		always = no
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_madras
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_madras
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_madras
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_madras
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_madras
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = madras_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+
+je_colonial_administration_button_arabic = {
+	name = "je_colonial_administration_button_arabic"
+	desc = "je_colonial_administration_button_arabic_desc"
+
+	visible = {
+		any_scope_state = {
+			region = sr:region_arabic
+		}
+		NOT = {
+			any_subject_or_below = {
+				has_variable = arabic_subject_var
+			}
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_arabic
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_arabic
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_arabic
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_arabic
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_arabic
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = arabic_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+je_colonial_administration_button_oceania = {
+	name = "je_colonial_administration_button_oceania"
+	desc = "je_colonial_administration_button_oceania_desc"
+
+	visible = {
+		any_scope_state = {
+			region = sr:region_oceania
+		}
+		NOT = {
+			any_subject_or_below = {
+				has_variable = oceania_subject_var
+			}
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_oceania
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_oceania
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_oceania
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_oceania
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_oceania
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			culture = cu:australian 
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = oceania_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}				
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+je_colonial_administration_button_bengal = {
+	name = "je_colonial_administration_button_bengal"
+	desc = "je_colonial_administration_button_bengal_desc"
+
+	visible = {
+		always = no
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_bengal
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_bengal
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_bengal
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_bengal
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_bengal
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = bengal_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}				
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+je_colonial_administration_button_bombay = {
+	name = "je_colonial_administration_button_bombay"
+	desc = "je_colonial_administration_button_bombay_desc"
+
+	visible = {
+		always = no
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_bombay
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_bombay
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_bombay
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_bombay
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_bombay
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = bombay_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}				
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+je_colonial_administration_button_indochina = {
+	name = "je_colonial_administration_button_indochina"
+	desc = "je_colonial_administration_button_indochina_desc"
+
+	visible = {
+		any_scope_state = {
+			region = sr:region_indochina
+		}
+		NOT = {
+			any_subject_or_below = {
+				has_variable = indochina_subject_var
+			}
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_indochina
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_indochina
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_indochina
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_indochina
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_indochina
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = indochina_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}				
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+je_colonial_administration_button_punjab = {
+	name = "je_colonial_administration_button_punjab"
+	desc = "je_colonial_administration_button_punjab_desc"
+
+	visible = {
+		always = no
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		any_scope_state = {
+			region = sr:region_punjab
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+
+		#prevents splitting off during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		custom_tooltip = {
+			text = colonial_administration_cooldown
+			NOT = {
+				any_subject_or_below = {
+					has_variable = newly_formed_colonial_nation_var
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_punjab
+					has_decree = decree_greener_grass_campaign
+				}
+			}
+			random_scope_state = {
+				limit = {
+					region = sr:region_punjab
+					has_decree = decree_greener_grass_campaign
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		else = {
+			random_scope_state = {
+				limit = {
+					region = sr:region_punjab
+				}
+				save_scope_as = newly_formed_colonial_nation_capital_scope
+			}
+		}
+		every_scope_state = {
+			limit = {
+				region = sr:region_punjab
+			}
+			set_variable = state_to_cede
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			capital = scope:newly_formed_colonial_nation_capital_scope
+			cede_state_trigger = {
+				has_variable = state_to_cede
+			}
+			on_created = {
+				set_variable = punjab_subject_var
+				set_variable = {
+					name = newly_formed_colonial_nation_var
+					months = 3
+				}
+				every_scope_state = {
+					remove_variable = state_to_cede
+				}
+				activate_law = law_type:law_frontier_colonization
+				activate_law = law_type:law_colonial_administration
+				add_modifier = {
+					name = colonial_administration
+				}			
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:newly_formed_colonial_nation_capital_scope.owner
+				type = colony
+			}
+		}
+		trigger_event = { id = new_imperialism_events.1 days = 1 popup = yes }
+		custom_tooltip = je_colonial_administration_button_tt_1
+		custom_tooltip = je_colonial_administration_button_tt_2
+	}
+}
+
+
+# Expand Colonial Administration
+
+je_colonial_administration_button_expand_arabic = {
+	name = "je_colonial_administration_button_expand_arabic"
+	desc = "je_colonial_administration_button_expand_arabic_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = arabic_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_arabic
+				is_under_colonization = no
+			}
+
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = arabic_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = arabic_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_arabic
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_arabic
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = arabic_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = arabic_subject_var
+				}
+				save_scope_as = arabic_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = arabic_subject_var
+					NOT = {
+						this = scope:arabic_subject_scope
+					}
+				}
+				save_scope_as = arabic_subject_scope_2
+			}
+			scope:arabic_subject_scope = {
+				annex = scope:arabic_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_oceania = {
+	name = "je_colonial_administration_button_expand_oceania"
+	desc = "je_colonial_administration_button_expand_oceania_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = oceania_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_oceania
+				is_under_colonization = no
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = oceania_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = oceania_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_oceania
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_oceania
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = oceania_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = oceania_subject_var
+				}
+				save_scope_as = oceania_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = oceania_subject_var
+					NOT = {
+						this = scope:oceania_subject_scope
+					}
+				}
+				save_scope_as = oceania_subject_scope_2
+			}
+			scope:oceania_subject_scope = {
+				annex = scope:oceania_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_east_india = {
+	name = "je_colonial_administration_button_east_india"
+	desc = "je_colonial_administration_button_east_india_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = india_mod_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				OR = {
+					region = sr:region_central_india
+					region = sr:region_bombay
+					region = sr:region_bengal
+					region = sr:region_madras
+					region = sr:region_punjab
+				}
+				is_under_colonization = no
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = india_mod_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = india_mod_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					OR = {
+						region = sr:region_central_india
+						region = sr:region_bombay
+						region = sr:region_bengal
+						region = sr:region_madras
+						region = sr:region_punjab
+					}
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					OR = {
+						region = sr:region_central_india
+						region = sr:region_bombay
+						region = sr:region_bengal
+						region = sr:region_madras
+						region = sr:region_punjab
+					}
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = india_mod_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = india_mod_subject_var
+				}
+				save_scope_as = bengal_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = india_mod_subject_var
+					NOT = {
+						this = scope:bengal_subject_scope
+					}
+				}
+				save_scope_as = bengal_subject_scope_2
+			}
+			scope:bengal_subject_scope = {
+				annex = scope:bengal_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_bengal = {
+	name = "je_colonial_administration_button_expand_bengal"
+	desc = "je_colonial_administration_button_expand_bengal_desc"
+
+	visible = {
+		always = no
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_bengal
+				is_under_colonization = no
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = bengal_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = bengal_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_bengal
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_bengal
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = bengal_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = bengal_subject_var
+				}
+				save_scope_as = bengal_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = bengal_subject_var
+					NOT = {
+						this = scope:bengal_subject_scope
+					}
+				}
+				save_scope_as = bengal_subject_scope_2
+			}
+			scope:bengal_subject_scope = {
+				annex = scope:bengal_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_bombay = {
+	name = "je_colonial_administration_button_expand_bombay"
+	desc = "je_colonial_administration_button_expand_bombay_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = bombay_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_bombay
+				is_under_colonization = no
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = bombay_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = bombay_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_bombay
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_bombay
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = bombay_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = bombay_subject_var
+				}
+				save_scope_as = bombay_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = bombay_subject_var
+					NOT = {
+						this = scope:bombay_subject_scope
+					}
+				}
+				save_scope_as = bombay_subject_scope_2
+			}
+			scope:bombay_subject_scope = {
+				annex = scope:bombay_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_indochina = {
+	name = "je_colonial_administration_button_expand_indochina"
+	desc = "je_colonial_administration_button_expand_indochina_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = indochina_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_indochina
+				is_under_colonization = no
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = indochina_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = indochina_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_indochina
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_indochina
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = indochina_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = indochina_subject_var
+				}
+				save_scope_as = indochina_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = indochina_subject_var
+					NOT = {
+						this = scope:indochina_subject_scope
+					}
+				}
+				save_scope_as = indochina_subject_scope_2
+			}
+			scope:indochina_subject_scope = {
+				annex = scope:indochina_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_punjab = {
+	name = "je_colonial_administration_button_expand_punjab"
+	desc = "je_colonial_administration_button_expand_punjab_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = punjab_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_punjab
+				is_under_colonization = no
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = punjab_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = punjab_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_punjab
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_punjab
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = punjab_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = punjab_subject_var
+				}
+				save_scope_as = punjab_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = punjab_subject_var
+					NOT = {
+						this = scope:punjab_subject_scope
+					}
+				}
+				save_scope_as = punjab_subject_scope_2
+			}
+			scope:punjab_subject_scope = {
+				annex = scope:punjab_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_madras = {
+	name = "je_colonial_administration_button_expand_madras"
+	desc = "je_colonial_administration_button_expand_madras_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = madras_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_madras
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = madras_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = madras_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_madras
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_madras
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = madras_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = madras_subject_var
+				}
+				save_scope_as = madras_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = madras_subject_var
+					NOT = {
+						this = scope:madras_subject_scope
+					}
+				}
+				save_scope_as = madras_subject_scope_2
+			}
+			scope:madras_subject_scope = {
+				annex = scope:madras_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_central_india = {
+	name = "je_colonial_administration_button_expand_central_india"
+	desc = "je_colonial_administration_button_expand_central_india_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = central_india_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_central_india
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = central_india_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = central_india_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_central_india
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_central_india
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = central_india_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = central_india_subject_var
+				}
+				save_scope_as = central_india_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = central_india_subject_var
+					NOT = {
+						this = scope:central_india_subject_scope
+					}
+				}
+				save_scope_as = central_india_subject_scope_2
+			}
+			scope:central_india_subject_scope = {
+				annex = scope:central_india_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_persia = {
+	name = "je_colonial_administration_button_expand_persia"
+	desc = "je_colonial_administration_button_expand_persia_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = persia_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_persia
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = persia_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = persia_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_persia
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_persia
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = persia_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = persia_subject_var
+				}
+				save_scope_as = persia_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = persia_subject_var
+					NOT = {
+						this = scope:persia_subject_scope
+					}
+				}
+				save_scope_as = persia_subject_scope_2
+			}
+			scope:persia_subject_scope = {
+				annex = scope:persia_subject_scope_2
+			}
+		}
+	}
+}
+
+je_colonial_administration_button_expand_malaya = {
+	name = "je_colonial_administration_button_expand_malaya"
+	desc = "je_colonial_administration_button_expand_malaya_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = malaya_subject_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				region = sr:region_indonesia
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = malaya_subject_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = malaya_subject_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_indonesia
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_indonesia
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_subject_or_below = {
+					has_variable = malaya_subject_var
+					count >= 2
+				}
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = malaya_subject_var
+				}
+				save_scope_as = malaya_subject_scope
+			}
+			random_subject_or_below = {
+				limit = {
+					has_variable = malaya_subject_var
+					NOT = {
+						this = scope:malaya_subject_scope
+					}
+				}
+				save_scope_as = malaya_subject_scope_2
+			}
+			scope:persia_subject_scope = {
+				annex = scope:malaya_subject_scope_2
+			}
+		}
+	}
+}
+
+# Other JE
+
+je_colonial_administration_button_expand_for_bic = {
+	name = "je_colonial_administration_button_expand_central_india"
+	desc = "je_colonial_administration_button_expand_central_india_desc"
+
+	visible = {
+		any_subject_or_below = {
+			has_variable = new_imperialism_mod_var
+		}
+	}
+
+	cooldown = { days = 90 }
+
+	possible = {
+		#prevents expanding during diplo play or war as it invalidates wargoals. is_at_war is there for clarity for players even though it's technically included in the former
+		is_diplomatic_play_committed_participant = no
+		is_at_war = no
+
+		OR = {
+			any_scope_state = {
+				OR = {
+					region = sr:region_central_india
+					region = sr:region_madras
+					region = sr:region_bombay
+					region = sr:region_punjab
+					region = sr:region_bengal
+				}
+			}
+			custom_tooltip = {
+				text = colonial_transfer_two_subjects_tt
+				any_subject_or_below = {
+					has_variable = new_imperialism_mod_var
+					count >= 2
+				}
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		custom_tooltip = {
+			text = transfer_stuff_to_subject_tt
+		}
+		random_subject_or_below = {
+			limit = {
+				has_variable = new_imperialism_mod_var
+			}
+			save_scope_as = colonial_transfer_subject_scope
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_punjab
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_punjab
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_central_india
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_central_india
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_madras
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_madras
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_bombay
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_bombay
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+		if = {
+			limit = {
+				any_scope_state = {
+					region = sr:region_bengal
+					is_under_colonization = no
+				}
+			}
+			every_scope_state = {
+				limit = {
+					region = sr:region_bengal
+					is_under_colonization = no
+				}
+				set_state_owner = scope:colonial_transfer_subject_scope
+			}
+		}
+	}
+}

@@ -1,0 +1,57 @@
+﻿COUNTRIES = {
+	c:NET ?= {
+		effect_starting_technology_tier_4_tech = yes
+		effect_starting_politics_liberal = yes
+		add_technology_researched = academia
+		add_technology_researched = colonization
+		add_technology_researched = line_infantry
+		
+
+		ig:ig_petty_bourgeoisie = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+		}
+
+		set_tax_level = medium
+		
+		add_taxed_goods = g:tobacco
+		add_taxed_goods = g:luxury_clothes
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_wealth_voting
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_no_schools
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_colonial_slavery
+		
+		add_company = company_type:company_dutch_east_india_company
+		company:company_dutch_east_india_company = {
+			set_company_establishment_date = 1670.5.2
+			set_company_state_region = s:STATE_HOLLAND
+			add_owned_country = c:DEI #links the country to this company
+		}
+		
+		add_modifier = {
+			name = modifier_colonial_efforts_mod
+		}
+
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 2
+		}
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+	}
+}

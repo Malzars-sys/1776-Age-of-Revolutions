@@ -1,0 +1,99 @@
+﻿je_deputy_of_the_people = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_internal_affairs
+	
+    is_shown_in_lobby = {
+        c:PER ?= THIS
+    }
+	
+	is_shown_when_inactive = {
+		c:PER ?= this
+	}
+
+	possible = {
+		c:PER ?= this
+		custom_tooltip = {
+			text = khan_karim_dies
+			ruler = {
+				exists = yes
+				NOT = { has_template = per_karim_khand_zand_template }
+			}
+			has_law = law_type:law_monarchy
+		}
+	}
+	
+	scripted_progress_bar = je_qajar_coup_progress_bar
+
+	immediate = {
+		random_scope_character = {
+			limit = {
+				has_variable = is_qajar
+			}
+			save_scope_as = qajar_scope
+		}
+		trigger_event = { id = iran_conclusion.1 }
+	}
+	
+#	on_weekly_pulse = {
+#		events = {
+#			qajar_coup.4
+#		}
+#	}
+	
+	on_weekly_pulse = {
+		random_events = {
+			150 = 0
+			10 = qajar_pulse_events.1
+			10 = qajar_pulse_events.2
+			10 = qajar_pulse_events.3
+			10 = qajar_pulse_events.5
+			10 = qajar_pulse_events.6
+			10 = qajar_pulse_events.7
+			10 = qajar_pulse_events.8
+			10 = qajar_pulse_events.9
+			10 = qajar_pulse_events.10
+		}
+	}
+	
+	fail = {
+		custom_tooltip = {
+			text = coup_progress_reached_0_tt
+			scope:journal_entry = { "scripted_bar_progress(je_qajar_coup_progress_bar)" <= 0 }
+		}
+    }
+	
+	on_fail = {
+		trigger_event = { id = iran_conclusion.2 }
+    }
+	
+	complete = {
+		custom_tooltip = {
+			text = coup_progress_reached_100_tt
+			scope:journal_entry = { "scripted_bar_progress(je_qajar_coup_progress_bar)" >= 120 }
+		}		
+	}
+
+	on_complete = {
+		custom_tooltip = {
+			text = qajar_ascends
+#			scope:qajar_scope ?= {
+#				remove_trait = trait_child
+#				add_trait = charismatic
+#				set_character_as_ruler = yes
+#			}
+			c:PER ?= {
+				set_variable = qajar_iran
+			}
+		}
+		add_primary_culture = cu:azerbaijani
+		trigger_event = { id = iran_conclusion.3 }
+
+	}
+
+	weight = 1000
+	can_revolution_inherit = no
+	should_be_pinned_by_default = yes
+}
+
+

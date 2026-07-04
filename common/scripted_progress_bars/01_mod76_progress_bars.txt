@@ -1,0 +1,304 @@
+﻿# For French Revolution
+
+je_estates_reform_bar = {
+	name = "je_estates_reform_bar"
+	desc = "je_estates_reform_bar_desc"
+
+	default = yes
+
+	monthly_progress = {
+#		if = {
+#			limit = {
+#				NOT = {
+#					is_enacting_law = law_type:law_slavery_banned
+#				}
+#			}
+			 # Towards Domination
+			if = {
+				limit = {
+					ig:ig_landowners ?= {
+						is_in_government = yes
+					}
+				}
+				subtract = {
+					desc = "reform_progress_from_landowners_in_gov_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ig:ig_landowners ?= {
+						is_powerful = yes
+					}
+				}
+				subtract = {
+					desc = "reform_progress_from_landowners_powerful_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					any_political_movement = {
+						is_political_movement_type = movement_royalist_absolutist
+					}
+				}
+				subtract = {
+					desc = "slavery_progress_from_pro_slavery_movement_tt"
+					every_political_movement = {
+						limit = {
+							is_political_movement_type = movement_royalist_absolutist
+						}
+						value = this.political_movement_support
+						multiply = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_gov_regency = yes
+				}
+				subtract = {
+					desc = "reform_progress_from_regency_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ruler = {
+						OR = {
+							interest_group = {
+								is_interest_group_type = ig_landowners
+							}
+							has_ideology = ideology:ideology_traditionalist
+						}
+					}
+				}
+				subtract = {
+					desc = "reform_progress_from_traditional_ruler_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					any_scope_character = {
+						filter = {
+							OR = {
+								has_role = admiral
+								has_role = general
+							}
+						}
+						OR = {
+							has_ideology = ideology:ideology_authoritarian
+							interest_group = {
+								is_interest_group_type = ig_landowners
+							}
+						}
+						percent >= 0.5
+					}
+				}
+				subtract = {
+					desc = "reform_progress_from_authoritarians_tt"
+					value = 1
+				}
+			}
+			# For Reform
+			if = {
+				limit = {
+					ig:ig_rural_folk ?= {
+						is_powerful = yes
+					}
+				}
+				subtract = {
+					desc = "reform_progress_from_rural_powerful_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ig:ig_rural_folk ?= {
+						is_in_government = yes
+					}
+				}
+				add = {
+					desc = "reform_progress_from_rural_folk_in_gov_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ig:ig_petty_bourgeoisie ?= {
+						is_in_government = yes
+					}
+				}
+				add = {
+					desc = "reform_progress_from_petty_folk_in_gov_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					any_political_movement = {
+						is_political_movement_type = movement_radical
+					}
+				}
+				add = {
+					desc = "slavery_progress_from_radical_movement_tt"
+					every_political_movement = {
+						limit = {
+							is_political_movement_type = movement_radical
+						}
+						value = this.political_movement_support
+						multiply = 10
+					}
+				}
+			}
+			if = {
+				limit = {
+					ig:ig_landowners ?= {
+						ig_counts_as_marginal = yes
+					}
+				}
+				add = {
+					desc = "reform_progress_from_marginal_landowners_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ig:ig_devout ?= {
+						ig_counts_as_marginal = yes
+					}
+				}
+				add = {
+					desc = "reform_progress_from_marginal_devout_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					ig:ig_intelligentsia ?= {
+						is_in_government = yes
+					}
+				}
+				add = {
+					desc = "reform_progress_from_intelligentsia_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_law_or_variant = law_type:law_serfdom
+					}
+				}
+				add = {
+					desc = "slavery_progress_from_abolished_serfdom_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_law_or_variant = law_type:law_state_religion
+					}
+				}
+				add = {
+					desc = "reform_progress_from_abolished_state_religion_tt"
+					value = 1
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_law = law_type:law_tenent_farmers
+						has_law_or_variant = law_type:law_serfdom
+					}
+				}
+				add = {
+					desc = "reform_progress_from_abolished_tenant_farmers_tt"
+					value = 1
+				}
+			}
+		if = {
+			limit = {
+				country_has_voting_franchise = yes
+			}
+			add = {
+				desc = "earning_recognition_progress_voting_tt"
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_law = law_type:law_census_voting
+					has_law = law_type:law_universal_suffrage
+				}
+			}
+			add = {
+				desc = "liberal_voting_progress_voting_tt"
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+						has_law = law_type:law_national_guard			
+				}
+			add = {
+				desc = "national_guard_reform_tt"
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+					has_law = law_type:law_guaranteed_liberties
+			}
+			add = {
+				desc = "guranteed_liberties_reform_tt"
+				value = 2
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_law_or_variant = law_type:law_land_based_taxation
+				}
+			}
+			add = {
+				desc = "progressive_taxes_reform_tt"
+				value = 1
+			}
+		}
+#		}
+	}
+	start_value = 60
+	min_value = 0
+	max_value = 120
+}
+
+# From je_ip4_coup
+
+je_qajar_coup_progress_bar = {
+	name = "je_qajar_coup_progress_bar"
+	desc = "je_qajar_coup_progress_bar_desc"
+
+	default = yes
+
+	weekly_progress = {
+#		owner = {
+#			add = {
+#				desc = "appeased_golpista_igs_tt"
+#				every_interest_group = {
+#					limit = {
+#						ig_approval < 0
+#					}
+#					value = ig_approval
+#				}
+#			}
+#		}
+	}
+	start_value = 60
+	min_value = 0
+	max_value = 120
+}
+

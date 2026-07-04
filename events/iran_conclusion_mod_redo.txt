@@ -1,0 +1,361 @@
+﻿namespace = iran_conclusion
+
+iran_conclusion.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = iran_conclusion.1.t
+	desc = iran_conclusion.1.d
+	flavor = iran_conclusion.1.f
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+		# triggered by je_autocracy completion
+	}
+
+	immediate = {
+
+	}
+
+	option = { # increase ruler popularity and IG attraction
+		name = iran_conclusion.1.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_young_heirs_zand_mod
+			days = stupidly_long_modifier_time
+		}
+	}
+}
+
+iran_conclusion.2 = { # zand iran
+	type = country_event
+	placement = ROOT
+
+	title = iran_conclusion.2.t
+	desc = iran_conclusion.2.d
+	flavor = iran_conclusion.2.f
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+		# triggered by je_autocracy completion
+	}
+
+	immediate = {
+		ruler ?= {
+			save_scope_as = liege_scope
+		}
+	}
+
+	option = { # increase ruler popularity and IG attraction
+		name = iran_conclusion.2.a
+		default_option = yes
+        scope:liege_scope = {
+            add_modifier = {
+                name = modifier_mod_successful_regeneration
+                days = stupidly_long_modifier_time
+            }
+        }
+	}
+	
+	option = { # increase ruler popularity and IG attraction
+		name = iran_conclusion.2.b
+        add_modifier = {
+            name = modifier_new_royal_dynasty
+            days = stupidly_long_modifier_time
+        }
+	}
+}
+
+iran_conclusion.3 = { # qajar iran
+	type = country_event
+	placement = ROOT
+
+	title = iran_conclusion.3.t
+	desc = iran_conclusion.3.d
+	flavor = iran_conclusion.3.f
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+		# triggered by je_autocracy completion
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				exists = heir
+			}
+			heir = {
+				retire_character = {
+					hidden = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				year < 1797
+			}
+			create_character = {
+				template = per_agha_mohammed_qajar_template
+				on_created = {
+					set_character_as_ruler = yes
+				}
+			}
+			if = {
+				limit = {
+					year >= 1772
+				}
+				create_character = {
+					first_name = "Fath-Ali"
+					last_name = "Qajar"
+					historical = yes
+					culture = cu:persian
+					heir = yes
+					birth_date = 1772.1.1
+					interest_group = ig_landowners
+					ideology = ideology_modernizer_leader
+					traits = {
+						tactful
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				year >= 1834
+				year < 1848
+			}
+			create_character = {
+				first_name = "Mohammad"
+				last_name = "Qajar"
+				historical = yes
+				culture = cu:persian
+				ruler = yes
+				birth_date = 1808.1.1
+				interest_group = ig_landowners
+				ideology = ideology_modernizer_leader
+				traits = {
+					tactful
+				}
+				on_created = {
+					set_character_as_ruler = yes
+				}
+			}
+			if = {
+				limit = {
+					year >= 1831
+				}
+				create_character = {
+					first_name = Naser_Al_Din
+					last_name = "Qajar"
+					historical = yes
+					culture = cu:persian
+					heir = yes
+					birth_date = 1831.1.1
+					interest_group = ig_landowners
+					ideology = ideology_modernizer_leader
+					traits = {
+						tactful
+					}
+				}
+			}
+		}
+		ruler = {
+			save_scope_as = liege2_scope
+		}
+	}
+
+	option = { # increase ruler popularity and IG attraction
+		name = iran_conclusion.3.a
+		default_option = yes
+		scope:liege2_scope = {
+			add_modifier = {
+				name = modifier_mod_successful_regeneration
+				days = stupidly_long_modifier_time
+			}
+		}
+		add_modifier = {
+			name = modifier_modded_rail_network
+			days = long_modifier_time
+			is_decaying = yes
+		}
+		hidden_effect = { # Remove the last guys issues
+			if = {
+				limit = {
+					has_modifier = modifier_young_heirs_zand_mod
+				}
+				remove_modifier = modifier_young_heirs_zand_mod
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_squables_for_power_mod
+				}
+				remove_modifier = modifier_squables_for_power_mod
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency
+				}
+				remove_modifier = modifier_regency
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_landowners
+				}
+				remove_modifier = modifier_regency_landowners
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_devout
+				}
+				remove_modifier = modifier_regency_devout
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_petty_bourgeoisie
+				}
+				remove_modifier = modifier_regency_petty_bourgeoisie
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_industrialists
+				}
+				remove_modifier = modifier_regency_industrialists
+			}	
+			if = {
+				limit = {
+					has_modifier = modifier_regency_trade_unions
+				}
+				remove_modifier = modifier_regency_trade_unions
+			}	
+			if = {
+				limit = {
+					has_modifier = modifier_regency_intelligentsia
+				}
+				remove_modifier = modifier_regency_intelligentsia
+			}	
+			if = {
+				limit = {
+					has_modifier = modifier_regency_armed_forces
+				}
+				remove_modifier = modifier_regency_armed_forces
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_rural_folk
+				}
+				remove_modifier = modifier_regency_rural_folk
+			}				
+		}
+	}
+	
+	option = { # increase ruler popularity and IG attraction
+		name = iran_conclusion.3.b
+		scope:liege2_scope = {
+			add_modifier = {
+				name = modifier_mod_successful_regeneration
+				days = stupidly_long_modifier_time
+			}
+		}
+		add_modifier = {
+			name = modifier_modded_education_reforms
+			days = long_modifier_time
+			is_decaying = yes
+		}
+		hidden_effect = { # Remove the last guys issues
+			if = {
+				limit = {
+					has_modifier = modifier_young_heirs_zand_mod
+				}
+				remove_modifier = modifier_young_heirs_zand_mod
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_squables_for_power_mod
+				}
+				remove_modifier = modifier_squables_for_power_mod
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency
+				}
+				remove_modifier = modifier_regency
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_landowners
+				}
+				remove_modifier = modifier_regency_landowners
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_devout
+				}
+				remove_modifier = modifier_regency_devout
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_petty_bourgeoisie
+				}
+				remove_modifier = modifier_regency_petty_bourgeoisie
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_industrialists
+				}
+				remove_modifier = modifier_regency_industrialists
+			}	
+			if = {
+				limit = {
+					has_modifier = modifier_regency_trade_unions
+				}
+				remove_modifier = modifier_regency_trade_unions
+			}	
+			if = {
+				limit = {
+					has_modifier = modifier_regency_intelligentsia
+				}
+				remove_modifier = modifier_regency_intelligentsia
+			}	
+			if = {
+				limit = {
+					has_modifier = modifier_regency_armed_forces
+				}
+				remove_modifier = modifier_regency_armed_forces
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_regency_rural_folk
+				}
+				remove_modifier = modifier_regency_rural_folk
+			}				
+		}
+	}
+}
+

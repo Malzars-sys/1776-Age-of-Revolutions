@@ -1,0 +1,139 @@
+﻿namespace = america_michigan_war_mod
+
+america_michigan_war_mod.1 = { # Uh oh!
+	type = country_event
+	placement = root
+
+	event_image = {
+		video = "europenorthamerica_native_american"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	title = america_michigan_war_mod.1.t
+	desc = america_michigan_war_mod.1.d
+	flavor = america_michigan_war_mod.1.f
+
+	duration = 3
+
+	trigger = {
+
+	}
+
+	immediate = {
+		c:MICC ?= {
+			set_country_type = unrecognized		
+		}
+	}
+
+	option = {
+		name = america_michigan_war_mod.1.a
+		default_option = yes
+		ai_chance = {
+			base = 50
+		}
+
+		c:USA ?= {
+			create_diplomatic_play = {
+				name = annex_war
+				target_country = c:MICC
+				type = dp_annex_war
+
+				add_war_goal = { holder = c:MICC target_country = c:USA type = revoke_all_claims }
+			}
+		}
+		hidden_effect = {
+			c:MICC ?= {
+				add_modifier = {
+					name = mod_tribal_spirit # Temporary military bonus
+					months = 208
+					is_decaying = yes
+				}	
+			}		
+			every_state = {
+				limit = {
+					owner = c:MICC
+				}
+				create_building={
+					building="building_barrack"
+					level = 5
+				}
+				add_modifier = {
+					name = modifier_taiping_hiring_bonus # Temporary bonus to fill their barracks
+					months = 6
+				}
+			}
+		}
+	}
+	option = {
+		name = america_michigan_war_mod.1.b # forget it
+		ai_chance = { 
+			base = 1
+		}
+		if = {
+			limit = {
+				has_claim = s:STATE_OHIO
+			}
+			s:STATE_OHIO = {
+				remove_claim = root
+			}
+		}
+		if = {
+			limit = {
+				has_claim = s:STATE_WISCONSIN
+			}
+			s:STATE_WISCONSIN = {
+				remove_claim = root
+			}
+		}
+		if = {
+			limit = {
+				has_claim = s:STATE_INDIANA
+			}
+			s:STATE_INDIANA = {
+				remove_claim = root
+			}
+		}
+		if = {
+			limit = {
+				has_claim = s:STATE_MICHIGAN
+			}
+			s:STATE_MICHIGAN = {
+				remove_claim = root
+			}
+		}
+		if = {
+			limit = {
+				has_claim = s:STATE_ILLINOIS
+			}
+			s:STATE_ILLINOIS = {
+				remove_claim = root
+			}
+		}		
+		
+		hidden_effect = {
+			c:MICC ?= {
+				add_modifier = {
+					name = mod_tribal_spirit # Temporary military bonus
+					months = 36
+					is_decaying = no
+				}	
+			}		
+			every_state = {
+				limit = {
+					owner = c:MICC
+				}
+				create_building={
+					building="building_barrack"
+					level = 5
+				}
+				add_modifier = {
+					name = modifier_taiping_hiring_bonus # Temporary bonus to fill their barracks
+					months = 6
+				}
+			}
+		}
+	}
+}

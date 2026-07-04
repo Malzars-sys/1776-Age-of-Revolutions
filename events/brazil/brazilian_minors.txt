@@ -1,0 +1,290 @@
+﻿namespace = brazilian_minors
+
+# Rio Grande Victory Event
+brazilian_minors.1 = {
+	type = country_event
+	placement = root
+
+	duration = 3
+
+	title = brazilian_minors.1.t
+	desc = brazilian_minors.1.d
+	flavor = brazilian_minors.1.f
+
+	event_image = {
+		video = "southamerica_aristocrats"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		# Triggered by on_wargoal_enforced
+	}
+
+	immediate = {
+		create_country = {
+			tag = CTR
+			origin = c:BIC
+			state = s:STATE_SANTA_CATARINA.region_state:PNI
+		}
+		random_state = {
+			limit = {
+				state_region = s:STATE_SANTA_CATARINA
+			}
+			save_scope_as = santa_catarina_state_scope
+		}
+		c:BRZ ?= {
+			save_scope_as = brazil_scope
+		}
+		c:CTR ?= {
+			save_scope_as = santa_catarina_scope
+		}
+		random_primary_culture = {
+			save_scope_as = sulista_culture_scope
+		}
+	}
+
+	option = {
+		name = brazilian_minors.1.a
+		default_option = yes
+		create_diplomatic_pact = {
+			country = c:CTR
+			type = puppet
+		}
+		change_relations = {
+			country = c:CTR
+			value = 50
+		}
+		if = {
+			limit = {
+				game_date < 1860.1.1 # Unlikely to happen, but let's not spawn in 100 year old fossils
+			}
+			c:CTR ?= {
+				create_character = {
+					template = CTR_joaquim_neves
+				}
+				create_character = {
+					template = CTR_vincente_cordiero
+				}
+				create_character = {
+					template = CTR_david_canabarro
+				}
+			}
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+
+	option = {
+		name = brazilian_minors.1.b
+		root = {
+			create_treaty = {
+				first_country = root
+				second_country = c:CTR
+
+				is_draft = no
+				binding_period = { years = 5 }
+
+				articles_to_create = {
+					{
+						article = defensive_pact
+					}
+				}
+			}
+		}
+		change_relations = {
+			country = c:CTR
+			value = 100
+		}
+		hidden_effect = {
+			c:CTR ?= {
+				set_mutual_secret_goal = {
+					country = root
+					secret_goal = befriend
+				}
+			}
+		}
+		if = {
+			limit = {
+				game_date < 1860.1.1 # Unlikely to happen, but let's not spawn in 100 year old fossils
+			}
+			c:CTR ?= {
+				create_character = {
+					template = CTR_joaquim_neves
+				}
+				create_character = {
+					template = CTR_vincente_cordiero
+				}
+				create_character = {
+					template = CTR_david_canabarro
+				}
+			}
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+
+	option = {
+		name = brazilian_minors.1.c
+		annex = c:CTR
+		create_character = {
+			template = CTR_david_canabarro
+		}
+		ai_chance = {
+			base = 20
+		}
+	}
+
+	option = {
+		name = brazilian_minors.1.e
+		trigger = {
+			is_player = yes
+		}
+		create_treaty = {
+			first_country = root
+			second_country = c:CTR
+
+			is_draft = no
+			binding_period = { years = 5 }
+
+			articles_to_create = {
+				{
+					article = defensive_pact
+				}
+			}
+		}
+		change_relations = {
+			country = c:CTR
+			value = 100
+		}
+		hidden_effect = {
+			c:CTR ?= {
+				set_mutual_secret_goal = {
+					country = root
+					secret_goal = befriend
+				}
+			}
+		}
+		if = {
+			limit = {
+				game_date < 1860.1.1 # Unlikely to happen, but let's not spawn in 100 year old fossils
+			}
+			c:CTR ?= {
+				create_character = {
+					template = CTR_joaquim_neves
+				}
+				create_character = {
+					template = CTR_vincente_cordiero
+				}
+				create_character = {
+					template = CTR_david_canabarro
+				}
+			}
+		}
+		play_as = c:CTR
+	}
+}
+
+# Cabanagem Defeat Event
+brazilian_minors.2 = {
+	type = country_event
+	placement = scope:para_state_scope
+
+	duration = 3
+
+	title = brazilian_minors.2.t
+	desc = brazilian_minors.2.d
+	flavor = brazilian_minors.2.f
+
+	event_image = {
+		video = "southamerica_war_civilians"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		# Triggered by on_wargoal_enforced
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = brazilian_minors.2.a
+		default_option = yes
+		change_infamy = 5
+
+	}
+}
+
+# Ragamuffin Defeat Event
+brazilian_minors.3 = {
+	type = country_event
+	placement = scope:rio_grande_state_scope
+	title = brazilian_minors.3.t
+	desc = brazilian_minors.3.d
+	flavor =  brazilian_minors.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "southamerica_war_civilians"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		# triggered by on_wargoal_enforced
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = brazilian_minors.3.a
+		default_option = yes
+	}
+
+	option = {
+		name = brazilian_minors.3.b
+	}
+}
+
+# PRA victory event
+brazilian_minors.4 = {
+	type = country_event
+	placement = ROOT
+	title = brazilian_minors.4.t
+	desc = brazilian_minors.4.d
+	flavor =  brazilian_minors.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "southamerica_war_civilians"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		# triggered by on_wargoal_enforced
+	}
+
+	immediate = {
+		c:BRZ ?= {
+			save_scope_as = brz_scope
+		}
+	}
+
+	option = {
+		name = brazilian_minors.3.a
+		default_option = yes
+		add_loyalists = {
+			value = 0.25
+		}
+	}
+}

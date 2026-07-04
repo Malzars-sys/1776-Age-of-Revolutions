@@ -1,0 +1,196 @@
+﻿namespace = plc_reform_modevents
+
+plc_reform_modevents.1 = { # Choose your new government
+	type = country_event
+	placement = root
+
+	title = plc_reform_modevents.1.t
+	desc = plc_reform_modevents.1.d
+	flavor = plc_reform_modevents.1.f
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 1
+
+	cooldown = { days = very_long_modifier_time }
+	
+
+	trigger = {
+		# Triggered by JE
+	}
+
+	immediate = {
+
+	}
+	
+	option = { # Autocratic Monarchy
+		name = plc_reform_modevents.1.a
+		default_option = yes
+		ai_chance = {
+			base = 8 # this is the default pick for the AI
+		}
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		ruler = {
+            add_modifier = {
+                name = imperious_leader_good_modifier
+                days = stupidly_long_modifier_time
+            }
+		}
+        add_modifier = {
+			name = mod_polish_autocracy
+            days = stupidly_long_modifier_time
+        }
+	}
+	
+	option = { # Bring Reformed Landowners Into Government
+		name = plc_reform_modevents.1.b
+
+		ai_chance = {
+			base = 8 # this is the default pick for the AI
+		}
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_landed_voting
+
+        add_modifier = {
+			name = mod_polish_aristocracy
+            days = stupidly_long_modifier_time
+        }
+	}
+	
+	option = { # Theocracy
+		name = plc_reform_modevents.1.c
+
+		ai_chance = {
+			base = 8 # this is the default pick for the AI
+		}
+		activate_law = law_type:law_theocracy
+		activate_law = law_type:law_landed_voting
+
+        add_modifier = {
+			name = mod_polish_theocracy
+            days = stupidly_long_modifier_time
+        }
+	}
+	
+}
+
+plc_reform_modevents.2 = { # Railway help
+	type = country_event
+	placement = root
+
+	title = plc_reform_modevents.2.t
+	desc = plc_reform_modevents.2.d
+	flavor = plc_reform_modevents.2.f
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 1
+
+	cooldown = { days = very_long_modifier_time }
+	
+
+	trigger = {
+		# Triggered by JE
+	}
+
+	immediate = {
+
+	}
+	
+	option = { # Industrialists help
+		name = plc_reform_modevents.1.b
+		default_option = yes
+        add_modifier = {
+			name = mod_polish_inds_help
+            days = normal_modifier_time
+        }
+	}
+	
+}
+
+plc_reform_modevents.3 = { # That railway goes through my lands!
+	type = country_event
+	placement = root
+
+	title = plc_reform_modevents.3.t
+	desc = plc_reform_modevents.3.d
+	flavor = plc_reform_modevents.3.f
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 1
+
+	cooldown = { days = very_long_modifier_time }
+	
+
+	trigger = {
+		# Triggered by JE
+	}
+
+	immediate = {
+
+	}
+	
+	option = { # Loosen purse strings
+		name = plc_reform_modevents.3.a
+		default_option = yes
+		ai_chance = {
+			base = 25
+			modifier = {
+				trigger = {
+					OR = {
+						tax_level < high
+						net_total_income > money_amount_multiplier_medium
+					}
+				}
+				add = 35
+			}
+			modifier = { #don't do if broke
+				trigger = {
+					AND = {
+						net_total_income < 0
+						tax_level >= high
+					}
+				}
+				add = -50
+			}
+		}
+        add_modifier = {
+			name = mod_farming_subsidies
+            days = normal_modifier_time
+        }
+	}
+	option = { # tell them go away
+		name = plc_reform_modevents.3.b
+		ai_chance = {
+			base = 10 # this is the default pick for the AI
+		}
+		ig:ig_rural_folk = {
+			add_modifier = {
+				name = mod_go_away_farmer
+			}
+		}
+	}
+	
+}
+
+	

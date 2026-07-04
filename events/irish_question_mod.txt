@@ -1,0 +1,102 @@
+﻿namespace = irish_question
+
+irish_question.1 = { 
+	type = country_event
+	placement = root
+
+	title = irish_question.1.t
+	desc = irish_question.1.d
+	flavor = irish_question.1.f
+
+	event_image = {
+		video = "votp_monarch_holding_court"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 1
+
+	cooldown = { days = very_long_modifier_time }
+	
+
+	trigger = {
+		# Triggered by JE
+	}
+
+	immediate = {
+		set_variable = irish_question_settled
+		s:STATE_ULSTER = {
+			random_scope_state = {
+				save_scope_as = ulster_state
+			}
+		}
+	}
+	
+	option = { # Annex
+		name = irish_question.1.a
+		default_option = yes
+		trigger = {
+			c:IREK = {
+				is_player = no
+			}
+		}
+		ai_chance = {
+			base = 8 # this is the default pick for the AI
+		}
+		annex = c:IREK
+		set_global_variable = irish_question_settled
+	}
+	
+	option = { # If it's the player the AI will just take Northern Ireland
+		name = irish_question.1.b
+		ai_chance = {
+			base = 1
+		}
+		c:IREK ?= {
+			change_tag = IRE
+#			change_subject_type = subject_type_dominion
+			activate_law = law_type:law_parliamentary_republic
+			remove_primary_culture = cu:british
+			remove_primary_culture = cu:scottish
+			add_primary_culture = cu:irish
+			set_state_religion = rel:catholic
+			hidden_effect = {
+				every_scope_character = {
+					limit = {
+						culture = cu:british
+						is_immortal = no
+					}
+					kill_character = yes
+				}
+			}
+			hidden_effect = {
+				scope:ulster_state = {
+					set_state_owner = c:GBR
+					set_state_type = incorporated
+					add_loyalists_in_state = {
+						culture = cu:british
+						value = very_large_radicals
+					}
+					add_loyalists_in_state = {
+						culture = cu:scottish
+						value = very_large_radicals
+					}
+					add_radicals_in_state = {
+						culture = cu:irish
+						value = very_large_radicals
+					}
+				}
+			}
+		}
+		create_diplomatic_pact = {
+			country = c:IRE
+			type = protectorate
+		}
+		set_global_variable = irish_question_settled
+	}
+}
+
+
+	

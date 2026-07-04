@@ -1,0 +1,154 @@
+﻿je_usa_independence = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_internal_affairs
+	
+    is_shown_in_lobby = {
+        c:USA ?= THIS
+    }
+	
+	is_shown_when_inactive = {
+		c:USA ?= this
+		NOT = {
+			has_variable = us_revolt
+		}
+		c:USA ?= {
+			is_subject_of = c:GBR
+		}
+	}
+
+	possible = {
+		c:USA ?= this
+		c:USA ?= {
+			is_subject_of = c:GBR
+		}
+#		is_subject = yes
+		is_at_war = yes
+#		any_enemy_in_war = {
+#			filter = { c:GBR }
+#		}
+#		any_enemy_in_diplo_play = {
+#			c:GBR
+#		}
+		c:GBR ?= {
+			is_diplomatic_play_enemy_of = root
+		}
+	}
+
+	immediate = {
+		add_modifier = modifier_usa_war_of_independence
+		set_global_variable = je_spanish_new_world_dummy_happened_var
+
+	}
+	
+	complete = {
+		is_subject = no
+		is_at_war = no
+    }
+	
+	on_complete = {
+		hidden_effect = { remove_modifier = modifier_usa_war_of_independence }
+		hidden_effect = { remove_modifier = modifier_usa_put_down }
+		add_modifier = modifier_usa_freedom
+		set_variable = us_revolt
+		ig:ig_industrialists = {
+			remove_ideology = ideology_colonialist
+			add_ideology = ideology_laissez_faire
+		}
+		trigger_event = { id = french_revolution_mod_events.2 popup = yes }
+    }
+	
+	fail = {
+		is_at_war = no
+		is_subject = yes
+	}
+
+	on_fail = {
+#		top_overlord = {
+#			trigger_event = { id = irish_question.1 popup = yes } 
+#		}
+		hidden_effect = { remove_modifier = modifier_usa_war_of_independence }
+		add_modifier = modifier_usa_put_down
+		activate_law = law_type:law_extraction_economy
+		activate_law = law_type:law_colonial_administration
+		activate_law = law_type:law_no_colonial_affairs
+		activate_law = law_type:law_oligarchy
+		set_variable = us_revolt
+		ig:ig_industrialists = {
+			add_ideology = ideology_colonialist
+			remove_ideology = ideology_laissez_faire
+		}
+	}
+
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+je_usa_independence_fra = { # French gets fiscal crisis and kickstarts revolution
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+	
+    is_shown_in_lobby = {
+        c:FRA ?= THIS
+    }
+	
+	is_shown_when_inactive = {
+		c:FRA ?= this
+		NOT = {
+			has_variable = us_fra_revolt
+		}
+		c:USA ?= {
+			is_subject_of = c:GBR
+		}
+	}
+
+	possible = {
+		c:FRA ?= this
+		c:USA ?= {
+			is_subject_of = c:GBR
+		}
+		is_at_war = yes
+		c:GBR ?= {
+			is_diplomatic_play_enemy_of = root
+		}
+	}
+
+	immediate = {
+	
+	}
+	
+	complete = {
+		c:USA = {
+			is_subject = no
+		}
+		is_at_war = no
+    }
+	
+	on_complete = {
+		set_variable = us_fra_revolt
+
+    }
+	
+	fail = {
+		is_at_war = no
+		c:USA = {
+			is_subject = yes
+		}
+	}
+
+	on_fail = {
+		trigger_event = { id = french_revolution_mod_events.1 popup = yes } 
+
+		set_variable = us_fra_revolt
+	}
+
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}
+
+

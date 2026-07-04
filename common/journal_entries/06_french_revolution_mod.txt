@@ -1,0 +1,179 @@
+﻿je_fr_rev_summon_estates = { # French gets fiscal crisis and kickstarts revolution
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_internal_affairs
+	
+    is_shown_in_lobby = {
+        c:FRA ?= THIS
+    }
+
+	possible = {
+		# triggered by history
+	}
+	
+	scripted_button = je_french_revolution_skip
+	scripted_button = je_french_revolution_skip_revolutionary
+	
+	scripted_progress_bar = je_estates_reform_bar
+
+	immediate = {
+	ig:ig_devout ?= {
+		save_scope_as = clergy_fra_scope
+	}
+	ig:ig_landowners ?= {
+		save_scope_as = second_estate_fra_scope
+	}
+	ig:ig_rural_folk ?= {
+		save_scope_as = third_estate_fra_scope
+	}
+		if = {
+			limit = {
+				NOT = {
+					any_political_movement = {
+						OR = {
+							is_political_movement_type = movement_radical
+							is_political_movement_type = movement_german_national
+							is_political_movement_type = movement_italian_national
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
+					}
+				}
+				create_political_movement = { type = movement_german_national }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+				}
+				create_political_movement = { type = movement_italian_national }
+			}
+			else = {
+				create_political_movement = { type = movement_radical }
+			}
+		}
+		random_political_movement = {
+			limit = {
+				OR = {
+					is_political_movement_type = movement_german_national
+					is_political_movement_type = movement_italian_national
+					is_political_movement_type = movement_radical
+				}
+			}
+			save_scope_as = radical_fra_movement_scope
+		}
+		if = {
+			limit = {
+				any_interest_group = {
+					ig_counts_as_marginal = no
+					can_have_radical_leader = yes
+					is_in_government = no
+				}
+			}
+			random_interest_group = {
+				limit = {
+					ig_counts_as_marginal = no
+					can_have_radical_leader = yes
+					is_in_government = no
+				}
+				leader = {
+					set_ideology = ideology:ideology_radical
+					add_modifier = {
+						name = 1848_popular_radical
+					}
+				}
+			}
+		}		
+	}
+	
+	complete = {
+		NOT = {
+			has_law_or_variant = law_type:law_serfdom
+			has_law = law_type:law_state_religion
+		}
+		custom_tooltip = {
+			text = reform_progress_tt
+			scope:journal_entry = { "scripted_bar_progress(je_estates_reform_bar)" >= 120 }
+		}
+    }
+	
+	on_complete = {
+		remove_modifier = debt_usa_big_money
+		trigger_event = { 
+			id = french_revolution_mod_events.20 popup = yes 
+		}
+    }
+	
+	on_monthly_pulse = {
+		random_events = {
+			150 = 0
+			10 = french_revolution_mod_events.5
+			10 = french_revolution_mod_events.6
+			10 = french_revolution_mod_events.7
+			10 = french_revolution_mod_events.8
+			10 = french_revolution_mod_events.9
+			10 = french_revolution_mod_events.10
+			10 = french_revolution_mod_events.11
+			10 = french_revolution_mod_events.12
+			10 = french_revolution_mod_events.13
+			10 = french_revolution_mod_events.15
+			10 = french_revolution_mod_events.16
+			10 = french_revolution_mod_events.17
+		}
+	}
+	
+	fail = {
+		OR = {
+			has_revolution = yes
+			has_any_secessionists_broken_out = yes
+			custom_tooltip = {
+				text = reform_progress_fail_tt
+				scope:journal_entry = { "scripted_bar_progress(je_estates_reform_bar)" <= 1 }
+			}
+		}
+	}
+
+	on_fail = {
+		trigger_event = { 
+			id = french_revolution_mod_events.14 popup = yes 
+		} 
+#		c:FRA ?= {
+#			limit = {
+#				has_variable = one_true_dynasty
+#			}
+#			remove_variable = one_true_dynasty
+#		}
+#		c:FRA ?= {
+#			limit = {
+#				NOT = {
+#					has_variable = orleanist_restoration_var
+#				}
+#			}
+#			set_variable = orleanist_restoration_var
+#		}
+	}
+	
+	on_timeout = {
+		trigger_event = { id = french_revolution_mod_events.14 }
+#		trigger_event = french_revolution_mod_events.14
+	}
+	
+	timeout = 2615
+
+
+	weight = 100
+	transferable = no
+	can_revolution_inherit = no
+
+	should_be_pinned_by_default = yes
+}
+
+

@@ -1,0 +1,191 @@
+﻿namespace = irek_revolts
+
+irek_revolts.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = irish_nationalism.1.t
+	desc = irish_nationalism.1.d
+	flavor = irish_nationalism.1.f
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	trigger = {
+
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				OR = {
+					state_region = s:STATE_MUNSTER
+					state_region = s:STATE_LEINSTER
+					state_region = s:STATE_CONNAUGHT
+				}
+			}
+			save_scope_as = rebellion_target_state_scope
+		}
+	}
+
+	option = {
+		name = irish_nationalism.1.a # suppress
+		ai_chance = {
+			base = 25
+		}
+		scope:rebellion_target_state_scope = {
+			add_modifier = {
+				name = modifier_attacked_supply_train
+				days = short_modifier_time
+			}
+			add_modifier = {
+				name = catholic_standard_of_living_modifier_negative_mod
+				months = 13
+			}
+			this.state_region = {
+				add_devastation = 5
+			}
+			add_radicals_in_state = {
+				value = large_radicals
+				culture = cu:irish
+			}
+		}
+		default_option = yes
+		add_modifier = {
+			name = suppressing_radicals
+			days = short_modifier_time
+		}
+		add_loyalists = {
+			strata = upper
+			value = medium_radicals
+		}
+		add_loyalists = {
+			culture = cu:scottish
+			value = medium_radicals
+		}
+		add_loyalists = {
+			culture = cu:british
+			value = medium_radicals
+		}
+		add_radicals = {
+			value = medium_radicals
+			strata = middle
+			culture = cu:irish
+		}
+		add_radicals = {
+			value = medium_radicals
+			strata = lower
+			culture = cu:irish
+		}
+	}
+	option = {
+		ai_chance = {
+			base = 5
+		}
+		name = irish_nationalism.1.b # run wild
+		add_modifier = {
+			name = suppressing_radicals
+			days = short_modifier_time
+		}
+		scope:rebellion_target_state_scope = {
+			add_modifier = {
+				name = modifier_villages_burned
+				months = 13
+				multiplier = 1.5
+			}
+			this.state_region = {
+				add_devastation = 15
+			}
+		}
+		add_radicals = {
+			strata = upper
+			value = medium_radicals
+		}
+	}
+}
+
+irek_revolts.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = irish_nationalism.2.t
+	desc = irish_nationalism.2.d
+	flavor = irish_nationalism.2.f
+
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	trigger = {
+
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ULSTER
+			}
+			save_scope_as = ulster_settle
+		}
+	}
+
+	option = {
+		ai_chance = {
+			base = 65
+		}
+		name = irish_nationalism.2.a # Settle
+		scope:ulster_settle = {
+			add_modifier = {
+				name = modifier_settlers_privileges_mod
+				months = 13
+			}
+			add_radicals_in_state = {
+				value = large_radicals
+				culture = cu:irish
+			}
+			add_loyalists_in_state = {
+				strata = upper
+				value = medium_radicals
+			}
+			add_loyalists_in_state  = {
+				culture = cu:scottish
+				value = medium_radicals
+			}
+			add_loyalists_in_state  = {
+				culture = cu:british
+				value = medium_radicals
+			}
+		}
+		default_option = yes
+
+	}
+	option = {
+		ai_chance = {
+			base = 25
+		}
+		name = irish_nationalism.2.b # Normal settling
+		scope:ulster_settle = {
+			add_modifier = {
+				name = modifier_settler_efforts_mod
+				months = 13
+			}
+			add_radicals_in_state = {
+				value = medium_radicals
+				culture = cu:irish
+			}
+		}
+	}
+}

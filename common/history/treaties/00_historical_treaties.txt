@@ -1,0 +1,762 @@
+﻿TREATIES = {
+
+	# mod treaties
+	
+	# 	Bourbon Compact
+	create_treaty = {
+		name = treaty_name_mod_bourbon_compact_alliance
+		first_country = c:SPA
+		second_country = c:FRA
+
+		is_draft = no
+		entered_into_force_on = 1775.4.22
+		binding_period = { years = 5 } 
+
+		articles_to_create = {
+			{ # Alliance
+				article = defensive_pact
+			}
+			{ 
+				article = trade_privilege
+				source_country = c:SPA
+				target_country = c:FRA
+			}
+			{ 
+				article = trade_privilege
+				source_country = c:FRA
+				target_country = c:SPA
+			}
+		}
+	}
+				
+	create_treaty = { # Persia's Karim Khan Zand set up agreements with DEI
+		first_country = c:PER
+		second_country = c:DEI
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1 
+		binding_period = { years = 10 } 
+
+		articles_to_create = {
+			{ 
+				article = trade_privilege
+				source_country = c:PER
+				target_country = c:NET
+			}
+		}
+	}
+	
+	create_treaty = { # French helping American Revolutionary traitors
+		first_country = c:FRA
+		second_country = c:USA
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1 
+		binding_period = { years = 10 } 
+
+		articles_to_create = {
+			{
+				article = support_independence
+				source_country = c:FRA
+				target_country = c:USA
+			}
+		}
+	}
+	
+	create_treaty = { # Spanish helping American Revolutionary traitors
+		first_country = c:SPA
+		second_country = c:USA
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1 
+		binding_period = { years = 10 } 
+
+		articles_to_create = {
+			{
+				article = support_independence
+				source_country = c:SPA
+				target_country = c:USA
+			}
+		}
+	}
+
+	### Quadruple Alliance
+	# Quadruple Alliance - GBR/POR
+	if = {
+		limit = {
+			OR = {
+				has_dlc_feature = foreign_investment
+				has_dlc_feature = mp1_treaties
+			}
+		}
+		create_treaty = {
+			name = treaty_name_quadruple_alliance
+			first_country = c:GBR
+			second_country = c:POR
+
+			is_draft = no
+			entered_into_force_on = 1775.4.22
+			binding_period = { years = 10 } # 8 years
+
+			articles_to_create = {
+				{ # Anglo-Portuguese Alliance
+					article = defensive_pact
+				}
+				{ # British Military Assistance to Portugal
+					article = military_assistance
+					source_country = c:GBR
+					target_country = c:POR
+				}
+				{ # British Economic interests in Portugal
+					article = foreign_investment_rights
+					source_country = c:POR
+					target_country = c:GBR
+				}
+				{ # British Portuguese Trade Agreement
+					article = trade_privilege
+					source_country = c:GBR
+					target_country = c:POR
+				}
+				{ # British Portuguese Trade Agreement
+					article = trade_privilege
+					source_country = c:POR
+					target_country = c:GBR
+				}
+				{ # Port wine trade
+					article = goods_transfer
+					source_country = c:POR
+					target_country = c:GBR
+					inputs = {
+						{ goods = g:wine }
+						{ quantity = 20 }
+					}
+				}
+			}
+		}
+	}
+	else = {
+		create_treaty = {
+			name = treaty_name_quadruple_alliance
+			first_country = c:GBR
+			second_country = c:POR
+
+			is_draft = no
+			entered_into_force_on = 1775.4.22
+			binding_period = { years = 10 } # 8 years
+
+			articles_to_create = {
+				{ # Anglo-Portuguese Alliance
+					article = defensive_pact
+				}
+				{ # British Military Assistance to Portugal
+					article = military_assistance
+					source_country = c:GBR
+					target_country = c:POR
+				}
+				{ # British Portuguese Trade Agreement
+					article = trade_privilege
+					source_country = c:GBR
+					target_country = c:POR
+				}
+				{ # Port wine trade
+					article = goods_transfer
+					source_country = c:POR
+					target_country = c:GBR
+					inputs = {
+						{ goods = g:wine }
+						{ quantity = 20 }
+					}
+				}
+			}
+		}
+	}
+
+	# Quadruple Alliance - POR/SPA
+	create_treaty = {
+		name = treaty_name_quadruple_alliance
+		first_country = c:SPA
+		second_country = c:POR
+
+		is_draft = no
+		entered_into_force_on = 1775.4.22
+		binding_period = { years = 10 } # 8 years
+
+		articles_to_create = {
+			{ # Defensive Pact
+				article = defensive_pact
+			}
+		}
+	}
+
+	# Transit Rights Agreement for Switzerland
+	create_treaty = {
+		name = treaty_name_swi_transit_rights
+		first_country = c:SWI
+		second_country = c:FRA
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 } # 10 years
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:FRA
+				target_country = c:SWI
+			}
+		}
+	}
+
+	# Transit Rights Agreement for Luxemburg
+	create_treaty = {
+		name = treaty_name_lux_transit_rights
+		first_country = c:PRU # Luxemburg was a part of the German Confederation and Zollverein but we cant represent it in-game (for now)
+		second_country = c:LUX
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 } # 10 years
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:PRU
+				target_country = c:LUX
+			}
+		}
+	}
+
+	# Macau Treaty Port
+	create_treaty = {
+		name = treaty_name_luso_chinese_agreement
+		first_country = c:POR
+		second_country = c:CHI
+
+		is_draft = no
+		entered_into_force_on = 1554.1.1 # Establishment of Portugese Macau
+		binding_period = { years = 381 } # 99 year binding period after start of game
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:CHI
+				target_country = c:POR
+				inputs = {
+					{ state = s:STATE_GUANGDONG.region_state:CHI }
+				}
+			}
+			{
+				article = money_transfer
+				source_country = c:POR
+				target_country = c:CHI
+				inputs = {
+					{ quantity = 150 } # The rent of Macau was 500 taels, about 700 spanish dollars or 145 pounds in 1840 (based on silver prices)
+				}
+			}
+		}
+	}
+
+	# Singapore Treaty Port
+
+
+	# Hormuz Treaty Port
+	create_treaty = {
+
+		first_country = c:OMA
+		second_country = c:PER
+
+		is_draft = no
+		entered_into_force_on = 1733.1.1
+		binding_period = { years = 142 } # 99 year binding period after start of game
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:PER
+				target_country = c:OMA
+				inputs = {
+					{ state = s:STATE_LARISTAN.region_state:PER }
+				}
+			}
+			{
+				article = money_transfer
+				source_country = c:OMA
+				target_country = c:PER
+				inputs = {
+					{ quantity = 100 } # Loose estimate, the rent was 'thousands of tomans per year' (1 toman was roughly equal to a pound in 1815)
+				}
+			}
+		}
+	}
+	
+	# Durrani - Oman Treaty Ports
+	create_treaty = {
+
+		first_country = c:OMA
+		second_country = c:DUR
+
+		is_draft = no
+		entered_into_force_on = 1733.1.1
+		binding_period = { years = 142 } # 99 year binding period after start of game
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:DUR
+				target_country = c:OMA
+				inputs = {
+					{ state = s:STATE_BALUCHISTAN.region_state:DUR }
+				}
+			}
+			{
+				article = money_transfer
+				source_country = c:OMA
+				target_country = c:DUR
+				inputs = {
+					{ quantity = 50 } # Loose estimate, the rent was 'thousands of tomans per year' (1 toman was roughly equal to a pound in 1815)
+				}
+			}
+		}
+	}
+	
+	create_treaty = {
+
+		first_country = c:OMA
+		second_country = c:DUR
+
+		is_draft = no
+		entered_into_force_on = 1733.1.1
+		binding_period = { years = 142 } # 99 year binding period after start of game
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:DUR
+				target_country = c:OMA
+				inputs = {
+					{ state = s:STATE_SISTAN.region_state:DUR }
+				}
+			}
+			{
+				article = money_transfer
+				source_country = c:OMA
+				target_country = c:DUR
+				inputs = {
+					{ quantity = 50 } # Loose estimate, the rent was 'thousands of tomans per year' (1 toman was roughly equal to a pound in 1815)
+				}
+			}
+		}
+	}
+
+	# Prussia Military Access
+	create_treaty = {
+		first_country = c:PRU
+		second_country = c:SWE
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 } # 10 year binding period after start of game
+
+		articles_to_create = {
+			{
+				article = military_access
+				source_country = c:SWE
+				target_country = c:PRU
+			}
+			{
+				article = military_access
+				source_country = c:PRU
+				target_country = c:SWE
+			}
+		}
+	}
+	create_treaty = {
+		first_country = c:PRU
+		second_country = c:BAV
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 } # 10 year binding period after start of game
+
+		articles_to_create = {
+			{
+				article = military_access
+				source_country = c:PRU
+				target_country = c:BAV
+			}
+			{
+				article = military_access
+				source_country = c:BAV
+				target_country = c:PRU
+			}
+		}
+	}
+
+	# Dutch-Japanese Trade relationship / Dejima, Nagasaki / Not official treaty
+	create_treaty = {
+		name = treaty_name_dejima_trade
+		first_country = c:NET
+		second_country = c:JAP
+
+		is_draft = no
+		entered_into_force_on = 1750.12.31 # Date of VOC dissolution
+		binding_period = { years = 60 } # 23 years until the Opening of Japan
+
+		articles_to_create = {
+			{ # Glasswares
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:NET
+				inputs = {
+					{ goods = g:glass }
+					{ quantity = 20 }
+				}
+			}
+			{ # Porcelain Trade
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:NET
+				inputs = {
+					{ goods = g:porcelain }
+					{ quantity = 20 }
+				}
+			}
+			{ # Silk Trade
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:NET
+				inputs = {
+					{ goods = g:silk }
+					{ quantity = 40 }
+				}
+			}
+			{ # Spirits Trade
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 30 }
+				}
+			}
+		}
+	}
+
+
+	# Sino-Japanese Trade relationship / Nagasaki / Not official treaty
+	create_treaty = {
+		name = treaty_name_nagasaki_trade
+		first_country = c:CHI
+		second_country = c:JAP
+
+		is_draft = no
+		entered_into_force_on = 1604.1.15 # Year when Tokugawa Ieyasu authorized formal trade with China in Nagasaki
+		binding_period = { years = 190 } # 18 years
+
+		articles_to_create = {
+			{ # Copper (-isch.) trade
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:lead }
+					{ quantity = 20 }
+				}
+			}
+			{
+				article = goods_transfer
+				source_country = c:CHI
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:tools }
+					{ quantity = 20 }
+				}
+			}
+		}
+	}
+	
+
+
+	# Siam supporting Cambodian independence - TODO fix this PRCAL-39401
+	create_treaty = {
+		first_country = c:SIA
+		second_country = c:CAM
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1 # End of the last war
+		binding_period = { years = 10 } # However long you want, really
+
+		articles_to_create = {
+			{
+				article = support_independence
+				source_country = c:SIA
+				target_country = c:CAM
+			}
+		}
+	}
+
+	#Russia is protecting Montenegro from being outright invaded by the Ottomans
+	create_treaty = {
+		name = treaty_name_rus_mon
+		first_country = c:RUS
+		second_country = c:MON
+
+		is_draft = no
+		entered_into_force_on = 1775.6.15
+		binding_period = { years = 35 }
+
+		articles_to_create = {
+			{
+				article = guarantee_independence
+				source_country = c:RUS
+				target_country = c:MON
+			}
+		}
+	}
+
+	# Treaty of Adrianople - Wallachia
+	create_treaty = {
+		name = treaty_name_treaty_of_adrianople
+		first_country = c:RUS
+		second_country = c:WAL
+
+		is_draft = no
+		entered_into_force_on = 1775.9.14
+		binding_period = { years = 30 } # The Organic Regulation ended in 1856
+
+		articles_to_create = {
+			{ # Organic Regulation
+				article = law_commitment
+				source_country = c:WAL
+				target_country = c:RUS
+				inputs = {
+					{ law_type = law_type:law_organic_regulation }
+				}
+			}
+			{ # Russian occupation
+				article = military_access
+				source_country = c:WAL
+				target_country = c:RUS
+			}
+			{ # Russian occupation
+				article = host_power_bloc_embassy
+				source_country = c:WAL
+				target_country = c:RUS
+			}
+			{ # To increase liberty desire
+				article = support_independence
+				source_country = c:RUS
+				target_country = c:WAL
+			}
+		}
+	}
+
+	# Treaty of Adrianople - Moldavia
+	create_treaty = {
+		name = treaty_name_treaty_of_adrianople
+		first_country = c:RUS
+		second_country = c:MOL
+
+		is_draft = no
+		entered_into_force_on = 1775.9.14
+		binding_period = { years = 30 } # The Organic Regulation ended in 1856
+
+		articles_to_create = {
+			{ # Organic Regulation
+				article = law_commitment
+				source_country = c:MOL
+				target_country = c:RUS
+				inputs = {
+					{ law_type = law_type:law_organic_regulation }
+				}
+			}
+			{ # Russian occupation
+				article = military_access
+				source_country = c:MOL
+				target_country = c:RUS
+			}
+			{ # Russian occupation
+				article = host_power_bloc_embassy
+				source_country = c:MOL
+				target_country = c:RUS
+			}
+			{ # To increase liberty desire
+				article = support_independence
+				source_country = c:RUS
+				target_country = c:MOL
+			}
+		}
+	}
+
+	#######################################################
+	# 			Anti-Cheese Treaties of 1836			  #
+	# not precisely historical, but good for game balance #
+	#######################################################
+
+	#Historically Russia was  giving food to stop Montenegro from Starving. Unfortunately can't be done in our game currently, so it's coming via Austria so they don't starve to death.
+
+	#Austria provides transit access and some grain aid (which historically came from Russia but this isn't possible ingame so it must come via Austria)
+	# Now it comes from Venice!
+	create_treaty = {
+		#name = treaty_name_mon_orthodox_donations
+		first_country = c:MON
+		second_country = c:VEN
+
+		is_draft = no
+		entered_into_force_on = 1775.1.15
+		binding_period = { years = 40 }
+
+		articles_to_create = {
+			{ # Pity for the poor
+				article = goods_transfer
+				source_country = c:VEN
+				target_country = c:MON
+				inputs = {
+					{ goods = g:grain }
+					{ quantity = 18 }
+				}
+			}
+			{ # an apple a day keeps the doctor (economic collapse from trade centres overordering) away. 
+				article = goods_transfer
+				source_country = c:VEN
+				target_country = c:MON
+				inputs = {
+					{ goods = g:fruit }
+					{ quantity = 4 }
+				}
+			}
+			{ # transit_rights_for_trade_centre
+				article = transit_rights
+				source_country = c:VEN
+				target_country = c:MON
+			}
+		}
+	}
+
+
+	### South African treaties for initial trading and such
+
+	create_treaty = {
+		first_country = c:DEI
+		second_country = c:ORA
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:DEI
+				target_country = c:ORA
+			}
+		}
+	}
+
+	create_treaty = {
+		first_country = c:DEI
+		second_country = c:TRN
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:DEI
+				target_country = c:TRN
+			}
+		}
+	}
+
+	create_treaty = {
+		first_country = c:ORA
+		second_country = c:TRN
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:ORA
+				target_country = c:TRN
+			}
+		}
+	}
+
+	create_treaty = {
+		first_country = c:PHL
+		second_country = c:ORA
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:PHL
+				target_country = c:ORA
+			}
+		}
+	}
+
+	create_treaty = {
+		first_country = c:PHL
+		second_country = c:TRN
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:PHL
+				target_country = c:TRN
+			}
+		}
+	}
+
+	create_treaty = {
+		first_country = c:PHL
+		second_country = c:DEI
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:PHL
+				target_country = c:DEI
+			}
+		}
+	}
+
+	# Yemen coffee trade
+	create_treaty = {
+		first_country = c:LAH
+		second_country = c:ZAI
+
+		is_draft = no
+		entered_into_force_on = 1775.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{
+				article = goods_transfer
+				source_country = c:ZAI
+				target_country = c:LAH
+				inputs = {
+					{ goods = g:coffee }
+					{ quantity = 20 }
+				}
+			}
+		}
+	}
+}

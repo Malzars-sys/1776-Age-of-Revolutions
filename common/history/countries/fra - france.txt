@@ -1,0 +1,72 @@
+﻿COUNTRIES = {
+	c:FRA ?= {
+		effect_starting_technology_tier_4_tech = yes
+		add_technology_researched = academia
+		add_technology_researched = colonization
+		add_technology_researched = line_infantry
+		add_technology_researched = romanticism
+#		set_tax_level = medium
+		
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:liquor
+
+		
+		# Laws
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism # Corn Laws, babyyy
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_no_health_system
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_manorialism # third estate baby thanks paradox for new laws
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_colonial_slavery
+		activate_law = law_type:law_agrarianism
+		
+		active_law:lawgroup_church_and_state ?= { # First Estate
+			add_amendment = {
+				type = amendment_first_estate
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+
+		active_law:lawgroup_land_reform ?= { # Second Estate
+			add_amendment = {
+				type = amendment_second_estate
+				sponsor = PREV.ig:ig_landowners
+			}
+		}			
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+
+		ig:ig_landowners = { 
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = { 
+			add_ruling_interest_group = yes
+		}		
+		
+		set_variable = {
+			name = fra_republic_counter
+			value = 1
+		}
+		set_variable = {
+			name = one_true_dynasty
+		}
+	}
+}

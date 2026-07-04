@@ -1,0 +1,83 @@
+﻿je_battle_for_india_goal = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_objectives
+
+	immediate = {
+
+	}
+	
+	complete = {
+		any_state = {
+			filter = {
+				OR = {
+					state_region = s:STATE_PUNJAB
+					state_region = s:STATE_HILL_PUNJAB
+					state_region = s:STATE_SINDH
+					state_region = s:STATE_PASHTUNISTAN
+					state_region = s:STATE_QUETTA
+					state_region = s:STATE_KASHMIR
+					state_region = s:STATE_BALUCHISTAN
+					state_region = s:STATE_MANDALAY
+					state_region = s:STATE_KACHIN
+					state_region = s:STATE_SHAN_STATES
+					state_region = s:STATE_PEGU
+					state_region = s:STATE_AWADH
+					state_region = s:STATE_BIHAR
+					state_region = s:STATE_BOMBAY
+					state_region = s:STATE_MALWA
+					state_region = s:STATE_CEYLON
+					state_region = s:STATE_CIRCARS
+					state_region = s:STATE_DELHI
+					state_region = s:STATE_GUJARAT
+					state_region = s:STATE_HYDERABAD
+					state_region = s:STATE_MADRAS
+					state_region = s:STATE_MYSORE
+					state_region = s:STATE_CENTRAL_PROVINCES
+					state_region = s:STATE_ORISSA
+					state_region = s:STATE_RAJPUTANA
+					state_region = s:STATE_TRAVANCORE
+					state_region = s:STATE_KURNOOL
+					state_region = s:STATE_BUNDELKHAND
+					state_region = s:STATE_AGRA
+					state_region = s:STATE_WEST_BENGAL
+					state_region = s:STATE_EAST_BENGAL
+				}
+			}
+			OR = {
+				owner = ROOT
+				owner = {
+					is_subject_of = ROOT
+				}
+				trigger_if = {
+					limit = {
+						exists = ROOT.top_overlord
+					}
+					OR = {
+						owner = ROOT.top_overlord
+						owner = {
+							is_subject_of = ROOT.top_overlord
+						}
+					}
+				}
+			}
+			percent >= 0.80
+		}
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		highest_secession_progress < 0.5
+	}
+	
+	invalid = {
+		has_variable = bic_collapse_var
+	}
+
+	goal_add_value = {
+		add = 120
+	}
+
+	should_be_pinned_by_default = yes
+
+	weight = 5000
+}

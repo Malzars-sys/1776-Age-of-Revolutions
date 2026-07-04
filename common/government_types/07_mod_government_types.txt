@@ -1,0 +1,105 @@
+﻿REPLACE:gov_presidential_oligarchy = {
+	transfer_of_power = dictatorial
+
+	male_ruler = "RULER_TITLE_PRESIDENT"
+	female_ruler = "RULER_TITLE_PRESIDENT"
+
+	possible = {
+		has_law_or_variant = law_type:law_presidential_republic
+		country_has_voting_franchise = no
+		NOT = {
+			coa_fascist_trigger = yes
+			c:PLC = ROOT
+		}
+		NAND = {
+			is_involved_in_journal_entry = je_peru_bolivia
+			has_variable = pbc_member
+		}
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+REPLACE:gov_presidential_democracy = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_PRESIDENT"
+	female_ruler = "RULER_TITLE_PRESIDENT"
+
+	possible = {
+		has_law_or_variant = law_type:law_presidential_republic
+		country_has_voting_franchise = yes
+		NOR = {
+			has_law = law_type:law_merchant_republic
+			has_law_or_variant = law_type:law_single_party_state
+			has_law_or_variant = law_type:law_technocracy
+			AND = {
+				country_has_primary_culture = cu:brazilian
+				has_law_or_variant = law_type:law_presidential_republic
+				has_law_or_variant = law_type:law_landed_voting
+				OR = {
+					has_law_or_variant = law_type:law_tenant_farmers
+					has_law_or_variant = law_type:law_serfdom
+				}
+			}
+		}
+		NAND = {
+			is_involved_in_journal_entry = je_peru_bolivia
+			has_variable = pbc_member
+		}
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}
+
+gov_elective_monarchy = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_MOD_KING_GRAND_DUKE"
+	female_ruler = "RULER_TITLE_MOD_QUEEN_GRAND_DUKE"
+
+	possible = {
+		has_law = law_type:law_presidential_republic
+		has_law = law_type:law_oligarchy
+		exists = c:PLC
+		c:PLC = ROOT
+	}
+
+	on_government_type_change = {
+		change_to_dictatorial = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_dictatorial = yes
+	}
+}
+
+gov_merchant_republic = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_DOGE"
+	female_ruler = "RULER_TITLE_DOGE"
+
+	possible = {
+		has_law = law_type:law_merchant_republic
+	}
+
+	on_government_type_change = {
+		change_to_presidential_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_presidential_elective = yes
+	}
+}

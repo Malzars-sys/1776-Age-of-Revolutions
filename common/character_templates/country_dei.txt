@@ -1,0 +1,29 @@
+﻿DEI_reinier_exec = { 
+	first_name = Reinier
+	last_name = de_Klerk
+	historical = yes
+    dna = dna_robert_grant
+    culture = cu:dutch
+	interest_group = ig_industrialists
+	ideology = ideology_moderate
+    # technically a ruler, but will be set as the ruler of BIC via the company
+	birth_date = 1732.12.6
+	traits = {
+        special_character_colonial_business
+		reckless
+	}
+	trait_generation = {
+
+	}
+    executive_usage = {
+        country_trigger = { # Must be the country that owns the company
+            c:NET ?= this
+        }
+        company_trigger = {
+            is_company_type = company_type:company_dutch_east_india_company
+        }
+        earliest_usage_date = 1776.1.1
+        latest_usage_date = 1818.1.1
+        chance = 100
+    }
+}

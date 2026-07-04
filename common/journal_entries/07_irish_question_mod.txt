@@ -1,0 +1,78 @@
+﻿je_irish_question = { # Just to trigger when Ireland revolts to do Acts of Union
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_historical_content
+	
+    is_shown_in_lobby = {
+        c:IREK ?= THIS
+    }
+
+#    possible = {
+#        c:IREK = THIS
+#    }
+	
+	immediate = {
+	
+	}
+	
+#	is_shown_when_inactive = {
+#		AND = {
+#			exists = c:IREK
+#			c:IREK = THIS
+#		}
+#	}
+
+	complete = {
+		OR = {
+			has_revolution = yes	
+			has_any_secessionists_broken_out = yes
+		}
+	}
+
+	on_complete = {
+		c:GBR ?= {
+			trigger_event = { id = irish_question.1 popup = yes }
+		}
+	}
+	
+	fail = {
+		NOT = {
+			c:IREK ?= {
+				is_subject_of = c:GBR
+			}
+		}
+	}
+	
+	on_fail = {
+		change_tag = IRE
+		hidden_effect = {
+			activate_law = law_type:law_parliamentary_republic
+			remove_primary_culture = cu:british
+			remove_primary_culture = cu:scottish
+			add_primary_culture = cu:irish
+			set_state_religion = rel:catholic
+			state_religion_switch_effect = yes
+			every_scope_character = {
+				limit = {
+					culture = cu:british
+					is_immortal = no
+				}
+				kill_character = yes
+			}
+		}
+	}
+	
+    on_monthly_pulse = {
+        random_events = {
+			150 = 0
+			20 = irek_revolts.1
+			40 = irek_revolts.2
+        }
+    }
+
+	weight = 10
+
+	should_be_pinned_by_default = yes
+	transferable = no
+}
+

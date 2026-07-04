@@ -1,0 +1,51 @@
+﻿je_hindustan_is_durrani = {
+    icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_historical_content
+
+    is_shown_in_lobby = {
+        c:DUR ?= this
+    }
+
+    immediate = {
+
+    }
+    complete = {
+		any_scope_state = {
+			region = sr:region_central_india
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		any_scope_state = {
+			region = sr:region_punjab
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+		any_scope_state = {
+			region = sr:region_bombay
+			is_largest_state_in_region = yes
+			count >= 2
+		}
+    }
+
+    on_complete = {
+		add_primary_culture = cu:hindustani
+#		activate_law = law_type:law_hindu_caste_enforced
+		trigger_event = { id = battle_for_india_events.1 }
+    }
+
+    fail = {
+        NOT = {
+			any_scope_state = {
+				OR = {
+					region = sr:region_central_india
+					region = sr:region_punjab
+					region = sr:region_bombay
+				}
+			}
+        }
+    }
+	
+    weight = 1000
+    should_be_pinned_by_default = yes
+}

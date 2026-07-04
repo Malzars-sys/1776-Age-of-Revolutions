@@ -1,0 +1,92 @@
+﻿namespace = haiti_independence
+
+haiti_independence.1 = {
+	type = country_event
+	placement = root
+
+	title = haiti_independence.1.t
+	desc = haiti_independence1.d
+	flavor = haiti_independence.1.f
+
+	event_image = {
+		video = "europenorthamerica_springtime_of_nations"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	duration = 3
+
+	cooldown = { days = very_long_modifier_time }
+	
+
+	trigger = {
+		c:HAI ?= this
+		is_subject = no
+		is_at_war = no
+		NOT = {
+			has_variable = bic_collapse_var
+		}
+	}
+
+	immediate = {
+		set_variable = bic_collapse_var #Intended
+
+	}
+
+	option = {
+		name = haiti_independence.1.a
+		default_option = yes
+		ai_chance = {
+			base = 8 # this is the default pick for the AI
+		}
+
+
+		ig:ig_industrialists = {
+			remove_ideology = ideology_colonialist
+			add_ideology = ideology_laissez_faire
+		}
+		remove_primary_culture = cu:french
+		add_primary_culture = cu:afro_antillean
+		activate_law = law_type:law_slavery_banned
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		hidden_effect = {
+
+#			set_state_religion = rel:catholic
+#			state_religion_switch_effect = yes
+			every_scope_character = {
+				limit = {
+					culture = cu:french
+					is_immortal = no
+				}
+				kill_character = yes
+			}
+		}
+	}
+	
+	option = {
+		name = haiti_independence.1.b
+		highlighted_option = yes
+		ai_chance = {
+			factor = 5
+		}
+		ig:ig_industrialists = {
+			remove_ideology = ideology_colonialist
+			add_ideology = ideology_laissez_faire
+		}
+		remove_primary_culture = cu:french
+		add_primary_culture = cu:afro_antillean
+		activate_law = law_type:law_slavery_banned
+		hidden_effect = {
+			every_scope_character = {
+				limit = {
+					culture = cu:french
+					is_immortal = no
+				}
+				kill_character = yes
+			}
+		}
+	}
+}

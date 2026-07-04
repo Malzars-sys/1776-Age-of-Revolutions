@@ -1,0 +1,257 @@
+﻿je_sale_of_florida_mod = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_foreign_affairs
+
+	is_shown_when_inactive = {
+		OR = {
+			is_in_geographic_region = geographic_region_east_asia
+			is_in_geographic_region = geographic_region_europe
+		}
+		OR = {
+			has_state_in_state_region = STATE_FLORIDA
+			any_subject_or_below = {
+				has_state_in_state_region = STATE_FLORIDA
+			}
+		}
+	}
+
+	scripted_button = je_sell_florida_button
+
+	possible = {
+		year >= 1783
+		is_subject = no
+		OR = {
+			any_scope_state = {
+				state_region = s:STATE_FLORIDA
+			}
+			any_subject_or_below = {
+				any_scope_state = {
+					state_region = s:STATE_FLORIDA
+				}
+			}
+		}
+		custom_tooltip = {
+			text = unfriendly_nation_with_interest_in_florida_tt
+			any_country = {
+				country_rank >= root.country_rank
+				has_interest_marker_in_region = sr:region_dixie
+				relations:root < 0
+			}
+		}
+		custom_tooltip = {
+			text = friendly_nation_with_interest_in_florida_tt
+			any_country_in_north_america = {
+				NOT = {
+					is_subject = yes
+				}
+				relations:root >= 0
+				country_rank >= rank_value:great_power
+				any_scope_state = {
+					region = sr:region_dixie
+					is_incorporated = yes
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				state_region = s:STATE_FLORIDA
+				OR = {
+					owner = ROOT
+					owner = {
+						is_subject_of = ROOT
+					}
+				}
+			}
+			save_scope_as = florida_scope
+			owner = {
+				save_scope_as = florida_owner_scope
+			}
+		}
+		ruler = {
+			save_scope_as = ruler_scope
+		}
+	}
+
+	complete = {
+		custom_tooltip = {
+			text = sold_florida_tt
+			has_variable = successful_sale_of_florida
+		}
+	}
+
+	on_complete = {
+		custom_tooltip = {
+			text = selling_florida_tt
+		}
+	}
+
+	weight = 200
+
+	transferable = no
+
+	should_be_pinned_by_default = yes
+}
+
+je_buying_florida_mod = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_usa_manifest_destiny
+
+	is_shown_when_inactive = {
+		has_interest_marker_in_region = region_dixie
+		has_technology_researched = nationalism
+		hidden_trigger = {
+			NOT = { has_global_variable = florida_sold }
+		}
+	}
+
+	scripted_button = je_buy_florida_button
+
+	possible = {
+		is_subject = no
+		any_scope_state = {
+			is_incorporated = yes
+			region = sr:region_dixie
+			is_homeland_of_country_cultures = ROOT
+		}
+		NOR = {
+			owns_entire_state_region = STATE_FLORIDA
+			any_subject_or_below = {
+				owns_entire_state_region = STATE_FLORIDA
+			}
+		}
+		country_rank >= rank_value:great_power
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				state_region = s:STATE_FLORIDA
+				owner = {
+					NOT = {
+						is_country_type = decentralized
+					}
+				}
+			}
+			save_scope_as = florida_state
+		}
+	}
+
+	complete = {
+		s:STATE_FLORIDA = {
+			any_scope_state = {
+				OR = {
+					owner = root
+					owner = {
+						AND = {
+							is_subject_of = root
+							capital = {
+								state_region = s:STATE_FLORIDA
+							}
+						}
+					}
+				}
+			}
+			any_scope_state = {
+				OR = {
+					owner = root
+					owner = {
+						AND = {
+							is_subject_of = root
+							capital = {
+								state_region = s:STATE_FLORIDA
+							}
+						}
+					}
+					owner = {
+						is_country_type = decentralized
+					}
+				}
+				count = all
+			}
+		}
+	}
+
+	on_complete = {
+		set_global_variable = florida_sold
+		add_modifier = {
+			name = conquest_of_florida
+			days = normal_modifier_time
+		}
+	}
+
+	timeout = 7300
+
+	weight = 200
+
+	transferable = no
+
+	should_be_pinned_by_default = yes
+}
+
+je_northwest_frontier_mod = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_usa_manifest_destiny
+
+	is_shown_when_inactive = {
+		c:USA ?= this
+	}
+
+	possible = {
+		c:USA ?= this
+		is_subject = no
+		OR = {
+			any_scope_state = {
+				state_region = s:STATE_OHIO
+			}
+			any_subject_or_below = {
+				any_scope_state = {
+					state_region = s:STATE_OHIO # Ohio border region. Indiana, Illinois, Wisconsin, Michigan
+				}
+			}
+		}
+	}
+
+	immediate = {
+		trigger_event = { id = america_michigan_war_mod.1 }
+	}
+
+	complete = {
+		owns_entire_state_region = STATE_OHIO
+		owns_entire_state_region = STATE_WISCONSIN
+		owns_entire_state_region = STATE_INDIANA
+		owns_entire_state_region = STATE_MICHIGAN
+		owns_entire_state_region = STATE_ILLINOIS
+	}
+
+#	fail = {
+#		NOT = {
+#			ROOT = {
+#				has_claim = s:STATE_OHIO
+#				has_claim = s:STATE_WISCONSIN
+#				has_claim = s:STATE_INDIANA
+#				has_claim = s:STATE_MICHIGAN
+#			}
+#		}
+#	}
+
+	on_complete = {
+        add_modifier = {
+            name = mod_land_of_free
+			days = normal_modifier_time
+        }
+	}
+	
+	timeout = 2300
+	
+	weight = 200
+
+	transferable = yes
+
+	should_be_pinned_by_default = yes
+}
