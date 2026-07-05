@@ -2936,14 +2936,14 @@
 			}
 		}
 	}
-	s:STATE_CHUBU={
+	s:STATE_TOKAI={
 		region_state:JAP={
 			create_building={
 				building="building_government_administration"
 				add_ownership={
 					country={
 						country="c:JAP"
-						levels=5
+						levels=3
 					}
 				}
 				reserves=1
@@ -2966,8 +2966,8 @@
 					building={
 						type="building_paper_mill"
 						country="c:JAP"
-						levels=2
-						region="STATE_CHUBU"
+						levels=1
+						region="STATE_TOKAI"
 					}
 				}
 				reserves=1
@@ -2979,8 +2979,8 @@
 					building={
 						type="building_furniture_manufactory"
 						country="c:JAP"
-						levels=2
-						region="STATE_CHUBU"
+						levels=1
+						region="STATE_TOKAI"
 					}
 				}
 				reserves=1
@@ -2992,8 +2992,8 @@
 					building={
 						type="building_logging_camp"
 						country="c:JAP"
-						levels=4
-						region="STATE_CHUBU"
+						levels=2
+						region="STATE_TOKAI"
 					}
 				}
 				reserves=1
@@ -3005,8 +3005,8 @@
 					building={
 						type="building_manor_house"
 						country="c:JAP"
-						levels=2
-						region="STATE_CHUBU"
+						levels=1
+						region="STATE_TOKAI"
 					}
 				}
 				reserves=1
@@ -3018,8 +3018,8 @@
 					building={
 						type="building_manor_house"
 						country="c:JAP"
-						levels=2
-						region="STATE_CHUBU"
+						levels=1
+						region="STATE_TOKAI"
 					}
 				}
 				reserves=1
@@ -3031,8 +3031,8 @@
 					building={
 						type="building_manor_house"
 						country="c:JAP"
-						levels=2
-						region="STATE_CHUBU"
+						levels=1
+						region="STATE_TOKAI"
 					}
 				}
 				reserves=1
@@ -3044,8 +3044,8 @@
 					building={
 						type="building_manor_house"
 						country="c:JAP"
-						levels=4
-						region="STATE_CHUBU"
+						levels=2
+						region="STATE_TOKAI"
 					}
 				}
 				reserves=1
@@ -3056,11 +3056,182 @@
 				add_ownership={
 					country={
 						country="c:JAP"
-						levels=15
+						levels=8
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_no_organization" }
+			}
+		}
+	}
+	s:STATE_HOKUSHINETSU={
+		region_state:JAP={
+			create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:JAP"
+						levels=2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_horizontal_drawer_cabinets" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			}
+			create_building={
+				building="building_paper_mill"
+				add_ownership={
+					building={
+						type="building_paper_mill"
+						country="c:JAP"
+						levels=1
+						region="STATE_HOKUSHINETSU"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_pulp_pressing" "pm_automation_disabled"  }
+			}
+			create_building={
+				building="building_furniture_manufactory"
+				add_ownership={
+					building={
+						type="building_furniture_manufactory"
+						country="c:JAP"
+						levels=1
+						region="STATE_HOKUSHINETSU"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_handcrafted_furniture"  "pm_automation_disabled" "pm_luxury_furniture" }
+			}
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_logging_camp"
+						country="c:JAP"
+						levels=2
+						region="STATE_HOKUSHINETSU"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry"  "pm_no_equipment" "pm_road_carts" "pm_hardwood" }
+			}
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:JAP"
+						levels=1
+						region="STATE_HOKUSHINETSU"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated"  }
+			}
+			create_building={
+				building="building_rice_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:JAP"
+						levels=1
+						region="STATE_HOKUSHINETSU"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming_building_rice_farm"  "pm_tools_disabled" "pm_fig_orchards_building_rice_farm" }
+			}
+			create_building={
+				building="building_tobacco_plantation"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:JAP"
+						levels=1
+						region="STATE_HOKUSHINETSU"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_tobacco_plantation" "pm_road_carts"  }
+			}
+			create_building={
+				building="building_tea_plantation"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:JAP"
+						levels=2
+						region="STATE_HOKUSHINETSU"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_tea_plantation" "pm_road_carts"  }
+			}
+			create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:JAP"
+						levels=7
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+		}
+	}
+	s:STATE_KYOTO={
+		region_state:JAP={
+			create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:JAP"
+						levels=2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_horizontal_drawer_cabinets" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			}
+			create_building={
+				building="building_silk_plantation"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:JAP"
+						levels=1
+						region="STATE_KYOTO"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_silk_plantation" "pm_road_carts"  }
+			}
+			create_building={
+				building="building_tea_plantation"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:JAP"
+						levels=1
+						region="STATE_KYOTO"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_tea_plantation" "pm_road_carts"  }
+			}
+			create_building={
+				building="building_rice_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:JAP"
+						levels=1
+						region="STATE_KYOTO"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming_building_rice_farm"  "pm_tools_disabled" "pm_fig_orchards_building_rice_farm" }
 			}
 		}
 	}
