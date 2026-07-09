@@ -1151,184 +1151,202 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_france
+			hq_region = sr:region_western_europe
 			name = Escadre_du_Nord # Somewhat anachronistic formation
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_FRENCH_LOW_COUNTRIES
-				count = 7
+				count = 4
 			}
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_BRITTANY
-				count = 8
+				count = 4
 			}
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_NORMANDY
-				count = 2
+				count = 1
 			}
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_POITOU
-				count = 3
+				count = 2
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_FRENCH_LOW_COUNTRIES
-				count = 11
+				count = 3
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_BRITTANY
-				count = 18
+				count = 4
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_NORMANDY
-				count = 6
+				count = 1
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_POITOU
-				count = 5
+				count = 2
 			}
-			save_scope_as = frenchnavy1_gen
+			save_scope_as = frenchnavy1
 		}
 		create_character = {
 			is_admiral = yes
-			age = 42
+			first_name = Louis_Guillouet
+			last_name = dOrvilliers
+			historical = yes
+			birth_date = 1710.3.26
 			culture = cu:french
 			interest_group = ig_armed_forces
 			ideology = ideology_authoritarian
 			traits = {
-				experienced_naval_commander
+				expert_naval_commander
 			}
-			save_scope_as = frenchnavy1_gen
+			save_scope_as = orvilliers_adm
 		}
 		create_character = {
 			is_admiral = yes
-			age = 35
+			first_name = Toussaint_Guillaume
+			last_name = Picquet_de_la_Motte
+			historical = yes
+			birth_date = 1720.11.1
 			culture = cu:french
 			interest_group = ig_armed_forces
 			ideology = ideology_royalist
 			traits = {
 				experienced_naval_commander
 			}
-			save_scope_as = frenchnavy11_gen
+			save_scope_as = picquet_adm
 		}
 		create_character = {
 			is_admiral = yes
-			age = 29
-			culture = cu:french
-			interest_group = ig_armed_forces
-			ideology = ideology_radical
-			traits = {
-				experienced_naval_commander
-			}
-			save_scope_as = frenchnavy711_gen
-		}
-		scope:frenchnavy1_gen = {
-			transfer_to_formation = scope:frenchnavy1_gen
-		}
-		scope:frenchnavy11_gen = {
-			transfer_to_formation = scope:frenchnavy1_gen
-		}
-		scope:frenchnavy711_gen = {
-			transfer_to_formation = scope:frenchnavy1_gen
-		}
-
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_occitania
-			name = Escadre_de_la_Mditerrane # Slightly anachronistic formation
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_PROVENCE
-				count = 9
-			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_LANGUEDOC
-				count = 4
-			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_AQUITAINE
-				count = 3
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_PROVENCE
-				count = 11
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_LANGUEDOC
-				count = 3
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_AQUITAINE
-				count = 10
-			}
-
-			save_scope_as = fleetmedfra
-		}
-		create_character = {
-			is_admiral = yes
-			age = 42
-			culture = cu:french
-			interest_group = ig_armed_forces
-			ideology = ideology_authoritarian
-			traits = {
-				experienced_naval_commander
-			}
-			save_scope_as = fleetmedfra_gen
-		}
-		create_character = {
-			is_admiral = yes
-			age = 28
-			culture = cu:french
-			interest_group = ig_armed_forces
-			ideology = ideology_radical
-			traits = {
-				experienced_naval_commander
-			}
-			save_scope_as = fleetmedfra71_gen
-		}
-		create_character = {
-			is_admiral = yes
-			age = 28
+			first_name = Luc_Urbain
+			last_name = de_Guichen
+			historical = yes
+			birth_date = 1712.6.21
 			culture = cu:french
 			interest_group = ig_armed_forces
 			ideology = ideology_moderate
 			traits = {
 				experienced_naval_commander
 			}
-			save_scope_as = fleetmedfra7z1_gen
+			save_scope_as = guichen_adm
 		}
-		scope:fleetmedfra7z1_gen = {
+		scope:orvilliers_adm = {
+			transfer_to_formation = scope:frenchnavy1
+		}
+		scope:picquet_adm = {
+			transfer_to_formation = scope:frenchnavy1
+		}
+		scope:guichen_adm = {
+			transfer_to_formation = scope:frenchnavy1
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = Escadre_de_la_Mditerrane # Slightly anachronistic formation
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				state_region = s:STATE_PROVENCE
+				count = 4
+			}
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				state_region = s:STATE_LANGUEDOC
+				count = 2
+			}
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				state_region = s:STATE_AQUITAINE
+				count = 1
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				state_region = s:STATE_PROVENCE
+				count = 3
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				state_region = s:STATE_LANGUEDOC
+				count = 1
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				state_region = s:STATE_AQUITAINE
+				count = 2
+			}
+
+			save_scope_as = fleetmedfra
+		}
+		create_character = {
+			is_admiral = yes
+			first_name = Pierre_Andre
+			last_name = de_Suffren
+			historical = yes
+			birth_date = 1729.7.17
+			culture = cu:french
+			interest_group = ig_armed_forces
+			ideology = ideology_royalist
+			traits = {
+				expert_naval_commander
+			}
+			save_scope_as = suffren_adm
+		}
+		create_character = {
+			is_admiral = yes
+			first_name = Jean_Baptiste
+			last_name = dAlbert_de_Rions
+			historical = yes
+			birth_date = 1728.7.19
+			culture = cu:french
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			traits = {
+				experienced_naval_commander
+			}
+			save_scope_as = rions_adm
+		}
+		create_character = {
+			is_admiral = yes
+			first_name = Charles_Hector
+			last_name = dEstaing
+			historical = yes
+			birth_date = 1729.11.24
+			culture = cu:french
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			traits = {
+				experienced_naval_commander
+			}
+			save_scope_as = destaing_adm
+		}
+		scope:destaing_adm = {
 			transfer_to_formation = scope:fleetmedfra
 		}
-		scope:fleetmedfra71_gen = {
+		scope:rions_adm = {
 			transfer_to_formation = scope:fleetmedfra
 		}
-		scope:fleetmedfra_gen = {
+		scope:suffren_adm = {
 			transfer_to_formation = scope:fleetmedfra
 		}
 
@@ -1698,38 +1716,41 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_england
+			hq_region = sr:region_western_europe
 			name = Portsmouth_Station
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_WEST_COUNTRY
-				count = 30
+				count = 6
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_LANCASHIRE
-				count = 40
+				count = 7
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_MIDLANDS
-				count = 9
+				count = 2
 			}
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_HOME_COUNTIES
-				count = 18
+				count = 4
 			}
 			save_scope_as = fleet_gbr1
 		}
 		
 		create_character = {
 			is_admiral = yes
-			age = 38
-			culture = cu:scottish
+			first_name = Augustus
+			last_name = Keppel
+			historical = yes
+			birth_date = 1725.4.25
+			culture = cu:british
 			interest_group = ig_armed_forces
 			ideology = ideology_moderate
 			traits = {
@@ -1740,8 +1761,11 @@
 		}
 		create_character = {
 			is_admiral = yes
-			age = 38
-			culture = cu:irish
+			first_name = Peter
+			last_name = Parker
+			historical = yes
+			birth_date = 1721.1.1
+			culture = cu:british
 			interest_group = ig_armed_forces
 			ideology = ideology_moderate
 			traits = {
@@ -1751,16 +1775,22 @@
 		}
 		create_character = {
 			is_admiral = yes
-			age = 28
-			culture = cu:irish
+			first_name = Richard
+			last_name = Kempenfelt
+			historical = yes
+			birth_date = 1718.1.1
+			culture = cu:british
 			interest_group = ig_armed_forces
 			ideology = ideology_moderate
 			traits = {
 				experienced_convoy_raider
 			}
-			save_scope_as = fleet_gbr2_adm
+			save_scope_as = fleet_gbr2_aux_adm
 		}
 		
+		scope:fleet_gbr2_aux_adm = {
+			transfer_to_formation = scope:fleet_gbr1
+		}
 		scope:fleet_gbr2_adm = {
 			transfer_to_formation = scope:fleet_gbr1
 		}
@@ -1770,83 +1800,92 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_england
+			hq_region = sr:region_western_europe
 			name = Plymouth_Station
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_EAST_ANGLIA
-				count = 19
+				count = 6
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_YORKSHIRE
-				count = 25
+				count = 6
 			}
 			save_scope_as = zz_adm_gbr3
 		}
 		
 		create_character = {
 			is_admiral = yes
-			age = 28
+			first_name = Samuel
+			last_name = Barrington
+			historical = yes
+			birth_date = 1729.1.1
 			culture = cu:british
 			interest_group = ig_armed_forces
 			ideology = ideology_moderate
 			traits = {
-				experienced_convoy_raider
+				experienced_naval_commander
 			}
 			save_scope_as = fleet_gbr3_adm
 		}
 		create_character = {
 			is_admiral = yes
-			age = 28
+			first_name = Francis
+			last_name = Geary
+			historical = yes
+			birth_date = 1709.1.1
 			culture = cu:british
 			interest_group = ig_armed_forces
 			ideology = ideology_moderate
 			traits = {
-				basic_naval_commander
+				experienced_naval_commander
 			}
 			save_scope_as = fleet_gbr31_adm
 		}
 		
+		scope:fleet_gbr3_adm = {
+			transfer_to_formation = scope:zz_adm_gbr3
+		}
 		scope:fleet_gbr31_adm = {
 			transfer_to_formation = scope:zz_adm_gbr3
 		}
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Mediterranean_Station
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_HOME_COUNTIES
-				count = 5
+				count = 2
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_MALTA
-				count = 4
+				count = 2
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_YORKSHIRE
-				count = 5
+				count = 1
 			}
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_MIDLANDS
-				count = 6
+				count = 3
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_LOWLANDS
-				count = 2
+				count = 1
 			}
 
 			save_scope_as = med_fleet_gbr
@@ -1854,96 +1893,94 @@
 
 		create_character = { # Sea
 			is_admiral = yes
-			first_name = Thomas
-			last_name = Cochrane
+			first_name = Samuel
+			last_name = Hood
 			historical = yes
 			culture = cu:british
 			interest_group = ig_armed_forces
 			ideology = ideology_royalist
-			birth_date = 1748.6.10 # exact date unknown
+			birth_date = 1724.12.12
 			traits = {
 				brave
 				expert_naval_commander
 			}
-#			template = GBR_thomas_cochrane
-			save_scope_as = thomas_adm
+			save_scope_as = hood_adm
 		}
 
-		scope:thomas_adm = {
+		scope:hood_adm = {
 			transfer_to_formation = scope:med_fleet_gbr
 		}
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_new_england
+			hq_region = sr:region_atlantic_coast
 			name = North_America_and_West_Indies_Station
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
+				state_region = s:STATE_HOME_COUNTIES
+				count = 4
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				state_region = s:STATE_BERMUDA
+				count = 1
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
 				state_region = s:STATE_HOME_COUNTIES
 				count = 1
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_BERMUDA
-				count = 2
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_HOME_COUNTIES
-				count = 2
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
 				state_region = s:STATE_JAMAICA
-				count = 2
+				count = 1
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_MIDLANDS
-				count = 6
+				count = 2
 			}
 			save_scope_as = north_amer_fleet
 		}
 
 		create_character = { # Sea
 			is_admiral = yes
-			first_name = George
-			last_name = Cockburn
+			first_name = Richard
+			last_name = Howe
 			historical = yes
-			age = 55
+			birth_date = 1726.3.8
 			culture = cu:british
 			traits = {
 				expert_naval_commander
 				brave
 			}
-			save_scope_as = cockburn_adm
-			# Burnt down washington
+			save_scope_as = howe_adm
 		}
 
-		scope:cockburn_adm = {
+		scope:howe_adm = {
 			transfer_to_formation = scope:north_amer_fleet
 		}
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_madras
+			hq_region = sr:region_indochina
 			name = East_Indies_and_China_Station # Includes the 1 frigate of the Australia Station too
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_LOWLANDS
-				count = 1
+				count = 2
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_EAST_ANGLIA
-				count = 6
+				count = 3
 			}
 
 			ship = {
@@ -1962,19 +1999,19 @@
 
 		create_character = { # Sea
 			is_admiral = yes
-			first_name = James
-			last_name = Dundas
+			first_name = Edward
+			last_name = Hughes
 			historical = yes
-			age = 40
+			birth_date = 1720.1.1
 			culture = cu:british
 			traits = {
 				expert_naval_commander
 				brave
 			}
-			save_scope_as = james_adm
+			save_scope_as = hughes_adm
 		}
 
-		scope:james_adm = {
+		scope:hughes_adm = {
 			transfer_to_formation = scope:india_china_fleet
 		}
 
@@ -4571,7 +4608,7 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_iberia
+			hq_region = sr:region_southern_europe
 			name = Real_Armada_Espaola
 
 			ship = {
@@ -4589,57 +4626,62 @@
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_GALICIA
-				count = 10
+				count = 4
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_LOWER_ANDALUSIA
-				count = 10
+				count = 4
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_VALENCIA
-				count = 10
+				count = 3
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_BALEARIC_ISLANDS
-				count = 10
+				count = 3
 			}
 			save_scope_as = spanishnavy1
 		}
 		create_character = {
 			is_admiral = yes
-			age = 35
+			first_name = Luis
+			last_name = de_Cordova_y_Cordova
+			historical = yes
+			birth_date = 1706.2.8
 			culture = cu:spanish
-			interest_group = ig_landowners
+			interest_group = ig_armed_forces
 			ideology = ideology_royalist
 			traits = {
-				experienced_naval_commander
+				expert_naval_commander
 				ambitious
 			}
-			save_scope_as = spanishnavy1_gen
+			save_scope_as = cordova_adm
 		}
 		create_character = {
 			is_admiral = yes
-			age = 31
+			first_name = Antonio
+			last_name = de_Ulloa
+			historical = yes
+			birth_date = 1716.1.12
 			culture = cu:spanish
-			interest_group = ig_landowners
+			interest_group = ig_armed_forces
 			ideology = ideology_royalist
 			traits = {
 				experienced_naval_commander
-				ambitious
 			}
-			save_scope_as = spanishnavy2_gen
+			save_scope_as = ulloa_adm
 		}
 
-		scope:spanishnavy1_gen = {
+		scope:cordova_adm = {
 			transfer_to_formation = scope:spanishnavy1
 		}
-		scope:spanishnavy2_gen = {
+		scope:ulloa_adm = {
 			transfer_to_formation = scope:spanishnavy1
 		}
 	}
