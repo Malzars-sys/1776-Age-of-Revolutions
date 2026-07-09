@@ -3444,25 +3444,25 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_baltic
-			name = Hgsjflottan
+			hq_region = sr:region_northern_europe
+			name = Orlogsflottan
 
 			ship = { # Carl XIII, Carl Johan, Försigtigheten, Stockholm
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_SVEALAND
-				count = 4
+				count = 3
 			}
 
 			ship = { # Äran, Dristigheten, Fäderneslandet - should be man'o'wars, but this results in unbalanced fleet
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_SVEALAND
-				count = 3
+				count = 2
 			}
 
 			ship = { # Gustaf den Store, Manligheten, Prins Oscar
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_SCANIA
-				count = 3
+				count = 2
 			}
 
 			ship = { # Skandinavien, Wasa
@@ -3474,7 +3474,7 @@
 			ship = { # Desiree, Camilla, Euridice
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_SVEALAND
-				count = 3
+				count = 2
 			}
 
 			ship = { # Galathea, Josephine
@@ -3488,6 +3488,28 @@
 				state_region = s:STATE_GOTALAND
 				count = 1
 			}
+			save_scope_as = swe_orlogsflottan
+		}
+
+		create_character = {
+			is_admiral = yes
+			first_name = navy_henrik_af
+			last_name = navy_trolle
+			historical = yes
+			age = 46
+			culture = cu:swedish
+			religion = rel:protestant
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			commander_rank = default
+			traits = {
+				experienced_naval_commander
+				cautious
+			}
+			save_scope_as = swe_trolle_adm
+		}
+		scope:swe_trolle_adm = {
+			transfer_to_formation = scope:swe_orlogsflottan
 		}
 	}
 
@@ -3555,7 +3577,7 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_baltic
+			hq_region = sr:region_northern_europe
 			name = Kongelige_Danske_Marine
 
 			ship = { # Dronning Maria, Waldemar, Frederik VI, Skiold, Danmark
@@ -3573,7 +3595,7 @@
 			ship = { # Freia, Rota, Havfruen, Bellona, Najaden, Perlen, Venus, Minerva
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_ZEALAND
-				count = 6
+				count = 5
 			}
 
 			ship = { # Nymphen, Fylla
@@ -3581,6 +3603,28 @@
 				state_region = s:STATE_JUTLAND
 				count = 2
 			}
+			save_scope_as = dennor_kongelige_danske_marine
+		}
+
+		create_character = {
+			is_admiral = yes
+			first_name = navy_frederik_christian
+			last_name = navy_kaas
+			historical = yes
+			age = 49
+			culture = cu:danish
+			religion = rel:protestant
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			commander_rank = default
+			traits = {
+				experienced_naval_commander
+				cautious
+			}
+			save_scope_as = dennor_kaas_adm
+		}
+		scope:dennor_kaas_adm = {
+			transfer_to_formation = scope:dennor_kongelige_danske_marine
 		}
 	}
 
@@ -3669,7 +3713,7 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_baltic
+			hq_region = sr:region_northern_europe
 			name = Kongelige_Norske_Marine
 
 			ship = { # Freia
@@ -4264,13 +4308,13 @@
 		}
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_rhine
+			hq_region = sr:region_western_europe
 			name = Koninklijke_Marine
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_HOLLAND
-				count = 8
+				count = 6
 			}
 
 			ship = {
@@ -4282,14 +4326,36 @@
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_HOLLAND
-				count = 20
+				count = 10
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_FRIESLAND
-				count = 5
+				count = 3
 			}
+			save_scope_as = net_koninklijke_marine
+		}
+
+		create_character = {
+			is_admiral = yes
+			first_name = navy_jan_hendrik
+			last_name = navy_van_kinsbergen
+			historical = yes
+			age = 41
+			culture = cu:dutch
+			religion = rel:protestant
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			commander_rank = default
+			traits = {
+				experienced_naval_commander
+				brave
+			}
+			save_scope_as = net_kinsbergen_adm
+		}
+		scope:net_kinsbergen_adm = {
+			transfer_to_formation = scope:net_koninklijke_marine
 		}
 	}
 
@@ -4426,7 +4492,7 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_iberia
+			hq_region = sr:region_southern_europe
 			name = Marinha_Real_Portuguesa
 
 			ship = {
@@ -4462,8 +4528,9 @@
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_AZORES
-				count = 2
+				count = 1
 			}
+			save_scope_as = por_marinha_real_portuguesa
 		}
 	}
 
