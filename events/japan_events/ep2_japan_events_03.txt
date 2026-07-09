@@ -1,0 +1,126 @@
+namespace = japan_events
+
+# Single-Fire Japan Events
+
+# Kabuki Theatres
+japan_events.31 = {
+	type = country_event
+	placement = scope:kabuki_theatre_state
+
+	duration = 3
+
+	title = japan_events.31.t
+	desc = japan_events.31.d
+	flavor = japan_events.31.f
+
+    event_image = {
+		video = "unspecific_fire"
+	}
+
+	dlc = dlc018
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	cooldown = { days = never_fire_again_modifier_time }
+
+	trigger = {
+		has_dlc_feature = ep2_content
+		owner.active_law:lawgroup_edo_social_system ?= {
+			has_amendment = amendment_type:amendment_frugal_ordinance
+		}
+		NOT = {
+			has_variable = theatre_burned_down_var
+		}
+		s:STATE_KANTO = {
+			any_scope_state = {
+				owner = root
+			}
+		}
+		any_interest_group = {
+			is_in_government = yes
+			law_stance = {
+				law = law_type:law_strict_edo_system
+				value > neutral
+			}
+		}
+	}
+
+	cancellation_trigger = {
+		scope:relevant_leader ?= {
+			is_character_alive = no
+		}
+	}
+
+	immediate = {
+		s:STATE_KANTO = {
+			random_scope_state = {
+				limit = {
+					owner = root
+				}
+				save_scope_as = kabuki_theatre_state
+			}
+		}
+		random_interest_group = {
+			limit = {
+				is_in_government = yes
+				law_stance = {
+					law = law_type:law_strict_edo_system
+					value > neutral
+				}
+			}
+			save_scope_as = relevant_ig
+			leader = {
+				save_scope_as = relevant_leader
+			}
+		}
+		set_variable = {
+			name = theatre_burned_down_var
+		}
+	}
+
+	option = {
+		name = japan_events.31.a
+		default_option = yes
+	    scope:relevant_ig ?= {
+    		add_modifier = {
+    			name = modifier_kabuki_regulated
+    			days = normal_modifier_time
+    		}
+    	}
+		scope:kabuki_theatre_state = {
+			add_radicals_in_state = {
+				pop_type = peasants
+				value = medium_radicals
+			}
+		}
+
+	}
+
+	option = {
+		name = japan_events.31.b
+		set_variable = {
+			name = rebuilt_kabuki_theatre_var
+		}
+		add_modifier = {
+			name = modifier_shogunate_opposition_ig_approval
+			days = normal_modifier_time
+		}
+		scope:relevant_ig ?= {
+    		leader ?= {
+				add_modifier = {
+					name = modifier_theatre_affronted_official
+					days = normal_modifier_time
+				}
+			}
+    	}
+		scope:kabuki_theatre_state = {
+			add_loyalists_in_state = {
+				pop_type = peasants
+				value = medium_radicals
+			}
+		}
+	}
+}
+
