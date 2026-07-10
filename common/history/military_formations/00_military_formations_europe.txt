@@ -495,13 +495,13 @@
 	c:GEN ?= {
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
-			name = "merchant_venice_fleet"
+			hq_region = sr:region_southern_europe
+			name = Marina_Genovese
 			
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_PIEDMONT
-				count = 7
+				count = 3
 			}
 
 			ship = {
@@ -529,19 +529,19 @@
 	c:VEN ?= {
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
-			name = "merchant_venice_fleet"
+			hq_region = sr:region_southern_europe
+			name = Armata_Grossa
 			
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_VENETIA
-				count = 15
+				count = 3
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_ISTRIA
-				count = 3
+				count = 1
 			}
 			
 			ship = {
@@ -553,9 +553,31 @@
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_WEST_AEGEAN_ISLANDS
-				count = 1
+				count = 2
 			}
+
+			save_scope_as = ven_armata_grossa
 			
+		}
+		create_character = {
+			is_admiral = yes
+			first_name = navy_angelo
+			last_name = navy_emo
+			historical = yes
+			age = 45
+			culture = cu:north_italian
+			religion = rel:catholic
+			interest_group = ig_armed_forces
+			ideology = ideology_moderate
+			commander_rank = default
+			traits = {
+				experienced_naval_commander
+				brave
+			}
+			save_scope_as = ven_emo_adm
+		}
+		scope:ven_emo_adm = {
+			transfer_to_formation = scope:ven_armata_grossa
 		}
 		create_military_formation = {
 			type = army
@@ -3965,19 +3987,19 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
-			name = Armata_di_Mare_di_SM_il_Re_del_Regno_delle_Due_Sicilie
+			hq_region = sr:region_southern_europe
+			name = Real_Marina_Napoletana
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_CAMPANIA
-				count = 2
+				count = 1
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_CAMPANIA
-				count = 4
+				count = 2
 			}
 
 			ship = {
@@ -4081,13 +4103,13 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Marina_del_Regno_di_Sardegna
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_PIEDMONT
-				count = 4
+				count = 2
 			}
 
 			ship = {
@@ -4143,7 +4165,7 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Marina_Pontificia
 
 			ship = { # Nothing the size of a frigate
@@ -4187,7 +4209,7 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Marina_del_Granducato_di_Toscana
 
 			ship = { # Nothing the size of a frigate

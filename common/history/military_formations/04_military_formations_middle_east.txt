@@ -193,19 +193,19 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_anatolia
-			name = Donanmay_Humyn
+			hq_region = sr:region_near_east
+			name = Donanma_yi_Humayun
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_HUDAVENDIGAR
-				count = 3
+				count = 2
 			}
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_EASTERN_THRACE
-				count = 5
+				count = 4
 			}
 
 			ship = {
@@ -231,6 +231,28 @@
 				state_region = s:STATE_MACEDONIA
 				count = 1
 			}
+
+			save_scope_as = tur_donanma_yi_humayun
+		}
+		create_character = {
+			is_admiral = yes
+			first_name = navy_cezayirli_gazi_hasan
+			last_name = navy_pasha
+			historical = yes
+			age = 63
+			culture = cu:turkish
+			religion = rel:sunni
+			interest_group = ig_armed_forces
+			ideology = ideology_royalist
+			commander_rank = default
+			traits = {
+				experienced_naval_commander
+				brave
+			}
+			save_scope_as = tur_cezayirli_gazi_hasan_adm
+		}
+		scope:tur_cezayirli_gazi_hasan_adm = {
+			transfer_to_formation = scope:tur_donanma_yi_humayun
 		}
 	}
 
