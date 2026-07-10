@@ -1,0 +1,27 @@
+gov_pashalik = { # For Mamluk Iraq
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_PASHA" # Governor. This post would usually be appointed by the Ottoman Sultan, and not be hereditary.
+	female_ruler = "" # Empty on purpose
+
+	male_heir = "RULER_TITLE_MUTASARRIF" # Governor of a Vilayet's subunit, the Sanjak, who would assume command in the Vali's absence
+	female_heir = "" # Empty on purpose
+
+	possible = {
+		has_law = law_type:law_monarchy
+		exists = c:IR1
+		exists = c:TUR
+		c:IR1 ?= ROOT
+		is_subject_of = c:TUR
+		NOT = { is_subject_type = subject_type_crown_land }
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
