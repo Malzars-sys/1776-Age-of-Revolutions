@@ -292,14 +292,20 @@ ep2_sakoku.3 = {
 		highlighted_option = yes
 
 		trigger = {
-			hidden_trigger = { NOT = { has_variable = je_sakoku_maybe_we_should_open_up } }
-			any_interest_group = {
-				is_in_government = yes
-				law_stance = {
-					law = law_type:law_isolationism
-					value <= neutral
+			custom_tooltip = {
+				text = government_ig_dislikes_sakoku_tt
+				any_interest_group = {
+					is_in_government = yes
+					law_stance = {
+						law = law_type:law_isolationism
+						value < neutral
+					}
 				}
+				NOT = { has_variable = je_sakoku_maybe_we_should_open_up }
 			}
+		}
+		show_as_unavailable = {
+			NOT = { has_variable = je_sakoku_maybe_we_should_open_up }
 		}
 
 		custom_tooltip = {
