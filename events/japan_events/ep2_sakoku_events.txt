@@ -81,19 +81,6 @@ ep2_sakoku.2 = {
 				days = normal_modifier_time
 			}
 		}
-
-		every_interest_group = {
-			limit = {
-				law_stance = {
-					law = law_type:law_isolationism
-					value > neutral
-				}
-			}
-			add_modifier = {
-				name = forced_transition_from_tradition
-				days = normal_modifier_time
-			}
-		}
 	}
 	option = {
 		name = ep2_sakoku.2.b
@@ -115,19 +102,6 @@ ep2_sakoku.2 = {
 			}
 			add_modifier = {
 				name = overdue_break_with_tradition
-				days = normal_modifier_time
-			}
-		}
-
-		every_interest_group = {
-			limit = {
-				law_stance = {
-					law = law_type:law_isolationism
-					value > neutral
-				}
-			}
-			add_modifier = {
-				name = forced_transition_from_tradition
 				days = normal_modifier_time
 			}
 		}
@@ -155,7 +129,8 @@ ep2_sakoku.2 = {
 				days = normal_modifier_time
 			}
 		}
-
+	}
+	after = {
 		every_interest_group = {
 			limit = {
 				law_stance = {
@@ -166,6 +141,7 @@ ep2_sakoku.2 = {
 			add_modifier = {
 				name = forced_transition_from_tradition
 				days = normal_modifier_time
+				is_decaying = yes
 			}
 		}
 	}
