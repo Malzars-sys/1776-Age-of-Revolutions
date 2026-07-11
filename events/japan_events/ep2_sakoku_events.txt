@@ -63,6 +63,9 @@ ep2_sakoku.2 = {
 	option = {
 		name = ep2_sakoku.2.a
 		default_option = yes
+		ai_chance = {
+			base = 10
+		}
 
 		activate_law = law_type:law_mercantilism
 
@@ -94,6 +97,9 @@ ep2_sakoku.2 = {
 	}
 	option = {
 		name = ep2_sakoku.2.b
+		ai_chance = {
+			base = 10
+		}
 		trigger = {
 			exists = scope:free_trade_ig
 		}
@@ -128,6 +134,9 @@ ep2_sakoku.2 = {
 	}
 	option = {
 		name = ep2_sakoku.2.c
+		ai_chance = {
+			base = 10
+		}
 		trigger = {
 			exists = scope:protectionism_ig
 		}
@@ -243,18 +252,11 @@ ep2_sakoku.3 = {
 	option = {
 		name = ep2_sakoku.3.a
 		default_option = yes
-
-		change_relations = {
-			country = scope:morrison_incident_country
-			value = -30
-		}
-		scope:morrison_incident_country = {
+		scope:morrison_incident_country ?= {
 			change_relations = {
 				country = root
 				value = -30
 			}
-		}
-		scope:morrison_incident_country = {
 			post_notification = morrison_incident_has_incidented
 		}
 
