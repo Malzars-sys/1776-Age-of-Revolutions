@@ -1,0 +1,25 @@
+DIPLOMATIC_PLAYS = {
+	c:PER = {
+		create_diplomatic_play = {
+
+			target_state = s:STATE_BASRA.region_state:IR1
+
+			war = no
+
+			type = dp_conquer_state
+			
+			add_target_backers = { c:OMA }
+
+			add_war_goal = {
+				holder = c:IR1
+				type = conquer_state
+				target_state =s:STATE_KHUZESTAN.region_state:ARB
+			}
+			add_war_goal = {
+				holder = c:OMA
+				type = take_treaty_port
+				target_state =s:STATE_FARS.region_state:PER
+			}
+		}
+	}
+}
