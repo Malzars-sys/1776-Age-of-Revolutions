@@ -813,11 +813,6 @@ tenpo_events.6 = {
 					}
 				}
 			}
-
-			custom_tooltip = {
-				text = end_sakoku_button_now_available
-				set_variable = je_sakoku_maybe_we_should_open_up
-			}
 		}
 	}
 
@@ -858,16 +853,6 @@ tenpo_events.6 = {
 				}			
 			}
 		}
-
-		if = {
-			limit = {
-				has_journal_entry = je_sakoku
-			}
-			custom_tooltip = {
-				text = end_sakoku_button_now_available
-				set_variable = je_sakoku_maybe_we_should_open_up
-			}
-		}
 	}
 
 	option = {
@@ -905,10 +890,14 @@ tenpo_events.6 = {
 			name = modifier_defenses_strengthened
 			days = normal_modifier_time
 		}
-
+	}
+	after = {
 		if = {
 			limit = {
 				has_journal_entry = je_sakoku
+				NOT = {
+					has_variable = je_sakoku_maybe_we_should_open_up
+				}
 			}
 			custom_tooltip = {
 				text = end_sakoku_button_now_available
