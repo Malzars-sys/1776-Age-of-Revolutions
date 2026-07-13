@@ -10,51 +10,24 @@
 	is_shown_when_inactive = {
 		has_dlc_feature = ip2_content
 	    any_scope_state = {
-	    	OR = {
-				region = region_punjab
-				region = region_bombay
-				region = region_madras
-				region = region_central_india
-				region = region_bengal
-			}
+			is_in_geographic_region = geographic_region_india
 	    }
 	}
 
 	possible = {
 		OR = {
 			any_scope_state = {
-				region = region_punjab
+				region = sr:region_north_india
 				has_famine = yes
 				count >= 4
 			}
 			any_scope_state = {
-				region = region_bombay
+				region = sr:region_south_india
 				has_famine = yes
 				count >= 4
 			}
 			any_scope_state = {
-				region = region_madras
-				has_famine = yes
-				count >= 5
-			}
-			any_scope_state = {
-				region = region_central_india
-				has_famine = yes
-				count >= 5
-			}
-			any_scope_state = {
-				region = region_bengal
-				has_famine = yes
-				count >= 5
-			}
-			any_scope_state = {
-			    OR = {
-					region = region_punjab
-					region = region_bombay
-					region = region_madras
-					region = region_central_india
-					region = region_bengal
-				}
+				is_in_geographic_region = geographic_region_india
 				has_famine = yes
 				count >= 15
 			}
@@ -75,13 +48,7 @@
 		if = {
 			limit = {
 				any_scope_state = {
-				    OR = {
-						region = region_punjab
-						region = region_bombay
-						region = region_madras
-						region = region_central_india
-						region = region_bengal
-					}
+					is_in_geographic_region = geographic_region_india
 					has_famine = yes
 					count >= 15
 				}
@@ -97,13 +64,7 @@
 				}
 				NOT = {
 					any_scope_state = {
-					    OR = {
-							region = region_punjab
-							region = region_bombay
-							region = region_madras
-							region = region_central_india
-							region = region_bengal
-						}
+						is_in_geographic_region = geographic_region_india
 						has_famine = yes
 						count >= 15
 					}
@@ -120,13 +81,7 @@
 				}
 				NOT = {
 					any_scope_state = {
-					    OR = {
-							region = region_punjab
-							region = region_bombay
-							region = region_madras
-							region = region_central_india
-							region = region_bengal
-						}
+						is_in_geographic_region = geographic_region_india
 						has_famine = yes
 						count >= 15
 					}
@@ -143,13 +98,7 @@
 				}
 				NOT = {
 					any_scope_state = {
-					    OR = {
-							region = region_punjab
-							region = region_bombay
-							region = region_madras
-							region = region_central_india
-							region = region_bengal
-						}
+						is_in_geographic_region = geographic_region_india
 						has_famine = yes
 						count >= 15
 					}
@@ -166,13 +115,7 @@
 				}
 				NOT = {
 					any_scope_state = {
-					    OR = {
-							region = region_punjab
-							region = region_bombay
-							region = region_madras
-							region = region_central_india
-							region = region_bengal
-						}
+						is_in_geographic_region = geographic_region_india
 						has_famine = yes
 						count >= 15
 					}
@@ -189,13 +132,7 @@
 				}
 				NOT = {
 					any_scope_state = {
-					    OR = {
-							region = region_punjab
-							region = region_bombay
-							region = region_madras
-							region = region_central_india
-							region = region_bengal
-						}
+						is_in_geographic_region = geographic_region_india
 						has_famine = yes
 						count >= 15
 					}
@@ -267,13 +204,7 @@
 			}
 			NOT = {
 				any_scope_state = {
-				    OR = {
-						region = region_punjab
-						region = region_bombay
-						region = region_madras
-						region = region_central_india
-						region = region_bengal
-					}
+					is_in_geographic_region = geographic_region_india
 					has_famine = yes
 				}
 			}
