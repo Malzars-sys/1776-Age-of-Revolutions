@@ -1048,7 +1048,7 @@ sepoy_mutiny_events.2 = {
 		}
 		every_scope_state = {
 			limit = {
-				region = sr:region_bengal
+				region = sr:region_north_india
 			}
 			add_radicals_in_state = {
 				religion = rel:hindu
@@ -1447,7 +1447,7 @@ sepoy_mutiny_events.2 = {
 		}
 		every_scope_state = {
 			limit = {
-				region = sr:region_madras
+				region = sr:region_south_india
 			}
 			add_radicals_in_state = {
 				religion = rel:hindu
@@ -1846,7 +1846,7 @@ sepoy_mutiny_events.2 = {
 		}
 		every_scope_state = {
 			limit = {
-				region = sr:region_bombay
+				region = sr:region_south_india
 			}
 			add_radicals_in_state = {
 				religion = rel:hindu
@@ -2069,10 +2069,7 @@ sepoy_mutiny_events.4 = {
 				}
 				OR = {
 					capital = {
-						OR = {
-							region = sr:region_bombay
-							region = sr:region_madras
-						}
+						is_in_geographic_region = geographic_region_bombay_old
 					}
 					root = {
 						country_has_primary_culture = cu:marathi
