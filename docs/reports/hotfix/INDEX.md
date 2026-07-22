@@ -2,7 +2,7 @@
 
 ## 1. Statut global du hotfix
 
-Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. Les autres régions conservent leur historique et leurs états propres ; cette clôture ne les déclare pas globalement terminées.
+Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. La réconciliation C1AI conclut que `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` est le prochain bloc global, organisé en sous-phases, et que `HOTFIX_6A_RUSSIA_SUBJECTHOOD_ALIGNMENT` est sa première phase exécutable. Les autres régions conservent leur historique et leurs états propres ; cette clôture ne les déclare pas globalement terminées.
 
 ## 2. Navigation par région
 
@@ -24,6 +24,9 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [HOTFIX-5 — Clôture Inde](india/closure/HOTFIX_5_INDIA_CLOSURE.md), verdict `HOTFIX_5_INDIA_COMPLETE`, accompagné de son [manifeste](india/closure/HOTFIX_5_INDIA_CLOSURE_MANIFEST.csv).
 - [Réorganisation de la bibliothèque](_index/HOTFIX_REPORT_LIBRARY_REORGANIZATION.md), verdict `HOTFIX_5_INDIA_COMPLETE_AND_REPORT_LIBRARY_INDEXED`.
 - [Audit de retrait de la copie jetable Sepoy](_index/HOTFIX_DISPOSABLE_TEST_MOD_RETIREMENT.md), avec [manifeste individuel de 984 fichiers](_index/HOTFIX_DISPOSABLE_TEST_MOD_FINAL_MANIFEST.csv). Le retrait est autorisable mais n’est pas exécuté dans AH.
+- [Feuille de route de fin du merge](_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md), avec [registre des 534 écarts fonctionnels](_index/HOTFIX_MERGE_REMAINING_WORK.csv), [inventaire trois voies](_index/HOTFIX_MERGE_THREE_WAY_INVENTORY.csv) et [matrice des blocs](_index/HOTFIX_MERGE_BLOCK_STATUS.csv).
+- [Prompt directement utilisable pour HOTFIX-6A](_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md).
+- [Réconciliation des productions concurrentes C1AI](_index/HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md), verdict `GLOBAL_SCRIPT_DELTAS_WITH_RUSSIA_FIRST`.
 
 ## 5. Rapports runtime finaux
 
@@ -49,6 +52,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 
 - Japon : une clôture consolidée distincte reste possible après les correctifs 4E5–4E8.
 - Mamluk Iraq : aucun rapport de clôture/runtime global n’est présent ; 3F reste la dernière correction documentaire.
+- Merge global : `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` est un conteneur de sous-phases et non un lot atomique. Sa première sous-phase obligatoire est `HOTFIX_6A_RUSSIA_SUBJECTHOOD_ALIGNMENT`. L’ancien total annoncé de 26 deltas est conservé comme `UNVERIFIED` jusqu’à publication de sa liste exacte.
 - Les recherches technologiques sont hors bibliothèque et hors périmètre AH.
 
 ## 8. Rapports inconclusifs ou remplacés
