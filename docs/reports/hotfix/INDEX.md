@@ -11,6 +11,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 | Inde | `HOTFIX_5_INDIA_COMPLETE` | [India](india/README.md) | [Clôture Inde](india/closure/HOTFIX_5_INDIA_CLOSURE.md) |
 | Japon | `CURRENT`, clôture consolidée encore distincte | [Japan](japan/README.md) | [Correction EZO/Hokkaido](japan/HOTFIX_4E8_FIX_EZO_HOKKAIDO_GATE.md) |
 | Mamluk Iraq | `CURRENT`, sans clôture runtime dédiée | [Mamluk Iraq](mamluk_iraq/README.md) | [Objectif secret IR1](mamluk_iraq/HOTFIX_3F_IR1_SECRET_GOAL.md) |
+| Russie | `CURRENT`, statique passé, runtime global différé | [_index](_index/) | [Alignement Subjecthood](_index/HOTFIX_6A_RUSSIA_SUBJECTHOOD_ALIGNMENT.md) |
 | Transversal | `REFERENCE` | [Shared](shared/README.md) | [Audit upstream](shared/HOTFIX_DLC_UPSTREAM_CHANGE_AUDIT.md) |
 
 ## 3. Navigation par sujet
