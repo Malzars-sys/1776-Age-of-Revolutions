@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-La réconciliation statique C1AI conclut `NEXT_MERGE_BLOCK_IDENTIFIED`. Le prochain bloc canonique est `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`, conteneur de plusieurs sous-phases. Sa première et unique phase immédiatement exécutable est `HOTFIX_6A_RUSSIA_SUBJECTHOOD_ALIGNMENT`. Les chaînes lois, Mamluk Iraq, Japon et Inde sont déjà intégrées ; les différences résiduelles ne doivent pas rouvrir ces blocs sans preuve fonctionnelle nouvelle.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. L’audit Autriche/Croatie-Slavonie/Suisse a prouvé les hunks territoriaux mais bloque leur correction tant que la population suisse et les éléments NAVY ne sont pas résolus. La prochaine phase est `HOTFIX_6A2R_TARGET_HUNK_RESOLUTION`.
 
 Verdicts :
 
@@ -11,6 +11,8 @@ Verdicts :
 - `POST_MERGE_BACKLOG_SEPARATED`
 - `NEXT_MERGE_BLOCK_IDENTIFIED`
 - `GLOBAL_SCRIPT_DELTAS_WITH_RUSSIA_FIRST`
+- `AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT_COMPLETE`
+- `BLOCKED_TARGET_HUNKS_UNVERIFIED`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
 ## 2. Périmètre du merge
@@ -32,17 +34,17 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 5. Blocs partiellement terminés
 
-- Russie 2.3 : la loi de subjecthood annoncée par le hotfix manque dans le fork.
+- Autriche/Croatie/Suisse : neuf hunks requis prouvés; quatre éléments bloqués ou protégés à résoudre avant correction.
 - Runtime global : non exécuté pendant C1AI.
 - Audit final de branche : à faire après les derniers blocs P0/P1.
 
 ## 6. Blocs non examinés
 
-Les résidus 2.3 hors Russie devront être traités séquentiellement dans les sous-phases suivantes de `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` : Autriche/Croatie-Slavonie et West Switzerland, DEI, puis changements transversaux encore classés `PENDING_REVIEW`. Ils ne sont pas proposés comme phases concurrentes.
+Résoudre d’abord les blockers 6A.2R, puis corriger le paquet territorial ciblé. La revue DEI viendra ensuite, avant les changements transversaux encore `PENDING_REVIEW`.
 
 ## 7. Contenu hotfix absent du fork
 
-Les fichiers hotfix-only comprennent principalement des copies DLC/vanilla que le fork laisse volontairement à vanilla, ainsi que quelques overrides custom à revoir. Le bloc immédiatement légitime et isolable est le hunk Russie dans `common/history/countries/rus - russia.txt`.
+Les deltas Autriche/Croatie/Suisse sont décrits dans la delta map 6A.2. Aucun import massif n’est autorisé; les copies de cartes, strategic regions et décisions restent fournies par vanilla.
 
 ## 8. Divergences intentionnelles
 
@@ -86,7 +88,7 @@ La refonte de la Révolution américaine, Liberty or Death, aide/dette français
 
 ## 18. Autres régions
 
-Les annonces 2.3 Autriche/Croatie-Slavonie, West Switzerland et DEI sont de vrais sujets de revue ultérieure. Elles seront ordonnées après 6A selon risque et dépendances, sans import massif de `00_states.txt`.
+Les annonces 2.3 Autriche/Croatie-Slavonie et West Switzerland ont été auditées. Les ownerships sont prouvés, mais la pop suisse et le paquet NAVY restent bloquants. DEI suit après résolution et correction ciblée.
 
 ## 19. Localisations
 
@@ -108,11 +110,11 @@ Ce bloc est un conteneur de revue de scripts et non une phase atomique. La matri
 
 ## 23. Pourquoi il vient ensuite
 
-La première sous-phase est `HOTFIX_6A_RUSSIA_SUBJECTHOOD_ALIGNMENT`. Le changelog 2.3 annonce explicitement que la Russie passe de la loi raciale à subjecthood. Le fork contient encore `law_national_supremacy`; la source hotfix et vanilla 1.13 contiennent `law_subjecthood`. Le fichier n’a pas de commit ciblé après l’import initial `b602804`. Le correctif est un hunk unique, légitime, testable et sans dépendance aux blocs clos. Les autres deltas globaux sont trop nombreux et trop hétérogènes pour être exécutés en un lot unique.
+La Russie est terminée. La phase suivante doit résoudre deux ambiguïtés précises : l’ajout net de 30 000 South Germans à la portion AUS de `STATE_EAST_SWITZERLAND`, et la reconstruction compatible NAVY du shipyard, de la flotte AUS et de l’armée Agram.
 
 ## 24. Fichiers concernés
 
-Première sous-phase : un seul fichier gameplay, `common/history/countries/rus - russia.txt`. Sources : même chemin dans le fork, la source hotfix et vanilla 1.13. Rapports à consulter : audit upstream, rapport de réconciliation et présente roadmap. Ne pas importer le fichier complet : remplacer uniquement l’activation de loi après vérification du contexte. Les fichiers de sujets, états, diplomatie, journal entries, événements, décisions et localisations ne font pas partie de cette sous-phase.
+6A.2R est documentaire uniquement. Sources principales : rapport 6A.2, delta map, `common/history/pops/00_west_europe.txt`, `common/history/buildings/01_south_europe.txt` et `common/history/military_formations/00_military_formations_europe.txt` dans les trois arbres. Aucun gameplay modifiable.
 
 ## 25. Modèle recommandé
 
@@ -120,15 +122,15 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Oui, après correction statique : chargement 1776, inspection de RUS et contrôle d’erreurs de loi. Ce runtime peut être condensé avec le runtime global final si la validation statique ne révèle aucune dépendance.
+Aucun runtime pour 6A.2R. Après la future correction territoriale complète, un lancement unique devra vérifier RUS et le paquet Autriche/Croatie/Suisse avec les logs.
 
 ## 27. Nombre minimal de lancements
 
-Un lancement unique de Victoria 3 au minimum, planifié après tous les tests statiques. Aucun lancement pendant C1AI.
+Zéro lancement pour 6A.2R; un lancement consolidé après correction complète.
 
 ## 28. Phases suivantes probables
 
-Après la sous-phase Russie : audit ciblé Autriche/Croatie-Slavonie/West Switzerland, puis audit DEI, puis découpage des 161 revues résiduelles par domaine, avant l’audit global final. Cet ordre reste indicatif et sera recalculé après chaque sous-phase.
+6A.2R, correction territoriale ciblée, audit DEI, puis découpage des revues résiduelles par domaine avant l’audit global final.
 
 ## 29. Critères de fin du merge
 
@@ -161,5 +163,5 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A_RUSSIA_SUBJECTHOOD_ALIGNMENT`  
-`GLOBAL_SCRIPT_DELTAS_WITH_RUSSIA_FIRST`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A2R_TARGET_HUNK_RESOLUTION`
+`BLOCKED_TARGET_HUNKS_UNVERIFIED`
