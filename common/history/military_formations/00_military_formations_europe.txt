@@ -613,6 +613,54 @@
 	}
 
 	c:AUS ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_balkans
+			name = K_K_Kriegsmarine
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				state_region = s:STATE_CROATIA
+				count = 1
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				state_region = s:STATE_CROATIA
+				count = 3
+			}
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_balkans
+			name = "generalkommando_agram"
+
+			# "Hungarian" Line Regiments
+
+			combat_unit = { # IR 53
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SLAVONIA
+				count = 2
+			}
+
+			# Grenzer Regiments
+
+			combat_unit = { # 1. Liccaner, 2. Otocaner, 3. Oguliner, 4. Szluiner, 5. Warasdiner-Kreuzer, 6. Warasdiner-St. Georger, 1. Banal, 2. Banal
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CROATIA
+				count = 12
+			}
+			combat_unit = { # 1. Banal, 2. Banal
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CROATIA
+				count = 4
+			}
+			combat_unit = { # 7. Brooder, 8. Gradiscaner, 9. Peterwardiner
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SLAVONIA
+				count = 6
+			}
+		}
 		# Due to their size, each IR and Art-reg consists of two in-game regiments
 
 		create_military_formation = {
@@ -909,40 +957,6 @@
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_SOUTHERN_TRANSYLVANIA
 				count = 1
-			}
-		}
-	}
-
-	c:CRO ?= {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_balkans
-			name = "generalkommando_agram"
-
-			# "Hungarian" Line Regiments
-
-			combat_unit = { # IR 53
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_SLAVONIA
-				count = 2
-			}
-
-			# Grenzer Regiments
-
-			combat_unit = { # 1. Liccaner, 2. Otocaner, 3. Oguliner, 4. Szluiner, 5. Warasdiner-Kreuzer, 6. Warasdiner-St. Georger, 1. Banal, 2. Banal
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_CROATIA
-				count = 12
-			}
-			combat_unit = { # 1. Banal, 2. Banal
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_CROATIA
-				count = 4
-			}
-			combat_unit = { # 7. Brooder, 8. Gradiscaner, 9. Peterwardiner
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_SLAVONIA
-				count = 6
 			}
 		}
 	}

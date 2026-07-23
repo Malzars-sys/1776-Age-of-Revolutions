@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. HOTFIX-6A.2R a résolu la population suisse et les éléments NAVY sans modifier le gameplay. La prochaine phase est la correction fermée `HOTFIX_6A2F_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX`.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2 : population suisse autrichienne 30 K, administration navale croate niveau 3 et flotte AUS entièrement pourvue ont passé l’unique runtime avec le fork monté. La prochaine phase est `HOTFIX_6A3_DEI_TARGETED_AUDIT`.
 
 Verdicts :
 
@@ -13,7 +13,10 @@ Verdicts :
 - `GLOBAL_SCRIPT_DELTAS_WITH_RUSSIA_FIRST`
 - `AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT_COMPLETE`
 - `HOTFIX_6A2R_TARGET_HUNK_RESOLUTION_COMPLETE`
-- `READY_FOR_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX`
+- `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_STATIC_PASS`
+- `HOTFIX_6A2F2_SWISS_POP_NAVAL_BASE_STATIC_PASS`
+- `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_RUNTIME_PASS`
+- `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
 ## 2. Périmètre du merge
@@ -35,13 +38,13 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 5. Blocs partiellement terminés
 
-- Autriche/Croatie/Suisse : neuf hunks requis prouvés et quatre décisions fermées; correction ciblée non encore appliquée.
+- Autriche/Croatie/Suisse : paquet complet, contrôles statiques et runtime passés; 30 K habitants en Suisse autrichienne et 2,30 K / 2,30 K marins confirmés.
 - Runtime global : non exécuté pendant C1AI.
 - Audit final de branche : à faire après les derniers blocs P0/P1.
 
 ## 6. Blocs non examinés
 
-Corriger maintenant le paquet territorial ciblé selon le prompt 6A.2F. La revue DEI viendra ensuite, avant les changements transversaux encore `PENDING_REVIEW`.
+Le prochain sous-bloc non examiné est DEI. Commencer par un audit trois voies en lecture seule; ne pas importer de bloc complet ni rouvrir NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -89,7 +92,7 @@ La refonte de la Révolution américaine, Liberty or Death, aide/dette français
 
 ## 18. Autres régions
 
-Les annonces 2.3 Autriche/Croatie-Slavonie et West Switzerland ont été auditées. La pop suisse reste à total constant par omission du hunk +30 000; shipyard, flotte AUS 1+3 et migration Agram sont résolus. DEI suit après la correction ciblée.
+Les annonces 2.3 sont corrigées : population suisse autrichienne +30 000 justifiée par le runtime, shipyard niveau 2, administration navale niveau 3, flotte AUS 1+3 entièrement pourvue et Agram 24. Le fork a été positivement monté par le launcher.
 
 ## 19. Localisations
 
@@ -111,11 +114,11 @@ Ce bloc est un conteneur de revue de scripts et non une phase atomique. La matri
 
 ## 23. Pourquoi il vient ensuite
 
-La Russie et la résolution 6A.2R sont terminées. La phase suivante applique uniquement les cinq fichiers et hunks fermés dans `HOTFIX_6A2R_TARGET_HUNK_RESOLUTION.md`, puis effectue un runtime unique.
+La Russie et toute la chaîne 6A.2 sont terminées. La phase suivante cartographie les deltas DEI exacts avant toute décision de correction, afin de séparer contenu hotfix légitime, adaptations 1776, vanilla 1.13 et travaux NAVY protégés.
 
 ## 24. Fichiers concernés
 
-6A.2F autorise exactement cinq fichiers gameplay : states, pops South Europe, buildings South Europe, subject relationships et military formations Europe. `pops/00_west_europe.txt` reste inchangé.
+6A.3 est d’abord un audit en lecture seule. Les six fichiers gameplay modifiés par 6A.2F/6A.2F2 doivent rester byte-for-byte inchangés.
 
 ## 25. Modèle recommandé
 
@@ -123,15 +126,15 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Un seul runtime après les tests statiques de 6A.2F devra vérifier RUS et le paquet Autriche/Croatie/Suisse avec les logs.
+Aucun runtime n’est requis pendant l’audit DEI initial. Un runtime ciblé ne sera planifié qu’après résolution statique d’éventuels hunks prouvés.
 
 ## 27. Nombre minimal de lancements
 
-Un lancement consolidé pendant 6A.2F, uniquement après réussite de tous les tests statiques.
+Zéro lancement pour l’audit DEI initial.
 
 ## 28. Phases suivantes probables
 
-6A.2F, audit DEI, puis découpage des revues résiduelles par domaine avant l’audit global final.
+6A.3 audit DEI, éventuelle résolution/correction ciblée DEI, puis découpage des revues résiduelles par domaine avant l’audit global final.
 
 ## 29. Critères de fin du merge
 
@@ -164,5 +167,6 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A2F_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX`
-`READY_FOR_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A3_DEI_TARGETED_AUDIT`
+`AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
