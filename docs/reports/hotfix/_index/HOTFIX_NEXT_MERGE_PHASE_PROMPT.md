@@ -1,4 +1,4 @@
-# Phase HOTFIX-6A.3 — Audit ciblé DEI
+# Phase HOTFIX-6A.3R — Résolution ciblée DEI Cape/Ceylon et vanilla 1.13
 
 FORK : `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
 
@@ -8,75 +8,69 @@ VANILLA 1.13, LECTURE SEULE : `C:\Games\Victoria 3 The Great Wave\game`
 
 ## Verdicts d’entrée
 
-- `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
-- `RUSSIA_SUBJECTHOOD_ALIGNMENT_COMPLETE`
+- `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
+- `NO_REQUIRED_HOTFIX_DELTA_IDENTIFIED`
+- `DEI_CAPE_CEYLON_OUTCOME_UNVERIFIED`
+- `DEI_VANILLA_1_13_ALIGNMENT_REQUIRES_RESOLUTION`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
-- `NEXT_MERGE_BLOCK_IDENTIFIED`
 
 ## Objectif unique
 
-Effectuer un audit trois voies ciblé du setup DEI afin d’identifier les deltas hotfix encore légitimes, déjà intégrés, obsolètes sous vanilla 1.13 ou incompatibles avec le fork 1776 et les phases NAVY. Cette phase est en lecture seule : aucun gameplay ne doit être modifié.
+Résoudre statiquement deux décisions fermées sans modifier le gameplay : déterminer le mécanisme exact et les bénéficiaires valides permettant à DEI de perdre Cape Colony et Ceylon lors de `dei_breakup.1`, puis admettre ou rejeter chacun des sept hunks DEI identiques hotfix/vanilla 1.13. Ne publier une phase de correction que si chaque hunk retenu, ses dépendances et son rollback sont exacts.
 
 ## État Git requis
 
-Exiger branche `hotfix-dlc-audit`, zéro staged, stash MARATH intact, `docs/research/technology/` intact et aucun processus Victoria/launcher. L’arbre peut contenir le paquet non committé 6A.2F/6A.2F2 et ses documents autorisés; toute autre collision donne `BLOCKED_CONCURRENT_WORK_COLLISION`.
+Exiger branche `hotfix-dlc-audit`, zéro staged, stash MARATH intact, `docs/research/technology/` intact et aucun processus Victoria/launcher. Le paquet 6A.2 et ses documents sont protégés. Le fichier non suivi `bject` et les recherches technologiques ont été déclarés travaux ultérieurs normaux par l’opérateur : les ignorer et ne pas les suivre.
 
 Ne faire aucun reset, restore, checkout de fichier, clean, stash apply/pop/drop ou commit automatique. Ne pas inspecter le contenu du stash.
 
-## Paquet 6A.2 protégé
+## Sources obligatoires
 
-Ne modifier aucun des six fichiers gameplay déjà ouverts par 6A.2F/6A.2F2 :
+Lire `HOTFIX_6A3_DEI_TARGETED_AUDIT.md` et sa delta map, puis les rapports C1AI, roadmap, upstream DLC, Inde/BIC closure et NAVY-2B-bis. Utiliser les lignes et hashes 6A.3 comme périmètre initial. Ne pas rouvrir une revue globale.
 
-- `common/history/states/00_states.txt`;
-- `common/history/pops/01_south_europe.txt`;
-- `common/history/buildings/01_south_europe.txt`;
-- `common/history/diplomacy/00_subject_relationships.txt`;
-- `common/history/military_formations/00_military_formations_europe.txt`;
-- `common/history/pops/00_west_europe.txt`.
+## Décision A — Cape Colony et Ceylon
 
-Préserver notamment les 30 000 habitants de Suisse orientale autrichienne, l’administration navale croate niveau 3, le shipyard niveau 2, la flotte 1+3, Agram 24 et les transferts territoriaux.
+Tracer exactement, dans le setup 1776 courant :
 
-## Sources à lire
+- owners et provinces des blocs `STATE_CEYLON`, `STATE_EASTERN_CAPE`, `STATE_CAPE_COLONY` ;
+- pays voisins admissibles, cultures primaires, relations de sujet et existence des tags ;
+- effet réel de la boucle lignes fork 42–102 ;
+- effet de `change_tag`, `make_independent` et `independence.2` ;
+- bâtiments, pops, claims, traités et journal entries qui deviendraient orphelins après transfert.
 
-Lire les rapports C1AI, roadmap, inventaire global, statut des blocs, audit upstream DLC, rapport 6A.2F2 et rapports NAVY concernant DEI/VOC. Rechercher les lignes DEI exactes dans l’inventaire canonique avant d’ouvrir des fichiers supplémentaires.
+Produire un hunk minimal par territoire avec bénéficiaire explicite, ou conclure `UNVERIFIED_NO_SAFE_HUNK`. Ne pas inventer un tag, ne pas importer de fichier complet et ne pas déplacer de province sans preuve.
 
-## Audit trois voies
+## Décision B — alignement vanilla 1.13
 
-Comparer uniquement les fichiers DEI identifiés entre fork, source hotfix et vanilla 1.13. Pour chaque delta, consigner :
+Statuer séparément sur les sept groupes de la delta map :
 
-- chemin et hunk exact;
-- valeur fork, hotfix et vanilla;
-- preuve changelog ou fonctionnelle;
-- dépendances pays, états, bâtiments, pops, diplomatie, formations, lois, technologies et localisation;
-- chevauchement NAVY/ADMIN/BIC/Travancore/MARATH;
-- classification et priorité;
-- correction minimale éventuelle et rollback.
+- Ulema sunnite pour JAV ;
+- nettoyage générique des cultures/personnages pour JAV ;
+- délai `independence.2` pour JAV ;
+- Ulema sunnite pour IDN ;
+- nettoyage générique, religion sunnite et personnages pour IDN ;
+- délai `independence.2` pour IDN ;
+- délai de l’option de refus.
+
+Pour chaque groupe, vérifier les APIs 1.13, l’effet fonctionnel, les dépendances de localisation et l’absence de collision 1776. Classer `ADMIT_VANILLA_1_13_ALIGNMENT`, `INTENTIONAL_1776_DIVERGENCE` ou `UNVERIFIED`.
 
 ## Protections absolues
 
-Ne pas modifier NAVY, BIC, Travancore, Inde close, Japon, Mamluk Iraq, Russie, localisations françaises, descripteurs, launcher, sauvegardes ou recherches technologiques. Conserver `activate_law = law_type:law_frontier_colonization` et ne jamais restaurer `law_colonial_exploitation`.
+Ne modifier aucun gameplay. Ne pas toucher NAVY, ADMIN, BIC, Travancore, Inde close, MARATH, Japon, Mamluk Iraq, Russie, localisations françaises, descripteurs, launcher, sauvegardes ou recherches technologiques. Préserver les six fichiers gameplay 6A.2 et `activate_law = law_type:law_frontier_colonization`. Ne jamais restaurer `law_colonial_exploitation` pour BIC.
 
-Ne pas confondre un fichier hotfix identique à vanilla avec un delta custom requis. Aucun remplacement complet de fichier global n’est autorisé.
+Le bloc `alk_breakup.1` du même fichier est hors périmètre. La `Koloniale_Marine` trois frégates est `NAVY_PROTECTED`.
 
 ## Livrables
 
-Créer un rapport `docs/reports/hotfix/_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md` et, si plusieurs deltas existent, une delta map CSV dédiée. Mettre à jour uniquement les index et roadmap canoniques nécessaires. Aucun runtime pendant cet audit.
+Créer `docs/reports/hotfix/_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md`, mettre à jour la delta map 6A.3 et seulement les index/roadmap canoniques nécessaires. Aucun runtime et aucun gameplay.
 
 ## Verdicts attendus
 
-Publier un verdict par delta parmi :
-
-- `ALREADY_MERGED_EQUIVALENT`;
-- `REQUIRED_HOTFIX_DELTA`;
-- `INTENTIONAL_1776_DIVERGENCE`;
-- `VANILLA_1_13_ALREADY_PROVIDES`;
-- `OBSOLETE_HOTFIX_CONTENT`;
-- `NAVY_PROTECTED`;
-- `ADMIN_PROTECTED`;
-- `UNVERIFIED`.
-
-Verdict de phase si l’audit est complet : `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`. Ne publier un prompt de correction que pour des hunks exacts dont les blockers sont explicitement résolus.
+- `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE` si les deux décisions sont fermées ;
+- `READY_FOR_DEI_TARGETED_FIX` seulement si tous les hunks retenus sont exacts ;
+- sinon `BLOCKED_DEI_TARGET_HUNKS_UNVERIFIED` avec blockers précis ;
+- toujours `NO_GAMEPLAY_CHANGED` pendant 6A.3R.
 
 ## Vérifications finales
 
-Exécuter `git diff --check`, `git status --short`, les listes/statistiques de diff, staged vide et `git stash list`. Confirmer que zéro gameplay supplémentaire a changé, que les processus sont fermés et que les protections 6A.2 restent intactes. Ne pas committer automatiquement.
+Exécuter `git diff --check`, `git status --short`, diff name/status/stat, staged vide, `git stash list` et contrôle des processus. Confirmer zéro gameplay supplémentaire, protections 6A.2 intactes, `bject` et recherches technologiques intacts. Ne pas committer automatiquement.
