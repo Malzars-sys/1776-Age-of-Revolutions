@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. L’audit DEI 6A.3 est complet : aucun delta hotfix custom absent n’est prouvé, sept adaptations vanilla 1.13 sont cartographiées et le résultat territorial Cape/Ceylon reste non vérifié. La prochaine phase est `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION`.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La résolution DEI 6A.3R est complète : la boucle courante ne peut libérer Cape/Ceylon, `CEY` et `SAF` sont les bénéficiaires exacts, et les sept adaptations vanilla 1.13 sont admises. La prochaine phase est `HOTFIX_6A3F_DEI_TARGETED_FIX`.
 
 Verdicts :
 
@@ -19,7 +19,8 @@ Verdicts :
 - `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 - `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 - `NO_REQUIRED_HOTFIX_DELTA_IDENTIFIED`
-- `DEI_CAPE_CEYLON_OUTCOME_UNVERIFIED`
+- `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
+- `READY_FOR_DEI_TARGETED_FIX`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
 ## 2. Périmètre du merge
@@ -42,13 +43,13 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 ## 5. Blocs partiellement terminés
 
 - Autriche/Croatie/Suisse : paquet complet, contrôles statiques et runtime passés; 30 K habitants en Suisse autrichienne et 2,30 K / 2,30 K marins confirmés.
-- DEI : audit trois voies complet; équivalences hotfix déjà présentes, sept adaptations vanilla 1.13 isolées, résolution Cape/Ceylon encore requise.
+- DEI : audit trois voies et résolution statique complets; CEY/SAF retenus, trois blocs territoriaux exacts et sept adaptations vanilla 1.13 admises; correction/runtime encore requis.
 - Runtime global : non exécuté pendant C1AI.
 - Audit final de branche : à faire après les derniers blocs P0/P1.
 
 ## 6. Blocs non examinés
 
-Le prochain travail est la résolution DEI 6A.3R en lecture seule. Fermer le mécanisme Cape/Ceylon et l’admission des sept hunks vanilla 1.13; ne pas importer de bloc complet ni rouvrir NAVY, BIC, Travancore ou MARATH.
+Le prochain travail est la correction DEI 6A.3F, limitée à `events/dei_breakup.txt`. Appliquer les hunks résolus sans remplacer le fichier complet ni rouvrir NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -118,11 +119,11 @@ Ce bloc est un conteneur de revue de scripts et non une phase atomique. La matri
 
 ## 23. Pourquoi il vient ensuite
 
-L’audit DEI a séparé les équivalences déjà fusionnées, les adaptations vanilla 1.13 et NAVY. Le seul blocker fonctionnel restant est la perte Cape/Ceylon annoncée mais non démontrée; il faut aussi statuer explicitement sur les sept hunks vanilla avant toute correction.
+La résolution DEI a fermé le blocker : l’adjacence exclut tout bénéficiaire implicite de la boucle, tandis que les tags dédiés CEY et SAF et les APIs `create_country`/`set_state_owner` fournissent les hunks exacts. Les sept hunks vanilla 1.13 sont tous admis.
 
 ## 24. Fichiers concernés
 
-6A.3R reste une résolution documentaire en lecture seule centrée sur `events/dei_breakup.txt` et ses dépendances exactes. Les six fichiers gameplay modifiés par 6A.2F/6A.2F2 doivent rester byte-for-byte inchangés.
+6A.3F peut modifier uniquement `events/dei_breakup.txt` et ses documents autorisés. Les six fichiers gameplay modifiés par 6A.2F/6A.2F2 doivent rester byte-for-byte inchangés.
 
 ## 25. Modèle recommandé
 
@@ -130,15 +131,15 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Aucun runtime n’est requis pendant la résolution DEI. Un runtime ciblé ne sera planifié qu’après définition d’un correctif fermé.
+Un runtime ciblé unique est requis après PASS statique de la correction DEI. Il doit couvrir CEY, SAF, JAV, IDN, refus et le scan des logs.
 
 ## 27. Nombre minimal de lancements
 
-Zéro lancement pour 6A.3R.
+Un lancement au maximum pour 6A.3F, uniquement après tous les tests statiques.
 
 ## 28. Phases suivantes probables
 
-6A.3R résolution DEI, éventuelle correction ciblée DEI si tous les hunks sont admis, puis découpage des revues résiduelles par domaine avant l’audit global final.
+6A.3F correction ciblée DEI, puis découpage des revues résiduelles par domaine avant l’audit global final.
 
 ## 29. Critères de fin du merge
 
@@ -171,7 +172,9 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A3F_DEI_TARGETED_FIX`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
+`HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
+`READY_FOR_DEI_TARGETED_FIX`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`

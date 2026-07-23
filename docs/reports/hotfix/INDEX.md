@@ -2,7 +2,7 @@
 
 ## 1. Statut global du hotfix
 
-Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. L’audit DEI 6A.3 est également complet : aucun delta hotfix custom absent n’est prouvé, mais le résultat Cape/Ceylon et l’alignement vanilla 1.13 exigent une résolution ciblée 6A.3R.
+Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La résolution DEI 6A.3R est complète : CEY et SAF sont les bénéficiaires territoriaux retenus et les sept alignements vanilla 1.13 sont admis. La prochaine phase est la correction ciblée 6A.3F.
 
 ## 2. Navigation par région
 
@@ -13,7 +13,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 | Mamluk Iraq | `CURRENT`, sans clôture runtime dédiée | [Mamluk Iraq](mamluk_iraq/README.md) | [Objectif secret IR1](mamluk_iraq/HOTFIX_3F_IR1_SECRET_GOAL.md) |
 | Russie | `CURRENT`, statique passé, runtime global différé | [_index](_index/) | [Alignement Subjecthood](_index/HOTFIX_6A_RUSSIA_SUBJECTHOOD_ALIGNMENT.md) |
 | Autriche/Croatie/Suisse | `COMPLETE` | [_index](_index/) | [Correction runtime HOTFIX-6A.2F2](_index/HOTFIX_6A2F2_SWISS_POP_NAVAL_BASE_RUNTIME_CORRECTION.md) |
-| DEI | `AUDIT_COMPLETE`, résolution requise | [_index](_index/) | [Audit ciblé HOTFIX-6A.3](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md) |
+| DEI | `READY_FOR_DEI_TARGETED_FIX` | [_index](_index/) | [Résolution HOTFIX-6A.3R](_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md) |
 | Transversal | `REFERENCE` | [Shared](shared/README.md) | [Audit upstream](shared/HOTFIX_DLC_UPSTREAM_CHANGE_AUDIT.md) |
 
 ## 3. Navigation par sujet
@@ -31,7 +31,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [Prompt directement utilisable pour HOTFIX-6A](_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md).
 - [Réconciliation des productions concurrentes C1AI](_index/HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md), verdict `GLOBAL_SCRIPT_DELTAS_WITH_RUSSIA_FIRST`.
 - [Audit 6A.2](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT.md), [résolution 6A.2R](_index/HOTFIX_6A2R_TARGET_HUNK_RESOLUTION.md), [correction 6A.2F](_index/HOTFIX_6A2F_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX.md), [correction runtime 6A.2F2](_index/HOTFIX_6A2F2_SWISS_POP_NAVAL_BASE_RUNTIME_CORRECTION.md) et [delta map](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_DELTA_MAP.csv). Statique et runtime PASS; Suisse autrichienne 30 K et flotte AUS 2,30 K / 2,30 K confirmées.
-- [Audit DEI 6A.3](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md) et [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) : zéro delta hotfix custom absent prouvé, sept adaptations vanilla 1.13 identifiées et résultat Cape/Ceylon encore non vérifié.
+- [Audit DEI 6A.3](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md), [résolution 6A.3R](_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md) et [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) : CEY/SAF retenus, hunk territorial fermé et sept alignements vanilla 1.13 admis, sans gameplay modifié.
 
 ## 5. Rapports runtime finaux
 
@@ -57,7 +57,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 
 - Japon : une clôture consolidée distincte reste possible après les correctifs 4E5–4E8.
 - Mamluk Iraq : aucun rapport de clôture/runtime global n’est présent ; 3F reste la dernière correction documentaire.
-- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; audit DEI clos par `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`; prochaine phase `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION`. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
+- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; résolution DEI close par `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`; prochaine phase `HOTFIX_6A3F_DEI_TARGETED_FIX`. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
 - Les recherches technologiques sont hors bibliothèque et hors périmètre AH.
 
 ## 8. Rapports inconclusifs ou remplacés

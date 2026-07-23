@@ -1,4 +1,4 @@
-# Phase HOTFIX-6A.3R — Résolution ciblée DEI Cape/Ceylon et vanilla 1.13
+# Phase HOTFIX-6A.3F — Correction ciblée DEI Cape/Ceylon et vanilla 1.13
 
 FORK : `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
 
@@ -6,71 +6,174 @@ SOURCE HOTFIX, LECTURE SEULE : `C:\Users\simeo\Documents\Paradox Interactive\Vic
 
 VANILLA 1.13, LECTURE SEULE : `C:\Games\Victoria 3 The Great Wave\game`
 
+MODÈLE RECOMMANDÉ : GPT-5.6 Thinking avec raisonnement élevé.
+
 ## Verdicts d’entrée
 
-- `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
-- `NO_REQUIRED_HOTFIX_DELTA_IDENTIFIED`
-- `DEI_CAPE_CEYLON_OUTCOME_UNVERIFIED`
-- `DEI_VANILLA_1_13_ALIGNMENT_REQUIRES_RESOLUTION`
+- `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
+- `READY_FOR_DEI_TARGETED_FIX`
+- `CEYLON_SHOULD_BECOME_INDEPENDENT`
+- `CAPE_SHOULD_BECOME_INDEPENDENT`
+- `NO_GAMEPLAY_CHANGED`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## Objectif unique
 
-Résoudre statiquement deux décisions fermées sans modifier le gameplay : déterminer le mécanisme exact et les bénéficiaires valides permettant à DEI de perdre Cape Colony et Ceylon lors de `dei_breakup.1`, puis admettre ou rejeter chacun des sept hunks DEI identiques hotfix/vanilla 1.13. Ne publier une phase de correction que si chaque hunk retenu, ses dépendances et son rollback sont exacts.
+Appliquer dans `dei_breakup.1` les trois blocs territoriaux résolus et les sept alignements vanilla 1.13 admis, puis effectuer tous les contrôles statiques. Ne modifier aucun autre gameplay et ne pas committer automatiquement.
 
 ## État Git requis
 
-Exiger branche `hotfix-dlc-audit`, zéro staged, stash MARATH intact, `docs/research/technology/` intact et aucun processus Victoria/launcher. Le paquet 6A.2 et ses documents sont protégés. Le fichier non suivi `bject` et les recherches technologiques ont été déclarés travaux ultérieurs normaux par l’opérateur : les ignorer et ne pas les suivre.
+Exécuter `git rev-parse --show-toplevel`, `git branch --show-current`, `git status --short`, `git log -1 --oneline`, `git diff --check`, `git diff --cached --name-only` et `git stash list`.
 
-Ne faire aucun reset, restore, checkout de fichier, clean, stash apply/pop/drop ou commit automatique. Ne pas inspecter le contenu du stash.
+Exiger branche `hotfix-dlc-audit`, rapport 6A.3R présent, zéro fichier suivi modifié, zéro staged, stash MARATH intact, `docs/research/technology/` et `bject` intacts, Victoria 3 et launcher fermés. Ne faire aucun reset, restore, checkout, clean, stash apply/pop/drop ou commit. Ne pas inspecter le stash.
 
 ## Sources obligatoires
 
-Lire `HOTFIX_6A3_DEI_TARGETED_AUDIT.md` et sa delta map, puis les rapports C1AI, roadmap, upstream DLC, Inde/BIC closure et NAVY-2B-bis. Utiliser les lignes et hashes 6A.3 comme périmètre initial. Ne pas rouvrir une revue globale.
+Lire intégralement :
 
-## Décision A — Cape Colony et Ceylon
+- `docs/reports/hotfix/_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md` ;
+- `docs/reports/hotfix/_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md` ;
+- `docs/reports/hotfix/_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv` ;
+- les trois versions de `events/dei_breakup.txt`.
 
-Tracer exactement, dans le setup 1776 courant :
+Ne pas utiliser `rg`. Extraire `dei_breakup.1` et `alk_breakup.1` par ancres et équilibre d’accolades avant toute modification.
 
-- owners et provinces des blocs `STATE_CEYLON`, `STATE_EASTERN_CAPE`, `STATE_CAPE_COLONY` ;
-- pays voisins admissibles, cultures primaires, relations de sujet et existence des tags ;
-- effet réel de la boucle lignes fork 42–102 ;
-- effet de `change_tag`, `make_independent` et `independence.2` ;
-- bâtiments, pops, claims, traités et journal entries qui deviendraient orphelins après transfert.
+## Liste fermée des fichiers modifiables
 
-Produire un hunk minimal par territoire avec bénéficiaire explicite, ou conclure `UNVERIFIED_NO_SAFE_HUNK`. Ne pas inventer un tag, ne pas importer de fichier complet et ne pas déplacer de province sans preuve.
+Gameplay :
 
-## Décision B — alignement vanilla 1.13
+- `events/dei_breakup.txt`
 
-Statuer séparément sur les sept groupes de la delta map :
+Documentation :
 
-- Ulema sunnite pour JAV ;
-- nettoyage générique des cultures/personnages pour JAV ;
-- délai `independence.2` pour JAV ;
-- Ulema sunnite pour IDN ;
-- nettoyage générique, religion sunnite et personnages pour IDN ;
-- délai `independence.2` pour IDN ;
-- délai de l’option de refus.
+- `docs/reports/hotfix/_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md`
+- `docs/reports/hotfix/_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv`
+- `docs/reports/hotfix/INDEX.md`
+- `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv`
+- `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv`
+- `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md`
+- `docs/reports/hotfix/_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`
 
-Pour chaque groupe, vérifier les APIs 1.13, l’effet fonctionnel, les dépendances de localisation et l’absence de collision 1776. Classer `ADMIT_VANILLA_1_13_ALIGNMENT`, `INTENTIONAL_1776_DIVERGENCE` ou `UNVERIFIED`.
+Aucun autre fichier ne doit changer.
+
+## Hunk territorial exact
+
+Dans l’option `dei_breakup.1.a`, insérer exactement avant le `while` existant :
+
+```txt
+		# Release the non-Indonesian colonial territories before the breakup loop.
+		if = {
+			limit = {
+				s:STATE_CEYLON = {
+					any_scope_state = { owner = ROOT }
+				}
+			}
+			if = {
+				limit = { exists = c:CEY }
+				s:STATE_CEYLON.region_state:DEI ?= { set_state_owner = c:CEY }
+			}
+			else = {
+				create_country = {
+					origin = ROOT
+					tag = CEY
+					state = s:STATE_CEYLON.region_state:DEI
+				}
+			}
+			c:CEY ?= {
+				if = {
+					limit = { is_subject = yes }
+					make_independent = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				s:STATE_CAPE_COLONY = {
+					any_scope_state = { owner = ROOT }
+				}
+			}
+			if = {
+				limit = { exists = c:SAF }
+				s:STATE_CAPE_COLONY.region_state:DEI ?= { set_state_owner = c:SAF }
+			}
+			else = {
+				create_country = {
+					origin = ROOT
+					tag = SAF
+					state = s:STATE_CAPE_COLONY.region_state:DEI
+				}
+			}
+			c:SAF ?= {
+				if = {
+					limit = { is_subject = yes }
+					make_independent = yes
+				}
+			}
+		}
+		if = {
+			limit = { exists = c:SAF }
+			s:STATE_EASTERN_CAPE.region_state:DEI ?= { set_state_owner = c:SAF }
+		}
+```
+
+Ne transférer aucune province MLD, GBR, NAM ou XHO. Ne modifier aucun claim, traité, bâtiment, pop ou historique d’État.
+
+## Sept alignements exacts
+
+Dans `dei_breakup.1` seulement, faire correspondre exactement les groupes suivants au bloc DEI de la source hotfix/vanilla 1.13 :
+
+1. insérer le bloc `ig:ig_devout` Sunni Ulema lignes hotfix 107–112 avant `change_tag = JAV` ;
+2. remplacer le nettoyage cultures/personnages JAV par les lignes hotfix 115–136 ;
+3. utiliser `trigger_event = { id = independence.2 days = 1 }` ligne hotfix 137 ;
+4. insérer le bloc `ig:ig_devout` Sunni Ulema lignes hotfix 155–160 pour IDN ;
+5. remplacer le nettoyage cultures/religion/personnages IDN par les lignes hotfix 162–182 ;
+6. utiliser le délai d’un jour ligne hotfix 183 ;
+7. utiliser le délai d’un jour dans l’option de refus ligne hotfix 195.
+
+Après application, la partie située de `ig:ig_industrialists` de l’option `a` jusqu’à la fin de `dei_breakup.1` doit être identique à vanilla 1.13, à l’exception du hunk territorial ajouté avant le `while` et de toute différence strictement antérieure déjà documentée. Ne remplacer ni le fichier complet ni `alk_breakup.1`.
+
+## Rollback exact
+
+- territoire : supprimer les trois blocs `if` ajoutés avant `while` ;
+- Ulema JAV/IDN : supprimer seulement les deux blocs `ig:ig_devout` ;
+- JAV : restaurer le bloc fork `remove_primary_culture = cu:dutch`, ajout javan, religion sunnite, `state_religion_switch_effect` et `kill_character` ;
+- IDN : restaurer le bloc fork `remove_primary_culture = cu:dutch`, huit cultures et `kill_character`, sans reset sunnite ;
+- délais : retirer uniquement `days = 1` des trois appels.
 
 ## Protections absolues
 
-Ne modifier aucun gameplay. Ne pas toucher NAVY, ADMIN, BIC, Travancore, Inde close, MARATH, Japon, Mamluk Iraq, Russie, localisations françaises, descripteurs, launcher, sauvegardes ou recherches technologiques. Préserver les six fichiers gameplay 6A.2 et `activate_law = law_type:law_frontier_colonization`. Ne jamais restaurer `law_colonial_exploitation` pour BIC.
+Ne toucher ni NAVY, `Koloniale_Marine`, ADMIN, BIC, Travancore, Inde, MARATH/SAT/KHP, Japon, Mamluk Iraq, Russie, Autriche/Croatie/Suisse, localisations françaises, descripteurs, launcher, sauvegardes, `docs/research/technology/` ou `bject`. Préserver les six fichiers gameplay 6A.2. Conserver `activate_law = law_type:law_frontier_colonization` pour BIC et ne jamais restaurer `law_colonial_exploitation`.
 
-Le bloc `alk_breakup.1` du même fichier est hors périmètre. La `Koloniale_Marine` trois frégates est `NAVY_PROTECTED`.
+`alk_breakup.1` est hors périmètre et doit rester byte-for-byte identique à HEAD.
 
-## Livrables
+## Tests statiques avant jeu
 
-Créer `docs/reports/hotfix/_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md`, mettre à jour la delta map 6A.3 et seulement les index/roadmap canoniques nécessaires. Aucun runtime et aucun gameplay.
+Vérifier :
 
-## Verdicts attendus
+- équilibre d’accolades et unicité de `dei_breakup.1`/`alk_breakup.1` ;
+- égalité byte-for-byte de `alk_breakup.1` avec HEAD ;
+- présence unique des trois blocs territoriaux ;
+- existence des tags CEY/SAF et des trois state scopes ;
+- présence exacte des deux blocs Ulema, deux nettoyages et trois délais ;
+- absence de `kill_character` dans le bloc DEI corrigé ;
+- aucune modification hors liste fermée ;
+- `git diff --check` propre et staged vide.
 
-- `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE` si les deux décisions sont fermées ;
-- `READY_FOR_DEI_TARGETED_FIX` seulement si tous les hunks retenus sont exacts ;
-- sinon `BLOCKED_DEI_TARGET_HUNKS_UNVERIFIED` avec blockers précis ;
-- toujours `NO_GAMEPLAY_CHANGED` pendant 6A.3R.
+## Runtime unique
+
+Un runtime n’est autorisé qu’après PASS statique. Préparer toutes les observations avant lancement et condenser en une seule ouverture : charger le fork 1776, déclencher l’option `a`, vérifier CEY/SAF indépendants et les owners exacts, vérifier MLD/GBR/NAM/XHO, pops/bâtiments/claims/traités, cultures/religion/Ulema/personnages JAV, puis exploiter des sauvegardes préparées pour IDN/refus si disponibles. Scanner `error.log`. Si le montage du fork n’est pas prouvé, déclarer le runtime invalide sans second lancement automatique.
+
+## Livrables et verdicts
+
+Créer `HOTFIX_6A3F_DEI_TARGETED_FIX.md`, mettre à jour la delta map et uniquement les index autorisés. Toujours publier :
+
+- `HOTFIX_6A3F_DEI_TARGETED_FIX_STATIC_PASS` si tous les contrôles statiques passent ;
+- `DEI_TERRITORIAL_RELEASE_HUNKS_APPLIED` ;
+- `DEI_VANILLA_1_13_ALIGNMENT_APPLIED` ;
+- `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`.
+
+Ne publier `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE` qu’après runtime valide ; sinon publier précisément le statut runtime restant. Ne pas committer automatiquement.
 
 ## Vérifications finales
 
-Exécuter `git diff --check`, `git status --short`, diff name/status/stat, staged vide, `git stash list` et contrôle des processus. Confirmer zéro gameplay supplémentaire, protections 6A.2 intactes, `bject` et recherches technologiques intacts. Ne pas committer automatiquement.
+Exécuter `git diff --check`, `git status --short`, `git diff --name-only`, `git diff --name-status`, `git diff --stat`, `git diff --cached --name-only`, `git stash list` et le contrôle des processus. Confirmer le diff gameplay limité à `events/dei_breakup.txt`, zéro staged, protections intactes, `docs/research/technology/` et `bject` intacts, stash MARATH intact.
