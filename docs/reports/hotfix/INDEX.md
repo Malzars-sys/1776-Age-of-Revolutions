@@ -2,7 +2,7 @@
 
 ## 1. Statut global du hotfix
 
-Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. La Russie est corrigée; l’audit Autriche/Croatie-Slavonie/Suisse est terminé mais deux hunks doivent encore être résolus avant correction (`BLOCKED_TARGET_HUNKS_UNVERIFIED`).
+Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. La Russie est corrigée; les blockers Suisse et NAVY sont résolus et le paquet Autriche/Croatie-Slavonie/Suisse est prêt pour sa correction ciblée.
 
 ## 2. Navigation par région
 
@@ -12,7 +12,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 | Japon | `CURRENT`, clôture consolidée encore distincte | [Japan](japan/README.md) | [Correction EZO/Hokkaido](japan/HOTFIX_4E8_FIX_EZO_HOKKAIDO_GATE.md) |
 | Mamluk Iraq | `CURRENT`, sans clôture runtime dédiée | [Mamluk Iraq](mamluk_iraq/README.md) | [Objectif secret IR1](mamluk_iraq/HOTFIX_3F_IR1_SECRET_GOAL.md) |
 | Russie | `CURRENT`, statique passé, runtime global différé | [_index](_index/) | [Alignement Subjecthood](_index/HOTFIX_6A_RUSSIA_SUBJECTHOOD_ALIGNMENT.md) |
-| Autriche/Croatie/Suisse | `BLOCKED_TARGET_HUNKS_UNVERIFIED` | [_index](_index/) | [Audit HOTFIX-6A.2](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT.md) |
+| Autriche/Croatie/Suisse | `READY_FOR_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX` | [_index](_index/) | [Résolution HOTFIX-6A.2R](_index/HOTFIX_6A2R_TARGET_HUNK_RESOLUTION.md) |
 | Transversal | `REFERENCE` | [Shared](shared/README.md) | [Audit upstream](shared/HOTFIX_DLC_UPSTREAM_CHANGE_AUDIT.md) |
 
 ## 3. Navigation par sujet
@@ -29,7 +29,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [Feuille de route de fin du merge](_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md), avec [registre des 534 écarts fonctionnels](_index/HOTFIX_MERGE_REMAINING_WORK.csv), [inventaire trois voies](_index/HOTFIX_MERGE_THREE_WAY_INVENTORY.csv) et [matrice des blocs](_index/HOTFIX_MERGE_BLOCK_STATUS.csv).
 - [Prompt directement utilisable pour HOTFIX-6A](_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md).
 - [Réconciliation des productions concurrentes C1AI](_index/HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md), verdict `GLOBAL_SCRIPT_DELTAS_WITH_RUSSIA_FIRST`.
-- [Audit Autriche, Croatie-Slavonie et Suisse occidentale](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT.md), avec [delta map](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_DELTA_MAP.csv), verdict `BLOCKED_TARGET_HUNKS_UNVERIFIED`.
+- [Audit Autriche, Croatie-Slavonie et Suisse occidentale](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT.md), [résolution des blockers 6A.2R](_index/HOTFIX_6A2R_TARGET_HUNK_RESOLUTION.md) et [delta map résolue](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_DELTA_MAP.csv), verdict `READY_FOR_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX`.
 
 ## 5. Rapports runtime finaux
 
@@ -55,7 +55,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 
 - Japon : une clôture consolidée distincte reste possible après les correctifs 4E5–4E8.
 - Mamluk Iraq : aucun rapport de clôture/runtime global n’est présent ; 3F reste la dernière correction documentaire.
-- Merge global : Russie terminée statiquement; prochaine phase documentaire `HOTFIX_6A2R_TARGET_HUNK_RESOLUTION` pour arbitrer la population suisse et les hunks NAVY avant toute correction Autriche/Croatie/Suisse. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
+- Merge global : Russie terminée statiquement; 6A.2R terminée sans gameplay; prochaine phase `HOTFIX_6A2F_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX`. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
 - Les recherches technologiques sont hors bibliothèque et hors périmètre AH.
 
 ## 8. Rapports inconclusifs ou remplacés
