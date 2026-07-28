@@ -198,3 +198,22 @@ Contrôles prévus et exécutés avant staging :
 - staging limité aux formations militaires modifiées et à ce rapport.
 
 Aucun runtime de jeu n’est inclus dans ce commit statique.
+
+## Addendum runtime
+
+La migration a ensuite été testée sous Victoria 3 1.13.0. Le premier lancement
+a révélé douze formations dont le QG, bien que valide dans les définitions 1.13,
+n’avait aucun ancrage territorial pour le pays concerné. Le correctif séparé
+`3b02b2a` modifie uniquement ces douze valeurs `hq_region`.
+
+La partie neuve corrigée, la sauvegarde du 1er février 1776, sa recharge et deux
+progressions distinctes jusqu’au 1er mai sont validées. Les trois armées
+japonaises, `Regular_Army` à `region_atlantic_coast`, les deux armées persanes,
+l’Afrique du Nord et une formation subsaharienne ont passé les contrôles.
+
+Les dettes `maitland_gen` / `madras_army`, `ideology = moderate` et
+`colborne_gen` / `aylmer_gen` se reproduisent dans les logs et restent hors du
+correctif. Voir le
+[rapport de QA runtime](HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md).
+
+Verdict : `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE`.

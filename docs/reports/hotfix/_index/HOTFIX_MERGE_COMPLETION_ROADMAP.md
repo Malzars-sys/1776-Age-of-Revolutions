@@ -21,6 +21,7 @@ Verdicts :
 - `NO_REQUIRED_HOTFIX_DELTA_IDENTIFIED`
 - `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
 - `READY_FOR_DEI_TARGETED_FIX`
+- `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
 ## 2. Périmètre du merge
@@ -78,6 +79,12 @@ Statut `CONCURRENT_USER_WORK`. Les collisions principales sont `common/history/b
 ## 13. NAVY
 
 Statut `PROTECTED_EXISTING_WORK`. Les rapports `docs/reports/navy/` couvrent les phases 0 à 3C-2; le travail MARATH 3C-3 reste stashed. Les formations militaires, lois navales, bâtiments et localisations navales ne doivent pas être absorbés par le merge hotfix. Un audit spécifique ne sera ouvert que si un résidu hotfix précis l’exige après 6A.
+
+La migration autonome des huit historiques de formations du commit `c6c9429`,
+avec le correctif minimal de douze QG `3b02b2a`, a passé une partie neuve, une
+sauvegarde/recharge et deux progressions de trois mois. Le rapport canonique est
+`HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md`. Cette preuve ne ferme pas le
+bloc NAVY plus large et ne touche pas au stash MARATH.
 
 ## 14. ADMIN
 
@@ -151,7 +158,7 @@ Rejouer l’inventaire hash, vérifier les références, doublons, encodages, ac
 
 ## 31. Runtime global final
 
-Un lancement consolidé doit couvrir chargement 1776, RUS, IR1/TUR/PER, Japon, BIC/Sepoy, NAVY/ADMIN en non-régression et `error.log`. Tous les scénarios doivent être préparés avant l’ouverture du jeu.
+Un lancement consolidé doit couvrir chargement 1776, RUS, IR1/TUR/PER, Japon, BIC/Sepoy, NAVY/ADMIN en non-régression et `error.log`. Tous les scénarios doivent être préparés avant l’ouverture du jeu. La QA formations 1.13 fournit déjà une preuve ciblée pour RUS, TUR/PER, Japon, BIC et les formations NAVY, mais ne remplace pas le smoke final après fermeture des blocs P0/P1.
 
 ## 32. Retrait de la copie jetable
 

@@ -2,7 +2,7 @@
 
 ## 1. Statut global du hotfix
 
-Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La résolution DEI 6A.3R est complète : CEY et SAF sont les bénéficiaires territoriaux retenus et les sept alignements vanilla 1.13 sont admis. La prochaine phase est la correction ciblée 6A.3F.
+Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La résolution DEI 6A.3R est complète : CEY et SAF sont les bénéficiaires territoriaux retenus et les sept alignements vanilla 1.13 sont admis. La prochaine phase reste la correction ciblée 6A.3F.
 
 ## 2. Navigation par région
 
@@ -32,6 +32,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [Réconciliation des productions concurrentes C1AI](_index/HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md), verdict `GLOBAL_SCRIPT_DELTAS_WITH_RUSSIA_FIRST`.
 - [Audit 6A.2](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT.md), [résolution 6A.2R](_index/HOTFIX_6A2R_TARGET_HUNK_RESOLUTION.md), [correction 6A.2F](_index/HOTFIX_6A2F_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX.md), [correction runtime 6A.2F2](_index/HOTFIX_6A2F2_SWISS_POP_NAVAL_BASE_RUNTIME_CORRECTION.md) et [delta map](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_DELTA_MAP.csv). Statique et runtime PASS; Suisse autrichienne 30 K et flotte AUS 2,30 K / 2,30 K confirmées.
 - [Audit DEI 6A.3](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md), [résolution 6A.3R](_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md) et [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) : CEY/SAF retenus, hunk territorial fermé et sept alignements vanilla 1.13 admis, sans gameplay modifié.
+- [QA runtime des formations militaires 1.13](_index/HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md) : douze QG corrigés dans `3b02b2a`, partie neuve, sauvegarde/recharge et deux progressions de trois mois validées.
 
 ## 5. Rapports runtime finaux
 
@@ -45,6 +46,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 | C1G | Scénario A-2 | validation runtime | `FINAL` | [rapport](india/sepoy/HOTFIX_5C2E4C1G_SEPOY_A2_RUNTIME_TEST.md) | [résultats](india/sepoy/HOTFIX_5C2E4C1G_A2_RUNTIME_RESULTS.csv) |
 | C1I/I1 | Scénario A-3 | validation runtime et nettoyage tooltip | `FINAL` | [runtime](india/sepoy/HOTFIX_5C2E4C1I_SEPOY_A3_RUNTIME_TEST.md) | [résultats](india/sepoy/HOTFIX_5C2E4C1I_A3_RUNTIME_RESULTS.csv) |
 | E4B3 | APIs Sepoy | `PASS` | `FINAL` | [rapport](india/sepoy/HOTFIX_5C2E4B3_SEPOY_API_RUNTIME_RETEST.md) | — |
+| Formations 1.13 | Migration des formations militaires | `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md) | [audit statique](_index/army.md) |
 
 ## 6. Corrections gameplay validées
 
