@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La phase DEI/VOC est close par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`, après validation statique, runtime des trois branches et sauvegarde/rechargement. La sélection 6A.4 a relu les 161 lignes `PENDING_REVIEW`. L’alignement balkanique 6A.4F est maintenant clos après suppression des 51 erreurs propres dans un runtime monté. Le prochain sous-bloc est `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION`, sans changement gameplay.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La phase DEI/VOC est close par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`, après validation statique, runtime des trois branches et sauvegarde/rechargement. La sélection 6A.4 a relu les 161 lignes `PENDING_REVIEW`, puis l’alignement balkanique 6A.4F a supprimé ses 51 erreurs propres. La sélection 6A.5 actualise les résidus et choisit `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT` comme prochain sous-bloc atomique.
 
 Verdicts :
 
@@ -24,6 +24,8 @@ Verdicts :
 - `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE`
 - `HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
 - `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`
+- `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+- `NO_GAMEPLAY_CHANGED`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
 ## 2. Périmètre du merge
@@ -38,7 +40,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 4. Blocs terminés
 
-- Lois Merchant Banking / Navigation Acts : intégré par `d43e4f2` après les icônes `eca384e`.
+- Infrastructure des lois Merchant Banking / Navigation Acts : intégrée par `d43e4f2` après les icônes `eca384e`; les activations de départ GEN/VEN et GBR/colonies restent des deltas séparés à exécuter.
 - Mamluk Iraq : chaîne `7cc8068` → `a24fe7e`; verdict administratif `MAMLUK_IRAQ_COMPLETE`, validation statique, runtime à consolider globalement.
 - Japon : chaîne `6dde080` → `2228ce8`, correction Ryukyu `72d03a3` et gate EZO `2228ce8`; verdict administratif `JAPAN_HOTFIX_COMPLETE`, validation statique, runtime à consolider globalement.
 - Inde : `HOTFIX_5_INDIA_COMPLETE`, commit `50ed582`, avec `SEPOY_RUNTIME_VALIDATION_COMPLETE`, `BOMBAY_TRIGGER_ACCESS_CONFIRMED`, `WEST_BENGAL_RETREAT_TRANSFER_EXPECTED` et `NO_FURTHER_INDIA_GAMEPLAY_FIX_REQUIRED`.
@@ -52,7 +54,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 6. Blocs non examinés
 
-Le prochain travail est la sélection documentaire `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION`. Elle doit choisir exactement un nouveau sous-bloc atomique sans modifier de gameplay. Ne pas rouvrir DEI/VOC, Balkan National Awakening, NAVY, BIC, Travancore ou MARATH sans delta précis et nouvellement prouvé.
+Le prochain travail est `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT`. Il est limité au remplacement de l’ancienne propriété de pinning dans `je_yugoslavia`. Après validation statique, Codex doit s’arrêter à `RUNTIME_OPERATOR_ACTION_REQUIRED`; tout test en jeu appartient à l’opérateur humain. Ne pas rouvrir DEI/VOC, Balkan National Awakening, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -125,23 +127,26 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
 La prochaine phase atomique est
-`HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION`. La matrice concurrente annonçait
-26 deltas à haute confiance, mais aucune liste de 26 lignes n’est publiée. La
-revue 6A.4 a classé exhaustivement les 161 anciennes lignes `PENDING_REVIEW` :
-7 `REQUIRED_HOTFIX_DELTA`, 22 `VANILLA_1_13_ALIGNMENT_REQUIRED`, 12
-`ALREADY_MERGED`, 3 divergences intentionnelles, 1 contenu hotfix obsolète, 10
-backlogs, 19 travaux protégés et 87 inconnus. Le fichier balkanique est
-désormais retiré des résidus à exécuter. Le total 26 reste `UNVERIFIED`.
+`HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT`. La matrice concurrente
+annonçait 26 deltas à haute confiance, mais aucune liste de 26 lignes n’est
+publiée. Après clôture balkanique, les 161 anciennes lignes `PENDING_REVIEW`
+se répartissent en 7 `REQUIRED_HOTFIX_DELTA`, 21
+`VANILLA_1_13_ALIGNMENT_REQUIRED`, 13 `ALREADY_MERGED`, 3 divergences
+intentionnelles, 1 contenu hotfix obsolète, 10 backlogs, 19 travaux protégés
+et 87 inconnus. Il reste 115 lignes directement exploitables par une revue,
+sans que ce nombre représente 115 correctifs. Le total 26 reste `UNVERIFIED`.
 
 ## 23. Pourquoi il vient ensuite
 
-La phase 6A.4F a ramené de 51 à zéro les erreurs visant `05_balkan_national_awakening.txt`, dans une partie 1776 ayant progressé du 1er au 13 janvier. Les nombreuses erreurs restantes appartiennent à d’autres fichiers. Une nouvelle sélection est donc requise pour les rapprocher de l’inventaire résiduel, comparer les meilleurs candidats en trois voies et choisir un seul prochain paquet.
+La phase 6A.5 a rapproché les journaux existants de l’inventaire. `05_creation_of_yugoslavia.txt` produit une erreur directe sur `should_be_pinned_by_default`; la source hotfix et le vanilla 1.13 convergent vers la nouvelle propriété. Le correctif tient dans un fichier, un objet et un hunk, avec un rollback immédiat.
 
 ## 24. Fichiers concernés
 
-La phase 6A.5 ne peut modifier aucun gameplay. Elle est limitée à son nouveau
-rapport de sélection et aux cinq index/documentations canoniques. Les paquets
-6A.3F et 6A.4F restent protégés.
+La phase 6A.5F ne peut modifier que
+`common/journal_entries/05_creation_of_yugoslavia.txt`, dans l’objet
+`je_yugoslavia`, et seulement la propriété de pinning sélectionnée. La
+condition géographique supplémentaire de la source hotfix est exclue. Les
+paquets 6A.3F et 6A.4F restent protégés.
 
 ## 25. Modèle recommandé
 
@@ -149,22 +154,21 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Le runtime balkanique ciblé est terminé : un seul lancement, fork et
-`dlc014_ip3` montés, progression du 1er au 13 janvier 1776, JE potentielle
-lisible en Valachie et zéro erreur propre dans tous les logs et rotations. La
-phase 6A.5 de sélection n’exige aucun lancement.
+Le runtime balkanique ciblé est terminé. 6A.5 n’a lancé ni le jeu ni le
+launcher. 6A.5F exigera une validation humaine après son contrôle statique :
+Codex devra s’arrêter à `RUNTIME_OPERATOR_ACTION_REQUIRED`, fournir la fiche de
+session et attendre le compte rendu de l’opérateur.
 
 ## 27. Nombre minimal de lancements
 
-Une seule ouverture a été réalisée pour 6A.4F. Aucun lancement supplémentaire n’est requis pour 6A.3F, 6A.4F ou la sélection 6A.5.
+Une seule ouverture a été réalisée pour 6A.4F et aucune pour 6A.5. Un lancement humain minimal est prévu pour 6A.5F; Codex ne doit jamais lancer ou piloter le jeu ou le launcher.
 
 ## 28. Phases suivantes probables
 
-La sélection 6A.5 doit comparer les résidus actuels et publier une seule phase
-d’exécution. Merchant Banking GEN/VEN et Navigation Acts GBR/colonies restent
-des candidats connus, mais ne sont pas autorisés à être exécutés pendant 6A.5.
-Le contenu des lettres de Kew reste séparé dans la future phase Révolution
-française/Napoléon.
+Après 6A.5F, Merchant Banking GEN/VEN et Navigation Acts
+GBR/HBC/NBS/ONT/ORA restent respectivement les candidats classés 2 et 3. Ils ne
+font pas partie du périmètre courant. Le contenu des lettres de Kew reste
+séparé dans la future phase Révolution française/Napoléon.
 
 ## 29. Critères de fin du merge
 
@@ -197,13 +201,15 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
 `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
 `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`
+`HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+`NO_GAMEPLAY_CHANGED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026

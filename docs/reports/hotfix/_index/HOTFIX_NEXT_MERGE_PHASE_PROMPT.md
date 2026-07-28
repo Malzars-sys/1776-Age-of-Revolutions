@@ -1,46 +1,34 @@
-# Phase HOTFIX-6A.5 — Sélection du prochain résidu global
+# Phase HOTFIX-6A.5F — Alignement 1.13 du pinning de `je_yugoslavia`
 
-FORK : `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
+FORK :
+`C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
 
-SOURCE HOTFIX, LECTURE SEULE : `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_hotfix_source`
+SOURCE HOTFIX, LECTURE SEULE :
+`C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_hotfix_source`
 
-VANILLA 1.13, LECTURE SEULE : `C:\Games\Victoria 3 The Great Wave\game`
+VANILLA 1.13, LECTURE SEULE :
+`C:\Games\Victoria 3 The Great Wave\game`
 
 MODÈLE RECOMMANDÉ : GPT-5.6 Thinking avec raisonnement élevé.
 
 ## Verdicts d’entrée
 
-- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`
-- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_RUNTIME_PASS`
-- `HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
-- `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`
-- `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE`
+- `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+- `NO_GAMEPLAY_CHANGED`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+- `NEXT_EXECUTION_PHASE = HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT`
 
-Rapport canonique d’entrée :
+Rapport canonique :
 
-`docs/reports/hotfix/_index/HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md`
+`docs/reports/hotfix/_index/HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
 
 ## Objectif unique
 
-Sélectionner exactement **un** prochain sous-bloc atomique parmi les résidus
-globaux encore ouverts. Cette phase est une phase d’audit et de sélection :
-elle ne doit modifier aucun gameplay.
+Corriger l’ancienne API de pinning de `je_yugoslavia` par un seul remplacement
+de propriété compatible Victoria 3 1.13, valider statiquement, puis s’arrêter
+pour confier tous les tests en jeu à l’opérateur humain.
 
-Publier :
-
-1. une mesure actualisée des résidus et des erreurs runtime ;
-2. un classement motivé des candidats réellement exploitables ;
-3. les trois meilleurs candidats, avec taille, priorité, confiance, risque de
-   collision et besoin de runtime ;
-4. un seul sous-bloc sélectionné ;
-5. son périmètre fermé, ses sources, ses fichiers et objets exacts ;
-6. un prompt d’exécution ultérieur.
-
-Ne commencer ni Merchant Banking, ni Navigation Acts, ni une autre correction
-pendant cette phase de sélection.
-
-## État Git requis
+## Préflight Git obligatoire
 
 Exécuter avant toute modification :
 
@@ -57,7 +45,7 @@ git stash list
 Exiger :
 
 - branche `hotfix-dlc-audit` ;
-- rapport 6A.4F présent dans le HEAD après commit manuel ;
+- rapport 6A.5 présent dans HEAD après commit manuel ;
 - aucun fichier suivi modifié ;
 - aucun fichier staged ;
 - seuls `bject` et les sept fichiers de `docs/research/technology/` peuvent
@@ -74,102 +62,72 @@ stash apply/pop/drop ou inspection du contenu du stash.
 
 Lire intégralement :
 
+- `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` ;
 - `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md` ;
-- `HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` ;
 - `HOTFIX_MERGE_COMPLETION_ROADMAP.md` ;
 - `HOTFIX_MERGE_BLOCK_STATUS.csv` ;
 - `HOTFIX_REPORT_INDEX.csv` ;
-- `HOTFIX_GLOBAL_DIFFERENCE_INVENTORY.csv` ;
-- `HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md` ;
-- les changelogs pertinents du fork et de la source hotfix.
+- le fichier cible dans le fork, la source hotfix et le vanilla 1.13 ;
+- les journaux existants de la dernière session, sans lancer le jeu.
 
-Consulter les derniers `error.log`, `game.log`, `debug.log` et leurs rotations
-de la session 6A.4F. Enregistrer séparément :
+## Périmètre gameplay fermé
 
-- les erreurs déjà fermées par 6A.4F ;
-- les erreurs provenant d’autres fichiers ;
-- les familles les plus répétées ;
-- les diagnostics qui appartiennent à des blocs protégés ou à des backlogs.
+Seul fichier gameplay modifiable :
 
-Comparer chaque candidat retenu en trois voies : fork, source hotfix et vanilla
-Victoria 3 1.13. Le nom identique d’un fichier ou une différence de hash ne
-suffisent jamais à autoriser un import.
+```text
+common/journal_entries/05_creation_of_yugoslavia.txt
+```
 
-## Base de sélection
+Seul objet modifiable :
 
-La revue 6A.4 a classé les 161 anciennes lignes `PENDING_REVIEW` :
+```text
+je_yugoslavia
+```
 
-- 7 `REQUIRED_HOTFIX_DELTA` ;
-- 22 `VANILLA_1_13_ALIGNMENT_REQUIRED`, dont le fichier balkanique désormais
-  clos ;
-- 12 `ALREADY_MERGED` ;
-- 3 `INTENTIONAL_FORK_DIVERGENCE` ;
-- 1 `OBSOLETE_HOTFIX_CONTENT` ;
-- 10 `POST_MERGE_DESIGN_BACKLOG` ;
-- 19 `PROTECTED_CONCURRENT_WORK` ;
-- 87 `UNKNOWN_REQUIRES_REVIEW`.
+Seul hunk gameplay autorisé :
 
-Actualiser ces nombres sans réintroduire le fichier balkanique dans les
-résidus. L’ancien total annoncé de 26 deltas à haute confiance reste
-`UNVERIFIED` tant qu’aucun registre exact ne le démontre.
+```diff
+-    should_be_pinned_by_default = yes
++    should_be_pinned_by_default_uninvolved_or_context = yes
+```
 
-Les pistes connues comprennent :
+Appliquer ce hunk avec `apply_patch`.
 
-- les autres migrations de pinning de journal entries vers l’API 1.13 ;
-- Merchant Banking pour GEN/VEN ;
-- Navigation Acts pour GBR et ses colonies ;
-- les 87 unités encore `UNKNOWN_REQUIRES_REVIEW`.
+## Liste fermée des fichiers modifiables
 
-Ces pistes sont des candidats à comparer, pas des corrections autorisées dans
-la présente phase.
+Gameplay :
 
-## Méthode obligatoire
+- `common/journal_entries/05_creation_of_yugoslavia.txt`
 
-1. Recalculer l’inventaire résiduel à partir des registres canoniques.
-2. Rapprocher les erreurs runtime actuelles des chemins inventoriés.
-3. Exclure les blocs clos, les divergences intentionnelles, les backlogs et les
-   travaux protégés.
-4. Inspecter en trois voies les meilleurs candidats restants.
-5. Classer chaque candidat dans une catégorie exclusive.
-6. Évaluer pour chacun :
-   - importance ;
-   - preuve fonctionnelle ;
-   - taille du diff ;
-   - nombre de fichiers et d’objets ;
-   - dépendances ;
-   - risque de collision ;
-   - besoin de runtime ;
-   - rollback possible.
-7. Publier les trois meilleurs candidats.
-8. Choisir exactement un sous-bloc atomique.
-9. Définir une liste fermée de fichiers et d’objets pour sa future exécution.
-10. Ne modifier aucun fichier gameplay.
+Documentation :
 
-Préférer un correctif petit, prouvé, réversible et sans collision. Une erreur
-runtime répétée ne doit être sélectionnée que si sa cause et son correctif sont
-prouvés par la comparaison trois voies.
+- `docs/reports/hotfix/_index/HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT.md`
+- `docs/reports/hotfix/INDEX.md`
+- `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv`
+- `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv`
+- `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md`
+- `docs/reports/hotfix/_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`
 
-## Protections absolues
+Aucun autre fichier n’est modifiable.
 
-Ne modifier aucun fichier ou objet relatif à :
+## Interdictions spécifiques
 
-- DEI/VOC, dissolution, drapeau Java ou économie post-compagnie ;
-- `05_balkan_national_awakening.txt`, désormais clos ;
-- NAVY, lois navales, formations militaires ou événements technologiques
-  navals ;
-- MARATH, SAT, KHP ou Travancore ;
-- Inde, BIC, Sepoy, Bombay ou noms dynamiques des présidences ;
-- ADMIN ;
-- Japon ;
-- Russie ;
-- Autriche, Croatie, Slavonie ou Suisse ;
-- Révolution américaine ou française et lettres de Kew ;
-- technologies et `docs/research/technology/` ;
-- localisations françaises générales ;
-- agriculture, alimentation ou industrie générale ;
-- descripteurs, launcher, sauvegardes et `bject`.
+Ne pas importer la condition hotfix :
 
-Préserver notamment :
+```txt
+is_in_geographic_region = geographic_region_balkans
+```
+
+Ne modifier aucune condition d’activation, visibilité, durée, effet,
+localisation ou autre propriété. Ne pas remplacer le fichier complet.
+
+Ne toucher ni Merchant Banking, ni Navigation Acts, ni une autre journal
+entry. Ne rouvrir aucun bloc clos ou protégé : DEI/VOC, Balkan National
+Awakening, NAVY, formations, MARATH, Inde/BIC/Sepoy, ADMIN, Japon, Russie,
+Autriche/Croatie/Suisse, Révolutions américaine ou française, technologies,
+localisations françaises, agriculture, alimentation ou industrie.
+
+Préserver :
 
 ```txt
 activate_law = law_type:law_frontier_colonization
@@ -177,80 +135,135 @@ activate_law = law_type:law_frontier_colonization
 
 Ne jamais restaurer `law_colonial_exploitation` pour BIC.
 
-## Liste fermée des fichiers modifiables
-
-Documentation uniquement :
-
-- `docs/reports/hotfix/_index/HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
-- `docs/reports/hotfix/INDEX.md`
-- `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv`
-- `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv`
-- `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md`
-- `docs/reports/hotfix/_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`
-
-Aucun fichier gameplay n’est modifiable.
-
-## Rapport requis
-
-Créer :
-
-`docs/reports/hotfix/_index/HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
-
-Le rapport doit contenir :
-
-- état Git initial et HEAD ;
-- sources consultées ;
-- inventaire actualisé ;
-- mesure et regroupement des erreurs runtime ;
-- exclusions et protections ;
-- classement des candidats ;
-- tableau des trois meilleurs candidats ;
-- choix unique et justification ;
-- périmètre futur fermé ;
-- validations statiques documentaires ;
-- fichiers modifiés ;
-- état Git final ;
-- décision de commit manuel ultérieur.
-
-Le prompt suivant doit être un prompt d’exécution de la phase sélectionnée. Ne
-pas exécuter cette phase dans la même session.
-
-## Contrôles
+## Validation statique obligatoire
 
 Vérifier :
 
-1. zéro fichier gameplay modifié ;
-2. un seul prochain sous-bloc sélectionné ;
-3. aucun résidu clos réintroduit ;
-4. chaque candidat classé une seule fois ;
-5. les chiffres du rapport cohérents avec les CSV ;
-6. les protections explicites ;
-7. le prompt futur limité à un périmètre fermé ;
-8. `git diff --check` propre ;
-9. index Git vide ;
-10. modifications limitées aux six documents autorisés.
+1. une seule définition de `je_yugoslavia` ;
+2. accolades équilibrées ;
+3. zéro `should_be_pinned_by_default =` dans l’objet ;
+4. exactement un
+   `should_be_pinned_by_default_uninvolved_or_context = yes` ;
+5. présence du nouveau champ dans la source hotfix et le vanilla 1.13 ;
+6. aucune modification de la géographie ;
+7. diff gameplay réduit au hunk exact ;
+8. aucun autre fichier gameplay modifié ;
+9. `git diff --check` propre ;
+10. index Git vide ;
+11. stash et fichiers non suivis protégés intacts ;
+12. jeu et launcher toujours fermés.
+
+Créer le rapport 6A.5F et mettre à jour uniquement les cinq documents
+canoniques autorisés, puis publier le contrôle statique.
+
+## Tests en jeu exclusivement réalisés par l’opérateur
+
+Codex ne doit jamais lancer, piloter, cliquer dans, sauvegarder depuis ou
+fermer Victoria 3 ou le launcher Paradox.
+
+Codex ne doit pas tenter d’automatiser l’interface, utiliser la souris ou le
+clavier dans le jeu, tourner en boucle pour trouver un moyen d’interagir, ni
+déclarer un runtime PASS sans résultat communiqué par l’opérateur.
+
+Après réussite de la validation statique, arrêter immédiatement avec le
+verdict :
+
+`RUNTIME_OPERATOR_ACTION_REQUIRED`
+
+Ne pas déclarer la phase complète et ne pas poursuivre automatiquement.
+Attendre le compte rendu de l’opérateur humain.
+
+## Fiche de test à remettre à l’opérateur humain
+
+1. Lancer Victoria 3 avec le launcher habituel et le fork actif.
+2. Confirmer visuellement que le fork est monté.
+3. Démarrer une partie neuve en 1776.
+4. Choisir un pays balkanique valide permettant d’observer l’entrée ; utiliser
+   la Valachie seulement si les conditions affichées la rendent pertinente.
+5. Ouvrir Journal > Potentiel et rechercher « Création de la Yougoslavie ».
+6. Si elle est visible, vérifier :
+   - aucune clé brute ;
+   - conditions lisibles ;
+   - aucune anomalie de pinning ;
+   - aucun effet visible inattendu.
+7. Laisser passer au moins un jour en jeu.
+8. Fermer le jeu et le launcher.
+9. Communiquer à Codex :
+   - pays choisi ;
+   - entrée accessible ou inaccessible ;
+   - résultat des quatre contrôles ;
+   - date atteinte ;
+   - capture si possible.
+
+Aucune commande console n’est requise ou autorisée pour le scénario minimal.
+Si une future observation exigeait une commande, elle devrait être proposée
+dans un nouveau périmètre et vérifiée avant d’être confiée à l’opérateur.
+
+Si l’entrée est inaccessible dans ce scénario ou pour ce pays, le signaler
+simplement. Ne pas demander un élargissement du correctif.
+
+## Reprise après le compte rendu opérateur
+
+Seulement après confirmation que le jeu et le launcher sont fermés :
+
+1. analyser `error.log`, `game.log`, `debug.log` et leurs rotations ;
+2. prouver que le fork était monté ;
+3. compter les occurrences ciblant
+   `common/journal_entries/05_creation_of_yugoslavia.txt` et
+   `should_be_pinned_by_default` ;
+4. séparer les erreurs hors périmètre ;
+5. si la preuve est suffisante, finaliser le rapport et les index ;
+6. sinon publier un verdict précis sans élargir le scope.
+
+Preuve runtime minimale : fork positivement monté, progression d’au moins un
+jour et disparition de l’erreur de parsing ciblée. L’inaccessibilité de
+l’entrée n’annule pas cette preuve minimale si elle est clairement documentée.
+
+## Livrables
+
+Avant l’arrêt statique :
+
+1. hunk gameplay unique appliqué ;
+2. rapport 6A.5F créé avec état Git, comparaison trois voies, diff exact et
+   résultats statiques ;
+3. index documentaires cohérents ;
+4. fiche de test humain condensée ;
+5. verdict `RUNTIME_OPERATOR_ACTION_REQUIRED`.
+
+Après le compte rendu humain, dans une reprise distincte :
+
+1. analyse des observations et journaux ;
+2. correction d’une éventuelle régression seulement dans le périmètre fermé ;
+3. rapport et index finalisés ;
+4. préparation du commit manuel, sans l’exécuter.
+
+## Rollback
+
+En cas de régression, inverser uniquement le hunk autorisé. Ne jamais restaurer
+le fichier complet depuis la source ou le vanilla.
 
 ## Verdicts
 
-Après sélection valide :
+Après validation statique, uniquement :
 
-- `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
-- `NO_GAMEPLAY_CHANGED`
+- `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_STATIC_PASS`
+- `RUNTIME_OPERATOR_ACTION_REQUIRED`
+
+Après reprise et runtime humain concluant :
+
+- `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_RUNTIME_PASS`
+- `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_COMPLETE`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
-
-Publier également :
-
-`NEXT_EXECUTION_PHASE = <phase atomique sélectionnée>`
 
 En cas d’échec :
 
-- `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION_FAIL`
+- `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_FAIL`
 
 Ne rien committer automatiquement.
 
 ## Vérifications finales
 
-Exécuter :
+Exécuter avant l’arrêt statique puis après la reprise runtime :
 
 ```powershell
 git diff --check
@@ -264,11 +277,11 @@ git stash list
 
 Confirmer :
 
-- uniquement les six documents autorisés modifiés ;
+- uniquement les sept fichiers autorisés modifiés ou créés ;
+- diff gameplay réduit au hunk exact ;
 - aucun fichier staged ;
 - aucun commit automatique ;
-- `bject` intact ;
-- les sept fichiers de `docs/research/technology/` intacts ;
+- `bject` et les sept recherches technologiques intacts ;
 - stash NAVY-3C-3 intact ;
-- DEI/VOC, Balkans 6A.4F, formations militaires, NAVY et MARATH inchangés ;
-- Victoria 3 et le launcher fermés.
+- tous les blocs clos et protégés intacts ;
+- Victoria 3 et le launcher fermés au moment où Codex intervient.
