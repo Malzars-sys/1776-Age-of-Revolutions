@@ -2,7 +2,7 @@
 
 ## 1. Statut global du hotfix
 
-Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La phase DEI/VOC 6A.3F est également close après validations Java, Indonésie, refus et persistance après rechargement. La revue 6A.4 a relu les 161 résidus `PENDING_REVIEW` et sélectionné l’alignement 1.13 de `je_balkan_national_awakenings` comme prochaine phase atomique.
+Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La phase DEI/VOC 6A.3F est également close après validations Java, Indonésie, refus et persistance après rechargement. L’alignement 1.13 de `je_balkan_national_awakenings` est désormais clos : les 51 erreurs propres ont disparu dans un runtime monté. La prochaine phase est une nouvelle sélection résiduelle 6A.5, sans changement gameplay.
 
 ## 2. Navigation par région
 
@@ -34,6 +34,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [Audit DEI 6A.3](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md), [résolution 6A.3R](_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md), [correction et clôture 6A.3F](_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md) et [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) : CEY/SAF, Java, Indonésie, refus et économie post-compagnie validés statiquement et en jeu.
 - [QA runtime des formations militaires 1.13](_index/HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md) : douze QG corrigés dans `3b02b2a`, partie neuve, sauvegarde/recharge et deux progressions de trois mois validées.
 - [Sélection résiduelle 6A.4](_index/HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md) : 161 lignes relues, 22 alignements de pinning 1.13 identifiés et sélection du correctif balkanique à deux hunks dans un seul fichier.
+- [Alignement Balkan National Awakening 6A.4F](_index/HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md) : deux hunks appliqués, 51 erreurs propres ramenées à zéro, fork et `dlc014_ip3` montés, JE potentielle lisible en Valachie.
 
 ## 5. Rapports runtime finaux
 
@@ -49,6 +50,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 | E4B3 | APIs Sepoy | `PASS` | `FINAL` | [rapport](india/sepoy/HOTFIX_5C2E4B3_SEPOY_API_RUNTIME_RETEST.md) | — |
 | Formations 1.13 | Migration des formations militaires | `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md) | [audit statique](_index/army.md) |
 | 6A.3F | Dissolution de la DEI/VOC | `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md) | [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) |
+| 6A.4F | Balkan National Awakening 1.13 | `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md) | [sélection 6A.4](_index/HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md) |
 
 ## 6. Corrections gameplay validées
 
@@ -61,7 +63,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 
 - Japon : une clôture consolidée distincte reste possible après les correctifs 4E5–4E8.
 - Mamluk Iraq : aucun rapport de clôture/runtime global n’est présent ; 3F reste la dernière correction documentaire.
-- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; DEI/VOC clos par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`. La sélection 6A.4 est terminée. La prochaine phase exécutable est `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT`, limitée à `common/journal_entries/05_balkan_national_awakening.txt`. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
+- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; DEI/VOC clos par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`; Balkan National Awakening clos par `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`. La prochaine phase est `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION`, strictement documentaire. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
 - Les recherches technologiques sont hors bibliothèque et hors périmètre AH.
 
 ## 8. Rapports inconclusifs ou remplacés

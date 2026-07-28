@@ -1,4 +1,4 @@
-# Phase HOTFIX-6A.4F — Alignement Victoria 3 1.13 de Balkan National Awakening
+# Phase HOTFIX-6A.5 — Sélection du prochain résidu global
 
 FORK : `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
 
@@ -10,27 +10,35 @@ MODÈLE RECOMMANDÉ : GPT-5.6 Thinking avec raisonnement élevé.
 
 ## Verdicts d’entrée
 
+- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`
+- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_RUNTIME_PASS`
 - `HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
 - `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`
 - `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
-- `NO_GAMEPLAY_CHANGED`
 
-Rapport d’entrée canonique :
+Rapport canonique d’entrée :
 
-`docs/reports/hotfix/_index/HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
+`docs/reports/hotfix/_index/HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md`
 
 ## Objectif unique
 
-Corriger uniquement les deux dettes Victoria 3 1.13 de
-`je_balkan_national_awakenings` :
+Sélectionner exactement **un** prochain sous-bloc atomique parmi les résidus
+globaux encore ouverts. Cette phase est une phase d’audit et de sélection :
+elle ne doit modifier aucun gameplay.
 
-1. retirer la comparaison vers la région stratégique supprimée
-   `sr:region_danubia` en adoptant le trigger géographique valide de la source
-   hotfix ;
-2. migrer le champ de pinning vers l’API 1.13.
+Publier :
 
-Ne modifier aucun autre objet et ne commencer aucun autre résidu global.
+1. une mesure actualisée des résidus et des erreurs runtime ;
+2. un classement motivé des candidats réellement exploitables ;
+3. les trois meilleurs candidats, avec taille, priorité, confiance, risque de
+   collision et besoin de runtime ;
+4. un seul sous-bloc sélectionné ;
+5. son périmètre fermé, ses sources, ses fichiers et objets exacts ;
+6. un prompt d’exécution ultérieur.
+
+Ne commencer ni Merchant Banking, ni Navigation Acts, ni une autre correction
+pendant cette phase de sélection.
 
 ## État Git requis
 
@@ -49,8 +57,7 @@ git stash list
 Exiger :
 
 - branche `hotfix-dlc-audit` ;
-- rapport 6A.4 présent dans un HEAD propre, après commit manuel de la phase de
-  sélection ;
+- rapport 6A.4F présent dans le HEAD après commit manuel ;
 - aucun fichier suivi modifié ;
 - aucun fichier staged ;
 - seuls `bject` et les sept fichiers de `docs/research/technology/` peuvent
@@ -59,98 +66,95 @@ Exiger :
   `stash@{0}: On hotfix-dlc-audit: WIP NAVY-3C-3 Maratha Konkan Flotilla` ;
 - Victoria 3 et le launcher fermés.
 
-Ne faire aucun reset, restore, checkout de fichier, clean, stash
-apply/pop/drop, merge ou commit automatique. Ne pas inspecter le contenu du
-stash.
+Arrêter avec un verdict bloquant précis si une condition manque. Ne faire
+aucun reset, restore, checkout de fichier, clean, merge, commit automatique,
+stash apply/pop/drop ou inspection du contenu du stash.
 
 ## Sources obligatoires
 
 Lire intégralement :
 
-- `docs/reports/hotfix/_index/HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` ;
-- `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md` ;
-- `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv` ;
-- les versions fork, hotfix et vanilla 1.13 de
-  `common/journal_entries/05_balkan_national_awakening.txt` ;
-- vanilla
-  `common/geographic_regions/06_new_strategic_regions.txt` ;
-- vanilla
-  `common/strategic_regions/europe_strategic_regions.txt`.
+- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md` ;
+- `HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` ;
+- `HOTFIX_MERGE_COMPLETION_ROADMAP.md` ;
+- `HOTFIX_MERGE_BLOCK_STATUS.csv` ;
+- `HOTFIX_REPORT_INDEX.csv` ;
+- `HOTFIX_GLOBAL_DIFFERENCE_INVENTORY.csv` ;
+- `HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md` ;
+- les changelogs pertinents du fork et de la source hotfix.
 
-Consulter le dernier `error.log` en lecture seule pour enregistrer le nombre
-initial d’occurrences de
-`common/journal_entries/05_balkan_national_awakening.txt`. La preuve de
-sélection en comptait 51 à la ligne 11.
+Consulter les derniers `error.log`, `game.log`, `debug.log` et leurs rotations
+de la session 6A.4F. Enregistrer séparément :
 
-## Liste exacte et fermée des fichiers modifiables
+- les erreurs déjà fermées par 6A.4F ;
+- les erreurs provenant d’autres fichiers ;
+- les familles les plus répétées ;
+- les diagnostics qui appartiennent à des blocs protégés ou à des backlogs.
 
-Gameplay :
+Comparer chaque candidat retenu en trois voies : fork, source hotfix et vanilla
+Victoria 3 1.13. Le nom identique d’un fichier ou une différence de hash ne
+suffisent jamais à autoriser un import.
 
-- `common/journal_entries/05_balkan_national_awakening.txt`
+## Base de sélection
 
-Documentation :
+La revue 6A.4 a classé les 161 anciennes lignes `PENDING_REVIEW` :
 
-- `docs/reports/hotfix/_index/HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md`
-- `docs/reports/hotfix/INDEX.md`
-- `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv`
-- `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv`
-- `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md`
-- `docs/reports/hotfix/_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`
+- 7 `REQUIRED_HOTFIX_DELTA` ;
+- 22 `VANILLA_1_13_ALIGNMENT_REQUIRED`, dont le fichier balkanique désormais
+  clos ;
+- 12 `ALREADY_MERGED` ;
+- 3 `INTENTIONAL_FORK_DIVERGENCE` ;
+- 1 `OBSOLETE_HOTFIX_CONTENT` ;
+- 10 `POST_MERGE_DESIGN_BACKLOG` ;
+- 19 `PROTECTED_CONCURRENT_WORK` ;
+- 87 `UNKNOWN_REQUIRES_REVIEW`.
 
-Aucun autre fichier ne doit changer.
+Actualiser ces nombres sans réintroduire le fichier balkanique dans les
+résidus. L’ancien total annoncé de 26 deltas à haute confiance reste
+`UNVERIFIED` tant qu’aucun registre exact ne le démontre.
 
-## Hunk 1 — région balkanique
+Les pistes connues comprennent :
 
-Dans `je_balkan_national_awakenings`, remplacer exactement :
+- les autres migrations de pinning de journal entries vers l’API 1.13 ;
+- Merchant Banking pour GEN/VEN ;
+- Navigation Acts pour GBR et ses colonies ;
+- les 87 unités encore `UNKNOWN_REQUIRES_REVIEW`.
 
-```txt
-		capital = {
-			OR = {
-				region = sr:region_balkans
-				region = sr:region_danubia
-			}
-		}
-```
+Ces pistes sont des candidats à comparer, pas des corrections autorisées dans
+la présente phase.
 
-par :
+## Méthode obligatoire
 
-```txt
-		is_in_geographic_region = geographic_region_balkans
-```
+1. Recalculer l’inventaire résiduel à partir des registres canoniques.
+2. Rapprocher les erreurs runtime actuelles des chemins inventoriés.
+3. Exclure les blocs clos, les divergences intentionnelles, les backlogs et les
+   travaux protégés.
+4. Inspecter en trois voies les meilleurs candidats restants.
+5. Classer chaque candidat dans une catégorie exclusive.
+6. Évaluer pour chacun :
+   - importance ;
+   - preuve fonctionnelle ;
+   - taille du diff ;
+   - nombre de fichiers et d’objets ;
+   - dépendances ;
+   - risque de collision ;
+   - besoin de runtime ;
+   - rollback possible.
+7. Publier les trois meilleurs candidats.
+8. Choisir exactement un sous-bloc atomique.
+9. Définir une liste fermée de fichiers et d’objets pour sa future exécution.
+10. Ne modifier aucun fichier gameplay.
 
-Justification fermée :
-
-- `region_danubia` est commentée dans les régions stratégiques vanilla 1.13 ;
-- `geographic_region_balkans` existe dans vanilla 1.13 ;
-- elle contient `sr:region_balkans` ;
-- `region_balkans` contient désormais les États autrefois danubiens ;
-- la source hotfix emploie exactement ce trigger.
-
-Ne modifier ni `possible`, ni `immediate`, ni les pulses, ni les conditions de
-complétion.
-
-## Hunk 2 — pinning 1.13
-
-Dans le même objet, remplacer exactement :
-
-```txt
-	should_be_pinned_by_default = yes
-```
-
-par :
-
-```txt
-	should_be_pinned_by_default_uninvolved_or_context = yes
-```
-
-La source hotfix et vanilla 1.13 convergent sur ce champ. Ne migrer aucun autre
-fichier de journal entries dans cette phase.
+Préférer un correctif petit, prouvé, réversible et sans collision. Une erreur
+runtime répétée ne doit être sélectionnée que si sa cause et son correctif sont
+prouvés par la comparaison trois voies.
 
 ## Protections absolues
 
-Ne toucher à aucun fichier ou objet relatif à :
+Ne modifier aucun fichier ou objet relatif à :
 
-- DEI/VOC, `events/dei_breakup.txt`, drapeau Java ou localisations économiques ;
+- DEI/VOC, dissolution, drapeau Java ou économie post-compagnie ;
+- `05_balkan_national_awakening.txt`, désormais clos ;
 - NAVY, lois navales, formations militaires ou événements technologiques
   navals ;
 - MARATH, SAT, KHP ou Travancore ;
@@ -159,114 +163,90 @@ Ne toucher à aucun fichier ou objet relatif à :
 - Japon ;
 - Russie ;
 - Autriche, Croatie, Slavonie ou Suisse ;
-- Révolution américaine ou française, lettres de Kew ;
-- technologies ;
+- Révolution américaine ou française et lettres de Kew ;
+- technologies et `docs/research/technology/` ;
 - localisations françaises générales ;
 - agriculture, alimentation ou industrie générale ;
-- `bject`, `docs/research/technology/`, descripteurs, launcher ou sauvegardes.
+- descripteurs, launcher, sauvegardes et `bject`.
 
-Préserver `activate_law = law_type:law_frontier_colonization` pour BIC.
+Préserver notamment :
 
-## Contrôles statiques
+```txt
+activate_law = law_type:law_frontier_colonization
+```
 
-Avant tout runtime, vérifier :
+Ne jamais restaurer `law_colonial_exploitation` pour BIC.
 
-1. un seul objet `je_balkan_national_awakenings` ;
-2. profondeur finale et minimale des accolades égales à `0` ;
-3. zéro occurrence de `sr:region_danubia` dans le fichier modifié ;
-4. une occurrence exacte de
-   `is_in_geographic_region = geographic_region_balkans` dans l’objet ;
-5. zéro `should_be_pinned_by_default =` dans l’objet ;
-6. une occurrence exacte de
-   `should_be_pinned_by_default_uninvolved_or_context = yes` ;
-7. existence vanilla de `geographic_region_balkans` et de
-   `sr:region_balkans` ;
-8. diff gameplay limité aux deux hunks exacts ;
-9. aucun changement hors liste fermée ;
-10. `git diff --check` propre ;
-11. `git diff --cached --name-only` vide.
+## Liste fermée des fichiers modifiables
 
-Comparer le fichier modifié à HEAD par hunks. Ne jamais remplacer le fichier
-global complet.
+Documentation uniquement :
 
-## Runtime consolidé
+- `docs/reports/hotfix/_index/HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
+- `docs/reports/hotfix/INDEX.md`
+- `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv`
+- `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv`
+- `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md`
+- `docs/reports/hotfix/_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`
 
-Le runtime est nécessaire pour fermer la phase, car la sélection repose sur une
-erreur moteur répétée.
+Aucun fichier gameplay n’est modifiable.
 
-Après PASS statique uniquement :
+## Rapport requis
 
-1. archiver hors dépôt les logs courants ou noter leur horodatage de départ ;
-2. ouvrir une seule fois Victoria 3 avec le playset montant exactement le fork
-   et `ip3_content` disponible ;
-3. charger une partie 1776 ou en créer une neuve ;
-4. laisser passer au moins un jour afin que les JEs soient évaluées ;
-5. confirmer l’absence de clé brute ou d’anomalie visible sur la JE si elle est
-   accessible ;
-6. fermer normalement le jeu ;
-7. vérifier dans le nouveau `error.log` :
-   - zéro occurrence de
-     `common/journal_entries/05_balkan_national_awakening.txt` ;
-   - zéro erreur `Invalid right side during comparison 'sr'` attribuée à cet
-     objet ;
-   - aucune nouvelle erreur visant
-     `geographic_region_balkans` ou le champ de pinning.
+Créer :
 
-Les erreurs d’autres fichiers sont hors périmètre. Ne lancer aucune seconde
-session automatiquement. Si le fork monté n’est pas prouvé, déclarer le runtime
-invalide.
+`docs/reports/hotfix/_index/HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
 
-## Rollback exact
+Le rapport doit contenir :
 
-En cas d’échec attribuable au patch :
+- état Git initial et HEAD ;
+- sources consultées ;
+- inventaire actualisé ;
+- mesure et regroupement des erreurs runtime ;
+- exclusions et protections ;
+- classement des candidats ;
+- tableau des trois meilleurs candidats ;
+- choix unique et justification ;
+- périmètre futur fermé ;
+- validations statiques documentaires ;
+- fichiers modifiés ;
+- état Git final ;
+- décision de commit manuel ultérieur.
 
-1. remplacer uniquement
-   `is_in_geographic_region = geographic_region_balkans` par l’ancien bloc
-   `capital/OR` reproduit dans ce prompt ;
-2. remplacer uniquement
-   `should_be_pinned_by_default_uninvolved_or_context = yes` par
-   `should_be_pinned_by_default = yes` ;
-3. ne restaurer aucun fichier complet et ne toucher à aucune documentation
-   antérieure.
+Le prompt suivant doit être un prompt d’exécution de la phase sélectionnée. Ne
+pas exécuter cette phase dans la même session.
 
-Le rollback du premier hunk réintroduit la dette connue `region_danubia` :
-publier alors un verdict d’échec, jamais un verdict de clôture.
+## Contrôles
 
-## Livrables
+Vérifier :
 
-- appliquer uniquement les deux hunks ;
-- créer
-  `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md` ;
-- mettre à jour uniquement les cinq index/documentations autorisés ;
-- publier les résultats statiques, runtime, le nombre d’erreurs avant/après et
-  le diff final ;
-- proposer ensuite une nouvelle phase de sélection résiduelle, sans commencer
-  Merchant Banking ni Navigation Acts.
+1. zéro fichier gameplay modifié ;
+2. un seul prochain sous-bloc sélectionné ;
+3. aucun résidu clos réintroduit ;
+4. chaque candidat classé une seule fois ;
+5. les chiffres du rapport cohérents avec les CSV ;
+6. les protections explicites ;
+7. le prompt futur limité à un périmètre fermé ;
+8. `git diff --check` propre ;
+9. index Git vide ;
+10. modifications limitées aux six documents autorisés.
 
 ## Verdicts
 
-Après PASS statique :
+Après sélection valide :
 
-- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_STATIC_PASS`
-- `BALKAN_DANUBIA_INVALID_REGION_REMOVED`
-- `BALKAN_JE_PINNING_1_13_ALIGNED`
-
-Après runtime valide sans erreur propre :
-
-- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_RUNTIME_PASS`
-- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`
+- `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+- `NO_GAMEPLAY_CHANGED`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
-Si le runtime n’est pas exécuté :
+Publier également :
 
-- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_STATIC_PASS_RUNTIME_PENDING`
+`NEXT_EXECUTION_PHASE = <phase atomique sélectionnée>`
 
-En cas d’échec, publier précisément :
+En cas d’échec :
 
-- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_STATIC_FAIL`, ou
-- `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_RUNTIME_FAIL`.
+- `HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION_FAIL`
 
-Ne pas committer automatiquement.
+Ne rien committer automatiquement.
 
 ## Vérifications finales
 
@@ -284,11 +264,11 @@ git stash list
 
 Confirmer :
 
-- un seul fichier gameplay modifié ;
-- seulement les documents autorisés ;
-- aucun staged ;
+- uniquement les six documents autorisés modifiés ;
+- aucun fichier staged ;
+- aucun commit automatique ;
 - `bject` intact ;
 - les sept fichiers de `docs/research/technology/` intacts ;
 - stash NAVY-3C-3 intact ;
-- DEI/VOC, formations militaires, NAVY et MARATH inchangés ;
-- Victoria 3 et launcher fermés.
+- DEI/VOC, Balkans 6A.4F, formations militaires, NAVY et MARATH inchangés ;
+- Victoria 3 et le launcher fermés.
