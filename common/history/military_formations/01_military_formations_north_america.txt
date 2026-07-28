@@ -2,7 +2,7 @@
 	c:USA ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_dixie
+			hq_region = sr:region_atlantic_coast
 			name = Army_of_Observation
 
 			combat_unit = {
@@ -54,7 +54,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_new_england
+			hq_region = sr:region_atlantic_coast
 			name = Regular_Army
 
 			combat_unit = {
@@ -139,7 +139,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_dixie
+			hq_region = sr:region_atlantic_coast
 			name = Army_of_Florida
 
 			combat_unit = {
@@ -169,135 +169,83 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_dixie
+			hq_region = sr:region_atlantic_coast
 			name = Navy_Yard_Gosport
-
-			ship = {
+			ship = { # North Carolina
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_VIRGINIA
 				count = 1
 			}
-
-			ship = {
+			ship = { # Guerriere, Java
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_VIRGINIA
-				count = 3
-			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_MASSACHUSETTS
-				count = 1
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_MASSACHUSETTS
 				count = 2
 			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_SOUTH_CAROLINA
-				count = 1
-			}
-
-			ship = { # Ahistorical
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_SOUTH_CAROLINA
-				count = 2
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_MASSACHUSETTS
-				count = 1
-			}
-			save_scope_as = saber_navy
-		}
-		create_character = {
-			is_admiral = yes
-			culture = cu:dixie
-			birth_date = 1733.3.20
-			save_scope_as = saber_gen
-		}
-		
-		scope:saber_gen = {
-			transfer_to_formation = scope:saber_navy
 		}
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_new_england
+			hq_region = sr:region_atlantic_coast
 			name = Navy_Yard_New_York
-
-			ship = {
+			ship = { # Franklin, Washington, Ohio
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_NEW_YORK
 				count = 3
 			}
-
-			ship = {
+			ship = { # United States, Hudson
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_NEW_YORK
 				count = 2
 			}
-
-			ship = { # Ahistorical
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_NEW_YORK
-				count = 2
-			}
-
-			ship = {
+		}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_atlantic_coast
+			name = Navy_Yard_Boston
+			ship = { # Columbus
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_MASSACHUSETTS
+				state_region = s:STATE_NEW_YORK
 				count = 1
 			}
-
-			ship = {
+			ship = { # Independence
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_MASSACHUSETTS
 				count = 1
 			}
-
-			ship = { # Ahistorical
+		}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_atlantic_coast
+			name = Mediterranean_Squadron
+			ship = { # Delaware
+				type = ship_type:ship_type_ship_of_the_line
+				state_region = s:STATE_NEW_YORK
+				count = 1
+			}
+			ship = { # Constitution, Potomac
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_MASSACHUSETTS
+				count = 2
+			}
+		}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_atlantic_coast
+			name = Pacific_Squadron
+			ship = { # Brandywine
+				type = ship_type:ship_type_frigate
 				count = 1
 			}
-			save_scope_as = navy_yard_new_york_fleet
 		}
-		
-
-
-		create_character = { # USA, Admiral
-			is_admiral = yes
-			first_name = Frederick
-			last_name = Lavallette
-			historical = yes
-			culture = cu:dixie
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			birth_date = 1731.6.10 # exact date unknown
-			traits = {
-				basic_colonial_administrator
-				wrathful
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_atlantic_coast
+			name = West_Indies_Squadron
+			ship = { # Constellation
+				type = ship_type:ship_type_frigate
+				count = 1
 			}
-
-			save_scope_as = lavallette_gen
 		}
-
-		scope:lavallette_gen = {
-			transfer_to_formation = scope:navy_yard_new_york_fleet
-		}
-
-
 	}
 	c:HAI ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_caribbean
+			hq_region = sr:region_central_america
 			name = ArmeeIndigene
 
 			combat_unit = {
@@ -328,7 +276,7 @@
 	c:CUB ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_caribbean
+			hq_region = sr:region_central_america
 			name = MiliciasdeCuba
 
 			combat_unit = {
@@ -365,7 +313,7 @@
 	c:PCO ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_caribbean
+			hq_region = sr:region_central_america
 			name = MiliciasDiciplinadas
 
 			combat_unit = {

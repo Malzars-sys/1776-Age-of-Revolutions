@@ -25,6 +25,21 @@
 			}
 		}
 
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_brazil
+			name = Armada_Nacional
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 8
+			}
+		}
+
 	}
 
 	c:SC4 ?= {
@@ -57,9 +72,8 @@
 			hq_region = sr:region_la_plata
 			name = Armada_Argentina
 
-			ship = { # Nothing the size of a frigate
+			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_BUENOS_AIRES
 				count = 1
 			}
 		}
@@ -68,7 +82,7 @@
 	c:SC2 ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_gran_colombia
+			hq_region = sr:region_andes
 			name = Ejrcito_del_Ecuador
 
 			combat_unit = {
@@ -91,7 +105,7 @@
 		}
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_gran_colombia
+			hq_region = sr:region_andes
 			name = Ejrcito_de_la_Nueva_Granada
 
 			combat_unit = {
@@ -132,7 +146,7 @@
 		}
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_gran_colombia
+			hq_region = sr:region_andes
 			name = Ejrcito_de_Venezuela
 
 			combat_unit = {

@@ -2,8 +2,7 @@
 	c:CRI ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_dnieper
-
+			hq_region = sr:region_eastern_europe
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -41,7 +40,6 @@
 			interest_group = ig_landowners
 			ideology = ideology_jingoist_leader
 			age = 30
-			hq = region_poland
 			commander_rank = commander_rank_3
 			traits = {
 				plains_commander
@@ -56,7 +54,7 @@
 	c:PLC ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_poland
+			hq_region = sr:region_eastern_europe
 
 			# VIII. Armee-Korps
 			combat_unit = {
@@ -100,7 +98,7 @@
 			interest_group = ig_armed_forces
 			ideology = ideology_jingoist_leader
 			age = 36
-			hq = region_poland
+			hq = region_eastern_europe
 			commander_rank = commander_rank_3
 			traits = {
 				plains_commander
@@ -115,7 +113,7 @@
 	c:PRU ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = 1_Armee
 
 			# II. Armee-Korps
@@ -221,7 +219,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = 2_Armee
 
 			# I. Armee-Korps
@@ -354,7 +352,7 @@
 			first_name = Wilhelm
 			last_name = von_Krauseneck
 			historical = yes
-			hq = region_rhine
+			hq = region_western_europe
 			commander_rank = commander_rank_3
 			age = 62
 			traits = {
@@ -369,7 +367,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_rhine
+			hq_region = sr:region_western_europe
 			name = Main_Armee
 
 			# VII. Armee-Korps
@@ -406,7 +404,7 @@
 			historical = yes
 			interest_group = ig_armed_forces
 			ideology = ideology_jingoist_leader
-			hq = region_north_germany
+			hq = region_central_europe
 			age = 36
 			traits = {
 				expert_offensive_planner
@@ -423,7 +421,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Elbe_Armee
 
 			# VIII. Armee-Korps
@@ -465,7 +463,7 @@
 			last_name = von_Zieten
 			historical = yes
 			age = 66
-			hq = region_poland
+			hq = region_eastern_europe
 			commander_rank = commander_rank_3
 			traits = {
 				plains_commander
@@ -479,41 +477,34 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Kniglich_Preuische_Marine
-
-			ship = { # Technically had no warships at game start, but the Prussian Maritime Enterprise operated some armed merchantmen
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_POMERANIA
-				count = 1
-			}
+			save_scope_as = fleet_scope_prussian_navy
+			# Nothing the size of a frigate, but the Prussian Maritime Enterprise operated some armed merchantmen, like the Princess Louise
+		}
+		create_ship = {
+			type = ship_type:ship_type_frigate
+			fleet = scope:fleet_scope_prussian_navy
+			name = sn_princess_louise
 		}
 
 
 	}
 	
 	c:GEN ?= {
+
 		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_southern_europe
-			name = Marina_Genovese
-			
-			ship = {
+			name = "merchant_venice_fleet"
+			ship = { # Italiano, Ebe, Guerriera, Medea, Venere
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_PIEDMONT
-				count = 3
+				count = 5
 			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_PIEDMONT
-				count = 1
-			}
-			
 		}
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 
 			# "German" Line Regiments
 
@@ -530,58 +521,22 @@
 		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_southern_europe
-			name = Armata_Grossa
-			
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_VENETIA
-				count = 3
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_ISTRIA
-				count = 1
-			}
-			
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_IONIAN_ISLANDS
-				count = 1
-			}
+			name = "merchant_venice_fleet"
 			
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_WEST_AEGEAN_ISLANDS
-				count = 2
+				count = 4
 			}
 
-			save_scope_as = ven_armata_grossa
-			
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_angelo
-			last_name = navy_emo
-			historical = yes
-			age = 45
-			culture = cu:north_italian
-			religion = rel:catholic
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				brave
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
 			}
-			save_scope_as = ven_emo_adm
-		}
-		scope:ven_emo_adm = {
-			transfer_to_formation = scope:ven_armata_grossa
+			
 		}
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 
 			# "German" Line Regiments
 
@@ -616,18 +571,15 @@
 		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_balkans
-			name = K_K_Kriegsmarine
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_CROATIA
-				count = 1
+				count = 3
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_CROATIA
-				count = 3
+				count = 6
 			}
 		}
 		create_military_formation = {
@@ -637,26 +589,20 @@
 
 			# "Hungarian" Line Regiments
 
-			combat_unit = { # IR 53
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_SLAVONIA
-				count = 2
-			}
-
 			# Grenzer Regiments
 
 			combat_unit = { # 1. Liccaner, 2. Otocaner, 3. Oguliner, 4. Szluiner, 5. Warasdiner-Kreuzer, 6. Warasdiner-St. Georger, 1. Banal, 2. Banal
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_CROATIA
-				count = 12
+				count = 22
 			}
 			combat_unit = { # 1. Banal, 2. Banal
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_cuirassiers
 				state_region = s:STATE_CROATIA
 				count = 4
 			}
 			combat_unit = { # 7. Brooder, 8. Gradiscaner, 9. Peterwardiner
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_SLAVONIA
 				count = 6
 			}
@@ -672,7 +618,16 @@
 
 			# "German" Line Regiments
 
-
+			combat_unit = { # IR 1, IR 29
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CROATIA
+				count = 4
+			}
+			combat_unit = { # IR 3, IR 17, IR 35, IR 54
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SLAVONIA
+				count = 8
+			}
 
 			# Cavalry Regiments
 
@@ -698,7 +653,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_south_germany
+			hq_region = sr:region_central_europe
 			name = "generalkommando_wien"
 
 			# "German" Line Regiments
@@ -740,7 +695,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = "armee_in_italien"
 
 			save_scope_as = armee_in_italien_scope
@@ -763,12 +718,12 @@
 			combat_unit = { # IR 3, IR 17, IR 35, IR 54
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_MORAVIA
-				count = 8
+				count = 18
 			}
 			combat_unit = { # IR 4, IR 49
 				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_AUSTRIA
-				count = 4
+				count = 14
 			}
 			combat_unit = { # IR 7
 				type = unit_type:combat_unit_type_line_infantry
@@ -855,7 +810,7 @@
 	c:HUN ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_danubia
+			hq_region = sr:region_balkans
 			name = "generalkommando_ofen"
 
 			# Hungarian Line Regiments
@@ -922,7 +877,7 @@
 	c:TRS ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_danubia
+			hq_region = sr:region_balkans
 			name = "generalkommando_hermannstadt"
 
 			# "Hungarian" Line Regiments
@@ -964,7 +919,7 @@
 	c:FRA ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_france
+			hq_region = sr:region_western_europe
 			name = 1er_Corps_dArme
 
 			combat_unit = {
@@ -1024,7 +979,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_occitania
+			hq_region = sr:region_western_europe
 			name = 2e_Corps_dArme
 
 			combat_unit = {
@@ -1073,7 +1028,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_rhine
+			hq_region = sr:region_western_europe
 			name = 3e_Corps_dArme
 
 			combat_unit = {
@@ -1182,8 +1137,21 @@
 		scope:frencharmy41_gen = {
 			transfer_to_formation = scope:africacorpfra
 		}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = Escadre_de_la_Mditerrane # Slightly anachronistic formation
 
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 13
+			}
 
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 19
+			}
+		}
 
 		create_military_formation = {
 			type = fleet
@@ -1192,225 +1160,47 @@
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_FRENCH_LOW_COUNTRIES
-				count = 4
-			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_BRITTANY
-				count = 4
-			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_NORMANDY
-				count = 1
-			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_POITOU
-				count = 2
+				count = 12
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_FRENCH_LOW_COUNTRIES
-				count = 3
+				count = 23
 			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_BRITTANY
-				count = 4
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_NORMANDY
-				count = 1
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_POITOU
-				count = 2
-			}
-			save_scope_as = frenchnavy1
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_louis_guillouet
-			last_name = navy_dorvilliers
-			historical = yes
-			birth_date = 1710.3.23
-			culture = cu:french
-			religion = rel:catholic
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = orvilliers_adm
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_toussaint_guillaume
-			last_name = navy_picquet_de_la_motte
-			historical = yes
-			birth_date = 1720.11.1
-			culture = cu:french
-			religion = rel:catholic
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				brave
-			}
-			save_scope_as = picquet_adm
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_luc_urbain
-			last_name = navy_de_guichen
-			historical = yes
-			birth_date = 1712.6.21
-			culture = cu:french
-			religion = rel:catholic
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = guichen_adm
-		}
-		scope:orvilliers_adm = {
-			transfer_to_formation = scope:frenchnavy1
-		}
-		scope:picquet_adm = {
-			transfer_to_formation = scope:frenchnavy1
-		}
-		scope:guichen_adm = {
-			transfer_to_formation = scope:frenchnavy1
 		}
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_southern_europe
-			name = Escadre_de_la_Mditerrane # Slightly anachronistic formation
+			hq_region = sr:region_central_america
+			name = Station_des_Antilles
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_PROVENCE
-				count = 4
-			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_LANGUEDOC
 				count = 2
 			}
 
 			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_AQUITAINE
-				count = 1
+				type = ship_type:ship_type_frigate
+				count = 2
 			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_west_africa
+			name = Station_de_latlantique_sud
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_PROVENCE
 				count = 3
 			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_LANGUEDOC
-				count = 1
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_AQUITAINE
-				count = 2
-			}
-
-			save_scope_as = fleetmedfra
 		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_pierre_andre
-			last_name = navy_de_suffren
-			historical = yes
-			birth_date = 1729.7.17
-			culture = cu:french
-			religion = rel:catholic
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = default
-			traits = {
-				expert_naval_commander
-				brave
-			}
-			save_scope_as = suffren_adm
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_francois_hector
-			last_name = navy_dalbert_de_rions
-			historical = yes
-			birth_date = 1728.2.19
-			culture = cu:french
-			religion = rel:catholic
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = rions_adm
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_charles_hector
-			last_name = navy_destaing
-			historical = yes
-			birth_date = 1729.11.24
-			culture = cu:french
-			religion = rel:catholic
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				ambitious
-			}
-			save_scope_as = destaing_adm
-		}
-		scope:destaing_adm = {
-			transfer_to_formation = scope:fleetmedfra
-		}
-		scope:rions_adm = {
-			transfer_to_formation = scope:fleetmedfra
-		}
-		scope:suffren_adm = {
-			transfer_to_formation = scope:fleetmedfra
-		}
-
-
 	}
 
 	c:GBR ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_england
+			hq_region = sr:region_western_europe
 			name = Home_Army
 
 			combat_unit = {
@@ -1582,7 +1372,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Army_of_the_Mediterranean
 
 			combat_unit = {
@@ -1628,7 +1418,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_caribbean
+			hq_region = sr:region_central_america
 			name = Army_of_the_West_Indies
 
 			combat_unit = {
@@ -1684,7 +1474,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_madras
+			hq_region = sr:region_north_india
 			name = Army_of_India
 
 			combat_unit = {
@@ -1770,215 +1560,36 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_western_europe
-			name = Portsmouth_Station
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_WEST_COUNTRY
-				count = 6
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_LANCASHIRE
-				count = 7
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_MIDLANDS
-				count = 2
-			}
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_HOME_COUNTIES
-				count = 4
-			}
-			save_scope_as = fleet_gbr1
-		}
-		
-		create_character = {
-			is_admiral = yes
-			first_name = navy_augustus
-			last_name = navy_keppel
-			historical = yes
-			birth_date = 1725.4.25
-			culture = cu:british
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = fleet_gbr1_adm
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_peter
-			last_name = navy_parker
-			historical = yes
-			birth_date = 1721.1.1
-			culture = cu:british
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				brave
-			}
-			save_scope_as = fleet_gbr2_adm
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_richard
-			last_name = navy_kempenfelt
-			historical = yes
-			birth_date = 1718.10.1
-			culture = cu:british
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				experienced_convoy_raider
-			}
-			save_scope_as = fleet_gbr2_aux_adm
-		}
-		
-		scope:fleet_gbr2_aux_adm = {
-			transfer_to_formation = scope:fleet_gbr1
-		}
-		scope:fleet_gbr2_adm = {
-			transfer_to_formation = scope:fleet_gbr1
-		}
-		scope:fleet_gbr1_adm = {
-			transfer_to_formation = scope:fleet_gbr1
-		}
-
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_western_europe
-			name = Plymouth_Station
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_EAST_ANGLIA
-				count = 6
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_YORKSHIRE
-				count = 6
-			}
-			save_scope_as = zz_adm_gbr3
-		}
-		
-		create_character = {
-			is_admiral = yes
-			first_name = navy_samuel
-			last_name = navy_barrington
-			historical = yes
-			birth_date = 1729.2.15
-			culture = cu:british
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				brave
-			}
-			save_scope_as = fleet_gbr3_adm
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_francis
-			last_name = navy_geary
-			historical = yes
-			birth_date = 1709.1.1
-			culture = cu:british
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = fleet_gbr31_adm
-		}
-		
-		scope:fleet_gbr3_adm = {
-			transfer_to_formation = scope:zz_adm_gbr3
-		}
-		scope:fleet_gbr31_adm = {
-			transfer_to_formation = scope:zz_adm_gbr3
-		}
-
-		create_military_formation = {
-			type = fleet
 			hq_region = sr:region_southern_europe
 			name = Mediterranean_Station
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_HOME_COUNTIES
-				count = 2
+				count = 7
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_MALTA
-				count = 2
+				count = 5
 			}
+		}
 
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_YORKSHIRE
-				count = 1
-			}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = Lisbon_Station
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_MIDLANDS
-				count = 3
+				count = 7
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_LOWLANDS
-				count = 1
+				count = 2
 			}
 
 			save_scope_as = med_fleet_gbr
-		}
-
-		create_character = { # Sea
-			is_admiral = yes
-			first_name = navy_samuel
-			last_name = navy_hood
-			historical = yes
-			culture = cu:british
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			birth_date = 1724.12.12
-			commander_rank = default
-			traits = {
-				brave
-				expert_naval_commander
-			}
-			save_scope_as = hood_adm
-		}
-
-		scope:hood_adm = {
-			transfer_to_formation = scope:med_fleet_gbr
 		}
 
 		create_military_formation = {
@@ -1988,112 +1599,121 @@
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_HOME_COUNTIES
-				count = 4
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_BERMUDA
 				count = 1
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_HOME_COUNTIES
-				count = 1
+				count = 7
 			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_JAMAICA
-				count = 1
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_MIDLANDS
-				count = 2
-			}
-			save_scope_as = north_amer_fleet
 		}
 
-		create_character = { # Sea
-			is_admiral = yes
-			first_name = navy_richard
-			last_name = navy_howe
-			historical = yes
-			birth_date = 1726.3.8
-			culture = cu:british
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				expert_naval_commander
-				cautious
-			}
-			save_scope_as = howe_adm
-		}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_east_africa
+			name = Cape_of_Good_Hope_Station
 
-		scope:howe_adm = {
-			transfer_to_formation = scope:north_amer_fleet
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 3
+			}
 		}
 
 		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_indochina
-			name = East_Indies_and_China_Station # Includes the 1 frigate of the Australia Station too
+			name = East_Indies_and_China_Station # Includes Australia Station
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_LOWLANDS
-				count = 2
+				count = 1
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_EAST_ANGLIA
+				count = 7
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_la_plata
+			name = South_America_Station
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 5
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = Portsmouth_Station
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 29
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 23
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = Plymouth_Station
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 20
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 25
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = Sheerness_Station
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 17
+			}
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 21
+			}
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = Chatham_Station
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
 				count = 3
 			}
 
 			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_MIDLANDS
-				count = 1
-			}
-
-			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_MIDLANDS
-				count = 1
+				count = 12
 			}
-			save_scope_as = india_china_fleet
 		}
-
-		create_character = { # Sea
-			is_admiral = yes
-			first_name = navy_edward
-			last_name = navy_hughes
-			historical = yes
-			birth_date = 1720.1.1
-			culture = cu:british
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = hughes_adm
-		}
-
-		scope:hughes_adm = {
-			transfer_to_formation = scope:india_china_fleet
-		}
-
-
 	}
 
 	c:RUS ?= {
@@ -2440,7 +2060,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_west_siberia
+			hq_region = sr:region_siberia
 			name = 4y_Pekhotniy_Korpus
 
 			combat_unit = { # Yekaterinburg Infantry
@@ -2764,107 +2384,39 @@
 			hq_region = sr:region_russia
 			name = Baltiyskiy_Flot
 
-			ship = {
+			ship = { # Imperator Alexander, Imperator Pyotr I, Svyatoy Georgiy Pobedonosets, Kronshtadt, Emgeiten, Imperatritsa Alexandra, Gangut, Lefort, Ne Tron' Menya, Poltava, Vladimir, Arsis, Berezino, Borodino, Brien, Ferchampenuaz, Iezekiil', Katsbakh, Krasnoy, Kulm, Leiptsig, Lesnoe, Narva, Oryol, Ostrolenka, Pamyat' Azova, Prokhor, Smolensk, Sysoy Velikiy, Velikiy Knyaz' Mikhail
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_INGRIA
-				count = 14
+				count = 30
 			}
 
-			ship = {
+			ship = { # Alexander Nevskiy, Pallada, Alexandra, Amfitrida, Avrora, Bellona, Diana, Ekaterina, Elisaveta, Kastor, Mariya, Melpomena, Neva, Ol'ga, Pomona, Prints Oranskiy, Prozerpina, Tserera, Venus, Yunona, Elena, Knyaz Varshavskiy
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_INGRIA
-				count = 8
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_ARKHANGELSK
-				count = 1
+				count = 22
 			}
 			save_scope_as = rus_baltic_fleet
 		}
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_northeast_asia
-			name = Okhotskaya_Voyennaya_Flotiliya
+			hq_region = sr:region_eastern_europe
+			name = Chernomorskiy_Flot
 
-			ship = {
+			ship = { # Varshava, Parizh, Adrianopol', Anapa, Ches'ma, Imperatritsa Ekaterina II, Imperatritsa Mariya, Pamyat' Evstafiya, Panteleymon, Siliastriya, Ioann Zlatoust, Parmen, Pimen
+				type = ship_type:ship_type_ship_of_the_line
+				count = 13
+			}
+			ship = { # Agatopol', Arkhipelag, Burgas, Enos, Erivan', Tenedos, Varna, Anna, Flora, Knyaginya Lovich, Shtandart
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_OKHOTSK
-				count = 1
+				count = 11
 			}
-			save_scope_as = rus_okhotsk_fleet
+			save_scope_as = rus_black_sea_fleet
 		}
-
-		create_character = {
-			is_admiral = yes
-			first_name = navy_vasily_yakovlevich
-			last_name = navy_chichagov
-			historical = yes
-			birth_date = 1726.3.11
-			culture = cu:russian
-			religion = rel:orthodox
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = rus_chichagov_adm
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_samuil_karlovich
-			last_name = navy_greig
-			historical = yes
-			birth_date = 1735.11.30
-			culture = cu:scottish
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				brave
-			}
-			save_scope_as = rus_greig_adm
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_alexei_naumovich
-			last_name = navy_senyavin
-			historical = yes
-			birth_date = 1716.10.5
-			culture = cu:russian
-			religion = rel:orthodox
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = rus_senyavin_adm
-		}
-		scope:rus_chichagov_adm = {
-			transfer_to_formation = scope:rus_baltic_fleet
-		}
-		scope:rus_greig_adm = {
-			transfer_to_formation = scope:rus_baltic_fleet
-		}
-		scope:rus_senyavin_adm = {
-			transfer_to_formation = scope:rus_baltic_fleet
-		}
-
-
 	}
 
 	c:CIR ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_caucasus
+			hq_region = sr:region_russia
 
 			combat_unit = { #
 				type = unit_type:combat_unit_type_hussars
@@ -2881,7 +2433,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_caucasus
+			hq_region = sr:region_russia
 
 			combat_unit = { #
 				type = unit_type:combat_unit_type_hussars
@@ -2900,7 +2452,7 @@
 	c:CHC ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_caucasus
+			hq_region = sr:region_russia
 			name = Murtazeki
 
 			combat_unit = { #
@@ -2918,7 +2470,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_caucasus
+			hq_region = sr:region_russia
 			name = Milishia
 
 			combat_unit = { #
@@ -2938,7 +2490,7 @@
 	c:BAD ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_south_germany
+			hq_region = sr:region_central_europe
 			name = Groherzoglich_Badische_Armee
 
 			combat_unit = {
@@ -2964,7 +2516,7 @@
 	c:WUR ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_south_germany
+			hq_region = sr:region_central_europe
 			name = Kniglich_Wrttembergische_Armee
 
 			combat_unit = {
@@ -2996,7 +2548,7 @@
 	c:SAX ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Kniglich_Schsische_Armee
 
 			combat_unit = {
@@ -3040,7 +2592,7 @@
 	c:BAV ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_south_germany
+			hq_region = sr:region_central_europe
 			name = I_ArmeeKorps
 
 			combat_unit = {
@@ -3076,7 +2628,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_south_germany
+			hq_region = sr:region_central_europe
 			name = II_ArmeeKorps
 
 			combat_unit = {
@@ -3114,7 +2666,7 @@
 	c:HEK ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Kurfrstlich_Hessische_Armee
 
 			combat_unit = {
@@ -3140,7 +2692,7 @@
 	c:HES ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Groherzoglich_Hessische_Armee
 
 			combat_unit = {
@@ -3166,7 +2718,7 @@
 	c:NAS ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Herzoglich_Nassauische_Armee
 
 			combat_unit = {
@@ -3186,7 +2738,7 @@
 	c:HAN ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Kniglich_Hannoversche_Armee
 
 			combat_unit = {
@@ -3240,12 +2792,11 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Elbzollstation
 
 			ship = {
-				type = ship_type:ship_type_frigate # Technically a mere brig.
-				state_region = s:STATE_HANNOVER
+				type = ship_type:ship_type_frigate
 				count = 1
 			}
 		}
@@ -3254,7 +2805,7 @@
 	c:MEC ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Groherzoglich_MecklenburgischSchwerinsche_Armee
 
 			combat_unit = { # Großherzoglich Mecklenburgisches (Garde)Grenadier-Regiment,
@@ -3280,7 +2831,7 @@
 	c:OLD ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Groherzoglich_Oldenburgische_Armee
 
 			combat_unit = { # 1. Regiment, 2. Regiment
@@ -3300,7 +2851,7 @@
 	c:HAM ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Hamburger_Burgermilitar
 
 			combat_unit = {
@@ -3314,7 +2865,7 @@
 	c:BRE ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Bremer_Stadtmilitar
 
 			combat_unit = {
@@ -3328,7 +2879,7 @@
 	c:LUB ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Lubecker_Militar
 
 			combat_unit = {
@@ -3342,7 +2893,7 @@
 	c:FRM ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Linienbataillon_Frankfurt
 
 			combat_unit = {
@@ -3356,7 +2907,7 @@
 	c:WLD ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Waldecksches_Bataillon
 
 			combat_unit = {
@@ -3370,7 +2921,7 @@
 	c:LUX ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_rhine
+			hq_region = sr:region_western_europe
 			name = Luxemburger_Miliz
 
 			combat_unit = {
@@ -3390,7 +2941,7 @@
 	c:SWE ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_baltic
+			hq_region = sr:region_eastern_europe
 			name = Kungliga_Svenska_Armn
 
 			combat_unit = { # Första Livgrenadjärregementet, Andra livgrenadjärregementet, Dalregementet, Kronobergs regemente, Närkes regemente, Södermanlands regemente, Upplands regemente, Västmanlands regemente, Svea livgarde, Livbeväringsregementet
@@ -3481,78 +3032,24 @@
 		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_northern_europe
-			name = Orlogsflottan
+			name = Hgsjflottan
 
-			ship = { # Carl XIII, Carl Johan, Försigtigheten, Stockholm
+			ship = { # Carl XIII, Carl Johan, Försigtigheten, Äran, Dristigheten, Fäderneslandet, Gustaf den Store, Manligheten, Prins Oscar, Wasa
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_SVEALAND
-				count = 3
+				count = 10
 			}
 
-			ship = { # Äran, Dristigheten, Fäderneslandet - should be man'o'wars, but this results in unbalanced fleet
+			ship = { # Camilla, Euridice, Galathea, Josephine, Af Chapman, Freya
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_SVEALAND
-				count = 2
+				count = 5
 			}
-
-			ship = { # Gustaf den Store, Manligheten, Prins Oscar
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_SCANIA
-				count = 2
-			}
-
-			ship = { # Skandinavien, Wasa
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_GOTALAND
-				count = 2
-			}
-
-			ship = { # Desiree, Camilla, Euridice
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_SVEALAND
-				count = 2
-			}
-
-			ship = { # Galathea, Josephine
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_SCANIA
-				count = 2
-			}
-
-			ship = { # Af Chapman
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_GOTALAND
-				count = 1
-			}
-			save_scope_as = swe_orlogsflottan
-		}
-
-		create_character = {
-			is_admiral = yes
-			first_name = navy_henrik_af
-			last_name = navy_trolle
-			historical = yes
-			age = 46
-			culture = cu:swedish
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = swe_trolle_adm
-		}
-		scope:swe_trolle_adm = {
-			transfer_to_formation = scope:swe_orlogsflottan
 		}
 	}
 
 	c:DENNOR ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_baltic
+			hq_region = sr:region_eastern_europe
 			name = Hren
 
 			combat_unit = { # 1. Livregiment til Fods, 2. Livregiment til Fods, 3. Livregiment til Fods, Kronens Regiment, Fyenske Infanteriregiment
@@ -3625,13 +3122,14 @@
 			ship = { # Phœnix
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_JUTLAND
+				flagship = yes
 				count = 1
 			}
 
 			ship = { # Freia, Rota, Havfruen, Bellona, Najaden, Perlen, Venus, Minerva
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_ZEALAND
-				count = 5
+				count = 6
 			}
 
 			ship = { # Nymphen, Fylla
@@ -3639,35 +3137,13 @@
 				state_region = s:STATE_JUTLAND
 				count = 2
 			}
-			save_scope_as = dennor_kongelige_danske_marine
-		}
-
-		create_character = {
-			is_admiral = yes
-			first_name = navy_frederik_christian
-			last_name = navy_kaas
-			historical = yes
-			age = 49
-			culture = cu:danish
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = dennor_kaas_adm
-		}
-		scope:dennor_kaas_adm = {
-			transfer_to_formation = scope:dennor_kongelige_danske_marine
 		}
 	}
 
 	c:SCH ?= {
 		create_military_formation = { # Under Denmark
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Schleswigsche_Armee
 
 			combat_unit = { # Slesvigske Infanteriregiment
@@ -3687,7 +3163,7 @@
 	c:HOL ?= {
 		create_military_formation = { # Under Denmark
 			type = army
-			hq_region = sr:region_north_germany
+			hq_region = sr:region_central_europe
 			name = Holsteinische_Armee
 
 			combat_unit = { # Holstenske Infanteriregiment, Oldenborgske Infanteriregiment
@@ -3710,173 +3186,10 @@
 		}
 	}
 
-	c:NOR ?= {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_baltic
-			name = Hren
-
-			combat_unit = { # 1. Akershusiske brigade, 2. Akershusiske brigade
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_EASTERN_NORWAY
-				count = 2
-			}
-
-			combat_unit = { # 3. Trondhjemske brigade
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_NORTHERN_NORWAY
-				count = 1
-			}
-
-			combat_unit = { # 4. Bergenhusiske brigade, 5. Kristiansandske brigade
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_WESTERN_NORWAY
-				count = 2
-			}
-
-			combat_unit = { # Den kongelige norske Kavaleribrigade
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_EASTERN_NORWAY
-				count = 1
-			}
-
-			combat_unit = { # Den kongelige norske Artilleribrigade
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_EASTERN_NORWAY
-				count = 1
-			}
-		}
-
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_northern_europe
-			name = Kongelige_Norske_Marine
-
-			ship = { # Freia
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_EASTERN_NORWAY
-				count = 1
-			}
-		}
-	}
-
-	c:FIN ?= {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_finland
-			name = 19e_Infanteridivision
-
-			combat_unit = { # Viborg and Petrovsk Infantry
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_WEST_KARELIA
-				count = 2
-			}
-
-			combat_unit = { # Nyslott and Villmanstrand Jägers
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_UUSIMAA
-				count = 2
-			}
-			combat_unit = { # 19th Field Artillery Brigade
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_UUSIMAA
-				count = 1
-			}
-		}
-
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_finland
-			name = Finska_SjEquipaget # Suomen Meriekipaasi - Swedish was the sole offical language of the Grand Duchy in 1836
-
-			ship = { # Nothing the size of a frigate at this point in history
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_UUSIMAA
-				count = 1
-			}
-		}
-	}
-
-	c:GRE ?= {
-		create_military_formation = { # Greeks
-			type = army
-			hq_region = sr:region_balkans
-			name = Elliniks_Strats
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_ATTICA
-				count = 2
-			}
-		}
-
-		create_military_formation = { # Bavarians
-			type = army
-			hq_region = sr:region_balkans
-			name = Vasilikn_Vavarikn_Epikourikn_Sma
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_PELOPONNESE
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_ATTICA
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_ATTICA
-				count = 1
-			}
-		}
-
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_balkans
-			name = Vasilikn_Naftikn
-
-			ship = { # Corvette Prinkips Maximilianos (ex Psara)
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_WEST_AEGEAN_ISLANDS
-				count = 1
-			}
-		}
-	}
-
-	c:SER ?= {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_balkans
-			name = Vojska_Kneevine_Srbije
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_WESTERN_SERBIA
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_WESTERN_SERBIA
-				count = 1
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_WESTERN_SERBIA
-				count = 1
-			}
-		}
-	}
-
 	c:WAL ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_danubia
+			hq_region = sr:region_balkans
 			name = Armata_rii_Romneti
 
 			combat_unit = { # Regimentului I de Linie, Regimentului II de Linie, Regimentului III de Linie
@@ -3910,7 +3223,7 @@
 	c:MOL ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_danubia
+			hq_region = sr:region_balkans
 			name = Armata_Principatului_Moldovei
 
 			combat_unit = {
@@ -3930,7 +3243,7 @@
 	c:SIC ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Reale_Esercito_di_SM_il_Re_del_Regno_delle_Due_Sicilie
 
 			combat_unit = {
@@ -3983,7 +3296,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Guardia_Reale
 
 			combat_unit = {
@@ -4002,18 +3315,18 @@
 		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_southern_europe
-			name = Real_Marina_Napoletana
+			name = Armata_di_Mare_di_SM_il_Re_del_Regno_delle_Due_Sicilie
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
 				state_region = s:STATE_CAMPANIA
-				count = 1
+				count = 2
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
 				state_region = s:STATE_CAMPANIA
-				count = 2
+				count = 4
 			}
 
 			ship = {
@@ -4033,7 +3346,7 @@
 	c:SAR ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = I_Corpo_dArmata
 
 			combat_unit = {
@@ -4075,7 +3388,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = II_Corpo_dArmata
 
 			combat_unit = {
@@ -4122,14 +3435,7 @@
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_PIEDMONT
-				count = 2
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_SARDINIA
-				count = 1
+				count = 5
 			}
 		}
 	}
@@ -4137,7 +3443,7 @@
 	c:PAP ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Esercito_dello_Stato_della_Chiesa
 
 			combat_unit = {
@@ -4182,18 +3488,18 @@
 			hq_region = sr:region_southern_europe
 			name = Marina_Pontificia
 
-			ship = { # Nothing the size of a frigate
+			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_LAZIO
 				count = 1
 			}
 		}
+
 	}
 
 	c:TUS ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Esercito_del_Granducato_di_Toscana
 
 			combat_unit = {
@@ -4226,9 +3532,8 @@
 			hq_region = sr:region_southern_europe
 			name = Marina_del_Granducato_di_Toscana
 
-			ship = { # Nothing the size of a frigate
+			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_TUSCANY
 				count = 1
 			}
 		}
@@ -4237,7 +3542,7 @@
 	c:LUC ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Esercito_Ducale
 
 			combat_unit = {
@@ -4251,7 +3556,7 @@
 	c:MOD ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Esercito_del_Ducato_di_Modena_e_Reggio
 
 			combat_unit = {
@@ -4271,7 +3576,7 @@
 	c:PAR ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_italy
+			hq_region = sr:region_southern_europe
 			name = Truppe_Reali_Parmensi
 
 			combat_unit = {
@@ -4291,7 +3596,7 @@
 	c:NET ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_rhine
+			hq_region = sr:region_western_europe
 			name = Koninklijk_Nederlands_Leger
 
 			combat_unit = { # Regiment Jagers, Regiment Grenadiers, 1-4 Regiment Infanterie
@@ -4343,74 +3648,48 @@
 			}
 		}
 		create_military_formation = {
+			type = army
+			hq_region = sr:region_western_europe
+			name = korps_mariniers
+
+			combat_unit = { # Korps Mariniers
+				type = unit_type:combat_unit_type_low_tier_marines
+				state_region = s:STATE_HOLLAND
+				count = 1
+			}
+		}
+		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_western_europe
 			name = Koninklijke_Marine
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_HOLLAND
 				count = 6
 			}
 
 			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_FRIESLAND
-				count = 1
-			}
-
-			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_HOLLAND
-				count = 10
+				count = 18
 			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_FRIESLAND
-				count = 3
-			}
-			save_scope_as = net_koninklijke_marine
-		}
-
-		create_character = {
-			is_admiral = yes
-			first_name = navy_jan_hendrik
-			last_name = navy_van_kinsbergen
-			historical = yes
-			age = 41
-			culture = cu:dutch
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				brave
-			}
-			save_scope_as = net_kinsbergen_adm
-		}
-		scope:net_kinsbergen_adm = {
-			transfer_to_formation = scope:net_koninklijke_marine
 		}
 	}
 
 	c:BEO ?= {
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_rhine
+			hq_region = sr:region_western_europe
 			name = Marine_Royale
 
-			ship = { # Nothing the size of a frigate, navy entirely fluvial in 1836
+			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_FLANDERS
 				count = 1
 			}
 		}
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_rhine
+			hq_region = sr:region_western_europe
 			name = Armee_Belge
 
 			combat_unit = { # 1-3 régiment de chasseurs à pied, 1-6 régiment de ligne
@@ -4462,7 +3741,7 @@
 	c:POR ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_iberia
+			hq_region = sr:region_southern_europe
 			name = Exercito_Portugues
 
 			combat_unit = {
@@ -4497,104 +3776,26 @@
 		}
 
 		create_military_formation = {
-			type = army
-			hq_region = sr:region_iberia
-			name = Divisao_Auxiliar_a_Espanha # Portuguese Expeditionary Force sent to guard the border regions against the Carlists.
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_ESTREMADURA
-				count = 14
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_ESTREMADURA
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_ALENTEJO
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_BEIRA
-				count = 2
-			}
-		}
-
-		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_southern_europe
 			name = Marinha_Real_Portuguesa
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_ESTREMADURA
-				count = 4
+				count = 3
 			}
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_ESTREMADURA
-				count = 2
+				count = 7
 			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_BEIRA
-				count = 2
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_BEIRA
-				count = 2
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_ALENTEJO
-				count = 2
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_AZORES
-				count = 1
-			}
-			save_scope_as = por_marinha_real_portuguesa
-		}
-
-		create_character = {
-			is_admiral = yes
-			first_name = navy_arthur
-			last_name = navy_phillip
-			historical = yes
-			age = 38
-			culture = cu:british
-			religion = rel:protestant
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				cautious
-			}
-			save_scope_as = por_phillip_adm
-		}
-		scope:por_phillip_adm = {
-			transfer_to_formation = scope:por_marinha_real_portuguesa
 		}
 	}
 
 	c:SPA ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_iberia
+			hq_region = sr:region_southern_europe
 			name = Guardia_Real
 
 			combat_unit = {
@@ -4665,7 +3866,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_iberia
+			hq_region = sr:region_southern_europe
 			name = Ejercito_del_Norte
 
 			combat_unit = {
@@ -4778,7 +3979,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_iberia
+			hq_region = sr:region_southern_europe
 			name = Ejercito_del_Centro
 
 			combat_unit = {
@@ -4840,87 +4041,68 @@
 
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_GALICIA
 				count = 10
 			}
 
 			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_LOWER_ANDALUSIA
-				count = 5
-			}
-
-			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_GALICIA
-				count = 4
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_LOWER_ANDALUSIA
-				count = 4
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_VALENCIA
-				count = 3
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_BALEARIC_ISLANDS
-				count = 3
+				count = 30
 			}
 			save_scope_as = spanishnavy1
 		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_luis
-			last_name = navy_de_cordova_y_cordova
-			historical = yes
-			birth_date = 1706.2.8
-			culture = cu:spanish
-			religion = rel:catholic
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = default
-			traits = {
-				expert_naval_commander
-				cautious
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = Real_Armada_Espaola
+
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 10
 			}
-			save_scope_as = cordova_adm
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 30
+			}
+			save_scope_as = spanishnavy2
 		}
 		create_character = {
 			is_admiral = yes
-			first_name = navy_antonio
-			last_name = navy_de_ulloa
-			historical = yes
-			birth_date = 1716.1.12
+			age = 35
 			culture = cu:spanish
-			religion = rel:catholic
-			interest_group = ig_armed_forces
-			ideology = ideology_moderate
-			commander_rank = default
+			interest_group = ig_landowners
+			ideology = ideology_royalist
 			traits = {
 				experienced_naval_commander
-				cautious
+				ambitious
 			}
-			save_scope_as = ulloa_adm
+			save_scope_as = spanishnavy1_gen
+		}
+		create_character = {
+			is_admiral = yes
+			age = 31
+			culture = cu:spanish
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+			traits = {
+				experienced_naval_commander
+				ambitious
+			}
+			save_scope_as = spanishnavy2_gen
 		}
 
-		scope:cordova_adm = {
+		scope:spanishnavy1_gen = {
 			transfer_to_formation = scope:spanishnavy1
 		}
-		scope:ulloa_adm = {
-			transfer_to_formation = scope:spanishnavy1
+		scope:spanishnavy2_gen = {
+			transfer_to_formation = scope:spanishnavy2
 		}
 	}
 	c:UBD ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_baltic_states
+			hq_region = sr:region_eastern_europe
 
 			combat_unit = { # Reval and Estonia Jägers
 				type = unit_type:combat_unit_type_line_infantry

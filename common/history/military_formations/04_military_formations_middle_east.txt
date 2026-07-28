@@ -30,7 +30,7 @@
 			save_scope_as = mamluk_army
 		}
 
-		create_character = {
+		create_character = { # TUR, General
 			is_general = yes
 			culture = cu:georgian
 			religion = rel:sunni
@@ -58,7 +58,7 @@
 			name = Hassa_Ordusu
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_BULGARIA
 				count = 5
 			}
@@ -94,7 +94,7 @@
 			ideology = ideology_royalist
 			age = 29
 			commander_rank = commander_rank_2
-			hq = region_arabic
+			hq = region_arabia
 			traits = {
 				meticulous
 				charismatic
@@ -113,7 +113,7 @@
 			name = Rumeli_Ordusu
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_THESSALIA
 				count = 7
 			}
@@ -165,7 +165,7 @@
 			interest_group = ig_armed_forces
 			ideology = ideology_royalist
 			birth_date = 1730.2.11 # Unsure of birth date, approxiamate age based on portraits.
-			hq = region_caucasus
+			hq = region_russia
 			traits = {
 				reckless
 				basic_defensive_strategist
@@ -179,11 +179,11 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_anatolia
+			hq_region = sr:region_balkans
 			name = Konstantiniyye_Ordusu
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_EASTERN_THRACE
 				count = 10
 			}
@@ -197,7 +197,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_anatolia
+			hq_region = sr:region_balkans
 			name = Anadolu_Ordusu
 
 			combat_unit = {
@@ -245,66 +245,16 @@
 
 		create_military_formation = {
 			type = fleet
-			hq_region = sr:region_near_east
-			name = Donanma_yi_Humayun
-
+			hq_region = sr:region_balkans
+			name = Donanmay_Humyn
 			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_HUDAVENDIGAR
-				count = 2
-			}
-
-			ship = {
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_EASTERN_THRACE
 				count = 4
 			}
-
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_EASTERN_THRACE
-				count = 3
+				count = 8
 			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_HUDAVENDIGAR
-				count = 2
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_AYDIN
-				count = 1
-			}
-
-			ship = {
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_MACEDONIA
-				count = 1
-			}
-
-			save_scope_as = tur_donanma_yi_humayun
-		}
-		create_character = {
-			is_admiral = yes
-			first_name = navy_cezayirli_gazi_hasan
-			last_name = navy_pasha
-			historical = yes
-			age = 63
-			culture = cu:turkish
-			religion = rel:sunni
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			commander_rank = default
-			traits = {
-				experienced_naval_commander
-				brave
-			}
-			save_scope_as = tur_cezayirli_gazi_hasan_adm
-		}
-		scope:tur_cezayirli_gazi_hasan_adm = {
-			transfer_to_formation = scope:tur_donanma_yi_humayun
 		}
 	}
 
@@ -313,35 +263,23 @@
 			type = fleet
 			hq_region = sr:region_arabia
 			name = Bahriat_alMasqat
-
-			ship = { # Liverpool (?)
+			ship = {
 				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_OMAN
-				count = 1
-			}
-
-			ship = { # Shah Alam, Caroline, Humayun Shah, Prince of Wales (??), Piedemontaise
-				type = ship_type:ship_type_frigate
-				state_region = s:STATE_OMAN
 				count = 5
 			}
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 10
+			}
 		}
-	}
-	c:PER ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_persia
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_IRAKAJEMI
-				count = 6
-			}
+			hq_region = sr:region_greater_persia
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_IRAKAJEMI
-				count = 4
+				count = 6
 			}
 
 			combat_unit = {
@@ -350,46 +288,77 @@
 				count = 2
 			}
 
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_FARS
-				count = 3
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_TABRIZ
-				count = 8
-			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_LURISTAN
-				count = 3
+				count = 2
 			}
 		}
 	}
 	c:PER ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_persia
+			hq_region = sr:region_greater_persia
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_IRAKAJEMI
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_IRAKAJEMI
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_IRAKAJEMI
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_FARS
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TABRIZ
+				count = 10
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_LURISTAN
+				count = 10
+			}
+		}
+	}
+	c:PER ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_greater_persia
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_ISFAHAN
-				count = 3
+				count = 5
 			}
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_MAZANDARAN
-				count = 5
+				count = 10
 			}
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_KHORASAN
-				count = 1
+				count = 10
 			}
 
 			combat_unit = {
@@ -414,7 +383,7 @@
 	c:DUR ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_persia
+			hq_region = sr:region_greater_persia
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -437,7 +406,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_persia
+			hq_region = sr:region_greater_persia
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -448,7 +417,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_persia
+			hq_region = sr:region_greater_persia
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -465,7 +434,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_persia
+			hq_region = sr:region_greater_persia
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -482,7 +451,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_persia
+			hq_region = sr:region_greater_persia
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -499,7 +468,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_persia
+			hq_region = sr:region_greater_persia
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -516,7 +485,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_bombay
+			hq_region = sr:region_south_india
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -532,7 +501,7 @@
 
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_bombay
+			hq_region = sr:region_south_india
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -550,7 +519,7 @@
 	c:ARB ?= {
 		create_military_formation = {
 			type = army
-			hq_region = sr:region_persia
+			hq_region = sr:region_greater_persia
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
