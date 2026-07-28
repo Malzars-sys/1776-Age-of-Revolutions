@@ -2,7 +2,7 @@
 
 ## 1. Statut global du hotfix
 
-Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La résolution DEI 6A.3R est complète : CEY et SAF sont les bénéficiaires territoriaux retenus et les sept alignements vanilla 1.13 sont admis. La prochaine phase reste la correction ciblée 6A.3F.
+Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La phase DEI/VOC 6A.3F est également close après validations Java, Indonésie, refus et persistance après rechargement.
 
 ## 2. Navigation par région
 
@@ -13,7 +13,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 | Mamluk Iraq | `CURRENT`, sans clôture runtime dédiée | [Mamluk Iraq](mamluk_iraq/README.md) | [Objectif secret IR1](mamluk_iraq/HOTFIX_3F_IR1_SECRET_GOAL.md) |
 | Russie | `CURRENT`, statique passé, runtime global différé | [_index](_index/) | [Alignement Subjecthood](_index/HOTFIX_6A_RUSSIA_SUBJECTHOOD_ALIGNMENT.md) |
 | Autriche/Croatie/Suisse | `COMPLETE` | [_index](_index/) | [Correction runtime HOTFIX-6A.2F2](_index/HOTFIX_6A2F2_SWISS_POP_NAVAL_BASE_RUNTIME_CORRECTION.md) |
-| DEI | `READY_FOR_DEI_TARGETED_FIX` | [_index](_index/) | [Résolution HOTFIX-6A.3R](_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md) |
+| DEI | `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE` | [_index](_index/) | [Clôture HOTFIX-6A.3F](_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md) |
 | Transversal | `REFERENCE` | [Shared](shared/README.md) | [Audit upstream](shared/HOTFIX_DLC_UPSTREAM_CHANGE_AUDIT.md) |
 
 ## 3. Navigation par sujet
@@ -31,7 +31,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [Prompt directement utilisable pour HOTFIX-6A](_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md).
 - [Réconciliation des productions concurrentes C1AI](_index/HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md), verdict `GLOBAL_SCRIPT_DELTAS_WITH_RUSSIA_FIRST`.
 - [Audit 6A.2](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT.md), [résolution 6A.2R](_index/HOTFIX_6A2R_TARGET_HUNK_RESOLUTION.md), [correction 6A.2F](_index/HOTFIX_6A2F_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX.md), [correction runtime 6A.2F2](_index/HOTFIX_6A2F2_SWISS_POP_NAVAL_BASE_RUNTIME_CORRECTION.md) et [delta map](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_DELTA_MAP.csv). Statique et runtime PASS; Suisse autrichienne 30 K et flotte AUS 2,30 K / 2,30 K confirmées.
-- [Audit DEI 6A.3](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md), [résolution 6A.3R](_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md) et [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) : CEY/SAF retenus, hunk territorial fermé et sept alignements vanilla 1.13 admis, sans gameplay modifié.
+- [Audit DEI 6A.3](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md), [résolution 6A.3R](_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md), [correction et clôture 6A.3F](_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md) et [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) : CEY/SAF, Java, Indonésie, refus et économie post-compagnie validés statiquement et en jeu.
 - [QA runtime des formations militaires 1.13](_index/HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md) : douze QG corrigés dans `3b02b2a`, partie neuve, sauvegarde/recharge et deux progressions de trois mois validées.
 
 ## 5. Rapports runtime finaux
@@ -47,6 +47,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 | C1I/I1 | Scénario A-3 | validation runtime et nettoyage tooltip | `FINAL` | [runtime](india/sepoy/HOTFIX_5C2E4C1I_SEPOY_A3_RUNTIME_TEST.md) | [résultats](india/sepoy/HOTFIX_5C2E4C1I_A3_RUNTIME_RESULTS.csv) |
 | E4B3 | APIs Sepoy | `PASS` | `FINAL` | [rapport](india/sepoy/HOTFIX_5C2E4B3_SEPOY_API_RUNTIME_RETEST.md) | — |
 | Formations 1.13 | Migration des formations militaires | `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md) | [audit statique](_index/army.md) |
+| 6A.3F | Dissolution de la DEI/VOC | `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md) | [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) |
 
 ## 6. Corrections gameplay validées
 
@@ -59,7 +60,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 
 - Japon : une clôture consolidée distincte reste possible après les correctifs 4E5–4E8.
 - Mamluk Iraq : aucun rapport de clôture/runtime global n’est présent ; 3F reste la dernière correction documentaire.
-- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; résolution DEI close par `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`; prochaine phase `HOTFIX_6A3F_DEI_TARGETED_FIX`. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
+- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; DEI/VOC clos par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`. Le prochain sous-bloc résiduel doit être sélectionné dans l’inventaire canonique. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
 - Les recherches technologiques sont hors bibliothèque et hors périmètre AH.
 
 ## 8. Rapports inconclusifs ou remplacés
@@ -75,3 +76,18 @@ Les noms `HOTFIX_*` restent inchangés et fournissent l’ordre de phase. Les CS
 ## 10. Légende des statuts
 
 `FINAL` = validation finale ; `CURRENT` = référence active ; `INTERMEDIATE` = étape de chaîne ; `SUPERSEDED` = remplacé par un successeur ; `REFERENCE` = contexte ; `FAILED_TEST` = échec historique utile ; `INCONCLUSIVE` = preuve insuffisante ; `BLOCKED` = phase bloquée ; `ARCHIVAL` = conservation administrative.
+
+## 11. Mise à jour HOTFIX-6A.3F du 28 juillet 2026
+
+La correction ciblée DEI est appliquée et passe les contrôles statiques. Le runtime a confirmé la libération indépendante de `CEY` et `SAF`, le passage à `JAV`, la mise à jour du nom `Java` et la suppression des reliquats VOC.
+
+Le test a ensuite justifié deux extensions ciblées et autorisées :
+
+- un drapeau post-VOC propre à Java, séparé de `malaya_subject_var` afin de ne jamais réintroduire le nom `Malaisie` ;
+- un événement économique post-compagnie qui remplace `law_extraction_economy` par le traditionalisme, le Mouvement agraire ou un interventionnisme strictement verrouillé par technologie et poids politique.
+
+Rapport courant : [HOTFIX-6A.3F — Correction ciblée DEI](_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md).
+
+Statut final : `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`. Le drapeau dédié, l’apparition naturelle de l’événement économique et le verrouillage de l’interventionnisme sont confirmés. Le Mouvement agraire, le nom Java et son drapeau persistent après sauvegarde/rechargement. L’option Indonésie et le refus de dissolution sont validés. La description a été développée au format narratif de « Jour de l’indépendance ».
+
+La prise britannique du Cap et de Ceylan pendant que la VOC reste sujette des Pays-Bas n’est pas incluse : elle dépend des lettres de Kew, de la Révolution française et des guerres napoléoniennes, et reste reportée à cette future phase historique.

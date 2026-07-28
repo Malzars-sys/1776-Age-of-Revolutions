@@ -5878,6 +5878,17 @@ JAV = { # Java
 		priority = 1
 	}
 	flag_definition = {
+		coa = MAA_oligarchy
+		subject_canton = MAA_oligarchy
+		allow_overlord_canton = no
+		priority = 10
+		trigger = {
+			scope:actor ?= {
+				has_variable = jav_post_voc_flag_var
+			}
+		}
+	}
+	flag_definition = {
 		coa = JAV_theocracy
 		subject_canton = JAV_theocracy
 		priority = 20

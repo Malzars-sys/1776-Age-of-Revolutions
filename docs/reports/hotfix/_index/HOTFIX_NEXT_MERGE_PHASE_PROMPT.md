@@ -1,4 +1,4 @@
-# Phase HOTFIX-6A.3F — Correction ciblée DEI Cape/Ceylon et vanilla 1.13
+# Phase HOTFIX-6A.3F — Correction ciblée DEI Cape/Ceylon et vanilla 1.13 — TERMINÉE
 
 FORK : `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
 
@@ -8,7 +8,9 @@ VANILLA 1.13, LECTURE SEULE : `C:\Games\Victoria 3 The Great Wave\game`
 
 MODÈLE RECOMMANDÉ : GPT-5.6 Thinking avec raisonnement élevé.
 
-## Verdicts d’entrée
+> **Statut d’archive :** ce prompt a été exécuté. Ne pas relancer cette phase. Le rapport canonique de clôture est `HOTFIX_6A3F_DEI_TARGETED_FIX.md`.
+
+## Verdicts d’entrée historiques déjà consommés
 
 - `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
 - `READY_FOR_DEI_TARGETED_FIX`
@@ -177,3 +179,15 @@ Ne publier `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE` qu’après runtime valide ; 
 ## Vérifications finales
 
 Exécuter `git diff --check`, `git status --short`, `git diff --name-only`, `git diff --name-status`, `git diff --stat`, `git diff --cached --name-only`, `git stash list` et le contrôle des processus. Confirmer le diff gameplay limité à `events/dei_breakup.txt`, zéro staged, protections intactes, `docs/research/technology/` et `bject` intacts, stash MARATH intact.
+
+## Addendum courant — extension runtime autorisée le 28 juillet 2026
+
+Les instructions initiales ci-dessus décrivent le périmètre d’entrée historique. Le runtime a depuis confirmé CEY/SAF et a révélé deux dépendances du setup 1776. L’opérateur a explicitement autorisé l’extension suivante :
+
+- `common/flag_definitions/00_flag_definitions.txt` : drapeau Java post-VOC séparé du nom dynamique Malaisie ;
+- `localization/english/mod_v2content_l_english.yml` et `localization/french/mod_v2content_l_french.yml` : localisation de `dei_breakup.2` ;
+- `events/dei_breakup.txt` : nettoyage VOC et événement économique post-compagnie.
+
+Le statut final est `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`. Ne pas recommencer l’audit ni lancer le jeu automatiquement. Le runtime confirme le drapeau Java, l’événement économique, l’absence d’interventionnisme lorsque les Industriels sont faibles et le servage actif, puis la persistance du Mouvement agraire, du nom et du drapeau après sauvegarde/rechargement. Les branches Indonésie et refus sont validées. Les textes économiques français et anglais ont été développés au format narratif de « Jour de l’indépendance ».
+
+La chaîne historique des lettres de Kew et la prise britannique du Cap et de Ceylan sont hors périmètre. Elles sont reportées au futur contenu Révolution française/Napoléon.

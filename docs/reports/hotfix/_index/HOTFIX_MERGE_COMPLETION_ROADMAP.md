@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La résolution DEI 6A.3R est complète : la boucle courante ne peut libérer Cape/Ceylon, `CEY` et `SAF` sont les bénéficiaires exacts, et les sept adaptations vanilla 1.13 sont admises. La prochaine phase est `HOTFIX_6A3F_DEI_TARGETED_FIX`.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La phase DEI/VOC est close par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`, après validation statique, runtime des trois branches et sauvegarde/rechargement. Le prochain sous-bloc résiduel doit être sélectionné dans l’inventaire canonique.
 
 Verdicts :
 
@@ -20,7 +20,7 @@ Verdicts :
 - `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 - `NO_REQUIRED_HOTFIX_DELTA_IDENTIFIED`
 - `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
-- `READY_FOR_DEI_TARGETED_FIX`
+- `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`
 - `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
@@ -44,13 +44,13 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 ## 5. Blocs partiellement terminés
 
 - Autriche/Croatie/Suisse : paquet complet, contrôles statiques et runtime passés; 30 K habitants en Suisse autrichienne et 2,30 K / 2,30 K marins confirmés.
-- DEI : audit trois voies et résolution statique complets; CEY/SAF retenus, trois blocs territoriaux exacts et sept adaptations vanilla 1.13 admises; correction/runtime encore requis.
+- DEI : paquet complet; CEY/SAF, Java, Indonésie, refus, drapeaux, nettoyages VOC, économie post-compagnie et persistance après rechargement validés.
 - Runtime global : non exécuté pendant C1AI.
 - Audit final de branche : à faire après les derniers blocs P0/P1.
 
 ## 6. Blocs non examinés
 
-Le prochain travail est la correction DEI 6A.3F, limitée à `events/dei_breakup.txt`. Appliquer les hunks résolus sans remplacer le fichier complet ni rouvrir NAVY, BIC, Travancore ou MARATH.
+Le prochain travail est la sélection d’un sous-bloc résiduel du conteneur `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. Ne pas rouvrir DEI/VOC, NAVY, BIC, Travancore ou MARATH sans delta précis et nouvellement prouvé.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -126,11 +126,11 @@ Ce bloc est un conteneur de revue de scripts et non une phase atomique. La matri
 
 ## 23. Pourquoi il vient ensuite
 
-La résolution DEI a fermé le blocker : l’adjacence exclut tout bénéficiaire implicite de la boucle, tandis que les tags dédiés CEY et SAF et les APIs `create_country`/`set_state_owner` fournissent les hunks exacts. Les sept hunks vanilla 1.13 sont tous admis.
+La résolution puis le runtime DEI ont fermé le blocker : l’adjacence exclut tout bénéficiaire implicite de la boucle, les tags dédiés CEY et SAF et les APIs `create_country`/`set_state_owner` fournissent les hunks exacts, et les sept hunks vanilla 1.13 sont admis et validés.
 
 ## 24. Fichiers concernés
 
-6A.3F peut modifier uniquement `events/dei_breakup.txt` et ses documents autorisés. Les six fichiers gameplay modifiés par 6A.2F/6A.2F2 doivent rester byte-for-byte inchangés.
+Le paquet 6A.3F fermé couvre `events/dei_breakup.txt`, la définition ciblée du drapeau Java, les localisations économiques anglaise et française et ses documents autorisés. Ces fichiers doivent désormais être préservés comme paquet validé.
 
 ## 25. Modèle recommandé
 
@@ -138,15 +138,15 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Un runtime ciblé unique est requis après PASS statique de la correction DEI. Il doit couvrir CEY, SAF, JAV, IDN, refus et le scan des logs.
+Le runtime ciblé DEI est terminé : CEY, SAF, JAV, IDN, refus, économie post-compagnie et persistance après rechargement sont couverts.
 
 ## 27. Nombre minimal de lancements
 
-Un lancement au maximum pour 6A.3F, uniquement après tous les tests statiques.
+Les ouvertures du jeu ont été réalisées par l’opérateur après les contrôles statiques. Aucun lancement supplémentaire n’est requis pour 6A.3F.
 
 ## 28. Phases suivantes probables
 
-6A.3F correction ciblée DEI, puis découpage des revues résiduelles par domaine avant l’audit global final.
+Découpage des revues résiduelles par domaine avant l’audit global final. Le contenu des lettres de Kew reste séparé dans la future phase Révolution française/Napoléon.
 
 ## 29. Critères de fin du merge
 
@@ -179,9 +179,20 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A3F_DEI_TARGETED_FIX`
+`NEXT_EXECUTION_PHASE = SELECT_RESIDUAL_GLOBAL_SCRIPT_REVIEW`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
-`READY_FOR_DEI_TARGETED_FIX`
+`HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+
+## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
+
+Les hunks territoriaux et les sept alignements vanilla 1.13 sont appliqués. Le runtime monté a confirmé `CEY`, `SAF`, le nom `Java` et le retrait des reliquats VOC. Deux anomalies révélées par ce runtime ont été corrigées dans le même périmètre autorisé :
+
+- le drapeau post-VOC de Java est désormais piloté par `jav_post_voc_flag_var`, sans réutiliser la variable de nom colonial `malaya_subject_var` ;
+- `dei_breakup.2` remplace l’économie d’extraction après l’indépendance, sans laissez-faire et avec des seuils technologiques et politiques pour le Mouvement agraire et l’interventionnisme.
+
+Le filewatcher charge trois événements sans erreur propre à `dei_breakup.2`. Le runtime confirme le drapeau Java et les choix économiques limités ; le texte économique a été développé au même format narratif que « Jour de l’indépendance ». Après choix du Mouvement agraire, le nom Java, son drapeau et la loi persistent après sauvegarde/rechargement. La branche Indonésie et l’option de refus sont également validées.
+
+Le transfert britannique du Cap et de Ceylan alors que la VOC reste un sujet néerlandais n’a pas été ajouté. Il dépend historiquement des lettres de Kew et du cycle Révolution française/guerres napoléoniennes ; il est donc reporté à cette future phase et ne rouvre pas 6A.3F.

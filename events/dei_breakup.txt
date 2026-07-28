@@ -1,5 +1,94 @@
 ﻿namespace = dei_breakup
 
+# Post-company economic settlement
+dei_breakup.2 = {
+	type = country_event
+	placement = root
+
+	title = dei_breakup.2.t
+	desc = dei_breakup.2.d
+	flavor = dei_breakup.2.f
+
+	event_image = {
+		video = "ip4_abdication"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	trigger = {
+		OR = {
+			c:JAV ?= this
+			c:IDN ?= this
+		}
+		is_subject = no
+		has_law_or_variant = law_type:law_extraction_economy
+	}
+
+	option = {
+		name = dei_breakup.2.a
+		default_option = yes
+		trigger = {
+			NOT = { has_law_or_variant = law_type:law_anarchy }
+			NOT = { has_law_or_variant = law_type:law_factory_councils }
+			NOT = { has_law_or_variant = law_type:law_per_capita_based_taxation }
+			NOT = { has_law_or_variant = law_type:law_proportional_taxation }
+			NOT = { has_law_or_variant = law_type:law_graduated_taxation }
+		}
+		ai_chance = {
+			base = 10
+		}
+		activate_law = law_type:law_traditionalism
+	}
+
+	option = {
+		name = dei_breakup.2.b
+		trigger = {
+			has_technology_researched = romanticism
+			NOT = { has_law_or_variant = law_type:law_anarchy }
+			NOT = { has_law_or_variant = law_type:law_factory_councils }
+			NOT = { has_law = law_type:law_women_in_the_fields }
+			OR = {
+				ig:ig_rural_folk ?= {
+					is_powerful = yes
+					is_in_government = yes
+				}
+				ig:ig_landowners ?= {
+					is_powerful = yes
+					is_in_government = yes
+				}
+			}
+		}
+		ai_chance = {
+			base = 20
+		}
+		activate_law = law_type:law_agrarianism
+	}
+
+	option = {
+		name = dei_breakup.2.c
+		highlighted_option = yes
+		trigger = {
+			has_technology_researched = manufacturies
+			NOT = { has_law_or_variant = law_type:law_serfdom }
+			NOT = { has_law_or_variant = law_type:law_anarchy }
+			NOT = { has_law_or_variant = law_type:law_factory_councils }
+			NOT = { has_law = law_type:law_women_in_the_fields }
+			ig:ig_industrialists ?= {
+				is_powerful = yes
+				is_in_government = yes
+			}
+		}
+		ai_chance = {
+			base = 30
+		}
+		activate_law = law_type:law_interventionism
+	}
+}
+
 # Independent Dutch East Indies
 dei_breakup.1 = {
 	type = country_event
@@ -38,6 +127,59 @@ dei_breakup.1 = {
 		name = dei_breakup.1.a
 		ai_chance = {
 			base = 8 # this is the default pick for the AI
+		}
+		# Release the non-Indonesian colonial territories before the breakup loop.
+		if = {
+			limit = {
+				s:STATE_CEYLON = {
+					any_scope_state = { owner = ROOT }
+				}
+			}
+			if = {
+				limit = { exists = c:CEY }
+				s:STATE_CEYLON.region_state:DEI ?= { set_state_owner = c:CEY }
+			}
+			else = {
+				create_country = {
+					origin = ROOT
+					tag = CEY
+					state = s:STATE_CEYLON.region_state:DEI
+				}
+			}
+			c:CEY ?= {
+				if = {
+					limit = { is_subject = yes }
+					make_independent = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				s:STATE_CAPE_COLONY = {
+					any_scope_state = { owner = ROOT }
+				}
+			}
+			if = {
+				limit = { exists = c:SAF }
+				s:STATE_CAPE_COLONY.region_state:DEI ?= { set_state_owner = c:SAF }
+			}
+			else = {
+				create_country = {
+					origin = ROOT
+					tag = SAF
+					state = s:STATE_CAPE_COLONY.region_state:DEI
+				}
+			}
+			c:SAF ?= {
+				if = {
+					limit = { is_subject = yes }
+					make_independent = yes
+				}
+			}
+		}
+		if = {
+			limit = { exists = c:SAF }
+			s:STATE_EASTERN_CAPE.region_state:DEI ?= { set_state_owner = c:SAF }
 		}
 		while = {
 			limit = {
@@ -104,9 +246,46 @@ dei_breakup.1 = {
 			remove_ideology = ideology_colonialist
 			add_ideology = ideology_laissez_faire
 		}
+		ig:ig_devout ?= {
+			set_interest_group_name = ig_sunni_madrasahs
+			set_ig_trait = ig_trait:ig_trait_pious_fiction
+			set_ig_trait = ig_trait:ig_trait_sharia
+			set_ig_trait = ig_trait:ig_trait_da_wat
+		}
 		change_tag = JAV
 		hidden_effect = {
-			remove_primary_culture = cu:dutch
+			if = {
+				limit = {
+					has_variable = malaya_subject_var
+				}
+				remove_variable = malaya_subject_var
+			}
+			# Keep the post-VOC Java flag without restoring the colonial Malaya name.
+			set_variable = jav_post_voc_flag_var
+			if = {
+				limit = {
+					has_modifier = colonial_administration_76
+				}
+				remove_modifier = colonial_administration_76
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_india_company_rule
+				}
+				remove_modifier = modifier_india_company_rule
+			}
+			every_primary_culture = {
+				save_temporary_scope_as = primary_culture_to_remove
+				PREV ?= { # scope:target
+					remove_primary_culture = scope:primary_culture_to_remove
+					every_scope_character = {
+						limit = {
+							scope:primary_culture_to_remove ?= culture
+						}
+						retire_character = yes
+					}
+				}
+			}
 			add_primary_culture = cu:javan
 			set_state_religion = rel:sunni
 			state_religion_switch_effect = yes
@@ -115,9 +294,10 @@ dei_breakup.1 = {
 					culture = cu:dutch
 					is_immortal = no
 				}
-				kill_character = yes
+				retire_character = yes
 			}
-			trigger_event = { id = independence.2 }
+			trigger_event = { id = independence.2 days = 1 }
+			trigger_event = { id = dei_breakup.2 days = 2 }
 		}
 	}
 
@@ -135,8 +315,43 @@ dei_breakup.1 = {
 			remove_ideology = ideology_colonialist
 			add_ideology = ideology_laissez_faire
 		}
+		ig:ig_devout ?= {
+			set_interest_group_name = ig_sunni_madrasahs
+			set_ig_trait = ig_trait:ig_trait_pious_fiction
+			set_ig_trait = ig_trait:ig_trait_sharia
+			set_ig_trait = ig_trait:ig_trait_da_wat
+		}
 		hidden_effect = {
-			remove_primary_culture = cu:dutch
+			if = {
+				limit = {
+					has_variable = malaya_subject_var
+				}
+				remove_variable = malaya_subject_var
+			}
+			if = {
+				limit = {
+					has_modifier = colonial_administration_76
+				}
+				remove_modifier = colonial_administration_76
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_india_company_rule
+				}
+				remove_modifier = modifier_india_company_rule
+			}
+			every_primary_culture = {
+				save_temporary_scope_as = primary_culture_to_remove
+				PREV ?= { # scope:target
+					remove_primary_culture = scope:primary_culture_to_remove
+					every_scope_character = {
+						limit = {
+							scope:primary_culture_to_remove ?= culture
+						}
+						retire_character = yes
+					}
+				}
+			}
 			add_primary_culture = cu:balinese
 			add_primary_culture = cu:batak
 			add_primary_culture = cu:bornean
@@ -145,14 +360,9 @@ dei_breakup.1 = {
 			add_primary_culture = cu:malay
 			add_primary_culture = cu:moluccan
 			add_primary_culture = cu:sumatran
-			every_scope_character = {
-				limit = {
-					culture = cu:dutch
-					is_immortal = no
-				}
-				kill_character = yes
-			}
-			trigger_event = { id = independence.2 }
+			set_state_religion = rel:sunni
+			trigger_event = { id = independence.2 days = 1 }
+			trigger_event = { id = dei_breakup.2 days = 2 }
 		}
 	}
 	option = {
@@ -164,7 +374,7 @@ dei_breakup.1 = {
 		add_radicals = {
 			value = very_large_radicals
 		}
-		trigger_event = { id = independence.2 }
+		trigger_event = { id = independence.2 days = 1 }
 	}
 }
 
