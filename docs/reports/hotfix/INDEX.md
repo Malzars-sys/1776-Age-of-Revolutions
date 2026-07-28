@@ -2,7 +2,7 @@
 
 ## 1. Statut global du hotfix
 
-Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La phase DEI/VOC 6A.3F est également close après validations Java, Indonésie, refus et persistance après rechargement.
+Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La phase DEI/VOC 6A.3F est également close après validations Java, Indonésie, refus et persistance après rechargement. La revue 6A.4 a relu les 161 résidus `PENDING_REVIEW` et sélectionné l’alignement 1.13 de `je_balkan_national_awakenings` comme prochaine phase atomique.
 
 ## 2. Navigation par région
 
@@ -33,6 +33,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [Audit 6A.2](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT.md), [résolution 6A.2R](_index/HOTFIX_6A2R_TARGET_HUNK_RESOLUTION.md), [correction 6A.2F](_index/HOTFIX_6A2F_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX.md), [correction runtime 6A.2F2](_index/HOTFIX_6A2F2_SWISS_POP_NAVAL_BASE_RUNTIME_CORRECTION.md) et [delta map](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_DELTA_MAP.csv). Statique et runtime PASS; Suisse autrichienne 30 K et flotte AUS 2,30 K / 2,30 K confirmées.
 - [Audit DEI 6A.3](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md), [résolution 6A.3R](_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md), [correction et clôture 6A.3F](_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md) et [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) : CEY/SAF, Java, Indonésie, refus et économie post-compagnie validés statiquement et en jeu.
 - [QA runtime des formations militaires 1.13](_index/HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md) : douze QG corrigés dans `3b02b2a`, partie neuve, sauvegarde/recharge et deux progressions de trois mois validées.
+- [Sélection résiduelle 6A.4](_index/HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md) : 161 lignes relues, 22 alignements de pinning 1.13 identifiés et sélection du correctif balkanique à deux hunks dans un seul fichier.
 
 ## 5. Rapports runtime finaux
 
@@ -60,7 +61,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 
 - Japon : une clôture consolidée distincte reste possible après les correctifs 4E5–4E8.
 - Mamluk Iraq : aucun rapport de clôture/runtime global n’est présent ; 3F reste la dernière correction documentaire.
-- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; DEI/VOC clos par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`. Le prochain sous-bloc résiduel doit être sélectionné dans l’inventaire canonique. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
+- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; DEI/VOC clos par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`. La sélection 6A.4 est terminée. La prochaine phase exécutable est `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT`, limitée à `common/journal_entries/05_balkan_national_awakening.txt`. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
 - Les recherches technologiques sont hors bibliothèque et hors périmètre AH.
 
 ## 8. Rapports inconclusifs ou remplacés

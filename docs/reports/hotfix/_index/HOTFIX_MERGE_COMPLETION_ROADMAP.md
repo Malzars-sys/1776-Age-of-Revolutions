@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La phase DEI/VOC est close par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`, après validation statique, runtime des trois branches et sauvegarde/rechargement. Le prochain sous-bloc résiduel doit être sélectionné dans l’inventaire canonique.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La phase DEI/VOC est close par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`, après validation statique, runtime des trois branches et sauvegarde/rechargement. La sélection 6A.4 a relu les 161 lignes `PENDING_REVIEW`. Le prochain sous-bloc est `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT`.
 
 Verdicts :
 
@@ -22,6 +22,7 @@ Verdicts :
 - `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
 - `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`
 - `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE`
+- `HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
 ## 2. Périmètre du merge
@@ -50,7 +51,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 6. Blocs non examinés
 
-Le prochain travail est la sélection d’un sous-bloc résiduel du conteneur `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. Ne pas rouvrir DEI/VOC, NAVY, BIC, Travancore ou MARATH sans delta précis et nouvellement prouvé.
+Le prochain travail est l’exécution du sous-bloc sélectionné `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT`. Il est limité à deux hunks de `common/journal_entries/05_balkan_national_awakening.txt`. Ne pas rouvrir DEI/VOC, NAVY, BIC, Travancore ou MARATH sans delta précis et nouvellement prouvé.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -120,17 +121,28 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 
 ## 22. Prochain bloc recommandé
 
-`HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`.
+`HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
-Ce bloc est un conteneur de revue de scripts et non une phase atomique. La matrice concurrente annonçait 26 deltas à haute confiance, mais aucune liste de 26 lignes n’est publiée et l’inventaire canonique contient 161 lignes `PENDING_REVIEW`. Le total 26 est donc conservé comme `UNVERIFIED`, sans être utilisé comme périmètre exécutable.
+La prochaine phase atomique est
+`HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT`. La matrice concurrente
+annonçait 26 deltas à haute confiance, mais aucune liste de 26 lignes n’est
+publiée. La revue 6A.4 a classé exhaustivement les 161 anciennes lignes
+`PENDING_REVIEW` : 7 `REQUIRED_HOTFIX_DELTA`, 22
+`VANILLA_1_13_ALIGNMENT_REQUIRED`, 12 `ALREADY_MERGED`, 3 divergences
+intentionnelles, 1 contenu hotfix obsolète, 10 backlogs, 19 travaux protégés et
+87 inconnus. Le total 26 reste `UNVERIFIED`.
 
 ## 23. Pourquoi il vient ensuite
 
-La résolution puis le runtime DEI ont fermé le blocker : l’adjacence exclut tout bénéficiaire implicite de la boucle, les tags dédiés CEY et SAF et les APIs `create_country`/`set_state_owner` fournissent les hunks exacts, et les sept hunks vanilla 1.13 sont admis et validés.
+Le dernier `error.log` contient 51 occurrences de `Invalid right side during comparison 'sr'` dans `05_balkan_national_awakening.txt:11`. Le fichier appelle `sr:region_danubia`, région stratégique désactivée en vanilla 1.13. La source hotfix fournit un trigger géographique valide et converge avec vanilla 1.13 sur le nouveau champ de pinning. Le correctif est fermé à deux hunks dans un seul objet.
 
 ## 24. Fichiers concernés
 
-Le paquet 6A.3F fermé couvre `events/dei_breakup.txt`, la définition ciblée du drapeau Java, les localisations économiques anglaise et française et ses documents autorisés. Ces fichiers doivent désormais être préservés comme paquet validé.
+La phase 6A.4F ne peut modifier comme gameplay que
+`common/journal_entries/05_balkan_national_awakening.txt`. Le paquet 6A.3F
+fermé couvre `events/dei_breakup.txt`, la définition ciblée du drapeau Java et
+les localisations économiques anglaise et française ; ces fichiers restent
+protégés.
 
 ## 25. Modèle recommandé
 
@@ -138,7 +150,10 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Le runtime ciblé DEI est terminé : CEY, SAF, JAV, IDN, refus, économie post-compagnie et persistance après rechargement sont couverts.
+Un runtime balkanique ciblé est requis après PASS statique : un seul lancement
+du fork, au moins un jour de jeu, puis zéro erreur visant la JE ou
+`geographic_region_balkans`. Le runtime ciblé DEI reste terminé et ne doit pas
+être rejoué.
 
 ## 27. Nombre minimal de lancements
 
@@ -146,7 +161,10 @@ Les ouvertures du jeu ont été réalisées par l’opérateur après les contr�
 
 ## 28. Phases suivantes probables
 
-Découpage des revues résiduelles par domaine avant l’audit global final. Le contenu des lettres de Kew reste séparé dans la future phase Révolution française/Napoléon.
+Après 6A.4F, publier une nouvelle sélection atomique. Merchant Banking GEN/VEN
+et Navigation Acts GBR/colonies sont les deux meilleurs candidats fonctionnels
+suivants, mais ne sont pas autorisés dans 6A.4F. Le contenu des lettres de Kew
+reste séparé dans la future phase Révolution française/Napoléon.
 
 ## 29. Critères de fin du merge
 
@@ -179,11 +197,12 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = SELECT_RESIDUAL_GLOBAL_SCRIPT_REVIEW`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
 `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`
+`HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
