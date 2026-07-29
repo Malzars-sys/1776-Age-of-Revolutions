@@ -1,4 +1,4 @@
-# Phase HOTFIX-6A.7F — Alignement API 1.13 du nationalisme grec
+# Phase HOTFIX-6A.8R — Audit Victoria 3 1.13 de la Grande Crise orientale
 
 ## Modèle recommandé
 
@@ -20,64 +20,52 @@ VANILLA VICTORIA 3 1.13, STRICTEMENT EN LECTURE SEULE :
 
 ## Verdicts d’entrée requis
 
-- `HOTFIX_6A7_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
-- `NO_GAMEPLAY_CHANGED`
+- `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_RUNTIME_PASS`
+- `GREEK_NATIONALISM_MONARCHY_TRIGGER_1_13_ALIGNED`
+- `GREEK_NATIONALISM_JE_PINNING_1_13_ALIGNED`
+- `GREEK_VISIBILITY_AND_GEOGRAPHY_UNCHANGED`
+- `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT_COMPLETE`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
-- `NEXT_EXECUTION_PHASE = HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT`
+- `NEXT_EXECUTION_PHASE = HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT`
 
 Rapport canonique :
 
-`docs/reports/hotfix/_index/HOTFIX_6A7_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
+`docs/reports/hotfix/_index/HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT.md`
 
-La phase 6A.7 doit avoir été commitée manuellement avant de commencer. Ne jamais
-commencer 6A.7F depuis le worktree documentaire non commité de 6A.7.
+6A.7F doit avoir été commitée manuellement avant de commencer.
 
-## Objectif unique
+## Nature de la phase
 
-Dans le seul objet `je_greek_nationalism`, remplacer deux API obsolètes par
-leurs équivalents Victoria 3 1.13 sur lesquels la source hotfix et vanilla
-convergent.
-
-Fichier gameplay unique :
-
-`common/journal_entries/00_greek_nationalism.txt`
-
-Périmètre exact :
-
-- 1 fichier ;
-- 1 objet ;
-- 2 hunks ;
-- 2 suppressions ;
-- 2 additions ;
-- aucune localisation ;
-- aucune dépendance nouvelle.
-
-Ne modifier aucun autre gameplay et ne remplacer jamais le fichier complet.
-
-## Règle absolue concernant Victoria 3
+6A.8R est strictement documentaire.
 
 Codex ne doit jamais :
 
-- lancer Victoria 3 ;
-- lancer le launcher Paradox ;
-- cliquer dans le jeu ;
-- automatiser ou piloter l’interface ;
-- ouvrir une sauvegarde ;
-- utiliser la console ;
-- produire lui-même des observations visuelles ;
-- déclarer le runtime PASS sans compte rendu humain.
+- lancer Victoria 3 ou le launcher Paradox ;
+- piloter l’interface du jeu ;
+- produire de nouveaux logs ;
+- modifier un fichier gameplay ;
+- appliquer un hunk de la Grande Crise orientale ;
+- remplacer un fichier complet ;
+- commencer une future correction.
 
-Après toutes les modifications et validations statiques, Codex doit fournir la
-fiche opérateur de la section « Runtime humain » et s’arrêter avec :
+Aucun runtime n’est requis pendant l’audit.
 
-`RUNTIME_OPERATOR_ACTION_REQUIRED`
+## Objectif unique
 
-Les nouveaux logs ne peuvent être analysés qu’après confirmation que Victoria 3
-et le launcher sont fermés.
+Auditer en trois voies les six hunks fonctionnels de l’objet :
+
+`je_great_eastern_crisis`
+
+dans :
+
+`common/journal_entries/05_great_eastern_crisis.txt`
+
+L’audit doit déterminer si ces six hunks forment une correction atomique
+cohérente ou s’ils doivent être séparés, protégés ou reportés.
+
+Ne présumer ni l’import de la source hotfix ni l’alignement complet sur vanilla.
 
 ## Préflight Git obligatoire
-
-Exécuter :
 
 ```powershell
 Set-Location "C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork"
@@ -89,283 +77,245 @@ git log -5 --oneline --decorate
 git diff --check
 git diff --cached --name-only
 git stash list
-git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A7_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md
+git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT.md
 ```
 
 Exiger :
 
 - racine exacte du fork ;
 - branche `hotfix-dlc-audit` ;
-- rapport 6A.7 présent dans le HEAD ;
-- verdict 6A.7 présent dans le HEAD ;
-- 6A.7 déjà commitée manuellement ;
+- rapport 6A.7F présent dans le HEAD ;
+- verdicts runtime et de clôture présents dans le HEAD ;
+- 6A.7F commitée manuellement ;
 - aucun fichier suivi modifié ;
 - aucun fichier staged ;
 - seuls `bject` et les sept fichiers de `docs/research/technology/` non suivis ;
-- stash exact NAVY-3C-3 intact ;
+- stash NAVY-3C-3 intact ;
 - Victoria 3 et launcher Paradox fermés.
 
-En cas d’écart, arrêter avec :
+En cas d’écart :
 
 - `BLOCKED_WRONG_BRANCH`
-- `BLOCKED_6A7_NOT_COMMITTED`
+- `BLOCKED_6A7F_NOT_COMMITTED`
 - `BLOCKED_DIRTY_TREE`
 - `BLOCKED_STAGED_FILES`
 - `BLOCKED_UNEXPECTED_UNTRACKED_FILES`
 - `BLOCKED_PROTECTED_STASH_MISSING`
 - `BLOCKED_GAME_PROCESS_RUNNING`
 
-Interdictions : aucun reset, restore, checkout de fichier, clean, merge, rebase,
-amend, commit automatique ou opération sur le stash.
+Interdictions : aucun reset, restore, checkout, clean, merge, rebase, amend,
+commit automatique ou opération sur le stash.
+
+Enregistrer avant tout travail les huit hashes protégés de `bject` et des sept
+recherches technologiques.
 
 ## Sources obligatoires
 
-Lire intégralement avant modification :
+Lire intégralement :
 
+- `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT.md` ;
 - `HOTFIX_6A7_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` ;
 - `HOTFIX_6A6F_ITALIAN_UNIFICATION_JE_PINNING_1_13_ALIGNMENT.md` ;
 - `HOTFIX_MERGE_COMPLETION_ROADMAP.md` ;
 - `HOTFIX_MERGE_BLOCK_STATUS.csv` ;
 - `HOTFIX_REPORT_INDEX.csv` ;
-- les trois versions de `common/journal_entries/00_greek_nationalism.txt` ;
-- les logs et rotations existants de 6A.6F, en lecture seule.
+- `HOTFIX_GLOBAL_DIFFERENCE_INVENTORY.csv` ;
+- `HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md` ;
+- les changelogs du fork et de la source hotfix ;
+- les logs existants 6A.7F, en lecture seule.
 
-Hashes de référence enregistrés par 6A.7 :
+Comparer intégralement :
 
-| Arbre | SHA-256 |
-| --- | --- |
-| Fork avant correction | `41E56B210D8D990B3F848AA02010E6CE11E0B93A32532FC74A2E225E9A8AFF58` |
-| Source hotfix | `76925B166C659F1DA986A445FE8343638465860628DFC5881DB4427CE1877517` |
-| Vanilla 1.13 | `E8ACC0F043E30C2578BD9A49375360534073D4562BBC31C6699FF6789BB0E7B9` |
+1. fork :
+   `common/journal_entries/05_great_eastern_crisis.txt` ;
+2. source hotfix, lecture seule :
+   `common/journal_entries/05_great_eastern_crisis.txt` ;
+3. vanilla 1.13, lecture seule :
+   `common/journal_entries/05_great_eastern_crisis.txt`.
 
-Avant l’édition, exiger le hash fork exact. Pendant toute la phase, exiger que
-les hashes source hotfix et vanilla restent identiques.
+Enregistrer les trois hashes SHA-256 et les conserver inchangés pendant
+l’audit.
 
-## Snapshot de protection obligatoire
+## Baseline actualisée
 
-Avant l’édition, enregistrer depuis le fork :
+Après 6A.7F :
 
-- le bloc complet `is_shown_in_lobby` ;
-- le bloc complet `is_shown_when_inactive` ;
-- toutes les occurrences de `geographic_region_megali_greece` ;
-- toutes les occurrences de `is_greek_homeland`;
-- le nombre d’occurrences des quatre propriétés anciennes et nouvelles ;
-- le hash SHA-256 du fichier.
+- anciennes erreurs globales de pinning : 387 ;
+- erreur grecque : 0 ;
+- `VANILLA_1_13_ALIGNMENT_REQUIRED` : 18 ;
+- `ALREADY_MERGED` : 16 ;
+- lignes directement exploitables : 112 ;
+- total historique de 26 deltas : `UNVERIFIED`.
 
-Les blocs de visibilité doivent être byte-for-byte identiques après correction.
-Le fork doit conserver dans `is_shown_when_inactive` :
+Les blocs 6A.3F à 6A.7F sont clos et ne peuvent pas redevenir candidats.
+
+## Six hunks à auditer
+
+Documenter séparément, avec numéros de ligne et blocs complets :
+
+1. première référence géographique
+   `geographic_region_balkans` /
+   `geographic_region_balkans_old` ;
+2. seconde référence géographique
+   `geographic_region_balkans` /
+   `geographic_region_balkans_old` ;
+3. scope `region_balkans` / `sr:region_balkans` ;
+4. bloc `should_show_when_not_involved` ;
+5. propriété `can_revolution_inherit = yes` ;
+6. sémantique de pinning :
 
 ```txt
-any_scope_state = {
-	is_greek_homeland = yes
-}
+should_be_pinned_by_default_involved = yes
+should_be_pinned_by_default_uninvolved_or_context = no
 ```
 
-La source hotfix ajoute deux références à
-`geographic_region_megali_greece`. Vanilla ne les contient pas. Ces changements
-source-only sont explicitement exclus.
+Le fork contient historiquement une erreur directe sur l’ancien champ
+`should_be_pinned_by_default`. La session 6A.7F doit en contenir exactement une
+pour `05_great_eastern_crisis.txt`.
 
-## Modifications autorisées
+Ne pas réduire l’audit à cette seule erreur parser.
 
-Hunk 1, dans `je_greek_nationalism` :
+## Comparaison exigée pour chaque hunk
 
-```diff
--			has_law = law_type:law_monarchy
-+			country_has_monarchy_law = yes
-```
+Pour chacun des six hunks, publier :
 
-Hunk 2, dans `je_greek_nationalism` :
+- chemin et objet exacts ;
+- bloc parent ;
+- texte exact du fork ;
+- texte exact de la source hotfix ;
+- texte exact de vanilla ;
+- convergence ou divergence ;
+- comportement moteur attendu ;
+- impact 1776 ;
+- dépendances de scope ou région ;
+- collision avec les autres hunks ;
+- localisation éventuelle ;
+- risque de régression ;
+- rollback futur ;
+- décision exclusive :
+  - `REQUIRED_1_13_ALIGNMENT`
+  - `REQUIRED_HOTFIX_DELTA`
+  - `INTENTIONAL_1776_DIVERGENCE`
+  - `DEFER_REQUIRES_DESIGN_DECISION`
+  - `ALREADY_EQUIVALENT`
 
-```diff
--	should_be_pinned_by_default = yes
-+	should_be_pinned_by_default_uninvolved_or_context = yes
-```
+Une différence de hash ou le nom identique d’un fichier ne constitue jamais une
+preuve suffisante.
 
-Appliquer uniquement ces deux substitutions ciblées.
+## Questions sémantiques obligatoires
 
-## Exclusions absolues
+L’audit doit répondre précisément :
 
-Ne modifier ni importer :
+1. pourquoi les deux régions utilisent ou non le suffixe `_old` ;
+2. si `sr:region_balkans` est une correction de scope obligatoire en 1.13 ;
+3. qui doit voir l’entrée sans être impliqué ;
+4. si le comportement de pinning impliqué/non impliqué correspond au bloc de
+   visibilité ;
+5. pourquoi une révolution doit ou non hériter de l’entrée ;
+6. si les six changements sont indissociables ;
+7. si une future correction peut rester limitée à 1 fichier, 1 objet et
+   exactement 6 hunks ;
+8. si le diff prévu reste exactement de 23 additions et 4 suppressions ;
+9. si un runtime humain sera requis après une future correction ;
+10. quel scénario humain minimal pourra valider l’entrée.
 
-- `is_shown_in_lobby` ;
-- `is_shown_when_inactive` ;
-- `geographic_region_megali_greece` ;
-- toute autre géographie grecque ;
-- toute autre condition d’activation, d’échec ou de fin ;
-- événements, décisions, formations ou pays ;
-- localisations ;
-- DEI/VOC, Java, Balkan National Awakening, Yugoslavia et Risorgimento ;
-- `00_italian_unification.txt` ;
-- Grande Crise orientale, Coup et Imperialism of Promise ;
+## Protections absolues
+
+Ne modifier ni rouvrir :
+
+- nationalisme grec et `00_greek_nationalism.txt` ;
+- Balkan National Awakening ;
+- Yugoslavia ;
+- Risorgimento ;
+- DEI/VOC et Java ;
+- Coup et Imperialism of Promise ;
 - Merchant Banking et Navigation Acts ;
-- NAVY, MARATH, SAT, KHP, Travancore, Inde, BIC, Sepoy, Bombay et ADMIN ;
+- NAVY, formations et lois navales ;
+- MARATH, SAT, KHP et Travancore ;
+- Inde, BIC, Sepoy et Bombay ;
+- ADMIN ;
 - Japon, Russie, Autriche, Croatie, Slavonie et Suisse ;
-- révolutions américaine et française, lettres de Kew ;
+- révolutions américaine et française ;
+- lettres de Kew ;
 - technologies et recherches ;
 - agriculture, alimentation et industrie ;
+- localisations générales ;
 - descripteurs, launcher, sauvegardes et `bject`.
 
-Préserver dans BIC :
-
-```txt
-activate_law = law_type:law_frontier_colonization
-```
-
-Ne jamais restaurer `law_colonial_exploitation`.
+Préserver BIC avec `law_frontier_colonization`. Ne jamais restaurer
+`law_colonial_exploitation`.
 
 ## Liste fermée des fichiers modifiables
 
-Gameplay :
-
-- `common/journal_entries/00_greek_nationalism.txt`.
-
-Documentation :
+Uniquement :
 
 - nouveau
-  `docs/reports/hotfix/_index/HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT.md` ;
+  `docs/reports/hotfix/_index/HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT.md` ;
 - `docs/reports/hotfix/INDEX.md` ;
 - `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv` ;
 - `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv` ;
 - `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md` ;
 - `docs/reports/hotfix/_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`.
 
-Tout autre changement impose `BLOCKED_SCOPE_VIOLATION`.
+Le fichier `05_great_eastern_crisis.txt` est en lecture seule.
 
-## Contrôles statiques obligatoires
+## Livrable
 
-Avant édition, le fichier fork doit contenir exactement :
+Créer le rapport 6A.8R avec :
 
-- 1 occurrence de `has_law = law_type:law_monarchy` dans l’objet ;
-- 1 occurrence de `should_be_pinned_by_default = yes` dans l’objet ;
-- 0 occurrence de `country_has_monarchy_law = yes` dans l’objet ;
-- 0 occurrence de
-  `should_be_pinned_by_default_uninvolved_or_context = yes` dans l’objet.
+1. préflight et HEAD ;
+2. sources ;
+3. hashes trois voies ;
+4. erreur runtime historique ;
+5. carte exacte des six hunks ;
+6. comparaison trois voies de chaque hunk ;
+7. classification exclusive ;
+8. dépendances et collisions ;
+9. impact 1776 ;
+10. localisations ;
+11. taille future exacte ;
+12. rollback futur ;
+13. scénario runtime humain futur ;
+14. protections ;
+15. décision atomique ;
+16. futur prompt autonome ;
+17. état Git final ;
+18. décision de commit manuel.
 
-Après édition, exiger exactement l’inverse :
+Si les six hunks sont prouvés cohérents, préparer une future phase de correction
+sans l’exécuter. Sinon, documenter exactement les sous-blocs ou décisions qui
+bloquent.
 
-- ancienne loi : 0 ;
-- ancien pinning : 0 ;
-- nouvelle loi : 1 ;
-- nouveau pinning : 1.
+## Contrôles finaux
 
-Vérifier aussi :
+Vérifier :
 
-1. `git diff -- common/journal_entries/00_greek_nationalism.txt` contient
-   exactement 2 hunks, 2 suppressions et 2 additions ;
-2. aucune ligne autre que les quatre lignes du diff attendu n’a changé ;
-3. accolades équilibrées ;
-4. encodage et fins de ligne préservés ;
-5. objet `je_greek_nationalism` toujours unique ;
-6. blocs `is_shown_in_lobby` et `is_shown_when_inactive` identiques au snapshot ;
-7. aucune nouvelle occurrence de `geographic_region_megali_greece` ;
-8. aucune localisation modifiée ou requise ;
-9. hashes source hotfix et vanilla inchangés ;
-10. fichiers protégés et leurs huit hashes 6A.7 inchangés ;
-11. stash NAVY-3C-3 intact ;
-12. index Git vide ;
-13. `git diff --check` propre ;
-14. aucun processus Victoria 3 ou Paradox actif.
+- zéro gameplay modifié ;
+- exactement six documents de phase ;
+- six hunks audités séparément ;
+- une classification par hunk ;
+- aucune phase close rouverte ;
+- source hotfix et vanilla inchangées ;
+- huit hashes protégés inchangés ;
+- stash intact ;
+- index Git vide ;
+- `git diff --check` propre ;
+- Victoria 3 et launcher fermés ;
+- aucun lancement ou contrôle du jeu par Codex.
 
-Si le diff gameplay dépasse exactement deux hunks, arrêter et réduire le
-périmètre. Ne corriger aucun autre résidu découvert.
+Ne committer rien automatiquement et ne commencer aucune correction.
 
-## Rapport requis
+## Verdicts possibles
 
-Créer :
+Si l’audit est résolu :
 
-`docs/reports/hotfix/_index/HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT.md`
-
-Y inclure :
-
-1. date, branche, HEAD initial et état Git ;
-2. preuves trois voies et hashes ;
-3. snapshot des blocs protégés ;
-4. ancien et nouveau compte des quatre propriétés ;
-5. diff exact à deux hunks ;
-6. contrôles d’accolades, encodage et périmètre ;
-7. protections et exclusions ;
-8. rollback ;
-9. état statique ;
-10. fiche opérateur ;
-11. résultats humains et logs seulement après retour humain ;
-12. état Git final et décision de commit manuel.
-
-Avant le runtime, publier seulement :
-
-- `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_STATIC_PASS`
-- `RUNTIME_OPERATOR_ACTION_REQUIRED`
-
-Ne publier ni `RUNTIME_PASS` ni `COMPLETE` à ce stade.
-
-## Runtime humain
-
-Après PASS statique, remettre exactement cette fiche condensée à l’opérateur :
-
-1. lancer une partie neuve en 1776 avec le fork et `dlc014_ip3` montés ;
-2. choisir un pays de culture principale grecque ;
-3. si aucun n’est directement jouable, libérer la Grèce depuis l’Empire
-   ottoman et la jouer, sans console ;
-4. noter le pays et la date de départ ;
-5. ouvrir `Journal > Potentiel` et rechercher l’entrée de nationalisme grec ;
-6. vérifier que son texte et ses conditions sont lisibles ;
-7. vérifier l’absence de clé brute et d’anomalie visible de pinning ;
-8. avancer d’au moins un jour et noter la date de fin ;
-9. fermer normalement Victoria 3 puis le launcher ;
-10. confirmer explicitement leur fermeture et transmettre les observations.
-
-Codex doit alors s’arrêter avec :
-
-`RUNTIME_OPERATOR_ACTION_REQUIRED`
-
-Après le retour humain et seulement après fermeture confirmée, analyser les
-nouveaux logs. Exiger :
-
-- erreur ciblée
-  `Unexpected token: should_be_pinned_by_default` pour
-  `00_greek_nationalism.txt` : 1 avant, 0 après ;
-- aucune erreur visant
-  `should_be_pinned_by_default_uninvolved_or_context` ;
-- aucune erreur visant `country_has_monarchy_law` ;
-- fork et `dlc014_ip3` positivement montés ;
-- aucune nouvelle erreur propre au fichier corrigé.
-
-Si l’entrée est inaccessible dans le scénario ou le pays choisi, consigner
-`RUNTIME_ENTRY_INACCESSIBLE` sans élargir le code. Si les conditions sont
-lisibles, sans clé brute ni anomalie de pinning, consigner ces observations
-séparément sans inventer un PASS d’activation.
-
-## Rollback exact
-
-En cas de régression, inverser uniquement :
-
-```diff
--			country_has_monarchy_law = yes
-+			has_law = law_type:law_monarchy
-```
-
-```diff
--	should_be_pinned_by_default_uninvolved_or_context = yes
-+	should_be_pinned_by_default = yes
-```
-
-Puis refaire tous les contrôles statiques. Ne jamais utiliser reset, restore ou
-checkout pour le rollback.
-
-## Verdicts finaux possibles
-
-Après statique uniquement :
-
-- `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_STATIC_PASS`
-- `RUNTIME_OPERATOR_ACTION_REQUIRED`
-
-Après compte rendu humain et analyse des nouveaux logs :
-
-- `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_RUNTIME_PASS`
-- `GREEK_NATIONALISM_MONARCHY_TRIGGER_1_13_ALIGNED`
-- `GREEK_NATIONALISM_JE_PINNING_1_13_ALIGNED`
-- `GREEK_VISIBILITY_AND_GEOGRAPHY_UNCHANGED`
-- `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT_COMPLETE`
+- `HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT_COMPLETE`
+- `GREAT_EASTERN_CRISIS_SIX_HUNK_DECISION_RECORDED`
+- `NO_GAMEPLAY_CHANGED`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+- `NEXT_EXECUTION_PHASE = <phase décidée>`
 
-Ne committer automatiquement ni avant ni après le runtime. Ne commencer aucune
-phase suivante.
+Sinon :
+
+- `HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT_BLOCKED`
+- verdict de blocage précis.

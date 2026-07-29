@@ -130,33 +130,33 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
 La prochaine phase atomique est
-`HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT`. La sélection documentaire
-6A.7 est close : parmi exactement trois candidats, `je_greek_nationalism` est
-retenu grâce à deux écarts API courts sur lesquels la source hotfix et vanilla
-1.13 convergent. La phase italienne 6A.6F reste close. Les 161 anciennes lignes
-`PENDING_REVIEW` restent réparties en 7 `REQUIRED_HOTFIX_DELTA`, 19
-`VANILLA_1_13_ALIGNMENT_REQUIRED`, 15 `ALREADY_MERGED`, 3 divergences
+`HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT`, strictement documentaire.
+6A.7F est close : Grèce indépendante jouée le 30 janvier 1776, entrée
+potentielle lisible, fork et `dlc014_ip3` montés, erreur ciblée passée de un à
+zéro. Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
+7 `REQUIRED_HOTFIX_DELTA`, 18 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
+16 `ALREADY_MERGED`, 3 divergences
 intentionnelles, 1 contenu hotfix obsolète, 10 backlogs, 19 travaux protégés
-et 87 inconnus. Les 113 lignes directement exploitables ne représentent pas
-113 correctifs. Le total historique de 26 reste `UNVERIFIED`.
+et 87 inconnus. Les 112 lignes directement exploitables ne représentent pas
+112 correctifs. Le total historique de 26 reste `UNVERIFIED`.
 
 ## 23. Pourquoi il vient ensuite
 
-Le candidat grec comporte une erreur parser directe et deux substitutions
-convergentes : `has_law = law_type:law_monarchy` devient
-`country_has_monarchy_law = yes`, et `should_be_pinned_by_default = yes`
-devient `should_be_pinned_by_default_uninvolved_or_context = yes`. Ce périmètre
-ferme les divergences fonctionnelles fork/vanilla de l'objet sans importer les
-changements géographiques propres à la source hotfix.
+La Grande Crise orientale conserve une erreur parser directe, mais son objet
+contient six hunks fonctionnels liés : pinning impliqué/non impliqué, deux
+références géographiques, scope de région, visibilité hors implication et
+héritage par révolution. Un remplacement isolé du pinning laisserait l’objet
+partiellement obsolète. L’audit doit donc résoudre la comparaison trois voies
+et les divergences 1776 avant d’autoriser une correction.
 
 ## 24. Fichiers concernés
 
-La future phase 6A.7F est limitée à un fichier gameplay,
-`common/journal_entries/00_greek_nationalism.txt`, un objet,
-`je_greek_nationalism`, et exactement deux hunks. Elle ne doit modifier ni
-`is_shown_in_lobby`, ni `is_shown_when_inactive`, ni importer
-`geographic_region_megali_greece`. Aucun fichier complet ne peut être remplacé.
-Les paquets 6A.3F à 6A.6F restent protégés.
+6A.8R ne peut modifier aucun gameplay. Son objet d’audit unique est
+`je_great_eastern_crisis` dans
+`common/journal_entries/05_great_eastern_crisis.txt`. Le fork, la source
+hotfix et vanilla sont strictement en lecture seule pendant la décision. Le
+rapport d’audit et les cinq index documentaires canoniques constituent la liste
+fermée des futurs changements.
 
 ## 25. Modèle recommandé
 
@@ -164,25 +164,21 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-6A.7 est strictement documentaire et ne nécessite aucun lancement. Après le
-PASS statique de 6A.7F, Codex doit s'arrêter avec
-`RUNTIME_OPERATOR_ACTION_REQUIRED`. Un opérateur humain devra contrôler
-l'entrée grecque dans `Journal > Potentiel`, avancer d'au moins un jour, fermer
-le jeu et le launcher, puis transmettre ses observations avant l'analyse des
-nouveaux logs.
+Le runtime humain 6A.7F est terminé et analysé après fermeture du jeu et du
+launcher. 6A.8R est un audit documentaire et ne nécessite aucun lancement.
 
 ## 27. Nombre minimal de lancements
 
-Un seul lancement humain futur doit suffire pour 6A.7F. Codex ne doit jamais
-piloter le jeu ou le launcher.
+Un lancement humain unique a couvert 6A.7F. Aucun lancement n’est requis pour
+6A.8R et Codex ne doit jamais piloter le jeu ou le launcher.
 
 ## 28. Phases suivantes probables
 
-Après 6A.7F, la Grande Crise orientale reste le prochain P0 probable, mais doit
-d'abord recevoir un audit dédié de ses six hunks. Merchant Banking GEN/VEN et
-Navigation Acts GBR/HBC/NBS/ONT/ORA restent des P1 séparés. Le contenu des
-lettres de Kew reste séparé dans la future phase Révolution
-française/Napoléon.
+6A.8R doit décider si les six hunks peuvent former une correction atomique ou
+s’ils doivent être séparés/reportés. Une éventuelle phase de correction devra
+être préparée mais non commencée. Merchant Banking GEN/VEN et Navigation Acts
+GBR/HBC/NBS/ONT/ORA restent des P1 séparés. Les lettres de Kew restent dans la
+future phase Révolution française/Napoléon.
 
 ## 29. Critères de fin du merge
 
@@ -215,7 +211,7 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
@@ -234,7 +230,12 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `GEOGRAPHY_UNCHANGED`
 `HOTFIX_6A6F_ITALIAN_UNIFICATION_JE_PINNING_1_13_COMPLETE`
 `HOTFIX_6A7_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
-`NO_GAMEPLAY_CHANGED`
+`HOTFIX_6A7F_GREEK_NATIONALISM_1_13_STATIC_PASS`
+`HOTFIX_6A7F_GREEK_NATIONALISM_1_13_RUNTIME_PASS`
+`GREEK_NATIONALISM_MONARCHY_TRIGGER_1_13_ALIGNED`
+`GREEK_NATIONALISM_JE_PINNING_1_13_ALIGNED`
+`GREEK_VISIBILITY_AND_GEOGRAPHY_UNCHANGED`
+`HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT_COMPLETE`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
