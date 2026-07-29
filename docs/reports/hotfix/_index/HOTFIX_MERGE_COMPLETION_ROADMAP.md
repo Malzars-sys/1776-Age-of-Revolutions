@@ -130,24 +130,35 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
 La prochaine phase atomique est
-`HOTFIX_6A6_RESIDUAL_GLOBAL_SCRIPT_SELECTION`. La matrice concurrente
-annonçait 26 deltas à haute confiance, mais aucune liste de 26 lignes n’est
-publiée. Après clôture de 6A.5F, les 161 anciennes lignes `PENDING_REVIEW`
-se répartissent en 7 `REQUIRED_HOTFIX_DELTA`, 20
+`HOTFIX_6A6F_ITALIAN_UNIFICATION_JE_PINNING_1_13_ALIGNMENT`. La sélection
+6A.6 a analysé les 389 erreurs restantes de l’ancienne API dans 146 fichiers et
+a publié exactement trois candidats. `je_risorgimento` est retenue : une erreur
+parser directe, un fichier, un objet, un hunk et une convergence exacte entre
+la source hotfix et vanilla 1.13. Les 161 anciennes lignes `PENDING_REVIEW`
+restent réparties en 7 `REQUIRED_HOTFIX_DELTA`, 20
 `VANILLA_1_13_ALIGNMENT_REQUIRED`, 14 `ALREADY_MERGED`, 3 divergences
 intentionnelles, 1 contenu hotfix obsolète, 10 backlogs, 19 travaux protégés
-et 87 inconnus. Il reste 114 lignes directement exploitables par une revue,
-sans que ce nombre représente 114 correctifs. Le total 26 reste `UNVERIFIED`.
+et 87 inconnus. Les 114 lignes directement exploitables ne représentent pas
+114 correctifs. Le total historique de 26 reste `UNVERIFIED`.
 
 ## 23. Pourquoi il vient ensuite
 
-La phase 6A.5F ramène de un à zéro les erreurs visant `05_creation_of_yugoslavia.txt`. Les 389 autres erreurs de l’ancienne API appartiennent à d’autres fichiers et doivent être rapprochées des résidus sans créer de lot massif. Une nouvelle sélection est donc nécessaire.
+La comparaison trois voies de `00_italian_unification.txt` isole un remplacement
+de propriété sans autre dette fonctionnelle dans le hunk. Merchant Banking
+GEN/VEN et Navigation Acts GBR/HBC/NBS/ONT/ORA restent respectivement classés
+2 et 3, mais ne disposent pas de l’erreur parser P0 et touchent davantage de
+fichiers.
 
 ## 24. Fichiers concernés
 
-La phase 6A.6 ne peut modifier aucun gameplay. Elle est limitée à son nouveau
-rapport de sélection et aux cinq index documentaires canoniques. Les paquets
-6A.3F, 6A.4F et 6A.5F restent protégés.
+La phase 6A.6F peut modifier uniquement
+`common/journal_entries/00_italian_unification.txt`, l’objet
+`je_risorgimento`, par un remplacement de ligne :
+`should_be_pinned_by_default = yes` devient
+`should_be_pinned_by_default_uninvolved_or_context = yes`. Le remplacement du
+fichier complet est interdit. La limite intentionnelle `year >= 1836` et la
+géographie actuelle doivent rester inchangées. Les paquets 6A.3F, 6A.4F et
+6A.5F restent protégés.
 
 ## 25. Modèle recommandé
 
@@ -155,20 +166,23 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Le runtime 6A.5F est terminé : fork et `dlc014_ip3` montés, progression du
-1er au 25 janvier 1776, Serbie compatible avec la formation yougoslave,
-interface lisible et erreur ciblée absente. La sélection 6A.6 ne nécessite
-aucun lancement.
+La phase 6A.6F exigera un runtime exclusivement humain après le PASS statique.
+Codex ne lancera ni Victoria 3 ni le launcher, ne contrôlera pas l’interface et
+s’arrêtera avec `RUNTIME_OPERATOR_ACTION_REQUIRED`. L’opérateur inspectera une
+partie neuve 1776 avec un pays de culture principale italienne, vérifiera
+l’entrée potentielle Risorgimento, avancera d’au moins un jour, puis fermera le
+jeu et le launcher avant toute analyse de logs.
 
 ## 27. Nombre minimal de lancements
 
-Une seule ouverture humaine a été réalisée pour 6A.5F. Aucun lancement n’est requis pour 6A.6; Codex ne doit jamais lancer ou piloter le jeu ou le launcher.
+Un seul lancement humain condensé est prévu pour 6A.6F. Aucun lancement ne doit
+être effectué par Codex.
 
 ## 28. Phases suivantes probables
 
-Après 6A.5F, Merchant Banking GEN/VEN et Navigation Acts
+Après 6A.6F, Merchant Banking GEN/VEN et Navigation Acts
 GBR/HBC/NBS/ONT/ORA restent respectivement les candidats classés 2 et 3. Ils ne
-font pas partie du périmètre courant. Le contenu des lettres de Kew reste
+font pas partie du périmètre italien. Le contenu des lettres de Kew reste
 séparé dans la future phase Révolution française/Napoléon.
 
 ## 29. Critères de fin du merge
@@ -202,7 +216,7 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A6_RESIDUAL_GLOBAL_SCRIPT_SELECTION`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A6F_ITALIAN_UNIFICATION_JE_PINNING_1_13_ALIGNMENT`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
@@ -213,6 +227,7 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_STATIC_PASS`
 `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_RUNTIME_PASS`
 `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_COMPLETE`
+`HOTFIX_6A6_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
 `NO_GAMEPLAY_CHANGED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
