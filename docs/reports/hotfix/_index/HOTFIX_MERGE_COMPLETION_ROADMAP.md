@@ -130,10 +130,11 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
 La prochaine phase atomique est
-`HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT`, strictement documentaire.
-6A.7F est close : Grèce indépendante jouée le 30 janvier 1776, entrée
-potentielle lisible, fork et `dlc014_ip3` montés, erreur ciblée passée de un à
-zéro. Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
+`HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_ALIGNMENT`. L’audit documentaire 6A.8R
+est clos et n’a modifié aucun gameplay. Il retient l’option A : les six groupes
+fonctionnels de `je_great_eastern_crisis` sont tous
+`REQUIRED_1_13_ALIGNMENT` et doivent être appliqués ensemble dans un fichier
+et un objet. Les 161 anciennes lignes `PENDING_REVIEW` restent réparties en
 7 `REQUIRED_HOTFIX_DELTA`, 18 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
 16 `ALREADY_MERGED`, 3 divergences
 intentionnelles, 1 contenu hotfix obsolète, 10 backlogs, 19 travaux protégés
@@ -142,21 +143,24 @@ et 87 inconnus. Les 112 lignes directement exploitables ne représentent pas
 
 ## 23. Pourquoi il vient ensuite
 
-La Grande Crise orientale conserve une erreur parser directe, mais son objet
-contient six hunks fonctionnels liés : pinning impliqué/non impliqué, deux
-références géographiques, scope de région, visibilité hors implication et
-héritage par révolution. Un remplacement isolé du pinning laisserait l’objet
-partiellement obsolète. L’audit doit donc résoudre la comparaison trois voies
-et les divergences 1776 avant d’autoriser une correction.
+La comparaison trois voies prouve une convergence fonctionnelle de la source
+hotfix et de vanilla 1.13 sur les six groupes : deux références à la région
+géographique historique étroite `_old`, un scope stratégique typé `sr:`, la
+visibilité hors implication, l’héritage par révolution et les deux propriétés
+modernes de pinning. Le fork conserve une erreur parser ciblée sur l’ancien
+pinning. Aucune contrainte propre à 1776, dépendance de localisation ou
+collision protégée ne justifie un découpage. Un sous-ensemble laisserait
+l’objet partiellement obsolète.
 
 ## 24. Fichiers concernés
 
-6A.8R ne peut modifier aucun gameplay. Son objet d’audit unique est
-`je_great_eastern_crisis` dans
-`common/journal_entries/05_great_eastern_crisis.txt`. Le fork, la source
-hotfix et vanilla sont strictement en lecture seule pendant la décision. Le
-rapport d’audit et les cinq index documentaires canoniques constituent la liste
-fermée des futurs changements.
+6A.8F pourra modifier un seul fichier gameplay,
+`common/journal_entries/05_great_eastern_crisis.txt`, et un seul objet,
+`je_great_eastern_crisis`. Les six hunks fonctionnels apparaîtront sous forme
+de deux blocs de diff unifiés : 23 additions, 4 suppressions, soit un gain net
+de 19 lignes. Aucun remplacement complet, aucune localisation et aucune autre
+dépendance ne sont autorisés. Le rapport correctif et les cinq index
+documentaires canoniques forment le reste de la liste fermée.
 
 ## 25. Modèle recommandé
 
@@ -164,21 +168,28 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Le runtime humain 6A.7F est terminé et analysé après fermeture du jeu et du
-launcher. 6A.8R est un audit documentaire et ne nécessite aucun lancement.
+6A.8R n’a nécessité aucun lancement. Après la validation statique de 6A.8F,
+Codex devra s’arrêter sur `RUNTIME_OPERATOR_ACTION_REQUIRED`. Le runtime sera
+exclusivement effectué par l’opérateur humain : départ 1776 frais, Empire
+ottoman pour la vue impliquée, puis changement de pays standard si disponible
+vers un observateur contextuel possédant un intérêt dans les Balkans ou le
+Proche-Orient. Aucun recours à la console n’est requis. Les logs ne seront
+analysés qu’après fermeture normale du jeu et du launcher.
 
 ## 27. Nombre minimal de lancements
 
-Un lancement humain unique a couvert 6A.7F. Aucun lancement n’est requis pour
-6A.8R et Codex ne doit jamais piloter le jeu ou le launcher.
+Un seul lancement humain futur doit couvrir 6A.8F. L’héritage révolutionnaire
+reste couvert statiquement et par le smoke global, car le forcer dépasserait
+le périmètre de ce runtime ciblé. Codex ne doit jamais lancer ni piloter le jeu
+ou le launcher.
 
 ## 28. Phases suivantes probables
 
-6A.8R doit décider si les six hunks peuvent former une correction atomique ou
-s’ils doivent être séparés/reportés. Une éventuelle phase de correction devra
-être préparée mais non commencée. Merchant Banking GEN/VEN et Navigation Acts
-GBR/HBC/NBS/ONT/ORA restent des P1 séparés. Les lettres de Kew restent dans la
-future phase Révolution française/Napoléon.
+Après la correction, le passage statique et le runtime humain 6A.8F, une
+nouvelle phase de sélection documentaire devra choisir le résidu global
+suivant. Merchant Banking GEN/VEN et Navigation Acts GBR/HBC/NBS/ONT/ORA
+restent des P1 séparés. Les lettres de Kew restent dans la future phase
+Révolution française/Napoléon.
 
 ## 29. Critères de fin du merge
 
@@ -211,7 +222,7 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_ALIGNMENT`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
@@ -236,6 +247,9 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `GREEK_NATIONALISM_JE_PINNING_1_13_ALIGNED`
 `GREEK_VISIBILITY_AND_GEOGRAPHY_UNCHANGED`
 `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT_COMPLETE`
+`HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT_COMPLETE`
+`GREAT_EASTERN_CRISIS_SIX_HUNK_DECISION_RECORDED`
+`NO_GAMEPLAY_CHANGED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
