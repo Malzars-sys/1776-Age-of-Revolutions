@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La phase DEI/VOC est close par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`, après validation statique, runtime des trois branches et sauvegarde/rechargement. Les alignements 6A.4F à 6A.8F sont clos. L’audit 6A.9R préserve l’absence de Tanzimat au départ 1776, maintient la voie autonome de la Grande Crise orientale et sélectionne l’alignement indépendant des huit API de pinning Sick Man.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La phase DEI/VOC est close par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`, après validation statique, runtime des trois branches et sauvegarde/rechargement. Les alignements 6A.4F à 6A.9F sont clos. Les huit pinning Sick Man sont alignés avec Victoria 3 1.13 et validés par un smoke humain, sans activer Tanzimat en 1776. La prochaine phase est une sélection résiduelle strictement documentaire.
 
 Verdicts :
 
@@ -129,35 +129,33 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
-La prochaine phase atomique est
-`HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_ALIGNMENT`. L’audit documentaire
-6A.9R est clos sans gameplay : le setup 1776 reste sans `sick_man.1`, la
-restauration vanilla immédiate est rejetée comme anachronique, et une activation
-différée est séparée en backlog de design. Le conteneur compte toujours
-19 fichiers appliqués et 7 encore en attente. Les 161 anciennes lignes
+La prochaine phase est
+`HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION`. 6A.9F est close avec un hash
+final exact, un diff de huit lignes dans un fichier et un runtime ramenant les
+huit diagnostics ciblés à zéro. Le conteneur compte désormais 20 fichiers
+appliqués et 6 encore en attente. Les 161 anciennes lignes
 `PENDING_REVIEW` restent réparties en
-7 `REQUIRED_HOTFIX_DELTA`, 18 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
-16 `ALREADY_MERGED`, 3 divergences
+7 `REQUIRED_HOTFIX_DELTA`, 17 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
+17 `ALREADY_MERGED`, 3 divergences
 intentionnelles, 1 contenu hotfix obsolète, 10 backlogs, 19 travaux protégés
-et 87 inconnus. Les 112 lignes directement exploitables ne représentent pas
-112 correctifs. Le total historique de 26 reste `UNVERIFIED`.
+et 87 inconnus. Les 111 lignes directement exploitables ne représentent pas
+111 correctifs. Le total historique de 26 reste `UNVERIFIED`.
 
 ## 23. Pourquoi il vient ensuite
 
-Les huit objets de `00_sick_man.txt` emploient l’ancien
-`should_be_pinned_by_default = yes`. Source hotfix et vanilla convergent pour
-les huit sur `should_be_pinned_by_default_uninvolved_or_context = yes`, et le
-log 6A.8F prouve huit erreurs parser distinctes. La migration peut rester
-limitée à un fichier, huit objets et huit substitutions sans activer Tanzimat,
-sans localisation et sans importer les autres écarts de l’objet Syrie.
+Le nouveau `debug.log` contient 378 anciens diagnostics de pinning répartis
+dans 142 fichiers. Il faut réactualiser leur rapprochement avec l’inventaire,
+écarter tous les blocs clos et protégés, publier exactement trois candidats
+atomiques, puis en sélectionner un seul. Merchant Banking, Navigation Acts,
+les diagnostics d’événements Tanzimat et les petits écarts 1.13 restent des
+pistes séparées, sans présomption de sélection.
 
 ## 24. Fichiers concernés
 
-6A.9F modifiera seulement
-`common/journal_entries/00_sick_man.txt`, puis son rapport et les cinq
-documents canoniques. L’histoire ottomane, `sick_man.1`, les modificateurs,
-Grande Crise orientale et les autres différences fonctionnelles de
-`00_sick_man.txt` sont exclus.
+6A.10 sera strictement documentaire. Elle pourra modifier uniquement son
+rapport de sélection, `docs/reports/hotfix/INDEX.md`,
+`HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
+`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Aucun gameplay ne sera modifiable.
 
 ## 25. Modèle recommandé
 
@@ -165,23 +163,22 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Le runtime 6A.8F est terminé. 6A.9R n’a nécessité aucun lancement. 6A.9F
-requiert d’abord un PASS statique, puis un seul smoke parser humain pour prouver
-les huit erreurs ciblées de 8 à 0. Codex ne lance ni ne pilote le jeu.
+Le runtime 6A.9F est terminé et conforme. 6A.10 ne requiert aucun runtime :
+elle réutilisera les nouveaux logs uniquement en lecture seule.
 
 ## 27. Nombre minimal de lancements
 
-Un lancement humain minimal est prévu pour 6A.9F, sans test fonctionnel de la
-chaîne inactive. Codex s’arrêtera à `RUNTIME_OPERATOR_ACTION_REQUIRED`.
+Zéro lancement pour 6A.10. Toute future correction sélectionnée préparera
+séparément son éventuelle fiche de runtime humain.
 
 ## 28. Phases suivantes probables
 
-6A.9F doit appliquer uniquement les huit substitutions. Une future activation
-Tanzimat propre à 1776 reste
-`OTTOMAN_TANZIMAT_1776_DEFERRED_ACTIVATION_DESIGN_BACKLOG`; elle nécessiterait
-de nouveaux déclencheurs, objectifs, textes EN/FR, modificateurs et un audit des
-diagnostics d’événements. Merchant Banking, Navigation Acts et les lettres de
-Kew restent séparés.
+6A.10 doit choisir un seul résidu après comparaison trois voies. Merchant
+Banking GEN/VEN et Navigation Acts restent des deltas hotfix sérieux mais
+distincts. Coup, Imperialism of Promise et les trois diagnostics d’événements
+Tanzimat exigent un audit de leurs écarts adjacents. L’activation Tanzimat
+propre à 1776 reste
+`OTTOMAN_TANZIMAT_1776_DEFERRED_ACTIVATION_DESIGN_BACKLOG`.
 
 ## 29. Critères de fin du merge
 
@@ -214,7 +211,7 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_ALIGNMENT`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
@@ -253,6 +250,12 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `OTTOMAN_TANZIMAT_START_DISABLED_IN_1776_PRESERVED`
 `OTTOMAN_TANZIMAT_1776_DEFERRED_ACTIVATION_DESIGN_BACKLOG`
 `SICK_MAN_EIGHT_JE_PINNING_CAN_BE_ALIGNED_INDEPENDENTLY`
+`HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_STATIC_PASS`
+`SICK_MAN_EIGHT_JE_PINNING_EIGHT_HUNK_1_13_ALIGNMENT_COMPLETE`
+`NO_TANZIMAT_ACTIVATION_CHANGED`
+`HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_RUNTIME_PASS`
+`SICK_MAN_EIGHT_JE_PINNING_PARSER_ERRORS_8_TO_0`
+`HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_ALIGNMENT_COMPLETE`
 `NO_GAMEPLAY_CHANGED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 

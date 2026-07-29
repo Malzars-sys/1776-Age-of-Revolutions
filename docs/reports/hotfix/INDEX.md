@@ -2,7 +2,7 @@
 
 ## 1. Statut global du hotfix
 
-Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La phase DEI/VOC 6A.3F et les alignements de `je_balkan_national_awakenings`, `je_yugoslavia`, `je_risorgimento`, `je_greek_nationalism` et `je_great_eastern_crisis` sont clos. L’audit 6A.9R préserve l’absence de Tanzimat au départ 1776, sépare son futur design et sélectionne l’alignement autonome des huit API de pinning Sick Man.
+Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La phase DEI/VOC 6A.3F et les alignements de `je_balkan_national_awakenings`, `je_yugoslavia`, `je_risorgimento`, `je_greek_nationalism`, `je_great_eastern_crisis` et des huit entrées Sick Man sont clos. Le démarrage Tanzimat reste désactivé en 1776 et son éventuelle activation différée demeure un backlog de design.
 
 ## 2. Navigation par région
 
@@ -28,7 +28,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [Réorganisation de la bibliothèque](_index/HOTFIX_REPORT_LIBRARY_REORGANIZATION.md), verdict `HOTFIX_5_INDIA_COMPLETE_AND_REPORT_LIBRARY_INDEXED`.
 - [Audit de retrait de la copie jetable Sepoy](_index/HOTFIX_DISPOSABLE_TEST_MOD_RETIREMENT.md), avec [manifeste individuel de 984 fichiers](_index/HOTFIX_DISPOSABLE_TEST_MOD_FINAL_MANIFEST.csv). Le retrait est autorisable mais n’est pas exécuté dans AH.
 - [Feuille de route de fin du merge](_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md), avec [registre des 534 écarts fonctionnels](_index/HOTFIX_MERGE_REMAINING_WORK.csv), [inventaire trois voies](_index/HOTFIX_MERGE_THREE_WAY_INVENTORY.csv) et [matrice des blocs](_index/HOTFIX_MERGE_BLOCK_STATUS.csv).
-- [Prompt autonome d’alignement des huit pinning Sick Man HOTFIX-6A.9F](_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md).
+- [Prompt autonome de sélection résiduelle HOTFIX-6A.10](_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md).
 - [Réconciliation des productions concurrentes C1AI](_index/HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md), verdict `GLOBAL_SCRIPT_DELTAS_WITH_RUSSIA_FIRST`.
 - [Audit 6A.2](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_AUDIT.md), [résolution 6A.2R](_index/HOTFIX_6A2R_TARGET_HUNK_RESOLUTION.md), [correction 6A.2F](_index/HOTFIX_6A2F_AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX.md), [correction runtime 6A.2F2](_index/HOTFIX_6A2F2_SWISS_POP_NAVAL_BASE_RUNTIME_CORRECTION.md) et [delta map](_index/HOTFIX_6A2_AUSTRIA_CROATIA_WEST_SWITZERLAND_DELTA_MAP.csv). Statique et runtime PASS; Suisse autrichienne 30 K et flotte AUS 2,30 K / 2,30 K confirmées.
 - [Audit DEI 6A.3](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT.md), [résolution 6A.3R](_index/HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION.md), [correction et clôture 6A.3F](_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md) et [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) : CEY/SAF, Java, Indonésie, refus et économie post-compagnie validés statiquement et en jeu.
@@ -44,6 +44,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [Audit de la Grande Crise orientale 6A.8R](_index/HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT.md) : six groupes fonctionnels comparés séparément ; source hotfix et vanilla convergent ; les six sont classés `REQUIRED_1_13_ALIGNMENT` et autorisés dans une future correction atomique de 23 additions et 4 suppressions.
 - [Alignement de la Grande Crise orientale 6A.8F](_index/HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_ALIGNMENT.md) : six groupes appliqués dans un objet ; hash cible et diff `23/4` conformes ; vues ottomane et britannique validées ; diagnostic ciblé ramené de un à zéro. L’absence de Tanzimat est isolée pour 6A.9R.
 - [Audit de la chaîne ottomane Tanzimat 1776 6A.9R](_index/HOTFIX_6A9R_OTTOMAN_TANZIMAT_1776_ENTRY_CHAIN_AUDIT.md) : désactivation de départ préservée ; chaîne vanilla jugée anachronique et géopolitiquement incompatible avec 1776 ; Grande Crise orientale toujours accessible par `nationalism` et sécession ; huit pinning classés `REQUIRED_1_13_ALIGNMENT` et sélectionnés pour 6A.9F.
+- [Alignement des huit pinning Sick Man 6A.9F](_index/HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_ALIGNMENT.md) : huit substitutions exactes dans un fichier ; hash cible et snapshot conformes ; fork et `dlc014_ip3` montés ; huit erreurs parser ramenées à zéro sans activer Tanzimat.
 
 ## 5. Rapports runtime finaux
 
@@ -64,6 +65,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 | 6A.6F | Pinning de `je_risorgimento` 1.13 | `HOTFIX_6A6F_ITALIAN_UNIFICATION_JE_PINNING_1_13_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A6F_ITALIAN_UNIFICATION_JE_PINNING_1_13_ALIGNMENT.md) | [sélection 6A.6](_index/HOTFIX_6A6_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md) |
 | 6A.7F | APIs de `je_greek_nationalism` 1.13 | `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT.md) | [sélection 6A.7](_index/HOTFIX_6A7_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md) |
 | 6A.8F | Alignement de `je_great_eastern_crisis` 1.13 | `HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_ALIGNMENT_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_ALIGNMENT.md) | [audit 6A.8R](_index/HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT.md) |
+| 6A.9F | Huit pinning Sick Man 1.13 | `HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_ALIGNMENT_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_ALIGNMENT.md) | [audit 6A.9R](_index/HOTFIX_6A9R_OTTOMAN_TANZIMAT_1776_ENTRY_CHAIN_AUDIT.md) |
 
 ## 6. Corrections gameplay validées
 
@@ -76,7 +78,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 
 - Japon : une clôture consolidée distincte reste possible après les correctifs 4E5–4E8.
 - Mamluk Iraq : aucun rapport de clôture/runtime global n’est présent ; 3F reste la dernière correction documentaire.
-- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; DEI/VOC clos par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`; Balkan National Awakening clos par `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`; `je_yugoslavia`, `je_risorgimento`, `je_greek_nationalism` et `je_great_eastern_crisis` clos par leurs rapports 6A.5F à 6A.8F. L’audit Tanzimat 6A.9R est clos sans gameplay; la prochaine phase est `HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_ALIGNMENT`. L’activation différée 1776 reste un backlog de design distinct. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
+- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; DEI/VOC clos par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`; Balkan National Awakening clos par `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`; `je_yugoslavia`, `je_risorgimento`, `je_greek_nationalism`, `je_great_eastern_crisis` et les huit entrées Sick Man clos par leurs rapports 6A.5F à 6A.9F. La prochaine phase est la sélection documentaire `HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION`. L’activation Tanzimat différée 1776 reste un backlog de design distinct. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
 - Les recherches technologiques sont hors bibliothèque et hors périmètre AH.
 
 ## 8. Rapports inconclusifs ou remplacés
