@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La phase DEI/VOC est close par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`, après validation statique, runtime des trois branches et sauvegarde/rechargement. Les alignements 6A.4F à 6A.9F sont clos. Les huit pinning Sick Man sont alignés avec Victoria 3 1.13 et validés par un smoke humain, sans activer Tanzimat en 1776. La sélection documentaire 6A.10 recalcule 378 diagnostics dans 142 fichiers et retient l'alignement de deux propriétés de pinning roumaines comme prochaine correction atomique.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 est clos par 6A.2F2. La phase DEI/VOC est close par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`, après validation statique, runtime des trois branches et sauvegarde/rechargement. Les alignements 6A.4F à 6A.10F sont clos. Les deux pinning roumains sont alignés avec Victoria 3 1.13 ; la Valachie atteint le 2 janvier 1776 sans anomalie visible et les diagnostics ciblés passent de deux à zéro. La nouvelle baseline est de 376 diagnostics dans 141 fichiers. La prochaine phase est une sélection documentaire.
 
 Verdicts :
 
@@ -29,6 +29,7 @@ Verdicts :
 - `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_RUNTIME_PASS`
 - `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_COMPLETE`
 - `HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+- `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT_COMPLETE`
 - `NO_GAMEPLAY_CHANGED`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
@@ -58,7 +59,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 6. Blocs non examinés
 
-Le prochain travail est `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT`. Il doit remplacer exactement deux anciennes propriétés de pinning dans `00_romania.txt`, sans importer les différences adjacentes de géographie, lobby, visibilité, scope, pulse ou progression. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, NAVY, BIC, Travancore ou MARATH.
+Le prochain travail est `HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION`, strictement documentaire. Il doit rapprocher la baseline de 376 diagnostics et 141 fichiers de l'inventaire actualisé, publier exactement trois candidats et en sélectionner un seul sans modifier de gameplay. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -131,34 +132,33 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
 La prochaine phase est
-`HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT`. 6A.10 a recalculé
-exactement 378 diagnostics dans 142 fichiers, publié trois candidats et retenu
-un correctif d'un fichier, deux objets et deux hunks. Le conteneur compte
-toujours 20 fichiers appliqués et 6 encore en attente. Les 161 anciennes lignes
+`HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION`. 6A.10F a clos un correctif
+d'un fichier, deux objets et deux hunks. Le runtime humain et les nouveaux logs
+ramènent les diagnostics ciblés de deux à zéro et la baseline globale de
+378/142 à 376/141. Le conteneur compte désormais 21 fichiers appliqués et 5
+encore en attente. Les 161 anciennes lignes
 `PENDING_REVIEW` restent réparties en
-7 `REQUIRED_HOTFIX_DELTA`, 17 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
-17 `ALREADY_MERGED`, 3 divergences
+7 `REQUIRED_HOTFIX_DELTA`, 16 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
+18 `ALREADY_MERGED`, 3 divergences
 intentionnelles, 1 contenu hotfix obsolète, 10 backlogs, 19 travaux protégés
-et 87 inconnus. Les 111 lignes directement exploitables ne représentent pas
-111 correctifs. Le total historique de 26 reste `UNVERIFIED`.
+et 87 inconnus. Les 110 lignes directement exploitables ne représentent pas
+110 correctifs. Le total historique de 26 reste `UNVERIFIED`.
 
 ## 23. Pourquoi il vient ensuite
 
-Le nouveau `debug.log` contient deux erreurs directes dans `00_romania.txt`.
-Source hotfix et vanilla convergent sur la propriété moderne dans
-`je_unite_the_principalities` et `je_all_for_one`. Le sous-bloc est plus
-prioritaire que les deltas custom Merchant Banking et Navigation Acts, ne
-touche aucune protection et possède un rollback exact. Les différences
-adjacentes de géographie, lobby, visibilité, scope, pulse et progression sont
-exclues.
+Romania est close et ne doit pas être rouverte. La revue doit maintenant
+reclasser les 376 diagnostics restants, comparer trois voies les petits
+alignements encore ouverts et les deltas custom annoncés, puis choisir un seul
+sous-bloc. Merchant Banking, Navigation Acts, Coup, Imperialism of Promise et
+les diagnostics Tanzimat restent des pistes séparées sans présomption de
+sélection.
 
 ## 24. Fichiers concernés
 
-6A.10F pourra modifier uniquement `common/journal_entries/00_romania.txt`, son
-rapport de correction, `docs/reports/hotfix/INDEX.md`,
-`HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
-`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Le gameplay est limité aux deux
-substitutions de propriété sélectionnées.
+6A.11 pourra modifier uniquement son rapport de sélection,
+`docs/reports/hotfix/INDEX.md`, `HOTFIX_REPORT_INDEX.csv`,
+`HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
+`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Aucun gameplay ne sera modifiable.
 
 ## 25. Modèle recommandé
 
@@ -166,22 +166,19 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Après tous les PASS statiques, un runtime humain condensé devra charger une
-partie neuve avec WAL, vérifier l'entrée potentielle lisible, avancer au
-2 janvier 1776 et fermer le jeu. Codex ne lance ni le jeu ni le launcher et ne
-produit aucun PASS sans compte rendu humain.
+Le runtime 6A.10F est terminé et conforme. 6A.11 réutilisera les nouveaux logs
+uniquement en lecture seule et ne requiert aucun runtime.
 
 ## 27. Nombre minimal de lancements
 
-Un lancement humain pour 6A.10F ; zéro lancement ou contrôle par Codex.
+Zéro lancement pour 6A.11.
 
 ## 28. Phases suivantes probables
 
-6A.10 a choisi l'alignement API de `je_unite_the_principalities` et
-`je_all_for_one`, à exécuter séparément en 6A.10F. Merchant Banking GEN/VEN et
-Navigation Acts restent des deltas hotfix sérieux mais distincts. Coup,
-Imperialism of Promise et les trois diagnostics d'événements Tanzimat exigent
-un audit de leurs écarts adjacents. L'activation Tanzimat propre à 1776 reste
+6A.11 doit choisir un seul résidu. Merchant Banking GEN/VEN et Navigation Acts
+restent des deltas hotfix sérieux mais distincts. Coup, Imperialism of Promise
+et les trois diagnostics d'événements Tanzimat exigent un audit de leurs
+écarts adjacents. L'activation Tanzimat propre à 1776 reste
 `OTTOMAN_TANZIMAT_1776_DEFERRED_ACTIVATION_DESIGN_BACKLOG`.
 
 ## 29. Critères de fin du merge
@@ -215,7 +212,7 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
@@ -261,6 +258,12 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `SICK_MAN_EIGHT_JE_PINNING_PARSER_ERRORS_8_TO_0`
 `HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_ALIGNMENT_COMPLETE`
 `HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+`HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_STATIC_PASS`
+`ROMANIA_TWO_JE_PINNING_TWO_HUNK_1_13_ALIGNMENT_COMPLETE`
+`HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_RUNTIME_PASS`
+`ROMANIA_TWO_JE_PINNING_PARSER_ERRORS_2_TO_0`
+`ROMANIA_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_UNCHANGED`
+`HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT_COMPLETE`
 `NO_GAMEPLAY_CHANGED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 

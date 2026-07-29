@@ -1,10 +1,10 @@
-# Prompt autonome — HOTFIX-6A.10F Romania two-JE pinning 1.13 alignment
+# Prompt autonome — HOTFIX-6A.11 Sélection du prochain résidu global
 
 Nous poursuivons le portage du mod Victoria 3 :
 
 `1776_Age_of_Revolutions_fork`
 
-# Phase HOTFIX-6A.10F — Alignement du pinning de deux journal entries roumaines
+# Phase HOTFIX-6A.11 — Sélection du prochain résidu global
 
 ## Modèle recommandé
 
@@ -12,9 +12,9 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## Nature de la phase
 
-Cette phase applique exactement deux substitutions d'API Victoria 3 1.13 dans
-un seul fichier gameplay, effectue les contrôles statiques, prépare une seule
-fiche runtime humaine condensée, puis s'arrête.
+Cette phase est strictement documentaire.
+
+Aucun gameplay ne doit être modifié. Aucun runtime ne doit être produit.
 
 Codex ne doit jamais :
 
@@ -24,7 +24,9 @@ Codex ne doit jamais :
 - piloter ou automatiser l'interface ;
 - utiliser la console ;
 - ouvrir une sauvegarde ;
-- produire un PASS runtime sans compte rendu humain ;
+- produire de nouveaux logs ;
+- corriger un candidat ;
+- commencer la future correction sélectionnée ;
 - créer un commit automatique.
 
 ## Chemins
@@ -43,47 +45,39 @@ VANILLA VICTORIA 3 1.13, STRICTEMENT EN LECTURE SEULE :
 
 ## Verdicts d'entrée requis
 
-- `HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
-- `NO_GAMEPLAY_CHANGED`
+- `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_STATIC_PASS`
+- `ROMANIA_TWO_JE_PINNING_TWO_HUNK_1_13_ALIGNMENT_COMPLETE`
+- `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_RUNTIME_PASS`
+- `ROMANIA_TWO_JE_PINNING_PARSER_ERRORS_2_TO_0`
+- `ROMANIA_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_UNCHANGED`
+- `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT_COMPLETE`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
-- `NEXT_EXECUTION_PHASE = HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT`
+- `NEXT_EXECUTION_PHASE = HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION`
 
 Rapport canonique :
 
-`docs/reports/hotfix/_index/HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
+`docs/reports/hotfix/_index/HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT.md`
 
-La phase 6A.10 doit avoir été commitée manuellement avant de commencer. Ne
-commence jamais 6A.10F depuis le worktree documentaire non commité de 6A.10.
+La phase 6A.10F doit avoir été commitée manuellement avant de commencer. Ne
+commence jamais 6A.11 depuis le worktree non commité de 6A.10F.
 
 ## Objectif unique
 
-Dans `common/journal_entries/00_romania.txt`, remplacer uniquement les deux
-propriétés obsolètes :
+Sélectionner exactement un prochain sous-bloc atomique parmi les résidus
+globaux encore ouverts.
 
-```txt
-should_be_pinned_by_default = yes
-```
+La phase doit uniquement :
 
-par :
+1. actualiser l'inventaire documentaire après 6A.10F ;
+2. analyser les 376 diagnostics de pinning restants sans les corriger ;
+3. rapprocher ces diagnostics des 141 fichiers et de l'inventaire canonique ;
+4. comparer en trois voies les candidats sérieux ;
+5. publier exactement trois meilleurs candidats ;
+6. sélectionner exactement un candidat ;
+7. définir son futur périmètre fermé et son rollback ;
+8. produire le prompt autonome de sa future exécution.
 
-```txt
-should_be_pinned_by_default_uninvolved_or_context = yes
-```
-
-Objets exacts :
-
-1. `je_unite_the_principalities`, ligne initiale 76 ;
-2. `je_all_for_one`, ligne initiale 149.
-
-Le futur diff gameplay doit compter exactement :
-
-- un fichier ;
-- deux objets ;
-- deux hunks unifiés `@@` ;
-- deux suppressions ;
-- deux additions.
-
-Ne modifier aucune autre ligne.
+Ne modifier aucun gameplay et ne commencer aucun candidat.
 
 ## Étape 1 — Préflight Git obligatoire
 
@@ -99,15 +93,15 @@ git log -5 --oneline --decorate
 git diff --check
 git diff --cached --name-only
 git stash list
-git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md
+git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT.md
 ```
 
 Exige :
 
 - racine exacte du fork ;
 - branche `hotfix-dlc-audit` ;
-- rapport 6A.10 et ses quatre verdicts présents dans HEAD ;
-- phase 6A.10 déjà commitée manuellement ;
+- rapport 6A.10F et tous ses verdicts présents dans HEAD ;
+- 6A.10F déjà commitée manuellement ;
 - worktree suivi propre ;
 - index staged vide ;
 - seuls `bject` et les sept fichiers de
@@ -116,38 +110,36 @@ Exige :
   `stash@{0}: On hotfix-dlc-audit: WIP NAVY-3C-3 Maratha Konkan Flotilla` ;
 - aucun processus Victoria 3, `dowser` ou Paradox.
 
-Avant toute modification, enregistre les hashes de `bject` et des sept fichiers
-de recherche technologique et compare-les à 6A.10.
+Enregistre les hashes SHA-256 de `bject` et des sept fichiers technologiques et
+compare-les à 6A.10F.
 
-Arrête immédiatement avec un verdict précis en cas d'écart :
+Arrête avec un verdict précis en cas d'écart :
 
 - `BLOCKED_WRONG_BRANCH`
-- `BLOCKED_6A10_NOT_COMMITTED`
+- `BLOCKED_6A10F_NOT_COMMITTED`
 - `BLOCKED_DIRTY_TREE`
 - `BLOCKED_STAGED_FILES`
 - `BLOCKED_UNEXPECTED_UNTRACKED_FILES`
 - `BLOCKED_PROTECTED_STASH_MISSING`
 - `BLOCKED_GAME_PROCESS_RUNNING`
 
-Interdictions Git : aucun reset, restore, checkout de fichier, clean, merge,
-rebase, amend, commit automatique, stash apply/pop/drop ou inspection du
-contenu du stash.
+Interdictions Git absolues : aucun reset, restore, checkout de fichier, clean,
+merge, rebase, amend, commit automatique, stash apply/pop/drop ou inspection
+du contenu du stash.
 
 ## Étape 2 — Hashes obligatoires
 
-Vérifie avant toute modification :
-
 | Preuve | SHA-256 |
 | --- | --- |
-| Fork `common/journal_entries/00_romania.txt` | `D5925DEB54D4E0E4BB6E96DAF5106CAADBA35CC18E451D4898A7F1B7AA1AE078` |
+| Fork `common/journal_entries/00_romania.txt` corrigé | `DEE084181C30A4DD72D85132F50EF725B654ACA70E22AA30E851FF7D743DE578` |
 | Source hotfix `00_romania.txt` | `74149D3A3B778732DE318D7FB522CE4255289B410F6184625BA9670E6CCCAB9A` |
 | Vanilla `00_romania.txt` | `9B5C9A9D06DAA420030BBC3B31581CD030356145FD31E1589E590AB9DF904A51` |
 | Fork `00_sick_man.txt` | `B04C07388C944E5DA74CFCE142599797F582EA809412B9690170735BFA17B04A` |
 | Histoire TUR fork | `81ABC8DEA9DE93EC6A4DD417FD05FD6859F3122758D2B27E712B1880013F9CA9` |
 | Grande Crise orientale fork | `96F65E2B3CC7129DD8D4AD41382F9F8DD97FB5FA24C66C05F129B1E31615F75A` |
-| BIC fork | relever et consigner sans le modifier |
+| BIC fork | `37B836DBE9A273F1202B592533EB8C851B3657DBB63422F50AE11021437F580C` |
 
-Hashes protégés à comparer avec 6A.10 :
+Hashes protégés :
 
 | Élément | SHA-256 |
 | --- | --- |
@@ -164,238 +156,293 @@ Si une preuve imposée diffère :
 
 `BLOCKED_THREE_WAY_EVIDENCE_CHANGED`
 
-Source hotfix et vanilla restent strictement en lecture seule.
+La source hotfix et vanilla restent strictement inchangées.
 
 ## Étape 3 — Sources obligatoires
 
 Lis intégralement :
 
+- `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT.md` ;
 - `HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` ;
 - `HOTFIX_6A9F_SICK_MAN_EIGHT_JE_PINNING_1_13_ALIGNMENT.md` ;
+- `HOTFIX_6A9R_OTTOMAN_TANZIMAT_1776_ENTRY_CHAIN_AUDIT.md` ;
 - `HOTFIX_MERGE_COMPLETION_ROADMAP.md` ;
 - `HOTFIX_MERGE_BLOCK_STATUS.csv` ;
 - `HOTFIX_REPORT_INDEX.csv` ;
-- les trois copies de `common/journal_entries/00_romania.txt` ;
-- les localisations anglaise et française vanilla des deux JE ;
-- les nouveaux logs 6A.9F et leurs rotations, en lecture seule.
+- `HOTFIX_GLOBAL_DIFFERENCE_INVENTORY.csv` ;
+- `HOTFIX_C1AI_CONCURRENT_WORK_RECONCILIATION.md` ;
+- les changelogs complets du fork et de la source ;
+- les nouveaux logs 6A.10F et leurs rotations, en lecture seule.
 
-## Étape 4 — Snapshot initial ciblé
+Ne lance pas le jeu pour obtenir une preuve supplémentaire.
 
-Avant modification, exige pour le fichier fork :
+## Étape 4 — Inventaire canonique après 6A.10F
 
-- hash
-  `D5925DEB54D4E0E4BB6E96DAF5106CAADBA35CC18E451D4898A7F1B7AA1AE078` ;
-- 3 857 octets ;
-- UTF-8 BOM ;
-- 150 LF ;
-- zéro CRLF ;
-- saut final conservé ;
-- 48 accolades ouvrantes et 48 fermantes ;
-- exactement deux propriétés anciennes ;
-- zéro propriété moderne ;
-- exactement deux diagnostics ciblés dans le nouveau `debug.log`, lignes
-  gameplay 76 et 149.
+Actualise les 161 anciennes lignes `PENDING_REVIEW` selon la répartition
+effective :
 
-Vérifie séparément que source et vanilla utilisent la propriété moderne dans
-les deux objets. Une différence de hash globale ne justifie aucune autre
-modification.
+| Catégorie exclusive | Lignes |
+| --- | ---: |
+| `REQUIRED_HOTFIX_DELTA` | 7 |
+| `VANILLA_1_13_ALIGNMENT_REQUIRED` | 16 |
+| `ALREADY_MERGED` | 18 |
+| `INTENTIONAL_FORK_DIVERGENCE` | 3 |
+| `OBSOLETE_HOTFIX_CONTENT` | 1 |
+| `POST_MERGE_DESIGN_BACKLOG` | 10 |
+| `PROTECTED_CONCURRENT_WORK` | 19 |
+| `UNKNOWN_REQUIRES_REVIEW` | 87 |
+| **Total** | **161** |
 
-## Étape 5 — Modification fermée
+Il reste 110 lignes directement exploitables par une revue :
 
-Modifie avec un patch ciblé uniquement :
+- 7 deltas hotfix requis ;
+- 16 alignements vanilla 1.13 ;
+- 87 inconnus.
 
-```diff
- je_unite_the_principalities = {
-@@
--    should_be_pinned_by_default = yes
-+    should_be_pinned_by_default_uninvolved_or_context = yes
- }
+Ces 110 lignes ne représentent pas 110 correctifs. Le total historique de 26
+deltas à haute confiance reste `UNVERIFIED`.
 
- je_all_for_one = {
-@@
--    should_be_pinned_by_default = yes
-+    should_be_pinned_by_default_uninvolved_or_context = yes
- }
-```
+## Étape 5 — Baseline parser 6A.10F
 
-Préserve exactement l'indentation existante, l'UTF-8 BOM, les LF et le saut
-final. Ne remplace jamais le fichier complet.
+Recalcule depuis les nouveaux logs sans présumer :
 
-Hash gameplay attendu après ces deux substitutions :
+- 376 erreurs exactes
+  `Unexpected token: should_be_pinned_by_default,` ;
+- 141 fichiers uniques ;
+- zéro erreur dans `00_romania.txt` ;
+- zéro rejet de
+  `should_be_pinned_by_default_uninvolved_or_context` dans ce fichier ;
+- trois diagnostics Tanzimat connus `.5`, `.9` et `.10`, indépendants de
+  Romania.
 
-`DEE084181C30A4DD72D85132F50EF725B654ACA70E22AA30E851FF7D743DE578`
+Sépare :
 
-Snapshot attendu :
+- `debug.1.log`, baseline parser du runtime ;
+- `debug.2.log`, preuve de montage ;
+- `debug.3.log`, rotation historique 6A.9F ;
+- diagnostics de pinning ;
+- diagnostics Tanzimat ;
+- autres erreurs hors périmètre.
 
-- 3 901 octets ;
-- UTF-8 BOM ;
-- 150 LF ;
-- zéro CRLF ;
-- 48/48 accolades ;
-- zéro propriété ancienne ;
-- deux propriétés modernes.
+Preuves attendues :
 
-## Étape 6 — Exclusions absolues
+- `debug.1.log` :
+  `A75AD954D9AA33D27B11BFDBB75A804F319555610F75266604E0565C4D5004E8` ;
+- `debug.2.log` :
+  `38B2B29FAD0922C6192B27CB69BC202F0C431F1DC9FDF5427C3835EBFDD75C35` ;
+- fork monté ligne 87 de `debug.2.log` ;
+- `dlc014_ip3` monté ligne 80.
 
-Ne modifie pas :
+## Étape 6 — Analyse exhaustive
 
-- `is_shown_in_lobby` ;
-- `is_shown_when_inactive` ;
-- `geographic_region_greater_romania` ou toute autre géographie ;
-- `any_country`, tout helper de state ou tout scope ;
-- `possible`, `complete`, `fail`, `on_complete` ou `on_fail` ;
-- `on_monthly_pulse`, `romanian_union_var` ou la progression ;
-- les scripted buttons ;
-- les tooltips ;
-- les localisations ;
-- l'histoire de WAL, MOL ou ROM ;
-- tout autre journal entry.
+Regroupe les 376 diagnostics par :
 
-Protections absolues : DEI/VOC, Java, économie post-compagnie, Balkan National
-Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale,
-Sick Man, activation Tanzimat, NAVY, formations et événements navals, MARATH,
-SAT, KHP, Travancore, Inde, BIC, Sepoy, Bombay, ADMIN, Japon, Russie, Autriche,
-Croatie, Slavonie, Suisse, révolutions américaine et française, lettres de
-Kew, technologies, recherche technologique, localisations françaises
-générales, agriculture, alimentation, industrie générale, descripteurs,
-launcher, sauvegardes et `bject`.
+- chemin exact ;
+- objet exact ;
+- occurrences et lignes ;
+- statut d'inventaire ;
+- présence source et vanilla ;
+- propriété moderne source et vanilla ;
+- protection active ;
+- dette fonctionnelle adjacente ;
+- localisation ;
+- besoin de runtime futur.
 
-BIC doit conserver :
+Publie la liste des 141 fichiers, le top 25 et les familles principales :
+tutoriels, objectifs joueur, prestige goods, Russie protégée, autres journal
+entries, fichiers hors inventaire, erreurs uniques, fichiers multi-objets et
+divergences source/vanilla.
+
+Une occurrence parser ne constitue jamais à elle seule une autorisation de
+correction.
+
+## Étape 7 — Blocs clos interdits
+
+Ne rouvre ni ne sélectionne :
+
+- Balkan National Awakening ;
+- Yugoslavia ;
+- Risorgimento ;
+- nationalisme grec ;
+- Grande Crise orientale ;
+- les huit pinning Sick Man ;
+- `common/journal_entries/00_romania.txt` ;
+- `je_unite_the_principalities` ;
+- `je_all_for_one`.
+
+Ne sélectionne pas l'activation Tanzimat, `sick_man.1`,
+`sick_man_of_europe` ou `outmoded_bureaucracy`. Ils restent dans
+`OTTOMAN_TANZIMAT_1776_DEFERRED_ACTIVATION_DESIGN_BACKLOG`.
+
+## Étape 8 — Pistes obligatoires
+
+Réexamine séparément, sans présumer leur sélection :
+
+1. Merchant Banking GEN/VEN :
+   deux fichiers, deux pays, deux hunks potentiels ; loi, icône et
+   localisations déjà présentes ; preuve changelog 2.3 ; préserver
+   `law_merchant_navy`, exclure le nom spécifique des landowners et NAVY.
+2. Navigation Acts :
+   GBR/HBC/NBS/ONT/ORA ; cinq fichiers et cinq pays ; preuve changelog 2.3 ;
+   divergence vanilla ; collision GBR/NAVY ; BIC totalement hors périmètre.
+3. Petits alignements parser 1.13 :
+   Coup, Imperialism of Promise et les autres fichiers d'une ou deux erreurs ;
+   vérifier chaque dette adjacente, scope, rôle, tooltip et localisation.
+4. Diagnostics Tanzimat `.5`, `.9`, `.10` :
+   analyser le namespace, les on-actions, l'absence du fichier dans le fork,
+   le classement `OBSOLETE_HOTFIX_CONTENT` et le risque de design 1776 ;
+   ne modifier aucun événement.
+5. Inconnus :
+   uniquement lorsqu'un log, changelog, convergence trois voies ou dépendance
+   déjà intégrée constitue une preuve précise.
+
+Écarte tout candidat avec portée massive, localisation manquante, divergence
+source/vanilla injustifiée, décision de design, collision active ou fichier
+protégé.
+
+## Étape 9 — Protections absolues
+
+Ne sélectionne ni ne modifie aucun élément relatif à DEI/VOC, Java, économie
+post-compagnie, Balkans clos, Romania close, activation Tanzimat, NAVY,
+formations et événements navals, MARATH, SAT, KHP, Travancore, Inde, BIC,
+Sepoy, Bombay, ADMIN, Japon, Russie, Autriche, Croatie, Slavonie, Suisse,
+révolutions américaine et française, lettres de Kew, technologies, recherche,
+localisations françaises générales, agriculture, alimentation, industrie,
+descripteurs, launcher, sauvegardes ou `bject`.
+
+BIC conserve :
 
 ```txt
 activate_law = law_type:law_frontier_colonization
 ```
 
-et ne doit jamais recevoir :
+et ne reçoit jamais `law_colonial_exploitation`.
 
-```txt
-law_colonial_exploitation
-```
+## Étape 10 — Comparaison trois voies
 
-Merchant Banking, Navigation Acts, Coup, Imperialism of Promise et Tanzimat
-restent hors périmètre. Ne commence aucune de ces phases.
+Pour chaque candidat sérieux, documente :
 
-## Étape 7 — Validations statiques avant tout runtime
+- chemin, objet, propriété ou bloc exact ;
+- comportements fork, source et vanilla ;
+- preuve changelog ou runtime ;
+- nombre exact de fichiers, objets et hunks ;
+- additions et suppressions prévues ;
+- dépendances et localisations ;
+- dette adjacente ;
+- collision/protection ;
+- compatibilité 1776 ;
+- rollback exact ;
+- priorité P0/P1 ou inférieure ;
+- runtime humain futur.
 
-Vérifie :
+Une différence de hash n'est jamais une preuve suffisante. Ne remplace jamais
+un fichier complet et ne combine jamais plusieurs candidats.
 
-1. hash gameplay final exact ;
-2. snapshot structurel exact ;
-3. deux propriétés anciennes → zéro ;
-4. zéro propriété moderne → deux ;
-5. exactement un fichier gameplay modifié ;
-6. exactement deux objets ;
-7. exactement deux hunks `@@` ;
-8. exactement deux additions et deux suppressions gameplay ;
-9. aucune ligne adjacente modifiée ;
-10. source hotfix et vanilla inchangés ;
-11. huit hashes protégés inchangés ;
-12. BIC intact ;
-13. stash NAVY-3C-3 intact ;
-14. `git diff --check` propre ;
-15. index staged vide ;
-16. aucun processus Victoria 3, `dowser` ou Paradox.
+## Étape 11 — Critères et top 3
 
-En cas d'écart, applique le rollback exact avant tout runtime :
+Le candidat retenu doit répondre à un problème unique, disposer d'une preuve
+claire, avoir un périmètre atomique, éviter les protections, permettre des
+validations statiques reproductibles et posséder un rollback exact.
 
-```diff
--    should_be_pinned_by_default_uninvolved_or_context = yes
-+    should_be_pinned_by_default = yes
-```
+Ordre de priorité à preuve équivalente :
 
-dans les deux objets, puis confirme le hash initial. Si le rollback ciblé ne
-restaure pas exactement le snapshot initial, arrête avec
-`BLOCKED_ROLLBACK_MISMATCH` sans utiliser de commande Git destructive.
+1. erreur de parsing ou API Victoria 3 1.13 ;
+2. erreur moteur directe avec convergence source/vanilla ;
+3. delta hotfix explicitement annoncé et dépendances présentes ;
+4. petit correctif autonome ;
+5. design ou équilibrage.
 
-## Étape 8 — Fiche runtime humaine unique
+Publie exactement :
 
-Seulement après tous les PASS statiques, prépare une seule fiche :
+| Rang | Phase candidate | Fichiers | Objets | Hunks | Priorité | Preuve | Collision | Runtime |
+| ---: | --- | ---: | ---: | ---: | --- | --- | --- | --- |
 
-1. l'opérateur humain lance Victoria 3 avec le fork ;
-2. il commence une partie neuve au setup 1776 avec la Valachie (`WAL`) ;
-3. il confirme que le mod fork et `dlc014_ip3` sont montés ;
-4. il ouvre le journal et vérifie que « Unir les principautés » est lisible
-   parmi les entrées potentielles, sans clé brute ni anomalie de pinning ;
-5. il avance au 2 janvier 1776 ;
-6. il ferme le jeu et le launcher ;
-7. il transmet un compte rendu humain condensé.
+Explique la comparaison trois voies, la taille, les dépendances, les
+localisations, la collision, le report/sélection, le runtime et le rollback de
+chacun.
 
-Codex s'arrête alors obligatoirement avec :
+Sélectionne exactement un candidat et publie :
 
-`RUNTIME_OPERATOR_ACTION_REQUIRED`
+`NEXT_EXECUTION_PHASE = <phase atomique sélectionnée>`
 
-Codex n'analyse aucun nouveau log avant la confirmation humaine explicite que
-le jeu et le launcher sont fermés. Aucun PASS runtime ne peut être déduit de
-la seule absence de processus ou des logs.
+Ne commence pas cette phase.
 
-## Étape 9 — Analyse après fermeture humaine
+## Étape 12 — Périmètre d'écriture fermé
 
-Après confirmation humaine :
+Seuls les six documents suivants peuvent être modifiés ou créés :
 
-- snapshotte les nouveaux logs et rotations ;
-- prouve le montage du fork et de `dlc014_ip3` ;
-- recalcule le nombre de diagnostics
-  `Unexpected token: should_be_pinned_by_default,` ;
-- exige zéro diagnostic ciblant `00_romania.txt:76` et `:149` ;
-- exige zéro rejet de
-  `should_be_pinned_by_default_uninvolved_or_context` dans ce fichier ;
-- sépare les diagnostics Tanzimat et toutes les autres erreurs hors périmètre ;
-- ne corrige aucune nouvelle anomalie.
+1. `docs/reports/hotfix/_index/HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
+2. `docs/reports/hotfix/INDEX.md`
+3. `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv`
+4. `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv`
+5. `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md`
+6. `docs/reports/hotfix/_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`
 
-Baseline attendue si aucun autre changement n'intervient :
-
-- diagnostics globaux de pinning : 378 → 376 ;
-- fichiers uniques concernés : 142 → 141 ;
-- diagnostics ciblés Romania : 2 → 0.
-
-Le compte rendu humain doit confirmer l'ouverture lisible de l'entrée
-potentielle et le passage au 2 janvier 1776. Il ne doit pas prétendre rendre
-active `je_all_for_one`, qui dépend d'une union roumaine ; son chargement est
-validé par le parser.
-
-## Étape 10 — Périmètre d'écriture fermé
-
-Seuls les sept fichiers suivants peuvent être modifiés ou créés :
-
-1. `common/journal_entries/00_romania.txt`
-2. `docs/reports/hotfix/_index/HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT.md`
-3. `docs/reports/hotfix/INDEX.md`
-4. `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv`
-5. `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv`
-6. `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md`
-7. `docs/reports/hotfix/_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`
-
-Tout autre changement impose :
+Tout changement gameplay impose :
 
 `BLOCKED_SCOPE_VIOLATION`
 
-## Étape 11 — Livrables
+## Étape 13 — Rapport requis
 
-Crée le rapport
-`HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT.md` avec :
+Crée `HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` avec :
 
 - date, phase, branche, HEAD initial/final ;
-- préflight et état Git initial ;
-- hashes trois voies et protégés ;
-- snapshot avant/après ;
-- diff exact ;
-- exclusions et protections ;
-- validations statiques ;
-- fiche et compte rendu runtime humain ;
-- comparaison des logs avant/après ;
-- rollback ;
-- documents modifiés ;
+- préflight et état Git ;
+- hashes et protections ;
+- sources ;
+- inventaire actualisé, somme 161 et 110 lignes exploitables ;
+- analyse des 376 diagnostics et liste des 141 fichiers ;
+- top 25 et familles ;
+- blocs clos ;
+- diagnostics Tanzimat ;
+- comparaisons trois voies ;
+- pistes obligatoires ;
+- exactement trois candidats ;
+- exactement un candidat sélectionné ;
+- futur périmètre, dépendances, localisations, collision, rollback et runtime ;
+- six documents modifiés ;
 - contrôles finaux ;
-- état Git final ;
 - décision de commit manuel ;
 - verdicts.
 
-Mets à jour les quatre index/roadmap et remplace le prochain prompt uniquement
-après le verdict runtime. Le prochain prompt doit sélectionner
-documentairement le résidu suivant ; il ne doit commencer ni Merchant Banking
-ni Navigation Acts automatiquement.
+## Étape 14 — Prompt autonome futur
 
-## Étape 12 — Contrôles finaux
+Remplace `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md` par le prompt complet de la phase
+atomique sélectionnée. Il doit contenir préflight, hashes, sources, objectif,
+fichiers modifiables, objets, hunks, exclusions, protections, validations,
+rollback, livrables, verdicts et interdiction de commit automatique.
+
+Si un runtime futur est nécessaire, impose :
+
+- aucun lancement ni pilotage par Codex ;
+- tous les contrôles statiques avant lancement ;
+- une fiche humaine unique ;
+- arrêt `RUNTIME_OPERATOR_ACTION_REQUIRED` ;
+- analyse des logs seulement après fermeture humaine confirmée ;
+- aucun PASS sans compte rendu humain.
+
+Ne commence pas la phase sélectionnée.
+
+## Étape 15 — Contrôles finaux
+
+Vérifie :
+
+- zéro gameplay modifié ;
+- exactement six documents de phase ;
+- exactement trois candidats et un sélectionné ;
+- catégories exclusives, somme 161, 110 lignes exploitables ;
+- baseline 376/141 recalculée ;
+- top 25 publié ;
+- Tanzimat séparé ;
+- Romania et tous les blocs clos non rouverts ;
+- huit hashes protégés, BIC, stash, source et vanilla intacts ;
+- CSV valides ;
+- `git diff --check` propre ;
+- index staged vide ;
+- aucun processus Victoria 3, `dowser` ou Paradox ;
+- aucun lancement ou contrôle du jeu ;
+- aucun commit automatique ;
+- aucune phase suivante commencée.
 
 Exécute :
 
@@ -409,41 +456,18 @@ git diff --cached --name-only
 git stash list
 ```
 
-Confirme :
-
-- un seul fichier gameplay, deux objets et deux hunks ;
-- uniquement les sept fichiers autorisés ;
-- hash cible et snapshot conformes ;
-- deux erreurs ciblées ramenées à zéro ;
-- aucune dette adjacente importée ;
-- aucun bloc clos rouvert ;
-- protections, BIC, stash, source et vanilla intacts ;
-- CSV valides ;
-- index staged vide ;
-- aucun processus Victoria 3, `dowser` ou Paradox ;
-- aucune interaction Codex avec le jeu ;
-- aucun commit automatique ;
-- aucune phase suivante commencée.
-
 ## Verdicts
 
-Après PASS statique mais avant action humaine :
+Si la sélection est valide :
 
-- `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_STATIC_PASS`
-- `ROMANIA_TWO_JE_PINNING_TWO_HUNK_1_13_ALIGNMENT_COMPLETE`
-- `RUNTIME_OPERATOR_ACTION_REQUIRED`
-
-Après compte rendu humain et analyse des nouveaux logs :
-
-- `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_RUNTIME_PASS`
-- `ROMANIA_TWO_JE_PINNING_PARSER_ERRORS_2_TO_0`
-- `ROMANIA_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_UNCHANGED`
-- `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT_COMPLETE`
+- `HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+- `NO_GAMEPLAY_CHANGED`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+- `NEXT_EXECUTION_PHASE = <phase atomique sélectionnée>`
 
 En cas d'échec :
 
-- `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT_FAIL`
+- `HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION_FAIL`
 - verdict de blocage précis.
 
-Ne committe rien automatiquement. Ne commence aucune autre phase.
+Ne committe rien automatiquement. Ne commence aucune correction.
