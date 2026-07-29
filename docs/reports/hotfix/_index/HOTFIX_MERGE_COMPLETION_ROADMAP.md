@@ -130,11 +130,12 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
 La prochaine phase atomique est
-`HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_ALIGNMENT`. L’audit documentaire 6A.8R
-est clos et n’a modifié aucun gameplay. Il retient l’option A : les six groupes
-fonctionnels de `je_great_eastern_crisis` sont tous
-`REQUIRED_1_13_ALIGNMENT` et doivent être appliqués ensemble dans un fichier
-et un objet. Les 161 anciennes lignes `PENDING_REVIEW` restent réparties en
+`HOTFIX_6A9R_OTTOMAN_TANZIMAT_1776_ENTRY_CHAIN_AUDIT`, strictement
+documentaire. 6A.8F est close après un runtime humain unique : vue ottomane
+impliquée et vue britannique contextuelle conformes, progression du 1er janvier
+au 8 avril 1776, erreur ciblée de un à zéro et total global de 387 à 386. Le
+conteneur compte 19 fichiers appliqués et 7 encore en attente. Les 161 anciennes
+lignes `PENDING_REVIEW` restent réparties en
 7 `REQUIRED_HOTFIX_DELTA`, 18 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
 16 `ALREADY_MERGED`, 3 divergences
 intentionnelles, 1 contenu hotfix obsolète, 10 backlogs, 19 travaux protégés
@@ -143,24 +144,23 @@ et 87 inconnus. Les 112 lignes directement exploitables ne représentent pas
 
 ## 23. Pourquoi il vient ensuite
 
-La comparaison trois voies prouve une convergence fonctionnelle de la source
-hotfix et de vanilla 1.13 sur les six groupes : deux références à la région
-géographique historique étroite `_old`, un scope stratégique typé `sr:`, la
-visibilité hors implication, l’héritage par révolution et les deux propriétés
-modernes de pinning. Le fork conserve une erreur parser ciblée sur l’ancien
-pinning. Aucune contrainte propre à 1776, dépendance de localisation ou
-collision protégée ne justifie un découpage. Un sous-ensemble laisserait
-l’objet partiellement obsolète.
+Le runtime a révélé que le setup ottoman du fork ne déclenche pas
+`sick_man.1` et n’ajoute donc pas les entrées Tanzimat. Fork et source hotfix
+convergent sur cette omission commentée, tandis que vanilla l’active. Cette
+différence retire la route d’échec Tanzimat mais ne bloque pas la route autonome
+`nationalism` plus sécession à 50 %. Restaurer directement le setup vanilla
+serait une décision de design potentiellement incompatible avec 1776. En outre,
+`00_sick_man.txt` conserve huit anciens champs de pinning. Une comparaison
+documentaire dédiée doit trancher ces deux questions avant toute correction.
 
 ## 24. Fichiers concernés
 
-6A.8F pourra modifier un seul fichier gameplay,
-`common/journal_entries/05_great_eastern_crisis.txt`, et un seul objet,
-`je_great_eastern_crisis`. Les six hunks fonctionnels apparaîtront sous forme
-de deux blocs de diff unifiés : 23 additions, 4 suppressions, soit un gain net
-de 19 lignes. Aucun remplacement complet, aucune localisation et aucune autre
-dépendance ne sont autorisés. Le rapport correctif et les cinq index
-documentaires canoniques forment le reste de la liste fermée.
+6A.9R ne modifiera aucun gameplay. Ses objets de lecture principaux sont
+`common/history/countries/tur - ottoman empire.txt`,
+`common/journal_entries/00_sick_man.txt`,
+`common/journal_entries/05_great_eastern_crisis.txt` et l’événement vanilla
+hérité `sick_man.1`. Son rapport et les cinq documents canoniques constituent
+la liste fermée des changements documentaires.
 
 ## 25. Modèle recommandé
 
@@ -168,28 +168,23 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-6A.8R n’a nécessité aucun lancement. Après la validation statique de 6A.8F,
-Codex devra s’arrêter sur `RUNTIME_OPERATOR_ACTION_REQUIRED`. Le runtime sera
-exclusivement effectué par l’opérateur humain : départ 1776 frais, Empire
-ottoman pour la vue impliquée, puis changement de pays standard si disponible
-vers un observateur contextuel possédant un intérêt dans les Balkans ou le
-Proche-Orient. Aucun recours à la console n’est requis. Les logs ne seront
-analysés qu’après fermeture normale du jeu et du launcher.
+Le runtime 6A.8F est terminé et analysé après fermeture du jeu et du launcher.
+6A.9R est un audit statique et ne nécessite aucun lancement. Codex ne doit
+jamais lancer ou piloter le jeu.
 
 ## 27. Nombre minimal de lancements
 
-Un seul lancement humain futur doit couvrir 6A.8F. L’héritage révolutionnaire
-reste couvert statiquement et par le smoke global, car le forcer dépasserait
-le périmètre de ce runtime ciblé. Codex ne doit jamais lancer ni piloter le jeu
-ou le launcher.
+Un lancement humain unique a couvert 6A.8F. Aucun lancement n’est requis pour
+6A.9R.
 
 ## 28. Phases suivantes probables
 
-Après la correction, le passage statique et le runtime humain 6A.8F, une
-nouvelle phase de sélection documentaire devra choisir le résidu global
-suivant. Merchant Banking GEN/VEN et Navigation Acts GBR/HBC/NBS/ONT/ORA
-restent des P1 séparés. Les lettres de Kew restent dans la future phase
-Révolution française/Napoléon.
+6A.9R doit classer séparément l’omission du setup `sick_man.1`, la pertinence
+d’une chaîne de modernisation propre à 1776, les huit migrations de pinning de
+`00_sick_man.txt` et les deux voies d’activation de la Grande Crise orientale.
+Il pourra sélectionner une correction atomique, séparer API et design, ou
+conserver l’omission comme divergence intentionnelle. Merchant Banking,
+Navigation Acts et les lettres de Kew restent séparés.
 
 ## 29. Critères de fin du merge
 
@@ -222,7 +217,7 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_ALIGNMENT`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A9R_OTTOMAN_TANZIMAT_1776_ENTRY_CHAIN_AUDIT`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
@@ -249,7 +244,12 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT_COMPLETE`
 `HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT_COMPLETE`
 `GREAT_EASTERN_CRISIS_SIX_HUNK_DECISION_RECORDED`
-`NO_GAMEPLAY_CHANGED`
+`HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_STATIC_PASS`
+`HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_RUNTIME_PASS`
+`GREAT_EASTERN_CRISIS_SIX_HUNK_1_13_ALIGNMENT_COMPLETE`
+`GREAT_EASTERN_CRISIS_GEOGRAPHY_VISIBILITY_AND_PINNING_VALIDATED`
+`OTTOMAN_TANZIMAT_1776_ROUTE_REQUIRES_DOCUMENTARY_AUDIT`
+`HOTFIX_6A8F_GREAT_EASTERN_CRISIS_1_13_ALIGNMENT_COMPLETE`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
