@@ -132,11 +132,11 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
 La prochaine phase est
-`HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION`. 6A.10F a clos un correctif
-d'un fichier, deux objets et deux hunks. Le runtime humain et les nouveaux logs
-ramènent les diagnostics ciblés de deux à zéro et la baseline globale de
-378/142 à 376/141. Le conteneur compte désormais 21 fichiers appliqués et 5
-encore en attente. Les 161 anciennes lignes
+`HOTFIX_6A11F_PORTUGUESE_COLONIALISM_TWO_JE_PINNING_1_13_ALIGNMENT`. 6A.11 a
+recalculé 376 diagnostics dans 141 fichiers, comparé exactement trois
+candidats et sélectionné un correctif d'un fichier, deux objets et deux hunks.
+Le conteneur compte toujours 21 fichiers appliqués et 5 encore en attente.
+Les 161 anciennes lignes
 `PENDING_REVIEW` restent réparties en
 7 `REQUIRED_HOTFIX_DELTA`, 16 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
 18 `ALREADY_MERGED`, 3 divergences
@@ -146,19 +146,19 @@ et 87 inconnus. Les 110 lignes directement exploitables ne représentent pas
 
 ## 23. Pourquoi il vient ensuite
 
-Romania est close et ne doit pas être rouverte. La revue doit maintenant
-reclasser les 376 diagnostics restants, comparer trois voies les petits
-alignements encore ouverts et les deltas custom annoncés, puis choisir un seul
-sous-bloc. Merchant Banking, Navigation Acts, Coup, Imperialism of Promise et
-les diagnostics Tanzimat restent des pistes séparées sans présomption de
-sélection.
+Romania est close et ne doit pas être rouverte. Le colonialisme portugais est
+le plus petit alignement P0 encore prouvé : source et vanilla convergent sur
+les deux propriétés modernes, tandis que toutes les différences fonctionnelles
+adjacentes sont exclues. Merchant Banking, Navigation Acts, Coup, Imperialism
+of Promise et les diagnostics Tanzimat restent des pistes séparées.
 
 ## 24. Fichiers concernés
 
-6A.11 pourra modifier uniquement son rapport de sélection,
+6A.11F pourra modifier uniquement
+`common/journal_entries/06_portuguese_colonialism.txt`, son rapport,
 `docs/reports/hotfix/INDEX.md`, `HOTFIX_REPORT_INDEX.csv`,
-`HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
-`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Aucun gameplay ne sera modifiable.
+`HOTFIX_MERGE_BLOCK_STATUS.csv` et cette roadmap. Deux substitutions d'API
+seulement sont autorisées.
 
 ## 25. Modèle recommandé
 
@@ -166,19 +166,20 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Le runtime 6A.10F est terminé et conforme. 6A.11 réutilisera les nouveaux logs
-uniquement en lecture seule et ne requiert aucun runtime.
+Un runtime humain condensé sera requis après tous les contrôles statiques.
+Codex ne lancera ni ne pilotera le jeu.
 
 ## 27. Nombre minimal de lancements
 
-Zéro lancement pour 6A.11.
+Un lancement humain portugais pour 6A.11F.
 
 ## 28. Phases suivantes probables
 
-6A.11 doit choisir un seul résidu. Merchant Banking GEN/VEN et Navigation Acts
-restent des deltas hotfix sérieux mais distincts. Coup, Imperialism of Promise
-et les trois diagnostics d'événements Tanzimat exigent un audit de leurs
-écarts adjacents. L'activation Tanzimat propre à 1776 reste
+Après 6A.11F, Merchant Banking GEN/VEN reste le prochain delta hotfix sérieux
+et atomique. Navigation Acts requiert un audit distinct pour la divergence
+vanilla et la collision GBR/NAVY. Coup, Imperialism of Promise et les trois
+diagnostics Tanzimat conservent leurs dettes adjacentes. L'activation Tanzimat
+propre à 1776 reste
 `OTTOMAN_TANZIMAT_1776_DEFERRED_ACTIVATION_DESIGN_BACKLOG`.
 
 ## 29. Critères de fin du merge
@@ -212,7 +213,7 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A11F_PORTUGUESE_COLONIALISM_TWO_JE_PINNING_1_13_ALIGNMENT`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
@@ -264,6 +265,7 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `ROMANIA_TWO_JE_PINNING_PARSER_ERRORS_2_TO_0`
 `ROMANIA_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_UNCHANGED`
 `HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT_COMPLETE`
+`HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
 `NO_GAMEPLAY_CHANGED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
