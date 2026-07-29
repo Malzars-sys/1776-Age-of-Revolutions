@@ -2,7 +2,7 @@
 
 ## 1. Statut global du hotfix
 
-Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La phase DEI/VOC 6A.3F est également close après validations Java, Indonésie, refus et persistance après rechargement. L’alignement 1.13 de `je_balkan_national_awakenings` est clos. La sélection documentaire 6A.5 choisit maintenant `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT` comme prochaine phase atomique.
+Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothèque documentaire est réorganisée et indexée. `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le bloc global. Le paquet Autriche/Croatie-Slavonie/Suisse est complet. La migration des formations militaires 1.13 est validée en partie neuve et après sauvegarde/recharge, avec son correctif de QG séparé. La phase DEI/VOC 6A.3F et l’alignement de `je_balkan_national_awakenings` sont clos. L’alignement 1.13 de `je_yugoslavia` est également complet : la Serbie libérée comme sujet ottoman peut former la Yougoslavie, l’interface est lisible et l’erreur ciblée a disparu. La prochaine phase est la sélection documentaire 6A.6.
 
 ## 2. Navigation par région
 
@@ -36,6 +36,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 - [Sélection résiduelle 6A.4](_index/HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md) : 161 lignes relues, 22 alignements de pinning 1.13 identifiés et sélection du correctif balkanique à deux hunks dans un seul fichier.
 - [Alignement Balkan National Awakening 6A.4F](_index/HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md) : deux hunks appliqués, 51 erreurs propres ramenées à zéro, fork et `dlc014_ip3` montés, JE potentielle lisible en Valachie.
 - [Sélection résiduelle 6A.5](_index/HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md) : 115 lignes encore directement exploitables, trois candidats comparés et sélection du pinning 1.13 de `je_yugoslavia`, limité à un fichier, un objet et un hunk.
+- [Alignement du pinning de `je_yugoslavia` 6A.5F](_index/HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT.md) : ancien champ remplacé par l’API 1.13 en un hunk, géographie inchangée, Serbie jouée jusqu’au 25 janvier 1776 et diagnostic ciblé ramené de un à zéro.
 
 ## 5. Rapports runtime finaux
 
@@ -52,6 +53,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 | Formations 1.13 | Migration des formations militaires | `MILITARY_FORMATIONS_1_13_RUNTIME_QA_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_MILITARY_FORMATIONS_1_13_RUNTIME_QA.md) | [audit statique](_index/army.md) |
 | 6A.3F | Dissolution de la DEI/VOC | `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A3F_DEI_TARGETED_FIX.md) | [delta map](_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv) |
 | 6A.4F | Balkan National Awakening 1.13 | `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_ALIGNMENT.md) | [sélection 6A.4](_index/HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md) |
+| 6A.5F | Pinning de `je_yugoslavia` 1.13 | `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_COMPLETE` | `FINAL` | [rapport](_index/HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT.md) | [sélection 6A.5](_index/HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md) |
 
 ## 6. Corrections gameplay validées
 
@@ -64,7 +66,7 @@ Le périmètre Inde HOTFIX-5 est clos : `HOTFIX_5_INDIA_COMPLETE`. La bibliothè
 
 - Japon : une clôture consolidée distincte reste possible après les correctifs 4E5–4E8.
 - Mamluk Iraq : aucun rapport de clôture/runtime global n’est présent ; 3F reste la dernière correction documentaire.
-- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; DEI/VOC clos par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`; Balkan National Awakening clos par `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`; sélection 6A.5 close sans changement gameplay. La prochaine phase est `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_ALIGNMENT`. Son runtime sera exclusivement réalisé par l’opérateur humain. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
+- Merge global : Russie terminée statiquement; paquet Autriche/Croatie/Suisse clos par `HOTFIX_6A2F2`; DEI/VOC clos par `HOTFIX_6A3F_DEI_TARGETED_FIX_COMPLETE`; Balkan National Awakening clos par `HOTFIX_6A4F_BALKAN_NATIONAL_AWAKENING_1_13_COMPLETE`; `je_yugoslavia` clos par `HOTFIX_6A5F_YUGOSLAVIA_JE_PINNING_1_13_COMPLETE`. La prochaine phase est `HOTFIX_6A6_RESIDUAL_GLOBAL_SCRIPT_SELECTION`, strictement documentaire. L’ancien total annoncé de 26 deltas reste `UNVERIFIED`.
 - Les recherches technologiques sont hors bibliothèque et hors périmètre AH.
 
 ## 8. Rapports inconclusifs ou remplacés
