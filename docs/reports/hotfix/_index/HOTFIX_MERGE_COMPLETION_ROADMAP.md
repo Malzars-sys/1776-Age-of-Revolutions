@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.13F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'audit Coup 6A.15R cartographie trois overrides et dix dépendances/entrypoints vanilla, puis isole un remplacement de pinning 1.13 en un fichier, un objet et un hunk. Les deltas fonctionnels d'événements, scopes, lobby, lois et lifecycle restent différés; 6A.15F est sélectionnée pour le pinning uniquement. La baseline legacy reste exactement de 374 diagnostics de pinning. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.15F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'alignement Coup 6A.15F remplace uniquement le pinning obsolète de `je_ip4_coup` en un fichier, un objet et un hunk; le runtime Vietnam jusqu'au 10 janvier 1776 passe sans clé brute ni anomalie politique. L'erreur ciblée passe de 1 à 0 et la baseline legacy de `374/140` à `373/139`. Les deltas fonctionnels d'événements, scopes, lobby, lois et lifecycle restent différés. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
 
 Verdicts :
 
@@ -58,7 +58,11 @@ Verdicts :
 - `COUP_JOURNAL_ENTRY_THREE_WAY_COMPARISON_COMPLETE`
 - `COUP_PINNING_SCOPE_LOBBY_LAW_COOLDOWN_AUDITED`
 - `COUP_JOURNAL_ENTRY_PINNING_ISOLATABLE_ADJACENT_DELTAS_DEFERRED`
-- `NEXT_EXECUTION_PHASE = HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT`
+- `HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_STATIC_PASS`
+- `HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_RUNTIME_PASS`
+- `COUP_JOURNAL_ENTRY_PINNING_PARSER_ERROR_1_TO_0`
+- `HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT_COMPLETE`
+- `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
 ## 2. Périmètre du merge
@@ -83,12 +87,13 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 - Autriche/Croatie/Suisse : paquet complet, contrôles statiques et runtime passés; 30 K habitants en Suisse autrichienne et 2,30 K / 2,30 K marins confirmés.
 - DEI : paquet complet; CEY/SAF, Java, Indonésie, refus, drapeaux, nettoyages VOC, économie post-compagnie et persistance après rechargement validés.
 - HBC : audit statique et runtime 6A.14H terminé; composition `hubson` + `hudson` stable confirmée sans clé brute; intention canonique encore à décider.
+- Coup : pinning 1.13 de `je_ip4_coup` clos statiquement et en runtime par 6A.15F; erreur ciblée supprimée et fichiers événementiels inchangés.
 - Runtime global : non exécuté pendant C1AI.
 - Audit final de branche : à faire après les derniers blocs P0/P1.
 
 ## 6. Blocs non examinés
 
-6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. L'audit Coup 6A.15R est terminé sans gameplay; il sélectionne uniquement le pinning de `je_ip4_coup` pour 6A.15F. Les deux fichiers d'événements Coup et tous leurs deltas fonctionnels restent non sélectionnés. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
+6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. L'alignement de pinning Coup 6A.15F est terminé statiquement et en runtime. Les deux fichiers d'événements Coup et tous leurs deltas fonctionnels restent non sélectionnés. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -160,13 +165,14 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
-6A.13F est close statiquement et en runtime. Deux fichiers, deux objets, deux
-hunks et deux substitutions appliquent Merchant Banking à GEN et VEN, sans
-modifier Marine marchande ni les autres lois. L’opérateur a validé les deux
-républiques pendant plusieurs jours et les logs ne contiennent aucun diagnostic
-ciblé. Le conteneur compte désormais 25 fichiers appliqués et 1 encore en
-attente. La prochaine phase sélectionnée est 6A.15F, bornée à la seule
-propriété de pinning de `je_ip4_coup`.
+6A.15F est close statiquement et en runtime. Un fichier, un objet, un hunk et
+une substitution alignent le pinning de `je_ip4_coup` sur l'API 1.13, sans
+modifier les événements Coup ni leurs scopes, lobbies, lois ou lifecycle.
+L’opérateur a validé le Vietnam jusqu'au 10 janvier 1776 et les logs ramènent
+l'erreur ciblée de 1 à 0. Le conteneur compte désormais 26 fichiers appliqués
+et aucun fichier sélectionné encore en attente. Aucune phase corrective
+suivante n'est sélectionnée par 6A.15F; la revue documentaire résiduelle
+continue.
 
 Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
 7 `REQUIRED_HOTFIX_DELTA`, 15 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
@@ -210,13 +216,15 @@ plusieurs jours. L'intention canonique n'est toujours pas prouvée. Le verdict
 est `HBC_DUPLICATE_HISTORY_UNKNOWN_REQUIRES_REVIEW`; 6A.14HF n'est pas
 sélectionnée.
 
-Coup a été audité par 6A.15R. Le fork, la source et vanilla divergent sur
-trois overrides, mais source et vanilla convergent exactement sur le pinning
-moderne de `je_ip4_coup`. Le remplacement théorique `1/1` produit le hash
+Coup a été audité par 6A.15R puis corrigé par 6A.15F. Le fork, la source et
+vanilla divergent sur trois overrides, mais source et vanilla convergent
+exactement sur le pinning moderne de `je_ip4_coup`. Le remplacement appliqué
+`1+/1-` produit le hash
 `37C2669619CD26C30450F41082716BF30CA12949AA5FEE59BA0D25D498339602`.
 Les erreurs d'API des deux fichiers d'événements, la chaîne `.11` de lobby,
 les scopes, lois, cooldowns, cleanup et invalidations sont séparés et
-différés. 6A.15F est sélectionnée pour ce pinning uniquement.
+différés. Le runtime Vietnam atteint le 10 janvier sans clé brute ni anomalie
+politique; la cible passe de 1 à 0 et la baseline de `374/140` à `373/139`.
 
 ## 24. Fichiers concernés
 
@@ -240,6 +248,11 @@ roadmap. Aucun gameplay ne change et
 `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Le prompt change parce qu'une correction
 précise est sélectionnée. Aucun gameplay ne change.
 
+6A.15F modifie exactement un fichier gameplay et crée ou modifie cinq
+documents : son rapport, l'index global, `HOTFIX_REPORT_INDEX.csv`,
+`HOTFIX_MERGE_BLOCK_STATUS.csv` et cette roadmap.
+`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md` reste inchangé.
+
 ## 25. Modèle recommandé
 
 GPT-5.6 Thinking avec raisonnement élevé.
@@ -260,19 +273,26 @@ n'ajoutent aucun diagnostic HBC ciblé. Victoria 3 a été fermé; l'état du
 launcher n'est pas attesté séparément. Codex n’a lancé ni piloté le jeu ou le
 launcher.
 
+Le runtime humain 6A.15F est terminé. Le Vietnam a été joué du 1er au
+10 janvier 1776 sans clé brute ni anomalie politique visible et sans forcer la
+journal entry Coup. Le fork exact et `dlc014_ip3` sont positivement montés dans
+les logs. L'opérateur a confirmé explicitement la fermeture de Victoria 3 et du
+launcher; aucun processus associé ne subsiste.
+
 ## 27. Nombre minimal de lancements
 
 Une seule session humaine a couvert deux inspections, GEN puis VEN. Un seul
 lancement supplémentaire a couvert toutes les observations HBC de la fiche
-6A.14H. Codex n’a lancé ni piloté le jeu ou le launcher.
+6A.14H. Un seul lancement supplémentaire a couvert le runtime Vietnam 6A.15F.
+Codex n’a lancé ni piloté le jeu ou le launcher.
 
 ## 28. Phases suivantes probables
 
-La phase suivante sélectionnée est
-`HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT`. Elle peut modifier uniquement
-la propriété de pinning dans `common/journal_entries/01_coup.txt`, un fichier,
-un objet et un hunk `1/1`. Elle ne peut modifier ni les événements Coup, ni les
-scopes, lobbies, lois, cooldowns, cleanup ou invalidations.
+6A.15F est terminée. Elle n'a modifié que la propriété de pinning dans
+`common/journal_entries/01_coup.txt`, un fichier, un objet et un hunk `1+/1-`.
+Elle n'a modifié ni les événements Coup, ni les scopes, lobbies, lois,
+cooldowns, cleanup ou invalidations. Aucune nouvelle phase corrective n'est
+sélectionnée ici; `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`.
 
 6A.14R reste close sans 6A.14F. 6A.14H reste close sans 6A.14HF; une décision
 humaine de design doit toujours identifier l'histoire HBC canonique et les lois
@@ -412,7 +432,12 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `COUP_JOURNAL_ENTRY_THREE_WAY_COMPARISON_COMPLETE`
 `COUP_PINNING_SCOPE_LOBBY_LAW_COOLDOWN_AUDITED`
 `COUP_JOURNAL_ENTRY_PINNING_ISOLATABLE_ADJACENT_DELTAS_DEFERRED`
-`NEXT_EXECUTION_PHASE = HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT`
+`HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_STATIC_PASS`
+`COUP_JOURNAL_ENTRY_PINNING_ONE_FILE_ONE_OBJECT_ONE_HUNK_ALIGNED`
+`COUP_EVENT_SCOPE_LOBBY_LAW_COOLDOWN_UNCHANGED`
+`HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_RUNTIME_PASS`
+`COUP_JOURNAL_ENTRY_PINNING_PARSER_ERROR_1_TO_0`
+`HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT_COMPLETE`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
@@ -425,3 +450,17 @@ Les hunks territoriaux et les sept alignements vanilla 1.13 sont appliqués. Le 
 Le filewatcher charge trois événements sans erreur propre à `dei_breakup.2`. Le runtime confirme le drapeau Java et les choix économiques limités ; le texte économique a été développé au même format narratif que « Jour de l’indépendance ». Après choix du Mouvement agraire, le nom Java, son drapeau et la loi persistent après sauvegarde/rechargement. La branche Indonésie et l’option de refus sont également validées.
 
 Le transfert britannique du Cap et de Ceylan alors que la VOC reste un sujet néerlandais n’a pas été ajouté. Il dépend historiquement des lettres de Kew et du cycle Révolution française/guerres napoléoniennes ; il est donc reporté à cette future phase et ne rouvre pas 6A.3F.
+
+## 38. Mise à jour Coup 6A.15F — 30 juillet 2026
+
+La propriété obsolète `should_be_pinned_by_default` de `je_ip4_coup` est
+remplacée par `should_be_pinned_by_default_uninvolved_or_context` dans un seul
+fichier, un seul objet et un seul hunk `1+/1-`. Le hash final est
+`37C2669619CD26C30450F41082716BF30CA12949AA5FEE59BA0D25D498339602`.
+
+Le runtime humain avec le Vietnam atteint le 10 janvier 1776 sans clé brute ni
+anomalie politique visible. Le diagnostic ciblé passe de 1 à 0 et la baseline
+de `374/140` à `373/139`. Les huit diagnostics d'API de
+`ip4_coup_events.txt` et les huit de `coup_events.txt` restent hors périmètre;
+les deux fichiers événementiels sont inchangés. Les événements, scopes,
+lobbies, lois, cooldowns, cleanup et invalidations restent différés.
