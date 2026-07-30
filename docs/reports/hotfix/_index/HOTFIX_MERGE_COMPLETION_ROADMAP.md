@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.12F sont clos. La sélection documentaire 6A.13 est terminée sans changement gameplay : la baseline reste exactement de 374 diagnostics de pinning dans 140 fichiers, l’inventaire conserve ses 161 classifications et Merchant Banking GEN/VEN est l’unique prochaine exécution sélectionnée. Elle appartient à `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`, après commit manuel de 6A.13.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.13F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. La baseline legacy reste exactement de 374 diagnostics de pinning. Aucune phase suivante n’est sélectionnée. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
 
 Verdicts :
 
@@ -39,9 +39,12 @@ Verdicts :
 - `PORTUGUESE_COLONIALISM_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_VALIDATED`
 - `HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT_COMPLETE`
 - `HOTFIX_6A13_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
-- `GEN_VEN_MERCHANT_BANKING_STARTING_LAW_SELECTED`
-- `NEXT_EXECUTION_PHASE=HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`
-- `NO_GAMEPLAY_CHANGED`
+- `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW_RUNTIME_PASS`
+- `GEN_VEN_MERCHANT_BANKING_1776_START_VALIDATED`
+- `GEN_VEN_MERCHANT_NAVY_PRESERVED`
+- `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW_COMPLETE`
+- `MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG`
+- `NO_NEXT_PHASE_SELECTED`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
 ## 2. Périmètre du merge
@@ -56,7 +59,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 4. Blocs terminés
 
-- Infrastructure des lois Merchant Banking / Navigation Acts : intégrée par `d43e4f2` après les icônes `eca384e`; les activations de départ GEN/VEN et GBR/colonies restent des deltas séparés à exécuter.
+- Infrastructure des lois Merchant Banking / Navigation Acts : intégrée par `d43e4f2` après les icônes `eca384e`; les activations de départ GEN/VEN sont closes par 6A.13F, tandis que GBR/colonies reste un delta Navigation Acts séparé et non sélectionné.
 - Mamluk Iraq : chaîne `7cc8068` → `a24fe7e`; verdict administratif `MAMLUK_IRAQ_COMPLETE`, validation statique, runtime à consolider globalement.
 - Japon : chaîne `6dde080` → `2228ce8`, correction Ryukyu `72d03a3` et gate EZO `2228ce8`; verdict administratif `JAPAN_HOTFIX_COMPLETE`, validation statique, runtime à consolider globalement.
 - Inde : `HOTFIX_5_INDIA_COMPLETE`, commit `50ed582`, avec `SEPOY_RUNTIME_VALIDATION_COMPLETE`, `BOMBAY_TRIGGER_ACCESS_CONFIRMED`, `WEST_BENGAL_RETREAT_TRANSFER_EXPECTED` et `NO_FURTHER_INDIA_GAMEPLAY_FIX_REQUIRED`.
@@ -70,7 +73,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 6. Blocs non examinés
 
-6A.13 est terminée et sélectionne exclusivement `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`, à exécuter après commit manuel de la documentation. Le futur correctif est borné à `gen - genoa.txt` et `ven - venetia.txt`, à leur loi de système économique de départ et à deux substitutions. Navigation Acts et Coup doivent chacun passer par un audit distinct. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
+6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. Navigation Acts et Coup doivent chacun passer par un audit distinct et restent non sélectionnés. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -142,12 +145,12 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
-6A.13 est close statiquement et documentaire, sans changement gameplay ni
-runtime. Elle recalcule directement la baseline à `374/140`, dont 83 fichiers
-mono-erreur et 57 multi-erreurs, puis publie exactement trois candidats. Elle
-sélectionne uniquement Merchant Banking GEN/VEN : deux fichiers, deux objets,
-deux hunks futurs et deux substitutions. Le conteneur compte toujours 23
-fichiers appliqués et 3 encore en attente.
+6A.13F est close statiquement et en runtime. Deux fichiers, deux objets, deux
+hunks et deux substitutions appliquent Merchant Banking à GEN et VEN, sans
+modifier Marine marchande ni les autres lois. L’opérateur a validé les deux
+républiques pendant plusieurs jours et les logs ne contiennent aucun diagnostic
+ciblé. Le conteneur compte désormais 25 fichiers appliqués et 1 encore en
+attente. Aucune phase suivante n’est sélectionnée.
 
 Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
 7 `REQUIRED_HOTFIX_DELTA`, 15 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
@@ -156,15 +159,21 @@ Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
 Les 109 lignes directement exploitables ne représentent pas 109 correctifs.
 Le total historique de 26 reste `UNVERIFIED`.
 
-## 23. Pourquoi Merchant Banking est sélectionné
+## 23. Pourquoi Merchant Banking a été appliqué
 
 Le changelog source annonce Merchant Banking pour les républiques maritimes et
 l’infrastructure requise est déjà présente dans le fork : loi, icône et
-localisations anglaise et française. Les histoires de Gênes et Venise divergent
-de la source sur une seule activation, `law_traditionalism` contre
+localisations anglaise et française. Les histoires de Gênes et Venise
+divergeaient de la source sur une seule activation, `law_traditionalism` contre
 `law_merchant_banking`; vanilla ne possède pas ces deux fichiers. La correction
-future est donc strictement bornée à deux substitutions et ne touche ni
+appliquée est strictement bornée à deux substitutions et ne touche ni
 `law_merchant_navy` ni la configuration des propriétaires fonciers.
+
+Le runtime confirme Banque marchande et Marine marchande dans les deux pays,
+sans clé brute ni diagnostic ciblé. La réserve humaine sur des bonus trop
+puissants ou trop modernes pour 1776 est séparée sous
+`MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG`; elle ne remet pas
+en cause la conformité du portage et ne modifie pas 6A.13F.
 
 Navigation Acts est moins sûre : source et vanilla divergent, GBR croise le
 périmètre NAVY protégé et deux fichiers concurrents définissent HBC. Coup
@@ -173,9 +182,10 @@ scope, lobby, lois et cooldown. Ces deux pistes restent des audits séparés.
 
 ## 24. Fichiers concernés
 
-6A.13 modifie exactement six documents : son nouveau rapport, l’index global,
-`HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
-`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Aucun fichier gameplay n’est modifié.
+6A.13F modifie exactement sept fichiers après runtime : les deux histoires pays
+GEN/VEN, son rapport, l’index global, `HOTFIX_REPORT_INDEX.csv`,
+`HOTFIX_MERGE_BLOCK_STATUS.csv` et cette roadmap.
+`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md` reste inchangé.
 
 ## 25. Modèle recommandé
 
@@ -183,26 +193,27 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Aucun runtime n’est requis ni autorisé pour la sélection documentaire 6A.13.
-Le futur 6A.13F exigera un contrôle humain distinct de Gênes puis de Venise :
-loi Merchant Banking active au départ, interface lisible sans clé brute,
-`law_merchant_navy` préservée et absence de nouvelle erreur ciblée dans les
-logs. Le jeu et le launcher sont fermés pendant la présente phase.
+Le runtime humain 6A.13F est terminé. Gênes puis Venise ont été contrôlées dans
+une même session pendant plusieurs jours : Merchant Banking est active,
+`law_merchant_navy` est préservée, l’interface ne montre aucune clé brute et
+les logs ne contiennent aucune erreur ciblée. Le jeu et le launcher ont été
+fermés avant l’analyse.
 
 ## 27. Nombre minimal de lancements
 
-Zéro lancement pour 6A.13. Le futur 6A.13F prévoit une seule session humaine
-avec deux inspections, GEN puis VEN. Codex ne doit ni lancer ni piloter le jeu
-ou le launcher.
+Une seule session humaine a couvert deux inspections, GEN puis VEN. Codex n’a
+lancé ni piloté le jeu ou le launcher.
 
 ## 28. Phases suivantes probables
 
-1. `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW` — unique exécution
-   sélectionnée, après commit manuel de 6A.13.
-2. `HOTFIX_6A14R_NAVIGATION_ACTS_STARTING_LAW_AUDIT` — audit seulement, cinq
-   fichiers théoriques avec collisions GBR/NAVY et HBC.
-3. `HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT` — audit seulement,
-   un pinning théorique mais des divergences fonctionnelles adjacentes.
+Aucune phase suivante n’est sélectionnée. Les pistes documentées restent :
+
+1. `HOTFIX_6A14R_NAVIGATION_ACTS_STARTING_LAW_AUDIT` — audit seulement, cinq
+   fichiers théoriques avec collisions GBR/NAVY et HBC;
+2. `HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT` — audit seulement,
+   un pinning théorique mais des divergences fonctionnelles adjacentes;
+3. `MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG` — audit de design
+   après le hotfix, sans modifier ni rouvrir 6A.13F.
 
 Imperialism of Promise et les diagnostics Tanzimat demandent encore une
 résolution plus large. L’activation Tanzimat propre à 1776 reste
@@ -232,6 +243,13 @@ Après audit et runtime globaux, vérifier branche propre, stash intact, recherc
 ## 34. Backlog post-merge
 
 Les refontes Amérique, France, technologies, agriculture/alimentation/industrie et fédéralisation des Treize Colonies sont séparées sous `POST_MERGE_DESIGN_BACKLOG` et ne bloquent pas le merge.
+
+La puissance de Merchant Banking en 1776 doit être réévaluée après le hotfix.
+L’audit futur comparera ses chartes de compagnie, allocation de construction,
+effets de dividendes, avantage commercial et contributions au fonds
+d’investissement aux autres systèmes économiques de la période. Cette dette
+`MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG` est non bloquante et
+n’autorise aucune modification pendant 6A.13F.
 
 ## 35. Risques
 
@@ -308,9 +326,12 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `PORTUGUESE_COLONIALISM_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_VALIDATED`
 `HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT_COMPLETE`
 `HOTFIX_6A13_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
-`GEN_VEN_MERCHANT_BANKING_STARTING_LAW_SELECTED`
-`NEXT_EXECUTION_PHASE = HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`
-`NO_GAMEPLAY_CHANGED`
+`HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW_RUNTIME_PASS`
+`GEN_VEN_MERCHANT_BANKING_1776_START_VALIDATED`
+`GEN_VEN_MERCHANT_NAVY_PRESERVED`
+`HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW_COMPLETE`
+`MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG`
+`NO_NEXT_PHASE_SELECTED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
