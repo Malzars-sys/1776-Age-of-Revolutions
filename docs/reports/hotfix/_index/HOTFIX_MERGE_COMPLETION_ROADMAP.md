@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.13F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H prouve que `hubson` et `hudson` sont tous deux appliqués et composés; `hubson` porte deux identifiants invalides. Le runtime HBC confirme la fusion stable, sans clé brute ni changement de loi ou de gouvernement après plusieurs jours. L'intention canonique reste inconnue, GBR croise toujours NAVY et aucune phase corrective n'est sélectionnée. La baseline legacy reste exactement de 374 diagnostics de pinning. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.13F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'audit Coup 6A.15R cartographie trois overrides et dix dépendances/entrypoints vanilla, puis isole un remplacement de pinning 1.13 en un fichier, un objet et un hunk. Les deltas fonctionnels d'événements, scopes, lobby, lois et lifecycle restent différés; 6A.15F est sélectionnée pour le pinning uniquement. La baseline legacy reste exactement de 374 diagnostics de pinning. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
 
 Verdicts :
 
@@ -54,7 +54,11 @@ Verdicts :
 - `HBC_COMPOSITE_START_CONFIRMED`
 - `HBC_RUNTIME_STABLE_NO_RAW_KEYS`
 - `HBC_DUPLICATE_HISTORY_UNKNOWN_REQUIRES_REVIEW`
-- `NO_NEXT_PHASE_SELECTED`
+- `HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT_COMPLETE`
+- `COUP_JOURNAL_ENTRY_THREE_WAY_COMPARISON_COMPLETE`
+- `COUP_PINNING_SCOPE_LOBBY_LAW_COOLDOWN_AUDITED`
+- `COUP_JOURNAL_ENTRY_PINNING_ISOLATABLE_ADJACENT_DELTAS_DEFERRED`
+- `NEXT_EXECUTION_PHASE = HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
 ## 2. Périmètre du merge
@@ -84,7 +88,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 6. Blocs non examinés
 
-6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. Coup doit encore passer par un audit distinct et reste non sélectionné. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
+6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. L'audit Coup 6A.15R est terminé sans gameplay; il sélectionne uniquement le pinning de `je_ip4_coup` pour 6A.15F. Les deux fichiers d'événements Coup et tous leurs deltas fonctionnels restent non sélectionnés. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -161,7 +165,8 @@ hunks et deux substitutions appliquent Merchant Banking à GEN et VEN, sans
 modifier Marine marchande ni les autres lois. L’opérateur a validé les deux
 républiques pendant plusieurs jours et les logs ne contiennent aucun diagnostic
 ciblé. Le conteneur compte désormais 25 fichiers appliqués et 1 encore en
-attente. Aucune phase suivante n’est sélectionnée.
+attente. La prochaine phase sélectionnée est 6A.15F, bornée à la seule
+propriété de pinning de `je_ip4_coup`.
 
 Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
 7 `REQUIRED_HOTFIX_DELTA`, 15 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
@@ -203,9 +208,15 @@ conflictuelles de `hudson`, effets additifs de `hubson`, trois institutions,
 Service obligatoire et grain taxé; aucune clé brute ni évolution après
 plusieurs jours. L'intention canonique n'est toujours pas prouvée. Le verdict
 est `HBC_DUPLICATE_HISTORY_UNKNOWN_REQUIRES_REVIEW`; 6A.14HF n'est pas
-sélectionnée. Coup converge sur le pinning moderne mais comporte des
-divergences adjacentes de scope, lobby, lois et cooldown; son audit reste
-séparé.
+sélectionnée.
+
+Coup a été audité par 6A.15R. Le fork, la source et vanilla divergent sur
+trois overrides, mais source et vanilla convergent exactement sur le pinning
+moderne de `je_ip4_coup`. Le remplacement théorique `1/1` produit le hash
+`37C2669619CD26C30450F41082716BF30CA12949AA5FEE59BA0D25D498339602`.
+Les erreurs d'API des deux fichiers d'événements, la chaîne `.11` de lobby,
+les scopes, lois, cooldowns, cleanup et invalidations sont séparés et
+différés. 6A.15F est sélectionnée pour ce pinning uniquement.
 
 ## 24. Fichiers concernés
 
@@ -223,6 +234,11 @@ inchangé.
 global, `HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv` et cette
 roadmap. Aucun gameplay ne change et
 `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md` reste inchangé.
+
+6A.15R modifie ou crée exactement six documents : son rapport, l'index global,
+`HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
+`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Le prompt change parce qu'une correction
+précise est sélectionnée. Aucun gameplay ne change.
 
 ## 25. Modèle recommandé
 
@@ -252,15 +268,16 @@ lancement supplémentaire a couvert toutes les observations HBC de la fiche
 
 ## 28. Phases suivantes probables
 
-Aucune phase suivante n’est sélectionnée. 6A.14R est close et ne sélectionne
-pas 6A.14F. 6A.14H est close statiquement et en runtime et ne sélectionne pas
-6A.14HF; une décision humaine de design doit d'abord identifier l'histoire HBC
-canonique et les lois finales voulues. Les pistes documentées restantes sont :
+La phase suivante sélectionnée est
+`HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT`. Elle peut modifier uniquement
+la propriété de pinning dans `common/journal_entries/01_coup.txt`, un fichier,
+un objet et un hunk `1/1`. Elle ne peut modifier ni les événements Coup, ni les
+scopes, lobbies, lois, cooldowns, cleanup ou invalidations.
 
-1. `HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT` — audit seulement,
-   un pinning théorique mais des divergences fonctionnelles adjacentes;
-2. `MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG` — audit de design
-   après le hotfix, sans modifier ni rouvrir 6A.13F.
+6A.14R reste close sans 6A.14F. 6A.14H reste close sans 6A.14HF; une décision
+humaine de design doit toujours identifier l'histoire HBC canonique et les lois
+finales voulues. Le backlog
+`MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG` reste post-hotfix.
 
 Imperialism of Promise et les diagnostics Tanzimat demandent encore une
 résolution plus large. L’activation Tanzimat propre à 1776 reste
@@ -391,8 +408,11 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `HBC_COMPOSITE_START_CONFIRMED`
 `HBC_RUNTIME_STABLE_NO_RAW_KEYS`
 `HBC_DUPLICATE_HISTORY_UNKNOWN_REQUIRES_REVIEW`
-`NO_NEXT_EXECUTION_PHASE_SELECTED`
-`NO_NEXT_PHASE_SELECTED`
+`HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT_COMPLETE`
+`COUP_JOURNAL_ENTRY_THREE_WAY_COMPARISON_COMPLETE`
+`COUP_PINNING_SCOPE_LOBBY_LAW_COOLDOWN_AUDITED`
+`COUP_JOURNAL_ENTRY_PINNING_ISOLATABLE_ADJACENT_DELTAS_DEFERRED`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026

@@ -1,62 +1,71 @@
-# Prompt autonome — HOTFIX-6A.13F Merchant Banking GEN/VEN
+# Prompt autonome — HOTFIX-6A.15F pinning de `je_ip4_coup`
 
 Nous poursuivons le portage du mod Victoria 3 :
 
 `1776_Age_of_Revolutions_fork`
 
-# Phase HOTFIX-6A.13F — Loi initiale Merchant Banking de GEN et VEN
+# Phase HOTFIX-6A.15F — Alignement 1.13 du pinning de la journal entry Coup
 
-## Modèle recommandé
+## 1. Nature et objectif unique
 
-GPT-5.6 Thinking avec raisonnement élevé.
-
-## Nature et objectif unique
-
-Appliquer exactement deux substitutions de loi économique initiale :
+Appliquer exactement une substitution de propriété dans
+`common/journal_entries/01_coup.txt`, objet `je_ip4_coup` :
 
 ```txt
-law_traditionalism -> law_merchant_banking
+should_be_pinned_by_default = yes
 ```
 
-dans `c:GEN` et `c:VEN`, effectuer tous les contrôles statiques, créer le
-rapport, préparer un runtime humain unique puis s'arrêter sur
-`RUNTIME_OPERATOR_ACTION_REQUIRED`.
+vers :
 
-Codex ne lance ni ne pilote Victoria 3 ou le launcher, n'utilise pas la console,
-n'ouvre aucune sauvegarde, n'étend pas le périmètre, ne crée aucun commit
-automatique et ne commence aucune phase suivante.
+```txt
+should_be_pinned_by_default_uninvolved_or_context = yes
+```
 
-## Chemins
+La phase ne doit absorber aucun delta adjacent d'événement, scope, lobby, loi,
+cooldown, cleanup, invalidation, personnage ou équilibre.
 
-FORK :
+Codex ne lance ni ne pilote Victoria 3 ou le launcher, n'utilise pas la
+console, n'ouvre aucune sauvegarde, ne crée aucun commit automatique et ne
+commence aucune autre correction Coup.
+
+## 2. Chemins
+
+Fork :
 
 `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
 
-SOURCE HOTFIX, strictement en lecture seule :
+Source hotfix, lecture seule :
 
 `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_hotfix_source`
 
-VANILLA 1.13, strictement en lecture seule :
+Vanilla 1.13, lecture seule :
 
 `C:\Games\Victoria 3 The Great Wave\game`
 
-## Verdicts d'entrée
+Branche obligatoire :
 
-Exiger dans `HEAD` :
+`hotfix-dlc-audit`
 
-- `HOTFIX_6A13_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`;
-- `NO_GAMEPLAY_CHANGED`;
-- `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`;
-- `NEXT_EXECUTION_PHASE = HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`.
+## 3. État d'entrée
 
-Rapport canonique :
+Exiger que le rapport suivant soit présent dans `HEAD`, après commit manuel de
+6A.15R :
 
-`docs/reports/hotfix/_index/HOTFIX_6A13_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
+`docs/reports/hotfix/_index/HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT.md`
 
-6A.13 doit être commitée manuellement. Ne jamais commencer depuis son worktree
-documentaire non commité.
+Verdicts d'entrée obligatoires :
 
-## Préflight Git
+```text
+HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT_COMPLETE
+COUP_JOURNAL_ENTRY_THREE_WAY_COMPARISON_COMPLETE
+COUP_PINNING_SCOPE_LOBBY_LAW_COOLDOWN_AUDITED
+COUP_JOURNAL_ENTRY_PINNING_ISOLATABLE_ADJACENT_DELTAS_DEFERRED
+NEXT_EXECUTION_PHASE = HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT
+```
+
+Ne jamais commencer depuis le worktree documentaire non commit de 6A.15R.
+
+## 4. Préflight Git
 
 Exécuter :
 
@@ -68,202 +77,192 @@ git log -5 --oneline --decorate
 git diff --check
 git diff --cached --name-only
 git stash list
-git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A13_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md
+git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT.md
 ```
-
-Exiger la racine exacte, branche `hotfix-dlc-audit`, rapport et verdicts dans
-`HEAD`, fichiers suivis propres, index vide, uniquement `bject` et les sept
-recherches technologiques non suivis, stash exact
-`stash@{0}: On hotfix-dlc-audit: WIP NAVY-3C-3 Maratha Konkan Flotilla`, et
-zéro processus Victoria 3, `dowser` ou Paradox.
-
-Arrêts : `BLOCKED_WRONG_BRANCH`, `BLOCKED_6A13_NOT_COMMITTED`,
-`BLOCKED_DIRTY_TREE`, `BLOCKED_STAGED_FILES`,
-`BLOCKED_UNEXPECTED_UNTRACKED_FILES`, `BLOCKED_PROTECTED_STASH_MISSING`,
-`BLOCKED_GAME_PROCESS_RUNNING`.
-
-Interdictions : aucun reset, restore, checkout de fichier, clean, merge,
-rebase, amend, commit automatique, stash apply/pop/drop ou inspection du
-contenu du stash.
-
-## Hashes de référence
-
-| Preuve | SHA-256 |
-| --- | --- |
-| GEN fork avant | `B4EC2FB8C9916425FBFFBAA1CEF7FEDFB63C2E0510352A4744E088748AFD80EF` |
-| VEN fork avant | `33503E48A69A431AD10ABC2AD71AF9D2147CDA6F19C0CD6C0C04434C1E5425B1` |
-| GEN source | `05A10969F0C7C378920E3224F83C1BC445486143F130874AAA19DE9592E98EAF` |
-| VEN source | `8DDDA736260B18E2412DA1AD9516336938E19BA7266FD79992BD31E84013E5BA` |
-| GEN fork attendu après | `7FC780AB8A8793E1DD1B3E6A32022807CED720FB1BE3F3D63D9EC6FDE9F43327` |
-| VEN fork attendu après | `51A65341A2E3947A3D7D71BC3E3B1F31DA5CCD9D000D200C75BFB9570010B6DB` |
-
-Vanilla ne possède ni le fichier GEN ni le fichier VEN. Vérifier aussi les
-hashes protégés Portugal final, Romania, Sick Man, Grande Crise orientale,
-BIC, `bject` et les sept recherches technologiques consignés dans 6A.13.
-Tout écart impose `BLOCKED_THREE_WAY_EVIDENCE_CHANGED`.
-
-## Sources obligatoires
-
-Lire intégralement :
-
-- le rapport 6A.13;
-- les rapports 6A.12F et 6A.12;
-- la roadmap et les deux CSV de navigation;
-- les versions fork et source de GEN et VEN;
-- le changelog complet fork et source;
-- `common/laws/00_inject_laws.txt`;
-- `localization/english/hotfix_laws_l_english.yml`;
-- `localization/french/hotfix_laws_l_french.yml`;
-- l'icône `gfx/interface/icons/law_icons/merchant_banks.dds`;
-- les logs et rotations de référence 6A.12F.
-
-Ne lancer aucun runtime pour créer une preuve supplémentaire.
-
-## Comparaison trois voies
-
-Confirmer :
-
-- fork GEN/VEN : `law_traditionalism`;
-- source GEN/VEN : `law_merchant_banking`;
-- vanilla : fichiers absents;
-- changelog source : Merchant Banking pour les républiques maritimes;
-- loi déjà définie et visible uniquement pour GEN/VEN;
-- icône et localisations anglaise/française déjà présentes;
-- `law_merchant_navy` présente dans les deux fichiers fork;
-- source retire cette loi navale et ajoute un nom de propriétaires terriens,
-  différences adjacentes expressément exclues.
-
-## Fichiers et objets modifiables avant runtime
-
-1. `common/history/countries/gen - genoa.txt`, objet `c:GEN`;
-2. `common/history/countries/ven - venetia.txt`, objet `c:VEN`;
-3. `docs/reports/hotfix/_index/HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW.md`.
-
-Après runtime et fermeture explicite du jeu/launcher, seuls les quatre
-documents de navigation habituels peuvent aussi être modifiés :
-
-4. `docs/reports/hotfix/INDEX.md`;
-5. `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv`;
-6. `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv`;
-7. `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md`.
-
-Ne pas modifier `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`.
-
-## Hunks exacts
-
-Dans chacun des deux objets :
-
-```diff
--		activate_law = law_type:law_traditionalism
-+		activate_law = law_type:law_merchant_banking
-```
-
-Diff gameplay attendu : deux fichiers, deux objets, deux hunks, deux
-additions et deux suppressions.
-
-Préserver BOM UTF-8, LF, saut final, indentation et toutes les lignes
-adjacentes.
-
-## Exclusions et protections
-
-Préserver absolument :
-
-- `activate_law = law_type:law_merchant_navy` dans GEN et VEN;
-- toutes les autres lois initiales;
-- technologies, institutions, modificateurs et tarifs;
-- l'absence du bloc `ideo_merchant_landowners`;
-- fichiers de loi, icône et localisations;
-- tous les autres pays.
-
-Ne toucher à aucun élément NAVY, ADMIN, MARATH, Inde/BIC, Portugal, Romania,
-Sick Man, Balkans, Russie, Japon, Autriche, technologies, descripteurs,
-launcher, sauvegardes ou `bject`.
-
-BIC conserve `law_frontier_colonization`; ne jamais restaurer
-`law_colonial_exploitation`.
-
-## Validations statiques
 
 Exiger :
 
-1. deux hashes cibles exacts;
-2. zéro `law_traditionalism` dans les deux fichiers;
-3. une `law_merchant_banking` dans chaque objet;
-4. une `law_merchant_navy` inchangée dans chaque objet;
-5. deux fichiers, deux objets, deux hunks, `2/2`;
-6. aucune ligne adjacente modifiée;
-7. autres lois et effets inchangés;
-8. BOM, LF, saut final et accolades préservés;
-9. source, vanilla et protections inchangés;
-10. `git diff --check` propre;
-11. index staged vide;
-12. stash exact;
-13. zéro processus du jeu/launcher.
+- racine et branche exactes;
+- 6A.15R dans `HEAD`;
+- fichiers suivis propres;
+- index staged vide;
+- uniquement `bject` et `docs/research/technology/` non suivis;
+- aucun processus Victoria 3, dowser ou Paradox;
+- stash exact :
+  `stash@{0}: On hotfix-dlc-audit: WIP NAVY-3C-3 Maratha Konkan Flotilla`;
+- hash objet du stash :
+  `518df704fa14599c0f254fae13859210663dd976`.
 
-Exécuter les commandes Git finales usuelles, dont le diff ciblé des deux
-fichiers.
+Arrêts :
 
-Si un hash cible échoue, annuler uniquement les deux substitutions et exiger
-les hashes initiaux. Si le rollback ciblé échoue :
-`BLOCKED_ROLLBACK_MISMATCH`.
-
-## Rollback exact
-
-Dans GEN et VEN seulement :
-
-```txt
-law_merchant_banking -> law_traditionalism
+```text
+BLOCKED_WRONG_BRANCH
+BLOCKED_6A15R_NOT_COMMITTED
+BLOCKED_DIRTY_TREE
+BLOCKED_STAGED_FILES
+BLOCKED_UNEXPECTED_UNTRACKED_FILES
+BLOCKED_PROTECTED_STASH_MISSING
+BLOCKED_GAME_PROCESS_RUNNING
+BLOCKED_THREE_WAY_EVIDENCE_CHANGED
 ```
 
-Le rollback doit restaurer exactement les hashes initiaux. Aucune commande Git
-destructive.
+## 5. Hashes et hunk exacts
 
-## Livrable statique
+| Preuve | SHA-256 |
+| --- | --- |
+| fork avant | `3AB98023990198A9871FAEE3CF459558B36FECC11B927F1FCF34982A39E5FB2F` |
+| source | `F39D26651A3200B1044A2E79D070A8BFEEBB205183079A9BB993EF6D520C5665` |
+| vanilla 1.13 | `3E4705DFC02785CED86F9C5967CDDC0D5AC0E411E30974F82052ACD4004C7ACB` |
+| fork attendu après | `37C2669619CD26C30450F41082716BF30CA12949AA5FEE59BA0D25D498339602` |
 
-Créer le rapport 6A.13F avec préflight, hashes, sources, snapshots, comparaison,
-hunks, diff, exclusions, validations, rollback, fichiers, fiche runtime et
-verdicts statiques.
+Hunk autorisé :
 
-Après PASS statique publier :
+```diff
+-	should_be_pinned_by_default = yes
++	should_be_pinned_by_default_uninvolved_or_context = yes
+```
 
-- `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW_STATIC_PASS`;
-- `GEN_VEN_MERCHANT_BANKING_TWO_FILE_TWO_HUNK_ALIGNMENT_COMPLETE`;
-- `GEN_VEN_MERCHANT_NAVY_AND_OTHER_STARTING_LAWS_UNCHANGED`;
-- `RUNTIME_OPERATOR_ACTION_REQUIRED`.
+Diff gameplay attendu : un fichier, un objet, un hunk, une addition et une
+suppression. Taille attendue : `2954` octets.
+
+Préserver exactement BOM UTF-8, LF, saut final, indentation, accolades et
+toutes les lignes adjacentes.
+
+## 6. Fichiers modifiables
+
+Avant runtime humain :
+
+1. `common/journal_entries/01_coup.txt`;
+2. `docs/reports/hotfix/_index/HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT.md`.
+
+Après runtime et fermeture explicite du jeu/launcher, les documents de
+navigation suivants peuvent être mis à jour :
+
+3. `docs/reports/hotfix/INDEX.md`;
+4. `docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv`;
+5. `docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv`;
+6. `docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md`.
+
+Ne pas modifier ce prompt pendant 6A.15F sauf nécessité documentaire prouvée.
+
+## 7. Interdictions absolues
+
+Ne modifier aucun des fichiers suivants :
+
+- `events/iberia_events/ip4_coup_events.txt`;
+- `events/agitators_events/coup_events.txt`;
+- scripted effects, triggers, progress bars ou on_actions Coup;
+- lobbies et action diplomatique `orchestrate_coup`;
+- lois, modificateurs, localisations ou fichiers pays;
+- HBC, Navigation Acts, NAVY, MARATH, ADMIN;
+- Inde, BIC, Sepoy, Bombay, Travancore;
+- Japon, Russie, Autriche/Croatie/Suisse, DEI/VOC/Java;
+- révolutions américaine et française;
+- Merchant Banking, technologies, descripteurs et sauvegardes;
+- `bject`, recherches technologiques et stash.
+
+BIC doit conserver `law_frontier_colonization`. Ne jamais restaurer
+`law_colonial_exploitation`.
+
+Ne jamais exécuter `git add`, reset, restore, checkout de fichier, clean,
+merge, rebase, amend, stash apply/pop/drop ou commit automatique.
+
+## 8. Application et rollback
+
+Appliquer la substitution avec une édition chirurgicale. Vérifier immédiatement
+le hash cible.
+
+Si le hash cible échoue, remplacer uniquement :
+
+```txt
+should_be_pinned_by_default_uninvolved_or_context = yes
+```
+
+par :
+
+```txt
+should_be_pinned_by_default = yes
+```
+
+Le rollback doit restaurer exactement le hash initial. Si ce hash n'est pas
+restauré :
+
+`BLOCKED_ROLLBACK_MISMATCH`
+
+## 9. Validations statiques
+
+Exiger :
+
+1. ancienne propriété : `0` occurrence dans l'objet;
+2. nouvelle propriété : `1` occurrence;
+3. hash cible exact;
+4. taille `2954`;
+5. un fichier, un objet, un hunk, `1+/1-`;
+6. aucun changement adjacent;
+7. BOM UTF-8, LF, saut final et accolades `49/49`;
+8. hashes source et vanilla inchangés;
+9. deux fichiers d'événements Coup inchangés;
+10. aucune loi, scope, lobby, variable, cooldown ou cleanup modifié;
+11. `git diff --check` PASS;
+12. index staged vide;
+13. stash exact;
+14. aucun processus du jeu/launcher.
+
+Baseline connue avant correction :
+
+- 374 diagnostics legacy dans 140 fichiers;
+- 1 diagnostic ciblé dans `01_coup.txt:139`;
+- diagnostics distincts des événements Coup toujours présents et hors scope.
+
+Après PASS statique, publier :
+
+```text
+HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_STATIC_PASS
+COUP_JOURNAL_ENTRY_PINNING_ONE_FILE_ONE_OBJECT_ONE_HUNK_ALIGNED
+COUP_EVENT_SCOPE_LOBBY_LAW_COOLDOWN_UNCHANGED
+RUNTIME_OPERATOR_ACTION_REQUIRED
+```
 
 Puis s'arrêter. Ne pas lancer le jeu.
 
-## Fiche runtime humaine unique
+## 10. Runtime humain
 
-Un seul lancement du launcher et du jeu, avec fork et `dlc014_ip3` montés :
+Après le PASS statique, demander un seul lancement humain avec le fork et
+`dlc014_ip3` montés :
 
-1. nouvelle partie GEN au 1er janvier 1776;
-2. vérifier dans Politique/Législation que Banque marchande est la loi
-   économique active, Marine marchande la loi navale active, et qu'aucune clé
-   brute ou anomalie n'est visible;
-3. avancer au 2 janvier 1776;
-4. revenir normalement au menu principal;
-5. nouvelle partie VEN au 1er janvier 1776;
-6. effectuer les mêmes vérifications et avancer au 2 janvier;
-7. prendre des captures si possible;
-8. fermer normalement Victoria 3 puis le launcher;
-9. confirmer explicitement leur fermeture.
+1. lancer une nouvelle partie avec un pays non protégé;
+2. confirmer un chargement normal au 1er janvier 1776;
+3. avancer au moins jusqu'au 2 janvier;
+4. relever toute clé brute ou anomalie politique visible;
+5. fermer normalement Victoria 3 puis le launcher;
+6. confirmer explicitement leur fermeture.
 
-Ne pas utiliser la console. L'opérateur transmet pays, dates, lois observées,
-clés brutes/anomalies, captures et confirmation de fermeture.
+La journal entry Coup n'a pas besoin d'être forcée ou déclenchée. La preuve
+principale est le chargement parser et l'absence du diagnostic ciblé dans les
+nouveaux logs. Ne pas utiliser la console.
 
-Codex n'analyse les nouveaux logs qu'après cette confirmation. Exiger montage
-du fork et de `dlc014_ip3`, absence de diagnostics ciblés et compte rendu
-humain. Aucun PASS runtime sans compte rendu.
+Après confirmation de fermeture, analyser les nouveaux logs et rotations.
+Exiger :
 
-## Verdicts finaux attendus
+- `01_coup.txt` : `0` erreur
+  `Unexpected token: should_be_pinned_by_default`;
+- baseline globale attendue : `373` diagnostics dans `139` fichiers, sous
+  réserve que le même ensemble de mods soit monté;
+- les diagnostics d'API de `ip4_coup_events.txt` et `coup_events.txt` restent
+  explicitement hors périmètre et ne doivent pas être revendiqués comme
+  corrigés.
 
-- `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW_RUNTIME_PASS`;
-- `GEN_VEN_MERCHANT_BANKING_1776_START_VALIDATED`;
-- `GEN_VEN_MERCHANT_NAVY_PRESERVED`;
-- `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW_COMPLETE`;
-- `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`.
+## 11. Verdicts finaux attendus
 
-Finaliser le rapport et uniquement les quatre documents de navigation
-autorisés. Confirmer exactement sept fichiers de phase après runtime, aucun
-commit automatique et aucune phase suivante commencée.
+```text
+HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_STATIC_PASS
+COUP_JOURNAL_ENTRY_PINNING_ONE_FILE_ONE_OBJECT_ONE_HUNK_ALIGNED
+COUP_EVENT_SCOPE_LOBBY_LAW_COOLDOWN_UNCHANGED
+HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_RUNTIME_PASS
+COUP_JOURNAL_ENTRY_PINNING_PARSER_ERROR_1_TO_0
+HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT_COMPLETE
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+```
+
+Finaliser le rapport et les quatre documents de navigation autorisés. Confirmer
+aucun commit automatique, aucun staging et aucune autre phase commencée.
