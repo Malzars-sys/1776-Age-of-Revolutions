@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.13F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay : le scope théorique de cinq historiques se résout en huit fichiers gameplay pertinents, HBC a deux histoires concurrentes, GBR croise NAVY, et aucune phase corrective n'est sélectionnée. La baseline legacy reste exactement de 374 diagnostics de pinning. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.13F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H prouve que `hubson` et `hudson` sont tous deux appliqués et composés; `hubson` porte deux identifiants invalides. Le runtime HBC confirme la fusion stable, sans clé brute ni changement de loi ou de gouvernement après plusieurs jours. L'intention canonique reste inconnue, GBR croise toujours NAVY et aucune phase corrective n'est sélectionnée. La baseline legacy reste exactement de 374 diagnostics de pinning. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
 
 Verdicts :
 
@@ -46,6 +46,14 @@ Verdicts :
 - `MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG`
 - `HOTFIX_6A14R_NAVIGATION_ACTS_STARTING_LAW_AUDIT_COMPLETE`
 - `NAVIGATION_ACTS_STARTING_LAW_BLOCKED_BY_HBC_DEFINITION_CONFLICT`
+- `HOTFIX_6A14H_HBC_DOUBLE_DEFINITION_RESOLUTION_AUDIT_COMPLETE`
+- `HBC_HUBSON_AND_HUDSON_THREE_WAY_COMPARISON_COMPLETE`
+- `HBC_SUSPICIOUS_IDENTIFIERS_AUDITED`
+- `HBC_DUPLICATE_OBJECT_SEMANTICS_AUDITED`
+- `HBC_DUPLICATE_HISTORY_RUNTIME_VALIDATION_COMPLETE`
+- `HBC_COMPOSITE_START_CONFIRMED`
+- `HBC_RUNTIME_STABLE_NO_RAW_KEYS`
+- `HBC_DUPLICATE_HISTORY_UNKNOWN_REQUIRES_REVIEW`
 - `NO_NEXT_PHASE_SELECTED`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
@@ -61,7 +69,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 4. Blocs terminés
 
-- Infrastructure des lois Merchant Banking / Navigation Acts : intégrée par `d43e4f2` après les icônes `eca384e`; les activations de départ GEN/VEN sont closes par 6A.13F. L'audit 6A.14R confirme l'infrastructure Navigation Acts mais bloque tout alignement : deux histoires définissent HBC, GBR est protégé par NAVY, BIC et l'effet d'échec américain sont protégés, et le trigger de visibilité exclut les `chartered_company`.
+- Infrastructure des lois Merchant Banking / Navigation Acts : intégrée par `d43e4f2` après les icônes `eca384e`; les activations de départ GEN/VEN sont closes par 6A.13F. L'audit 6A.14R confirme l'infrastructure Navigation Acts mais bloque tout alignement. 6A.14H démontre que les deux histoires HBC se composent sans établir laquelle est l'intention canonique; GBR est protégé par NAVY, BIC et l'effet d'échec américain sont protégés, et le trigger de visibilité exclut les `chartered_company`.
 - Mamluk Iraq : chaîne `7cc8068` → `a24fe7e`; verdict administratif `MAMLUK_IRAQ_COMPLETE`, validation statique, runtime à consolider globalement.
 - Japon : chaîne `6dde080` → `2228ce8`, correction Ryukyu `72d03a3` et gate EZO `2228ce8`; verdict administratif `JAPAN_HOTFIX_COMPLETE`, validation statique, runtime à consolider globalement.
 - Inde : `HOTFIX_5_INDIA_COMPLETE`, commit `50ed582`, avec `SEPOY_RUNTIME_VALIDATION_COMPLETE`, `BOMBAY_TRIGGER_ACCESS_CONFIRMED`, `WEST_BENGAL_RETREAT_TRANSFER_EXPECTED` et `NO_FURTHER_INDIA_GAMEPLAY_FIX_REQUIRED`.
@@ -70,12 +78,13 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 - Autriche/Croatie/Suisse : paquet complet, contrôles statiques et runtime passés; 30 K habitants en Suisse autrichienne et 2,30 K / 2,30 K marins confirmés.
 - DEI : paquet complet; CEY/SAF, Java, Indonésie, refus, drapeaux, nettoyages VOC, économie post-compagnie et persistance après rechargement validés.
+- HBC : audit statique et runtime 6A.14H terminé; composition `hubson` + `hudson` stable confirmée sans clé brute; intention canonique encore à décider.
 - Runtime global : non exécuté pendant C1AI.
 - Audit final de branche : à faire après les derniers blocs P0/P1.
 
 ## 6. Blocs non examinés
 
-6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F sur le conflit HBC, avec collision NAVY secondaire. Coup doit encore passer par un audit distinct et reste non sélectionné. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
+6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. Coup doit encore passer par un audit distinct et reste non sélectionné. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -183,7 +192,18 @@ historiques. GBR croise le périmètre NAVY protégé; deux fichiers concurrents
 définissent HBC; HBC et BIC sont des `chartered_company` exclues du trigger de
 visibilité; ORA n'est pas sujet britannique. Le verdict principal est
 `NAVIGATION_ACTS_STARTING_LAW_BLOCKED_BY_HBC_DEFINITION_CONFLICT` et 6A.14F
-n'est pas sélectionnée. Coup converge sur le pinning moderne mais comporte des
+n'est pas sélectionnée.
+
+Le doublon HBC a été audité par 6A.14H. Les deux fichiers ont été ajoutés dans
+le même import. `hubson` est une dérivation legacy proche de l'historique ORG,
+avec `state_religion` et `colonial_affairs` invalides; `hudson` suit la lignée
+vanilla. Les logs prouvent que leurs effets se composent et soutiennent l'ordre
+`hubson` puis `hudson`. Le runtime confirme l'état UI complet : valeurs
+conflictuelles de `hudson`, effets additifs de `hubson`, trois institutions,
+Service obligatoire et grain taxé; aucune clé brute ni évolution après
+plusieurs jours. L'intention canonique n'est toujours pas prouvée. Le verdict
+est `HBC_DUPLICATE_HISTORY_UNKNOWN_REQUIRES_REVIEW`; 6A.14HF n'est pas
+sélectionnée. Coup converge sur le pinning moderne mais comporte des
 divergences adjacentes de scope, lobby, lois et cooldown; son audit reste
 séparé.
 
@@ -199,6 +219,11 @@ global, `HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv` et cette
 roadmap. Aucun gameplay ne change et le prompt de phase suivante reste
 inchangé.
 
+6A.14H modifie ou crée exactement cinq documents : son rapport, l'index
+global, `HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv` et cette
+roadmap. Aucun gameplay ne change et
+`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md` reste inchangé.
+
 ## 25. Modèle recommandé
 
 GPT-5.6 Thinking avec raisonnement élevé.
@@ -211,15 +236,26 @@ une même session pendant plusieurs jours : Merchant Banking est active,
 les logs ne contiennent aucune erreur ciblée. Le jeu et le launcher ont été
 fermés avant l’analyse.
 
+L'observation humaine HBC unique de 6A.14H est terminée : lois par groupe,
+gouvernement, idéologies, institutions, Service obligatoire et grain taxé ont
+été contrôlés au 1er janvier 1776 puis après plusieurs jours. Aucune clé brute
+ni évolution de loi ou de groupe d'intérêt n'a été observée. Les nouveaux logs
+n'ajoutent aucun diagnostic HBC ciblé. Victoria 3 a été fermé; l'état du
+launcher n'est pas attesté séparément. Codex n’a lancé ni piloté le jeu ou le
+launcher.
+
 ## 27. Nombre minimal de lancements
 
-Une seule session humaine a couvert deux inspections, GEN puis VEN. Codex n’a
-lancé ni piloté le jeu ou le launcher.
+Une seule session humaine a couvert deux inspections, GEN puis VEN. Un seul
+lancement supplémentaire a couvert toutes les observations HBC de la fiche
+6A.14H. Codex n’a lancé ni piloté le jeu ou le launcher.
 
 ## 28. Phases suivantes probables
 
 Aucune phase suivante n’est sélectionnée. 6A.14R est close et ne sélectionne
-pas 6A.14F. Les pistes documentées restantes sont :
+pas 6A.14F. 6A.14H est close statiquement et en runtime et ne sélectionne pas
+6A.14HF; une décision humaine de design doit d'abord identifier l'histoire HBC
+canonique et les lois finales voulues. Les pistes documentées restantes sont :
 
 1. `HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT` — audit seulement,
    un pinning théorique mais des divergences fonctionnelles adjacentes;
@@ -347,6 +383,15 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `GBR_NAVY_COLLISION_AUDITED`
 `HBC_DOUBLE_DEFINITION_AUDITED`
 `NAVIGATION_ACTS_STARTING_LAW_BLOCKED_BY_HBC_DEFINITION_CONFLICT`
+`HOTFIX_6A14H_HBC_DOUBLE_DEFINITION_RESOLUTION_AUDIT_COMPLETE`
+`HBC_HUBSON_AND_HUDSON_THREE_WAY_COMPARISON_COMPLETE`
+`HBC_SUSPICIOUS_IDENTIFIERS_AUDITED`
+`HBC_DUPLICATE_OBJECT_SEMANTICS_AUDITED`
+`HBC_DUPLICATE_HISTORY_RUNTIME_VALIDATION_COMPLETE`
+`HBC_COMPOSITE_START_CONFIRMED`
+`HBC_RUNTIME_STABLE_NO_RAW_KEYS`
+`HBC_DUPLICATE_HISTORY_UNKNOWN_REQUIRES_REVIEW`
+`NO_NEXT_EXECUTION_PHASE_SELECTED`
 `NO_NEXT_PHASE_SELECTED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
