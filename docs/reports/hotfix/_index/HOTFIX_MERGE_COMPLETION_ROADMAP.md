@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 et la phase DEI/VOC sont clos. Les alignements 6A.4F à 6A.12F sont clos. Le Portugal atteint le 2 janvier 1776 et l’entrée potentielle du colonialisme portugais est lisible sans clé brute. Les diagnostics de régions stratégiques passent de `186/186/373` à zéro et la baseline de pinning reste exactement de 374 diagnostics dans 140 fichiers. La prochaine sélection documentaire appartient à une phase distincte après commit manuel de 6A.12F.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.12F sont clos. La sélection documentaire 6A.13 est terminée sans changement gameplay : la baseline reste exactement de 374 diagnostics de pinning dans 140 fichiers, l’inventaire conserve ses 161 classifications et Merchant Banking GEN/VEN est l’unique prochaine exécution sélectionnée. Elle appartient à `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`, après commit manuel de 6A.13.
 
 Verdicts :
 
@@ -38,6 +38,9 @@ Verdicts :
 - `PORTUGUESE_COLONIALISM_INVALID_STRATEGIC_REGION_DIAGNOSTICS_REMOVED`
 - `PORTUGUESE_COLONIALISM_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_VALIDATED`
 - `HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT_COMPLETE`
+- `HOTFIX_6A13_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+- `GEN_VEN_MERCHANT_BANKING_STARTING_LAW_SELECTED`
+- `NEXT_EXECUTION_PHASE=HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`
 - `NO_GAMEPLAY_CHANGED`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
@@ -67,7 +70,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 6. Blocs non examinés
 
-6A.12F est exécutée et close. Aucun prochain correctif n'est sélectionné dans cette phase. Après commit manuel, une sélection documentaire distincte devra réexaminer les résidus sans ouvrir automatiquement Merchant Banking GEN/VEN, Navigation Acts, Coup, Imperialism of Promise, Tanzimat ou la répétition française du nom portugais. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, NAVY, BIC, Travancore ou MARATH.
+6A.13 est terminée et sélectionne exclusivement `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`, à exécuter après commit manuel de la documentation. Le futur correctif est borné à `gen - genoa.txt` et `ven - venetia.txt`, à leur loi de système économique de départ et à deux substitutions. Navigation Acts et Coup doivent chacun passer par un audit distinct. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -139,12 +142,12 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
-6A.12F est close statiquement et en runtime. Elle remplace uniquement les deux
-clés de régions stratégiques dans un fichier, un objet et un hunk unifié. Le
-Portugal atteint le 2 janvier 1776, l'entrée potentielle est lisible sans clé
-brute et les diagnostics ciblés `186/186/373` passent à zéro. La baseline de
-pinning reste `374/140`. Le conteneur compte 23 fichiers appliqués et 3 encore
-en attente.
+6A.13 est close statiquement et documentaire, sans changement gameplay ni
+runtime. Elle recalcule directement la baseline à `374/140`, dont 83 fichiers
+mono-erreur et 57 multi-erreurs, puis publie exactement trois candidats. Elle
+sélectionne uniquement Merchant Banking GEN/VEN : deux fichiers, deux objets,
+deux hunks futurs et deux substitutions. Le conteneur compte toujours 23
+fichiers appliqués et 3 encore en attente.
 
 Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
 7 `REQUIRED_HOTFIX_DELTA`, 15 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
@@ -153,22 +156,26 @@ Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
 Les 109 lignes directement exploitables ne représentent pas 109 correctifs.
 Le total historique de 26 reste `UNVERIFIED`.
 
-## 23. Pourquoi une nouvelle sélection est requise
+## 23. Pourquoi Merchant Banking est sélectionné
 
-La dette portugaise sélectionnée en 6A.12 est désormais close. Source hotfix et
-vanilla convergent sur `region_equatorial_africa` et `region_east_africa`; les
-définitions vanilla couvrent respectivement les espaces Congo/Angola et
-Mozambique, et le runtime confirme la disparition des diagnostics ciblés. Les
-autres candidats de 6A.12 n'ont pas été autorisés par 6A.12F. La répétition
-« Royaume de Portugal » reste un comportement systémique de localisation
-française exclu. Une nouvelle sélection documentaire est donc nécessaire avant
-toute autre exécution.
+Le changelog source annonce Merchant Banking pour les républiques maritimes et
+l’infrastructure requise est déjà présente dans le fork : loi, icône et
+localisations anglaise et française. Les histoires de Gênes et Venise divergent
+de la source sur une seule activation, `law_traditionalism` contre
+`law_merchant_banking`; vanilla ne possède pas ces deux fichiers. La correction
+future est donc strictement bornée à deux substitutions et ne touche ni
+`law_merchant_navy` ni la configuration des propriétaires fonciers.
+
+Navigation Acts est moins sûre : source et vanilla divergent, GBR croise le
+périmètre NAVY protégé et deux fichiers concurrents définissent HBC. Coup
+converge sur le pinning moderne mais comporte des divergences adjacentes de
+scope, lobby, lois et cooldown. Ces deux pistes restent des audits séparés.
 
 ## 24. Fichiers concernés
 
-6A.12F modifie exactement le fichier gameplay portugais, son rapport, l'index
-global, `HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv` et cette
-roadmap. `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md` reste inchangé.
+6A.13 modifie exactement six documents : son nouveau rapport, l’index global,
+`HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
+`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Aucun fichier gameplay n’est modifié.
 
 ## 25. Modèle recommandé
 
@@ -176,26 +183,31 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Le runtime humain unique de 6A.12F est terminé : Portugal du 1er au 2 janvier
-1776, inspection de « Além-mar africain », capture fournie, aucune clé brute et
-jeu puis launcher fermés avant l'analyse des logs.
+Aucun runtime n’est requis ni autorisé pour la sélection documentaire 6A.13.
+Le futur 6A.13F exigera un contrôle humain distinct de Gênes puis de Venise :
+loi Merchant Banking active au départ, interface lisible sans clé brute,
+`law_merchant_navy` préservée et absence de nouvelle erreur ciblée dans les
+logs. Le jeu et le launcher sont fermés pendant la présente phase.
 
 ## 27. Nombre minimal de lancements
 
-Un seul lancement humain a été effectué pour 6A.12F. Codex n'a jamais lancé ni
-piloté le jeu ou le launcher.
+Zéro lancement pour 6A.13. Le futur 6A.13F prévoit une seule session humaine
+avec deux inspections, GEN puis VEN. Codex ne doit ni lancer ni piloter le jeu
+ou le launcher.
 
 ## 28. Phases suivantes probables
 
-Aucune phase d'exécution suivante n'est sélectionnée ici. Après le commit
-manuel de 6A.12F, une phase documentaire distincte devra publier sa propre
-sélection. Merchant Banking GEN/VEN et l'audit Navigation Acts restent les
-candidats historiques classés deuxième et troisième en 6A.12, sans autorisation
-d'exécution implicite.
+1. `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW` — unique exécution
+   sélectionnée, après commit manuel de 6A.13.
+2. `HOTFIX_6A14R_NAVIGATION_ACTS_STARTING_LAW_AUDIT` — audit seulement, cinq
+   fichiers théoriques avec collisions GBR/NAVY et HBC.
+3. `HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT` — audit seulement,
+   un pinning théorique mais des divergences fonctionnelles adjacentes.
 
-Coup, Imperialism of Promise et les diagnostics Tanzimat demandent encore une
-résolution adjacente. L'activation Tanzimat propre à 1776 reste
-`OTTOMAN_TANZIMAT_1776_DEFERRED_ACTIVATION_DESIGN_BACKLOG`.
+Imperialism of Promise et les diagnostics Tanzimat demandent encore une
+résolution plus large. L’activation Tanzimat propre à 1776 reste
+`OTTOMAN_TANZIMAT_1776_DEFERRED_ACTIVATION_DESIGN_BACKLOG`; la répétition
+française du nom portugais reste systémique et exclue.
 
 ## 29. Critères de fin du merge
 
@@ -295,6 +307,9 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `PORTUGUESE_COLONIALISM_INVALID_STRATEGIC_REGION_DIAGNOSTICS_REMOVED`
 `PORTUGUESE_COLONIALISM_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_VALIDATED`
 `HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT_COMPLETE`
+`HOTFIX_6A13_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+`GEN_VEN_MERCHANT_BANKING_STARTING_LAW_SELECTED`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`
 `NO_GAMEPLAY_CHANGED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
