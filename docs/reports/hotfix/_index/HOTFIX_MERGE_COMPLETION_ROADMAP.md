@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.13F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. La baseline legacy reste exactement de 374 diagnostics de pinning. Aucune phase suivante n’est sélectionnée. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.13F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay : le scope théorique de cinq historiques se résout en huit fichiers gameplay pertinents, HBC a deux histoires concurrentes, GBR croise NAVY, et aucune phase corrective n'est sélectionnée. La baseline legacy reste exactement de 374 diagnostics de pinning. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
 
 Verdicts :
 
@@ -44,6 +44,8 @@ Verdicts :
 - `GEN_VEN_MERCHANT_NAVY_PRESERVED`
 - `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW_COMPLETE`
 - `MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG`
+- `HOTFIX_6A14R_NAVIGATION_ACTS_STARTING_LAW_AUDIT_COMPLETE`
+- `NAVIGATION_ACTS_STARTING_LAW_BLOCKED_BY_HBC_DEFINITION_CONFLICT`
 - `NO_NEXT_PHASE_SELECTED`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
@@ -59,7 +61,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 4. Blocs terminés
 
-- Infrastructure des lois Merchant Banking / Navigation Acts : intégrée par `d43e4f2` après les icônes `eca384e`; les activations de départ GEN/VEN sont closes par 6A.13F, tandis que GBR/colonies reste un delta Navigation Acts séparé et non sélectionné.
+- Infrastructure des lois Merchant Banking / Navigation Acts : intégrée par `d43e4f2` après les icônes `eca384e`; les activations de départ GEN/VEN sont closes par 6A.13F. L'audit 6A.14R confirme l'infrastructure Navigation Acts mais bloque tout alignement : deux histoires définissent HBC, GBR est protégé par NAVY, BIC et l'effet d'échec américain sont protégés, et le trigger de visibilité exclut les `chartered_company`.
 - Mamluk Iraq : chaîne `7cc8068` → `a24fe7e`; verdict administratif `MAMLUK_IRAQ_COMPLETE`, validation statique, runtime à consolider globalement.
 - Japon : chaîne `6dde080` → `2228ce8`, correction Ryukyu `72d03a3` et gate EZO `2228ce8`; verdict administratif `JAPAN_HOTFIX_COMPLETE`, validation statique, runtime à consolider globalement.
 - Inde : `HOTFIX_5_INDIA_COMPLETE`, commit `50ed582`, avec `SEPOY_RUNTIME_VALIDATION_COMPLETE`, `BOMBAY_TRIGGER_ACCESS_CONFIRMED`, `WEST_BENGAL_RETREAT_TRANSFER_EXPECTED` et `NO_FURTHER_INDIA_GAMEPLAY_FIX_REQUIRED`.
@@ -73,7 +75,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 6. Blocs non examinés
 
-6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. Navigation Acts et Coup doivent chacun passer par un audit distinct et restent non sélectionnés. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
+6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F sur le conflit HBC, avec collision NAVY secondaire. Coup doit encore passer par un audit distinct et reste non sélectionné. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -175,10 +177,15 @@ puissants ou trop modernes pour 1776 est séparée sous
 `MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG`; elle ne remet pas
 en cause la conformité du portage et ne modifie pas 6A.13F.
 
-Navigation Acts est moins sûre : source et vanilla divergent, GBR croise le
-périmètre NAVY protégé et deux fichiers concurrents définissent HBC. Coup
-converge sur le pinning moderne mais comporte des divergences adjacentes de
-scope, lobby, lois et cooldown. Ces deux pistes restent des audits séparés.
+Navigation Acts a été auditée par 6A.14R. La source possède six activations
+initiales et une activation événementielle, contre le scope théorique de cinq
+historiques. GBR croise le périmètre NAVY protégé; deux fichiers concurrents
+définissent HBC; HBC et BIC sont des `chartered_company` exclues du trigger de
+visibilité; ORA n'est pas sujet britannique. Le verdict principal est
+`NAVIGATION_ACTS_STARTING_LAW_BLOCKED_BY_HBC_DEFINITION_CONFLICT` et 6A.14F
+n'est pas sélectionnée. Coup converge sur le pinning moderne mais comporte des
+divergences adjacentes de scope, lobby, lois et cooldown; son audit reste
+séparé.
 
 ## 24. Fichiers concernés
 
@@ -186,6 +193,11 @@ scope, lobby, lois et cooldown. Ces deux pistes restent des audits séparés.
 GEN/VEN, son rapport, l’index global, `HOTFIX_REPORT_INDEX.csv`,
 `HOTFIX_MERGE_BLOCK_STATUS.csv` et cette roadmap.
 `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md` reste inchangé.
+
+6A.14R modifie ou crée exactement cinq documents : son rapport, l'index
+global, `HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv` et cette
+roadmap. Aucun gameplay ne change et le prompt de phase suivante reste
+inchangé.
 
 ## 25. Modèle recommandé
 
@@ -206,13 +218,12 @@ lancé ni piloté le jeu ou le launcher.
 
 ## 28. Phases suivantes probables
 
-Aucune phase suivante n’est sélectionnée. Les pistes documentées restent :
+Aucune phase suivante n’est sélectionnée. 6A.14R est close et ne sélectionne
+pas 6A.14F. Les pistes documentées restantes sont :
 
-1. `HOTFIX_6A14R_NAVIGATION_ACTS_STARTING_LAW_AUDIT` — audit seulement, cinq
-   fichiers théoriques avec collisions GBR/NAVY et HBC;
-2. `HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT` — audit seulement,
+1. `HOTFIX_6A15R_COUP_JOURNAL_ENTRY_1_13_FUNCTIONAL_AUDIT` — audit seulement,
    un pinning théorique mais des divergences fonctionnelles adjacentes;
-3. `MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG` — audit de design
+2. `MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG` — audit de design
    après le hotfix, sans modifier ni rouvrir 6A.13F.
 
 Imperialism of Promise et les diagnostics Tanzimat demandent encore une
@@ -331,6 +342,11 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `GEN_VEN_MERCHANT_NAVY_PRESERVED`
 `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW_COMPLETE`
 `MERCHANT_BANKING_1776_BALANCE_REVIEW_POST_HOTFIX_BACKLOG`
+`HOTFIX_6A14R_NAVIGATION_ACTS_STARTING_LAW_AUDIT_COMPLETE`
+`NAVIGATION_ACTS_FIVE_FILE_THEORETICAL_SCOPE_RESOLVED`
+`GBR_NAVY_COLLISION_AUDITED`
+`HBC_DOUBLE_DEFINITION_AUDITED`
+`NAVIGATION_ACTS_STARTING_LAW_BLOCKED_BY_HBC_DEFINITION_CONFLICT`
 `NO_NEXT_PHASE_SELECTED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
