@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 et la phase DEI/VOC sont clos. Les alignements 6A.4F à 6A.11F sont clos ; le Portugal atteint le 2 janvier 1776, l’entrée potentielle du colonialisme portugais est lisible et les deux diagnostics de pinning ciblés passent à zéro. La baseline courante est de 374 diagnostics dans 140 fichiers. 6A.12 est une phase strictement documentaire : elle sélectionne uniquement l’alignement de `region_congo` et `region_zanj` vers les deux clés de régions stratégiques Victoria 3 1.13.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2 et la phase DEI/VOC sont clos. Les alignements 6A.4F à 6A.12F sont clos. Le Portugal atteint le 2 janvier 1776 et l’entrée potentielle du colonialisme portugais est lisible sans clé brute. Les diagnostics de régions stratégiques passent de `186/186/373` à zéro et la baseline de pinning reste exactement de 374 diagnostics dans 140 fichiers. La prochaine sélection documentaire appartient à une phase distincte après commit manuel de 6A.12F.
 
 Verdicts :
 
@@ -34,6 +34,10 @@ Verdicts :
 - `HOTFIX_6A11F_PORTUGUESE_COLONIALISM_TWO_JE_PINNING_1_13_ALIGNMENT_COMPLETE`
 - `HOTFIX_6A12_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
 - `PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_SELECTED`
+- `HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_RUNTIME_PASS`
+- `PORTUGUESE_COLONIALISM_INVALID_STRATEGIC_REGION_DIAGNOSTICS_REMOVED`
+- `PORTUGUESE_COLONIALISM_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_VALIDATED`
+- `HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT_COMPLETE`
 - `NO_GAMEPLAY_CHANGED`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
@@ -63,7 +67,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 6. Blocs non examinés
 
-Le prochain travail exécutable est `HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT`, seulement après commit manuel de 6A.12. Il est limité à deux substitutions dans un fichier, un objet et un hunk unifié. Merchant Banking GEN/VEN, Navigation Acts, Coup, Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas inclus. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, NAVY, BIC, Travancore ou MARATH.
+6A.12F est exécutée et close. Aucun prochain correctif n'est sélectionné dans cette phase. Après commit manuel, une sélection documentaire distincte devra réexaminer les résidus sans ouvrir automatiquement Merchant Banking GEN/VEN, Navigation Acts, Coup, Imperialism of Promise, Tanzimat ou la répétition française du nom portugais. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -135,11 +139,12 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 
 `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS` reste le conteneur.
 
-6A.12 est close sur le plan documentaire et ne change aucun gameplay. Elle
-confirme la baseline `374/140`, publie exactement trois candidats et
-sélectionne un seul correctif futur :
-`HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT`.
-Le conteneur compte 22 fichiers appliqués et 4 encore en attente.
+6A.12F est close statiquement et en runtime. Elle remplace uniquement les deux
+clés de régions stratégiques dans un fichier, un objet et un hunk unifié. Le
+Portugal atteint le 2 janvier 1776, l'entrée potentielle est lisible sans clé
+brute et les diagnostics ciblés `186/186/373` passent à zéro. La baseline de
+pinning reste `374/140`. Le conteneur compte 23 fichiers appliqués et 3 encore
+en attente.
 
 Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
 7 `REQUIRED_HOTFIX_DELTA`, 15 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
@@ -148,21 +153,22 @@ Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
 Les 109 lignes directement exploitables ne représentent pas 109 correctifs.
 Le total historique de 26 reste `UNVERIFIED`.
 
-## 23. Pourquoi il vient ensuite
+## 23. Pourquoi une nouvelle sélection est requise
 
-Source hotfix et vanilla convergent sur
-`region_equatorial_africa` et `region_east_africa`; les définitions vanilla
-couvrent respectivement les espaces Congo/Angola et Mozambique. Les anciennes
-clés génèrent 186 diagnostics chacune plus 373 diagnostics associés au scope
-`sr`. Le correctif futur est atomique : un fichier, un objet, un hunk unifié,
-deux additions et deux suppressions. La répétition « Royaume de Portugal » est
-un comportement systémique de localisation française et reste exclue.
+La dette portugaise sélectionnée en 6A.12 est désormais close. Source hotfix et
+vanilla convergent sur `region_equatorial_africa` et `region_east_africa`; les
+définitions vanilla couvrent respectivement les espaces Congo/Angola et
+Mozambique, et le runtime confirme la disparition des diagnostics ciblés. Les
+autres candidats de 6A.12 n'ont pas été autorisés par 6A.12F. La répétition
+« Royaume de Portugal » reste un comportement systémique de localisation
+française exclu. Une nouvelle sélection documentaire est donc nécessaire avant
+toute autre exécution.
 
 ## 24. Fichiers concernés
 
-6A.12 modifie uniquement son rapport de sélection, l’index global,
-`HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
-le prompt autonome de la phase suivante. Aucun fichier gameplay n’est modifié.
+6A.12F modifie exactement le fichier gameplay portugais, son rapport, l'index
+global, `HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv` et cette
+roadmap. `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md` reste inchangé.
 
 ## 25. Modèle recommandé
 
@@ -170,22 +176,22 @@ GPT-5.6 Thinking avec raisonnement élevé.
 
 ## 26. Besoin de runtime
 
-Pas de runtime en 6A.12. 6A.12F exigera un runtime humain condensé avec le
-Portugal du 1er au 2 janvier 1776, puis l’inspection de « Além-mar africain ».
-Codex devra s’arrêter sur `RUNTIME_OPERATOR_ACTION_REQUIRED`.
+Le runtime humain unique de 6A.12F est terminé : Portugal du 1er au 2 janvier
+1776, inspection de « Além-mar africain », capture fournie, aucune clé brute et
+jeu puis launcher fermés avant l'analyse des logs.
 
 ## 27. Nombre minimal de lancements
 
-Zéro lancement pour 6A.12. Un seul lancement humain sera requis pour 6A.12F.
+Un seul lancement humain a été effectué pour 6A.12F. Codex n'a jamais lancé ni
+piloté le jeu ou le launcher.
 
 ## 28. Phases suivantes probables
 
-1. `HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT`,
-   sélectionné, après commit manuel de 6A.12.
-2. `HOTFIX_6A13F_GEN_VEN_MERCHANT_BANKING_STARTING_LAW`, candidat classé
-   second, à ouvrir séparément.
-3. `HOTFIX_6A14R_NAVIGATION_ACTS_STARTING_LAW_AUDIT`, candidat classé
-   troisième en raison de la divergence vanilla et de la collision GBR/NAVY.
+Aucune phase d'exécution suivante n'est sélectionnée ici. Après le commit
+manuel de 6A.12F, une phase documentaire distincte devra publier sa propre
+sélection. Merchant Banking GEN/VEN et l'audit Navigation Acts restent les
+candidats historiques classés deuxième et troisième en 6A.12, sans autorisation
+d'exécution implicite.
 
 Coup, Imperialism of Promise et les diagnostics Tanzimat demandent encore une
 résolution adjacente. L'activation Tanzimat propre à 1776 reste
@@ -222,7 +228,6 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 ## 36. Verdict
 
 `NEXT_MERGE_BLOCK = HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`  
-`NEXT_EXECUTION_PHASE = HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT`
 `AUSTRIA_CROATIA_WEST_SWITZERLAND_TARGETED_FIX_COMPLETE`
 `HOTFIX_6A3_DEI_TARGETED_AUDIT_COMPLETE`
 `HOTFIX_6A3R_DEI_BREAKUP_HUNK_RESOLUTION_COMPLETE`
@@ -283,7 +288,13 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `HOTFIX_6A11F_PORTUGUESE_COLONIALISM_TWO_JE_PINNING_1_13_ALIGNMENT_COMPLETE`
 `HOTFIX_6A12_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
 `PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_SELECTED`
-`NEXT_EXECUTION_PHASE=HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT`
+`HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_STATIC_PASS`
+`PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_ONE_HUNK_1_13_ALIGNMENT_COMPLETE`
+`PORTUGUESE_COLONIALISM_SCOPE_NAMES_PINNING_AND_PROGRESSION_UNCHANGED`
+`HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_RUNTIME_PASS`
+`PORTUGUESE_COLONIALISM_INVALID_STRATEGIC_REGION_DIAGNOSTICS_REMOVED`
+`PORTUGUESE_COLONIALISM_1776_VISIBILITY_GEOGRAPHY_AND_PROGRESSION_VALIDATED`
+`HOTFIX_6A12F_PORTUGUESE_COLONIALISM_STRATEGIC_REGION_KEYS_1_13_ALIGNMENT_COMPLETE`
 `NO_GAMEPLAY_CHANGED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
