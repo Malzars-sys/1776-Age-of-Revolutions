@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.15F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'alignement Coup 6A.15F remplace uniquement le pinning obsolète de `je_ip4_coup` en un fichier, un objet et un hunk; le runtime Vietnam jusqu'au 10 janvier 1776 passe sans clé brute ni anomalie politique. L'erreur ciblée passe de 1 à 0 et la baseline legacy de `374/140` à `373/139`. La sélection 6A.16 réindexe 1 189 diagnostics script actuels. L'audit 6A.16R classe ensuite les 16 occurrences statiques `has_role`/`is_ruler` en neuf groupes sur sept objets. Les formes modernes sont prouvées, mais le dernier runtime survivant ne reproduit aucun diagnostic ciblé et les rotations disponibles ne contiennent plus `is_ruler`; aucune correction 6A.16F n'est donc sélectionnée. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.15F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'alignement Coup 6A.15F remplace uniquement le pinning obsolète de `je_ip4_coup` en un fichier, un objet et un hunk; le runtime Vietnam jusqu'au 10 janvier 1776 passe sans clé brute ni anomalie politique. L'erreur ciblée passe de 1 à 0 et la baseline legacy de `374/140` à `373/139`. La sélection 6A.16 réindexe 1 189 diagnostics script actuels. L'audit 6A.16R classe ensuite les 16 occurrences statiques `has_role`/`is_ruler` en neuf groupes sur sept objets sans sélectionner de correction. 6A.17R classe désormais les quinze groupes d'Imperialism of Promise : le dernier runtime ne reproduit aucun diagnostic ciblé, les deux `has_role` ne survivent que dans une rotation ancienne et le pinning n'a qu'une preuve historique/statique. Les changements de ruler, prominence et chef IG modifient le vivier; BIC, Inde, Sepoy, géographie, progression et événements utilitaristes restent protégés. Aucune correction 6A.17F n'est sélectionnée. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
 
 Verdicts :
 
@@ -70,6 +70,10 @@ Verdicts :
 - `COUP_EVENT_APIS_THREE_WAY_COMPARISON_COMPLETE`
 - `COUP_EVENT_API_GROUPS_CLASSIFIED`
 - `COUP_LOBBY_SPONSOR_CLEANUP_DELTAS_SEPARATED`
+- `HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT_COMPLETE`
+- `IMPERIALISM_OF_PROMISE_THREE_WAY_COMPARISON_COMPLETE`
+- `IMPERIALISM_OF_PROMISE_FUNCTIONAL_GROUPS_CLASSIFIED`
+- `BIC_INDIA_GEOGRAPHY_PROGRESSION_DELTAS_PROTECTED`
 - `NO_NEXT_EXECUTION_PHASE_SELECTED`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
@@ -102,7 +106,7 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 
 ## 6. Blocs non examinés
 
-6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. L'alignement de pinning Coup 6A.15F est terminé statiquement et en runtime. L'audit 6A.16R des API obsolètes est terminé sans correction sélectionnée; lobby, sponsor, scopes, lois, cooldowns, cleanup et invalidations restent distincts. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
+6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. L'alignement de pinning Coup 6A.15F est terminé statiquement et en runtime. L'audit 6A.16R des API obsolètes est terminé sans correction sélectionnée; lobby, sponsor, scopes, lois, cooldowns, cleanup et invalidations restent distincts. L'audit Imperialism of Promise 6A.17R est terminé sans correction sélectionnée : pinning et API de rôles restent non autorisés faute de diagnostic actuel; les changements de vivier restent à revoir. Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -275,6 +279,11 @@ documents : son rapport, l'index global, `HOTFIX_REPORT_INDEX.csv`,
 `HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
 `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Aucun gameplay ne change.
 
+6A.17R crée ou modifie exactement cinq documents : son rapport, l'index global,
+`HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv` et cette roadmap.
+Le prompt 6A.17R reste inchangé comme preuve historique. Aucun gameplay ne
+change et aucun prompt 6A.17F n'est créé.
+
 ## 25. Modèle recommandé
 
 GPT-5.6 Thinking avec raisonnement élevé.
@@ -318,8 +327,14 @@ cooldowns, cleanup ou invalidations.
 L'audit statique `HOTFIX_6A16R_COUP_EVENT_APIS_1_13_FUNCTIONAL_AUDIT` est
 terminé sans gameplay. Il classe les 16 occurrences des deux fichiers et
 sépare les remplacements API des deltas lobby, sponsor, scopes et lifecycle.
-Aucune future phase corrective n'est sélectionnée; une nouvelle sélection
-documentaire du résidu global est nécessaire avant toute exécution.
+
+L'audit `HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT` est aussi
+terminé sans gameplay. Les trois hunks sont séparés, quinze groupes sont
+classés et les hashes atomiques sont calculés. Aucun candidat n'a de diagnostic
+actuel dans le dernier runtime; le bloc de rôles complet change en outre le
+vivier de personnages. Aucune future phase corrective n'est sélectionnée; une
+nouvelle sélection documentaire du résidu global est nécessaire avant toute
+exécution.
 
 6A.14R reste close sans 6A.14F. 6A.14H reste close sans 6A.14HF; une décision
 humaine de design doit toujours identifier l'histoire HBC canonique et les lois
@@ -487,6 +502,11 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `HBC_AND_NAVIGATION_ACTS_REMAIN_BLOCKED`
 `IMPERIALISM_OF_PROMISE_1_13_AUDIT_SELECTED`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT`
+`HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT_COMPLETE`
+`IMPERIALISM_OF_PROMISE_THREE_WAY_COMPARISON_COMPLETE`
+`IMPERIALISM_OF_PROMISE_FUNCTIONAL_GROUPS_CLASSIFIED`
+`BIC_INDIA_GEOGRAPHY_PROGRESSION_DELTAS_PROTECTED`
+`NO_NEXT_EXECUTION_PHASE_SELECTED`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
 
@@ -590,3 +610,37 @@ Aucune correction, aucun gameplay et aucun runtime ne sont commencés.
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `IMPERIALISM_OF_PROMISE_1_13_AUDIT_SELECTED`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT`
+
+## 42. Audit fonctionnel Imperialism of Promise 6A.17R — 4 août 2026
+
+Le fork, la source et vanilla conservent leurs hashes d'entrée exacts. Les
+diffs fork/source et fork/vanilla comptent chacun trois hunks : composition du
+vivier de personnages, enveloppe du tooltip de bureaucratie et pinning 1.13.
+Le rôle IG source-only est valide techniquement mais absent de l'objet vanilla
+et non justifié par les changelogs; ruler et prominence changent également la
+disponibilité fonctionnelle. Ils ne sont pas fusionnés avec les simples
+modernisations `has_role_of_type`.
+
+Le dernier runtime survivant contient zéro diagnostic parser/PostValidate
+attribuable au fichier. Les erreurs `agitator` et `politician` subsistent
+uniquement dans `game.3.log`; la preuve de pinning ne subsiste que dans les
+rapports historiques. Les quatre avertissements actuels sur des révoltes sont
+chacun inclus dans une rafale de 133 à 136 types de JE et sont classés comme
+transferts génériques, sans attribution au hunk cible.
+
+Le pinning seul reste calculable à 2934 octets et au hash
+`EF5200E0B9E7A58AF904C73CDD82F3CC4009FFE0CA9364952F793AB4F3E2A682`,
+mais la condition obligatoire de diagnostic actuel échoue. BIC, Inde, Sepoy,
+géographie, progression et événements utilitaristes restent fermés. Aucun
+6A.17F n'est sélectionné et le prompt 6A.17R reste une preuve historique.
+
+`HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT_COMPLETE`
+`IMPERIALISM_OF_PROMISE_THREE_WAY_COMPARISON_COMPLETE`
+`IMPERIALISM_OF_PROMISE_FUNCTIONAL_GROUPS_CLASSIFIED`
+`BIC_INDIA_GEOGRAPHY_PROGRESSION_DELTAS_PROTECTED`
+`NO_GAMEPLAY_CHANGED`
+`NO_RUNTIME_REQUIRED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`NO_NEXT_EXECUTION_PHASE_SELECTED`
