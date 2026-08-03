@@ -480,6 +480,13 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `COUP_LOBBY_SPONSOR_CLEANUP_DELTAS_SEPARATED`
 `NO_NEXT_EXECUTION_PHASE_SELECTED`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`HOTFIX_6A17_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+`POST_6A16R_RESIDUAL_DIAGNOSTICS_REINDEXED`
+`RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE`
+`COUP_EVENT_APIS_REMAIN_UNSELECTED`
+`HBC_AND_NAVIGATION_ACTS_REMAIN_BLOCKED`
+`IMPERIALISM_OF_PROMISE_1_13_AUDIT_SELECTED`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
 
@@ -549,3 +556,37 @@ preuve historique.
 `STASH_NAVY_3C_3_INTACT`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `NO_NEXT_EXECUTION_PHASE_SELECTED`
+
+## 41. Sélection résiduelle 6A.17 — 4 août 2026
+
+La réindexation post-6A.16R confirme la distribution canonique des 161 lignes :
+`7` deltas hotfix requis, `15` alignements vanilla 1.13, `19` déjà fusionnés,
+`3` divergences intentionnelles, `1` contenu hotfix obsolète, `10` backlogs,
+`19` travaux protégés et `87` inconnus.
+
+Le dernier runtime ne reproduit aucune erreur parser/PostValidate ciblée dans
+les cinq candidats obligatoires. Les signaux courants sont soit non bornables,
+soit protégés, soit communs à fork/source/vanilla. `add_declared_interest` n'a
+aucune syntaxe moderne démontrée et recoupe une clôture Inde; Tanzimat reste un
+backlog de design; les deux erreurs de localisation sont navales; ADMIN ne
+porte aucun diagnostic ciblé.
+
+`je_imperialism_of_promise` reste néanmoins le meilleur audit P1 : un fichier,
+un objet, trois hashes et trois hunks connus. Source et vanilla convergent sur
+le pinning mais divergent sur le jeu de rôles, tandis que BIC, Inde, géographie,
+progression et Sepoy restent formellement protégés. Seul l'audit documentaire
+`HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT` est sélectionné.
+Aucune correction, aucun gameplay et aucun runtime ne sont commencés.
+
+`HOTFIX_6A17_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+`POST_6A16R_RESIDUAL_DIAGNOSTICS_REINDEXED`
+`RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE`
+`COUP_EVENT_APIS_REMAIN_UNSELECTED`
+`HBC_AND_NAVIGATION_ACTS_REMAIN_BLOCKED`
+`NO_GAMEPLAY_CHANGED`
+`NO_RUNTIME_REQUIRED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`IMPERIALISM_OF_PROMISE_1_13_AUDIT_SELECTED`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT`
