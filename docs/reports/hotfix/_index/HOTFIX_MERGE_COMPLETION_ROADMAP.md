@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.15F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'alignement Coup 6A.15F remplace uniquement le pinning obsolète de `je_ip4_coup` en un fichier, un objet et un hunk; le runtime Vietnam jusqu'au 10 janvier 1776 passe sans clé brute ni anomalie politique. L'erreur ciblée passe de 1 à 0 et la baseline legacy de `374/140` à `373/139`. Les deltas fonctionnels d'événements, scopes, lobby, lois et lifecycle restent différés. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.15F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'alignement Coup 6A.15F remplace uniquement le pinning obsolète de `je_ip4_coup` en un fichier, un objet et un hunk; le runtime Vietnam jusqu'au 10 janvier 1776 passe sans clé brute ni anomalie politique. L'erreur ciblée passe de 1 à 0 et la baseline legacy de `374/140` à `373/139`. La sélection 6A.16 réindexe 1 189 diagnostics script actuels et choisit un audit fonctionnel en lecture seule des 16 diagnostics `has_role`/`is_ruler` des deux fichiers d'événements Coup. Aucun gameplay ou runtime n'est autorisé par cette sélection. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
 
 Verdicts :
 
@@ -62,6 +62,10 @@ Verdicts :
 - `HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_RUNTIME_PASS`
 - `COUP_JOURNAL_ENTRY_PINNING_PARSER_ERROR_1_TO_0`
 - `HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT_COMPLETE`
+- `HOTFIX_6A16_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+- `POST_6A15F_RESIDUAL_DIAGNOSTICS_REINDEXED`
+- `RESIDUAL_CANDIDATE_PRIORITY_MATRIX_COMPLETE`
+- `COUP_EVENT_APIS_1_13_AUDIT_SELECTED`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
@@ -87,13 +91,13 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 - Autriche/Croatie/Suisse : paquet complet, contrôles statiques et runtime passés; 30 K habitants en Suisse autrichienne et 2,30 K / 2,30 K marins confirmés.
 - DEI : paquet complet; CEY/SAF, Java, Indonésie, refus, drapeaux, nettoyages VOC, économie post-compagnie et persistance après rechargement validés.
 - HBC : audit statique et runtime 6A.14H terminé; composition `hubson` + `hudson` stable confirmée sans clé brute; intention canonique encore à décider.
-- Coup : pinning 1.13 de `je_ip4_coup` clos statiquement et en runtime par 6A.15F; erreur ciblée supprimée et fichiers événementiels inchangés.
+- Coup : pinning 1.13 de `je_ip4_coup` clos statiquement et en runtime par 6A.15F; erreur ciblée supprimée. Les deux fichiers événementiels restent inchangés et leurs 16 diagnostics API sont sélectionnés pour l'audit statique 6A.16R.
 - Runtime global : non exécuté pendant C1AI.
 - Audit final de branche : à faire après les derniers blocs P0/P1.
 
 ## 6. Blocs non examinés
 
-6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. L'alignement de pinning Coup 6A.15F est terminé statiquement et en runtime. Les deux fichiers d'événements Coup et tous leurs deltas fonctionnels restent non sélectionnés. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
+6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. L'alignement de pinning Coup 6A.15F est terminé statiquement et en runtime. 6A.16 sélectionne seulement un audit des API obsolètes des deux fichiers d'événements Coup; lobby, sponsor, scopes, lois, cooldowns, cleanup et invalidations restent distincts. Imperialism of Promise, Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -169,10 +173,19 @@ Les 984 fichiers ont déjà été audités et aucun gameplay non fusionné n’y
 une substitution alignent le pinning de `je_ip4_coup` sur l'API 1.13, sans
 modifier les événements Coup ni leurs scopes, lobbies, lois ou lifecycle.
 L’opérateur a validé le Vietnam jusqu'au 10 janvier 1776 et les logs ramènent
-l'erreur ciblée de 1 à 0. Le conteneur compte désormais 26 fichiers appliqués
-et aucun fichier sélectionné encore en attente. Aucune phase corrective
-suivante n'est sélectionnée par 6A.15F; la revue documentaire résiduelle
-continue.
+l'erreur ciblée de 1 à 0.
+
+6A.16 confirme la baseline `373/139`, déduplique 1 189 diagnostics script
+actuels et sélectionne :
+
+```text
+HOTFIX_6A16R_COUP_EVENT_APIS_1_13_FUNCTIONAL_AUDIT
+```
+
+Cette phase auditera en lecture seule les 16 diagnostics `has_role` et
+`is_ruler` de `ip4_coup_events.txt` et `coup_events.txt`. Elle ne constitue
+pas une autorisation de correction et n'absorbe pas la chaîne lobby/sponsor,
+les scopes, lois, cooldowns, cleanup ou invalidations.
 
 Les 161 anciennes lignes `PENDING_REVIEW` sont désormais réparties en
 7 `REQUIRED_HOTFIX_DELTA`, 15 `VANILLA_1_13_ALIGNMENT_REQUIRED`,
@@ -253,6 +266,10 @@ documents : son rapport, l'index global, `HOTFIX_REPORT_INDEX.csv`,
 `HOTFIX_MERGE_BLOCK_STATUS.csv` et cette roadmap.
 `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md` reste inchangé.
 
+6A.16 crée ou modifie exactement six documents : son rapport, l'index global,
+`HOTFIX_REPORT_INDEX.csv`, `HOTFIX_MERGE_BLOCK_STATUS.csv`, cette roadmap et
+`HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`. Aucun gameplay ne change.
+
 ## 25. Modèle recommandé
 
 GPT-5.6 Thinking avec raisonnement élevé.
@@ -291,8 +308,12 @@ Codex n’a lancé ni piloté le jeu ou le launcher.
 6A.15F est terminée. Elle n'a modifié que la propriété de pinning dans
 `common/journal_entries/01_coup.txt`, un fichier, un objet et un hunk `1+/1-`.
 Elle n'a modifié ni les événements Coup, ni les scopes, lobbies, lois,
-cooldowns, cleanup ou invalidations. Aucune nouvelle phase corrective n'est
-sélectionnée ici; `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`.
+cooldowns, cleanup ou invalidations.
+
+La prochaine phase est l'audit statique
+`HOTFIX_6A16R_COUP_EVENT_APIS_1_13_FUNCTIONAL_AUDIT`. Elle doit classer les
+16 diagnostics des deux fichiers d'événements sans changer le gameplay et
+séparer les remplacements API des deltas lobby, sponsor, scopes et lifecycle.
 
 6A.14R reste close sans 6A.14F. 6A.14H reste close sans 6A.14HF; une décision
 humaine de design doit toujours identifier l'histoire HBC canonique et les lois
@@ -438,6 +459,15 @@ Principaux risques : remplacement complet de fichiers globaux, collision NAVY/AD
 `HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_RUNTIME_PASS`
 `COUP_JOURNAL_ENTRY_PINNING_PARSER_ERROR_1_TO_0`
 `HOTFIX_6A15F_COUP_JOURNAL_ENTRY_1_13_ALIGNMENT_COMPLETE`
+`HOTFIX_6A16_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE`
+`POST_6A15F_RESIDUAL_DIAGNOSTICS_REINDEXED`
+`RESIDUAL_CANDIDATE_PRIORITY_MATRIX_COMPLETE`
+`NO_GAMEPLAY_CHANGED`
+`NO_RUNTIME_REQUIRED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`COUP_EVENT_APIS_1_13_AUDIT_SELECTED`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A16R_COUP_EVENT_APIS_1_13_FUNCTIONAL_AUDIT`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 
 ## 37. Mise à jour DEI 6A.3F — 28 juillet 2026
@@ -464,3 +494,18 @@ de `374/140` à `373/139`. Les huit diagnostics d'API de
 `ip4_coup_events.txt` et les huit de `coup_events.txt` restent hors périmètre;
 les deux fichiers événementiels sont inchangés. Les événements, scopes,
 lobbies, lois, cooldowns, cleanup et invalidations restent différés.
+
+## 39. Sélection résiduelle 6A.16 — 30 juillet 2026
+
+La réindexation des journaux courants déduplique 1 189 diagnostics script et
+confirme la baseline de pinning `373/139`. Les deux fichiers d'événements Coup
+portent 16 diagnostics actuels : dix `has_role` invalides ou rejetés et six
+`is_ruler` inconnus, répartis sur sept objets.
+
+Source hotfix et vanilla convergent sur plusieurs formes modernes
+`has_role_of_type` et `is_ruler_of_own_country`, mais divergent sur des
+garde-fous et effets adjacents. 6A.16 sélectionne donc uniquement l'audit
+fonctionnel en lecture seule
+`HOTFIX_6A16R_COUP_EVENT_APIS_1_13_FUNCTIONAL_AUDIT`. Aucun hunk gameplay,
+runtime ou commit automatique n'est autorisé. La chaîne `.11`, le lobby, le
+sponsor, les scopes et le cleanup restent séparés.
