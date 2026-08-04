@@ -1,4 +1,25 @@
-# Prochaine phase — audit du mécanisme d'initialisation des intérêts 1.13
+# Prochaine phase — aucune phase d'exécution sélectionnée
+
+État canonique après
+`HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT` :
+
+```text
+DECLARED_INTEREST_1_13_REPLACEMENT_MECHANISM_UNPROVEN
+NO_NEXT_EXECUTION_PHASE_SELECTED
+```
+
+Ne commencer aucune correction de `common/history/interests/00_interests.txt`,
+aucun remappage de région et aucune création de traité, pacte, sujet, présence
+militaire ou valeur d'implication. Une future phase exige d'abord une décision
+de design humaine sur les sources naturelles d'implication 1.13 et leur
+équilibrage en 1776.
+
+Le prompt ci-dessous est conservé uniquement comme preuve historique de la
+phase 6A.18R2 désormais exécutée. Il ne constitue plus une instruction active.
+
+---
+
+# Prompt historique — audit du mécanisme d'initialisation des intérêts 1.13
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave :

@@ -12,6 +12,16 @@ rejette les 91 actions du fichier par `Unknown effect add_declared_interest`.
 Une recherche en lecture seule du mécanisme d'initialisation 1.13 est la seule
 phase suivante sélectionnée; aucune correction gameplay ne l'est.
 
+Mise à jour 6A.18R2 : `add_involvement` est bien un effet script enregistré,
+avec une signature pays/région/valeur et deux exemples événementiels vanilla.
+Il ajoute toutefois seulement à l'implication courante et ne modifie ni la
+cible, ni une source durable, ni un rang direct. Les cibles durables sont
+calculées à partir de la capitale, du territoire, des revendications, du PIB,
+des armées, des flottes, des traités et des pactes. Aucun exemple historique
+jour 1 et aucune conversion sans rééquilibrage des 91 lignes ne sont prouvés.
+Le mécanisme de remplacement reste donc non démontré et aucune prochaine phase
+d'exécution n'est sélectionnée.
+
 Verdicts :
 
 - `MERGE_REMAINING_WORK_INDEXED`
@@ -92,6 +102,11 @@ Verdicts :
 - `DECLARED_INTEREST_LEGACY_EFFECT_RUNTIME_FAIL`
 - `DECLARED_INTEREST_HISTORY_API_INVALIDITY_CONFIRMED`
 - `NEXT_EXECUTION_PHASE = HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT`
+- `HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT_COMPLETE`
+- `DECLARED_INTEREST_1_13_INITIALIZATION_PATHS_AUDITED`
+- `DECLARED_INTEREST_LEGACY_AND_INVOLVEMENT_SEMANTICS_SEPARATED`
+- `DECLARED_INTEREST_1_13_REPLACEMENT_MECHANISM_UNPROVEN`
+- `NO_NEXT_EXECUTION_PHASE_SELECTED`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
@@ -783,3 +798,39 @@ mécanisme 1.13 équivalent.
 `DECLARED_INTEREST_LEGACY_EFFECT_RUNTIME_FAIL`
 `DECLARED_INTEREST_HISTORY_API_INVALIDITY_CONFIRMED`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT`
+
+## 46. Audit du mécanisme d'initialisation 1.13 6A.18R2 — 4 août 2026
+
+L'audit distingue désormais une API d'écriture réelle des sources durables du
+moteur. `add_involvement` possède une entrée de registre
+`CAddInvolvementEffect`, une signature pays/région/valeur et deux exemples
+vanilla : la crise égyptienne et les guerres de l'opium. L'effet ajoute à la
+valeur courante; il ne modifie pas la cible et n'enregistre pas une source dans
+sa ventilation.
+
+La cible est recalculée depuis la capitale et son voisinage, les possessions,
+revendications et le PIB, la présence des armées et flottes, les articles de
+traité et les pactes diplomatiques. Les relations de sujet donnent entre 2500
+et 8000 de cible maximale dans les régions où le suzerain est local; un port de
+traité en donne 3000 et un privilège commercial 1000. Ces objets sont de vraies
+relations gameplay et ne peuvent pas être créés pour remplacer une liste fixe
+sans décision d'équilibrage.
+
+Le vanilla ne contient aucun `add_involvement` dans `common/history`. L'ordre
+et la persistance d'une impulsion dans la racine legacy du fork ne sont pas
+prouvés, et le recalcul hebdomadaire ferait décroître toute valeur courante
+supérieure à sa cible naturelle. La crise égyptienne possède un remplacement
+vanilla ponctuel, tandis que vanilla supprime l'ancien ajout d'intérêt de
+l'événement indochinois. Les 91 lignes n'ont donc pas une migration mécanique
+commune.
+
+`HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT_COMPLETE`
+`DECLARED_INTEREST_1_13_INITIALIZATION_PATHS_AUDITED`
+`DECLARED_INTEREST_LEGACY_AND_INVOLVEMENT_SEMANTICS_SEPARATED`
+`NO_GAMEPLAY_CHANGED`
+`NO_RUNTIME_REQUIRED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`DECLARED_INTEREST_1_13_REPLACEMENT_MECHANISM_UNPROVEN`
+`NO_NEXT_EXECUTION_PHASE_SELECTED`
