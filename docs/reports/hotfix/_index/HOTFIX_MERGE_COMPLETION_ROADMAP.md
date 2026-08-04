@@ -834,3 +834,37 @@ commune.
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `DECLARED_INTEREST_1_13_REPLACEMENT_MECHANISM_UNPROVEN`
 `NO_NEXT_EXECUTION_PHASE_SELECTED`
+
+## 47. Retrait de l'historique obsolète des intérêts 6A.18F1 — 4 août 2026
+
+La décision humaine retire la liste fixe obsolète sans la convertir en sources
+d'implication artificielles. Le blob Git supprimé est conforme à la baseline :
+4415 octets, hash
+`A528418D3C18379C1175E6B469C0313D0AF8C7CC04E80BBE6382F72A097F5DBD`,
+91 actions, 28 pays et 45 régions distinctes. La suppression complète de
+`common/history/interests/00_interests.txt` est le seul delta gameplay; le
+dossier est absent et le vanilla 1.13 ne possède plus ce chargeur historique.
+
+L'unique runtime humain avec l'Autriche au 1er janvier 1776 confirme les six
+implications naturelles inchangées : Balkans 6324, Europe centrale 4176,
+Europe de l'Est 3969, Europe du Sud 3320, Europe de l'Ouest 2300 et Europe du
+Nord 1500. Sud de la Chine et Canada restent tous deux sans implication
+autrichienne. Les diagnostics du fichier supprimé passent de 91 à 0, sans
+erreur de fichier ou dossier manquant.
+
+Les deux effets legacy événementiels restent inchangés et séparés. Seule la
+crise égyptienne possède un hunk vanilla 1.13 directement comparable; la
+prochaine phase sélectionnée est donc F2. L'Indochine n'est pas sélectionnée.
+
+`HOTFIX_6A18F1_RETIRE_OBSOLETE_DECLARED_INTEREST_HISTORY_COMPLETE`
+`DECLARED_INTEREST_HISTORY_FILE_DELETION_STATIC_PASS`
+`OBSOLETE_HISTORY_FILE_REMOVED_FROM_ACTIVE_MOD`
+`DECLARED_INTEREST_OBSOLETE_HISTORY_RETIREMENT_RUNTIME_PASS`
+`DECLARED_INTEREST_FILE_DIAGNOSTICS_91_TO_0`
+`DECLARED_INTEREST_NATURAL_INVOLVEMENT_NON_REGRESSION_PASS`
+`TWO_EVENT_LEGACY_OCCURRENCES_REMAIN_SEPARATE`
+`NO_ADDITIONAL_GAMEPLAY_CHANGED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A18F2_EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_ALIGNMENT`

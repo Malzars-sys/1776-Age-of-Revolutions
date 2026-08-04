@@ -1,21 +1,23 @@
-# Prochaine phase — aucune phase d'exécution sélectionnée
+# Prochaine phase — correction atomique de la crise égyptienne 6A.18F2
 
 État canonique après
-`HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT` :
+`HOTFIX_6A18F1_RETIRE_OBSOLETE_DECLARED_INTEREST_HISTORY` :
 
 ```text
-DECLARED_INTEREST_1_13_REPLACEMENT_MECHANISM_UNPROVEN
-NO_NEXT_EXECUTION_PHASE_SELECTED
+DECLARED_INTEREST_OBSOLETE_HISTORY_RETIREMENT_RUNTIME_PASS
+DECLARED_INTEREST_FILE_DIAGNOSTICS_91_TO_0
+NEXT_EXECUTION_PHASE = HOTFIX_6A18F2_EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_ALIGNMENT
 ```
 
-Ne commencer aucune correction de `common/history/interests/00_interests.txt`,
-aucun remappage de région et aucune création de traité, pacte, sujet, présence
-militaire ou valeur d'implication. Une future phase exige d'abord une décision
-de design humaine sur les sources naturelles d'implication 1.13 et leur
-équilibrage en 1776.
+Exécuter uniquement l'alignement atomique de
+`events/egyptian_crisis_events.txt` sur le hunk vanilla 1.13 : remplacer son
+unique `add_declared_interest` par `add_involvement` pour
+`sr:region_near_east`, valeur `2500`. Ne pas modifier `events/indochina.txt`,
+ne pas restaurer `common/history/interests/00_interests.txt` et ne créer aucune
+source naturelle d'implication supplémentaire.
 
 Le prompt ci-dessous est conservé uniquement comme preuve historique de la
-phase 6A.18R2 désormais exécutée. Il ne constitue plus une instruction active.
+phase 6A.18R2 exécutée. Il ne constitue plus une instruction active.
 
 ---
 
