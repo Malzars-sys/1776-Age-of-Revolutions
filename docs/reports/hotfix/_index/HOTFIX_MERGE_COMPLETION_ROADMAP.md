@@ -4,6 +4,14 @@
 
 Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.15F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'alignement Coup 6A.15F remplace uniquement le pinning obsolète de `je_ip4_coup` en un fichier, un objet et un hunk; le runtime Vietnam jusqu'au 10 janvier 1776 passe sans clé brute ni anomalie politique. L'erreur ciblée passe de 1 à 0 et la baseline legacy de `374/140` à `373/139`. La sélection 6A.16 réindexe 1 189 diagnostics script actuels. L'audit 6A.16R classe ensuite les 16 occurrences statiques `has_role`/`is_ruler` en neuf groupes sur sept objets sans sélectionner de correction. 6A.17R classe désormais les quinze groupes d'Imperialism of Promise : le dernier runtime ne reproduit aucun diagnostic ciblé, les deux `has_role` ne survivent que dans une rotation ancienne et le pinning n'a qu'une preuve historique/statique. Les changements de ruler, prominence et chef IG modifient le vivier; BIC, Inde, Sepoy, géographie, progression et événements utilitaristes restent protégés. Aucune correction 6A.17F n'est sélectionnée. 6A.18R audite les 91 effets historiques `add_declared_interest` sans trouver de preuve positive du registre, de la signature ou du chargeur 1.13; 58 arguments utilisent en outre 26 identifiants absents du registre stratégique actuel. Le remplacement reste inconnu, les cartographies GBR/BIC/POR restent protégées et aucune correction ni phase suivante n'est sélectionnée. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
 
+Mise à jour 6A.18Q : le runtime Autriche du 4 août 2026 transforme
+l'incertitude statique en invalidité confirmée. Le Sud de la Chine, pourtant
+présent à la ligne 126 avec une clé stratégique actuelle, et le Canada témoin
+affichent tous deux `Aucune implication Autrichienne`. Le `debug.log` courant
+rejette les 91 actions du fichier par `Unknown effect add_declared_interest`.
+Une recherche en lecture seule du mécanisme d'initialisation 1.13 est la seule
+phase suivante sélectionnée; aucune correction gameplay ne l'est.
+
 Verdicts :
 
 - `MERGE_REMAINING_WORK_INDEXED`
@@ -81,8 +89,9 @@ Verdicts :
 - `RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE`
 - `COUP_AND_IMPERIALISM_CORRECTIONS_REMAIN_UNSELECTED`
 - `HBC_AND_NAVIGATION_ACTS_REMAIN_BLOCKED`
-- `DECLARED_INTEREST_HISTORY_API_AUDIT_SELECTED`
-- `NEXT_EXECUTION_PHASE = HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT`
+- `DECLARED_INTEREST_LEGACY_EFFECT_RUNTIME_FAIL`
+- `DECLARED_INTEREST_HISTORY_API_INVALIDITY_CONFIRMED`
+- `NEXT_EXECUTION_PHASE = HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT`
 - `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 - `SAFE_TO_RETIRE_DISPOSABLE_AFTER_C1AI_COMMIT`
 
@@ -115,6 +124,11 @@ Résultat canonique : 534 fichiers fonctionnels différents ou unilatéraux. Les
 ## 6. Blocs non examinés
 
 6A.13F est terminée statiquement et en runtime. Les deux substitutions sont bornées à `gen - genoa.txt` et `ven - venetia.txt`; aucun effet adjacent de la source n’a été absorbé. L'audit Navigation Acts 6A.14R est terminé sans correction et bloque 6A.14F. L'audit HBC 6A.14H est terminé statiquement et en runtime sans correction; la fusion est prouvée, mais l'intention canonique reste inconnue et 6A.14HF n'est pas sélectionnée. L'alignement de pinning Coup 6A.15F est terminé statiquement et en runtime. L'audit 6A.16R des API obsolètes est terminé sans correction sélectionnée; lobby, sponsor, scopes, lois, cooldowns, cleanup et invalidations restent distincts. L'audit Imperialism of Promise 6A.17R est terminé sans correction sélectionnée : pinning et API de rôles restent non autorisés faute de diagnostic actuel; les changements de vivier restent à revoir. 6A.18 sélectionne uniquement un audit du registre et de la sémantique de `add_declared_interest`; les cinq actions cartographiques protégées ne font pas partie d'une future correction. Tanzimat et la répétition française du nom portugais ne sont pas autorisés. Ne pas rouvrir DEI/VOC, Balkan National Awakening, Yugoslavia, Risorgimento, nationalisme grec, Grande Crise orientale, Sick Man, Romania, Portugal, NAVY, BIC, Travancore ou MARATH.
+
+6A.18Q confirme désormais que l'effet legacy est inconnu du moteur et que les
+91 actions sont non fonctionnelles. 6A.18R2 est limité à l'identification du
+mécanisme 1.13 d'initialisation; aucun remappage de région et aucune correction
+des pays protégés ne sont autorisés à ce stade.
 
 ## 7. Contenu hotfix absent du fork
 
@@ -733,3 +747,39 @@ runtime futur minimal est décrit mais n'est ni lancé ni sélectionné. Le prom
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `DECLARED_INTEREST_HISTORY_API_REMAINS_UNRESOLVED`
 `NO_NEXT_EXECUTION_PHASE_SELECTED`
+
+## 45. Validation runtime des intérêts déclarés 6A.18Q — 4 août 2026
+
+Une nouvelle partie humaine avec l'Autriche est restée en pause au 1er janvier
+1776. Le fork et le hash cible ont été confirmés par l'opérateur. L'interface
+montre six implications autrichiennes européennes produites par le nouveau
+système : Balkans 6324, Europe centrale 4176, Europe de l'Est 3969, Europe du
+Sud 3320, Europe de l'Ouest 2300 et Europe du Nord 1500.
+
+Le contrôle positif Sud de la Chine est absent malgré
+`add_declared_interest = region_south_china` à la ligne 126. Son panneau et
+celui du Canada témoin affichent tous deux `Aucune implication Autrichienne`.
+Le contrôle UI est donc positif absent / témoin absent.
+
+La session courante `release/1.13.0` contient exactement 91 diagnostics
+`Unknown effect add_declared_interest` pour
+`common/history/interests/00_interests.txt`, dédupliqués en une cause, plus une
+occurrence dans chacun de deux fichiers événementiels. La ligne 126 est
+explicitement rejetée. Le fichier historique est atteint, mais l'effet n'est
+plus enregistré et aucune de ses actions ne s'exécute.
+
+Les 33 actions à région actuelle et les 58 actions à identifiant legacy sont
+donc toutes non fonctionnelles. Le remappage des 26 identifiants absents ne
+suffirait pas. Aucune correction directe n'est sélectionnée avant la preuve du
+mécanisme 1.13 équivalent.
+
+`HOTFIX_6A18Q_DECLARED_INTEREST_HISTORY_RUNTIME_VALIDATION_COMPLETE`
+`DECLARED_INTEREST_POSITIVE_AND_NEGATIVE_CONTROLS_EXECUTED`
+`DECLARED_INTEREST_RUNTIME_LOGS_DEDUPLICATED`
+`NO_GAMEPLAY_CHANGED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`DECLARED_INTEREST_LEGACY_EFFECT_RUNTIME_FAIL`
+`DECLARED_INTEREST_HISTORY_API_INVALIDITY_CONFIRMED`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT`

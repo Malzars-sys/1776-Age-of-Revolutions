@@ -1,103 +1,67 @@
-# Prompt autonome — HOTFIX-6A.18R
+# Prochaine phase — audit du mécanisme d'initialisation des intérêts 1.13
 
-Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The
-Great Wave :
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
+Wave :
 
 `1776_Age_of_Revolutions_fork`
 
-Tu dois exécuter exclusivement la phase documentaire suivante :
+Tu dois exécuter exclusivement la phase suivante :
 
-`HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT`
+`HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT`
 
-Cette phase doit auditer la validité 1.13 de l'effet historique
-`add_declared_interest` sans modifier aucun fichier gameplay.
+Cette phase est un audit en lecture seule. Elle ne doit appliquer aucune
+correction gameplay et ne doit pas lancer Victoria 3.
 
-## 1. Nature et objectif
+## 1. Objectif exact
 
-6A.18R est un audit :
+Le runtime 6A.18Q a confirmé que :
 
-- documentaire;
-- statique;
-- trois voies;
-- fonctionnel;
-- limité à un fichier historique et au registre de l'effet;
-- sans runtime.
+- `common/history/interests/00_interests.txt` est chargé;
+- ses 91 actions actives sont toutes atteintes;
+- le moteur 1.13 émet `Unknown effect add_declared_interest` pour chacune;
+- l'Autriche ne reçoit aucune implication au Sud de la Chine malgré la ligne
+  126;
+- le Canada témoin reste sans implication;
+- les intérêts visibles sont générés par le nouveau système d'implication.
 
-Il doit déterminer :
+6A.18R2 doit rechercher le mécanisme exact et documenté par lequel Victoria 3
+1.13 initialise ou augmente une implication régionale au démarrage. Il faut
+déterminer si un équivalent script utilisable existe avant toute correction.
 
-1. si `add_declared_interest` existe encore dans le moteur 1.13;
-2. s'il accepte un scope pays et une région stratégique en argument;
-3. si son absence des scripts vanilla signifie suppression, usage interne ou
-   simple absence de besoin vanilla;
-4. si les 91 actions du fork sont chargées, ignorées ou potentiellement
-   invalides;
-5. quel impact leur échec aurait sur les intérêts diplomatiques initiaux;
-6. quelles différences source/fork sont des cartographies protégées;
-7. si une future correction atomique est prouvable ou si aucune action ne doit
-   être sélectionnée.
+## 2. État d'entrée obligatoire
 
-Ne jamais inventer une API de remplacement. Ne commencer aucune correction.
+Branche : `hotfix-dlc-audit`.
 
-## 2. Chemins
+La phase 6A.18Q doit être commitée manuellement dans le HEAD avec le message :
 
-Fork de travail :
+`Validate declared interest history runtime for 1.13`
 
-`C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
+Rapport obligatoire :
 
-Source hotfix, lecture seule :
+`docs/reports/hotfix/_index/HOTFIX_6A18Q_DECLARED_INTEREST_HISTORY_RUNTIME_VALIDATION.md`
 
-`C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_hotfix_source`
-
-Vanilla Victoria 3 1.13, lecture seule :
-
-`C:\Games\Victoria 3 The Great Wave\game`
-
-Logs existants, lecture seule :
-
-`C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\logs`
-
-Branche obligatoire : `hotfix-dlc-audit`.
-
-## 3. État d'entrée obligatoire
-
-6A.18 doit être présent dans le HEAD après son commit manuel.
-
-Message exact attendu du HEAD :
-
-`Select declared interest history API audit`
-
-Capturer le hash complet et l'utiliser comme HEAD initial et final.
-
-Rapport obligatoire dans le HEAD :
-
-`docs/reports/hotfix/_index/HOTFIX_6A18_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
-
-Verdicts obligatoires :
+Verdicts obligatoires dans le HEAD :
 
 ```text
-HOTFIX_6A18_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE
-POST_6A17R_RESIDUAL_DIAGNOSTICS_REINDEXED
-GAMEPLAY_SEVERITY_AND_MERGE_BLOCKERS_SEPARATED
-RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE
-COUP_AND_IMPERIALISM_CORRECTIONS_REMAIN_UNSELECTED
-HBC_AND_NAVIGATION_ACTS_REMAIN_BLOCKED
+HOTFIX_6A18Q_DECLARED_INTEREST_HISTORY_RUNTIME_VALIDATION_COMPLETE
+DECLARED_INTEREST_POSITIVE_AND_NEGATIVE_CONTROLS_EXECUTED
+DECLARED_INTEREST_RUNTIME_LOGS_DEDUPLICATED
 NO_GAMEPLAY_CHANGED
-NO_RUNTIME_REQUIRED
 NO_AUTOMATIC_COMMIT
 STASH_NAVY_3C_3_INTACT
 GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
-DECLARED_INTEREST_HISTORY_API_AUDIT_SELECTED
-NEXT_EXECUTION_PHASE = HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT
+DECLARED_INTEREST_LEGACY_EFFECT_RUNTIME_FAIL
+DECLARED_INTEREST_HISTORY_API_INVALIDITY_CONFIRMED
+NEXT_EXECUTION_PHASE = HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT
 ```
 
-Si le rapport, le message ou les verdicts ne sont pas présents dans le HEAD,
-arrêter sans modification avec :
+Si ces conditions ne sont pas réunies, arrêter sans écriture avec :
 
-`HOTFIX_6A18R_BLOCKED_6A18_NOT_COMMITTED`
+`HOTFIX_6A18R2_BLOCKED_6A18Q_NOT_COMMITTED`
 
-## 4. Préflight Git
+## 3. Préflight
 
-Exécuter uniquement en lecture seule :
+Exécuter en lecture seule :
 
 ```powershell
 git rev-parse --show-toplevel
@@ -109,47 +73,12 @@ git diff --check
 git diff --cached --name-only
 git stash list
 git rev-parse 'stash@{0}'
-git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A18_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md
+git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A18Q_DECLARED_INTEREST_HISTORY_RUNTIME_VALIDATION.md
 ```
 
-Exiger :
-
-- racine exacte du fork;
-- branche `hotfix-dlc-audit`;
-- message HEAD exact;
-- rapport et treize verdicts 6A.18 dans le HEAD;
-- aucun changement suivi;
-- staged vide;
-- uniquement `bject` et les sept fichiers de
-  `docs/research/technology/` non suivis;
-- `git diff --check` PASS;
-- stash protégé exact;
-- aucun processus Victoria 3, Dowser ou launcher Paradox.
-
-Ignorer Ankama Launcher. Ne jamais filtrer les processus sur le seul mot
-générique `launcher`. Détecter seulement `victoria3.exe`, `dowser.exe` ou un
-chemin/une commande contenant `Paradox Interactive\launcher`.
-
-Arrêts autorisés :
-
-```text
-HOTFIX_6A18R_BLOCKED_WRONG_BRANCH
-HOTFIX_6A18R_BLOCKED_6A18_NOT_COMMITTED
-HOTFIX_6A18R_BLOCKED_DIRTY_TRACKED_TREE
-HOTFIX_6A18R_BLOCKED_STAGED_FILES
-HOTFIX_6A18R_BLOCKED_UNEXPECTED_UNTRACKED_FILES
-HOTFIX_6A18R_BLOCKED_PROTECTED_STASH_CHANGED
-HOTFIX_6A18R_BLOCKED_GAME_PROCESS_RUNNING
-HOTFIX_6A18R_BLOCKED_CANONICAL_DOCUMENT_MISMATCH
-```
-
-## 5. Protections absolues
-
-Ne jamais inspecter, modifier, stager, supprimer ou intégrer :
-
-- `bject`;
-- les sept fichiers non suivis de `docs/research/technology/`;
-- le contenu du stash protégé.
+Exiger : racine exacte, branche exacte, HEAD au message attendu, arbre suivi
+propre, staged vide, uniquement `bject` et les sept recherches technologiques
+non suivis, stash intact et aucun processus Victoria 3/Dowser/launcher.
 
 Stash attendu :
 
@@ -158,243 +87,104 @@ stash@{0}: On hotfix-dlc-audit: WIP NAVY-3C-3 Maratha Konkan Flotilla
 518df704fa14599c0f254fae13859210663dd976
 ```
 
-Ne jamais appliquer, ouvrir, extraire, renommer ou supprimer ce stash.
+## 4. Protections absolues
 
-Ne jamais rouvrir ou modifier NAVY, MARATH, ADMIN, technologies, HBC,
-Navigation Acts, Inde, BIC, Sepoy, Bombay, Travancore, Japon, Russie,
-Autriche/Croatie/Suisse, DEI/VOC, Java, les JE déjà closes, Coup, Imperialism
-of Promise, Tanzimat, Merchant Banking, les révolutions, les localisations
-françaises générales, descripteurs ou sauvegardes.
+Ne jamais inspecter ou modifier `bject`, les sept recherches technologiques,
+le stash, BIC, GBR, Inde, Sepoy, Bombay, Travancore, NAVY, ADMIN, HBC,
+Navigation Acts, Coup, Imperialism of Promise, Tanzimat, Merchant Banking, les
+localisations françaises, les descripteurs ou les sauvegardes.
 
-Exception de lecture strictement bornée : le fichier transversal cible
-`common/history/interests/00_interests.txt` peut être lu dans le fork et la
-source. Ses scopes BIC/GBR/Inde/Portugal doivent seulement être inventoriés;
-aucun historique pays ou fichier géographique protégé ne doit être ouvert.
+Ne jamais restaurer `law_colonial_exploitation`. BIC doit conserver
+`law_frontier_colonization`.
 
-BIC doit conserver exactement :
+Ne lancer ni le jeu ni le launcher. Ne modifier aucun fichier gameplay.
 
-```txt
-activate_law = law_type:law_frontier_colonization
-```
+## 5. Arbres de référence
 
-Ne jamais restaurer `law_colonial_exploitation`.
+Fork :
 
-## 6. Règles Git absolues
+`C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
 
-Ne jamais exécuter `git add`, reset, restore, checkout de fichier, clean,
-merge, rebase, amend, commit, `stash apply`, `stash pop` ou `stash drop`.
+Source hotfix, lecture seule :
 
-Le HEAD initial et final doit rester identique et l'index staged vide.
+`C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_hotfix_source`
 
-## 7. Baseline 6A.18
+Vanilla 1.13, lecture seule :
 
-La sélection 6A.18 a établi :
+`C:\Games\Victoria 3 The Great Wave\game`
 
-- fork : 91 actions actives, 28 scopes pays, 45 régions, 4 415 octets, SHA-256
-  `A528418D3C18379C1175E6B469C0313D0AF8C7CC04E80BBE6382F72A097F5DBD`;
-- source : 96 actions, les mêmes 28 scopes et 45 régions, 4 609 octets,
-  SHA-256
-  `0BD9ADC58439BB6F81D1B0165954E827C332CB4FCC687980055D4C6A0DF3C92A`;
-- fichier vanilla absent;
-- zéro diagnostic courant et 91 diagnostics seulement documentés
-  historiquement;
-- aucune occurrence vanilla de l'effet exact dans `common`, `events` ou
-  `map_data`;
-- `has_interest_marker_in_region` et
-  `can_have_declared_interest_here` existent, sans constituer des effets de
-  remplacement;
-- cinq actions de différence source/fork sont liées aux cartographies
-  protégées de GBR, BIC, Inde et Portugal;
-- les inventaires canoniques se contredisent entre
-  `MERGED_AND_VALIDATED`/P3 et `PENDING_REVIEW`/P1;
-- impact potentiel majeur, impact prouvé `UNKNOWN_RUNTIME_IMPACT`, statut
-  `REQUIRES_AUDIT`.
+## 6. Recherche obligatoire
 
-Ne pas traiter cette baseline comme la preuve que l'effet est invalide.
+Rechercher séparément, dans les scripts, métadonnées techniques, GUI anglaise,
+exemples et chaînes lisibles installées :
 
-Dimensions attendues avant 6A.18R :
-
-- matrice des blocs : `44 × 17`;
-- index des rapports : `133 × 22`;
-- inventaire trois voies : `541 × 21`;
-- différences globales : `534 × 22`;
-- travail restant : `512 × 20`.
-
-Parser tous les CSV avec un vrai parseur CSV.
-
-## 8. Sources documentaires obligatoires
-
-Lire intégralement avant toute écriture :
-
-- `HOTFIX_6A18_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`;
-- `HOTFIX_6A17_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`;
-- `HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT.md`;
-- `HOTFIX_6A16R_COUP_EVENT_APIS_1_13_FUNCTIONAL_AUDIT.md`;
-- roadmap, matrice des blocs, index des rapports;
-- les trois inventaires canoniques;
-- le présent prompt;
-- changelogs complets fork/source;
-- logs courants et rotations pertinentes;
-- versions fork/source du seul fichier cible.
-
-## 9. Audit statique du fichier
-
-Pour fork et source, établir exactement :
-
-- encodage, taille, nombre de lignes, SHA-256;
-- structure de la racine `INTERESTS`;
-- tous les scopes pays;
-- toutes les régions;
-- toutes les occurrences actives et commentées;
-- portée syntaxique de chaque effet;
-- doublons pays/région;
-- identifiants stratégiques présents ou absents de vanilla 1.13;
-- différences exactes fork/source, par pays et par action;
-- partition stricte entre groupe API et sous-deltas cartographiques protégés.
-
-Ne modifier aucune action. Ne restaurer aucune ancienne région Inde.
-
-## 10. Registre moteur et données vanilla
-
-Rechercher l'effet exact, en lecture seule, dans :
-
-- les scripts et fichiers `.md` de vanilla;
-- les exemples/test events;
-- les métadonnées de script disponibles;
-- les journaux;
-- les chaînes lisibles des binaires/données du jeu, uniquement avec un outil
-  de lecture non exécutant si disponible.
-
-Ne jamais lancer l'exécutable du jeu pour cette recherche.
-
-Rechercher séparément :
-
-- `add_declared_interest`;
-- effets apparentés contenant `interest`, `interest_marker` ou
+- les effets contenant `interest`, `interest_marker`, `involvement` ou
   `strategic_region`;
-- triggers associés;
-- signatures ou commentaires documentant les scopes d'entrée;
-- exemples historiques équivalents dans une autre version/DLC installée.
+- `create_interest_marker`, `set_interest_marker`,
+  `add_interest_marker_rank`, `remove_interest_marker` et toute signature
+  associée;
+- les getters d'implication actuelle, cible et de ventilation;
+- les initialisations vanilla de territoire, capitale, revendication, armée,
+  flotte, traité, pacte et sujet;
+- les on-actions exécutés lors de la création du monde ou d'un pays;
+- les racines historiques reconnues en 1.13;
+- les effets documentés utilisables depuis un scope pays avec une région
+  stratégique actuelle;
+- les exemples de test ou scripts DLC qui initialisent une implication sans
+  action humaine.
 
-Une simple ressemblance de nom ne prouve jamais l'équivalence. Si aucune API
-moderne exacte n'est trouvée, conclure « remplacement inconnu », pas inventer
-une substitution.
+Séparer formellement :
 
-## 11. Diagnostics et sémantique
+1. API de lecture et de tooltip;
+2. commandes debug internes;
+3. effets script enregistrés;
+4. calcul naturel dynamique;
+5. initialisation historique au jour 1;
+6. mécanismes réservés au code moteur.
 
-Séparer :
+La simple présence d'une chaîne binaire, d'un getter GUI ou d'une commande
+debug ne prouve pas qu'un effet script soit utilisable.
 
-1. erreurs parser/PostValidate actuelles;
-2. erreurs runtime actuelles;
-3. rotations historiques encore disponibles;
-4. preuves seulement citées dans les rapports;
-5. absence de diagnostic;
-6. preuve positive de reconnaissance par le registre moteur;
-7. preuve positive ou négative d'effet fonctionnel.
+## 7. Questions à trancher
 
-Dédupliquer les logs par `(session, timestamp, message, chemin, ligne)`. Ne pas
-additionner `error.log` et son miroir `game.log`.
+Le rapport doit répondre explicitement :
 
-Évaluer trois hypothèses sans en privilégier une sans preuve :
+1. Existe-t-il un effet 1.13 enregistré qui accepte un pays et une région ?
+2. Cet effet définit-il une implication actuelle, une implication cible, un
+   rang d'intérêt ou un marqueur legacy ?
+3. Est-il autorisé dans `common/history` au chargement du monde ?
+4. Existe-t-il un exemple vanilla ou DLC exécutable qui en prouve la syntaxe ?
+5. Les cinq niveaux actifs peuvent-ils être initialisés directement ou doivent
+   ils découler uniquement des sources naturelles ?
+6. Une valeur historique fixe survivrait-elle au recalcul hebdomadaire de
+   l'implication ?
+7. Un remplacement des 91 lignes est-il techniquement possible sans inventer
+   une nouvelle source d'implication ou modifier l'équilibrage ?
+8. Un remappage des 26 régions legacy serait-il utile avant la preuve de ce
+   mécanisme ?
 
-- effet encore valide mais inutilisé par vanilla;
-- effet reconnu mais sémantique modifiée;
-- effet obsolète, ignoré ou invalide.
+## 8. Conditions de sélection d'une correction future
 
-Pour chacune, décrire l'impact sur les intérêts initiaux, les actions
-diplomatiques et les 28 pays. Distinguer impact potentiel et impact démontré.
+Ne sélectionner une phase de correction que si toutes les preuves suivantes
+sont réunies :
 
-## 12. Comparaison trois voies et classifications
+- nom exact de l'effet enregistré;
+- signature exacte des scopes et arguments;
+- contexte historique autorisé;
+- exemple vanilla/DLC ou test officiel directement comparable;
+- sémantique d'implication actuelle/cible démontrée;
+- interaction avec le recalcul dynamique comprise;
+- remplacement borné sans toucher aux cartographies protégées;
+- hash théorique et diff minimal reproductibles.
 
-Vanilla n'ayant pas le fichier, comparer :
+Si une seule preuve manque, conclure que le mécanisme reste non démontré et ne
+sélectionner aucune correction.
 
-- présence/absence;
-- registre d'effet;
-- concepts de régions et d'intérêts;
-- fork contre source action par action;
-- fork/source contre les données stratégiques vanilla, sans ouvrir les
-  périmètres protégés.
-
-Chaque groupe ou sous-delta doit recevoir exactement une classification :
-
-```text
-REQUIRED_HOTFIX_DELTA
-VANILLA_1_13_ALIGNMENT_REQUIRED
-ALREADY_MERGED
-INTENTIONAL_FORK_DIVERGENCE
-OBSOLETE_HOTFIX_CONTENT
-POST_MERGE_DESIGN_BACKLOG
-PROTECTED_CONCURRENT_WORK
-UNKNOWN_REQUIRES_REVIEW
-```
-
-Attribuer séparément une gravité gameplay et un statut de merge parmi les
-listes canoniques de 6A.18.
-
-## 13. Preuve de validité et éventuel test futur
-
-Une preuve positive de validité peut venir d'un registre moteur lisible, d'une
-documentation 1.13 exacte ou d'un diagnostic explicitement positif. L'absence
-d'erreur seule ne suffit pas.
-
-Si le statique ne peut pas trancher, définir seulement un protocole futur
-minimal reproductible, sans le lancer ni le demander pendant 6A.18R. Il doit
-comparer au moins un pays non protégé et un témoin négatif, vérifier les
-intérêts au jour 1 et isoler le montage du fork.
-
-Ne pas ouvrir une sauvegarde et ne pas demander de test humain dans cette
-phase.
-
-## 14. Critères d'une éventuelle phase suivante
-
-Sélectionner au maximum une phase, sans la commencer.
-
-Une future correction F exige simultanément :
-
-- effet 1.13 exact démontré;
-- invalidité de l'effet legacy démontrée;
-- remplacement sémantiquement équivalent;
-- périmètre API séparé des cinq cartographies protégées;
-- aucun changement de pays, région, quantité d'intérêts ou design;
-- diff, hash final et rollback exacts;
-- test futur borné;
-- gain P0/P1 réel.
-
-Si une condition manque, ne sélectionner aucune correction. Un audit runtime
-ultérieur n'est sélectionnable que s'il est réellement nécessaire, autonome
-et autorisable sans périmètre protégé.
-
-Décisions possibles :
-
-```text
-DECLARED_INTEREST_LEGACY_EFFECT_VALID_NO_CORRECTION_REQUIRED
-NO_NEXT_EXECUTION_PHASE_SELECTED
-```
-
-ou :
-
-```text
-DECLARED_INTEREST_HISTORY_API_REMAINS_UNRESOLVED
-NO_NEXT_EXECUTION_PHASE_SELECTED
-```
-
-ou, seulement si toutes les conditions sont prouvées :
-
-```text
-NEXT_EXECUTION_PHASE = HOTFIX_6A18F_DECLARED_INTEREST_HISTORY_API_1_13_ALIGNMENT
-```
-
-## 15. Runtime interdit
-
-Ne lancer ni Victoria 3, ni launcher Paradox, ni sauvegarde, ni console, ni
-runtime automatisé. Ne demander aucun lancement à l'opérateur. Aucun nouveau
-log ne doit être produit.
-
-## 16. Documentation autorisée
+## 9. Documentation
 
 Créer uniquement :
 
-`docs/reports/hotfix/_index/HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT.md`
+`docs/reports/hotfix/_index/HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT.md`
 
 Mettre à jour seulement si nécessaire :
 
@@ -404,35 +194,23 @@ Mettre à jour seulement si nécessaire :
 - `HOTFIX_MERGE_COMPLETION_ROADMAP.md`;
 - `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`.
 
-Ne créer aucun autre fichier. Si aucune phase n'est sélectionnée, conserver le
-présent prompt comme preuve historique selon la convention canonique.
+## 10. Git
 
-## 17. Contenu obligatoire du rapport
+Ne jamais exécuter `git add`, `git reset`, `git restore`, `git checkout` de
+fichier, `git clean`, merge, rebase, amend, commit, push, `stash apply`,
+`stash pop` ou `stash drop`.
 
-Inclure : phase/date, branche, HEAD initial/final, message, préflight, état Git,
-stash, sources, CSV, hashes, structure du fichier, pays, régions, occurrences,
-registre moteur, recherches vanilla, logs actuels/historiques, déduplication,
-trois hypothèses, comparaison trois voies, diff fork/source, séparation des
-cinq sous-deltas protégés, classifications exclusives, gravité, statut de
-merge, impact fonctionnel, protocole futur éventuel, décision, documents,
-contrôles finaux et verdicts.
+Le HEAD, l'index, le stash et tous les fichiers gameplay doivent rester
+inchangés.
 
-## 18. Contrôles finaux
+## 11. Verdicts minimaux
 
-Vérifier : branche et HEAD inchangés; aucun gameplay modifié; staged vide;
-aucun commit; stash inchangé; huit untracked protégés intacts et non inspectés;
-Coup, Imperialism, HBC, Navigation Acts, BIC, Inde, NAVY, ADMIN, Tanzimat et
-lois inchangés; aucune localisation modifiée; `git diff --check` PASS; aucun
-processus Victoria 3/Dowser/Paradox; logs inchangés.
-
-## 19. Verdicts minimaux
+Terminer par :
 
 ```text
-HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT_COMPLETE
-DECLARED_INTEREST_HISTORY_THREE_WAY_COMPARISON_COMPLETE
-DECLARED_INTEREST_EFFECT_REGISTRY_AUDITED
-DECLARED_INTEREST_COUNTRY_AND_REGION_SCOPES_CLASSIFIED
-DECLARED_INTEREST_PROTECTED_MAPPINGS_SEPARATED
+HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT_COMPLETE
+DECLARED_INTEREST_1_13_INITIALIZATION_PATHS_AUDITED
+DECLARED_INTEREST_LEGACY_AND_INVOLVEMENT_SEMANTICS_SEPARATED
 NO_GAMEPLAY_CHANGED
 NO_RUNTIME_REQUIRED
 NO_AUTOMATIC_COMMIT
@@ -440,6 +218,18 @@ STASH_NAVY_3C_3_INTACT
 GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 ```
 
-Ajouter exactement une des décisions de la section 14. Ne sélectionner qu'une
-seule phase éventuelle. S'arrêter après le compte rendu et ne jamais commencer
-la phase suivante.
+Ajouter ensuite exactement l'un des résultats suivants :
+
+```text
+DECLARED_INTEREST_1_13_REPLACEMENT_MECHANISM_PROVEN
+NEXT_EXECUTION_PHASE = HOTFIX_6A18F_DECLARED_INTEREST_HISTORY_1_13_ALIGNMENT
+```
+
+ou :
+
+```text
+DECLARED_INTEREST_1_13_REPLACEMENT_MECHANISM_UNPROVEN
+NO_NEXT_EXECUTION_PHASE_SELECTED
+```
+
+Ne jamais commencer la phase éventuellement sélectionnée.
