@@ -1,20 +1,26 @@
-# Prochaine phase — audit de la logique d'intérêt indochinoise 6A.18R3
+# Prochaine phase — QA runtime combinée des événements d'intérêt 6A.18Q2
 
-État canonique après
-`HOTFIX_6A18F2_EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_ALIGNMENT` :
+État canonique après l'audit R3 et la correction F3 choisie explicitement par
+l'opérateur humain :
 
 ```text
-EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_STATIC_PASS
+INDOCHINA_LEGACY_INTEREST_LOGIC_REMOVAL_PROVEN
+HUMAN_OPERATOR_DECISION_REMOVE_INDOCHINA_LEGACY_INTEREST_LOGIC
+HOTFIX_6A18F3_INDOCHINA_REMOVE_LEGACY_INTEREST_LOGIC_1_13_ALIGNMENT_COMPLETE
 RUNTIME_DEFERRED_TO_COMBINED_DECLARED_INTEREST_EVENT_QA
-NEXT_EXECUTION_PHASE = HOTFIX_6A18R3_INDOCHINA_LEGACY_INTEREST_LOGIC_1_13_AUDIT
+NEXT_EXECUTION_PHASE = HOTFIX_6A18Q2_COMBINED_DECLARED_INTEREST_EVENT_RUNTIME_QA
 ```
 
-Auditer uniquement le garde `num_declared_interests < max_num_declared_interests`
-et l'effet `add_declared_interest = region_indochina` dans
-`events/indochina.txt`. Comparer leur intention 1776 à vanilla 1.13, qui les
-supprime sans ajouter `add_involvement`. Ne pas modifier la crise égyptienne,
-ne pas restaurer `common/history/interests/00_interests.txt` et ne pas lancer
-le runtime combiné pendant l'audit.
+F3 a supprimé uniquement, dans `indochina.3.a`, le garde de slots et l'effet
+`add_declared_interest = region_indochina`. Le fichier fait 9494 octets,
+509 lignes et porte le SHA-256
+`70965044236460BFD2ADE5EDE18A0BEF6DC2E1EEAFB496423E027E80091B28A9`.
+Les quatre autres hunks du fichier et la crise égyptienne restent inchangés.
+
+6A.18Q2 devra ouvrir une nouvelle partie avec le fork et le bon hash, puis
+contrôler ensemble l'absence des diagnostics legacy de la crise égyptienne et
+de l'Indochine, ainsi que la non-régression des implications naturelles. Aucun
+runtime n'est lancé pendant la présente mise à jour documentaire.
 
 Le prompt ci-dessous est conservé uniquement comme preuve historique de la
 phase 6A.18R2 exécutée. Il ne constitue plus une instruction active.

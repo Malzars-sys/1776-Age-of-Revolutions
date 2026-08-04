@@ -881,7 +881,9 @@ Le diff gameplay comporte un seul fichier, un seul hunk, quatre ajouts et une
 suppression. Le fichier final conserve son BOM UTF-8, ses LF et son saut final;
 il fait 4297 octets, 196 lignes, au hash
 `E637C1F8EF27BBEBCB43C516EB5F0E6C943ECC7A51FC1A06FCD73999547489F7`.
-L'Indochine reste byte-identique et devient la seule occurrence legacy active.
+À la clôture de F2, l'Indochine reste byte-identique et devient alors la seule
+occurrence legacy active; cette situation est ensuite résolue séparément par
+R3/F3.
 
 Le runtime est différé afin de combiner ultérieurement les deux corrections
 événementielles dans une seule ouverture. La seule phase suivante est l'audit
@@ -898,3 +900,41 @@ R3 de la divergence indochinoise; aucune correction R3 n'est commencée.
 `STASH_NAVY_3C_3_INTACT`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A18R3_INDOCHINA_LEGACY_INTEREST_LOGIC_1_13_AUDIT`
+
+## 49. Audit de la logique legacy indochinoise 6A.18R3 — 4 août 2026
+
+`indochina.3.a` reçoit comme root la grande puissance catholique sélectionnée
+par `indochina.1`; le pays persécuteur est sauvegardé comme
+`scope:indochina_target`. Le garde compare deux capacités de slots absentes de
+1.13 et l'effet tente d'ajouter l'unique intérêt déclaré encore actif dans le
+fork. Les logs confirment `Unknown trigger type` puis `Unknown effect`.
+
+Source hotfix et vanilla sont byte-identiques et suppriment le bloc sans
+`add_involvement`. Le journal entry, l'objectif secret, l'incident, les
+notifications et l'événement de complétion ne lisent aucun intérêt. Les
+changelogs, l'historique et l'audit cité par les inventaires ne documentent
+aucune intention 1776 spécifique; l'étiquette de divergence était seulement
+topologique.
+
+La suppression en un hunk rend l'objet `.3` identique au vanilla :
+9494 octets, 509 lignes, hash
+`70965044236460BFD2ADE5EDE18A0BEF6DC2E1EEAFB496423E027E80091B28A9`.
+Après l'audit, l'opérateur humain choisit explicitement de retirer ce bloc sans
+créer d'implication de remplacement. F3 applique ce choix; aucun runtime n'est
+exécuté et le contrôle combiné devient la prochaine phase.
+
+`HOTFIX_6A18R3_INDOCHINA_LEGACY_INTEREST_LOGIC_1_13_AUDIT_COMPLETE`
+`HOTFIX_6A18F3_INDOCHINA_REMOVE_LEGACY_INTEREST_LOGIC_1_13_ALIGNMENT_COMPLETE`
+`INDOCHINA_LEGACY_GUARD_AND_EFFECT_THREE_WAY_AUDITED`
+`INDOCHINA_1776_DESIGN_INTENT_AUDITED`
+`HUMAN_OPERATOR_DECISION_REMOVE_INDOCHINA_LEGACY_INTEREST_LOGIC`
+`INDOCHINA_LEGACY_INTEREST_LOGIC_REMOVAL_STATIC_PASS`
+`INDOCHINA_LEGACY_GUARD_AND_EFFECT_REMOVED`
+`EGYPTIAN_CRISIS_F2_REMAINS_UNCHANGED`
+`RUNTIME_DEFERRED_TO_COMBINED_DECLARED_INTEREST_EVENT_QA`
+`NO_ADDITIONAL_GAMEPLAY_CHANGED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`INDOCHINA_LEGACY_INTEREST_LOGIC_REMOVAL_PROVEN`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A18Q2_COMBINED_DECLARED_INTEREST_EVENT_RUNTIME_QA`
