@@ -1007,3 +1007,31 @@ la prochaine phase est leur réindexation post-6A.18.
 `STASH_NAVY_3C_3_INTACT`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX`
+
+## 52. Réindexation résiduelle globale 6A.19 — 4 août 2026
+
+La comparaison trois voies post-6A.18Q3 réconcilie les 161 lignes historiques
+dans l’unique registre `HOTFIX_MERGE_REMAINING_WORK.csv`. Les 87 groupes
+historiquement inconnus sont revus individuellement : 85 restent inconnus,
+l’historique des intérêts devient obsolète et la crise égyptienne devient un
+scope intégré avec validation sémantique reportée au flavor Moyen-Orient.
+Imperialism of Promise rejoint les inconnus en raison de ses décisions de
+design, ce qui porte leur total courant à 86.
+
+La distribution devient `0/13/23/3/2/14/20/86`. Les logs existants contiennent
+107 diagnostics dédupliqués sur 19 chemins du registre. Deux rejets courants
+isolent `00_poland.txt`, mais les hunks géographiques du fichier divergent
+entre fork, source et vanilla. La prochaine phase est donc un audit de deux
+objets, pas une correction globale.
+
+`HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX_COMPLETE`
+`RESIDUAL_161_LINE_REGISTRY_RECONCILED`
+`RESIDUAL_87_UNKNOWN_GROUPS_REVIEWED`
+`EGYPTIAN_CRISIS_RUNTIME_DEFERRAL_PRESERVED`
+`DECLARED_INTEREST_BLOCK_REMAINS_CLOSED`
+`DEI_VOC_BLOCK_REMAINS_CLOSED`
+`NO_GAMEPLAY_CHANGED`
+`NO_RUNTIME_REQUIRED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A20_POLAND_JOURNAL_ENTRY_1_13_ALIGNMENT_AUDIT`

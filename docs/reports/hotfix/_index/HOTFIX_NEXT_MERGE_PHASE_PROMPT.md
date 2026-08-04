@@ -1,4 +1,71 @@
-# Prochaine phase — réindexation résiduelle post-6A.18
+# Prochaine phase — audit Pologne des journal entries 1.13
+
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
+Wave dans `1776_Age_of_Revolutions_fork`.
+
+Exécuter exclusivement :
+
+`HOTFIX_6A20_POLAND_JOURNAL_ENTRY_1_13_ALIGNMENT_AUDIT`
+
+## État canonique d’entrée
+
+Le rapport d’entrée obligatoire est
+`HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX.md`. Il doit contenir :
+
+```text
+HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX_COMPLETE
+RESIDUAL_161_LINE_REGISTRY_RECONCILED
+RESIDUAL_87_UNKNOWN_GROUPS_REVIEWED
+EGYPTIAN_CRISIS_RUNTIME_DEFERRAL_PRESERVED
+DECLARED_INTEREST_BLOCK_REMAINS_CLOSED
+DEI_VOC_BLOCK_REMAINS_CLOSED
+NO_GAMEPLAY_CHANGED
+NO_RUNTIME_REQUIRED
+NEXT_RESIDUAL_PHASE_SELECTED
+NEXT_EXECUTION_PHASE = HOTFIX_6A20_POLAND_JOURNAL_ENTRY_1_13_ALIGNMENT_AUDIT
+```
+
+## Objectif borné
+
+Auditer en lecture seule `common/journal_entries/00_poland.txt`, uniquement :
+
+- `je_christ_of_nations`, clé de pinning actuellement ligne 59 ;
+- `je_poland_lithuania`, clé de pinning actuellement ligne 131.
+
+Le fork emploie deux fois `should_be_pinned_by_default = yes`, rejeté deux fois
+dans le `debug.log` courant. La source hotfix et la vanilla 1.13 emploient aux
+deux objets `should_be_pinned_by_default_uninvolved_or_context = yes`.
+
+L’audit doit cependant séparer ces deux clés des hunks géographiques : fork,
+source et vanilla divergent sur les conditions de région, de visibilité et de
+complétion. Une égalité sur le pinning n’autorise aucun remplacement de fichier
+ni aucune absorption des hunks adjacents.
+
+## Contraintes
+
+- phase documentaire et statique uniquement ;
+- aucun fichier gameplay modifié ;
+- aucun lancement de Victoria 3 ou du launcher ;
+- aucune correction appliquée pendant l’audit ;
+- aucun commit automatique ;
+- stash NAVY-3C-3 et non-suivis protégés intacts ;
+- ne pas élargir à `07_poland_lithuania_mod.txt` ;
+- ne rouvrir ni Égypte, intérêts déclarés, DEI/VOC, HBC/Navigation Acts, Coup,
+  Imperialism, Tanzimat, NAVY, BIC, Inde, Amérique, France ou technologies.
+
+## Livrable et décision
+
+Créer un rapport `HOTFIX_6A20_POLAND_JOURNAL_ENTRY_1_13_ALIGNMENT_AUDIT.md`
+qui documente les hashes, les deux objets, les hunks exacts, les diagnostics
+courants et l’atomicité éventuelle d’une correction ultérieure. Sélectionner au
+maximum une phase corrective distincte ; ne pas la commencer.
+
+Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé. Nombre minimal de lancements
+Victoria 3 pour 6A.20 : **0**.
+
+---
+
+# Prompt historique — réindexation résiduelle post-6A.18
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave :
