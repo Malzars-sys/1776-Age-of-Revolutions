@@ -868,3 +868,33 @@ prochaine phase sélectionnée est donc F2. L'Indochine n'est pas sélectionnée
 `STASH_NAVY_3C_3_INTACT`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A18F2_EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_ALIGNMENT`
+
+## 48. Alignement de la crise égyptienne 6A.18F2 — 4 août 2026
+
+La comparaison trois voies prouve que `egyptian_crisis_events.4` est identique
+entre source hotfix et vanilla 1.13. Dans le fork, son unique différence
+fonctionnelle est l'ancien `add_declared_interest = region_arabic`. F2 le
+remplace, dans la même option `.4.a` et au même scope pays, par
+`add_involvement` vers `sr:region_near_east`, valeur 2500.
+
+Le diff gameplay comporte un seul fichier, un seul hunk, quatre ajouts et une
+suppression. Le fichier final conserve son BOM UTF-8, ses LF et son saut final;
+il fait 4297 octets, 196 lignes, au hash
+`E637C1F8EF27BBEBCB43C516EB5F0E6C943ECC7A51FC1A06FCD73999547489F7`.
+L'Indochine reste byte-identique et devient la seule occurrence legacy active.
+
+Le runtime est différé afin de combiner ultérieurement les deux corrections
+événementielles dans une seule ouverture. La seule phase suivante est l'audit
+R3 de la divergence indochinoise; aucune correction R3 n'est commencée.
+
+`HOTFIX_6A18F2_EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_ALIGNMENT_COMPLETE`
+`EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_STATIC_PASS`
+`EGYPTIAN_CRISIS_LEGACY_EFFECT_REMOVED`
+`EGYPTIAN_CRISIS_VANILLA_1_13_EVENT_SEMANTICS_ALIGNED`
+`INDOCHINA_LEGACY_INTEREST_LOGIC_UNCHANGED`
+`RUNTIME_DEFERRED_TO_COMBINED_DECLARED_INTEREST_EVENT_QA`
+`NO_ADDITIONAL_GAMEPLAY_CHANGED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A18R3_INDOCHINA_LEGACY_INTEREST_LOGIC_1_13_AUDIT`

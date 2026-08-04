@@ -1,20 +1,20 @@
-# Prochaine phase — correction atomique de la crise égyptienne 6A.18F2
+# Prochaine phase — audit de la logique d'intérêt indochinoise 6A.18R3
 
 État canonique après
-`HOTFIX_6A18F1_RETIRE_OBSOLETE_DECLARED_INTEREST_HISTORY` :
+`HOTFIX_6A18F2_EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_ALIGNMENT` :
 
 ```text
-DECLARED_INTEREST_OBSOLETE_HISTORY_RETIREMENT_RUNTIME_PASS
-DECLARED_INTEREST_FILE_DIAGNOSTICS_91_TO_0
-NEXT_EXECUTION_PHASE = HOTFIX_6A18F2_EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_ALIGNMENT
+EGYPTIAN_CRISIS_ADD_INVOLVEMENT_1_13_STATIC_PASS
+RUNTIME_DEFERRED_TO_COMBINED_DECLARED_INTEREST_EVENT_QA
+NEXT_EXECUTION_PHASE = HOTFIX_6A18R3_INDOCHINA_LEGACY_INTEREST_LOGIC_1_13_AUDIT
 ```
 
-Exécuter uniquement l'alignement atomique de
-`events/egyptian_crisis_events.txt` sur le hunk vanilla 1.13 : remplacer son
-unique `add_declared_interest` par `add_involvement` pour
-`sr:region_near_east`, valeur `2500`. Ne pas modifier `events/indochina.txt`,
-ne pas restaurer `common/history/interests/00_interests.txt` et ne créer aucune
-source naturelle d'implication supplémentaire.
+Auditer uniquement le garde `num_declared_interests < max_num_declared_interests`
+et l'effet `add_declared_interest = region_indochina` dans
+`events/indochina.txt`. Comparer leur intention 1776 à vanilla 1.13, qui les
+supprime sans ajouter `add_involvement`. Ne pas modifier la crise égyptienne,
+ne pas restaurer `common/history/interests/00_interests.txt` et ne pas lancer
+le runtime combiné pendant l'audit.
 
 Le prompt ci-dessous est conservé uniquement comme preuve historique de la
 phase 6A.18R2 exécutée. Il ne constitue plus une instruction active.
