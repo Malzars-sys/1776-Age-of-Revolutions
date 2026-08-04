@@ -1,24 +1,66 @@
-# Prochaine phase — aucune phase sélectionnée après 6A.18Q2
+# Prochaine phase — réindexation résiduelle post-6A.18
 
-État canonique après la QA runtime combinée :
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
+Wave :
+
+`1776_Age_of_Revolutions_fork`
+
+Exécuter exclusivement :
+
+`HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX`
+
+## État canonique d’entrée
 
 ```text
-HOTFIX_6A18Q2_COMBINED_DECLARED_INTEREST_EVENT_RUNTIME_QA_COMPLETE
-DECLARED_INTEREST_EVENT_PARSER_RUNTIME_PASS
-EGYPTIAN_CRISIS_RUNTIME_SEMANTIC_VALIDATION_INCOMPLETE
-INDOCHINA_LEGACY_REMOVAL_RUNTIME_PASS
-NO_NEXT_EXECUTION_PHASE_SELECTED
+HOTFIX_6A18Q3_EGYPTIAN_CRISIS_RUNTIME_DEFERRAL_COMPLETE
+EGYPTIAN_CRISIS_RUNTIME_SEMANTIC_VALIDATION_DEFERRED_TO_MIDDLE_EAST_FLAVOR_EXTENSION
+DECLARED_INTEREST_BLOCK_CLOSED_WITH_DOCUMENTED_RUNTIME_DEFERRAL
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+NEXT_EXECUTION_PHASE = HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX
 ```
 
-Q2 confirme le montage du fork, la non-régression des implications naturelles,
-la disparition des 94 diagnostics legacy et le runtime parser de F3. La forme
-console imposée `event egyptian_crisis_events.4` n'a pas été prouvée; aucune
-commande alternative n'a été improvisée. L'augmentation égyptienne exacte de
-2500 reste donc non validée et le bloc complet n'est pas déclaré clos.
+La validation sémantique égyptienne n’est pas un succès runtime. Elle est
+reportée à une future extension flavor Moyen-Orient parce que le fork
+n’instancie pas `EGY` au départ et ne contient aucune chaîne naturelle
+d’émergence du pays. Ne pas lancer ou forcer la crise égyptienne dans 6A.19.
 
-Aucune instruction d'exécution n'est active. Une décision humaine ou une preuve
-supplémentaire sur la commande console est requise avant de publier un nouveau
-prompt de phase.
+## Objectif
+
+Recalculer l’inventaire trois voies après toutes les corrections 6A.4 à 6A.18
+et le commit VOC `78e562f`. Reclasser les 87 groupes encore inconnus, rapprocher
+le registre historique de 161 lignes de l’état réel du fork et sélectionner au
+maximum une prochaine phase bornée.
+
+Cette phase est documentaire et statique. Elle ne modifie aucun gameplay et ne
+lance pas Victoria 3.
+
+## Protections
+
+Ne pas modifier le stash NAVY-3C-3, MARATH/SAT/KHP, BIC, Inde, Sepoy, Bombay,
+Travancore, les recherches technologiques non suivies, `bject`, les sauvegardes
+ou les localisations françaises par remplacement massif. Ne pas rouvrir les
+blocs déjà clos, y compris DEI/VOC et les intérêts déclarés.
+
+HBC/Navigation Acts reste un bloc de design séparé. Japon, Mamluk Iraq,
+Amérique, France, technologie et localisation doivent être inventoriés, mais
+aucune correction ne doit être absorbée automatiquement.
+
+## Références trois voies
+
+- fork : `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork` ;
+- source hotfix : `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_hotfix_source` ;
+- vanilla 1.13 : `C:\Games\Victoria 3 The Great Wave\game`.
+
+## Livrables
+
+Créer `HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX.md` et mettre à jour les
+index, la matrice des blocs, la roadmap, le registre résiduel et ce prompt si
+une phase suivante satisfait les conditions de sélection. Documenter les
+comptes avant/après et séparer strictement : déjà fusionné, divergence
+intentionnelle, backlog flavor, travail protégé, correction requise et inconnu.
+
+Ne jamais exécuter de merge, rebase, stash apply/pop/drop, nettoyage des
+non-suivis, commit automatique ou correction gameplay dans 6A.19.
 
 Le prompt ci-dessous est conservé uniquement comme preuve historique de la
 phase 6A.18R2 exécutée. Il ne constitue plus une instruction active.

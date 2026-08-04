@@ -22,6 +22,14 @@ jour 1 et aucune conversion sans rééquilibrage des 91 lignes ne sont prouvés.
 Le mécanisme de remplacement reste donc non démontré et aucune prochaine phase
 d'exécution n'est sélectionnée.
 
+Mise à jour 6A.18Q3 : l’opérateur reporte la validation sémantique de la crise
+égyptienne à une future extension flavor Moyen-Orient. Le fork n’instancie pas
+`EGY` au départ, l’événement d’entrée exige son existence et aucune chaîne
+naturelle d’émergence n’est présente. Q2 reste historiquement incomplet et
+aucun succès runtime n’est inventé, mais ce test inaccessible ne bloque plus le
+merge. La prochaine phase sélectionnée est
+`HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX`.
+
 Verdicts :
 
 - `MERGE_REMAINING_WORK_INDEXED`
@@ -971,3 +979,31 @@ pas observée. Q2 se termine par le résultat B et ne ferme pas le bloc complet.
 `EGYPTIAN_CRISIS_RUNTIME_SEMANTIC_VALIDATION_INCOMPLETE`
 `INDOCHINA_LEGACY_REMOVAL_RUNTIME_PASS`
 `NO_NEXT_EXECUTION_PHASE_SELECTED`
+
+## 51. Report de la validation runtime égyptienne 6A.18Q3 — 4 août 2026
+
+La décision humaine confirme que la crise égyptienne n’appartient pas au chemin
+de jeu naturel du fork actuel : aucun historique pays n’instancie `EGY` au
+départ, `egyptian_crisis_events.1` exige `exists = c:EGY` et aucune chaîne
+actuelle ne libère naturellement le pays depuis l’Empire ottoman. Forcer
+l’événement ne validerait donc pas une séquence accessible en 1776.
+
+Le remplacement F2 reste conforme statiquement au vanilla 1.13 et son parsing
+passe. L’impulsion exacte de `2500` n’est toujours pas observée; sa validation
+est reportée, sans verdict runtime artificiel, à une future extension flavor
+Moyen-Orient qui devra également fournir ou auditer l’émergence de l’Égypte.
+
+Le bloc des intérêts déclarés est clos pour les besoins du merge avec ce report
+documenté. Le conteneur global reste ouvert pour ses résidus indépendants, et
+la prochaine phase est leur réindexation post-6A.18.
+
+`HOTFIX_6A18Q3_EGYPTIAN_CRISIS_RUNTIME_DEFERRAL_COMPLETE`
+`HUMAN_OPERATOR_DECISION_DEFER_EGYPTIAN_CRISIS_RUNTIME`
+`EGYPTIAN_CRISIS_RUNTIME_SEMANTIC_VALIDATION_DEFERRED_TO_MIDDLE_EAST_FLAVOR_EXTENSION`
+`EGYPT_1776_NATURAL_ENTRY_CHAIN_ABSENT`
+`DECLARED_INTEREST_BLOCK_CLOSED_WITH_DOCUMENTED_RUNTIME_DEFERRAL`
+`NO_GAMEPLAY_CHANGED`
+`NO_RUNTIME_EXECUTED`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX`
