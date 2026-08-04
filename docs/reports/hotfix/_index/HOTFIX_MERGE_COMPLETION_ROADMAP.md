@@ -1062,3 +1062,33 @@ Aucun gameplay n’est modifié pendant l’audit.
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `POLAND_TWO_JE_PINNING_ATOMIC_ALIGNMENT_PROVEN`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A20F_POLAND_TWO_JE_PINNING_1_13_ALIGNMENT`
+
+## 54. Alignement Pologne des deux pinning 1.13 6A.20F — 4 août 2026
+
+Les deux propriétés obsolètes de `je_christ_of_nations` et
+`je_poland_lithuania` sont remplacées sans élargissement fonctionnel. Le
+fichier conserve son BOM UTF-8, ses 132 lignes LF et tous ses autres octets.
+Le diff gameplay est exactement `2+/2-`, les anciennes propriétés passent de
+deux à zéro, les nouvelles de zéro à deux et le SHA-256 final vaut
+`A5EAF687DC6A736CD50D3C66E5E7601D29442FF3FA8A292C4EE751A7FF981E6A`.
+
+Le remplacement inverse restitue exactement le hash d’entrée
+`DD2696FACF3D7988A933E7541D00D989E3E4B813574493D28A2BCA7AA1DACFD0`.
+Les deux diagnostics des logs existants restent une baseline historique :
+aucun runtime n’est exécuté en 6A.20F. Une seule ouverture humaine est
+sélectionnée pour produire une nouvelle génération et mesurer `2 → 0`.
+
+`HOTFIX_6A20F_POLAND_TWO_JE_PINNING_1_13_STATIC_PASS`
+`POLAND_TWO_JE_PINNING_TWO_HUNK_1_13_ALIGNMENT_APPLIED`
+`POLAND_TWO_JE_PINNING_OLD_PROPERTIES_2_TO_0`
+`POLAND_TWO_JE_PINNING_NEW_PROPERTIES_0_TO_2`
+`POLAND_TWO_JE_PINNING_GAMEPLAY_DIFF_2_PLUS_2_MINUS`
+`POLAND_TWO_JE_PINNING_SHA256_MATCH`
+`POLAND_TWO_JE_PINNING_OTHER_BYTES_UNCHANGED`
+`POLAND_GEOGRAPHY_VISIBILITY_COMPLETION_AND_EFFECTS_UNCHANGED`
+`POLAND_CUSTOM_JOURNAL_ENTRY_FILE_UNCHANGED`
+`NO_RUNTIME_EXECUTED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A20Q_POLAND_TWO_JE_PINNING_1_13_RUNTIME_QA`

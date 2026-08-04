@@ -1,4 +1,64 @@
-# Prochaine phase — correction des deux pinning Pologne 1.13
+# Prochaine phase — QA runtime des deux pinning Pologne 1.13
+
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
+Wave dans `1776_Age_of_Revolutions_fork`.
+
+Exécuter exclusivement :
+
+`HOTFIX_6A20Q_POLAND_TWO_JE_PINNING_1_13_RUNTIME_QA`
+
+## État canonique d’entrée
+
+Le HEAD doit être le commit manuel `Align two Poland journal entry pinning
+properties for 1.13` et contenir
+`HOTFIX_6A20F_POLAND_TWO_JE_PINNING_1_13_ALIGNMENT.md` avec :
+
+```text
+HOTFIX_6A20F_POLAND_TWO_JE_PINNING_1_13_STATIC_PASS
+POLAND_TWO_JE_PINNING_GAMEPLAY_DIFF_2_PLUS_2_MINUS
+POLAND_TWO_JE_PINNING_SHA256_MATCH
+POLAND_TWO_JE_PINNING_OTHER_BYTES_UNCHANGED
+NO_RUNTIME_EXECUTED
+NEXT_EXECUTION_PHASE = HOTFIX_6A20Q_POLAND_TWO_JE_PINNING_1_13_RUNTIME_QA
+```
+
+Le fichier `common/journal_entries/00_poland.txt` doit avoir le SHA-256 :
+
+`A5EAF687DC6A736CD50D3C66E5E7601D29442FF3FA8A292C4EE751A7FF981E6A`
+
+## Protocole humain unique
+
+Effectuer exactement une ouverture de Victoria 3 :
+
+1. capturer le manifeste des logs avant lancement ;
+2. confirmer que le fork exact et Victoria 3 1.13 sont montés ;
+3. lancer une partie neuve en 1776 sans forcer aucune journal entry ;
+4. laisser le chargement produire une nouvelle génération de logs ;
+5. ne pas modifier la partie pour fabriquer l’accès aux entrées ;
+6. fermer Victoria 3 et le launcher avant l’analyse ;
+7. capturer le manifeste après lancement ;
+8. dédupliquer les diagnostics par génération, message, chemin et ligne.
+
+Baseline historique :
+
+```text
+Unexpected token: should_be_pinned_by_default
+common/journal_entries/00_poland.txt
+lignes 59 et 131
+2 diagnostics dédupliqués
+```
+
+La QA passe si la nouvelle génération contient zéro diagnostic ciblé et aucune
+nouvelle erreur attribuable à `00_poland.txt`. Ne pas prétendre valider le
+comportement UI du pinning si les entrées ne sont pas naturellement visibles.
+Ne modifier aucun gameplay et ne rouvrir aucun bloc protégé.
+
+Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé. Nombre de
+lancements Victoria 3 : **1**, humain.
+
+---
+
+# Prompt historique — correction des deux pinning Pologne 1.13
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
