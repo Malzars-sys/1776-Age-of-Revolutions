@@ -938,3 +938,36 @@ exécuté et le contrôle combiné devient la prochaine phase.
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `INDOCHINA_LEGACY_INTEREST_LOGIC_REMOVAL_PROVEN`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A18Q2_COMBINED_DECLARED_INTEREST_EVENT_RUNTIME_QA`
+
+## 50. QA runtime combinée des événements d'intérêt 6A.18Q2 — 4 août 2026
+
+Une seule ouverture humaine monte Victoria 3 1.13, `dlc014_ip3` et le fork,
+puis fait progresser une nouvelle partie autrichienne jusqu'au 3 janvier 1776.
+Les six implications naturelles restent exactement à 6324, 4176, 3969, 3320,
+2300 et 1500. Le Sud de la Chine reste sans implication et l'opérateur ne
+constate aucun nouvel intérêt ailleurs.
+
+Le manifeste des 60 logs passe de
+`2B111126A04FF174C9FAB754E50B814DCC1F0AAEA6C5DCD367622BD1BA643089` à
+`7BA49774EC0F4A121F3A313D4E5DD438C60674E048A9A195A745C672B0883EE3`.
+La session isolée contient zéro occurrence des trois identifiants legacy,
+zéro ancien chemin, zéro erreur de fichier manquant et zéro diagnostic sur
+`events/indochina.txt` ou le nouveau bloc `add_involvement`.
+
+Deux PostValidate égyptiens aux lignes 82/104 et un ancien pinning de la journal
+entry indochinoise sont identiques dans deux sessions antérieures et séparés de
+F1/F2/F3. L'exécutable prouve `testevent`, pas la commande `event` imposée; le
+protocole interdit une substitution. L'impulsion égyptienne de 2500 n'est donc
+pas observée. Q2 se termine par le résultat B et ne ferme pas le bloc complet.
+
+`HOTFIX_6A18Q2_COMBINED_DECLARED_INTEREST_EVENT_RUNTIME_QA_COMPLETE`
+`DECLARED_INTEREST_COMBINED_RUNTIME_LOGS_DEDUPLICATED`
+`DECLARED_INTEREST_NATURAL_INVOLVEMENT_NON_REGRESSION_CHECKED`
+`NO_GAMEPLAY_CHANGED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`DECLARED_INTEREST_EVENT_PARSER_RUNTIME_PASS`
+`EGYPTIAN_CRISIS_RUNTIME_SEMANTIC_VALIDATION_INCOMPLETE`
+`INDOCHINA_LEGACY_REMOVAL_RUNTIME_PASS`
+`NO_NEXT_EXECUTION_PHASE_SELECTED`

@@ -1,26 +1,24 @@
-# Prochaine phase — QA runtime combinée des événements d'intérêt 6A.18Q2
+# Prochaine phase — aucune phase sélectionnée après 6A.18Q2
 
-État canonique après l'audit R3 et la correction F3 choisie explicitement par
-l'opérateur humain :
+État canonique après la QA runtime combinée :
 
 ```text
-INDOCHINA_LEGACY_INTEREST_LOGIC_REMOVAL_PROVEN
-HUMAN_OPERATOR_DECISION_REMOVE_INDOCHINA_LEGACY_INTEREST_LOGIC
-HOTFIX_6A18F3_INDOCHINA_REMOVE_LEGACY_INTEREST_LOGIC_1_13_ALIGNMENT_COMPLETE
-RUNTIME_DEFERRED_TO_COMBINED_DECLARED_INTEREST_EVENT_QA
-NEXT_EXECUTION_PHASE = HOTFIX_6A18Q2_COMBINED_DECLARED_INTEREST_EVENT_RUNTIME_QA
+HOTFIX_6A18Q2_COMBINED_DECLARED_INTEREST_EVENT_RUNTIME_QA_COMPLETE
+DECLARED_INTEREST_EVENT_PARSER_RUNTIME_PASS
+EGYPTIAN_CRISIS_RUNTIME_SEMANTIC_VALIDATION_INCOMPLETE
+INDOCHINA_LEGACY_REMOVAL_RUNTIME_PASS
+NO_NEXT_EXECUTION_PHASE_SELECTED
 ```
 
-F3 a supprimé uniquement, dans `indochina.3.a`, le garde de slots et l'effet
-`add_declared_interest = region_indochina`. Le fichier fait 9494 octets,
-509 lignes et porte le SHA-256
-`70965044236460BFD2ADE5EDE18A0BEF6DC2E1EEAFB496423E027E80091B28A9`.
-Les quatre autres hunks du fichier et la crise égyptienne restent inchangés.
+Q2 confirme le montage du fork, la non-régression des implications naturelles,
+la disparition des 94 diagnostics legacy et le runtime parser de F3. La forme
+console imposée `event egyptian_crisis_events.4` n'a pas été prouvée; aucune
+commande alternative n'a été improvisée. L'augmentation égyptienne exacte de
+2500 reste donc non validée et le bloc complet n'est pas déclaré clos.
 
-6A.18Q2 devra ouvrir une nouvelle partie avec le fork et le bon hash, puis
-contrôler ensemble l'absence des diagnostics legacy de la crise égyptienne et
-de l'Indochine, ainsi que la non-régression des implications naturelles. Aucun
-runtime n'est lancé pendant la présente mise à jour documentaire.
+Aucune instruction d'exécution n'est active. Une décision humaine ou une preuve
+supplémentaire sur la commande console est requise avant de publier un nouveau
+prompt de phase.
 
 Le prompt ci-dessous est conservé uniquement comme preuve historique de la
 phase 6A.18R2 exécutée. Il ne constitue plus une instruction active.
