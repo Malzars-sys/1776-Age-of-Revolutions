@@ -1092,3 +1092,46 @@ sélectionnée pour produire une nouvelle génération et mesurer `2 → 0`.
 `STASH_NAVY_3C_3_INTACT`
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A20Q_POLAND_TWO_JE_PINNING_1_13_RUNTIME_QA`
+
+## 55. QA runtime Pologne des deux pinning 1.13 6A.20Q — 5 août 2026
+
+Une seule ouverture humaine monte positivement
+1776_Age_of_Revolutions_fork sous release/1.13.0. Une partie neuve avec le
+Vietnam atteint le 6 janvier 1776 sans crash, clé brute ni anomalie visible.
+Les journaux dedicated_server confirment les ticks du 1er au 6 janvier.
+
+Le manifeste avant contient 60 logs. Après la session, 49 noms ont changé de
+hash par réécriture ou rotation et 27 portent un horodatage postérieur au
+manifeste. L’ancien debug.log de hash B401921C…D4DF40 devient debug.2.log,
+tandis que debug.1.log et debug.log constituent les nouveaux segments. Cette
+séparation prouve une génération fraîche sans confondre les rotations.
+
+Les deux diagnostics historiques de common/journal_entries/00_poland.txt aux
+lignes 59 et 131 passent de 2 à 0 et aucune nouvelle erreur n’est attribuable
+à ce fichier. Les hashes de 00_poland.txt et du fichier custom
+07_poland_lithuania_mod.txt restent identiques. Les entrées polonaises n’ayant
+pas été forcées ni naturellement visibles, aucun comportement UI de pinning
+n’est revendiqué.
+
+Le bloc Pologne de base est clos statiquement et en runtime. Les autres
+résidus globaux restent dans leur conteneur et devront être sélectionnés par
+un futur audit documentaire borné. Aucun identifiant exact de prochaine phase
+n’étant déjà défini par les documents canoniques, aucune phase suivante n’est
+sélectionnée.
+
+~~~text
+HOTFIX_6A20Q_POLAND_TWO_JE_PINNING_1_13_RUNTIME_PASS
+POLAND_TWO_JE_PINNING_FRESH_LOG_GENERATION_CONFIRMED
+POLAND_TWO_JE_PINNING_DIAGNOSTICS_2_TO_0
+POLAND_00_POLAND_NEW_RUNTIME_ERRORS_0
+POLAND_TWO_JE_PINNING_1_13_ALIGNMENT_COMPLETE
+POLAND_GAMEPLAY_HASH_PRESERVED
+POLAND_CUSTOM_JOURNAL_ENTRY_FILE_UNCHANGED
+POLAND_UI_PINNING_BEHAVIOR_NOT_CLAIMED_UNLESS_NATURALLY_OBSERVED
+ONE_HUMAN_RUNTIME_LAUNCH_USED
+NO_GAMEPLAY_CHANGED_DURING_RUNTIME
+NO_AUTOMATIC_COMMIT
+STASH_NAVY_3C_3_INTACT
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+NO_NEXT_EXECUTION_PHASE_SELECTED
+~~~
