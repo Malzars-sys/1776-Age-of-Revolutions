@@ -1035,3 +1035,30 @@ objets, pas une correction globale.
 `NO_AUTOMATIC_COMMIT`
 `STASH_NAVY_3C_3_INTACT`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A20_POLAND_JOURNAL_ENTRY_1_13_ALIGNMENT_AUDIT`
+
+## 53. Audit Pologne des deux pinning 1.13 6A.20 — 4 août 2026
+
+Les hashes fork, source et vanilla correspondent aux références 6A.19. Les
+deux anciennes propriétés de `je_christ_of_nations` et
+`je_poland_lithuania` sont rejetées dans le `debug.log` courant aux lignes
+59 et 131 ainsi que dans deux rotations. La source et la vanilla convergent
+exactement sur `should_be_pinned_by_default_uninvolved_or_context = yes`.
+
+La comparaison complète sépare les deux propriétés des divergences de
+géographie, visibilité et complétion. Le patch théorique modifie exactement
+deux lignes, conserve les 132 lignes et produit le SHA-256
+`A5EAF687DC6A736CD50D3C66E5E7601D29442FF3FA8A292C4EE751A7FF981E6A`.
+Aucun gameplay n’est modifié pendant l’audit.
+
+`HOTFIX_6A20_POLAND_JOURNAL_ENTRY_1_13_ALIGNMENT_AUDIT_COMPLETE`
+`POLAND_TWO_JE_THREE_WAY_COMPARISON_COMPLETE`
+`POLAND_TWO_JE_PINNING_DIAGNOSTICS_CONFIRMED`
+`POLAND_PINNING_AND_GEOGRAPHIC_HUNKS_SEPARATED`
+`POLAND_TWO_HUNK_THEORETICAL_PATCH_COMPUTED`
+`NO_GAMEPLAY_CHANGED`
+`NO_RUNTIME_REQUIRED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`POLAND_TWO_JE_PINNING_ATOMIC_ALIGNMENT_PROVEN`
+`NEXT_EXECUTION_PHASE = HOTFIX_6A20F_POLAND_TWO_JE_PINNING_1_13_ALIGNMENT`

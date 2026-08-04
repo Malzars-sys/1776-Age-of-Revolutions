@@ -1,4 +1,69 @@
-# Prochaine phase — audit Pologne des journal entries 1.13
+# Prochaine phase — correction des deux pinning Pologne 1.13
+
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
+Wave dans `1776_Age_of_Revolutions_fork`.
+
+Exécuter exclusivement :
+
+`HOTFIX_6A20F_POLAND_TWO_JE_PINNING_1_13_ALIGNMENT`
+
+## État canonique d’entrée
+
+Le HEAD doit contenir le rapport commité
+`HOTFIX_6A20_POLAND_JOURNAL_ENTRY_1_13_ALIGNMENT_AUDIT.md` avec :
+
+```text
+HOTFIX_6A20_POLAND_JOURNAL_ENTRY_1_13_ALIGNMENT_AUDIT_COMPLETE
+POLAND_TWO_JE_THREE_WAY_COMPARISON_COMPLETE
+POLAND_TWO_JE_PINNING_DIAGNOSTICS_CONFIRMED
+POLAND_PINNING_AND_GEOGRAPHIC_HUNKS_SEPARATED
+POLAND_TWO_HUNK_THEORETICAL_PATCH_COMPUTED
+POLAND_TWO_JE_PINNING_ATOMIC_ALIGNMENT_PROVEN
+NEXT_EXECUTION_PHASE = HOTFIX_6A20F_POLAND_TWO_JE_PINNING_1_13_ALIGNMENT
+```
+
+## Correction strictement autorisée
+
+Modifier uniquement `common/journal_entries/00_poland.txt`, dans :
+
+- `je_christ_of_nations` ;
+- `je_poland_lithuania`.
+
+Appliquer exactement deux substitutions :
+
+```diff
+-    should_be_pinned_by_default = yes
++    should_be_pinned_by_default_uninvolved_or_context = yes
+```
+
+Préconditions :
+
+- SHA-256 avant correction :
+  `DD2696FACF3D7988A933E7541D00D989E3E4B813574493D28A2BCA7AA1DACFD0` ;
+- exactement deux anciennes propriétés ;
+- aucun changement utilisateur du fichier depuis 6A.20.
+
+Résultat statique obligatoire :
+
+- diff gameplay exactement `2+/2-` ;
+- zéro ancienne propriété et deux nouvelles ;
+- 132 lignes ;
+- SHA-256
+  `A5EAF687DC6A736CD50D3C66E5E7601D29442FF3FA8A292C4EE751A7FF981E6A` ;
+- toutes les autres lignes byte-identiques ;
+- géographie, visibilité, complétion, scopes, progression, récompenses et
+  effets inchangés.
+
+Ne pas modifier `07_poland_lithuania_mod.txt` ni aucun autre fichier gameplay.
+Ne pas élargir aux blocs protégés ou clos. Le runtime de vérification `2 → 0`
+est ultérieur à la correction statique ; ne le lancer que si la phase 6A.20F
+l’autorise explicitement après son préflight.
+
+Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé.
+
+---
+
+# Prompt historique — audit Pologne des journal entries 1.13
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
