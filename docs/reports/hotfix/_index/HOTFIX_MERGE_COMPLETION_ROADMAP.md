@@ -2,7 +2,7 @@
 
 ## 1. Résumé
 
-Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.15F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'alignement Coup 6A.15F remplace uniquement le pinning obsolète de `je_ip4_coup` en un fichier, un objet et un hunk; le runtime Vietnam jusqu'au 10 janvier 1776 passe sans clé brute ni anomalie politique. L'erreur ciblée passe de 1 à 0 et la baseline legacy de `374/140` à `373/139`. La sélection 6A.16 réindexe 1 189 diagnostics script actuels. L'audit 6A.16R classe ensuite les 16 occurrences statiques `has_role`/`is_ruler` en neuf groupes sur sept objets sans sélectionner de correction. 6A.17R classe désormais les quinze groupes d'Imperialism of Promise : le dernier runtime ne reproduit aucun diagnostic ciblé, les deux `has_role` ne survivent que dans une rotation ancienne et le pinning n'a qu'une preuve historique/statique. Les changements de ruler, prominence et chef IG modifient le vivier; BIC, Inde, Sepoy, géographie, progression et événements utilitaristes restent protégés. Aucune correction 6A.17F n'est sélectionnée. 6A.18 sépare désormais gravité gameplay et blocage de merge : l'erreur commerciale actuelle est commune aux trois arbres et non bloquante, tandis que les 91 effets historiques `add_declared_interest` restent un P1 à impact runtime inconnu. Seul l'audit en lecture seule 6A.18R est sélectionné. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
+Le bloc canonique reste `HOTFIX-6A_GLOBAL_SCRIPT_DELTAS`. La Russie est corrigée au commit `991f6a1`. Le paquet 6A.2, la phase DEI/VOC et les alignements 6A.4F à 6A.15F sont clos. Merchant Banking est désormais la loi économique initiale de GEN et VEN; un runtime humain a validé les deux républiques pendant plusieurs jours, avec Marine marchande préservée, interface lisible et zéro diagnostic ciblé. L'audit Navigation Acts 6A.14R est clos sans gameplay. L'audit HBC 6A.14H confirme la composition stable de `hubson` et `hudson`, mais l'intention canonique reste inconnue et GBR croise toujours NAVY. L'alignement Coup 6A.15F remplace uniquement le pinning obsolète de `je_ip4_coup` en un fichier, un objet et un hunk; le runtime Vietnam jusqu'au 10 janvier 1776 passe sans clé brute ni anomalie politique. L'erreur ciblée passe de 1 à 0 et la baseline legacy de `374/140` à `373/139`. La sélection 6A.16 réindexe 1 189 diagnostics script actuels. L'audit 6A.16R classe ensuite les 16 occurrences statiques `has_role`/`is_ruler` en neuf groupes sur sept objets sans sélectionner de correction. 6A.17R classe désormais les quinze groupes d'Imperialism of Promise : le dernier runtime ne reproduit aucun diagnostic ciblé, les deux `has_role` ne survivent que dans une rotation ancienne et le pinning n'a qu'une preuve historique/statique. Les changements de ruler, prominence et chef IG modifient le vivier; BIC, Inde, Sepoy, géographie, progression et événements utilitaristes restent protégés. Aucune correction 6A.17F n'est sélectionnée. 6A.18R audite les 91 effets historiques `add_declared_interest` sans trouver de preuve positive du registre, de la signature ou du chargeur 1.13; 58 arguments utilisent en outre 26 identifiants absents du registre stratégique actuel. Le remplacement reste inconnu, les cartographies GBR/BIC/POR restent protégées et aucune correction ni phase suivante n'est sélectionnée. La puissance jugée trop moderne de Merchant Banking est enregistrée comme backlog d’équilibrage post-hotfix non bloquant.
 
 Verdicts :
 
@@ -691,3 +691,45 @@ correction ni aucun runtime n'est commencé.
 `GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
 `DECLARED_INTEREST_HISTORY_API_AUDIT_SELECTED`
 `NEXT_EXECUTION_PHASE = HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT`
+
+## 44. Audit de l'API historique des intérêts déclarés 6A.18R — 4 août 2026
+
+Le fork et la source conservent leurs hashes exacts. La racine `INTERESTS`
+contient 28 scopes pays, 91 actions actives dans le fork et 96 dans la source.
+Le diff physique se limite aux cartographies protégées GBR/BIC/POR : quatre
+couples fork-only et neuf source-only, soit un net de cinq actions. Aucun
+couple pays/région n'est dupliqué et les trois actions commentées sont
+identiques.
+
+Vanilla 1.13 ne possède ni dossier `common/history/interests`, ni occurrence
+script ou documentaire de `add_declared_interest`. Le nom exact est aussi
+absent des chaînes ASCII/UTF-16 lisibles des exécutables et symboles installés.
+Des commandes et triggers apparentés existent, mais aucun n'est documenté
+comme effet équivalent. L'existence, la signature pays/région et le chargement
+du legacy ne sont donc pas positivement démontrés; l'absence statique ne suffit
+pas non plus à prouver qu'il est ignoré.
+
+Le registre stratégique 1.13 reconnaît 33 arguments actifs du fork. Les 58
+autres actions, sur 24 pays et 26 anciens noms, n'ont plus de clé exacte dans
+`common/strategic_regions`. Les regroupements `geographic_region_*_old`
+conservent une provenance cartographique mais ne sont ni des alias ni un
+remplacement API. L'impact potentiel sur les intérêts et diplomatic plays est
+majeur; l'impact démontré reste `UNKNOWN_RUNTIME_IMPACT`.
+
+Aucun effet 1.13 exact, aucune invalidité actuelle et aucun remplacement
+sémantiquement équivalent ne satisfont les critères d'une 6A.18F. Un protocole
+runtime futur minimal est décrit mais n'est ni lancé ni sélectionné. Le prompt
+6A.18R reste inchangé comme preuve historique.
+
+`HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT_COMPLETE`
+`DECLARED_INTEREST_HISTORY_THREE_WAY_COMPARISON_COMPLETE`
+`DECLARED_INTEREST_EFFECT_REGISTRY_AUDITED`
+`DECLARED_INTEREST_COUNTRY_AND_REGION_SCOPES_CLASSIFIED`
+`DECLARED_INTEREST_PROTECTED_MAPPINGS_SEPARATED`
+`NO_GAMEPLAY_CHANGED`
+`NO_RUNTIME_REQUIRED`
+`NO_AUTOMATIC_COMMIT`
+`STASH_NAVY_3C_3_INTACT`
+`GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES`
+`DECLARED_INTEREST_HISTORY_API_REMAINS_UNRESOLVED`
+`NO_NEXT_EXECUTION_PHASE_SELECTED`
