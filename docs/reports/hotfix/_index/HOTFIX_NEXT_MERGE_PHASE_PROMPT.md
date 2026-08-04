@@ -1,32 +1,46 @@
-# Prompt autonome — HOTFIX-6A.17R audit fonctionnel d'Imperialism of Promise
+# Prompt autonome — HOTFIX-6A.18R
 
-Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
-Wave :
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The
+Great Wave :
 
 `1776_Age_of_Revolutions_fork`
 
-Exécuter exclusivement :
+Tu dois exécuter exclusivement la phase documentaire suivante :
 
-`HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT`
+`HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT`
 
-## 1. Objectif unique
+Cette phase doit auditer la validité 1.13 de l'effet historique
+`add_declared_interest` sans modifier aucun fichier gameplay.
 
-Auditer en lecture seule l'objet `je_imperialism_of_promise` dans :
+## 1. Nature et objectif
 
-`common/journal_entries/04_imperialism_of_promise.txt`
+6A.18R est un audit :
 
-Comparer fork, source hotfix et vanilla 1.13 par groupe fonctionnel. Séparer le
-pinning, les API de rôles, le jeu de rôles divergent, le tooltip de
-bureaucratie et toutes les dépendances protégées. Classer chaque groupe et
-sélectionner au maximum une future correction atomique seulement si toutes ses
-conditions sont prouvées.
+- documentaire;
+- statique;
+- trois voies;
+- fonctionnel;
+- limité à un fichier historique et au registre de l'effet;
+- sans runtime.
 
-Cette phase ne modifie aucun gameplay, ne lance aucun runtime, ne stage rien,
-ne crée aucun commit et ne commence aucune correction.
+Il doit déterminer :
+
+1. si `add_declared_interest` existe encore dans le moteur 1.13;
+2. s'il accepte un scope pays et une région stratégique en argument;
+3. si son absence des scripts vanilla signifie suppression, usage interne ou
+   simple absence de besoin vanilla;
+4. si les 91 actions du fork sont chargées, ignorées ou potentiellement
+   invalides;
+5. quel impact leur échec aurait sur les intérêts diplomatiques initiaux;
+6. quelles différences source/fork sont des cartographies protégées;
+7. si une future correction atomique est prouvable ou si aucune action ne doit
+   être sélectionnée.
+
+Ne jamais inventer une API de remplacement. Ne commencer aucune correction.
 
 ## 2. Chemins
 
-Fork :
+Fork de travail :
 
 `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork`
 
@@ -34,7 +48,7 @@ Source hotfix, lecture seule :
 
 `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_hotfix_source`
 
-Vanilla 1.13, lecture seule :
+Vanilla Victoria 3 1.13, lecture seule :
 
 `C:\Games\Victoria 3 The Great Wave\game`
 
@@ -42,33 +56,44 @@ Logs existants, lecture seule :
 
 `C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\logs`
 
-Branche : `hotfix-dlc-audit`.
+Branche obligatoire : `hotfix-dlc-audit`.
 
-## 3. État d'entrée
+## 3. État d'entrée obligatoire
 
-Exiger que le rapport 6A.17 soit présent dans `HEAD` après commit manuel :
+6A.18 doit être présent dans le HEAD après son commit manuel.
 
-`docs/reports/hotfix/_index/HOTFIX_6A17_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
+Message exact attendu du HEAD :
 
-Le hash et le message du futur HEAD ne sont pas imposés. Les capturer et exiger
-les verdicts suivants dans le rapport committé :
+`Select declared interest history API audit`
+
+Capturer le hash complet et l'utiliser comme HEAD initial et final.
+
+Rapport obligatoire dans le HEAD :
+
+`docs/reports/hotfix/_index/HOTFIX_6A18_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`
+
+Verdicts obligatoires :
 
 ```text
-HOTFIX_6A17_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE
-POST_6A16R_RESIDUAL_DIAGNOSTICS_REINDEXED
+HOTFIX_6A18_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE
+POST_6A17R_RESIDUAL_DIAGNOSTICS_REINDEXED
+GAMEPLAY_SEVERITY_AND_MERGE_BLOCKERS_SEPARATED
 RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE
-COUP_EVENT_APIS_REMAIN_UNSELECTED
+COUP_AND_IMPERIALISM_CORRECTIONS_REMAIN_UNSELECTED
 HBC_AND_NAVIGATION_ACTS_REMAIN_BLOCKED
 NO_GAMEPLAY_CHANGED
 NO_RUNTIME_REQUIRED
 NO_AUTOMATIC_COMMIT
 STASH_NAVY_3C_3_INTACT
 GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
-IMPERIALISM_OF_PROMISE_1_13_AUDIT_SELECTED
-NEXT_EXECUTION_PHASE = HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT
+DECLARED_INTEREST_HISTORY_API_AUDIT_SELECTED
+NEXT_EXECUTION_PHASE = HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT
 ```
 
-Ne jamais commencer depuis un rapport 6A.17 non committé.
+Si le rapport, le message ou les verdicts ne sont pas présents dans le HEAD,
+arrêter sans modification avec :
+
+`HOTFIX_6A18R_BLOCKED_6A18_NOT_COMMITTED`
 
 ## 4. Préflight Git
 
@@ -84,36 +109,47 @@ git diff --check
 git diff --cached --name-only
 git stash list
 git rev-parse 'stash@{0}'
-git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A17_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md
+git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A18_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md
 ```
 
-Exiger la racine et la branche exactes, le rapport et ses verdicts dans HEAD,
-aucun changement suivi, index staged vide, seulement `bject` et les sept
-recherches technologiques non suivis, stash exact et aucun processus Victoria
-3, Dowser ou Paradox.
+Exiger :
 
-Ignorer Ankama Launcher. Ne jamais chercher le mot générique `launcher` :
-détecter seulement `victoria3.exe`, `dowser.exe` ou une ligne de commande
-contenant `Paradox Interactive\launcher`.
+- racine exacte du fork;
+- branche `hotfix-dlc-audit`;
+- message HEAD exact;
+- rapport et treize verdicts 6A.18 dans le HEAD;
+- aucun changement suivi;
+- staged vide;
+- uniquement `bject` et les sept fichiers de
+  `docs/research/technology/` non suivis;
+- `git diff --check` PASS;
+- stash protégé exact;
+- aucun processus Victoria 3, Dowser ou launcher Paradox.
 
-Arrêts :
+Ignorer Ankama Launcher. Ne jamais filtrer les processus sur le seul mot
+générique `launcher`. Détecter seulement `victoria3.exe`, `dowser.exe` ou un
+chemin/une commande contenant `Paradox Interactive\launcher`.
+
+Arrêts autorisés :
 
 ```text
-HOTFIX_6A17R_BLOCKED_WRONG_BRANCH
-HOTFIX_6A17R_BLOCKED_6A17_NOT_COMMITTED
-HOTFIX_6A17R_BLOCKED_DIRTY_TRACKED_TREE
-HOTFIX_6A17R_BLOCKED_STAGED_FILES
-HOTFIX_6A17R_BLOCKED_UNEXPECTED_UNTRACKED_FILES
-HOTFIX_6A17R_BLOCKED_PROTECTED_STASH_CHANGED
-HOTFIX_6A17R_BLOCKED_GAME_PROCESS_RUNNING
-HOTFIX_6A17R_BLOCKED_CANONICAL_DOCUMENT_MISMATCH
-HOTFIX_6A17R_BLOCKED_THREE_WAY_EVIDENCE_CHANGED
+HOTFIX_6A18R_BLOCKED_WRONG_BRANCH
+HOTFIX_6A18R_BLOCKED_6A18_NOT_COMMITTED
+HOTFIX_6A18R_BLOCKED_DIRTY_TRACKED_TREE
+HOTFIX_6A18R_BLOCKED_STAGED_FILES
+HOTFIX_6A18R_BLOCKED_UNEXPECTED_UNTRACKED_FILES
+HOTFIX_6A18R_BLOCKED_PROTECTED_STASH_CHANGED
+HOTFIX_6A18R_BLOCKED_GAME_PROCESS_RUNNING
+HOTFIX_6A18R_BLOCKED_CANONICAL_DOCUMENT_MISMATCH
 ```
 
 ## 5. Protections absolues
 
-Ne jamais inspecter ni modifier `bject`, les sept recherches technologiques ou
-le contenu du stash.
+Ne jamais inspecter, modifier, stager, supprimer ou intégrer :
+
+- `bject`;
+- les sept fichiers non suivis de `docs/research/technology/`;
+- le contenu du stash protégé.
 
 Stash attendu :
 
@@ -122,14 +158,20 @@ stash@{0}: On hotfix-dlc-audit: WIP NAVY-3C-3 Maratha Konkan Flotilla
 518df704fa14599c0f254fae13859210663dd976
 ```
 
-Ne jamais rouvrir ou modifier NAVY, MARATH, ADMIN, technologies, HBC `hubson`
-ou `hudson`, Navigation Acts, Inde, BIC, Sepoy, Bombay, Travancore, Japon,
-Russie, Autriche/Croatie/Suisse, DEI/VOC, Java, Balkans/Yugoslavia/Risorgimento,
-nationalisme grec, Grande Crise orientale, Sick Man/Tanzimat, Romania,
-Portuguese Colonialism, Merchant Banking, révolutions américaine et française,
-localisations françaises générales, descripteurs ou sauvegardes.
+Ne jamais appliquer, ouvrir, extraire, renommer ou supprimer ce stash.
 
-BIC doit conserver :
+Ne jamais rouvrir ou modifier NAVY, MARATH, ADMIN, technologies, HBC,
+Navigation Acts, Inde, BIC, Sepoy, Bombay, Travancore, Japon, Russie,
+Autriche/Croatie/Suisse, DEI/VOC, Java, les JE déjà closes, Coup, Imperialism
+of Promise, Tanzimat, Merchant Banking, les révolutions, les localisations
+françaises générales, descripteurs ou sauvegardes.
+
+Exception de lecture strictement bornée : le fichier transversal cible
+`common/history/interests/00_interests.txt` peut être lu dans le fork et la
+source. Ses scopes BIC/GBR/Inde/Portugal doivent seulement être inventoriés;
+aucun historique pays ou fichier géographique protégé ne doit être ouvert.
+
+BIC doit conserver exactement :
 
 ```txt
 activate_law = law_type:law_frontier_colonization
@@ -137,100 +179,143 @@ activate_law = law_type:law_frontier_colonization
 
 Ne jamais restaurer `law_colonial_exploitation`.
 
+## 6. Règles Git absolues
+
 Ne jamais exécuter `git add`, reset, restore, checkout de fichier, clean,
 merge, rebase, amend, commit, `stash apply`, `stash pop` ou `stash drop`.
 
-## 6. Preuves d'entrée
+Le HEAD initial et final doit rester identique et l'index staged vide.
 
-Fichier ciblé :
+## 7. Baseline 6A.18
 
-| Arbre | Octets | SHA-256 |
-| --- | ---: | --- |
-| Fork | 2 912 | `80E38C181A5AEB547E8F98EBFD03844F3522CADC59426D9FC16588B908105C3B` |
-| Source | 3 182 | `F97A929A3CC9FAA98A8CE3824A4A6196866AFBA18A89E477600DDA230153D7FC` |
-| Vanilla | 3 143 | `AB08635DC8EAA5C3A1523F70693BADB58A607576B06C5EF979E682008B0D4C0C` |
+La sélection 6A.18 a établi :
 
-Objet : `je_imperialism_of_promise`.
+- fork : 91 actions actives, 28 scopes pays, 45 régions, 4 415 octets, SHA-256
+  `A528418D3C18379C1175E6B469C0313D0AF8C7CC04E80BBE6382F72A097F5DBD`;
+- source : 96 actions, les mêmes 28 scopes et 45 régions, 4 609 octets,
+  SHA-256
+  `0BD9ADC58439BB6F81D1B0165954E827C332CB4FCC687980055D4C6A0DF3C92A`;
+- fichier vanilla absent;
+- zéro diagnostic courant et 91 diagnostics seulement documentés
+  historiquement;
+- aucune occurrence vanilla de l'effet exact dans `common`, `events` ou
+  `map_data`;
+- `has_interest_marker_in_region` et
+  `can_have_declared_interest_here` existent, sans constituer des effets de
+  remplacement;
+- cinq actions de différence source/fork sont liées aux cartographies
+  protégées de GBR, BIC, Inde et Portugal;
+- les inventaires canoniques se contredisent entre
+  `MERGED_AND_VALIDATED`/P3 et `PENDING_REVIEW`/P1;
+- impact potentiel majeur, impact prouvé `UNKNOWN_RUNTIME_IMPACT`, statut
+  `REQUIRES_AUDIT`.
 
-Fork/source et fork/vanilla : trois hunks, `13+ / 5-`. Repères fork :
+Ne pas traiter cette baseline comme la preuve que l'effet est invalide.
 
-- lignes 18–19 : `has_role = agitator/politician`;
-- lignes 38–39 : bureaucratie et shortage sans tooltip englobant;
-- ligne 140 : `should_be_pinned_by_default = yes`.
+Dimensions attendues avant 6A.18R :
 
-Le pinning seul donne théoriquement, sans écriture :
+- matrice des blocs : `44 × 17`;
+- index des rapports : `133 × 22`;
+- inventaire trois voies : `541 × 21`;
+- différences globales : `534 × 22`;
+- travail restant : `512 × 20`.
 
-```text
-future_size = 2934
-future_sha256 = EF5200E0B9E7A58AF904C73CDD82F3CC4009FFE0CA9364952F793AB4F3E2A682
-```
+Parser tous les CSV avec un vrai parseur CSV.
 
-Ces preuves doivent être recalculées. Toute divergence impose
-`HOTFIX_6A17R_BLOCKED_THREE_WAY_EVIDENCE_CHANGED`.
+## 8. Sources documentaires obligatoires
 
-## 7. Lecture obligatoire
+Lire intégralement avant toute écriture :
 
-Lire intégralement avant conclusion :
+- `HOTFIX_6A18_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`;
+- `HOTFIX_6A17_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md`;
+- `HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT.md`;
+- `HOTFIX_6A16R_COUP_EVENT_APIS_1_13_FUNCTIONAL_AUDIT.md`;
+- roadmap, matrice des blocs, index des rapports;
+- les trois inventaires canoniques;
+- le présent prompt;
+- changelogs complets fork/source;
+- logs courants et rotations pertinentes;
+- versions fork/source du seul fichier cible.
 
-- 6A.17, 6A.16R, 6A.16, 6A.15R et 6A.15F;
-- les trois versions complètes du fichier ciblé;
-- les rapports canoniques BIC/Inde nécessaires pour comprendre les frontières,
-  sans rouvrir leurs fichiers gameplay;
-- les rapports et définitions documentaires des événements utilitaristes,
-  scopes BIC, Sepoy, groupe de journal entries et DLC `ip2_content`;
-- roadmap, matrice de blocs, index, inventaires trois voies et résiduels;
-- changelogs complets du fork et de la source;
-- logs courants et rotations pertinentes, sans les additionner aveuglément.
+## 9. Audit statique du fichier
 
-Parser les CSV avec un vrai parseur CSV.
+Pour fork et source, établir exactement :
 
-## 8. Groupes fonctionnels obligatoires
+- encodage, taille, nombre de lignes, SHA-256;
+- structure de la racine `INTERESTS`;
+- tous les scopes pays;
+- toutes les régions;
+- toutes les occurrences actives et commentées;
+- portée syntaxique de chaque effet;
+- doublons pays/région;
+- identifiants stratégiques présents ou absents de vanilla 1.13;
+- différences exactes fork/source, par pays et par action;
+- partition stricte entre groupe API et sous-deltas cartographiques protégés.
 
-Auditer séparément :
+Ne modifier aucune action. Ne restaurer aucune ancienne région Inde.
 
-1. pinning ancien vers
-   `should_be_pinned_by_default_uninvolved_or_context`;
-2. `has_role = agitator` vers `has_role_of_type = agitator`;
-3. `has_role = politician` et le seuil de prominence;
-4. ajout du rôle ruler;
-5. `character_role_ig_leader`, présent seulement dans la source;
-6. composition de l'OR et changement du vivier de personnages;
-7. tooltip `bureaucrats_no_shortage_trigger`;
-8. visibilité et `subject_type_chartered_company`;
-9. scopes `BIC_scope` et `industrialists_ig`;
-10. conditions d'échec BIC/Sepoy/sécession;
-11. progression, lois et géographie;
-12. événements `utilitarian.1` à `.10`, pulses et variables;
-13. DLC, localisations et groupe `je_group_british_india`.
+## 10. Registre moteur et données vanilla
 
-Les groupes 8 à 13 sont des dépendances à cartographier par rapports et
-références en lecture seule. Ils ne peuvent jamais être modifiés ni absorbés
-dans une future correction.
+Rechercher l'effet exact, en lecture seule, dans :
 
-## 9. Questions obligatoires
+- les scripts et fichiers `.md` de vanilla;
+- les exemples/test events;
+- les métadonnées de script disponibles;
+- les journaux;
+- les chaînes lisibles des binaires/données du jeu, uniquement avec un outil
+  de lecture non exécutant si disponible.
 
-Pour chaque groupe, établir : scope, objet, ligne, diagnostic actuel et
-historique, convergence exacte/partielle/absente, effet gameplay, dépendances,
-protection, nombre de hunks, isolation, hash théorique éventuel, rollback,
-critère statique et runtime futur.
+Ne jamais lancer l'exécutable du jeu pour cette recherche.
 
-Répondre explicitement :
+Rechercher séparément :
 
-- le pinning a-t-il encore une preuve runtime actuelle ou seulement historique?
-- le pinning peut-il être corrigé sans toucher aucun autre groupe?
-- les deux `has_role` peuvent-ils être modernisés sans changer le vivier?
-- le seuil de prominence est-il un correctif API ou un changement gameplay?
-- le rôle IG source-only est-il valide en 1.13 et intentionnel pour ce mod?
-- la convergence du tooltip suffit-elle sans diagnostic?
-- les avertissements de JE déjà présente sur des révoltes proviennent-ils de
-  cet objet ou du transfert générique des journal entries?
-- une future correction peut-elle exclure formellement BIC et l'Inde?
+- `add_declared_interest`;
+- effets apparentés contenant `interest`, `interest_marker` ou
+  `strategic_region`;
+- triggers associés;
+- signatures ou commentaires documentant les scopes d'entrée;
+- exemples historiques équivalents dans une autre version/DLC installée.
 
-Ne jamais inventer une réponse ou une API moderne.
+Une simple ressemblance de nom ne prouve jamais l'équivalence. Si aucune API
+moderne exacte n'est trouvée, conclure « remplacement inconnu », pas inventer
+une substitution.
 
-## 10. Classifications
+## 11. Diagnostics et sémantique
 
-Classer chaque sous-delta exactement une fois :
+Séparer :
+
+1. erreurs parser/PostValidate actuelles;
+2. erreurs runtime actuelles;
+3. rotations historiques encore disponibles;
+4. preuves seulement citées dans les rapports;
+5. absence de diagnostic;
+6. preuve positive de reconnaissance par le registre moteur;
+7. preuve positive ou négative d'effet fonctionnel.
+
+Dédupliquer les logs par `(session, timestamp, message, chemin, ligne)`. Ne pas
+additionner `error.log` et son miroir `game.log`.
+
+Évaluer trois hypothèses sans en privilégier une sans preuve :
+
+- effet encore valide mais inutilisé par vanilla;
+- effet reconnu mais sémantique modifiée;
+- effet obsolète, ignoré ou invalide.
+
+Pour chacune, décrire l'impact sur les intérêts initiaux, les actions
+diplomatiques et les 28 pays. Distinguer impact potentiel et impact démontré.
+
+## 12. Comparaison trois voies et classifications
+
+Vanilla n'ayant pas le fichier, comparer :
+
+- présence/absence;
+- registre d'effet;
+- concepts de régions et d'intérêts;
+- fork contre source action par action;
+- fork/source contre les données stratégiques vanilla, sans ouvrir les
+  périmètres protégés.
+
+Chaque groupe ou sous-delta doit recevoir exactement une classification :
 
 ```text
 REQUIRED_HOTFIX_DELTA
@@ -243,30 +328,75 @@ PROTECTED_CONCURRENT_WORK
 UNKNOWN_REQUIRES_REVIEW
 ```
 
-## 11. Sélection éventuelle
+Attribuer séparément une gravité gameplay et un statut de merge parmi les
+listes canoniques de 6A.18.
 
-Sélectionner au maximum une future correction F, sans la commencer. Elle exige
-simultanément : diagnostic actuel, un groupe extrêmement borné, convergence
-source/vanilla exacte, effet purement technique, aucun changement de scope ou
-gameplay, aucun fichier protégé, hash théorique et rollback exacts, et runtime
-futur raisonnable.
+## 13. Preuve de validité et éventuel test futur
 
-Les diagnostics historiques seuls ne suffisent pas. Si une condition manque,
-ne sélectionner aucune correction.
+Une preuve positive de validité peut venir d'un registre moteur lisible, d'une
+documentation 1.13 exacte ou d'un diagnostic explicitement positif. L'absence
+d'erreur seule ne suffit pas.
 
-## 12. Runtime
+Si le statique ne peut pas trancher, définir seulement un protocole futur
+minimal reproductible, sans le lancer ni le demander pendant 6A.18R. Il doit
+comparer au moins un pays non protégé et un témoin négatif, vérifier les
+intérêts au jour 1 et isoler le montage du fork.
 
-6A.17R ne lance aucun jeu, launcher, sauvegarde, console ou runtime automatisé
-et ne demande pas à l'opérateur de lancer le jeu. Aucun nouveau log ne doit
-être produit.
+Ne pas ouvrir une sauvegarde et ne pas demander de test humain dans cette
+phase.
 
-## 13. Documentation autorisée
+## 14. Critères d'une éventuelle phase suivante
+
+Sélectionner au maximum une phase, sans la commencer.
+
+Une future correction F exige simultanément :
+
+- effet 1.13 exact démontré;
+- invalidité de l'effet legacy démontrée;
+- remplacement sémantiquement équivalent;
+- périmètre API séparé des cinq cartographies protégées;
+- aucun changement de pays, région, quantité d'intérêts ou design;
+- diff, hash final et rollback exacts;
+- test futur borné;
+- gain P0/P1 réel.
+
+Si une condition manque, ne sélectionner aucune correction. Un audit runtime
+ultérieur n'est sélectionnable que s'il est réellement nécessaire, autonome
+et autorisable sans périmètre protégé.
+
+Décisions possibles :
+
+```text
+DECLARED_INTEREST_LEGACY_EFFECT_VALID_NO_CORRECTION_REQUIRED
+NO_NEXT_EXECUTION_PHASE_SELECTED
+```
+
+ou :
+
+```text
+DECLARED_INTEREST_HISTORY_API_REMAINS_UNRESOLVED
+NO_NEXT_EXECUTION_PHASE_SELECTED
+```
+
+ou, seulement si toutes les conditions sont prouvées :
+
+```text
+NEXT_EXECUTION_PHASE = HOTFIX_6A18F_DECLARED_INTEREST_HISTORY_API_1_13_ALIGNMENT
+```
+
+## 15. Runtime interdit
+
+Ne lancer ni Victoria 3, ni launcher Paradox, ni sauvegarde, ni console, ni
+runtime automatisé. Ne demander aucun lancement à l'opérateur. Aucun nouveau
+log ne doit être produit.
+
+## 16. Documentation autorisée
 
 Créer uniquement :
 
-`docs/reports/hotfix/_index/HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT.md`
+`docs/reports/hotfix/_index/HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT.md`
 
-Puis mettre à jour, seulement si nécessaire :
+Mettre à jour seulement si nécessaire :
 
 - `docs/reports/hotfix/INDEX.md`;
 - `HOTFIX_REPORT_INDEX.csv`;
@@ -274,24 +404,35 @@ Puis mettre à jour, seulement si nécessaire :
 - `HOTFIX_MERGE_COMPLETION_ROADMAP.md`;
 - `HOTFIX_NEXT_MERGE_PHASE_PROMPT.md`.
 
-Si aucune correction n'est prouvée, conserver la trace du prompt d'audit et ne
-pas inventer de prompt F.
+Ne créer aucun autre fichier. Si aucune phase n'est sélectionnée, conserver le
+présent prompt comme preuve historique selon la convention canonique.
 
-## 14. Sortie exigée
+## 17. Contenu obligatoire du rapport
 
-Le rapport doit inclure préflight, hashes, logs actuels/historiques, carte des
-groupes, comparaison trois voies, dépendances, classifications exclusives,
-diff/hash/rollback de tout candidat, exclusions BIC/Inde, décision, documents,
-état Git final, `git diff --check`, staged vide, stash/processus inchangés,
-absence de gameplay et de runtime.
+Inclure : phase/date, branche, HEAD initial/final, message, préflight, état Git,
+stash, sources, CSV, hashes, structure du fichier, pays, régions, occurrences,
+registre moteur, recherches vanilla, logs actuels/historiques, déduplication,
+trois hypothèses, comparaison trois voies, diff fork/source, séparation des
+cinq sous-deltas protégés, classifications exclusives, gravité, statut de
+merge, impact fonctionnel, protocole futur éventuel, décision, documents,
+contrôles finaux et verdicts.
 
-Verdicts minimaux :
+## 18. Contrôles finaux
+
+Vérifier : branche et HEAD inchangés; aucun gameplay modifié; staged vide;
+aucun commit; stash inchangé; huit untracked protégés intacts et non inspectés;
+Coup, Imperialism, HBC, Navigation Acts, BIC, Inde, NAVY, ADMIN, Tanzimat et
+lois inchangés; aucune localisation modifiée; `git diff --check` PASS; aucun
+processus Victoria 3/Dowser/Paradox; logs inchangés.
+
+## 19. Verdicts minimaux
 
 ```text
-HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT_COMPLETE
-IMPERIALISM_OF_PROMISE_THREE_WAY_COMPARISON_COMPLETE
-IMPERIALISM_OF_PROMISE_FUNCTIONAL_GROUPS_CLASSIFIED
-BIC_INDIA_GEOGRAPHY_PROGRESSION_DELTAS_PROTECTED
+HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT_COMPLETE
+DECLARED_INTEREST_HISTORY_THREE_WAY_COMPARISON_COMPLETE
+DECLARED_INTEREST_EFFECT_REGISTRY_AUDITED
+DECLARED_INTEREST_COUNTRY_AND_REGION_SCOPES_CLASSIFIED
+DECLARED_INTEREST_PROTECTED_MAPPINGS_SEPARATED
 NO_GAMEPLAY_CHANGED
 NO_RUNTIME_REQUIRED
 NO_AUTOMATIC_COMMIT
@@ -299,16 +440,6 @@ STASH_NAVY_3C_3_INTACT
 GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 ```
 
-Ajouter exactement une décision :
-
-```text
-NO_NEXT_EXECUTION_PHASE_SELECTED
-```
-
-ou :
-
-```text
-NEXT_EXECUTION_PHASE = <une correction atomique prouvée>
-```
-
-S'arrêter après le compte rendu. Ne jamais commencer la phase suivante.
+Ajouter exactement une des décisions de la section 14. Ne sélectionner qu'une
+seule phase éventuelle. S'arrêter après le compte rendu et ne jamais commencer
+la phase suivante.
