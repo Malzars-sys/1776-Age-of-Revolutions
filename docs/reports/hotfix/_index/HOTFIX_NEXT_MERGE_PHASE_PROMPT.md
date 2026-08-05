@@ -1,4 +1,65 @@
-# Prochaine phase — QA runtime des deux pinning Pologne 1.13
+# Prochaine phase — audit des deux pinning Afghanistan 1.13
+
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
+Wave dans `1776_Age_of_Revolutions_fork`.
+
+Exécuter exclusivement :
+
+`HOTFIX_6A22_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT_AUDIT`
+
+## État canonique d’entrée
+
+Le HEAD doit contenir le rapport commité
+`HOTFIX_6A21_POST_POLAND_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` avec :
+
+```text
+HOTFIX_6A21_POST_POLAND_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE
+POST_6A20Q_FRESH_DIAGNOSTICS_REINDEXED
+POLAND_TWO_JE_PINNING_BLOCK_REMAINS_CLOSED
+RESIDUAL_VANILLA_1_13_ALIGNMENT_COHORT_REVIEWED
+RESIDUAL_CURRENT_AND_ROTATION_ONLY_DIAGNOSTICS_SEPARATED
+RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE
+DESCRIPTOR_1_12_5_WARNING_CLASSIFIED_SEPARATELY
+NO_GAMEPLAY_CHANGED
+NO_RUNTIME_REQUIRED
+NEXT_EXECUTION_PHASE = HOTFIX_6A22_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT_AUDIT
+```
+
+## Audit strictement borné
+
+Auditer en lecture seule `common/journal_entries/03_afghanistan.txt`, uniquement
+les propriétés de pinning de :
+
+- `je_consolidate_afghanistan` ;
+- `je_unify_afghanistan`.
+
+Le fork emploie deux fois `should_be_pinned_by_default = yes`, rejeté deux fois
+dans la génération fraîche 6A.20Q. La source hotfix et la vanilla 1.13 emploient
+dans les deux mêmes objets
+`should_be_pinned_by_default_uninvolved_or_context = yes`.
+
+Comparer intégralement fork, source hotfix et vanilla afin de séparer ces deux
+propriétés de tous les autres hunks. Calculer le patch théorique et son hash,
+mais ne l'appliquer sous aucun prétexte pendant cet audit.
+
+Exclure explicitement régions stratégiques, frontières, Great Game, boutons
+scriptés, géographie, visibilité, conditions, progression, événements,
+personnages, rôles et effets. Ne remplacer ni le fichier ni les objets. Ne
+modifier aucun gameplay, ne lancer ni Victoria 3 ni le launcher et ne commencer
+aucune correction 6A.22F.
+
+Créer un rapport autonome
+`HOTFIX_6A22_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT_AUDIT.md`, mettre à jour
+uniquement les index documentaires autorisés et terminer soit par une preuve
+d'alignement atomique, soit par un verdict bloqué documenté. Préserver tous les
+blocs clos ou protégés ainsi que le stash NAVY-3C-3.
+
+Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé. Nombre de
+lancements Victoria 3 : **0**.
+
+---
+
+# Prompt historique — QA runtime des deux pinning Pologne 1.13
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.

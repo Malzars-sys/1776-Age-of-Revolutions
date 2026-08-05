@@ -1135,3 +1135,46 @@ STASH_NAVY_3C_3_INTACT
 GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 NO_NEXT_EXECUTION_PHASE_SELECTED
 ~~~
+
+## 56. Sélection résiduelle globale post-Pologne 6A.21 — 5 août 2026
+
+La génération fraîche de 6A.20Q contient 614 diagnostics dédupliqués sur 190
+chemins, contre 616 sur 191 chemins dans la rotation immédiatement antérieure.
+L'écart exact est la disparition des deux rejets de `00_poland.txt`; le bloc
+Pologne reste clos.
+
+Les douze chemins encore classés `VANILLA_1_13_ALIGNMENT_REQUIRED` sont revus
+trois voies et répartis dans une matrice P0/P1. Canada/Australie, Fascisme et
+Unification allemande disposent désormais d'une preuve runtime fraîche, sans
+changement de classification. Les exclusions France, Amériques, Tanzimat,
+Ibérie custom et Pologne custom sont préservées ; Tutoriel et Corée doivent
+être subdivisés avant tout audit borné.
+
+Le candidat afghan est le plus petit scope admissible : un fichier, deux
+objets et deux anciennes propriétés de pinning reproduites dans la génération
+fraîche. Source et vanilla convergent sur la même propriété 1.13. Les vastes
+hunks adjacents Great Game, frontières, régions, boutons, personnages,
+événements, progression et effets restent exclus. Seul un audit statique en
+lecture seule est sélectionné ; aucune correction n'est commencée.
+
+L'avertissement de compatibilité `1.12.5` provient du champ
+`supported_game_version` de `.metadata/metadata.json`, alors que les deux
+descripteurs actifs déclarent `1.*`. Il est séparé des diagnostics de scripts,
+ne bloque pas le merge du hotfix et reste candidat à un audit metadata avant
+publication.
+
+```text
+HOTFIX_6A21_POST_POLAND_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE
+POST_6A20Q_FRESH_DIAGNOSTICS_REINDEXED
+POLAND_TWO_JE_PINNING_BLOCK_REMAINS_CLOSED
+RESIDUAL_VANILLA_1_13_ALIGNMENT_COHORT_REVIEWED
+RESIDUAL_CURRENT_AND_ROTATION_ONLY_DIAGNOSTICS_SEPARATED
+RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE
+DESCRIPTOR_1_12_5_WARNING_CLASSIFIED_SEPARATELY
+NO_GAMEPLAY_CHANGED
+NO_RUNTIME_REQUIRED
+NO_AUTOMATIC_COMMIT
+STASH_NAVY_3C_3_INTACT
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+NEXT_EXECUTION_PHASE = HOTFIX_6A22_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT_AUDIT
+```
