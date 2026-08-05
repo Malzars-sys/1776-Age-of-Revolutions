@@ -1254,3 +1254,43 @@ STASH_NAVY_3C_3_INTACT
 GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 NEXT_EXECUTION_PHASE = HOTFIX_6A22Q_AFGHANISTAN_TWO_JE_PINNING_1_13_RUNTIME_QA
 ```
+
+## 59. QA runtime des deux pinning Afghanistan 1.13 6A.22Q — 5 août 2026
+
+Un lancement humain unique monte positivement le fork exact sous
+`release/1.13.0` avec The Great Wave. Une partie neuve avec le Vietnam charge la
+carte et atteint le 5 janvier 1776 sans crash, clé brute ou anomalie observée.
+Les manifests complets avant/après isolent `debug.1.log` et `debug.log` comme
+segments frais et prouvent la rotation de l’ancienne génération vers
+`debug.2.log`.
+
+La baseline afghane comporte 19 identités normalisées : les deux diagnostics
+de pinning aux lignes 2 et 1826 et 17 échecs régionaux préexistants. La nouvelle
+génération ne contient plus que les 17 identités régionales, strictement
+inchangées. Le correctif ciblé passe donc de `2` à `0` et n’introduit aucune
+nouvelle erreur attribuable à `03_afghanistan.txt`.
+
+Les hashes Afghanistan et Pologne restent exacts. Le fichier Afghanistan
+conserve 36 813 octets, son BOM UTF-8 et 1 877 fins LF ; tous les hunks Great
+Game restent inchangés. Les entrées n’ayant pas été naturellement visibles,
+aucune validation UI du pinning n’est revendiquée. Le bloc afghan est clos en
+statique et runtime ; le conteneur global reste ouvert et aucune prochaine
+phase documentaire n’est sélectionnée.
+
+```text
+HOTFIX_6A22Q_AFGHANISTAN_TWO_JE_PINNING_1_13_RUNTIME_PASS
+AFGHANISTAN_TWO_JE_PINNING_FRESH_LOG_GENERATION_CONFIRMED
+AFGHANISTAN_TWO_JE_PINNING_DIAGNOSTICS_2_TO_0
+AFGHANISTAN_03_AFGHANISTAN_NEW_RUNTIME_ERRORS_0
+AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT_COMPLETE
+AFGHANISTAN_GAMEPLAY_HASH_PRESERVED
+AFGHANISTAN_GREAT_GAME_HUNKS_UNCHANGED
+AFGHANISTAN_UI_PINNING_BEHAVIOR_NOT_CLAIMED_UNLESS_NATURALLY_OBSERVED
+POLAND_VALIDATED_ALIGNMENT_REMAINS_CLOSED
+ONE_HUMAN_RUNTIME_LAUNCH_USED
+NO_GAMEPLAY_CHANGED_DURING_RUNTIME
+NO_AUTOMATIC_COMMIT
+STASH_NAVY_3C_3_INTACT
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+NO_NEXT_EXECUTION_PHASE_SELECTED
+```
