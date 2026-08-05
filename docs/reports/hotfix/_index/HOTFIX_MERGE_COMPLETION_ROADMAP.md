@@ -1178,3 +1178,42 @@ STASH_NAVY_3C_3_INTACT
 GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 NEXT_EXECUTION_PHASE = HOTFIX_6A22_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT_AUDIT
 ```
+
+## 57. Audit des deux pinning Afghanistan 1.13 6A.22 — 5 août 2026
+
+Les fichiers fork, source hotfix et vanilla correspondent aux hashes 6A.21.
+Ils sont tous UTF-8 avec BOM et LF. L'extraction par profondeur d'accolades
+confirme `je_consolidate_afghanistan` et `je_unify_afghanistan` dans les trois
+arbres. Les deux diagnostics frais de `debug.log`, lignes 2 et 1826,
+correspondent exactement aux deux anciennes propriétés du fork.
+
+La vanilla contient 394 propriétés 1.13 dans 157 fichiers, toutes directement
+à la racine d'une journal entry, et aucune ancienne forme. Source et vanilla
+convergent dans les deux objets afghans sur
+`should_be_pinned_by_default_uninvolved_or_context = yes`. Les régions,
+frontières, états, pays, sujets, boutons, scopes, variables, événements,
+effets, récompenses, progression et toute la logique Great Game sont séparés
+des deux lignes et restent explicitement exclus.
+
+Le patch théorique en mémoire est exactement `2+/2-`. Il conserve le BOM, les
+fins LF et 1 877 lignes, passe de 36 769 à 36 813 octets et produit le SHA-256
+`C9165714127E017486949AF8DDE742FD5A0E5F3093C5A43191695FE213969E13`.
+Le remplacement inverse restitue byte pour byte le hash d'entrée
+`D24333CE06C2DE801F91462000713DCEB430822A2167F7336341E9071B19F988`.
+L'atomicité est démontrée ; seule la correction statique 6A.22F est
+sélectionnée, sans être commencée.
+
+```text
+HOTFIX_6A22_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT_AUDIT_COMPLETE
+AFGHANISTAN_TWO_JE_THREE_WAY_COMPARISON_COMPLETE
+AFGHANISTAN_TWO_JE_PINNING_DIAGNOSTICS_CONFIRMED
+AFGHANISTAN_PINNING_AND_GREAT_GAME_HUNKS_SEPARATED
+AFGHANISTAN_TWO_HUNK_THEORETICAL_PATCH_COMPUTED
+NO_GAMEPLAY_CHANGED
+NO_RUNTIME_REQUIRED
+NO_AUTOMATIC_COMMIT
+STASH_NAVY_3C_3_INTACT
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+AFGHANISTAN_TWO_JE_PINNING_ATOMIC_ALIGNMENT_PROVEN
+NEXT_EXECUTION_PHASE = HOTFIX_6A22F_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT
+```

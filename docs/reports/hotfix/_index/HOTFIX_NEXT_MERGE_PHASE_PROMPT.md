@@ -1,4 +1,91 @@
-# Prochaine phase — audit des deux pinning Afghanistan 1.13
+# Prochaine phase — correction des deux pinning Afghanistan 1.13
+
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
+Wave dans `1776_Age_of_Revolutions_fork`.
+
+Exécuter exclusivement :
+
+`HOTFIX_6A22F_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT`
+
+## État canonique d’entrée
+
+Le HEAD doit contenir le rapport commité
+`HOTFIX_6A22_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT_AUDIT.md` avec :
+
+```text
+HOTFIX_6A22_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT_AUDIT_COMPLETE
+AFGHANISTAN_TWO_JE_THREE_WAY_COMPARISON_COMPLETE
+AFGHANISTAN_TWO_JE_PINNING_DIAGNOSTICS_CONFIRMED
+AFGHANISTAN_PINNING_AND_GREAT_GAME_HUNKS_SEPARATED
+AFGHANISTAN_TWO_HUNK_THEORETICAL_PATCH_COMPUTED
+NO_GAMEPLAY_CHANGED
+NO_RUNTIME_REQUIRED
+AFGHANISTAN_TWO_JE_PINNING_ATOMIC_ALIGNMENT_PROVEN
+NEXT_EXECUTION_PHASE = HOTFIX_6A22F_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT
+```
+
+Le fichier `common/journal_entries/03_afghanistan.txt` doit avoir avant
+correction :
+
+```text
+octets = 36769
+lignes = 1877 LF
+encodage = UTF-8 avec BOM
+SHA-256 = D24333CE06C2DE801F91462000713DCEB430822A2167F7336341E9071B19F988
+ancienne propriété = 2
+nouvelle propriété = 0
+```
+
+## Correction strictement autorisée
+
+Modifier uniquement les propriétés racine de :
+
+- `je_consolidate_afghanistan` ;
+- `je_unify_afghanistan`.
+
+Appliquer exactement deux substitutions :
+
+```diff
+-	should_be_pinned_by_default = yes
++	should_be_pinned_by_default_uninvolved_or_context = yes
+```
+
+Résultat statique obligatoire :
+
+```text
+un fichier
+deux objets
+deux hunks
+diff = 2+/2-
+octets = 36813
+lignes = 1877 LF
+BOM UTF-8 conservé
+ancienne propriété = 0
+nouvelle propriété = 2
+SHA-256 = C9165714127E017486949AF8DDE742FD5A0E5F3093C5A43191695FE213969E13
+```
+
+Le remplacement inverse doit restituer exactement le hash d'entrée. Préserver
+tous les autres octets. Ne remplacer ni le fichier ni les objets depuis la
+source ou la vanilla.
+
+Exclure absolument régions, frontières, états, Great Game, boutons, visibilité,
+conditions, progression, tooltips, pays, sujets, cultures, religions,
+personnages, rôles, technologies, événements, effets, récompenses,
+modificateurs, scopes et variables. Ne modifier aucun autre gameplay ni aucun
+bloc clos ou protégé.
+
+Ne lancer ni Victoria 3 ni le launcher pendant 6A.22F. Une éventuelle QA
+runtime `2 → 0` doit rester une phase humaine ultérieure, sélectionnée seulement
+après validation statique complète. Ne pas effectuer de stage ou commit
+automatique et préserver le stash NAVY-3C-3.
+
+Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé. Nombre de
+lancements Victoria 3 : **0**.
+
+---
+
+# Prompt historique — audit des deux pinning Afghanistan 1.13
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
