@@ -1217,3 +1217,40 @@ GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 AFGHANISTAN_TWO_JE_PINNING_ATOMIC_ALIGNMENT_PROVEN
 NEXT_EXECUTION_PHASE = HOTFIX_6A22F_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT
 ```
+
+## 58. Alignement des deux pinning Afghanistan 1.13 6A.22F — 5 août 2026
+
+Les deux propriétés obsolètes de `je_consolidate_afghanistan` et
+`je_unify_afghanistan` sont remplacées au niveau byte sans sérialisation ni
+reformatage. Le diff gameplay est exactement un fichier, deux objets, deux
+hunks et `2+/2-`. Les anciennes propriétés passent de deux à zéro et les
+nouvelles de zéro à deux.
+
+Le fichier final conserve le BOM UTF-8, les fins LF et 1 877 lignes. Sa taille
+passe de 36 769 à 36 813 octets et son SHA-256 vaut
+`C9165714127E017486949AF8DDE742FD5A0E5F3093C5A43191695FE213969E13`.
+Le remplacement inverse restitue le hash d'entrée
+`D24333CE06C2DE801F91462000713DCEB430822A2167F7336341E9071B19F988`.
+
+La relecture intégrale confirme l'invariance des visibilités propres au fork,
+des régions, frontières, états, boutons, conditions, scopes, variables,
+événements, effets, récompenses, progression et de toute la logique Great
+Game. Les deux diagnostics existants restent une baseline historique : aucun
+runtime n'est exécuté en 6A.22F. Une seule QA humaine 6A.22Q est sélectionnée
+pour produire une génération fraîche et mesurer `2 → 0`.
+
+```text
+HOTFIX_6A22F_AFGHANISTAN_TWO_JE_PINNING_1_13_STATIC_PASS
+AFGHANISTAN_TWO_JE_PINNING_TWO_HUNK_1_13_ALIGNMENT_APPLIED
+AFGHANISTAN_TWO_JE_PINNING_OLD_PROPERTIES_2_TO_0
+AFGHANISTAN_TWO_JE_PINNING_NEW_PROPERTIES_0_TO_2
+AFGHANISTAN_TWO_JE_PINNING_GAMEPLAY_DIFF_2_PLUS_2_MINUS
+AFGHANISTAN_TWO_JE_PINNING_SHA256_MATCH
+AFGHANISTAN_TWO_JE_PINNING_OTHER_BYTES_UNCHANGED
+AFGHANISTAN_GREAT_GAME_GEOGRAPHY_BUTTONS_SCOPES_EVENTS_AND_EFFECTS_UNCHANGED
+NO_RUNTIME_EXECUTED
+NO_AUTOMATIC_COMMIT
+STASH_NAVY_3C_3_INTACT
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+NEXT_EXECUTION_PHASE = HOTFIX_6A22Q_AFGHANISTAN_TWO_JE_PINNING_1_13_RUNTIME_QA
+```
