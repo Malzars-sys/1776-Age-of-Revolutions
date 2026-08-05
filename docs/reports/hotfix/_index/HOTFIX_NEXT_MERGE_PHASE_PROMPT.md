@@ -1,65 +1,60 @@
-# Prochaine phase — QA runtime des deux pinning Afghanistan 1.13
+# Prochaine phase — audit des cinq pinning de l'unification allemande 1.13
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
 
 Exécuter exclusivement :
 
-`HOTFIX_6A22Q_AFGHANISTAN_TWO_JE_PINNING_1_13_RUNTIME_QA`
+`HOTFIX_6A24_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT_AUDIT`
 
 ## État canonique d’entrée
 
-Le HEAD doit être le commit manuel de 6A.22F et contenir
-`HOTFIX_6A22F_AFGHANISTAN_TWO_JE_PINNING_1_13_ALIGNMENT.md` avec :
+Le HEAD doit être le commit manuel de 6A.23 et contenir
+`HOTFIX_6A23_POST_AFGHANISTAN_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` avec :
 
 ```text
-HOTFIX_6A22F_AFGHANISTAN_TWO_JE_PINNING_1_13_STATIC_PASS
-AFGHANISTAN_TWO_JE_PINNING_GAMEPLAY_DIFF_2_PLUS_2_MINUS
-AFGHANISTAN_TWO_JE_PINNING_SHA256_MATCH
-AFGHANISTAN_TWO_JE_PINNING_OTHER_BYTES_UNCHANGED
-AFGHANISTAN_GREAT_GAME_GEOGRAPHY_BUTTONS_SCOPES_EVENTS_AND_EFFECTS_UNCHANGED
-NO_RUNTIME_EXECUTED
-NEXT_EXECUTION_PHASE = HOTFIX_6A22Q_AFGHANISTAN_TWO_JE_PINNING_1_13_RUNTIME_QA
+HOTFIX_6A23_POST_AFGHANISTAN_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE
+AFGHANISTAN_TWO_JE_PINNING_BLOCK_REMAINS_CLOSED
+POLAND_TWO_JE_PINNING_BLOCK_REMAINS_CLOSED
+AFGHANISTAN_REGIONAL_POSTVALIDATE_DIAGNOSTICS_SEPARATED
+RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE
+NEXT_EXECUTION_PHASE = HOTFIX_6A24_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT_AUDIT
 ```
 
-Le fichier `common/journal_entries/03_afghanistan.txt` doit avoir le SHA-256 :
+## Périmètre exclusif
 
-`C9165714127E017486949AF8DDE742FD5A0E5F3093C5A43191695FE213969E13`
+Auditer en lecture seule :
 
-## Protocole humain unique
+`common/journal_entries/00_german_unification.txt`
 
-Effectuer exactement une ouverture de Victoria 3 :
+et exactement les cinq objets :
 
-1. capturer un manifeste complet des logs avant lancement ;
-2. confirmer que le fork exact et Victoria 3 1.13 sont montés ;
-3. lancer une partie neuve en 1776 avec un pays témoin stable ;
-4. ne forcer aucune journal entry et ne modifier aucun setup pour les rendre
-   visibles ;
-5. laisser le chargement produire une nouvelle génération de logs ;
-6. fermer Victoria 3 et le launcher avant toute analyse ;
-7. capturer le manifeste après lancement et identifier les nouveaux segments
-   et rotations par nom, hash et horodatage ;
-8. dédupliquer par génération, message normalisé, chemin et ligne ;
-9. vérifier à nouveau les hashes gameplay après la session.
+1. `je_schleswig_holstein_question` ;
+2. `je_german_unification_idea` ;
+3. `je_north_german_unification` ;
+4. `je_south_german_unification` ;
+5. `je_german_unification`.
 
-Baseline historique :
+La génération fraîche reproduit cinq diagnostics homogènes :
 
 ```text
 Unexpected token: should_be_pinned_by_default
-common/journal_entries/03_afghanistan.txt
-lignes historiques 2 et 1826
-2 diagnostics dédupliqués
+common/journal_entries/00_german_unification.txt
+lignes actuelles 105, 275, 333, 394 et 447
 ```
 
-La QA passe si la génération fraîche contient zéro diagnostic ciblé et aucune
-nouvelle erreur attribuable à `03_afghanistan.txt`. Ne pas revendiquer la
-validation UI du pinning si les entrées ne sont pas naturellement visibles.
-Préserver tous les hunks Great Game, géographiques et fonctionnels, les blocs
-clos ou protégés, les non-suivis protégés et le stash NAVY-3C-3. Ne modifier
-aucun gameplay et ne créer aucun commit automatique pendant la QA.
+Comparer fork, source hotfix et vanilla 1.13 au niveau de chaque objet et de la
+propriété racine. Démontrer la forme moderne, calculer seulement un patch
+théorique reproductible et établir toutes les exclusions. Ne remplacer aucun
+fichier complet. Exclure progression, visibilité, géographie, conditions,
+événements et effets, ainsi que tous les blocs clos ou protégés.
+
+Cette phase doit rester entièrement documentaire : zéro changement gameplay,
+zéro runtime, zéro correction, zéro stage et zéro commit automatique. Ne pas
+commencer une éventuelle phase de correction.
 
 Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé. Nombre de
-lancements Victoria 3 : **1**, humain.
+lancements Victoria 3 : **0**.
 
 ---
 

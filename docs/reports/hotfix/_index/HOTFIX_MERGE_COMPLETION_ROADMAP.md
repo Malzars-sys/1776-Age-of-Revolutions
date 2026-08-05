@@ -1294,3 +1294,38 @@ STASH_NAVY_3C_3_INTACT
 GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 NO_NEXT_EXECUTION_PHASE_SELECTED
 ```
+
+## 60. Sélection résiduelle globale post-Afghanistan 6A.23 — 5 août 2026
+
+Les segments frais `debug.1.log` et `debug.log` sont reconstruits séparément
+des rotations : 1 384 identités dédupliquées, 300 chemins et 67 messages. La
+comparaison avec la génération précédente donne zéro apparition, deux
+disparitions — exactement les pinning Afghanistan — et 1 384 identités
+inchangées. Les 17 diagnostics régionaux afghans préexistants sont classés à
+part et ne rouvrent pas le bloc clos.
+
+Les onze chemins `VANILLA_1_13_ALIGNMENT_REQUIRED` sont revus trois voies.
+Fascisme reste différé parce que ses trois pinning cohabitent avec sept
+diagnostics de rôles. `00_german_unification.txt` présente au contraire cinq
+diagnostics homogènes, dans cinq objets racine, avec convergence source et
+vanilla sur la propriété 1.13 et sans collision protégée. L'audit documentaire
+6A.24 est sélectionné, sans correction ni runtime et sans être commencé.
+
+```text
+HOTFIX_6A23_POST_AFGHANISTAN_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE
+POST_6A22Q_FRESH_DIAGNOSTICS_REINDEXED
+AFGHANISTAN_TWO_JE_PINNING_BLOCK_REMAINS_CLOSED
+POLAND_TWO_JE_PINNING_BLOCK_REMAINS_CLOSED
+AFGHANISTAN_REGIONAL_POSTVALIDATE_DIAGNOSTICS_SEPARATED
+RESIDUAL_VANILLA_1_13_ALIGNMENT_COHORT_REVIEWED
+RESIDUAL_CURRENT_AND_ROTATION_ONLY_DIAGNOSTICS_SEPARATED
+RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE
+METADATA_1_12_5_WARNING_REMAINS_SEPARATE
+NO_GAMEPLAY_CHANGED
+NO_RUNTIME_REQUIRED
+NO_AUTOMATIC_COMMIT
+STASH_NAVY_3C_3_INTACT
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+NEXT_RESIDUAL_AUDIT_SELECTED
+NEXT_EXECUTION_PHASE = HOTFIX_6A24_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT_AUDIT
+```
