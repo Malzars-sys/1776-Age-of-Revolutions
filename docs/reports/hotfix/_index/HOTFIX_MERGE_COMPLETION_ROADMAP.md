@@ -1505,3 +1505,38 @@ EXPECTED_TARGET_RUNTIME_API_DIAGNOSTICS_AFTER = 0
 EXPECTED_GLOBAL_RESIDUAL_AFTER_RUNTIME = 420
 NEXT_EXECUTION_PHASE = HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA
 ```
+
+## 66. QA runtime consolidée des six familles d’API script 6A.27Q — 9 août 2026
+
+Une ouverture humaine unique monte le fork exact sous
+`release/1.13.0 : d9ade554e`, puis charge une nouvelle partie Vietnam jusqu’au
+11 janvier 1776 sans console ni contenu forcé. Aucune clé brute, aucun crash ni
+anomalie majeure immédiate n’est observé. Le jeu et le launcher sont fermés
+avant la capture du manifeste final.
+
+Les rotations prouvent `debug.1.log` comme segment frais de montage et
+`debug.log` comme segment frais principal. Le parseur canonique reproduit
+d’abord les 1 029 identités 6A.25Q, puis mesure 420 identités fraîches : 98
+parser et 322 `PostValidate`, sur 113 chemins et 65 messages normalisés. La
+comparaison donne exactement 609 disparitions, 0 apparition et 420 identités
+inchangées. Les disparitions sont exclusivement les six cohortes ciblées.
+
+Les 87 hashes gameplay sont identiques au commit 6A.27. Les 127 exceptions API
+et les 14 exceptions pinning restent bornées ; Afghanistan, Pologne et BIC
+restent fermés. Sept fichiers du sweep portent encore 23 diagnostics d’autres
+familles et ne sont pas déclarés entièrement terminés.
+
+Le sweep multi-API est fermé. Aucune correction supplémentaire n’est commencée.
+La phase 6A.28 devra réindexer statiquement les 420 résidus et calculer
+`TRUE_MERGE_BLOCKERS_REMAINING` avant toute nouvelle décision d’exécution.
+
+```text
+HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA_COMPLETE
+GLOBAL_MULTI_API_ATOMIC_SWEEP_RUNTIME_PASS
+GLOBAL_MULTI_API_TARGET_DIAGNOSTICS_609_TO_0
+GLOBAL_MULTI_API_NO_NEW_ATTRIBUTABLE_ERRORS
+GLOBAL_MULTI_API_GAMEPLAY_HASHES_87_OF_87_PRESERVED
+ONE_HUMAN_RUNTIME_ONLY
+GLOBAL_RESIDUAL_DIAGNOSTICS = 420
+NEXT_EXECUTION_PHASE = HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX
+```

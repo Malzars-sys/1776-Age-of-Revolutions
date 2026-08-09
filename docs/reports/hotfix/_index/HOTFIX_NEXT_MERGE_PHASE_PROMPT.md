@@ -1,4 +1,4 @@
-# État canonique — QA runtime globale 6A.27Q sélectionnée
+# État canonique — réindexation finale 6A.28 sélectionnée
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
@@ -7,58 +7,71 @@ Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé.
 
 ## Dernière phase terminée
 
-`HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP` est terminée statiquement. Les 695
-substitutions sûres du plan 6A.26 ont été appliquées dans 87 fichiers, avec un
-diff gameplay exact `695+/695-`, concordance de tous les hashes théoriques et
-inversion byte-for-byte. Les 127 exceptions API et les 14 exceptions pinning
-restent intactes. Aucun runtime n’a été exécuté.
-
-```text
-ATOMIC_API_FAMILIES_APPLIED = 6
-SAFE_API_SUBSTITUTIONS_APPLIED = 695
-SAFE_API_CHANGED_FILES = 87
-TARGET_RUNTIME_API_DIAGNOSTICS_BEFORE = 609
-EXPECTED_TARGET_RUNTIME_API_DIAGNOSTICS_AFTER = 0
-EXPECTED_GLOBAL_RESIDUAL_AFTER_RUNTIME = 420
-```
-
-La valeur `420` est prévisionnelle et n’a pas été observée.
-
-## Phase exclusive à exécuter après commit manuel de 6A.27
-
-`HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA`
-
-Exiger le commit manuel contenant le rapport et les résultats 6A.27. Avant le
-lancement, capturer un manifeste complet des logs et vérifier les 87 hashes
-enregistrés dans `HOTFIX_6A27_GLOBAL_SCRIPT_API_APPLIED_RESULTS.csv`.
-
-Effectuer exactement une seule ouverture humaine. Confirmer le fork exact et
-`release/1.13.0` / The Great Wave, puis lancer une partie 1776 neuve avec un
-pays témoin stable, Vietnam par défaut. Ne forcer aucun événement ni contenu.
-Laisser produire une génération fraîche, fermer Victoria 3 et le launcher,
-puis capturer le manifeste après lancement et identifier exclusivement les
-nouveaux segments.
-
-Mesurer ensemble les six familles `API_HAS_ROLE`, `API_IS_RULER`,
-`API_HAS_AMENDMENT`, `API_IS_HEIR`, `API_IS_IN_GEOGRAPHIC_REGION` et
-`API_ANY_COUNTRY_IN_IBERIA`. Exiger :
+`HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA` est terminée. Une
+seule ouverture humaine sous `release/1.13.0 : d9ade554e` valide les six
+familles 6A.27, sans nouvelle identité ni changement gameplay.
 
 ```text
 TOTAL_TARGET_API_DIAGNOSTICS_BEFORE = 609
 TOTAL_TARGET_API_DIAGNOSTICS_AFTER = 0
 NEW_6A27_ATTRIBUTABLE_ERRORS = 0
-GAMEPLAY_HASHES_CHANGED_DURING_RUNTIME = 0
+GAMEPLAY_HASHES_MATCH = 87
+HUMAN_RUNTIME_LAUNCHES = 1
+
+FRESH_TOTAL_DIAGNOSTICS_AFTER_6A27Q = 420
+FRESH_PARSER_DIAGNOSTICS_AFTER_6A27Q = 98
+FRESH_POSTVALIDATE_DIAGNOSTICS_AFTER_6A27Q = 322
+FRESH_PATHS_AFTER_6A27Q = 113
+FRESH_NORMALIZED_MESSAGES_AFTER_6A27Q = 65
 ```
 
-Mesurer la baseline résiduelle réelle au lieu de présumer `420`. Préserver les
-127 exceptions API, les 14 exceptions pinning et tous les périmètres protégés.
-Ne préparer aucune micro-phase par famille : après PASS, la seule opération
-permise est une dernière réindexation globale des résidus.
+Les 127 exceptions API et les 14 exceptions pinning restent bornées. Le sweep
+multi-API et le pinning global sont fermés.
+
+## Phase exclusive à exécuter après commit manuel de 6A.27Q
+
+`HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX`
+
+Cette phase est strictement statique : ne lancer ni Victoria 3, ni Dowser, ni
+Paradox Launcher. Utiliser comme source canonique les segments frais et les
+manifestes 6A.27Q. Reproduire exactement la baseline `420 = 98 + 322`, avec
+113 chemins et 65 messages normalisés, selon la clé `generation +
+normalized_message + path + line`.
+
+Classifier chaque diagnostic restant, sans appliquer de correction, dans une
+et une seule catégorie :
 
 ```text
-HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_COMPLETE
-GLOBAL_MULTI_API_ATOMIC_SWEEP_STATIC_PASS
-NEXT_EXECUTION_PHASE = HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA
+TRUE_MERGE_BLOCKER
+PROTECTED_WORK
+INTENTIONAL_FORK_DIVERGENCE
+POST_MERGE_BACKLOG
+SEMANTIC_REWRITE_REQUIRED
+BOUNDED_EXCEPTION
+ALREADY_ACCOUNTED_FOR
+```
+
+Conserver séparément les 127 exceptions API, les 14 exceptions pinning, les
+sept recherches technologiques non suivies et tous les blocs historiques
+fermés. Ne rouvrir aucune des six familles validées. Ne créer aucune
+micro-phase et ne modifier aucun gameplay.
+
+Produire un inventaire exhaustif par diagnostic, une matrice par famille et le
+nombre réellement démontré :
+
+```text
+TRUE_MERGE_BLOCKERS_REMAINING = N
+```
+
+Si `N = 0`, sélectionner directement le runtime global final. Si `N > 0`,
+regrouper les bloqueurs compatibles dans le nombre minimal de corrections, sans
+commencer ces corrections pendant 6A.28.
+
+```text
+HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA_COMPLETE
+GLOBAL_MULTI_API_ATOMIC_SWEEP_RUNTIME_PASS
+GLOBAL_RESIDUAL_DIAGNOSTICS = 420
+NEXT_EXECUTION_PHASE = HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX
 ```
 
 ---
