@@ -1,33 +1,33 @@
-# Prochaine phase — audit des cinq pinning de l'unification allemande 1.13
+# Prochaine phase — correction des cinq pinning de l'unification allemande 1.13
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
 
 Exécuter exclusivement :
 
-`HOTFIX_6A24_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT_AUDIT`
+`HOTFIX_6A24F_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT`
 
 ## État canonique d’entrée
 
-Le HEAD doit être le commit manuel de 6A.23 et contenir
-`HOTFIX_6A23_POST_AFGHANISTAN_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md` avec :
+Le HEAD doit être le commit manuel de 6A.24 et contenir
+`HOTFIX_6A24_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT_AUDIT.md` avec :
 
 ```text
-HOTFIX_6A23_POST_AFGHANISTAN_RESIDUAL_GLOBAL_SCRIPT_SELECTION_COMPLETE
-AFGHANISTAN_TWO_JE_PINNING_BLOCK_REMAINS_CLOSED
-POLAND_TWO_JE_PINNING_BLOCK_REMAINS_CLOSED
-AFGHANISTAN_REGIONAL_POSTVALIDATE_DIAGNOSTICS_SEPARATED
-RESIDUAL_P0_P1_PRIORITY_MATRIX_COMPLETE
-NEXT_EXECUTION_PHASE = HOTFIX_6A24_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT_AUDIT
+HOTFIX_6A24_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT_AUDIT_COMPLETE
+GERMAN_UNIFICATION_FIVE_JE_THREE_WAY_COMPARISON_COMPLETE
+GERMAN_UNIFICATION_PINNING_AND_FUNCTIONAL_HUNKS_SEPARATED
+GERMAN_UNIFICATION_FIVE_HUNK_THEORETICAL_PATCH_COMPUTED
+GERMAN_UNIFICATION_FIVE_JE_PINNING_ATOMIC_ALIGNMENT_PROVEN
+NEXT_EXECUTION_PHASE = HOTFIX_6A24F_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT
 ```
 
 ## Périmètre exclusif
 
-Auditer en lecture seule :
+Modifier uniquement :
 
 `common/journal_entries/00_german_unification.txt`
 
-et exactement les cinq objets :
+et exactement les cinq propriétés racine des objets :
 
 1. `je_schleswig_holstein_question` ;
 2. `je_german_unification_idea` ;
@@ -35,23 +35,36 @@ et exactement les cinq objets :
 4. `je_south_german_unification` ;
 5. `je_german_unification`.
 
-La génération fraîche reproduit cinq diagnostics homogènes :
+Appliquer exactement cinq substitutions :
 
-```text
-Unexpected token: should_be_pinned_by_default
-common/journal_entries/00_german_unification.txt
-lignes actuelles 105, 275, 333, 394 et 447
+```diff
+-should_be_pinned_by_default = yes
++should_be_pinned_by_default_uninvolved_or_context = yes
 ```
 
-Comparer fork, source hotfix et vanilla 1.13 au niveau de chaque objet et de la
-propriété racine. Démontrer la forme moderne, calculer seulement un patch
-théorique reproductible et établir toutes les exclusions. Ne remplacer aucun
-fichier complet. Exclure progression, visibilité, géographie, conditions,
-événements et effets, ainsi que tous les blocs clos ou protégés.
+Préconditions et résultat exact :
 
-Cette phase doit rester entièrement documentaire : zéro changement gameplay,
-zéro runtime, zéro correction, zéro stage et zéro commit automatique. Ne pas
-commencer une éventuelle phase de correction.
+```text
+SHA-256 d'entrée = A52D4525DED1BE8F804CEEDD99329E03EAABB9E53376D04F4BBE9A8CDC32EC22
+SHA-256 final = 30A3F3356AA43060C0E8D315DDF34D8D304680290134E0212AE6AEB852C8F239
+taille finale = 9527 octets
+lignes = 448 LF
+BOM UTF-8 = conservé
+diff = 5+/5-
+ancienne propriété = 0
+nouvelle propriété = 5
+autres octets modifiés = 0
+```
+
+Préserver exactement indentation, BOM, LF et tous les octets adjacents. Ne
+remplacer ni le fichier ni un objet complet. Exclure progression, conditions,
+visibilité, géographie, régions, états, frontières, cultures, pays, scopes,
+événements, effets, récompenses, modificateurs, tooltips, icônes, groupes,
+délais et poids.
+
+Cette phase est une correction statique : aucun runtime, aucun stage et aucun
+commit automatique. Après validation statique, sélectionner au maximum une QA
+runtime humaine unique destinée à mesurer `5 → 0`, sans la lancer.
 
 Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé. Nombre de
 lancements Victoria 3 : **0**.

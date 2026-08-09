@@ -1329,3 +1329,35 @@ GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 NEXT_RESIDUAL_AUDIT_SELECTED
 NEXT_EXECUTION_PHASE = HOTFIX_6A24_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT_AUDIT
 ```
+
+## 61. Audit des cinq pinning de l'unification allemande 1.13 6A.24 — 5 août 2026
+
+Les trois versions du fichier allemand correspondent aux hashes attendus. Le
+fork conserve cinq propriétés obsolètes à la racine de cinq objets ; source et
+vanilla possèdent cinq fois la forme 1.13 aux mêmes emplacements structurels.
+La vanilla confirme 394 occurrences modernes dans 157 fichiers, toutes à
+profondeur 1, et zéro occurrence ancienne.
+
+Les générations fraîche, précédente et ancienne reproduisent chacune les cinq
+diagnostics exacts, sans autre erreur du fichier. Les différences de visibilité
+Schleswig, de sélection du candidat dans l'idée d'unification et de complétion
+nord/sud sont séparées et exclues. Le patch théorique limité aux cinq noms de
+propriété produit `5+/5-`, 9 527 octets et le SHA-256
+`30A3F3356AA43060C0E8D315DDF34D8D304680290134E0212AE6AEB852C8F239` ;
+son inversion restitue exactement l'entrée. 6A.24F est sélectionnée, sans être
+commencée.
+
+```text
+HOTFIX_6A24_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT_AUDIT_COMPLETE
+GERMAN_UNIFICATION_FIVE_JE_THREE_WAY_COMPARISON_COMPLETE
+GERMAN_UNIFICATION_FIVE_JE_PINNING_DIAGNOSTICS_CONFIRMED
+GERMAN_UNIFICATION_PINNING_AND_FUNCTIONAL_HUNKS_SEPARATED
+GERMAN_UNIFICATION_FIVE_HUNK_THEORETICAL_PATCH_COMPUTED
+NO_GAMEPLAY_CHANGED
+NO_RUNTIME_REQUIRED
+NO_AUTOMATIC_COMMIT
+STASH_NAVY_3C_3_INTACT
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+GERMAN_UNIFICATION_FIVE_JE_PINNING_ATOMIC_ALIGNMENT_PROVEN
+NEXT_EXECUTION_PHASE = HOTFIX_6A24F_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT
+```
