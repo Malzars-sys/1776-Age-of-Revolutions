@@ -1,46 +1,49 @@
-# Etat canonique - aucune phase d'execution selectionnee
+# État canonique — sweep global 6A.27 sélectionné
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 - The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
 
 Modele recommande : GPT-5.6 Thinking avec raisonnement eleve.
 
-## Derniere phase terminee
+## Dernière phase terminée
 
-`HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA` est terminee en PASS apres
-exactement une ouverture humaine :
+`HOTFIX_6A26_GLOBAL_NON_PINNING_DIAGNOSTIC_REINDEX_AND_API_FAMILY_AUDIT` est
+terminée statiquement. La baseline canonique contient 1 029 diagnostics
+regroupés en 33 familles. Six familles A/B sont prouvées atomiques :
 
 ```text
-TOTAL_TARGET_PINNING_DIAGNOSTICS_BEFORE = 355
-TOTAL_TARGET_PINNING_DIAGNOSTICS_AFTER = 0
-NEW_PINNING_REGRESSIONS = 0
-NEW_6A25_ATTRIBUTABLE_NORMALIZED_ERRORS = 0
-GAMEPLAY_HASHES_CHANGED_DURING_RUNTIME = 0
-PINNING_SWEEP_EXCEPTIONS = 14
+ATOMIC_SWEEP_CANDIDATE_DIAGNOSTICS = 609
+ATOMIC_SWEEP_CANDIDATE_OCCURRENCES = 695
+ATOMIC_SWEEP_CANDIDATE_FILES = 87
+ATOMIC_SWEEP_BOUNDED_EXCEPTIONS = 127
+PATCH_PLAN_SHA256 = D8C6DA5830C38B81348197141258F31BA8B5451E232E4ACD1C11A9FFE4B47466
 ```
 
-Le bloc global de pinning est ferme avec ses 14 exceptions bornees. Les 129
-hashes gameplay sont preserves. Les blocs Afghanistan et Pologne restent clos,
-les cinq pinning allemands sont valides dans la QA globale et 6A.24F demeure
-`SUPERSEDED_NOT_EXECUTED`.
+Le bloc global de pinning reste fermé avec ses 14 exceptions bornées. Tous les
+périmètres protégés restent exclus du plan.
 
-## Decision requise avant toute suite
+## Phase exclusive à exécuter après commit manuel de 6A.26
 
-Aucune phase d'execution n'est actuellement selectionnee. Ne commencer aucune
-correction fichier par fichier et ne lancer ni Victoria 3 ni le launcher a
-partir de ce document.
+`HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP`
 
-Si l'operateur autorise une nouvelle phase, son architecture devra d'abord etre
-une reindexation globale consolidee des diagnostics residuels non-pinning,
-puis un regroupement par famille d'API. Un nouveau sweep global ne pourra etre
-selectionne que lorsqu'une famille sera prouvee atomique et sure. Cette note ne
-selectionne pas elle-meme cette phase.
+Appliquer exactement les lignes `SAFE_CANDIDATE` de
+`HOTFIX_6A26_ATOMIC_API_PATCH_PLAN.csv`, et aucune ligne
+`BOUNDED_EXCEPTION`. Les seules transformations autorisées sont les six règles
+du plan 6A.26. Vérifier le hash d'entrée de chaque fichier avant écriture, les
+695 substitutions, les 87 hashes finaux, le numstat théorique `695+/695-`,
+l'absence de tout autre hunk et l'inversion byte-for-byte.
+
+Ne modifier aucun périmètre protégé, ne rouvrir ni pinning, BIC, Inde, NAVY,
+ADMIN, technologies, Japon, Russie, Pologne, Afghanistan ou intérêts déclarés.
+Ne pas importer de bloc source/vanilla. Ne lancer ni Victoria 3, Dowser ni le
+launcher pendant 6A.27. Après validation statique, un commit manuel devra
+précéder une unique QA consolidée 6A.27Q ; ne pas commencer cette QA dans la
+même exécution.
 
 ```text
-HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA_COMPLETE
-GLOBAL_JE_PINNING_FAMILY_CLOSED_EXCEPT_BOUNDED_EXCEPTIONS
-GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
-NO_NEXT_EXECUTION_PHASE_SELECTED
+HOTFIX_6A26_GLOBAL_NON_PINNING_DIAGNOSTIC_REINDEX_AND_API_FAMILY_AUDIT_COMPLETE
+GLOBAL_MULTI_API_ATOMIC_SWEEP_CANDIDATES_PROVEN
+NEXT_EXECUTION_PHASE = HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP
 ```
 
 ---

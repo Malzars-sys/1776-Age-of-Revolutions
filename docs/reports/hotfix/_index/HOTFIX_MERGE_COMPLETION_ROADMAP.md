@@ -1435,3 +1435,37 @@ GLOBAL_JE_PINNING_FAMILY_CLOSED_EXCEPT_BOUNDED_EXCEPTIONS
 GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 NO_NEXT_EXECUTION_PHASE_SELECTED
 ```
+
+## 64. Réindexation globale non-pinning et audit des familles d’API 6A.26 — 9 août 2026
+
+Les deux segments canoniques 6A.25Q sont réconciliés par leurs hashes de
+manifeste et reparsés avec la clé `generation + normalized_message + path +
+line`. La baseline est reproduite exactement : 257 diagnostics parser, 772
+`PostValidate`, 1 029 identités, 189 chemins et 67 messages normalisés. Les 14
+exceptions pinning restent séparées et le bloc pinning demeure fermé.
+
+Les diagnostics sont regroupés en 33 familles. Deux familles A et quatre
+familles B ont une transformation locale prouvée : `has_role` vers
+`has_role_of_type`, `is_ruler` vers `is_ruler_of_own_country`, `is_heir` vers
+`is_heir_of_own_country`, ajout de `amendment_type:`, et les deux suffixes
+Iberia `_old`. Après exclusion de 127 occurrences protégées, le plan contient
+695 substitutions sûres dans 87 fichiers et devrait retirer 609 diagnostics
+actuels. Son inversion théorique restaure tous les fichiers byte-for-byte.
+
+Aucun fichier gameplay n'est modifié et aucun runtime n'est exécuté. Les six
+familles sont réunies dans un seul prochain sweep, sans micro-phases par API.
+
+```text
+HOTFIX_6A26_GLOBAL_NON_PINNING_DIAGNOSTIC_REINDEX_AND_API_FAMILY_AUDIT_COMPLETE
+POST_6A25Q_FRESH_1029_DIAGNOSTICS_REINDEXED
+GLOBAL_PINNING_FAMILY_REMAINS_CLOSED
+PINNING_14_BOUNDED_EXCEPTIONS_PRESERVED
+RESIDUAL_DIAGNOSTICS_GROUPED_BY_API_FAMILY
+GLOBAL_API_FAMILY_THREE_WAY_AUDIT_COMPLETE
+ATOMIC_AND_SEMANTIC_API_FAMILIES_SEPARATED
+PROTECTED_WORK_EXCLUDED
+NO_GAMEPLAY_CHANGED
+NO_RUNTIME_EXECUTED
+GLOBAL_MULTI_API_ATOMIC_SWEEP_CANDIDATES_PROVEN
+NEXT_EXECUTION_PHASE = HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP
+```
