@@ -1397,3 +1397,41 @@ TARGET_RUNTIME_PINNING_DIAGNOSTICS_BEFORE = 355
 EXPECTED_TARGET_RUNTIME_PINNING_DIAGNOSTICS_AFTER = 0
 NEXT_EXECUTION_PHASE = HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA
 ```
+
+## 63. QA runtime consolidée globale des pinning 1.13 6A.25Q — 9 août 2026
+
+Une seule ouverture humaine monte le fork exact sous
+`release/1.13.0 : d9ade554e`. Une partie Vietnam neuve en 1776 est jouée
+jusqu'au 5 janvier sans clé brute ni anomalie observée, puis le jeu et le
+launcher sont fermés.
+
+Les manifestes avant/après isolent `debug.1.log` et `debug.log` comme segments
+frais. La normalisation canonique produit 257 identités parser et 772
+`PostValidate`, soit 1 029. Face aux 1 384 identités de 6A.23, les 355 seules
+disparitions correspondent exactement à la cohorte pinning corrigée ; aucune
+identité attribuable n'apparaît. Les 14 exceptions restent bornées et les 129
+hashes gameplay sont préservés.
+
+Le bloc global de pinning est fermé avec exceptions bornées. Les cinq pinning
+allemands sont validés dans la QA globale, tandis que 6A.24F demeure
+`SUPERSEDED_NOT_EXECUTED`. Afghanistan et Pologne restent clos. Aucun fichier
+portant encore d'autres diagnostics n'est déclaré entièrement terminé.
+
+Aucune prochaine phase d'exécution n'est sélectionnée. Une future opération
+devra commencer par une réindexation globale consolidée des diagnostics
+résiduels non-pinning, puis un regroupement par famille d'API, sous autorisation
+explicite de l'opérateur.
+
+```text
+HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA_COMPLETE
+GLOBAL_JE_PINNING_RUNTIME_PASS
+GLOBAL_JE_PINNING_TARGET_DIAGNOSTICS_355_TO_0
+GLOBAL_JE_PINNING_NO_NEW_ATTRIBUTABLE_ERRORS
+GLOBAL_JE_PINNING_GAMEPLAY_HASHES_PRESERVED
+GLOBAL_JE_PINNING_ATOMIC_MIGRATIONS_RUNTIME_VALIDATED
+GERMAN_UNIFICATION_FIVE_JE_PINNING_RUNTIME_VALIDATED_IN_GLOBAL_QA
+PINNING_SWEEP_EXCEPTIONS_REMAIN_BOUNDED_14
+GLOBAL_JE_PINNING_FAMILY_CLOSED_EXCEPT_BOUNDED_EXCEPTIONS
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+NO_NEXT_EXECUTION_PHASE_SELECTED
+```

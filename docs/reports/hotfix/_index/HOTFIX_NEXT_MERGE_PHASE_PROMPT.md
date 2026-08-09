@@ -1,109 +1,47 @@
-# Prochaine phase — QA runtime consolidée du sweep global des pinning 1.13
+# Etat canonique - aucune phase d'execution selectionnee
 
-Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 - The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
 
-Exécuter exclusivement :
+Modele recommande : GPT-5.6 Thinking avec raisonnement eleve.
 
-`HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA`
+## Derniere phase terminee
 
-Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé.
-
-Nombre de lancements Victoria 3 autorisé : **une seule ouverture humaine**.
-
-## État canonique d'entrée
-
-Le HEAD doit être le commit manuel de 6A.25 et contenir :
-
-```text
-docs/reports/hotfix/_index/HOTFIX_6A25_GLOBAL_JE_PINNING_1_13_ATOMIC_SWEEP.md
-docs/reports/hotfix/_index/HOTFIX_6A25_GLOBAL_JE_PINNING_INVENTORY.csv
-```
-
-avec les verdicts :
-
-```text
-HOTFIX_6A25_GLOBAL_JE_PINNING_1_13_ATOMIC_SWEEP_COMPLETE
-GLOBAL_JE_PINNING_PROVEN_ATOMIC_MIGRATIONS_APPLIED
-GLOBAL_JE_PINNING_BATCH_BYTE_INVERSION_PASS
-HOTFIX_6A24F_SUPERSEDED_NOT_EXECUTED
-NEXT_EXECUTION_PHASE = HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA
-
-LEGACY_PINNING_OCCURRENCES_CORRECTED = 356
-LEGACY_PINNING_OCCURRENCES_EXCEPTIONS = 14
-TARGET_RUNTIME_PINNING_DIAGNOSTICS_BEFORE = 355
-EXPECTED_TARGET_RUNTIME_PINNING_DIAGNOSTICS_AFTER = 0
-```
-
-## Préflight et protections
-
-Confirmer la branche `hotfix-dlc-audit`, le commit manuel 6A.25, un arbre suivi
-et un index propres, les huit non-suivis protégés, puis le stash NAVY-3C-3 :
-
-```text
-stash@{0}: On hotfix-dlc-audit: WIP NAVY-3C-3 Maratha Konkan Flotilla
-518df704fa14599c0f254fae13859210663dd976
-```
-
-Avant le lancement, capturer un manifeste complet de tous les logs avec chemin,
-taille, date et SHA-256. Vérifier les hashes gameplay engagés par 6A.25, dont :
-
-```text
-00_german_unification.txt = 30A3F3356AA43060C0E8D315DDF34D8D304680290134E0212AE6AEB852C8F239
-03_afghanistan.txt = C9165714127E017486949AF8DDE742FD5A0E5F3093C5A43191695FE213969E13
-00_poland.txt = A5EAF687DC6A736CD50D3C66E5E7601D29442FF3FA8A292C4EE751A7FF981E6A
-```
-
-Ne modifier aucun gameplay, document ou stash pendant la QA. Ne jamais toucher
-aux 14 exceptions D, à BIC, NAVY, ADMIN ou MARATH. Conserver
-`activate_law = law_type:law_frontier_colonization`.
-
-## Runtime humain unique
-
-1. Confirmer que le fork exact est monté et que la branche du jeu est
-   `release/1.13.0` / The Great Wave.
-2. Lancer Victoria 3 une seule fois.
-3. Créer une partie neuve en 1776 avec un pays témoin stable.
-4. Ne forcer aucune journal entry et ne déclencher aucun contenu par console.
-5. Laisser le chargement produire une génération fraîche ; ne laisser passer
-   quelques jours que si cela aide à stabiliser les logs.
-6. Fermer Victoria 3 puis fermer Paradox Launcher.
-7. Capturer un second manifeste complet des logs et identifier exactement les
-   segments créés ou renouvelés par cette ouverture.
-
-## Analyse obligatoire
-
-Dédupliquer selon :
-
-```text
-generation + normalized_message + path + line
-```
-
-Mesurer simultanément, globalement et fichier par fichier, la cohorte des 355
-diagnostics historiques correspondant aux 356 occurrences corrigées. Le
-résultat requis est :
+`HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA` est terminee en PASS apres
+exactement une ouverture humaine :
 
 ```text
 TOTAL_TARGET_PINNING_DIAGNOSTICS_BEFORE = 355
 TOTAL_TARGET_PINNING_DIAGNOSTICS_AFTER = 0
+NEW_PINNING_REGRESSIONS = 0
+NEW_6A25_ATTRIBUTABLE_NORMALIZED_ERRORS = 0
+GAMEPLAY_HASHES_CHANGED_DURING_RUNTIME = 0
+PINNING_SWEEP_EXCEPTIONS = 14
 ```
 
-L'occurrence PLC de la ligne 604 n'avait aucun diagnostic historique parce
-qu'une erreur antérieure masquait la suite du bloc ; elle reste néanmoins dans
-la cohorte statique corrigée. Les 14 exceptions D sont exclues de la cible zéro
-et doivent être rapportées séparément, sans être corrigées.
+Le bloc global de pinning est ferme avec ses 14 exceptions bornees. Les 129
+hashes gameplay sont preserves. Les blocs Afghanistan et Pologne restent clos,
+les cinq pinning allemands sont valides dans la QA globale et 6A.24F demeure
+`SUPERSEDED_NOT_EXECUTED`.
 
-Vérifier également qu'aucune nouvelle erreur parser, trigger, effect ou scope
-n'est attribuable aux 129 fichiers du sweep et que tous leurs hashes sont
-inchangés depuis le commit 6A.25. Ne pas revendiquer de comportement UI pour une
-JE qui n'est pas devenue naturellement visible.
+## Decision requise avant toute suite
 
-## Sortie documentaire
+Aucune phase d'execution n'est actuellement selectionnee. Ne commencer aucune
+correction fichier par fichier et ne lancer ni Victoria 3 ni le launcher a
+partir de ce document.
 
-Créer le rapport 6A.25Q, mettre à jour les registres CSV avec de vrais parseurs,
-fermer le bloc global seulement si le runtime passe, et ne sélectionner aucune
-nouvelle phase dans la même exécution. Ne pas faire de stage ni de commit
-automatique.
+Si l'operateur autorise une nouvelle phase, son architecture devra d'abord etre
+une reindexation globale consolidee des diagnostics residuels non-pinning,
+puis un regroupement par famille d'API. Un nouveau sweep global ne pourra etre
+selectionne que lorsqu'une famille sera prouvee atomique et sure. Cette note ne
+selectionne pas elle-meme cette phase.
+
+```text
+HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA_COMPLETE
+GLOBAL_JE_PINNING_FAMILY_CLOSED_EXCEPT_BOUNDED_EXCEPTIONS
+GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
+NO_NEXT_EXECUTION_PHASE_SELECTED
+```
 
 ---
 
