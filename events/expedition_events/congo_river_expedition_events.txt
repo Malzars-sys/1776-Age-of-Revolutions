@@ -50,10 +50,10 @@ expedition_events.602 = { #Choose commander
 	trigger = {
 		any_scope_character = {
 			OR = {
-				has_role = general
-				has_role = admiral
+				has_role_of_type = general
+				has_role_of_type = admiral
 			}
-			is_ruler = no
+			is_ruler_of_own_country = no
 			is_busy = no
 		}
 	}
@@ -63,22 +63,22 @@ expedition_events.602 = { #Choose commander
 			limit = {
 				any_scope_character = {
 					is_busy = no
-					is_ruler = no
+					is_ruler_of_own_country = no
 					OR = {
-						has_role = general
-						has_role = admiral
+						has_role_of_type = general
+						has_role_of_type = admiral
 					}
-					is_ruler = no
+					is_ruler_of_own_country = no
 					has_trait = explorer
 				}
 			}
 			random_scope_character = {
 				limit = {
 					is_busy = no
-					is_ruler = no
+					is_ruler_of_own_country = no
 					OR = {
-						has_role = general
-						has_role = admiral
+						has_role_of_type = general
+						has_role_of_type = admiral
 					}
 					has_trait = explorer
 				}
@@ -88,10 +88,10 @@ expedition_events.602 = { #Choose commander
 		random_scope_character = {
 			limit = {
 				is_busy = no
-				is_ruler = no
+				is_ruler_of_own_country = no
 				OR = {
-					has_role = general
-					has_role = admiral
+					has_role_of_type = general
+					has_role_of_type = admiral
 				}
 				trigger_if = {
 					limit = { exists = scope:expedition_leader_1 }
@@ -105,10 +105,10 @@ expedition_events.602 = { #Choose commander
 		random_scope_character = {
 			limit = {
 				is_busy = no
-				is_ruler = no
+				is_ruler_of_own_country = no
 				OR = {
-					has_role = general
-					has_role = admiral
+					has_role_of_type = general
+					has_role_of_type = admiral
 				}
 				NOR = {
 					AND = {

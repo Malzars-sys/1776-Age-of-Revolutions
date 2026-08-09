@@ -505,7 +505,7 @@ spain_provisional_government.1 = { # For Portugal
 		if = {
 			limit = {
 				NOT = {
-					any_country_in_iberia = {
+					any_country_in_iberia_old = {
 						has_technology_researched = pan-nationalism
 					}
 				}
@@ -515,11 +515,11 @@ spain_provisional_government.1 = { # For Portugal
 		}
 		else_if = {
 			limit = {
-				any_country_in_iberia = {
+				any_country_in_iberia_old = {
 					has_technology_researched = pan-nationalism
 				}
 				NOT = {
-					any_country_in_iberia = {
+					any_country_in_iberia_old = {
 						has_variable = pursued_iberian_unification
 					}
 				}
@@ -680,7 +680,7 @@ spain_provisional_government.11 = { # For Spain
 		if = {
 			limit = {
 				NOT = {
-					any_country_in_iberia = {
+					any_country_in_iberia_old = {
 						has_technology_researched = pan-nationalism
 					}
 				}
@@ -690,11 +690,11 @@ spain_provisional_government.11 = { # For Spain
 		}
 		else_if = {
 			limit = {
-				any_country_in_iberia = {
+				any_country_in_iberia_old = {
 					has_technology_researched = pan-nationalism
 				}
 				NOT = {
-					any_country_in_iberia = {
+					any_country_in_iberia_old = {
 						has_variable = pursued_iberian_unification
 					}
 				}
@@ -844,7 +844,7 @@ spain_provisional_government.2 = { # Espartero
 			if = {
 				limit = {
 					owner = ROOT
-					is_ruler = yes
+					is_ruler_of_own_country = yes
 				}
                 custom_tooltip = espartero_becomes_monarch_tt
 			}

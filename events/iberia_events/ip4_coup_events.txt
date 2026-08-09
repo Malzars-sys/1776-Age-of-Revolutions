@@ -27,8 +27,8 @@ ip4_coup.1 = {
 		NOT = { has_free_government_reform = yes } # Election grace period
 		any_scope_character = {
 			OR = {
-				has_role = general
-				has_role = admiral
+				has_role_of_type = general
+				has_role_of_type = admiral
 			}
 			interest_group = {
 				ig_approval <= define:NPolitics|APPROVAL_THRESHOLD_ANGRY
@@ -53,8 +53,8 @@ ip4_coup.1 = {
 		ordered_scope_character = {
 			limit = {
 				OR = {
-					has_role = general
-					has_role = admiral
+					has_role_of_type = general
+					has_role_of_type = admiral
 				}
 				interest_group = {
 					ig_approval <= define:NPolitics|APPROVAL_THRESHOLD_ANGRY
@@ -318,7 +318,7 @@ ip4_coup.2 = {
 				trigger_if = {
 					limit = {
 						scope:golpista_general ?= {
-							has_role = admiral
+							has_role_of_type = admiral
 						}
 					}
 					scope:golpista_general.num_units_share < {
@@ -329,7 +329,7 @@ ip4_coup.2 = {
 				trigger_if = {
 					limit = {
 						scope:golpista_general ?= {
-							has_role = general
+							has_role_of_type = general
 						}
 					}
 					scope:golpista_general.num_units_share < {
@@ -423,13 +423,13 @@ ip4_coup.2 = {
 					scope:golpista_general ?= {
 						if = {
 							limit = {
-								has_role = general
+								has_role_of_type = general
 							}
 							remove_character_role = general
 						}
 						if = {
 							limit = {
-								has_role = admiral
+								has_role_of_type = admiral
 							}
 							remove_character_role = admiral
 						}

@@ -1469,3 +1469,39 @@ NO_RUNTIME_EXECUTED
 GLOBAL_MULTI_API_ATOMIC_SWEEP_CANDIDATES_PROVEN
 NEXT_EXECUTION_PHASE = HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP
 ```
+
+## 65. Sweep atomique global des six familles d’API script 1.13 6A.27 — 9 août 2026
+
+Le plan atomique 6A.26 est confirmé au SHA-256
+`D8C6DA5830C38B81348197141258F31BA8B5451E232E4ACD1C11A9FFE4B47466`.
+Ses 695 occurrences `SAFE_CANDIDATE`, réparties dans 87 fichiers, sont toutes
+appliquées en une seule passe byte-level. Les familles concernées sont
+`API_HAS_ROLE`, `API_IS_RULER`, `API_HAS_AMENDMENT`, `API_IS_HEIR`,
+`API_IS_IN_GEOGRAPHIC_REGION` et `API_ANY_COUNTRY_IN_IBERIA`.
+
+Le diff gameplay réel est exactement `695+/695-`. Les 87 hashes réels
+correspondent aux résultats théoriques du plan, et l’inversion restaure chaque
+fichier d’entrée byte-for-byte. Aucun autre hunk n’est présent. Les 127
+exceptions API et les 14 exceptions pinning restent inchangées ; Afghanistan,
+Pologne et BIC conservent leurs protections fermées.
+
+Aucun runtime n’est exécuté en 6A.27. Les 609 diagnostics ciblés restent une
+cohorte à mesurer, sans revendiquer leur disparition. Après commit manuel de
+6A.27, une unique QA humaine consolidée 6A.27Q devra mesurer simultanément les
+six familles. La valeur résiduelle `420` est une attente mathématique et devra
+être remplacée par la mesure réelle de la génération fraîche.
+
+```text
+HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_COMPLETE
+GLOBAL_MULTI_API_ATOMIC_SWEEP_STATIC_PASS
+GLOBAL_MULTI_API_SAFE_SUBSTITUTIONS_695_APPLIED
+GLOBAL_MULTI_API_CHANGED_FILES_87
+GLOBAL_MULTI_API_GAMEPLAY_DIFF_695_PLUS_695_MINUS
+GLOBAL_MULTI_API_BOUNDED_EXCEPTIONS_127_PRESERVED
+GLOBAL_PINNING_FAMILY_REMAINS_CLOSED
+NO_RUNTIME_EXECUTED
+TARGET_RUNTIME_API_DIAGNOSTICS_BEFORE = 609
+EXPECTED_TARGET_RUNTIME_API_DIAGNOSTICS_AFTER = 0
+EXPECTED_GLOBAL_RESIDUAL_AFTER_RUNTIME = 420
+NEXT_EXECUTION_PHASE = HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA
+```

@@ -17,8 +17,8 @@ anarchism_events.1 = {
 				trigger = {
 					scope:propaganda_of_the_deed_victim ?= {
 						OR = {
-							is_ruler = yes
-							is_heir = yes
+							is_ruler_of_own_country = yes
+							is_heir_of_own_country = yes
 						}
 					}
 				}
@@ -28,8 +28,8 @@ anarchism_events.1 = {
 				trigger = {
 					scope:propaganda_of_the_deed_victim ?= {
 						NOR = {
-							is_ruler = yes
-							is_heir = yes
+							is_ruler_of_own_country = yes
+							is_heir_of_own_country = yes
 						}
 					}
 				}
@@ -80,11 +80,11 @@ anarchism_events.1 = {
 				is_busy = no
 				NOT = { age < define:NCharacters|ADULT_AGE } # Please stop shooting children
 				OR = {
-					is_ruler = yes
-					is_heir = yes
-					has_role = executive
+					is_ruler_of_own_country = yes
+					is_heir_of_own_country = yes
+					has_role_of_type = executive
 					AND = {
-						has_role = politician
+						has_role_of_type = politician
 						interest_group = {
 							is_in_government = yes
 						}
@@ -185,8 +185,8 @@ anarchism_events.2 = {
 				trigger = {
 					scope:propaganda_of_the_deed_victim ?= {
 						OR = {
-							is_ruler = yes
-							is_heir = yes
+							is_ruler_of_own_country = yes
+							is_heir_of_own_country = yes
 						}
 					}
 				}
@@ -196,8 +196,8 @@ anarchism_events.2 = {
 				trigger = {
 					scope:propaganda_of_the_deed_victim ?= {
 						NOR = {
-							is_ruler = yes
-							is_heir = yes
+							is_ruler_of_own_country = yes
+							is_heir_of_own_country = yes
 						}
 					}
 				}
@@ -249,11 +249,11 @@ anarchism_events.2 = {
 				is_immortal = no
 				is_busy = no
 				OR = {
-					is_ruler = yes
-					is_heir = yes
-					has_role = executive
+					is_ruler_of_own_country = yes
+					is_heir_of_own_country = yes
+					has_role_of_type = executive
 					AND = {
-						has_role = politician
+						has_role_of_type = politician
 						interest_group = {
 							is_in_government = yes
 						}

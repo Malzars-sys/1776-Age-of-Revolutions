@@ -1,49 +1,64 @@
-# État canonique — sweep global 6A.27 sélectionné
+# État canonique — QA runtime globale 6A.27Q sélectionnée
 
-Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 - The Great
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
 
-Modele recommande : GPT-5.6 Thinking avec raisonnement eleve.
+Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé.
 
 ## Dernière phase terminée
 
-`HOTFIX_6A26_GLOBAL_NON_PINNING_DIAGNOSTIC_REINDEX_AND_API_FAMILY_AUDIT` est
-terminée statiquement. La baseline canonique contient 1 029 diagnostics
-regroupés en 33 familles. Six familles A/B sont prouvées atomiques :
+`HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP` est terminée statiquement. Les 695
+substitutions sûres du plan 6A.26 ont été appliquées dans 87 fichiers, avec un
+diff gameplay exact `695+/695-`, concordance de tous les hashes théoriques et
+inversion byte-for-byte. Les 127 exceptions API et les 14 exceptions pinning
+restent intactes. Aucun runtime n’a été exécuté.
 
 ```text
-ATOMIC_SWEEP_CANDIDATE_DIAGNOSTICS = 609
-ATOMIC_SWEEP_CANDIDATE_OCCURRENCES = 695
-ATOMIC_SWEEP_CANDIDATE_FILES = 87
-ATOMIC_SWEEP_BOUNDED_EXCEPTIONS = 127
-PATCH_PLAN_SHA256 = D8C6DA5830C38B81348197141258F31BA8B5451E232E4ACD1C11A9FFE4B47466
+ATOMIC_API_FAMILIES_APPLIED = 6
+SAFE_API_SUBSTITUTIONS_APPLIED = 695
+SAFE_API_CHANGED_FILES = 87
+TARGET_RUNTIME_API_DIAGNOSTICS_BEFORE = 609
+EXPECTED_TARGET_RUNTIME_API_DIAGNOSTICS_AFTER = 0
+EXPECTED_GLOBAL_RESIDUAL_AFTER_RUNTIME = 420
 ```
 
-Le bloc global de pinning reste fermé avec ses 14 exceptions bornées. Tous les
-périmètres protégés restent exclus du plan.
+La valeur `420` est prévisionnelle et n’a pas été observée.
 
-## Phase exclusive à exécuter après commit manuel de 6A.26
+## Phase exclusive à exécuter après commit manuel de 6A.27
 
-`HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP`
+`HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA`
 
-Appliquer exactement les lignes `SAFE_CANDIDATE` de
-`HOTFIX_6A26_ATOMIC_API_PATCH_PLAN.csv`, et aucune ligne
-`BOUNDED_EXCEPTION`. Les seules transformations autorisées sont les six règles
-du plan 6A.26. Vérifier le hash d'entrée de chaque fichier avant écriture, les
-695 substitutions, les 87 hashes finaux, le numstat théorique `695+/695-`,
-l'absence de tout autre hunk et l'inversion byte-for-byte.
+Exiger le commit manuel contenant le rapport et les résultats 6A.27. Avant le
+lancement, capturer un manifeste complet des logs et vérifier les 87 hashes
+enregistrés dans `HOTFIX_6A27_GLOBAL_SCRIPT_API_APPLIED_RESULTS.csv`.
 
-Ne modifier aucun périmètre protégé, ne rouvrir ni pinning, BIC, Inde, NAVY,
-ADMIN, technologies, Japon, Russie, Pologne, Afghanistan ou intérêts déclarés.
-Ne pas importer de bloc source/vanilla. Ne lancer ni Victoria 3, Dowser ni le
-launcher pendant 6A.27. Après validation statique, un commit manuel devra
-précéder une unique QA consolidée 6A.27Q ; ne pas commencer cette QA dans la
-même exécution.
+Effectuer exactement une seule ouverture humaine. Confirmer le fork exact et
+`release/1.13.0` / The Great Wave, puis lancer une partie 1776 neuve avec un
+pays témoin stable, Vietnam par défaut. Ne forcer aucun événement ni contenu.
+Laisser produire une génération fraîche, fermer Victoria 3 et le launcher,
+puis capturer le manifeste après lancement et identifier exclusivement les
+nouveaux segments.
+
+Mesurer ensemble les six familles `API_HAS_ROLE`, `API_IS_RULER`,
+`API_HAS_AMENDMENT`, `API_IS_HEIR`, `API_IS_IN_GEOGRAPHIC_REGION` et
+`API_ANY_COUNTRY_IN_IBERIA`. Exiger :
 
 ```text
-HOTFIX_6A26_GLOBAL_NON_PINNING_DIAGNOSTIC_REINDEX_AND_API_FAMILY_AUDIT_COMPLETE
-GLOBAL_MULTI_API_ATOMIC_SWEEP_CANDIDATES_PROVEN
-NEXT_EXECUTION_PHASE = HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP
+TOTAL_TARGET_API_DIAGNOSTICS_BEFORE = 609
+TOTAL_TARGET_API_DIAGNOSTICS_AFTER = 0
+NEW_6A27_ATTRIBUTABLE_ERRORS = 0
+GAMEPLAY_HASHES_CHANGED_DURING_RUNTIME = 0
+```
+
+Mesurer la baseline résiduelle réelle au lieu de présumer `420`. Préserver les
+127 exceptions API, les 14 exceptions pinning et tous les périmètres protégés.
+Ne préparer aucune micro-phase par famille : après PASS, la seule opération
+permise est une dernière réindexation globale des résidus.
+
+```text
+HOTFIX_6A27_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_COMPLETE
+GLOBAL_MULTI_API_ATOMIC_SWEEP_STATIC_PASS
+NEXT_EXECUTION_PHASE = HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA
 ```
 
 ---

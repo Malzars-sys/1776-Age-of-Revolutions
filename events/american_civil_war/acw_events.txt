@@ -176,7 +176,7 @@ acw_events.2 = {
 			limit = {
 				active_law:lawgroup_slavery ?= {
 					NOT = {
-						has_amendment = amendment_american_fugitive_slaves_act
+						has_amendment = amendment_type:amendment_american_fugitive_slaves_act
 					}
 				}
 			}
@@ -218,7 +218,7 @@ acw_events.2 = {
 		if = {
 			limit = {
 				active_law:lawgroup_slavery ?= {
-					has_amendment = amendment_american_fugitive_slaves_act
+					has_amendment = amendment_type:amendment_american_fugitive_slaves_act
 				}
 			}
 			active_law:lawgroup_slavery ?= {
@@ -919,12 +919,12 @@ acw_events.9 = {
 		if = {
 			limit = {
 				any_scope_character = {
-					has_role = general
+					has_role_of_type = general
 				}
 			}
 			random_scope_character = {
 				limit = {
-					has_role = general
+					has_role_of_type = general
 				}
 				save_scope_as = acw_victory_general_scope
 			}
