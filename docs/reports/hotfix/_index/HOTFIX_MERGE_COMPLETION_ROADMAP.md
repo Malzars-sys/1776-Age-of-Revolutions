@@ -1586,3 +1586,50 @@ TRUE_MERGE_BLOCKER_GROUPS = 0
 FINAL_GLOBAL_RUNTIME_READY
 NEXT_EXECUTION_PHASE = HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_AND_MERGE_READINESS_QA
 ```
+
+## 68. Runtime global final et préparation au merge 6A.29 — 10 août 2026
+
+Le dernier runtime planifié est exécuté dans une seule ouverture humaine sous
+`release/1.13.0 : d9ade554e`. Le smoke Vietnam 1776 passe, une sauvegarde
+`HOTFIX_6A29_FINAL_SMOKE.v3` est créée puis rechargée dans la même session, et
+l’opérateur charge successivement Japon, BIC, Mamluk Iraq, l’État zand et la
+Russie. Une capture confirme `Sujétion` active pour RUS. Aucune clé brute,
+aucun crash ni problème majeur évident n’est observé.
+
+Les sauvegardes QA historiques demandées n’ont pas été retrouvées dans la
+longue liste en jeu. Ces contrôles restent `NOT_OBSERVED` ou couverts par leurs
+preuves antérieures ; aucun contenu n’est forcé et aucun deuxième lancement
+n’est effectué.
+
+La génération finale reproduit exactement les 420 identités 6A.28 : 98 parser
+et 322 `PostValidate`, sur 113 chemins et 65 messages. Les 420 sont connues,
+zéro manque et zéro identité nouvelle apparaît. L’empreinte des 845 fichiers
+gameplay et les 94 hashes sensibles sont identiques avant/après.
+
+```text
+HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_AND_MERGE_READINESS_QA_COMPLETE
+FINAL_STATIC_BRANCH_AUDIT_PASS
+FINAL_GLOBAL_RUNTIME_PASS
+FINAL_GLOBAL_RUNTIME_SINGLE_LAUNCH_CONFIRMED
+FINAL_1776_SMOKE_PASS
+FINAL_RUNTIME_NO_NEW_ATTRIBUTABLE_DIAGNOSTICS
+FINAL_RUNTIME_NO_GAMEPLAY_CHANGE
+FINAL_PROTECTED_WORK_INTACT
+FINAL_STASH_NAVY_3C_3_INTACT
+FINAL_TECH_RESEARCH_INTACT
+FINAL_RESIDUAL_CLASSIFICATION_REMAINS_VALID
+TRUE_MERGE_BLOCKERS_REMAINING = 0
+TRUE_MERGE_BLOCKER_GROUPS = 0
+MINIMUM_CORRECTION_PHASES_REQUIRED = 0
+FINAL_MERGE_READINESS = READY
+HOTFIX_GLOBAL_SCRIPT_DELTAS_COMPLETE
+HOTFIX_MERGE_RUNTIME_VALIDATION_COMPLETE
+NO_FURTHER_GAMEPLAY_CORRECTION_SELECTED
+NO_AUTOMATIC_COMMIT
+NEXT_ACTION = MANUAL_FINAL_6A29_COMMIT_AND_GIT_BRANCH_FINALIZATION
+```
+
+Aucune nouvelle phase gameplay du merge n’est nécessaire. La suite est
+strictement humaine : commit documentaire final 6A.29, vérification de branche,
+puis finalisation Git, création du dépôt GitHub et push uniquement sur décision
+explicite de l’opérateur.

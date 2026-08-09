@@ -1,4 +1,4 @@
-# État canonique — runtime global final 6A.29 sélectionné
+# État canonique — merge hotfix prêt pour finalisation manuelle
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
@@ -7,77 +7,64 @@ Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé.
 
 ## Dernière phase terminée
 
-`HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX` est terminée. Les 420
-diagnostics frais de 6A.27Q ont été reproduits et classifiés exactement une
-fois, sans correction gameplay ni runtime.
-
-```text
-FRESH_TOTAL_DIAGNOSTICS = 420
-FRESH_PARSER_DIAGNOSTICS = 98
-FRESH_POSTVALIDATE_DIAGNOSTICS = 322
-FRESH_PATHS = 113
-FRESH_NORMALIZED_MESSAGES = 65
-CLASSIFICATION_TOTAL = 420
-TRUE_MERGE_BLOCKERS_REMAINING = 0
-TRUE_MERGE_BLOCKER_GROUPS = 0
-MINIMUM_CORRECTION_PHASES_REQUIRED = 0
-```
-
-Les six familles 6A.27 et le pinning global restent fermés. Les exceptions
-bornées, le travail protégé et les backlogs séparés ne doivent pas être
-rouverts.
-
-## Phase exclusive à exécuter après commit manuel de 6A.28
-
-`HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_AND_MERGE_READINESS_QA`
-
-Cette phase doit être le dernier runtime planifié du merge. Ne l’exécuter que
-si le HEAD est le commit manuel de 6A.28, si l’arbre suivi est propre, si
-l’index est vide, si les sept recherches technologiques sont les seuls
-non-suivis, si `bject` est absent et si le stash NAVY-3C-3 vaut toujours
-`518df704fa14599c0f254fae13859210663dd976`.
-
-Préparer tout le protocole avant l’unique ouverture humaine. Consolider autant
-que possible dans la même session :
-
-```text
-- chargement d’une partie neuve en 1776 et smoke général ;
-- RUS, TUR/PER, Japon et Mamluk Iraq si naturellement accessibles ;
-- BIC/Sepoy et les principaux pays ou États historiquement corrigés ;
-- non-régression NAVY et ADMIN, sans toucher à leur travail protégé ;
-- absence de clé brute, crash ou nouvelle anomalie attribuable ;
-- sauvegarde/rechargement dans la même session si réalisable sans forçage ;
-- fermeture du jeu et du launcher avant la capture finale des logs.
-```
-
-Capturer les manifestes avant et après, conserver les logs complets et
-dédupliquer par `generation + normalized_message + path + line`. Comparer la
-génération finale à la baseline fraîche 6A.27Q de 420 identités. Une identité
-déjà classée non bloquante n’est pas une régression ; toute identité nouvelle
-doit être attribuée précisément.
-
-La phase ne doit appliquer aucune correction gameplay. Elle doit produire le
-verdict final de readiness, avec au minimum :
+`HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_AND_MERGE_READINESS_QA` est terminée. Le
+dernier runtime planifié passe dans une seule ouverture humaine, sans nouvelle
+identité diagnostique ni changement gameplay.
 
 ```text
 FINAL_GLOBAL_RUNTIME_LAUNCHES = 1
-FINAL_GLOBAL_SMOKE = PASS|FAIL
-NEW_ATTRIBUTABLE_DIAGNOSTICS = N
-SAVE_RELOAD = PASS|NOT_FEASIBLE|FAIL
-FINAL_MERGE_READINESS = READY|BLOCKED
+FINAL_GLOBAL_SMOKE = PASS
+SAVE_RELOAD = PASS
+FINAL_FRESH_TOTAL_DIAGNOSTICS = 420
+KNOWN_IDENTITIES_REPRODUCED = 420
+NEW_IDENTITIES = 0
+NEW_ATTRIBUTABLE_DIAGNOSTICS = 0
+GAMEPLAY_CHANGED_DURING_FINAL_RUNTIME = 0
+TRUE_MERGE_BLOCKERS_REMAINING = 0
+TRUE_MERGE_BLOCKER_GROUPS = 0
+MINIMUM_CORRECTION_PHASES_REQUIRED = 0
+FINAL_MERGE_READINESS = READY
 ```
 
-Ne jamais déclarer un pays validé s’il n’a pas été naturellement accessible.
-Documenter ces cas comme non observés dans le runtime consolidé. Ne lancer
-aucun second runtime sans une nouvelle autorisation explicite.
+Les 420 identités correspondent exactement à l’inventaire 6A.28. Les six
+familles 6A.27, le pinning global, les protections et les backlogs séparés
+restent fermés.
+
+## Prochaine action humaine
 
 ```text
-HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX_COMPLETE
-FINAL_RESIDUAL_420_DIAGNOSTICS_CLASSIFIED
-TRUE_MERGE_BLOCKERS_REMAINING = 0
-FINAL_GLOBAL_RUNTIME_READY
-NEXT_EXECUTION_PHASE = HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_AND_MERGE_READINESS_QA
+NEXT_ACTION = MANUAL_FINAL_6A29_COMMIT_AND_GIT_BRANCH_FINALIZATION
 ```
+
+L’opérateur doit d’abord examiner et committer manuellement les seuls livrables
+documentaires 6A.29. Aucun commit automatique n’est autorisé.
+
+Après ce commit et une nouvelle vérification de branche, la finalisation Git
+vers `main`, la création éventuelle d’un dépôt GitHub et le push exigent une
+décision humaine distincte. Aucun remote ne doit être configuré et aucun merge
+ou push ne doit être lancé implicitement.
+
+```text
+HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_AND_MERGE_READINESS_QA_COMPLETE
+FINAL_STATIC_BRANCH_AUDIT_PASS
+FINAL_GLOBAL_RUNTIME_PASS
+FINAL_GLOBAL_RUNTIME_SINGLE_LAUNCH_CONFIRMED
+FINAL_1776_SMOKE_PASS
+FINAL_RUNTIME_NO_NEW_ATTRIBUTABLE_DIAGNOSTICS
+FINAL_RUNTIME_NO_GAMEPLAY_CHANGE
+FINAL_PROTECTED_WORK_INTACT
+FINAL_STASH_NAVY_3C_3_INTACT
+FINAL_TECH_RESEARCH_INTACT
+FINAL_RESIDUAL_CLASSIFICATION_REMAINS_VALID
+FINAL_MERGE_READINESS = READY
+HOTFIX_GLOBAL_SCRIPT_DELTAS_COMPLETE
+HOTFIX_MERGE_RUNTIME_VALIDATION_COMPLETE
+NO_FURTHER_GAMEPLAY_CORRECTION_SELECTED
+NO_AUTOMATIC_COMMIT
+```
+
+Aucune nouvelle phase gameplay du merge n’est sélectionnée. Ne pas relancer
+Victoria 3 au titre de 6A.29.
 
 ---
 
