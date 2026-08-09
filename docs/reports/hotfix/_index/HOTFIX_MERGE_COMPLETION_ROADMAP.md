@@ -1361,3 +1361,39 @@ GLOBAL_SCRIPT_DELTAS_REVIEW_CONTINUES
 GERMAN_UNIFICATION_FIVE_JE_PINNING_ATOMIC_ALIGNMENT_PROVEN
 NEXT_EXECUTION_PHASE = HOTFIX_6A24F_GERMAN_UNIFICATION_FIVE_JE_PINNING_1_13_ALIGNMENT
 ```
+
+## 62. Sweep atomique global des pinning 1.13 6A.25 — 9 août 2026
+
+Une décision explicite de l'opérateur remplace la correction allemande 6A.24F,
+jamais commencée, par un sweep statique consolidé. L'inventaire recalculé
+contient 370 anciennes propriétés et 29 propriétés déjà modernes dans 154
+fichiers. La référence vanilla reproduit 394 usages modernes à profondeur 1 et
+zéro ancien usage.
+
+La classification produit 338 occurrences A, 18 B et 14 exceptions D. Les 356
+occurrences A/B sont corrigées dans 129 fichiers et 344 objets, avec un diff
+exact de `356+/356-`. Chaque fichier correspond à son hash théorique et son
+inversion restitue exactement les octets d'entrée. Les 14 exceptions restent
+inchangées : douze valeurs fork contredisent les booléens modernes de référence
+et deux fichiers de la chaîne BIC/Battle for India sont protégés.
+
+Les 369 diagnostics frais historiques sont réconciliés avec les 370
+occurrences statiques : `07_poland_lithuania_mod.txt:604` était masquée par une
+erreur de parsing antérieure. La cohorte runtime effectivement corrigée compte
+donc 355 diagnostics historiques. Aucune mesure runtime n'est revendiquée en
+6A.25 ; une seule QA consolidée 6A.25Q est sélectionnée.
+
+```text
+HOTFIX_6A25_GLOBAL_JE_PINNING_1_13_ATOMIC_SWEEP_COMPLETE
+GLOBAL_JE_PINNING_1_13_INVENTORY_COMPLETE
+GLOBAL_JE_PINNING_PROVEN_ATOMIC_MIGRATIONS_APPLIED
+GLOBAL_JE_PINNING_BATCH_BYTE_INVERSION_PASS
+HOTFIX_6A24F_SUPERSEDED_NOT_EXECUTED
+LEGACY_PINNING_OCCURRENCES_BEFORE = 370
+LEGACY_PINNING_OCCURRENCES_CORRECTED = 356
+LEGACY_PINNING_OCCURRENCES_EXCEPTIONS = 14
+LEGACY_PINNING_OCCURRENCES_AFTER = 14
+TARGET_RUNTIME_PINNING_DIAGNOSTICS_BEFORE = 355
+EXPECTED_TARGET_RUNTIME_PINNING_DIAGNOSTICS_AFTER = 0
+NEXT_EXECUTION_PHASE = HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA
+```

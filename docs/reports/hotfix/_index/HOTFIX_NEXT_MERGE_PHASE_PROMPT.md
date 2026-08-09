@@ -1,4 +1,113 @@
-# Prochaine phase — correction des cinq pinning de l'unification allemande 1.13
+# Prochaine phase — QA runtime consolidée du sweep global des pinning 1.13
+
+Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
+Wave dans `1776_Age_of_Revolutions_fork`.
+
+Exécuter exclusivement :
+
+`HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA`
+
+Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé.
+
+Nombre de lancements Victoria 3 autorisé : **une seule ouverture humaine**.
+
+## État canonique d'entrée
+
+Le HEAD doit être le commit manuel de 6A.25 et contenir :
+
+```text
+docs/reports/hotfix/_index/HOTFIX_6A25_GLOBAL_JE_PINNING_1_13_ATOMIC_SWEEP.md
+docs/reports/hotfix/_index/HOTFIX_6A25_GLOBAL_JE_PINNING_INVENTORY.csv
+```
+
+avec les verdicts :
+
+```text
+HOTFIX_6A25_GLOBAL_JE_PINNING_1_13_ATOMIC_SWEEP_COMPLETE
+GLOBAL_JE_PINNING_PROVEN_ATOMIC_MIGRATIONS_APPLIED
+GLOBAL_JE_PINNING_BATCH_BYTE_INVERSION_PASS
+HOTFIX_6A24F_SUPERSEDED_NOT_EXECUTED
+NEXT_EXECUTION_PHASE = HOTFIX_6A25Q_GLOBAL_JE_PINNING_1_13_RUNTIME_QA
+
+LEGACY_PINNING_OCCURRENCES_CORRECTED = 356
+LEGACY_PINNING_OCCURRENCES_EXCEPTIONS = 14
+TARGET_RUNTIME_PINNING_DIAGNOSTICS_BEFORE = 355
+EXPECTED_TARGET_RUNTIME_PINNING_DIAGNOSTICS_AFTER = 0
+```
+
+## Préflight et protections
+
+Confirmer la branche `hotfix-dlc-audit`, le commit manuel 6A.25, un arbre suivi
+et un index propres, les huit non-suivis protégés, puis le stash NAVY-3C-3 :
+
+```text
+stash@{0}: On hotfix-dlc-audit: WIP NAVY-3C-3 Maratha Konkan Flotilla
+518df704fa14599c0f254fae13859210663dd976
+```
+
+Avant le lancement, capturer un manifeste complet de tous les logs avec chemin,
+taille, date et SHA-256. Vérifier les hashes gameplay engagés par 6A.25, dont :
+
+```text
+00_german_unification.txt = 30A3F3356AA43060C0E8D315DDF34D8D304680290134E0212AE6AEB852C8F239
+03_afghanistan.txt = C9165714127E017486949AF8DDE742FD5A0E5F3093C5A43191695FE213969E13
+00_poland.txt = A5EAF687DC6A736CD50D3C66E5E7601D29442FF3FA8A292C4EE751A7FF981E6A
+```
+
+Ne modifier aucun gameplay, document ou stash pendant la QA. Ne jamais toucher
+aux 14 exceptions D, à BIC, NAVY, ADMIN ou MARATH. Conserver
+`activate_law = law_type:law_frontier_colonization`.
+
+## Runtime humain unique
+
+1. Confirmer que le fork exact est monté et que la branche du jeu est
+   `release/1.13.0` / The Great Wave.
+2. Lancer Victoria 3 une seule fois.
+3. Créer une partie neuve en 1776 avec un pays témoin stable.
+4. Ne forcer aucune journal entry et ne déclencher aucun contenu par console.
+5. Laisser le chargement produire une génération fraîche ; ne laisser passer
+   quelques jours que si cela aide à stabiliser les logs.
+6. Fermer Victoria 3 puis fermer Paradox Launcher.
+7. Capturer un second manifeste complet des logs et identifier exactement les
+   segments créés ou renouvelés par cette ouverture.
+
+## Analyse obligatoire
+
+Dédupliquer selon :
+
+```text
+generation + normalized_message + path + line
+```
+
+Mesurer simultanément, globalement et fichier par fichier, la cohorte des 355
+diagnostics historiques correspondant aux 356 occurrences corrigées. Le
+résultat requis est :
+
+```text
+TOTAL_TARGET_PINNING_DIAGNOSTICS_BEFORE = 355
+TOTAL_TARGET_PINNING_DIAGNOSTICS_AFTER = 0
+```
+
+L'occurrence PLC de la ligne 604 n'avait aucun diagnostic historique parce
+qu'une erreur antérieure masquait la suite du bloc ; elle reste néanmoins dans
+la cohorte statique corrigée. Les 14 exceptions D sont exclues de la cible zéro
+et doivent être rapportées séparément, sans être corrigées.
+
+Vérifier également qu'aucune nouvelle erreur parser, trigger, effect ou scope
+n'est attribuable aux 129 fichiers du sweep et que tous leurs hashes sont
+inchangés depuis le commit 6A.25. Ne pas revendiquer de comportement UI pour une
+JE qui n'est pas devenue naturellement visible.
+
+## Sortie documentaire
+
+Créer le rapport 6A.25Q, mettre à jour les registres CSV avec de vrais parseurs,
+fermer le bloc global seulement si le runtime passe, et ne sélectionner aucune
+nouvelle phase dans la même exécution. Ne pas faire de stage ni de commit
+automatique.
+
+---
+
+# Prompt historique — correction des cinq pinning de l'unification allemande 1.13
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
