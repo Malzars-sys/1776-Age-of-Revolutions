@@ -1540,3 +1540,49 @@ ONE_HUMAN_RUNTIME_ONLY
 GLOBAL_RESIDUAL_DIAGNOSTICS = 420
 NEXT_EXECUTION_PHASE = HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX
 ```
+
+## 67. Réindexation finale des bloqueurs de merge résiduels 6A.28 — 9 août 2026
+
+La baseline fraîche 6A.27Q est reproduite sans nouveau lancement : 420
+identités, soit 98 diagnostics parser et 322 `PostValidate`, sur 113 chemins et
+65 messages normalisés. Les 609 diagnostics supprimés par 6A.27 restent hors du
+corpus courant ; les six familles atomiques et le pinning global demeurent
+fermés.
+
+Les 420 identités reçoivent chacune une seule classification primaire : zéro
+`TRUE_MERGE_BLOCKER`, 54 `PROTECTED_WORK`, 17
+`INTENTIONAL_FORK_DIVERGENCE`, 4 `POST_MERGE_BACKLOG`, 43
+`SEMANTIC_REWRITE_REQUIRED`, 129 `BOUNDED_EXCEPTION` et 173
+`ALREADY_ACCOUNTED_FOR`. Les 23 diagnostics indépendants présents dans sept
+fichiers du sweep 6A.27 sont également classés et aucun n’est imputable au
+sweep.
+
+La comparaison ciblée confirme que 154 diagnostics proviennent de 55 fichiers
+vanilla chargés mais absents du fork. Le registre conserve exactement ses 513
+chemins ; 55 chemins frais y sont rapprochés et le fichier custom
+`01_mod76_progress_bars.txt` reste indexé sans diagnostic frais. Les 58 chemins
+frais hors registre sont explicités dans le rapport, dont 53 absents du fork.
+
+HBC est séparé comme décision de design post-merge : le composite observé est
+stable et son intention inconnue ne justifie aucune correction automatique.
+Mamluk Iraq et Japon n’ont aucun nouveau bloqueur ; leur vérification restante
+est portée par le runtime final consolidé. ADMIN et les autres travaux protégés
+restent intacts.
+
+```text
+HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX_COMPLETE
+POST_6A27Q_FRESH_420_DIAGNOSTICS_REINDEXED
+FINAL_RESIDUAL_420_DIAGNOSTICS_CLASSIFIED
+NO_UNCLASSIFIED_RESIDUAL_DIAGNOSTICS
+NO_DUPLICATE_RESIDUAL_CLASSIFICATIONS
+GLOBAL_MULTI_API_SWEEP_REMAINS_CLOSED
+GLOBAL_PINNING_FAMILY_REMAINS_CLOSED
+PROTECTED_WORK_PRESERVED
+POST_MERGE_BACKLOG_SEPARATED
+NO_GAMEPLAY_CHANGED
+NO_RUNTIME_EXECUTED
+TRUE_MERGE_BLOCKERS_REMAINING = 0
+TRUE_MERGE_BLOCKER_GROUPS = 0
+FINAL_GLOBAL_RUNTIME_READY
+NEXT_EXECUTION_PHASE = HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_AND_MERGE_READINESS_QA
+```

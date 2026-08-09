@@ -1,4 +1,4 @@
-# État canonique — réindexation finale 6A.28 sélectionnée
+# État canonique — runtime global final 6A.29 sélectionné
 
 Nous poursuivons le portage du mod Victoria 3 vers Victoria 3 1.13 — The Great
 Wave dans `1776_Age_of_Revolutions_fork`.
@@ -7,71 +7,76 @@ Modèle recommandé : GPT-5.6 Thinking avec raisonnement élevé.
 
 ## Dernière phase terminée
 
-`HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA` est terminée. Une
-seule ouverture humaine sous `release/1.13.0 : d9ade554e` valide les six
-familles 6A.27, sans nouvelle identité ni changement gameplay.
+`HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX` est terminée. Les 420
+diagnostics frais de 6A.27Q ont été reproduits et classifiés exactement une
+fois, sans correction gameplay ni runtime.
 
 ```text
-TOTAL_TARGET_API_DIAGNOSTICS_BEFORE = 609
-TOTAL_TARGET_API_DIAGNOSTICS_AFTER = 0
-NEW_6A27_ATTRIBUTABLE_ERRORS = 0
-GAMEPLAY_HASHES_MATCH = 87
-HUMAN_RUNTIME_LAUNCHES = 1
-
-FRESH_TOTAL_DIAGNOSTICS_AFTER_6A27Q = 420
-FRESH_PARSER_DIAGNOSTICS_AFTER_6A27Q = 98
-FRESH_POSTVALIDATE_DIAGNOSTICS_AFTER_6A27Q = 322
-FRESH_PATHS_AFTER_6A27Q = 113
-FRESH_NORMALIZED_MESSAGES_AFTER_6A27Q = 65
+FRESH_TOTAL_DIAGNOSTICS = 420
+FRESH_PARSER_DIAGNOSTICS = 98
+FRESH_POSTVALIDATE_DIAGNOSTICS = 322
+FRESH_PATHS = 113
+FRESH_NORMALIZED_MESSAGES = 65
+CLASSIFICATION_TOTAL = 420
+TRUE_MERGE_BLOCKERS_REMAINING = 0
+TRUE_MERGE_BLOCKER_GROUPS = 0
+MINIMUM_CORRECTION_PHASES_REQUIRED = 0
 ```
 
-Les 127 exceptions API et les 14 exceptions pinning restent bornées. Le sweep
-multi-API et le pinning global sont fermés.
+Les six familles 6A.27 et le pinning global restent fermés. Les exceptions
+bornées, le travail protégé et les backlogs séparés ne doivent pas être
+rouverts.
 
-## Phase exclusive à exécuter après commit manuel de 6A.27Q
+## Phase exclusive à exécuter après commit manuel de 6A.28
 
-`HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX`
+`HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_AND_MERGE_READINESS_QA`
 
-Cette phase est strictement statique : ne lancer ni Victoria 3, ni Dowser, ni
-Paradox Launcher. Utiliser comme source canonique les segments frais et les
-manifestes 6A.27Q. Reproduire exactement la baseline `420 = 98 + 322`, avec
-113 chemins et 65 messages normalisés, selon la clé `generation +
-normalized_message + path + line`.
+Cette phase doit être le dernier runtime planifié du merge. Ne l’exécuter que
+si le HEAD est le commit manuel de 6A.28, si l’arbre suivi est propre, si
+l’index est vide, si les sept recherches technologiques sont les seuls
+non-suivis, si `bject` est absent et si le stash NAVY-3C-3 vaut toujours
+`518df704fa14599c0f254fae13859210663dd976`.
 
-Classifier chaque diagnostic restant, sans appliquer de correction, dans une
-et une seule catégorie :
+Préparer tout le protocole avant l’unique ouverture humaine. Consolider autant
+que possible dans la même session :
 
 ```text
-TRUE_MERGE_BLOCKER
-PROTECTED_WORK
-INTENTIONAL_FORK_DIVERGENCE
-POST_MERGE_BACKLOG
-SEMANTIC_REWRITE_REQUIRED
-BOUNDED_EXCEPTION
-ALREADY_ACCOUNTED_FOR
+- chargement d’une partie neuve en 1776 et smoke général ;
+- RUS, TUR/PER, Japon et Mamluk Iraq si naturellement accessibles ;
+- BIC/Sepoy et les principaux pays ou États historiquement corrigés ;
+- non-régression NAVY et ADMIN, sans toucher à leur travail protégé ;
+- absence de clé brute, crash ou nouvelle anomalie attribuable ;
+- sauvegarde/rechargement dans la même session si réalisable sans forçage ;
+- fermeture du jeu et du launcher avant la capture finale des logs.
 ```
 
-Conserver séparément les 127 exceptions API, les 14 exceptions pinning, les
-sept recherches technologiques non suivies et tous les blocs historiques
-fermés. Ne rouvrir aucune des six familles validées. Ne créer aucune
-micro-phase et ne modifier aucun gameplay.
+Capturer les manifestes avant et après, conserver les logs complets et
+dédupliquer par `generation + normalized_message + path + line`. Comparer la
+génération finale à la baseline fraîche 6A.27Q de 420 identités. Une identité
+déjà classée non bloquante n’est pas une régression ; toute identité nouvelle
+doit être attribuée précisément.
 
-Produire un inventaire exhaustif par diagnostic, une matrice par famille et le
-nombre réellement démontré :
+La phase ne doit appliquer aucune correction gameplay. Elle doit produire le
+verdict final de readiness, avec au minimum :
 
 ```text
-TRUE_MERGE_BLOCKERS_REMAINING = N
+FINAL_GLOBAL_RUNTIME_LAUNCHES = 1
+FINAL_GLOBAL_SMOKE = PASS|FAIL
+NEW_ATTRIBUTABLE_DIAGNOSTICS = N
+SAVE_RELOAD = PASS|NOT_FEASIBLE|FAIL
+FINAL_MERGE_READINESS = READY|BLOCKED
 ```
 
-Si `N = 0`, sélectionner directement le runtime global final. Si `N > 0`,
-regrouper les bloqueurs compatibles dans le nombre minimal de corrections, sans
-commencer ces corrections pendant 6A.28.
+Ne jamais déclarer un pays validé s’il n’a pas été naturellement accessible.
+Documenter ces cas comme non observés dans le runtime consolidé. Ne lancer
+aucun second runtime sans une nouvelle autorisation explicite.
 
 ```text
-HOTFIX_6A27Q_GLOBAL_SCRIPT_API_ATOMIC_SWEEP_RUNTIME_QA_COMPLETE
-GLOBAL_MULTI_API_ATOMIC_SWEEP_RUNTIME_PASS
-GLOBAL_RESIDUAL_DIAGNOSTICS = 420
-NEXT_EXECUTION_PHASE = HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX
+HOTFIX_6A28_FINAL_RESIDUAL_MERGE_BLOCKER_REINDEX_COMPLETE
+FINAL_RESIDUAL_420_DIAGNOSTICS_CLASSIFIED
+TRUE_MERGE_BLOCKERS_REMAINING = 0
+FINAL_GLOBAL_RUNTIME_READY
+NEXT_EXECUTION_PHASE = HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_AND_MERGE_READINESS_QA
 ```
 
 ---
