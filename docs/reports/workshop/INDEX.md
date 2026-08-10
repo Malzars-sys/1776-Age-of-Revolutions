@@ -13,6 +13,7 @@ Les livrables Workshop sont regroupés par phase. Chaque dossier conserve ensemb
 ## Publication
 
 - [PREP2](publication/PREP2/) : thumbnail identifié comme fork, audit des métadonnées, descriptions Steam EN/FR, crédits, manifeste d’expédition et paquet de publication manuelle.
+- [PREP3](publication/PREP3/) : build Steam externe minimal, validation SHA-256, inventaire final, rapport de taille et procédure de publication manuelle.
 
 La publication Steam elle-même reste une action humaine séparée. PREP2 ne crée aucun Workshop Item et ne réalise aucun upload.
 
