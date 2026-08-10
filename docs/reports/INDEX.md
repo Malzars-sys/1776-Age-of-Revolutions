@@ -1,5 +1,12 @@
 # Index des rapports
 
+## Navigation actuelle
+
+- [Guide des rapports](README.md)
+- [Bibliothèque Hotfix et merge](hotfix/INDEX.md)
+- [Préparation Steam Workshop](workshop/INDEX.md)
+- [Manifeste PREP1E de réorganisation](DOCUMENTATION_REORGANIZATION_MANIFEST.csv)
+
 ## Audit general
 
 - `docs/reports/audit/AUDIT_1776_GREAT_WAVE_1.13.md`

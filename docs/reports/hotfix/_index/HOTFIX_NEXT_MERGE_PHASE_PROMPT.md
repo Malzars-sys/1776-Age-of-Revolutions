@@ -590,7 +590,7 @@ La phase 6A.18Q doit être commitée manuellement dans le HEAD avec le message :
 
 Rapport obligatoire :
 
-`docs/reports/hotfix/_index/HOTFIX_6A18Q_DECLARED_INTEREST_HISTORY_RUNTIME_VALIDATION.md`
+`docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A18Q_DECLARED_INTEREST_HISTORY_RUNTIME_VALIDATION.md`
 
 Verdicts obligatoires dans le HEAD :
 
@@ -625,7 +625,7 @@ git diff --check
 git diff --cached --name-only
 git stash list
 git rev-parse 'stash@{0}'
-git show HEAD:docs/reports/hotfix/_index/HOTFIX_6A18Q_DECLARED_INTEREST_HISTORY_RUNTIME_VALIDATION.md
+git show HEAD:docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A18Q_DECLARED_INTEREST_HISTORY_RUNTIME_VALIDATION.md
 ```
 
 Exiger : racine exacte, branche exacte, HEAD au message attendu, arbre suivi
@@ -736,7 +736,7 @@ sélectionner aucune correction.
 
 Créer uniquement :
 
-`docs/reports/hotfix/_index/HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT.md`
+`docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A18R2_DECLARED_INTEREST_INITIALIZATION_MECHANISM_1_13_AUDIT.md`
 
 Mettre à jour seulement si nécessaire :
 
