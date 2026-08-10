@@ -276,3 +276,92 @@ MARATH = { # Maratha Empire
 		instance = { scale = { 0.4 0.4 } position = { 0.5 0.5 } }
 	}
 }
+
+# 1776 base flags used by CountryDefinition.GetBaseFlag in objective cards.
+# Dynamic flag definitions continue to handle later regime changes in-game.
+
+FRA = { # Kingdom of France, Bourbon white flag
+	pattern = "pattern_solid.tga"
+	color1 = "white"
+	color2 = "yellow_dark"
+
+	colored_emblem = {
+		texture = "ce_fleur_quebec.dds"
+		color1 = color2
+		color2 = color2
+		instance = { position = { 0.25 0.50 } scale = { 0.22 0.22 } }
+		instance = { position = { 0.50 0.50 } scale = { 0.22 0.22 } }
+		instance = { position = { 0.75 0.50 } scale = { 0.22 0.22 } }
+	}
+}
+
+FRA_revolutionary_tricolor = {
+	pattern = "pattern_solid.tga"
+	color1 = "blue"
+
+	colored_emblem = {
+		texture = "ce_tricolor_vertical.dds"
+		color1 = "white"
+		color2 = "red"
+	}
+}
+
+USA = { # Thirteen-star flag for the Thirteen Colonies / early United States
+	pattern = "pattern_solid.tga"
+	color1 = "white"
+	color2 = "red"
+	color3 = "blue"
+
+	colored_emblem = {
+		texture = "ce_stripes_13.dds"
+		color1 = color2
+		color2 = color2
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = color3
+		color2 = color3
+		instance = { position = { 0.25 0.269 } scale = { 0.50 0.538 } }
+	}
+	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { position = { 0.250 0.269 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.250 0.109 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.325 0.130 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.380 0.189 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.400 0.269 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.380 0.349 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.325 0.408 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.250 0.429 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.175 0.408 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.120 0.349 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.100 0.269 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.120 0.189 } scale = { 0.045 0.068 } }
+		instance = { position = { 0.175 0.130 } scale = { 0.045 0.068 } }
+	}
+}
+
+SPA = { # Spanish Cross of Burgundy, used by the Bourbon monarchy in 1776
+	pattern = "pattern_solid.tga"
+	color1 = "white"
+	color2 = "red"
+
+	colored_emblem = {
+		texture = "ce_cross_burgundy.dds"
+		color1 = color2
+		color2 = color2
+	}
+}
+
+RUS = { # Russian imperial banner appropriate to the eighteenth century
+	pattern = "pattern_solid.tga"
+	color1 = "yellow"
+	color2 = "black"
+
+	textured_emblem = {
+		texture = "te_eagle_russia_crowned.dds"
+		instance = { position = { 0.5 0.5 } scale = { 0.72 0.72 } }
+	}
+}
