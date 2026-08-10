@@ -1,0 +1,15 @@
+# GitHub Linguist overrides for this Victoria 3 mod repository.
+#
+# GitHub Linguist currently has no dedicated Paradox / Jomini script language.
+# These rules prevent development tooling and Victoria 3 descriptors from
+# producing misleading repository-language percentages.
+
+# Victoria 3 descriptor files use the .mod extension.
+# GitHub may otherwise misclassify them as AMPL.
+*.mod -linguist-detectable
+
+# PowerShell files in these directories are development/build tooling.
+# They are useful parts of the repository, but they are not the primary
+# source language of the Victoria 3 mod.
+tools/workshop/*.ps1 -linguist-detectable
+workshop_assets/*.ps1 -linguist-detectable
