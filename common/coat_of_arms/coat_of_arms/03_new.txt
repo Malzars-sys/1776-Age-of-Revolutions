@@ -399,3 +399,47 @@ RUS = { # Russian imperial banner appropriate to the eighteenth century
 		instance = { position = { 0.5 0.5 } scale = { 0.72 0.72 } }
 	}
 }
+
+# PREP1C follow-up: objective cards render CountryDefinition.GetBaseFlag and
+# therefore bypass common/flag_definitions.  Expose the period company flags
+# through the base CoAs while retaining their existing political variants.
+BIC = { # British East India Company striped ensign
+	pattern = "pattern_solid.tga"
+	color1 = "white"
+	color2 = "red"
+	color3 = "blue"
+	sub = {
+		parent = "sub_BIC_cypher"
+		instance = { scale = { 0.5 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_stripes_10.dds"
+		color1 = color2
+		color2 = color2
+	}
+}
+
+DEI = { # Dutch East India Company / VOC flag
+	pattern = "pattern_solid.tga"
+	color1 = "red"
+	colored_emblem = {
+		texture = "ce_tricolor_horizontal.dds"
+		color1 = "white"
+		color2 = "blue"
+	}
+	colored_emblem = {
+		texture = "ce_letter_v_serif.dds"
+		color1 = "black"
+		instance = { position = { 0.5 0.5 } scale = { 0.5 0.5 } }
+	}
+	colored_emblem = {
+		texture = "ce_letter_o.dds"
+		color1 = "black"
+		instance = { position = { 0.47 0.48 } scale = { 0.3 0.23 } }
+	}
+	colored_emblem = {
+		texture = "ce_letter_c_serif.dds"
+		color1 = "black"
+		instance = { position = { 0.56 0.48 } scale = { 0.23 0.23 } }
+	}
+}
