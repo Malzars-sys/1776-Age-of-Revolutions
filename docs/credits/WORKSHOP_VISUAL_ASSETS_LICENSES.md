@@ -4,6 +4,41 @@ Verification date: `2026-08-10`
 
 No AI-generated image and no Pinterest binary is included. All visual transformations are deterministic crops, proportional resizes, color-space/format conversion, DDS compression and mipmap generation. The mercantile-republic disabled state additionally applies the same kind of desaturation used by the vanilla disabled card.
 
+## `workshop_thumbnail`
+
+- `asset_id`: `workshop_thumbnail`
+- `final_mod_path`: `thumbnail.png`
+- `work_title`: `Unité, indivisibilité de la République. Liberté, égalité, fraternité, ou la mort : Dieu, peuple, loi`
+- `artist_or_creator`: anonymous engraver; published by Paul-André Basset
+- `creation_date`: circa `1792`
+- `source_page`: https://commons.wikimedia.org/wiki/File:Unit%C3%A9,_indivisibilit%C3%A9_de_la_R%C3%A9publique._Libert%C3%A9,_%C3%A9galit%C3%A9,_fraternit%C3%A9,_ou_la_mort_-_Dieu,_peuple,_loi_-_estampe_-_non_identifi%C3%A9_-_btv1b69503824.jpg
+- `catalogue_page`: https://catalogue.bnf.fr/ark:/12148/cb40255790s
+- `source_repository_or_institution`: Bibliothèque nationale de France, Collection de Vinck
+- `source_provenance`: existing original-mod thumbnail, identified against the BnF catalogue and its Commons reproduction
+- `sha256_before_fork_badge`: `125B59B90ABDC758BFD9E3068698D4C1089A2011B050756F2D98917943A75659`
+- `license_or_public_domain_basis`: `PUBLIC DOMAIN`; the anonymous work was published circa 1792 and the Commons record marks the reproduction public domain.
+- `required_attribution`: none legally required; courtesy credit to the BnF and Basset retained.
+- `technical_modifications`: original 600x600 composition preserved; clearly visible deterministic Victoria-style `FORK` panel added at upper right and enlarged after operator feedback; launcher mirror and 512/256/128 QA previews derived proportionally.
+- `verification_date`: `2026-08-10`
+- `LICENSE_VERIFIED`: `yes`
+
+## `age_of_revolution_frontend_bg`
+
+- `asset_id`: `age_of_revolution_frontend_bg`
+- `final_mod_path`: `gfx/interface/frontend/age_of_revolution_frontend_bg.dds`
+- `work_title`: `Washington Crossing the Delaware`
+- `artist_or_creator`: Emanuel Leutze (1816-1868)
+- `creation_date`: `1851`
+- `source_page`: https://www.metmuseum.org/art/collection/search/11417
+- `source_repository_or_institution`: The Metropolitan Museum of Art, accession `97.34`
+- `source_provenance`: operator-provided PNG; exact preserved source at `workshop_assets/source/washington_crossing_delaware.png`
+- `sha256_source`: `C8B1D6C637E4945BFF574F3CFF226B5E3637DEC115BCC89EE13BBD79D0E4BCD9`
+- `license_or_public_domain_basis`: `PUBLIC DOMAIN / The Met Open Access`; The Met marks the work Public Domain and permits unrestricted commercial and non-commercial use of its Open Access images.
+- `required_attribution`: none legally required; courtesy credit to Emanuel Leutze and The Metropolitan Museum of Art retained.
+- `technical_modifications`: proportional frontend crop and horizontal mirroring so Washington remains clear of the menu; deterministic DDS conversion.
+- `verification_date`: `2026-08-10`
+- `LICENSE_VERIFIED`: `yes`
+
 ## `aor_battle_for_india`
 
 - `asset_id`: `aor_battle_for_india`
@@ -103,4 +138,17 @@ SAFE_REPLACEMENT = PUBLIC_DOMAIN Storming of the Bastille from Gallica/BnF
 
 ORIGINAL_PINTEREST_MERCANTILE_REPUBLICS_UBISOFT = NOT_USED_COPYRIGHTED
 SAFE_REPLACEMENT = PUBLIC_DOMAIN Canaletto Google Art Project reproduction
+```
+
+## Final PREP2 verification matrix
+
+```text
+THUMBNAIL_LICENSE_VERIFIED = yes
+DELAWARE_LICENSE_VERIFIED = yes
+TRAFALGAR_LICENSE_VERIFIED = yes
+BATTLE_FOR_INDIA_ART_LICENSE_VERIFIED = yes
+AGE_OF_REVOLUTIONS_ART_LICENSE_VERIFIED = yes
+IMPERIAL_RIVALRIES_ART_LICENSE_VERIFIED = yes
+MERCANTILE_REPUBLICS_ART_LICENSE_VERIFIED = yes
+NO_AI_GENERATED_VISUAL_INCLUDED = yes
 ```

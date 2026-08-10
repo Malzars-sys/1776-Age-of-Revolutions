@@ -10,6 +10,10 @@ Les livrables Workshop sont regroupés par phase. Chaque dossier conserve ensemb
 - [PREP1D](frontend/PREP1D/) : confirmation runtime finale du frontend, avec le défaut BEO isolé.
 - [PREP1E](frontend/PREP1E/) : CoA de base BEO, réorganisation documentaire et QA runtime ciblée.
 
-Les futures phases de publication PREP2+ pourront être rangées sous `publication/` lorsqu’elles seront autorisées. PREP2 n’est pas commencé par PREP1E.
+## Publication
+
+- [PREP2](publication/PREP2/) : thumbnail identifié comme fork, audit des métadonnées, descriptions Steam EN/FR, crédits, manifeste d’expédition et paquet de publication manuelle.
+
+La publication Steam elle-même reste une action humaine séparée. PREP2 ne crée aucun Workshop Item et ne réalise aucun upload.
 
 Les crédits et licences des ressources sont dans [`docs/credits/`](../../credits/).
