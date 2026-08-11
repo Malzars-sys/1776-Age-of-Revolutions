@@ -54,6 +54,8 @@ function Test-ForbiddenPayloadPath {
     param([Parameter(Mandatory)][string]$RelativePath)
 
     $normalized = $RelativePath.Replace('\', '/').TrimStart('/')
+    if ($normalized -eq '.metadata/metadata.json') { return $false }
+
     $segments = $normalized.Split('/', [System.StringSplitOptions]::RemoveEmptyEntries)
     $forbiddenRoots = @('.git', '.github', '.metadata', 'docs', 'workshop_assets', '.agents', 'victoria3')
     if ($segments.Count -gt 0 -and $segments[0] -in $forbiddenRoots) { return $true }
@@ -226,6 +228,26 @@ $descriptorText = Get-Content -LiteralPath $descriptorPath -Raw -Encoding UTF8
 if ($descriptorText -notmatch 'supported_version="1\.13\.\*"') { throw 'DESCRIPTOR_SUPPORTED_VERSION_INVALID' }
 if ($descriptorText -match 'remote_file_id|publishedfileid') { throw 'NEW_FORK_WORKSHOP_ID_PRESENT' }
 
+$metadataPath = Join-Path $buildFull '.metadata\metadata.json'
+if (-not (Test-Path -LiteralPath $metadataPath -PathType Leaf)) {
+    throw 'WORKSHOP_METADATA_MISSING: .metadata/metadata.json'
+}
+try {
+    $packageMetadata = Get-Content -LiteralPath $metadataPath -Raw -Encoding UTF8 | ConvertFrom-Json
+} catch {
+    throw "WORKSHOP_METADATA_JSON_INVALID: $($_.Exception.Message)"
+}
+if ($null -eq $packageMetadata.game_custom_data) {
+    throw 'WORKSHOP_METADATA_GAME_CUSTOM_DATA_MISSING'
+}
+if ($null -eq $packageMetadata.game_custom_data.replace_paths) {
+    throw 'WORKSHOP_METADATA_REPLACE_PATHS_MISSING'
+}
+$packageReplacePaths = @($packageMetadata.game_custom_data.replace_paths)
+if ($packageReplacePaths -notcontains 'common/history/characters') {
+    throw 'WORKSHOP_METADATA_CHARACTER_REPLACE_PATH_MISSING'
+}
+
 $thumbnailPath = Join-Path $buildFull 'thumbnail.png'
 $thumbnailHash = Get-FileSha256 -Path $thumbnailPath
 if ($thumbnailHash -ne 'c1d4a6d56849182a00b2474b3ba71c745216fb6a23c498b7fea0efde57c3cf5c') {
@@ -241,7 +263,7 @@ try {
     $thumbnail.Dispose()
 }
 
-$textExtensions = @('.txt', '.yml', '.yaml', '.gui', '.asset', '.mod')
+$textExtensions = @('.txt', '.yml', '.yaml', '.json', '.gui', '.asset', '.mod')
 $secretPatterns = @(
     '(?i)\b(token|password|api[_-]?key)\b\s*[:=]',
     '(?i)\bauthorization\s*:',
@@ -364,4 +386,6 @@ Write-Output "DEVELOPMENT_POLLUTION_FOUND=$($pollution.Count)"
 Write-Output "POTENTIAL_SECRET_HITS=$($secretHits.Count)"
 Write-Output "LOCAL_DEVELOPER_PATH_LEAKS=$($localPathHits.Count)"
 Write-Output "NEW_FORK_WORKSHOP_ID_PRESENT=no"
+Write-Output "WORKSHOP_METADATA_INCLUDED=yes"
+Write-Output "WORKSHOP_METADATA_CHARACTER_REPLACE_PATH_PRESENT=yes"
 Write-Output "MANIFEST_EXCLUDED_INSIDE_SHIP_DIRECTORIES=$($manifestExcluded.Count)"
