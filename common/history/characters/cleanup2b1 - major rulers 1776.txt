@@ -1,0 +1,223 @@
+CHARACTERS = {
+	c:POR ?= {
+		create_character = {
+			first_name = Joseph_I
+			last_name = de_Braganza
+			historical = yes
+			culture = primary_culture
+			religion = rel:catholic
+			ruler = yes
+			birth_date = 1714.6.6
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+		}
+	}
+
+	c:PRU ?= {
+		create_character = {
+			first_name = Frederick_II
+			last_name = von_Hohenzollern
+			historical = yes
+			culture = primary_culture
+			religion = rel:protestant
+			ruler = yes
+			birth_date = 1712.1.24
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+		}
+	}
+
+	c:SWE ?= {
+		create_character = {
+			first_name = Gustav_III
+			last_name = Holstein_Gottorp
+			historical = yes
+			culture = primary_culture
+			religion = rel:protestant
+			ruler = yes
+			birth_date = 1746.1.24
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+		}
+	}
+
+	c:DENNOR ?= {
+		create_character = {
+			first_name = Christian_VII
+			last_name = von_Oldenburg
+			historical = yes
+			culture = primary_culture
+			religion = rel:protestant
+			ruler = yes
+			birth_date = 1749.1.28
+			interest_group = ig_landowners
+			ideology = ideology_royalist
+		}
+	}
+
+	c:TUR ?= {
+		create_character = {
+			first_name = Abdulhamid_I
+			last_name = Osmanoglu
+			historical = yes
+			culture = primary_culture
+			religion = rel:sunni
+			ruler = yes
+			birth_date = 1725.3.20
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+		}
+	}
+
+	c:CHI ?= {
+		create_character = {
+			first_name = Hongli
+			last_name = Aisin_Gioro
+			historical = yes
+			culture = primary_culture
+			religion = rel:confucian
+			ruler = yes
+			birth_date = 1711.9.25
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+		}
+	}
+
+	c:JAP ?= {
+		create_character = {
+			first_name = Ieharu
+			last_name = Tokugawa
+			historical = yes
+			culture = primary_culture
+			religion = rel:mahayana
+			ruler = yes
+			birth_date = 1737.6.20
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+		}
+	}
+
+	c:KOR ?= {
+		create_character = {
+			first_name = Yeongjo
+			last_name = Yi
+			historical = yes
+			culture = primary_culture
+			religion = rel:confucian
+			ruler = yes
+			birth_date = 1694.10.31
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+		}
+	}
+
+	c:MUG ?= {
+		create_character = {
+			first_name = Shah_Alam_II
+			last_name = Timurid
+			historical = yes
+			culture = primary_culture
+			religion = rel:sunni
+			ruler = yes
+			age = 47
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+		}
+	}
+
+	c:MARATH ?= {
+		# Effective head of government during the minority of Madhavrao II.
+		# The approximate age follows the user-authorized Sakharam research pass.
+		create_character = {
+			first_name = Sakharam
+			last_name = Bapu_Bokil
+			historical = yes
+			culture = primary_culture
+			religion = rel:hindu
+			ruler = yes
+			age = 60
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+			on_created = {
+				designate_character_as_regent = {
+					YEARS = 1
+				}
+			}
+		}
+
+		# Nominal Peshwa, born 18 April 1774, represented as the child heir.
+		create_character = {
+			first_name = Madhavrao_II
+			last_name = Bhat_Peshwa
+			historical = yes
+			culture = primary_culture
+			religion = rel:hindu
+			heir = yes
+			birth_date = 1774.4.18
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+			traits = {
+				trait_child
+			}
+		}
+	}
+
+	c:HYD ?= {
+		create_character = {
+			first_name = Nizam_Ali_Khan
+			last_name = Asaf_Jah
+			historical = yes
+			culture = primary_culture
+			religion = rel:sunni
+			ruler = yes
+			birth_date = 1734.3.7
+			interest_group = ig_landowners
+			ideology = ideology_traditionalist
+		}
+	}
+
+	c:MYS ?= {
+		create_character = {
+			first_name = Hyder
+			last_name = Ali
+			historical = yes
+			culture = primary_culture
+			religion = rel:sunni
+			ruler = yes
+			age = 55
+			interest_group = ig_armed_forces
+			ideology = ideology_traditionalist
+			on_created = {
+				set_variable = cleanup2b1_hyder_ali
+			}
+		}
+	}
+
+	c:NET ?= {
+		create_character = {
+			first_name = William_V
+			last_name = van_Oranje_Nassau
+			historical = yes
+			culture = primary_culture
+			religion = rel:protestant
+			ruler = yes
+			birth_date = 1748.3.8
+			interest_group = ig_petty_bourgeoisie
+			ideology = ideology_traditionalist
+		}
+	}
+
+	c:MON ?= {
+		create_character = {
+			first_name = Sava_II
+			last_name = Petrovic_Njegos
+			historical = yes
+			culture = primary_culture
+			religion = rel:orthodox
+			ruler = yes
+			age = 74
+			interest_group = ig_devout
+			ideology = ideology_traditionalist
+		}
+	}
+}

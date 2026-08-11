@@ -25,3 +25,180 @@ gov_pashalik = { # For Mamluk Iraq
 		post_change_to_hereditary = yes
 	}
 }
+
+# CLEANUP-2B-1: country-specific 1776 titles. These definitions load before the
+# generic vanilla monarchy/republic types and only narrow the displayed title.
+gov_french_ancien_regime = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_KING"
+	female_ruler = "RULER_TITLE_QUEEN"
+
+	male_heir = "RULER_TITLE_DAUPHIN"
+	female_heir = "RULER_TITLE_DAUPHINE"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		has_law_or_variant = law_type:law_autocracy
+		c:FRA ?= this
+		has_variable = one_true_dynasty
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_zand_vakilate = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_VAKIL"
+	female_ruler = ""
+
+	male_heir = "RULER_TITLE_CROWN_PRINCE"
+	female_heir = ""
+
+	possible = {
+		has_law = law_type:law_monarchy
+		c:PER ?= this
+		ruler ?= {
+			has_template = per_karim_khand_zand_template
+		}
+		NOT = { is_subject_type = subject_type_crown_land }
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_dutch_stadholder_oligarchy = {
+	transfer_of_power = hereditary
+	new_leader_on_reform_government = no
+
+	male_ruler = "RULER_TITLE_STADTHOLDER"
+	female_ruler = "RULER_TITLE_STADTHOLDER"
+
+	possible = {
+		has_law = law_type:law_presidential_republic
+		has_law = law_type:law_oligarchy
+		c:NET ?= this
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_habsburg_monarchy_1776 = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_ARCHDUKE"
+	female_ruler = "RULER_TITLE_ARCHDESS"
+
+	male_heir = "RULER_TITLE_ARCHDUKE"
+	female_heir = "RULER_TITLE_ARCHDESS"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		c:AUS ?= this
+		ruler ?= {
+			has_variable = cleanup2b1_maria_theresa
+		}
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_mysore_sarvadhikari = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_SARVADHIKARI"
+	female_ruler = "RULER_TITLE_SARVADHIKARI"
+
+	male_heir = "RULER_TITLE_YUVARAJ"
+	female_heir = "RULER_TITLE_YUVARANI"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		c:MYS ?= this
+		ruler ?= {
+			has_variable = cleanup2b1_hyder_ali
+		}
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_maratha_peshwa_regency = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_REGENT"
+	female_ruler = "RULER_TITLE_REGENT"
+
+	male_heir = "RULER_TITLE_PESHWA"
+	female_heir = "RULER_TITLE_PESHWA"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		c:MARATH ?= this
+		has_gov_regency = yes
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}
+
+gov_maratha_peshwa = {
+	transfer_of_power = hereditary
+
+	male_ruler = "RULER_TITLE_PESHWA"
+	female_ruler = "RULER_TITLE_PESHWA"
+
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+
+	possible = {
+		has_law = law_type:law_monarchy
+		c:MARATH ?= this
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+
+	on_government_type_change = {
+		change_to_hereditary = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_hereditary = yes
+	}
+}

@@ -217,3 +217,33 @@ SAFE_FOR_USER_RUNTIME = YES
 ```
 
 STOP.
+
+## 11. Runtime closure — user session 2026-08-11
+
+The single user runtime session closed VFS-1 successfully:
+
+- no 1836 Carlist War in Spain;
+- no 1836 Fezzan revolt;
+- no inherited TUR→MON embargo;
+- no inherited POR→SPA obligation;
+- GRE check not applicable because Greece does not exist at scenario start;
+- the fork American Revolution remains present;
+- the fork PER↔IR1 conflict remains present;
+- two Spanish naval formations named `Real Armada Española` were observed. This is documented as a military-rebalance issue and was not changed in VFS-1 or CLEANUP-2B-1.
+
+The startup log `debug.1.log` mounts the fork once at 16:00:05. Across `debug.log`, `debug.1.log`, and `debug.2.log`, there are zero references to `00_carlist_war`, `00_fezzan_revolt`, `00_embargos`, and `00_favors`, and zero metadata-error-like lines. The fork file `00_otto_iraqi_persia_war.txt` appears in `debug.log` and `debug.2.log`; its only directly associated message is the already known UTF-8 BOM warning. Other parser errors in the logs concern unrelated files and are not attributable to the VFS-1 diplomatic isolation.
+
+```text
+CARLIST_1836_ABSENT = YES
+FEZZAN_1836_ABSENT = YES
+TUR_MON_VANILLA_EMBARGO_ABSENT = YES
+POR_SPA_VANILLA_OBLIGATION_ABSENT = YES
+GRE_OBLIGATION_CHECK = N/A_COUNTRY_ABSENT
+AMERICAN_REVOLUTION_PRESENT = YES
+PER_IR1_CONFLICT_PRESENT = YES
+ATTRIBUTABLE_DIPLOMACY_ERRORS = 0
+METADATA_ERROR_LIKE_LINES = 0
+SPANISH_DUPLICATE_NAVAL_FORMATION_DOCUMENTED = YES
+SPANISH_DUPLICATE_NAVAL_FORMATION_FIXED_HERE = NO
+VFS1_RUNTIME = PASS
+```
