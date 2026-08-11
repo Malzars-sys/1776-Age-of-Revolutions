@@ -1,0 +1,21 @@
+﻿# CLEANUP-2C-1C: deterministic initial executives for companies that already
+# exist in country history. The explicit creation step mirrors vanilla 1.13's
+# BIC/HBC startup path; the template's company field performs the assignment.
+
+CHARACTERS = {
+	c:GBR ?= {
+		create_character = {
+			template = BIC_john_harrison
+		}
+
+		create_character = {
+			template = CLEANUP2C1B_HBC_sir_bibye_lake_jr
+		}
+	}
+
+	c:NET ?= {
+		create_character = {
+			template = DEI_egbert_de_vrij_temminck
+		}
+	}
+}

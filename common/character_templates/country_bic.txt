@@ -2,34 +2,28 @@
 
 ### Rulers
 
-BIC_warren_hastings = { # George Eden, 1st Earl of Auckland
-	first_name = Warren
-	last_name = Hastings
+BIC_john_harrison = {
+	first_name = CLEANUP2C1_NAME_BIC
+	last_name = CLEANUP2C1_EMPTY_NAME
 	historical = yes
-    dna = dna_george_eden
-    culture = cu:british
+	culture = cu:british
 	interest_group = ig_industrialists
 	ideology = ideology_moderate
-    # technically a ruler, but will be set as the ruler of BIC via the company
-	birth_date = 1732.12.6
 	traits = {
-        special_character_colonial_business
-		reckless
+		special_character_colonial_business
 	}
-	trait_generation = {
-
+	trait_generation = { }
+	company = company:company_east_india_company
+	executive_usage = {
+		country_trigger = { # Must be the country that owns the company.
+			c:GBR ?= this
+		}
+		company_trigger = {
+			is_company_type = company_type:company_east_india_company
+		}
+		earliest_usage_date = 1775.1.1
+		latest_usage_date = 1776.12.31
 	}
-    executive_usage = {
-        country_trigger = { # Must be the country that owns the company
-            c:GBR ?= this
-        }
-        company_trigger = {
-            is_company_type = company_type:company_east_india_company
-        }
-        earliest_usage_date = 1776.1.1
-        latest_usage_date = 1818.1.1
-        chance = 100
-    }
 }
 
 ### IG Leaders

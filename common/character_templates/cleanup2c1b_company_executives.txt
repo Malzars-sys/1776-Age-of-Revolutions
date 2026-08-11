@@ -1,21 +1,24 @@
-﻿DEI_egbert_de_vrij_temminck = {
-	first_name = CLEANUP2C1_NAME_DEI
+﻿# CLEANUP-2C-1B: historical corporate executives selected by the native
+# Victoria 3 1.13 company system. These are not ordinary country rulers.
+
+CLEANUP2C1B_HBC_sir_bibye_lake_jr = {
+	first_name = CLEANUP2C1_NAME_HBC
 	last_name = CLEANUP2C1_EMPTY_NAME
 	historical = yes
-	culture = cu:dutch
+	culture = cu:british
 	interest_group = ig_industrialists
 	ideology = ideology_moderate
 	traits = {
 		special_character_colonial_business
 	}
 	trait_generation = { }
-	company = company:company_dutch_east_india_company
+	company = company:company_hbc
 	executive_usage = {
 		country_trigger = {
-			c:NET ?= this
+			c:GBR ?= this
 		}
 		company_trigger = {
-			is_company_type = company_type:company_dutch_east_india_company
+			is_company_type = company_type:company_hbc
 		}
 		earliest_usage_date = 1775.1.1
 		latest_usage_date = 1776.12.31
