@@ -335,6 +335,26 @@
 
 
 		}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_south_india
+			name = Konkan_Flotilla
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 2
+			}
+			save_scope_as = konkan_flotilla
+		}
+
+		create_character = {
+			template = MARATH_anandrao_dhulap
+			save_scope_as = anandrao_dhulap_admiral
+		}
+
+		scope:anandrao_dhulap_admiral = {
+			transfer_to_formation = scope:konkan_flotilla
+		}
 	}
 	c:GWA ?= {
 		create_military_formation = {
