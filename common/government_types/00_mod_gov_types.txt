@@ -1,4 +1,4 @@
-gov_pashalik = { # For Mamluk Iraq
+﻿gov_pashalik = { # For Mamluk Iraq
 	transfer_of_power = hereditary
 
 	male_ruler = "RULER_TITLE_PASHA" # Governor. This post would usually be appointed by the Ottoman Sultan, and not be hereditary.
@@ -201,4 +201,365 @@ gov_maratha_peshwa = {
 	on_post_government_type_change = {
 		post_change_to_hereditary = yes
 	}
+}
+
+# CLEANUP-2B-2: narrow 1776 European titles. Political laws and subject
+# relationships remain in country/diplomacy history; these entries only select
+# the historically correct executive and dynastic titles.
+gov_1776_electorate = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_ELECTOR"
+	female_ruler = "RULER_TITLE_ELECTRESS"
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			c:BAV ?= this
+			c:SAX ?= this
+			c:HAN ?= this
+		}
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+gov_1776_duchy = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_DUKE"
+	female_ruler = "RULER_TITLE_DUCHESS"
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			c:WUR ?= this
+			c:BRA ?= this
+			c:MEC ?= this
+			c:MST ?= this
+			c:WEI ?= this
+			c:MEI ?= this
+			c:COB ?= this
+			c:OLD ?= this
+			c:PAR ?= this
+			c:MOD ?= this
+			c:HOL ?= this
+			c:SCH ?= this
+		}
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+gov_1776_margraviate = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_MARGRAVE"
+	female_ruler = "RULER_TITLE_MARGRAVINE"
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:BAD ?= this
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+gov_1776_landgraviate = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_LANDGRAVE"
+	female_ruler = "RULER_TITLE_LANDGRAVINE"
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			c:HEK ?= this
+			c:HES ?= this
+		}
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+gov_1776_lippe_county = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_COUNT"
+	female_ruler = "RULER_TITLE_COUNTESS"
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:LIP ?= this
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+gov_1776_tuscan_grand_duchy = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_GRAND_DUKE"
+	female_ruler = "RULER_TITLE_GRAND_DUCHESS"
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:TUS ?= this
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+gov_1776_meiningen_regency = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_REGENT"
+	female_ruler = "RULER_TITLE_REGENT"
+	male_heir = "RULER_TITLE_DUKE"
+	female_heir = "RULER_TITLE_DUCHESS"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:MEI ?= this
+		has_gov_regency = yes
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+gov_1776_malta_order = {
+	transfer_of_power = dictatorial
+	male_ruler = "RULER_TITLE_GRAND_MASTER"
+	female_ruler = "RULER_TITLE_GRAND_MASTER"
+	possible = {
+		has_law_or_variant = law_type:law_theocracy
+		c:MLT ?= this
+	}
+	on_government_type_change = { change_to_dictatorial = yes }
+	on_post_government_type_change = { post_change_to_dictatorial = yes }
+}
+
+gov_1776_merchant_republic_doge = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+	male_ruler = "RULER_TITLE_DOGE"
+	female_ruler = "RULER_TITLE_DOGE"
+	possible = {
+		has_law = law_type:law_merchant_republic
+		OR = {
+			c:VEN ?= this
+			c:GEN ?= this
+		}
+	}
+	on_government_type_change = { change_to_presidential_elective = yes }
+	on_post_government_type_change = { post_change_to_presidential_elective = yes }
+}
+
+gov_1776_danubian_hospodar = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_HOSPODAR"
+	female_ruler = "RULER_TITLE_HOSPODAR"
+	male_heir = "RULER_TITLE_PRINCE"
+	female_heir = "RULER_TITLE_PRINCESS"
+	possible = {
+		has_law = law_type:law_monarchy
+		OR = {
+			c:MOL ?= this
+			c:WAL ?= this
+		}
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+# CLEANUP-2B-3: narrow residual-European executive titles. These entries do
+# not change territory, subject relations, tiers, or the underlying law sets.
+gov_1776_austrian_netherlands_governorate = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+	male_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	female_ruler = "RULER_TITLE_GOVERNOR_GENERAL"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:BEO ?= this
+		is_subject_type = subject_type_crown_land
+		exists = c:AUS
+		is_subject_of = c:AUS
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_dictatorial = yes }
+	on_post_government_type_change = { post_change_to_dictatorial = yes }
+}
+
+gov_1776_galician_governorate = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+	male_ruler = "RULER_TITLE_GOVERNOR"
+	female_ruler = "RULER_TITLE_GOVERNESS"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:GAL ?= this
+		is_subject_type = subject_type_crown_land
+		exists = c:AUS
+		is_subject_of = c:AUS
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_dictatorial = yes }
+	on_post_government_type_change = { post_change_to_dictatorial = yes }
+}
+
+gov_1776_hungarian_lieutenancy = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+	male_ruler = "RULER_TITLE_ROYAL_GOVERNOR_1776"
+	female_ruler = "RULER_TITLE_ROYAL_GOVERNOR_1776"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:HUN ?= this
+		is_subject_type = subject_type_crown_land
+		exists = c:AUS
+		is_subject_of = c:AUS
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_dictatorial = yes }
+	on_post_government_type_change = { post_change_to_dictatorial = yes }
+}
+
+gov_1776_transylvanian_gubernium = {
+	transfer_of_power = dictatorial
+	new_leader_on_reform_government = no
+	male_ruler = "RULER_TITLE_GUBERNIUM_PRESIDENT_1776"
+	female_ruler = "RULER_TITLE_GUBERNIUM_PRESIDENT_1776"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:TRS ?= this
+		is_subject_type = subject_type_crown_land
+		exists = c:AUS
+		is_subject_of = c:AUS
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_dictatorial = yes }
+	on_post_government_type_change = { post_change_to_dictatorial = yes }
+}
+
+gov_1776_free_city_mayoralty = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+	male_ruler = "RULER_TITLE_BURGERMEISTER_1776"
+	female_ruler = "RULER_TITLE_BURGERMEISTER_1776"
+	possible = {
+		has_law = law_type:law_presidential_republic
+		OR = {
+			c:BRE ?= this
+			c:HAM ?= this
+			c:LUB ?= this
+		}
+	}
+	on_government_type_change = { change_to_presidential_elective = yes }
+	on_post_government_type_change = { post_change_to_presidential_elective = yes }
+}
+
+gov_1776_frankfurt_senior_mayoralty = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+	male_ruler = "RULER_TITLE_SENIOR_MAYOR_1776"
+	female_ruler = "RULER_TITLE_SENIOR_MAYOR_1776"
+	possible = {
+		has_law = law_type:law_presidential_republic
+		c:FRM ?= this
+	}
+	on_government_type_change = { change_to_presidential_elective = yes }
+	on_post_government_type_change = { post_change_to_presidential_elective = yes }
+}
+
+gov_1776_lucca_republic = {
+	transfer_of_power = presidential_elective
+	new_leader_on_reform_government = no
+	male_ruler = "RULER_TITLE_GONFALONIERE_DI_GIUSTIZIA"
+	female_ruler = "RULER_TITLE_GONFALONIERE_DI_GIUSTIZIA"
+	possible = {
+		has_law = law_type:law_presidential_republic
+		has_law = law_type:law_oligarchy
+		c:LUC ?= this
+	}
+	on_government_type_change = { change_to_presidential_elective = yes }
+	on_post_government_type_change = { post_change_to_presidential_elective = yes }
+}
+
+gov_1776_swiss_vorort = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = no
+	male_ruler = "RULER_TITLE_ZURICH_VORORT_MAYOR"
+	female_ruler = "RULER_TITLE_ZURICH_VORORT_MAYOR"
+	possible = {
+		has_law = law_type:law_parliamentary_republic
+		c:SWI ?= this
+	}
+	on_government_type_change = { change_to_parliamentary_elective = yes }
+	on_post_government_type_change = { post_change_to_parliamentary_elective = yes }
+}
+
+gov_1776_crimean_khanate = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_KHAN"
+	female_ruler = "RULER_TITLE_KHATUN"
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:CRI ?= this
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+gov_1776_schaumburg_lippe_county = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_COUNT"
+	female_ruler = "RULER_TITLE_COUNTESS"
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:SCM ?= this
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+
+gov_1776_waldeck_principality = {
+	transfer_of_power = hereditary
+	male_ruler = "RULER_TITLE_PRINCE"
+	female_ruler = "RULER_TITLE_PRINCESS"
+	male_heir = "RULER_TITLE_HEIR_APPARENT"
+	female_heir = "RULER_TITLE_HEIR_APPARENT"
+	possible = {
+		has_law = law_type:law_monarchy
+		c:WLD ?= this
+		has_gov_regency = no
+		is_domain_alliance_gov = no
+	}
+	on_government_type_change = { change_to_hereditary = yes }
+	on_post_government_type_change = { post_change_to_hereditary = yes }
 }

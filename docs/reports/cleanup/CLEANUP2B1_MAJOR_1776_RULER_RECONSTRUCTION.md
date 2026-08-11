@@ -189,6 +189,17 @@ Existing historical DNA was retained for George III, Louis XVI, Charles III, Sta
 
 The static verdict is PASS. Runtime-dependent displayed titles, procedural portraits and actual one-ruler UI state remain explicitly unclaimed until the user session.
 
+### Batch-1 runtime closure
+
+The user completed the condensed Batch-1 runtime session and confirmed the rulers that were inspected. The Mughal Empire could not be found visually before the game was closed, so its character remains statically validated but its visual/UI observation is explicitly carried into the Batch-2 runtime session.
+
+```text
+BATCH1_RUNTIME = PASS_WITH_ONE_DEFERRED_VISUAL_CHECK
+
+MUG_SHAH_ALAM_II_STATIC = PASS
+MUG_SHAH_ALAM_II_VISUAL_CHECK = DEFERRED
+```
+
 ## 14. USER runtime checklist
 
 Use one fresh 1776 session with only the fork enabled:
@@ -245,6 +256,10 @@ NAPLES_SICILY_PERSONAL_UNION_RESOLVED = YES
 MONTENEGRO_IMPLEMENTED = YES
 
 V13_STATIC_VALIDATION = PASS
+
+BATCH1_RUNTIME = PASS_WITH_ONE_DEFERRED_VISUAL_CHECK
+MUG_SHAH_ALAM_II_STATIC = PASS
+MUG_SHAH_ALAM_II_VISUAL_CHECK = DEFERRED
 
 CODEX_LAUNCHED_VICTORIA3 = NO
 USER_RUNTIME_REQUIRED = YES
