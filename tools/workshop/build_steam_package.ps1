@@ -247,6 +247,12 @@ $packageReplacePaths = @($packageMetadata.game_custom_data.replace_paths)
 if ($packageReplacePaths -notcontains 'common/history/characters') {
     throw 'WORKSHOP_METADATA_CHARACTER_REPLACE_PATH_MISSING'
 }
+if ($packageReplacePaths -notcontains 'common/history/diplomatic_plays') {
+    throw 'WORKSHOP_METADATA_DIPLOMATIC_PLAYS_REPLACE_PATH_MISSING'
+}
+if ($packageReplacePaths -notcontains 'common/history/diplomacy') {
+    throw 'WORKSHOP_METADATA_DIPLOMACY_REPLACE_PATH_MISSING'
+}
 
 $thumbnailPath = Join-Path $buildFull 'thumbnail.png'
 $thumbnailHash = Get-FileSha256 -Path $thumbnailPath
@@ -388,4 +394,6 @@ Write-Output "LOCAL_DEVELOPER_PATH_LEAKS=$($localPathHits.Count)"
 Write-Output "NEW_FORK_WORKSHOP_ID_PRESENT=no"
 Write-Output "WORKSHOP_METADATA_INCLUDED=yes"
 Write-Output "WORKSHOP_METADATA_CHARACTER_REPLACE_PATH_PRESENT=yes"
+Write-Output "WORKSHOP_METADATA_DIPLOMATIC_PLAYS_REPLACE_PATH_PRESENT=yes"
+Write-Output "WORKSHOP_METADATA_DIPLOMACY_REPLACE_PATH_PRESENT=yes"
 Write-Output "MANIFEST_EXCLUDED_INSIDE_SHIP_DIRECTORIES=$($manifestExcluded.Count)"
