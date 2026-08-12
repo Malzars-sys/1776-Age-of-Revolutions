@@ -1,13 +1,29 @@
 ﻿MILITARY_FORMATIONS = {
 	c:TUN ?= {
 		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_africa
+			name = cleanup2d3b_tun_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_TUNISIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_TUNISIA
+				count = 3
+			}
+		}
+
+		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_north_africa
 			name = Bahriat_alTuwnusia
 
-			ship = { # Husayniyya
+			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_TUNISIA
 				count = 1
 			}
 		}
@@ -15,13 +31,29 @@
 
 	c:TRI ?= {
 		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_africa
+			name = cleanup2d3b_tri_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_LIBYA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_LIBYA
+				count = 4
+			}
+		}
+
+		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_north_africa
 			name = Escadre_de_Tripoli
 
 			ship = {
 				type = ship_type:ship_type_frigate
-				state_region = s:STATE_TRIPOLI
 				count = 1
 			}
 		}
@@ -34,40 +66,110 @@
 			name = Jaish_alMohammadi
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_ORAN
-				count = 5
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
+				type = unit_type:combat_unit_type_cannon_artillery
 				state_region = s:STATE_ALGIERS
-				count = 3
+				count = 1
 			}
-
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
 				state_region = s:STATE_ALGIERS
-				count = 2
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_ALGIERS
-				count = 3
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_ORAN
 				count = 6
 			}
-
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_ALGIERS
-				count = 4
+				count = 10
 			}
 		}
 	}
+	c:AIT ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_africa
+			name = cleanup2d3b_ait_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CONSTANTINE
+				count = 1
+			}
+		}
+	}
+
+	c:CON ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_africa
+			name = cleanup2d3b_con_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_CONSTANTINE
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CONSTANTINE
+				count = 1
+			}
+		}
+	}
+
+	c:DFR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_nile_basin
+			name = cleanup2d3b_dfr_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_DARFUR
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_DARFUR
+				count = 1
+			}
+		}
+	}
+
+	c:MOR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_africa
+			name = cleanup2d3b_mor_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_AL_RIF
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_AL_RIF
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_AL_RIF
+				count = 6
+			}
+		}
+	}
+
+	c:TUG ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_africa
+			name = cleanup2d3b_tug_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_EAST_SAHARA
+				count = 1
+			}
+		}
+	}
+
 }

@@ -3,30 +3,26 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_atlantic_coast
-			name = Army_of_Observation
+			name = cleanup2d3b_usa_land_1
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_TENNESSEE
-				count = 20
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_SOUTH_CAROLINA
-				count = 20
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CONNECTICUT
+				count = 1
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_SOUTH_CAROLINA
-				count = 20
+				state_region = s:STATE_CONNECTICUT
+				count = 2
 			}
 			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_NEW_YORK
-				count = 5
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CONNECTICUT
+				count = 17
 			}
 			save_scope_as = dannys_army
+			save_scope_as = regular_army
+			save_scope_as = nabes_army
 		}
 		
 		create_character = {
@@ -52,54 +48,6 @@
 			transfer_to_formation = scope:dannys_army
 		}
 
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_atlantic_coast
-			name = Regular_Army
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_NEW_YORK
-				count = 15
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_MASSACHUSETTS
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_MASSACHUSETTS
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_cannon_artillery
-				state_region = s:STATE_PENNSYLVANIA
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_MASSACHUSETTS
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_NORTH_CAROLINA
-				count = 10
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_VIRGINIA
-				count = 10
-			}
-			save_scope_as = regular_army
-		}
 
 		create_character = {
 			is_general = yes
@@ -137,24 +85,6 @@
 			transfer_to_formation = scope:regular_army
 		}
 
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_atlantic_coast
-			name = Army_of_Florida
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_MASSACHUSETTS
-				count = 15
-			}
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_dragoons
-				state_region = s:STATE_GEORGIA
-				count = 9
-			}
-			save_scope_as = nabes_army
-		}
 		
 		create_character = {
 			is_general = yes
@@ -170,77 +100,14 @@
 		create_military_formation = {
 			type = fleet
 			hq_region = sr:region_atlantic_coast
-			name = Navy_Yard_Gosport
-			ship = { # North Carolina
-				type = ship_type:ship_type_ship_of_the_line
-				count = 1
-			}
-			ship = { # Guerriere, Java
+			name = cleanup2d3b_usa_naval_1
+
+			ship = {
 				type = ship_type:ship_type_frigate
-				count = 2
+				count = 5
 			}
 		}
 
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_atlantic_coast
-			name = Navy_Yard_New_York
-			ship = { # Franklin, Washington, Ohio
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_NEW_YORK
-				count = 3
-			}
-			ship = { # United States, Hudson
-				type = ship_type:ship_type_frigate
-				count = 2
-			}
-		}
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_atlantic_coast
-			name = Navy_Yard_Boston
-			ship = { # Columbus
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_NEW_YORK
-				count = 1
-			}
-			ship = { # Independence
-				type = ship_type:ship_type_frigate
-				count = 1
-			}
-		}
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_atlantic_coast
-			name = Mediterranean_Squadron
-			ship = { # Delaware
-				type = ship_type:ship_type_ship_of_the_line
-				state_region = s:STATE_NEW_YORK
-				count = 1
-			}
-			ship = { # Constitution, Potomac
-				type = ship_type:ship_type_frigate
-				count = 2
-			}
-		}
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_atlantic_coast
-			name = Pacific_Squadron
-			ship = { # Brandywine
-				type = ship_type:ship_type_frigate
-				count = 1
-			}
-		}
-		create_military_formation = {
-			type = fleet
-			hq_region = sr:region_atlantic_coast
-			name = West_Indies_Squadron
-			ship = { # Constellation
-				type = ship_type:ship_type_frigate
-				count = 1
-			}
-		}
 	}
 	c:HAI ?= {
 		create_military_formation = {
@@ -329,4 +196,32 @@
 			}
 		}
 	}
+	c:HBC ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_canada
+			name = cleanup2d3b_hbc_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MANITOBA
+				count = 1
+			}
+		}
+	}
+
+	c:MKT ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_america
+			name = cleanup2d3b_mkt_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_NICARAGUA
+				count = 1
+			}
+		}
+	}
+
 }
