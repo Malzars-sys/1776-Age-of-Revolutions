@@ -60,35 +60,37 @@
 				state_region = s:STATE_PUNJAB
 				count = 14
 			}
+
+			save_scope_as = cleanup2d4_formation_119
 		}
 
-
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-118 — FaujiKhas — IMPLEMENT_NAMED_HISTORICAL_GENERAL
 		create_character = {
-			is_general = yes
-			first_name = Alexander
-			last_name = Gardner
-			culture = cu:yankee
-			interest_group = ig_armed_forces
+			template = default
+			first_name = cleanup2d4_jassa_singh_ahluwalia_first
+			last_name = cleanup2d4_jassa_singh_ahluwalia_last
 			historical = yes
-			hq = region_north_india
-			age = 51
-			traits = {
-				brave
-				# experienced_artillery_commander
-			}
-			save_scope_as = gardner_gen
+			is_general = yes
+			save_scope_as = cleanup2d4_general_118
 		}
-
-		scope:gardner_gen = {
+		scope:cleanup2d4_general_118 = {
 			transfer_to_formation = scope:qawaid_army
 		}
+		# GEN1776-119 — FaujiAin — PROCEDURAL_REQUIRED_COLLECTIVE_STRUCTURE
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_119
+		}
+		scope:cleanup2d4_general_119 = {
+			transfer_to_formation = scope:cleanup2d4_formation_119
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 	c:BIC ?= {
 
-		scope:maitland_gen = {
-			transfer_to_formation = scope:madras_army
-		}
 
 		create_military_formation = {
 			type = army
@@ -119,6 +121,8 @@
 				count = 45
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_120
 }
 
 		create_military_formation = {
@@ -141,6 +145,8 @@
 				state_region = s:STATE_CIRCARS
 				count = 7
 			}
+
+			save_scope_as = cleanup2d4_formation_121
 		}
 
 		create_military_formation = {
@@ -166,56 +172,38 @@
 			save_scope_as = bengal_army
 		}
 
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-120 — cleanup2d3b_bic_land_2 — PROCEDURAL_ALLOWED
 		create_character = {
+			template = default
 			is_general = yes
-			first_name = Henry
-			last_name = Fane
+			save_scope_as = cleanup2d4_general_120
+		}
+		scope:cleanup2d4_general_120 = {
+			transfer_to_formation = scope:cleanup2d4_formation_120
+		}
+		# GEN1776-121 — cleanup2d3b_bic_land_3 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_121
+		}
+		scope:cleanup2d4_general_121 = {
+			transfer_to_formation = scope:cleanup2d4_formation_121
+		}
+		# GEN1776-122 — Bengal_Army — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		create_character = {
+			template = default
+			first_name = cleanup2d4_john_clavering_first
+			last_name = cleanup2d4_john_clavering_last
 			historical = yes
-			culture = cu:british
-			interest_group = ig_industrialists
-			ideology = ideology_jingoist_leader
-			age = 30
-			commander_rank = commander_rank_3
-			traits = {
-				plains_commander
-				brave
-			}
-			save_scope_as = fane_gen
-		}
-		create_character = {
 			is_general = yes
-			culture = cu:british
-			interest_group = ig_armed_forces
-			ideology = ideology_jingoist_leader
-			age = 33
-			commander_rank = commander_rank_3
-			traits = {
-				plains_commander
-				brave
-			}
-			save_scope_as = bane_gen
+			save_scope_as = cleanup2d4_general_122
 		}
-		create_character = {
-			is_general = yes
-			culture = cu:bengali
-			interest_group = ig_armed_forces
-			ideology = moderate
-			age = 33
-			commander_rank = commander_rank_3
-			traits = {
-				brave
-			}
-			save_scope_as = bane_bengal_gen
-		}
-		scope:bane_bengal_gen = {
+		scope:cleanup2d4_general_122 = {
 			transfer_to_formation = scope:bengal_army
 		}
-		scope:fane_gen = {
-			transfer_to_formation = scope:bengal_army
-		}
-		scope:bane_gen = {
-			transfer_to_formation = scope:bengal_army
-		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:HYD ?= {
 		create_military_formation = {
@@ -253,7 +241,21 @@
 				count = 1
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_123
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-123 — sarf_e_khas — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_123
+		}
+		scope:cleanup2d4_general_123 = {
+			transfer_to_formation = scope:cleanup2d4_formation_123
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:AWA ?= {
 		create_military_formation = {
@@ -289,7 +291,21 @@
 				count = 7
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_124
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-124 — OudhRoyalArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_124
+		}
+		scope:cleanup2d4_general_124 = {
+			transfer_to_formation = scope:cleanup2d4_formation_124
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:MARATH ?= {
 		create_military_formation = {
@@ -345,6 +361,8 @@
 				count = 4
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_125
 }
 
 		create_military_formation = {
@@ -367,6 +385,8 @@
 				state_region = s:STATE_AGRA
 				count = 8
 			}
+
+			save_scope_as = cleanup2d4_formation_126
 		}
 		create_military_formation = {
 			type = fleet
@@ -388,6 +408,33 @@
 		scope:anandrao_dhulap_admiral = {
 			transfer_to_formation = scope:konkan_flotilla
 		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-125 — cleanup2d3b_marath_land_2 — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		create_character = {
+			template = default
+			first_name = cleanup2d4_haripant_phadke_first
+			last_name = cleanup2d4_haripant_phadke_last
+			historical = yes
+			is_general = yes
+			save_scope_as = cleanup2d4_general_125
+		}
+		scope:cleanup2d4_general_125 = {
+			transfer_to_formation = scope:cleanup2d4_formation_125
+		}
+		# GEN1776-126 — cleanup2d3b_marath_land_1 — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		create_character = {
+			template = default
+			first_name = cleanup2d4_tukoji_holkar_first
+			last_name = cleanup2d4_tukoji_holkar_last
+			historical = yes
+			is_general = yes
+			save_scope_as = cleanup2d4_general_126
+		}
+		scope:cleanup2d4_general_126 = {
+			transfer_to_formation = scope:cleanup2d4_formation_126
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:GWA ?= {
 		create_military_formation = {
@@ -425,7 +472,24 @@
 				count = 4
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_127
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-127 — GwaliorArmy — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		create_character = {
+			template = default
+			first_name = cleanup2d4_mahadji_shinde_first
+			last_name = cleanup2d4_mahadji_shinde_last
+			historical = yes
+			is_general = yes
+			save_scope_as = cleanup2d4_general_127
+		}
+		scope:cleanup2d4_general_127 = {
+			transfer_to_formation = scope:cleanup2d4_formation_127
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:NAG ?= {
 		create_military_formation = {
@@ -468,7 +532,21 @@
 				count = 3
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_128
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-128 — NagpurArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_128
+		}
+		scope:cleanup2d4_general_128 = {
+			transfer_to_formation = scope:cleanup2d4_formation_128
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:MYS ?= {
 		create_military_formation = {
@@ -504,6 +582,8 @@
 				count = 10
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_129
 }
 
 		create_military_formation = {
@@ -530,7 +610,33 @@
 				state_region = s:STATE_MYSORE
 				count = 11
 			}
+
+			save_scope_as = cleanup2d4_formation_130
 		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-129 — cleanup2d3b_mys_land_2 — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		create_character = {
+			template = default
+			first_name = cleanup2d4_hyder_ali_first
+			last_name = cleanup2d4_hyder_ali_last
+			historical = yes
+			is_general = yes
+			save_scope_as = cleanup2d4_general_129
+		}
+		scope:cleanup2d4_general_129 = {
+			transfer_to_formation = scope:cleanup2d4_formation_129
+		}
+		# GEN1776-130 — cleanup2d3b_mys_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_130
+		}
+		scope:cleanup2d4_general_130 = {
+			transfer_to_formation = scope:cleanup2d4_formation_130
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:COO ?= {
 		create_military_formation = {
@@ -551,7 +657,21 @@
 
 			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_131
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-131 — CoochBeharArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_131
+		}
+		scope:cleanup2d4_general_131 = {
+			transfer_to_formation = scope:cleanup2d4_formation_131
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:GAR ?= {
 		create_military_formation = {
@@ -576,7 +696,21 @@
 
 			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_132
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-132 — GarhwalArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_132
+		}
+		scope:cleanup2d4_general_132 = {
+			transfer_to_formation = scope:cleanup2d4_formation_132
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:SAT ?= {
 		create_military_formation = {
@@ -603,7 +737,21 @@
 				count = 1
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_133
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-133 — SataraArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_133
+		}
+		scope:cleanup2d4_general_133 = {
+			transfer_to_formation = scope:cleanup2d4_formation_133
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:KHP ?= {
 		create_military_formation = {
@@ -630,7 +778,21 @@
 				count = 1
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_134
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-134 — KolhapurArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_134
+		}
+		scope:cleanup2d4_general_134 = {
+			transfer_to_formation = scope:cleanup2d4_formation_134
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:KNO ?= {
 		create_military_formation = {
@@ -662,7 +824,21 @@
 				count = 2
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_135
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-135 — KurnoolArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_135
+		}
+		scope:cleanup2d4_general_135 = {
+			transfer_to_formation = scope:cleanup2d4_formation_135
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:BHV ?= {
 		create_military_formation = {
@@ -689,7 +865,21 @@
 				count = 4
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_136
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-136 — BhavnagarArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_136
+		}
+		scope:cleanup2d4_general_136 = {
+			transfer_to_formation = scope:cleanup2d4_formation_136
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:PUD ?= {
 		create_military_formation = {
@@ -716,7 +906,21 @@
 				count = 3
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_137
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-137 — PudukottaiArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_137
+		}
+		scope:cleanup2d4_general_137 = {
+			transfer_to_formation = scope:cleanup2d4_formation_137
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:JEY ?= {
 		create_military_formation = {
@@ -737,7 +941,21 @@
 
 			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_138
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-138 — JeyporeArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_138
+		}
+		scope:cleanup2d4_general_138 = {
+			transfer_to_formation = scope:cleanup2d4_formation_138
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:COC ?= {
 		create_military_formation = {
@@ -764,7 +982,21 @@
 				count = 1
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_139
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-139 — CochinArmy — PROCEDURAL_ALLOWED_PENDING_STRUCTURE_REWORK
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_139
+		}
+		scope:cleanup2d4_general_139 = {
+			transfer_to_formation = scope:cleanup2d4_formation_139
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:TRA ?= {
 		create_military_formation = {
@@ -796,6 +1028,8 @@
 				count = 2
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_140
 }
 		create_military_formation = {
 			type = fleet
@@ -807,6 +1041,21 @@
 				count = 1
 			}
 		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-140 — TravancoreArmy — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		create_character = {
+			template = default
+			first_name = cleanup2d4_eustachius_de_lannoy_first
+			last_name = cleanup2d4_eustachius_de_lannoy_last
+			historical = yes
+			is_general = yes
+			save_scope_as = cleanup2d4_general_140
+		}
+		scope:cleanup2d4_general_140 = {
+			transfer_to_formation = scope:cleanup2d4_formation_140
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:SIN ?= {
 		create_military_formation = {
@@ -842,7 +1091,21 @@
 				count = 12
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_141
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-141 — SindhArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_141
+		}
+		scope:cleanup2d4_general_141 = {
+			transfer_to_formation = scope:cleanup2d4_formation_141
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:MUG ?= {
 		create_military_formation = {
@@ -869,7 +1132,24 @@
 				count = 3
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_142
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-142 — MughalArmy — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		create_character = {
+			template = default
+			first_name = cleanup2d4_mirza_najaf_khan_first
+			last_name = cleanup2d4_mirza_najaf_khan_last
+			historical = yes
+			is_general = yes
+			save_scope_as = cleanup2d4_general_142
+		}
+		scope:cleanup2d4_general_142 = {
+			transfer_to_formation = scope:cleanup2d4_formation_142
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 }

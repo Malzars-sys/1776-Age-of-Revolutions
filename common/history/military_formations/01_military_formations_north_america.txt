@@ -70,77 +70,17 @@
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 }
 
-		create_character = {
-			is_general = yes
-			historical = yes
-			culture = cu:dixie
-			birth_date = 1725.3.20
-			save_scope_as = danny_gen
-		}
-
-		scope:danny_gen = {
-			transfer_to_formation = scope:dannys_army
-		}
-
-		create_character = {
-			is_general = yes
-			culture = cu:dixie
-			birth_date = 1730.3.20
-			save_scope_as = babby_gen
-		}
-
-		scope:babby_gen = {
-			transfer_to_formation = scope:dannys_army
-		}
 
 
-		create_character = {
-			is_general = yes
-			first_name = Edmund_P
-			last_name = Gaines
-			historical = yes
-			culture = cu:dixie
-			birth_date = 1727.3.20
-			save_scope_as = gaines_gen
-		}
-
-		scope:gaines_gen = {
-			transfer_to_formation = scope:regular_army
-		}
-
-		create_character = {
-			is_general = yes
-			culture = cu:dixie
-			birth_date = 1737.3.20
-			save_scope_as = babes_gen
-		}
-
-		scope:babes_gen = {
-			transfer_to_formation = scope:regular_army
-		}
-
-		create_character = {
-			is_general = yes
-			culture = cu:dixie
-			birth_date = 1750.3.20
-			save_scope_as = gabes_gen
-		}
-
-		scope:gabes_gen = {
-			transfer_to_formation = scope:regular_army
-		}
 
 
-		create_character = {
-			is_general = yes
-			culture = cu:dixie
-			birth_date = 1737.3.20
-			save_scope_as = nabes_gen
-		}
 
-		scope:nabes_gen = {
-			transfer_to_formation = scope:nabes_army
-		}
+
+
+
+
+
+
 
 		create_military_formation = {
 			type = fleet
@@ -153,6 +93,20 @@
 			}
 		}
 
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-087 — cleanup2d3b_usa_land_1 — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		create_character = {
+			template = default
+			first_name = cleanup2d4_george_washington_first
+			last_name = cleanup2d4_george_washington_last
+			historical = yes
+			is_general = yes
+			save_scope_as = cleanup2d4_general_087
+		}
+		scope:cleanup2d4_general_087 = {
+			transfer_to_formation = scope:dannys_army
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:HAI ?= {
 		create_military_formation = {
@@ -183,7 +137,21 @@
 				state_region = s:STATE_HAITI
 				count = 1
 			}
+
+			save_scope_as = cleanup2d4_formation_088
 		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-088 — ArmeeIndigene — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_088
+		}
+		scope:cleanup2d4_general_088 = {
+			transfer_to_formation = scope:cleanup2d4_formation_088
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:CUB ?= {
 		create_military_formation = {
@@ -220,7 +188,21 @@
 				state_region = s:STATE_WESTERN_CUBA
 				count = 1
 			}
+
+			save_scope_as = cleanup2d4_formation_089
 		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-089 — MiliciasdeCuba — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_089
+		}
+		scope:cleanup2d4_general_089 = {
+			transfer_to_formation = scope:cleanup2d4_formation_089
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:PCO ?= {
 		create_military_formation = {
@@ -247,7 +229,21 @@
 				count = 1
 
 			}
+
+			save_scope_as = cleanup2d4_formation_090
 		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-090 — MiliciasDiciplinadas — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_090
+		}
+		scope:cleanup2d4_general_090 = {
+			transfer_to_formation = scope:cleanup2d4_formation_090
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:HBC ?= {
 		create_military_formation = {
@@ -263,7 +259,21 @@
 
 			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_091
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-091 — cleanup2d3b_hbc_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_091
+		}
+		scope:cleanup2d4_general_091 = {
+			transfer_to_formation = scope:cleanup2d4_formation_091
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 	c:MKT ?= {
@@ -280,7 +290,21 @@
 
 			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_092
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-092 — cleanup2d3b_mkt_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_092
+		}
+		scope:cleanup2d4_general_092 = {
+			transfer_to_formation = scope:cleanup2d4_formation_092
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 }

@@ -50,26 +50,17 @@
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 }
 
-		create_character = { # TUR, General
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-106 — cleanup2d3e_r1_ir1_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
 			is_general = yes
-			culture = cu:georgian
-			religion = rel:sunni
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			age = 29
-			commander_rank = commander_rank_2
-			hq = region_near_east
-			traits = {
-				meticulous
-				charismatic
-				experienced_offensive_planner
-			}
-			save_scope_as = mamluk_gen
+			save_scope_as = cleanup2d4_general_106
 		}
-
-		scope:mamluk_gen = {
+		scope:cleanup2d4_general_106 = {
 			transfer_to_formation = scope:mamluk_army
 		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:TUR ?= {
 		create_military_formation = {
@@ -300,29 +291,7 @@
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 }
 
-		create_character = { # TUR, General
-			is_general = yes
-			first_name = Omer_Lutfi
-			last_name = Pasha
-			historical = yes
-			culture = cu:serb
-			religion = rel:sunni
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			age = 29
-			commander_rank = commander_rank_2
-			hq = region_arabia
-			traits = {
-				meticulous
-				charismatic
-				experienced_offensive_planner
-			}
-			save_scope_as = lutfi_gen
-		}
 
-		scope:lutfi_gen = {
-			transfer_to_formation = scope:hassa_ordusu
-		}
 
 		create_military_formation = {
 			type = army
@@ -356,25 +325,7 @@
 			save_scope_as = rumeli_ordusu
 		}
 
-		create_character = { # TUR, General
-			is_general = yes
-			first_name = Hafiz_Osman
-			last_name = Pasha
-			historical = yes
-			interest_group = ig_armed_forces
-			ideology = ideology_royalist
-			birth_date = 1730.2.11 # Unsure of birth date, approxiamate age based on portraits.
-			hq = region_russia
-			traits = {
-				reckless
-				basic_defensive_strategist
-			}
-			save_scope_as = hafiz_gen
-		}
 
-		scope:hafiz_gen = {
-			transfer_to_formation = scope:rumeli_ordusu
-		}
 
 		create_military_formation = {
 			type = army
@@ -400,6 +351,8 @@
 				state_region = s:STATE_ADANA
 				count = 4
 			}
+
+			save_scope_as = cleanup2d4_formation_109
 		}
 
 		create_military_formation = {
@@ -431,6 +384,8 @@
 				state_region = s:STATE_LOWER_EGYPT
 				count = 6
 			}
+
+			save_scope_as = cleanup2d4_formation_110
 		}
 
 		create_military_formation = {
@@ -447,6 +402,45 @@
 				count = 3
 			}
 		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-107 — cleanup2d3b_tur_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_107
+		}
+		scope:cleanup2d4_general_107 = {
+			transfer_to_formation = scope:hassa_ordusu
+		}
+		# GEN1776-108 — cleanup2d3b_tur_land_2 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_108
+		}
+		scope:cleanup2d4_general_108 = {
+			transfer_to_formation = scope:rumeli_ordusu
+		}
+		# GEN1776-109 — cleanup2d3b_tur_land_3 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_109
+		}
+		scope:cleanup2d4_general_109 = {
+			transfer_to_formation = scope:cleanup2d4_formation_109
+		}
+		# GEN1776-110 — cleanup2d3b_tur_land_4 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_110
+		}
+		scope:cleanup2d4_general_110 = {
+			transfer_to_formation = scope:cleanup2d4_formation_110
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 	c:OMA ?= {
@@ -489,7 +483,21 @@
 				count = 3
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_111
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-111 — cleanup2d3e_r1_oma_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_111
+		}
+		scope:cleanup2d4_general_111 = {
+			transfer_to_formation = scope:cleanup2d4_formation_111
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:PER ?= {
 		create_military_formation = {
@@ -590,7 +598,21 @@
 				count = 1
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_112
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-112 — cleanup2d3e_r1_per_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_112
+		}
+		scope:cleanup2d4_general_112 = {
+			transfer_to_formation = scope:cleanup2d4_formation_112
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:PER ?= {
 	}
@@ -684,6 +706,8 @@
 				count = 1
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_113
 }
 
 		create_military_formation = {
@@ -701,13 +725,30 @@
 				state_region = s:STATE_BALKH
 				count = 11
 			}
+
+			save_scope_as = cleanup2d4_formation_114
 		}
 
-
-
-
-
-
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-113 — cleanup2d3e_r1_dur_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_113
+		}
+		scope:cleanup2d4_general_113 = {
+			transfer_to_formation = scope:cleanup2d4_formation_113
+		}
+		# GEN1776-114 — cleanup2d3e_r1_dur_land_2 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_114
+		}
+		scope:cleanup2d4_general_114 = {
+			transfer_to_formation = scope:cleanup2d4_formation_114
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 	c:ARB ?= {
@@ -735,7 +776,21 @@
 				count = 2
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_115
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-115 — cleanup2d3e_r1_arb_land_1 — PROCEDURAL_ALLOWED_PENDING_STRUCTURE_REWORK
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_115
+		}
+		scope:cleanup2d4_general_115 = {
+			transfer_to_formation = scope:cleanup2d4_formation_115
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 	c:HDJ ?= {
 		create_military_formation = {
@@ -762,7 +817,21 @@
 				count = 2
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_116
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-116 — cleanup2d3b_hdj_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_116
+		}
+		scope:cleanup2d4_general_116 = {
+			transfer_to_formation = scope:cleanup2d4_formation_116
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 	c:ZAI ?= {
@@ -790,7 +859,21 @@
 				count = 4
 			}
 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_117
 }
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-117 — cleanup2d3b_zai_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_117
+		}
+		scope:cleanup2d4_general_117 = {
+			transfer_to_formation = scope:cleanup2d4_formation_117
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 }

@@ -23,6 +23,8 @@
 				state_region = s:STATE_PARAIBA
 				count = 1
 			}
+
+			save_scope_as = cleanup2d4_formation_093
 		}
 
 		create_military_formation = {
@@ -40,6 +42,17 @@
 			}
 		}
 
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-093 — Exrcito_Imperial_Brasileiro — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_093
+		}
+		scope:cleanup2d4_general_093 = {
+			transfer_to_formation = scope:cleanup2d4_formation_093
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 	c:SC4 ?= {
@@ -65,6 +78,8 @@
 				state_region = s:STATE_BUENOS_AIRES
 				count = 1
 			}
+
+			save_scope_as = cleanup2d4_formation_094
 		}
 
 		create_military_formation = {
@@ -77,6 +92,18 @@
 				count = 1
 			}
 		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-094 — Ejrcito_Argentino — PROCEDURAL_ALLOWED_PENDING_STRUCTURE_REWORK
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_094
+		}
+		scope:cleanup2d4_general_094 = {
+			transfer_to_formation = scope:cleanup2d4_formation_094
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 	c:SC2 ?= {
@@ -102,6 +129,8 @@
 				state_region = s:STATE_ECUADOR
 				count = 1
 			}
+
+			save_scope_as = cleanup2d4_formation_095
 		}
 		create_military_formation = {
 			type = army
@@ -143,6 +172,8 @@
 				state_region = s:STATE_ANTIOQUIA
 				count = 4
 			}
+
+			save_scope_as = cleanup2d4_formation_096
 		}
 		create_military_formation = {
 			type = army
@@ -172,7 +203,39 @@
 				state_region = s:STATE_ZULIA
 				count = 2
 			}
+
+			save_scope_as = cleanup2d4_formation_097
 		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-095 — Ejrcito_del_Ecuador — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_095
+		}
+		scope:cleanup2d4_general_095 = {
+			transfer_to_formation = scope:cleanup2d4_formation_095
+		}
+		# GEN1776-096 — Ejrcito_de_la_Nueva_Granada — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_096
+		}
+		scope:cleanup2d4_general_096 = {
+			transfer_to_formation = scope:cleanup2d4_formation_096
+		}
+		# GEN1776-097 — Ejrcito_de_Venezuela — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_097
+		}
+		scope:cleanup2d4_general_097 = {
+			transfer_to_formation = scope:cleanup2d4_formation_097
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
 }
