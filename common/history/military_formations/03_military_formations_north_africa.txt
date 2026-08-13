@@ -16,15 +16,15 @@
 				count = 3
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_TUNISIA
 				count = 8
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 
 		create_military_formation = {
 			type = fleet
@@ -55,15 +55,21 @@
 				count = 4
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_TRIPOLI
 				count = 2
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_LIBYA
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 
 		create_military_formation = {
 			type = fleet
@@ -99,7 +105,7 @@
 				count = 10
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
@@ -107,13 +113,13 @@
 				count = 1
 			}
 			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
+				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_ORAN
 				count = 1
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 	c:AIT ?= {
 		create_military_formation = {
@@ -127,15 +133,15 @@
 				count = 1
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_CONSTANTINE
 				count = 1
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 
 	c:CON ?= {
@@ -155,15 +161,15 @@
 				count = 1
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_CONSTANTINE
 				count = 4
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 
 	c:DFR ?= {
@@ -183,15 +189,15 @@
 				count = 1
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_DARFUR
 				count = 1
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 
 	c:MOR ?= {
@@ -216,7 +222,7 @@
 				count = 6
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
@@ -229,8 +235,20 @@
 				state_region = s:STATE_MARRAKECH
 				count = 6
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_AL_RIF
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_INNER_MOROCCO
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 
 	c:TUG ?= {
@@ -244,7 +262,10 @@
 				state_region = s:STATE_EAST_SAHARA
 				count = 1
 			}
-		}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 
 }

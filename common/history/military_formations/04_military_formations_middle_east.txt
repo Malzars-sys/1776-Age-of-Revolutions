@@ -3,6 +3,7 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_near_east
+			name = cleanup2d3e_r1_ir1_land_1
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
@@ -21,7 +22,7 @@
 			}
 			save_scope_as = mamluk_army
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
@@ -46,8 +47,8 @@
 				state_region = s:STATE_DEIR_EZ_ZOR
 				count = 1
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 
 		create_character = { # TUR, General
 			is_general = yes
@@ -77,9 +78,13 @@
 			name = cleanup2d3b_tur_land_1
 
 			combat_unit = {
+
 				type = unit_type:combat_unit_type_cannon_artillery
+
 				state_region = s:STATE_ALBANIA
+
 				count = 2
+
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
@@ -93,7 +98,7 @@
 			}
 			save_scope_as = hassa_ordusu
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
@@ -115,14 +120,14 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
-				state_region = s:STATE_ALBANIA
+				state_region = s:STATE_MIDDLE_EGYPT
 				count = 7
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
-				state_region = s:STATE_MIDDLE_EGYPT
-				count = 7
+				state_region = s:STATE_ALBANIA
+				count = 6
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -292,8 +297,8 @@
 				state_region = s:STATE_PELOPONNESE
 				count = 1
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 
 		create_character = { # TUR, General
 			is_general = yes
@@ -325,9 +330,13 @@
 			name = cleanup2d3b_tur_land_2
 
 			combat_unit = {
+
 				type = unit_type:combat_unit_type_cannon_artillery
+
 				state_region = s:STATE_ALBANIA
+
 				count = 1
+
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
@@ -337,7 +346,12 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_ALBANIA
-				count = 11
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_LOWER_EGYPT
+				count = 9
 			}
 			save_scope_as = rumeli_ordusu
 		}
@@ -368,9 +382,13 @@
 			name = cleanup2d3b_tur_land_3
 
 			combat_unit = {
+
 				type = unit_type:combat_unit_type_cannon_artillery
+
 				state_region = s:STATE_ADANA
+
 				count = 1
+
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
@@ -390,9 +408,13 @@
 			name = cleanup2d3b_tur_land_4
 
 			combat_unit = {
+
 				type = unit_type:combat_unit_type_cannon_artillery
+
 				state_region = s:STATE_ADANA
+
 				count = 1
+
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
@@ -402,7 +424,12 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_ADANA
-				count = 10
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_LOWER_EGYPT
+				count = 6
 			}
 		}
 
@@ -436,6 +463,7 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_greater_persia
+			name = cleanup2d3e_r1_oma_land_1
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
@@ -453,31 +481,30 @@
 				count = 6
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_ZANZIBAR
-				count = 2
+				count = 3
 			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_hussars
-				service_type = conscript
-				state_region = s:STATE_ZANZIBAR
-				count = 1
-			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 	c:PER ?= {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_greater_persia
+			name = cleanup2d3e_r1_per_land_1
 
 			combat_unit = {
+
 				type = unit_type:combat_unit_type_cannon_artillery
+
 				state_region = s:STATE_ARMENIA
+
 				count = 2
+
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
@@ -487,10 +514,15 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				state_region = s:STATE_ARMENIA
-				count = 20
+				count = 13
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_IRAKAJEMI
+				count = 7
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
@@ -557,8 +589,8 @@
 				state_region = s:STATE_KERMAN
 				count = 1
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 	c:PER ?= {
 	}
@@ -566,6 +598,7 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_greater_persia
+			name = cleanup2d3e_r1_dur_land_1
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_cannon_artillery
@@ -574,16 +607,16 @@
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
-				state_region = s:STATE_BALKH
+				state_region = s:STATE_HERAT
 				count = 11
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_BALKH
+				state_region = s:STATE_HERAT
 				count = 11
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
@@ -650,12 +683,13 @@
 				state_region = s:STATE_QUETTA
 				count = 1
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_greater_persia
+			name = cleanup2d3e_r1_dur_land_2
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
@@ -680,6 +714,7 @@
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_greater_persia
+			name = cleanup2d3e_r1_arb_land_1
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_hussars
@@ -692,15 +727,15 @@
 				count = 3
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_KHUZESTAN
 				count = 2
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 	c:HDJ ?= {
 		create_military_formation = {
@@ -719,15 +754,15 @@
 				count = 1
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_HEDJAZ
 				count = 2
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 
 	c:ZAI ?= {
@@ -747,15 +782,15 @@
 				count = 1
 			}
 
-			# BEGIN CLEANUP-2D-3D CONSCRIPTS
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
 				state_region = s:STATE_YEMEN
 				count = 4
 			}
-			# END CLEANUP-2D-3D CONSCRIPTS
-		}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
 	}
 
 }

@@ -1,0 +1,18 @@
+FIELD,SPA,USA,DIFFERENCE,RELEVANT_TO_CONSCRIPTION,EVIDENCE
+SCRIPTED_ARMY_MODEL,law_peasant_levies,law_peasant_levies,NONE,NO,common/history/countries
+HISTORY_ACTIVATION_SYNTAX,activate_law = law_type:law_peasant_levies,activate_law = law_type:law_peasant_levies,NONE,NO,mod country history
+R3_RUNTIME_ARMY_MODEL,law_peasant_levies,law_peasant_levies,NONE,NO,R3 save law database
+R3_RUNTIME_ACTIVE_STATUS,YES,YES,NONE,NO,R3 save law database
+LAW_GROUP,lawgroup_army_model,lawgroup_army_model,NONE,NO,vanilla 1.13.9 law definition
+LAW_PARENT,NONE,NONE,NONE,NO,vanilla 1.13.9 law definition
+LAW_IS_VARIANT,NO,NO,NONE,NO,vanilla 1.13.9 law definition
+BASE_STATE_CONSCRIPTION_RATE_ADD,0.04,0.04,NONE,NO,vanilla 1.13.9 law definition
+GOVERNMENT_TYPE,gov_absolute_kingdom,gov_cleanup2c1_usa,DIFFERENT,NO,R3 save and country history
+RELIGION_LAW,law_state_religion,law_state_religion,NONE,NO,R3 save law database
+INCORPORATED_STATES,15,17,DIFFERENT,CAPACITY_ONLY,R3 save state ownership and incorporation
+COUNTRY_MODIFIER,national_guard_preoccupied,NONE,DIFFERENT,YES_CRITICAL,R3 save country modifiers
+MODIFIER_STATE_CONSCRIPTION_RATE_ADD,-0.04,0.00,DIFFERENT,YES_CRITICAL,vanilla 1.13.9 static modifier
+NET_STATE_CONSCRIPTION_RATE_ADD_BEFORE,0.00,0.04,DIFFERENT,YES_CRITICAL,law plus country modifier
+R3_CONSCRIPTION_CENTERS,0,80,DIFFERENT,YES_RUNTIME_RESULT,R3 save state buildings
+SETUP_SOURCE,vanilla_1836_Carlist_block_copied_into_mod,NONE,DIFFERENT,YES_ROOT_CAUSE,common/history/global/00_global.txt
+NET_STATE_CONSCRIPTION_RATE_ADD_AFTER,0.04,0.04,NONE,YES_EXPECTED_AFTER_FIX,Spanish-only removal of anachronistic modifier
