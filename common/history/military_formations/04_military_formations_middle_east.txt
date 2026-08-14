@@ -406,7 +406,25 @@ MILITARY_FORMATIONS = {
 				type = ship_type:ship_type_ship_of_the_line
 				count = 3
 			}
+			save_scope_as = cleanup2d6_fleet_035
 		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-035 — Cezayirli Gazi Hasan Paşa
+		create_character = {
+			first_name = cleanup2d6_name_035
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = primary_culture # TECHNICAL_GAMEPLAY_FALLBACK_NOT_HISTORICAL_CLAIM
+			# Birth evidence: c.1714; precision: CIRCA_YEAR / RANGE
+			age = 61 # CIRCA_YEAR / RANGE / supported technical approximation; no fabricated month/day
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_035
+		}
+		scope:cleanup2d6_admiral_035 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_035
+		}
+		# END CLEANUP-2D-6L NAV1776-035
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
 		# GEN1776-107 — cleanup2d3b_tur_land_1 — PROCEDURAL_ALLOWED
@@ -458,7 +476,25 @@ MILITARY_FORMATIONS = {
 				type = ship_type:ship_type_frigate
 				count = 8
 			}
+			save_scope_as = cleanup2d6_fleet_036
 		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-036 — Hilāl ibn Aḥmad ibn Saʿīd al-Būsaʿīdī
+		create_character = {
+			first_name = cleanup2d6_name_036
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = primary_culture # TECHNICAL_GAMEPLAY_FALLBACK_NOT_HISTORICAL_CLAIM
+			# Birth evidence: before 1737-03-10; precision: TERMINUS_ANTE_QUEM
+			# No exact birth_date or derived age encoded.
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_036
+		}
+		scope:cleanup2d6_admiral_036 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_036
+		}
+		# END CLEANUP-2D-6L NAV1776-036
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_greater_persia

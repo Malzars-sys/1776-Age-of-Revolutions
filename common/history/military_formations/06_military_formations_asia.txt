@@ -320,23 +320,23 @@ MILITARY_FORMATIONS = {
 			save_scope_as = bohai_gulf_fleet
 		}
 
+		# BEGIN CLEANUP-2D-6L NAV1776-039 — Li Fengyao
 		create_character = {
-			is_admiral = yes
-			first_name = Tianpei
-			last_name = Guan
+			first_name = cleanup2d6_name_039
+			last_name = cleanup2d6_empty_name
 			historical = yes
-			age = 55
-			culture = cu:han
-			traits = {
-				expert_naval_commander
-				brave
-			}
-			save_scope_as = bohai_gulf_admiral
+			culture = primary_culture # TECHNICAL_GAMEPLAY_FALLBACK_NOT_HISTORICAL_CLAIM
+			# Birth evidence: UNKNOWN; precision: UNKNOWN
+			# No exact birth_date or derived age encoded.
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_039
 		}
-
-		scope:bohai_gulf_admiral = {
+		scope:cleanup2d6_admiral_039 = {
 			transfer_to_formation = scope:bohai_gulf_fleet
 		}
+		# END CLEANUP-2D-6L NAV1776-039
+
 
 		create_military_formation = {
 			type = fleet
@@ -350,23 +350,23 @@ MILITARY_FORMATIONS = {
 			save_scope_as = guangdong_fleet
 		}
 
+		# BEGIN CLEANUP-2D-6L NAV1776-040 — Zhang Shen
 		create_character = {
-			is_admiral = yes
-			first_name = Huacheng
-			last_name = Chen
+			first_name = cleanup2d6_name_040
+			last_name = cleanup2d6_empty_name
 			historical = yes
-			age = 60
-			culture = cu:han
-			traits = {
-				experienced_naval_commander
-				ambitious
-			}
-			save_scope_as = guangdong_admiral
+			culture = primary_culture # TECHNICAL_GAMEPLAY_FALLBACK_NOT_HISTORICAL_CLAIM
+			# Birth evidence: UNKNOWN; precision: UNKNOWN
+			# No exact birth_date or derived age encoded.
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_040
 		}
-
-		scope:guangdong_admiral = {
+		scope:cleanup2d6_admiral_040 = {
 			transfer_to_formation = scope:guangdong_fleet
 		}
+		# END CLEANUP-2D-6L NAV1776-040
+
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
 		# GEN1776-143 — Fengshenge — CLEANUP-2D-5
@@ -531,7 +531,25 @@ MILITARY_FORMATIONS = {
 				type = ship_type:ship_type_frigate
 				count = 2
 			}
+			save_scope_as = cleanup2d6_fleet_041
 		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-041 — Assuerus van den Bergh
+		create_character = {
+			first_name = cleanup2d6_name_041
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = primary_culture # TECHNICAL_GAMEPLAY_FALLBACK_NOT_HISTORICAL_CLAIM
+			# Birth evidence: UNKNOWN; precision: UNKNOWN
+			# No exact birth_date or derived age encoded.
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_041
+		}
+		scope:cleanup2d6_admiral_041 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_041
+		}
+		# END CLEANUP-2D-6L NAV1776-041
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
 		# GEN1776-151 — Koninklijk_Nederlandsch_Indisch_Leger — PROCEDURAL_ALLOWED

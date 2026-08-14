@@ -91,7 +91,26 @@ MILITARY_FORMATIONS = {
 				type = ship_type:ship_type_frigate
 				count = 5
 			}
+			save_scope_as = cleanup2d6_fleet_030
 		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-030 — Esek Hopkins
+		create_character = {
+			first_name = cleanup2d6_name_030
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:yankee
+			home_region = STATE_RHODE_ISLAND
+			# Birth evidence: 1718-04-26; precision: DAY
+			birth_date = 1718.4.26
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_030
+		}
+		scope:cleanup2d6_admiral_030 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_030
+		}
+		# END CLEANUP-2D-6L NAV1776-030
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
 		# GEN1776-087 — George Washington — CLEANUP-2D-5
