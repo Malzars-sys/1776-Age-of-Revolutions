@@ -332,7 +332,7 @@ All remaining status paths are accounted for by the photographed pre-existing ba
 
 ## 22. Verdict
 
-CLEANUP-2B-3 resolves every historically and technically implementable residual European case without forcing ambiguous branches or map structures. The two regencies now use the mechanism proven in the actual target build, all four required files have real UTF-8 BOM, and the 62-country classification contains no unexplained procedural ruler. One final condensed user runtime is required to validate presentation and fresh logs.
+CLEANUP-2B-3 resolves every historically and technically implementable residual European case without forcing ambiguous branches or map structures. The two regencies now use the mechanism proven in the actual target build, all four required files have real UTF-8 BOM, and the 62-country classification contains no unexplained procedural ruler. The final condensed user runtime was completed successfully; its closure is recorded below.
 
 ```text
 PACKET_ROWS_READ = 20
@@ -361,8 +361,36 @@ IREK_LAW_FIX = FIXED
 
 EUROPE_UNJUSTIFIED_PROCEDURAL_TOTAL = 0
 CODEX_LAUNCHED_VICTORIA3 = NO
-USER_RUNTIME_REQUIRED = YES
-SAFE_FOR_SINGLE_FINAL_EUROPE_RUNTIME = YES
+USER_RUNTIME_REQUIRED = NO
+SINGLE_FINAL_EUROPE_RUNTIME = COMPLETED
+```
+
+## 23. Final user runtime closure
+
+The user completed the single condensed runtime and advanced the session normally to `1776-01-20` before quitting the game normally. The fresh logs contained no attributable regency, BOM, character, government, ruler-title, or localisation error.
+
+Runtime observations:
+
+- Sakharam Bapu Bokil: `PASS`;
+- Charlotte Amalie: `PASS`;
+- Lucca: `PASS`;
+- Ireland: `PASS`;
+- residual rulers: `PASS`.
+
+Karl Wilhelm remains statically valid but was not visually verified. The supplied Baden screenshot showed Charles-Frederick von Zahringen, age 47, not Karl Wilhelm; this does not require another runtime.
+
+```text
+RUNTIME_SESSION_END_DATE = 1776-01-20
+RUNTIME_QUIT_NORMAL = YES
+FRESH_LOG_ATTRIBUTABLE_ERRORS = 0
+
+MEI_KARL_WILHELM_STATIC = PASS
+MEI_KARL_WILHELM_VISUAL = NOT_VERIFIED
+KARL_WILHELM_RETEST_REQUIRED = NO
+
+CLEANUP2B3_RUNTIME_VERDICT = PASS_WITH_KARL_WILHELM_SCREENSHOT_MISSING
+CLEANUP2B3_RUNTIME = PASS
+USER_RUNTIME_REQUIRED = NO
 ```
 
 STOP.

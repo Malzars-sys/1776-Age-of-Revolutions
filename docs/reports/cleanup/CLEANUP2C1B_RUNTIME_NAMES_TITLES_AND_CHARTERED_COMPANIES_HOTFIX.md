@@ -29,7 +29,7 @@ Initial worktree, preserved rather than cleaned or normalized:
  M docs/reports/cleanup/CLEANUP2B3_COMPLETE_EUROPEAN_HISTORICAL_RECONSTRUCTION.md
 ?? common/government_types/00_cleanup2c1_non_europe.txt
 ?? "common/history/characters/cleanup2c1 - non europe rulers 1776.txt"
-?? docs/reports/cleanup/CLEANUP1D_MARATH_NAVAL_CREW_DIAGNOSTIC_AND_FIX.md
+?? docs/reports/cleanup/CLEANUP1C1_MARATH_NAVAL_CREW_DIAGNOSTIC.md
 ?? docs/reports/cleanup/CLEANUP2C0_COMPLETE_NON_EUROPE_ACTIVE_COUNTRY_AUDIT.md
 ?? docs/reports/cleanup/CLEANUP2C1_COMPLETE_NON_EUROPE_HISTORICAL_RULER_RECONSTRUCTION.md
 ?? docs/reports/cleanup/CLEANUP2C_RESEARCH_COMPLETE_NON_EUROPE_RULERS_1776.md

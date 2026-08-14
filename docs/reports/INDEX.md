@@ -3,7 +3,9 @@
 ## Navigation actuelle
 
 - [Guide des rapports](README.md)
+- [Phases CLEANUP post-release](cleanup/README.md)
 - [Bibliothèque Hotfix et merge](hotfix/INDEX.md)
+- [Documentation de release](release/README.md)
 - [Préparation Steam Workshop](workshop/INDEX.md)
 - [Manifeste PREP1E de réorganisation](DOCUMENTATION_REORGANIZATION_MANIFEST.csv)
 
@@ -53,6 +55,10 @@
 
 ## Research
 
+- [Index de la recherche](../research/README.md)
+- [Recherche militaire](../research/military/README.md)
+- [Recherche économique](../research/economy/README.md)
+- [Recherche technologique](../research/technology/README.md)
 - `docs/research/BASILEIA_ROMAION_TECH_TREE_AUDIT.md`
 - `docs/research/WORLD_BORDERS_1776_COMPARISON_ROADMAP_CLEAN (1).md`
 - `docs/research/WORLD_NAVIES_1776_THE_GREAT_WAVE_ROADMAP.md`

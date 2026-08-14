@@ -10,7 +10,7 @@ WORKTREE_CHANGED_PATHS = 8
 GIT_DIFF_CHECK = PASS
 ```
 
-The eight baseline paths were the untracked `CLEANUP1D_MARATH_NAVAL_CREW_DIAGNOSTIC_AND_FIX.md` report and the seven protected technology research files. They were preserved. The complete CLEANUP-2B-3, CLEANUP-2B-2.5, Europe audit, generated-candidate file, Batch 1 result, Batch 2 result, and residual result were read before classification.
+The eight baseline paths were the untracked `CLEANUP1C1_MARATH_NAVAL_CREW_DIAGNOSTIC.md` report and the seven protected technology research files. They were preserved. The complete CLEANUP-2B-3, CLEANUP-2B-2.5, Europe audit, generated-candidate file, Batch 1 result, Batch 2 result, and residual result were read before classification.
 
 ## 2. Europe runtime closure
 

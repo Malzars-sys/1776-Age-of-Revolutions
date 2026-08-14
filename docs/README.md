@@ -1,9 +1,41 @@
-# Documentation du fork
+# 1776 Age of Revolutions — Documentation
 
-Ce dossier rassemble les rapports techniques, les recherches de contexte et les crédits du fork **1776 - Age of Revolutions**.
+Ce dossier rassemble les rapports techniques, les recherches historiques, les documents de publication et les crédits du fork.
 
-- [Rapports et validations](reports/README.md) : portage Victoria 3 1.13, hotfix et préparation Steam Workshop.
-- [Crédits et licences](credits/) : licences des ressources visuelles et musicales distribuées avec le fork.
-- `research/` : recherches de contexte. Le sous-dossier non suivi `research/technology/` est protégé et reste volontairement hors de la réorganisation documentaire.
+## Cleanup / migration reports
 
-Les autorités documentaires principales sont l’[index général des rapports](reports/INDEX.md), l’[index Hotfix](reports/hotfix/INDEX.md) et l’[index Workshop](reports/workshop/INDEX.md).
+- [Index des phases CLEANUP](reports/cleanup/README.md) : reconstruction post-release, personnages, armées et rééquilibrage des républiques marchandes.
+- [Index général des rapports](reports/INDEX.md) : portage Victoria 3 1.13 et anciennes familles de validation.
+
+## Hotfix reports
+
+- [Bibliothèque Hotfix](reports/hotfix/README.md) : organisation et statuts.
+- [Index canonique Hotfix](reports/hotfix/INDEX.md) : rapports actifs, validations runtime et compagnons CSV.
+
+## Historical research
+
+- [Index de la recherche](research/README.md) : feuilles de route historiques et paquets de recherche spécialisés.
+- [Recherche sur les personnages](research/characters/) : profils et sources biographiques.
+
+## Military research
+
+- [Index militaire](research/military/README.md) : forces terrestres et navales de 1776, conversions et matrices de validation.
+
+## Economic research
+
+- [Index économique](research/economy/README.md) : audits Merchant Republic, population, centres de commerce et monuments.
+
+## Technology research
+
+- [Paquet de recherche technologique](research/technology/README.md) : histoire industrielle, chaînes, données candidates et analyse des écarts vanilla.
+
+## Release documentation
+
+- [Documentation de release](reports/release/README.md) : audits pré-patch et futures notes de publication.
+- [Préparation Steam Workshop](reports/workshop/INDEX.md) : frontend, objectifs et publication manuelle.
+
+## Archived / legacy material
+
+- [Archives Hotfix](reports/hotfix/archive/) : tests jetables et anciennes opérations documentaires conservées comme preuves.
+- [Manifeste de réorganisation](reports/DOCUMENTATION_REORGANIZATION_MANIFEST.csv) : correspondance entre anciens et nouveaux chemins.
+- [Crédits et licences](credits/) : ressources visuelles et musicales distribuées avec le fork.

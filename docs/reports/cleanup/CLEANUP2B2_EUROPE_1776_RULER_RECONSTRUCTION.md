@@ -6,7 +6,7 @@
 - HEAD: `61f12eeacff1fd32379855477610290d6bc17874`
 - Index: empty
 - Initial `git diff --check`: PASS
-- Pre-existing untracked files: `CLEANUP1D_MARATH_NAVAL_CREW_DIAGNOSTIC_AND_FIX.md` and the seven protected technology research files.
+- Pre-existing untracked files: `CLEANUP1C1_MARATH_NAVAL_CREW_DIAGNOSTIC.md` and the seven protected technology research files.
 - Git mutation performed by Codex: none.
 - Victoria 3 launched by Codex: no.
 

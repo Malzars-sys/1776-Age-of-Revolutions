@@ -15,7 +15,7 @@ Pre-existing paths were preserved:
 
 ```text
 M  docs/reports/cleanup/CLEANUP2B3_COMPLETE_EUROPEAN_HISTORICAL_RECONSTRUCTION.md
-?? docs/reports/cleanup/CLEANUP1D_MARATH_NAVAL_CREW_DIAGNOSTIC_AND_FIX.md
+?? docs/reports/cleanup/CLEANUP1C1_MARATH_NAVAL_CREW_DIAGNOSTIC.md
 ?? docs/reports/hotfix/_index/HOTFIX_6A3_DEI_TARGETED_AUDIT_DELTA_MAP.csv
 ?? docs/reports/hotfix/_index/army.md
 ?? docs/research/technology/

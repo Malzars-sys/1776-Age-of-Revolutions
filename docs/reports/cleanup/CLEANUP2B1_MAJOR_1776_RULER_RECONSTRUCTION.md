@@ -6,7 +6,7 @@
 - HEAD at baseline: `2018c8990eec783fa0be4ce8b0fc6aaf8f7c93f1`
 - Index at baseline: empty
 - Initial `git diff --check`: PASS
-- Pre-existing untracked files: the seven protected technology research files and `CLEANUP1D_MARATH_NAVAL_CREW_DIAGNOSTIC_AND_FIX.md`.
+- Pre-existing untracked files: the seven protected technology research files and `CLEANUP1C1_MARATH_NAVAL_CREW_DIAGNOSTIC.md`.
 - Active VFS metadata: exactly `common/history/characters`, `common/history/diplomatic_plays`, and `common/history/diplomacy`.
 - Git mutation performed by Codex: none.
 

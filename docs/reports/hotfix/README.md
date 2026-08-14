@@ -9,6 +9,8 @@ Cette bibliothèque conserve les audits, corrections, tests runtime, manifestes 
 - [Transversal](shared/README.md) : audit upstream et lois partagées.
 - [`_index/`](_index/) : catalogue CSV, carte des déplacements, dépendances et audits de réorganisation/retrait.
 
+`_index/` est réservé aux index globaux actifs. Les rapports militaires vivent dans [`runtime/military/`](runtime/military/) et les rapports 6A avec leurs CSV compagnons dans [`global_script/`](global_script/). Les anciennes mentions de chemins `_index` restent dans les manifestes historiques, mais ne constituent pas des destinations canoniques actuelles.
+
 ## Région, sujet et type
 
 La région indique le périmètre géographique principal. Le sujet regroupe une fonctionnalité cohérente. Le type distingue notamment `STATIC_AUDIT`, `STATIC_SETUP`, `CORRECTION_REPORT`, `RUNTIME_TEST`, `FORENSIC_AUDIT`, `MANIFEST`, `RESULTS` et `CLOSURE`.
