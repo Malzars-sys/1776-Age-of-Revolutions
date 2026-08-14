@@ -345,7 +345,7 @@ ai_strategy_default = {
 				}
 				scope:country = { # country is the country they're at war with
 					OR = {
-						capital.region = sr:region_persia
+						capital = { is_in_geographic_region = geographic_region_persia_old }
 						capital.region = sr:region_central_asia
 					}
 					NOT = {
@@ -1479,10 +1479,10 @@ ai_strategy_default = {
 					}
 					scope:target_state = {
 						OR = {
-							region = sr:region_madras
-							region = sr:region_bombay
-							region = sr:region_bengal
-							region = sr:region_central_india
+							is_in_geographic_region = geographic_region_madras_old
+							is_in_geographic_region = geographic_region_bombay_old
+							is_in_geographic_region = geographic_region_bengal_old
+							is_in_geographic_region = geographic_region_central_india_old
 							region = sr:region_himalayas
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
@@ -1548,10 +1548,10 @@ ai_strategy_default = {
 					has_journal_entry = je_eastern_frontier
 					scope:target_state = {
 						OR = {
-							region = sr:region_persia
+							is_in_geographic_region = geographic_region_persia_old
 							region = sr:region_central_asia
-							region = sr:region_bombay
-							region = sr:region_punjab
+							is_in_geographic_region = geographic_region_bombay_old
+							is_in_geographic_region = geographic_region_punjab_old
 						}
 						has_claim_by = ROOT
 					}
@@ -2293,22 +2293,22 @@ ai_strategy_default = {
 							OR = {
 								any_scope_state = {
 									OR = {
-										region = sr:region_madras
-										region = sr:region_bombay
-										region = sr:region_bengal
-										region = sr:region_central_india
-										region = sr:region_punjab
+										is_in_geographic_region = geographic_region_madras_old
+										is_in_geographic_region = geographic_region_bombay_old
+										is_in_geographic_region = geographic_region_bengal_old
+										is_in_geographic_region = geographic_region_central_india_old
+										is_in_geographic_region = geographic_region_punjab_old
 									}
 									count >= 3
 								}
 								any_subject_or_below = {
 									any_scope_state = {
 										OR = {
-											region = sr:region_madras
-											region = sr:region_bombay
-											region = sr:region_bengal
-											region = sr:region_central_india
-											region = sr:region_punjab
+											is_in_geographic_region = geographic_region_madras_old
+											is_in_geographic_region = geographic_region_bombay_old
+											is_in_geographic_region = geographic_region_bengal_old
+											is_in_geographic_region = geographic_region_central_india_old
+											is_in_geographic_region = geographic_region_punjab_old
 										}
 										count >= 3
 									}
@@ -2833,7 +2833,7 @@ ai_strategy_default = {
 				has_journal_entry = je_eastern_frontier
 				scope:target_country = {
 					capital = {
-						region = sr:region_persia
+						is_in_geographic_region = geographic_region_persia_old
 					}
 				}
 			}
@@ -3276,11 +3276,11 @@ ai_strategy_default = {
 					target_is_our_or_fellow_subject = no
 					any_scope_state = {
 						OR = {
-							region = sr:region_madras
-							region = sr:region_bombay
-							region = sr:region_bengal
-							region = sr:region_central_india
-							region = sr:region_punjab
+							is_in_geographic_region = geographic_region_madras_old
+							is_in_geographic_region = geographic_region_bombay_old
+							is_in_geographic_region = geographic_region_bengal_old
+							is_in_geographic_region = geographic_region_central_india_old
+							is_in_geographic_region = geographic_region_punjab_old
 							region = sr:region_himalayas
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
@@ -3305,11 +3305,11 @@ ai_strategy_default = {
 					NOT = { is_subject_of = ROOT }
 					any_scope_state = {
 						OR = {
-							region = sr:region_madras
-							region = sr:region_bombay
-							region = sr:region_bengal
-							region = sr:region_central_india
-							region = sr:region_punjab
+							is_in_geographic_region = geographic_region_madras_old
+							is_in_geographic_region = geographic_region_bombay_old
+							is_in_geographic_region = geographic_region_bengal_old
+							is_in_geographic_region = geographic_region_central_india_old
+							is_in_geographic_region = geographic_region_punjab_old
 							region = sr:region_himalayas
 							state_region = s:STATE_MANDALAY
 							state_region = s:STATE_KACHIN
@@ -3573,22 +3573,22 @@ ai_strategy_default = {
 		        		OR = {
 		        			any_scope_state = {
 		        				OR = {
-									region = sr:region_madras
-									region = sr:region_bombay
-									region = sr:region_bengal
-									region = sr:region_central_india
-									region = sr:region_punjab
+									is_in_geographic_region = geographic_region_madras_old
+									is_in_geographic_region = geographic_region_bombay_old
+									is_in_geographic_region = geographic_region_bengal_old
+									is_in_geographic_region = geographic_region_central_india_old
+									is_in_geographic_region = geographic_region_punjab_old
 		    					}
 								count >= 3
 		        			}
 		        			any_subject_or_below = {
 		        				any_scope_state = {
 		        					OR = {
-										region = sr:region_madras
-										region = sr:region_bombay
-										region = sr:region_bengal
-										region = sr:region_central_india
-										region = sr:region_punjab
+										is_in_geographic_region = geographic_region_madras_old
+										is_in_geographic_region = geographic_region_bombay_old
+										is_in_geographic_region = geographic_region_bengal_old
+										is_in_geographic_region = geographic_region_central_india_old
+										is_in_geographic_region = geographic_region_punjab_old
 		        					}
 									count >= 3
 			        			}
@@ -3671,7 +3671,7 @@ ai_strategy_default = {
 				has_journal_entry = je_maintain_afghan_protectorate
 				scope:target_country = {
 					capital = {
-						region = sr:region_persia
+						is_in_geographic_region = geographic_region_persia_old
 					}
 					OR = {
 						country_has_primary_culture = cu:pashtun
@@ -3728,10 +3728,10 @@ ai_strategy_default = {
 				scope:target_country = {
 					any_scope_state = {
 						OR = {
-							region = sr:region_persia
+							is_in_geographic_region = geographic_region_persia_old
 							region = sr:region_central_asia
-							region = sr:region_bombay
-							region = sr:region_punjab
+							is_in_geographic_region = geographic_region_bombay_old
+							is_in_geographic_region = geographic_region_punjab_old
 						}
 						has_claim_by = ROOT
 					}
@@ -6879,7 +6879,7 @@ ai_strategy_default = {
 					has_journal_entry = je_maintain_afghan_protectorate
 					scope:target_country = {
 						capital = {
-							region = sr:region_persia
+							is_in_geographic_region = geographic_region_persia_old
 						}
 						OR = {
 							country_has_primary_culture = cu:pashtun
@@ -6898,11 +6898,11 @@ ai_strategy_default = {
 						target_is_our_or_fellow_subject = no
 						any_scope_state = {
 							OR = {
-								region = sr:region_madras
-								region = sr:region_bombay
-								region = sr:region_bengal
-								region = sr:region_central_india
-								region = sr:region_punjab
+								is_in_geographic_region = geographic_region_madras_old
+								is_in_geographic_region = geographic_region_bombay_old
+								is_in_geographic_region = geographic_region_bengal_old
+								is_in_geographic_region = geographic_region_central_india_old
+								is_in_geographic_region = geographic_region_punjab_old
 								region = sr:region_himalayas
 								state_region = s:STATE_MANDALAY
 								state_region = s:STATE_KACHIN
