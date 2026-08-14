@@ -355,9 +355,9 @@ ai_strategy_default = {
 				OR = {
 					has_strategic_adjacency = scope:country
 					AND = {
-						has_port = yes
+						has_port_country = yes
 						navy_size >= 10
-						scope:country = { has_port = yes }
+						scope:country = { has_port_country = yes }
 					}
 				}
 			}
@@ -1409,7 +1409,7 @@ ai_strategy_default = {
 				if = {
 					limit = {
 						NOT = { has_strategic_land_adjacency = scope:target_state }
-						scope:target_state = { has_port = no }
+						scope:target_state = { has_port_state = no }
 					}
 					multiply = 0.5
 				}
@@ -2020,7 +2020,7 @@ ai_strategy_default = {
 					OR = {
 						region = sr:region_north_china
 						region = sr:region_south_china
-						region = sr:region_manchuria
+						is_in_geographic_region = geographic_region_manchuria_old
 					}
 				}
 			}
@@ -3153,7 +3153,7 @@ ai_strategy_default = {
 						OR = {
 							region = sr:region_north_china
 							region = sr:region_south_china
-							region = sr:region_manchuria
+							is_in_geographic_region = geographic_region_manchuria_old
 						}
 					}
 				}
@@ -4352,7 +4352,7 @@ ai_strategy_default = {
 					has_technology_researched = ironclad_tech
 					has_technology_researched = gantry_cranes
 				}
-				has_port = yes
+				has_port_country = yes
 				country_rank >= rank_value:major_power
 			}
 		}
@@ -4364,7 +4364,7 @@ ai_strategy_default = {
 					has_technology_researched = ironclad_tech
 					has_technology_researched = gantry_cranes
 				}
-				has_port = yes
+				has_port_country = yes
 				country_rank >= rank_value:major_power
 			}
 		}
@@ -4373,7 +4373,7 @@ ai_strategy_default = {
 			trigger = {
 				has_technology_researched = ironclad_tech
 				has_technology_researched = gantry_cranes
-				has_port = yes
+				has_port_country = yes
 				country_rank >= rank_value:major_power
 			}
 		}
@@ -4382,7 +4382,7 @@ ai_strategy_default = {
 			trigger = {
 				has_technology_researched = ironclad_tech
 				has_technology_researched = gantry_cranes
-				has_port = yes
+				has_port_country = yes
 				country_rank >= rank_value:major_power
 			}
 		}
@@ -4511,8 +4511,11 @@ ai_strategy_default = {
 	# How important is it that the AI maintains an interest in a specific strategic region (added on top of region value calculations set in defines)
 	# Using this value in other strategies will function additively
 	strategic_region_scores = {
+		value = 0
+
 		# SNIP
-		region_caucasus = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_caucasus_old } }
 			if = {
 				limit = { # Britain is participating in the Caucasian War in a certain capacity early game.
 					c:GBR ?= this
@@ -4523,7 +4526,8 @@ ai_strategy_default = {
 				add = 500
 			}
 		}
-		region_oceania = {
+		if = {
+			limit = { scope:region = sr:region_oceania }
 			if = {
 				limit = {
 					OR = {
@@ -4545,7 +4549,8 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_japan = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_japan_old } }
 			if = {
 				limit = {
 					exists = c:JAP
@@ -4556,7 +4561,8 @@ ai_strategy_default = {
 			}
 		}
 		# SNIP
-		region_north_africa = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_north_africa_old } }
 			if = {
 				limit = {
 					OR = {
@@ -4570,7 +4576,8 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_senegal = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_senegal_old } }
 			if = {
 				limit = {
 					OR = {
@@ -4584,7 +4591,8 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_niger = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_niger_old } }
 			if = {
 				limit = {
 					OR = {
@@ -4598,7 +4606,8 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_congo = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_congo_old } }
 			if = {
 				limit = {
 					OR = {
@@ -4612,7 +4621,8 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_southern_africa = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_southern_africa_old } }
 			if = {
 				limit = {
 					OR = {
@@ -4626,7 +4636,8 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_zanj = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_zanj_old } }
 			if = {
 				limit = {
 					OR = {
@@ -4640,7 +4651,8 @@ ai_strategy_default = {
 				add = 200
 			}
 		}
-		region_north_germany = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_north_germany_old } }
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -4655,7 +4667,8 @@ ai_strategy_default = {
 				add = 1000
 			}
 		}
-		region_south_germany = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_south_germany_old } }
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -4670,7 +4683,8 @@ ai_strategy_default = {
 				add = 1000
 			}
 		}
-		region_italy = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_italy_old } }
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -4679,7 +4693,8 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_baltic = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_baltic_old } }
 			if = {
 				limit = {
 					wants_to_solve_schleswig_holstein = yes
@@ -4688,7 +4703,8 @@ ai_strategy_default = {
 			}
 		}
 		# SNIP
-		region_england = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_england_old } }
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -4697,7 +4713,8 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_iberia = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_iberia_old } }
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -4706,7 +4723,8 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_rhine = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_rhine_old } }
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -4715,7 +4733,8 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_central_asia = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_central_asia_old } }
 			if = {
 				limit = {
 					has_journal_entry = je_great_game_control
@@ -4730,7 +4749,8 @@ ai_strategy_default = {
 				add = -25
 			}
 		}
-		region_persia = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_persia_old } }
 			if = {
 				limit = {
 					has_journal_entry = je_great_game_control
@@ -4745,7 +4765,8 @@ ai_strategy_default = {
 				add = -25
 			}
 		}
-		region_north_china = {
+		if = {
+			limit = { scope:region = sr:region_north_china }
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -4755,7 +4776,8 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_manchuria = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_manchuria_old } }
 			if = {
 				limit = {
 					is_in_geographic_region = geographic_region_europe
@@ -4765,7 +4787,8 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_south_china = {
+		if = {
+			limit = { scope:region = sr:region_south_china }
 			if = {
 				limit = {
 					has_journal_entry = je_opium_wars
@@ -4781,7 +4804,8 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_pacific_coast = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_pacific_coast_old } }
 			if = {
 				limit = {
 					has_variable = monroe_doctrine
@@ -4789,7 +4813,8 @@ ai_strategy_default = {
 				add = 1000
 			}
 		}
-		region_great_plains = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_great_plains_old } }
 			if = {
 				limit = {
 					has_variable = monroe_doctrine
@@ -4797,7 +4822,8 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_dixie = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_dixie_old } }
 			if = {
 				limit = {
 					has_variable = monroe_doctrine
@@ -4805,7 +4831,8 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_new_england = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_new_england_old } }
 			if = {
 				limit = {
 					has_variable = monroe_doctrine
@@ -4813,7 +4840,8 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_canada = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_canada_old } }
 			if = {
 				limit = {
 					has_variable = monroe_doctrine
@@ -4821,7 +4849,8 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_the_midwest = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_the_midwest_old } }
 			if = {
 				limit = {
 					has_variable = monroe_doctrine
@@ -4829,43 +4858,8 @@ ai_strategy_default = {
 				add = 100
 			}
 		}
-		region_central_america = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine
-				}
-				add = 100
-			}
-
-			if = {
-				limit = {
-					c:SPA ?= {
-						has_journal_entry = je_reconquista
-					}
-					OR = {
-						c:SPA ?= this
-						AND = {
-							country_rank = rank_value:great_power
-							capital ?= { is_in_geographic_region = geographic_region_americas }
-						}
-						AND = {
-							c:GBR ?= this
-							country_rank = rank_value:great_power
-						}
-					}
-				}
-				add = 50
-			}
-		}
-		region_brazil = {
-			if = {
-				limit = {
-					has_variable = monroe_doctrine
-				}
-				add = 100
-			}
-		}
-		region_andes = {
+		if = {
+			limit = { scope:region = { is_in_geographic_region = geographic_region_central_america_old } }
 			if = {
 				limit = {
 					has_variable = monroe_doctrine
@@ -4893,7 +4887,17 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_la_plata = {
+		if = {
+			limit = { scope:region = sr:region_brazil }
+			if = {
+				limit = {
+					has_variable = monroe_doctrine
+				}
+				add = 100
+			}
+		}
+		if = {
+			limit = { scope:region = sr:region_andes }
 			if = {
 				limit = {
 					has_variable = monroe_doctrine
@@ -4921,7 +4925,37 @@ ai_strategy_default = {
 				add = 50
 			}
 		}
-		region_gran_colombia = {
+		if = {
+			limit = { scope:region = sr:region_la_plata }
+			if = {
+				limit = {
+					has_variable = monroe_doctrine
+				}
+				add = 100
+			}
+
+			if = {
+				limit = {
+					c:SPA ?= {
+						has_journal_entry = je_reconquista
+					}
+					OR = {
+						c:SPA ?= this
+						AND = {
+							country_rank = rank_value:great_power
+							capital ?= { is_in_geographic_region = geographic_region_americas }
+						}
+						AND = {
+							c:GBR ?= this
+							country_rank = rank_value:great_power
+						}
+					}
+				}
+				add = 50
+			}
+		}
+		if = {
+			limit = { scope:region = sr:region_gran_colombia }
 			if = {
 				limit = {
 					has_variable = monroe_doctrine
@@ -5075,7 +5109,7 @@ ai_strategy_default = {
 						exists = c:RUS
 						c:RUS ?= {
 							any_scope_state = {
-								region = sr:region_manchuria
+								region = sr:region_northeast_asia
 								OR = {
 									any_scope_building = {
 										is_building_type = building_port
@@ -5091,8 +5125,7 @@ ai_strategy_default = {
 						scope:target_country = {
 							country_rank >= rank_value:unrecognized_major_power
 							OR = {
-								capital.region = sr:region_japan
-								capital.region = sr:region_manchuria
+								capital.region = sr:region_northeast_asia
 								capital.region = sr:region_north_china
 								capital.region = sr:region_south_china
 								capital.region = sr:region_indonesia
