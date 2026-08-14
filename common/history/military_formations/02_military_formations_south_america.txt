@@ -1,4 +1,4 @@
-﻿MILITARY_FORMATIONS = {
+MILITARY_FORMATIONS = {
 	c:BRZ ?= {
 
 		create_military_formation = {
@@ -43,9 +43,16 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-093 — Exrcito_Imperial_Brasileiro — PROCEDURAL_ALLOWED
+		# GEN1776-093 — João Henrique Böhm — CLEANUP-2D-5
 		create_character = {
-			template = default
+			first_name = cleanup2d5_name_093
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_german
+			religion = rel:protestant
+			home_region = STATE_ELBE
+			age = 67 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_093
 		}
@@ -208,22 +215,23 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-095 — Ejrcito_del_Ecuador — PROCEDURAL_ALLOWED
+		# GEN1776-095 — José Diguja — CLEANUP-2D-5
 		create_character = {
-			template = default
+			first_name = cleanup2d5_name_095
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:spanish
+			religion = rel:catholic
+			home_region = STATE_LEON
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_095
 		}
 		scope:cleanup2d4_general_095 = {
 			transfer_to_formation = scope:cleanup2d4_formation_095
 		}
-		# GEN1776-096 — Ejrcito_de_la_Nueva_Granada — PROCEDURAL_ALLOWED
-		create_character = {
-			template = default
-			is_general = yes
-			save_scope_as = cleanup2d4_general_096
-		}
-		scope:cleanup2d4_general_096 = {
+		# GEN1776-096 — Manuel de Guirior — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_096 = {
 			transfer_to_formation = scope:cleanup2d4_formation_096
 		}
 		# GEN1776-097 — Ejrcito_de_Venezuela — PROCEDURAL_ALLOWED

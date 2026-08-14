@@ -1,4 +1,4 @@
-﻿MILITARY_FORMATIONS = {
+MILITARY_FORMATIONS = {
 	c:PAN ?= {
 		create_military_formation = {
 			type = army
@@ -65,16 +65,8 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-118 — FaujiKhas — IMPLEMENT_NAMED_HISTORICAL_GENERAL
-		create_character = {
-			template = default
-			first_name = cleanup2d4_jassa_singh_ahluwalia_first
-			last_name = cleanup2d4_jassa_singh_ahluwalia_last
-			historical = yes
-			is_general = yes
-			save_scope_as = cleanup2d4_general_118
-		}
-		scope:cleanup2d4_general_118 = {
+		# GEN1776-118 — Jassa Singh Ahluwalia — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_118 = {
 			transfer_to_formation = scope:qawaid_army
 		}
 		# GEN1776-119 — FaujiAin — PROCEDURAL_REQUIRED_COLLECTIVE_STRUCTURE
@@ -173,30 +165,44 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-120 — cleanup2d3b_bic_land_2 — PROCEDURAL_ALLOWED
+		# GEN1776-120 — Robert Fletcher — CLEANUP-2D-5
 		create_character = {
-			template = default
+			first_name = cleanup2d5_name_120
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			age = 37 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_120
 		}
 		scope:cleanup2d4_general_120 = {
 			transfer_to_formation = scope:cleanup2d4_formation_120
 		}
-		# GEN1776-121 — cleanup2d3b_bic_land_3 — PROCEDURAL_ALLOWED
+		# GEN1776-121 — James Stuart — CLEANUP-2D-5
 		create_character = {
-			template = default
+			first_name = cleanup2d5_name_121
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:scottish
+			religion = rel:protestant
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_121
 		}
 		scope:cleanup2d4_general_121 = {
 			transfer_to_formation = scope:cleanup2d4_formation_121
 		}
-		# GEN1776-122 — Bengal_Army — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		# GEN1776-122 — John Clavering — CLEANUP-2D-5
 		create_character = {
-			template = default
-			first_name = cleanup2d4_john_clavering_first
-			last_name = cleanup2d4_john_clavering_last
+			first_name = cleanup2d5_name_122
+			last_name = cleanup2d5_empty_name
 			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			age = 53 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_122
 		}
@@ -410,24 +416,29 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-125 — cleanup2d3b_marath_land_2 — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		# GEN1776-125 — Haripant Phadke — CLEANUP-2D-5
 		create_character = {
-			template = default
-			first_name = cleanup2d4_haripant_phadke_first
-			last_name = cleanup2d4_haripant_phadke_last
+			first_name = cleanup2d5_name_125
+			last_name = cleanup2d5_empty_name
 			historical = yes
+			culture = cu:marathi
+			religion = rel:hindu
+			age = 46 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_125
 		}
 		scope:cleanup2d4_general_125 = {
 			transfer_to_formation = scope:cleanup2d4_formation_125
 		}
-		# GEN1776-126 — cleanup2d3b_marath_land_1 — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		# GEN1776-126 — Tukoji Holkar — CLEANUP-2D-5
 		create_character = {
-			template = default
-			first_name = cleanup2d4_tukoji_holkar_first
-			last_name = cleanup2d4_tukoji_holkar_last
+			first_name = cleanup2d5_name_126
+			last_name = cleanup2d5_empty_name
 			historical = yes
+			culture = cu:marathi
+			religion = rel:hindu
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_126
 		}
@@ -477,16 +488,8 @@
 }
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-127 — GwaliorArmy — IMPLEMENT_NAMED_HISTORICAL_GENERAL
-		create_character = {
-			template = default
-			first_name = cleanup2d4_mahadji_shinde_first
-			last_name = cleanup2d4_mahadji_shinde_last
-			historical = yes
-			is_general = yes
-			save_scope_as = cleanup2d4_general_127
-		}
-		scope:cleanup2d4_general_127 = {
+		# GEN1776-127 — Mahadji Shinde — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_127 = {
 			transfer_to_formation = scope:cleanup2d4_formation_127
 		}
 		# END CLEANUP-2D-4 STARTING GENERALS 1776
@@ -537,13 +540,8 @@
 }
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-128 — NagpurArmy — PROCEDURAL_ALLOWED
-		create_character = {
-			template = default
-			is_general = yes
-			save_scope_as = cleanup2d4_general_128
-		}
-		scope:cleanup2d4_general_128 = {
+		# GEN1776-128 — Mudhoji Bhonsle — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_128 = {
 			transfer_to_formation = scope:cleanup2d4_formation_128
 		}
 		# END CLEANUP-2D-4 STARTING GENERALS 1776
@@ -615,21 +613,20 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-129 — cleanup2d3b_mys_land_2 — IMPLEMENT_NAMED_HISTORICAL_GENERAL
-		create_character = {
-			template = default
-			first_name = cleanup2d4_hyder_ali_first
-			last_name = cleanup2d4_hyder_ali_last
-			historical = yes
-			is_general = yes
-			save_scope_as = cleanup2d4_general_129
-		}
-		scope:cleanup2d4_general_129 = {
+		# GEN1776-129 — Hyder Ali — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_129 = {
 			transfer_to_formation = scope:cleanup2d4_formation_129
 		}
-		# GEN1776-130 — cleanup2d3b_mys_land_1 — PROCEDURAL_ALLOWED
+		# GEN1776-130 — Tipu Sultan — CLEANUP-2D-5
 		create_character = {
-			template = default
+			first_name = cleanup2d5_name_130
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:deccani
+			religion = rel:sunni
+			home_region = STATE_MYSORE
+			birth_date = 1750.11.20
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_130
 		}
@@ -1043,12 +1040,15 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-140 — TravancoreArmy — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		# GEN1776-140 — Eustachius De Lannoy — CLEANUP-2D-5
 		create_character = {
-			template = default
-			first_name = cleanup2d4_eustachius_de_lannoy_first
-			last_name = cleanup2d4_eustachius_de_lannoy_last
+			first_name = cleanup2d5_name_140
+			last_name = cleanup2d5_empty_name
 			historical = yes
+			culture = cu:flemish
+			religion = rel:catholic
+			age = 60 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_140
 		}
@@ -1137,12 +1137,15 @@
 }
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-142 — MughalArmy — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		# GEN1776-142 — Mirza Najaf Khan — CLEANUP-2D-5
 		create_character = {
-			template = default
-			first_name = cleanup2d4_mirza_najaf_khan_first
-			last_name = cleanup2d4_mirza_najaf_khan_last
+			first_name = cleanup2d5_name_142
+			last_name = cleanup2d5_empty_name
 			historical = yes
+			culture = cu:persian
+			religion = rel:shiite
+			age = 52 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_142
 		}

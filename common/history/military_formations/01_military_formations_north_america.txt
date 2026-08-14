@@ -1,4 +1,4 @@
-﻿MILITARY_FORMATIONS = {
+MILITARY_FORMATIONS = {
 	c:USA ?= {
 		create_military_formation = {
 			type = army
@@ -94,12 +94,17 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-087 — cleanup2d3b_usa_land_1 — IMPLEMENT_NAMED_HISTORICAL_GENERAL
+		# GEN1776-087 — George Washington — CLEANUP-2D-5
 		create_character = {
-			template = default
-			first_name = cleanup2d4_george_washington_first
-			last_name = cleanup2d4_george_washington_last
+			first_name = cleanup2d5_name_087
+			last_name = cleanup2d5_empty_name
 			historical = yes
+			culture = cu:dixie
+			religion = rel:protestant
+			home_region = STATE_VIRGINIA
+			birth_date = 1732.2.22
+			interest_group = ig_armed_forces
+			dna = dna_washington_traitor
 			is_general = yes
 			save_scope_as = cleanup2d4_general_087
 		}
@@ -142,13 +147,8 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-088 — ArmeeIndigene — PROCEDURAL_ALLOWED
-		create_character = {
-			template = default
-			is_general = yes
-			save_scope_as = cleanup2d4_general_088
-		}
-		scope:cleanup2d4_general_088 = {
+		# GEN1776-088 — Victor-Thérèse Charpentier d'Ennery — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_088 = {
 			transfer_to_formation = scope:cleanup2d4_formation_088
 		}
 		# END CLEANUP-2D-4 STARTING GENERALS 1776
@@ -193,13 +193,8 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-089 — MiliciasdeCuba — PROCEDURAL_ALLOWED
-		create_character = {
-			template = default
-			is_general = yes
-			save_scope_as = cleanup2d4_general_089
-		}
-		scope:cleanup2d4_general_089 = {
+		# GEN1776-089 — Felipe de Fonsdeviela y Ondeano — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_089 = {
 			transfer_to_formation = scope:cleanup2d4_formation_089
 		}
 		# END CLEANUP-2D-4 STARTING GENERALS 1776
@@ -234,13 +229,8 @@
 		}
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-090 — MiliciasDiciplinadas — PROCEDURAL_ALLOWED
-		create_character = {
-			template = default
-			is_general = yes
-			save_scope_as = cleanup2d4_general_090
-		}
-		scope:cleanup2d4_general_090 = {
+		# GEN1776-090 — Miguel de Muesas — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_090 = {
 			transfer_to_formation = scope:cleanup2d4_formation_090
 		}
 		# END CLEANUP-2D-4 STARTING GENERALS 1776
@@ -295,9 +285,13 @@
 }
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-092 — cleanup2d3b_mkt_land_1 — PROCEDURAL_ALLOWED
+		# GEN1776-092 — Tempest — CLEANUP-2D-5
 		create_character = {
-			template = default
+			first_name = cleanup2d5_name_092
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:miskito
+			interest_group = ig_armed_forces
 			is_general = yes
 			save_scope_as = cleanup2d4_general_092
 		}
