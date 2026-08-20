@@ -54,12 +54,6 @@ je_great_game_control = {
 		sr:region_central_asia = {
 			save_scope_as = central_asia_region
 		}
-		sr:region_persia = {
-			save_scope_as = persia_region
-		}
-		sr:region_caucasus = {
-			save_scope_as = caucasus_region
-		}
 		if = {
 			limit = {
 				c:RUS ?= this
@@ -89,78 +83,60 @@ je_great_game_control = {
 			OR = {
 				custom_tooltip = {
 					text = great_game_complete_tt
-					sr:region_caucasus = {
-						NOT = {
-							any_scope_state = {
-								is_capital = yes
-								owner = {
-									NOR = {
-										AND = {
-											exists = c:GBR
-											is_subject_of = c:GBR
-										}
-										AND = {
-											exists = c:RUS
-											is_subject_of = c:RUS
-										}
-										this.power_bloc ?= {
-											c:GBR ?= this.power_bloc_leader
-										}
-										this.power_bloc ?= {
-											c:RUS ?= this.power_bloc_leader
-										}
-									}
-								}
+					any_country_in_caucasus_old = {
+						count = all
+						OR = {
+							AND = {
+								exists = c:GBR
+								is_subject_of = c:GBR
+							}
+							AND = {
+								exists = c:RUS
+								is_subject_of = c:RUS
+							}
+							this.power_bloc ?= {
+								c:GBR ?= this.power_bloc_leader
+							}
+							this.power_bloc ?= {
+								c:RUS ?= this.power_bloc_leader
 							}
 						}
 					}
-					sr:region_central_asia = {
-						NOT = {
-							any_scope_state = {
-								is_capital = yes
-								owner = {
-									NOR = {
-										AND = {
-											exists = c:GBR
-											is_subject_of = c:GBR
-										}
-										AND = {
-											exists = c:RUS
-											is_subject_of = c:RUS
-										}
-										this.power_bloc ?= {
-											c:GBR ?= this.power_bloc_leader
-										}
-										this.power_bloc ?= {
-											c:RUS ?= this.power_bloc_leader
-										}
-									}
-								}
+					any_country_in_central_asia = {
+						count = all
+						OR = {
+							AND = {
+								exists = c:GBR
+								is_subject_of = c:GBR
+							}
+							AND = {
+								exists = c:RUS
+								is_subject_of = c:RUS
+							}
+							this.power_bloc ?= {
+								c:GBR ?= this.power_bloc_leader
+							}
+							this.power_bloc ?= {
+								c:RUS ?= this.power_bloc_leader
 							}
 						}
 					}
-					sr:region_persia = {
-						NOT = {
-							any_scope_state = {
-								is_capital = yes
-								owner = {
-									NOR = {
-										AND = {
-											exists = c:GBR
-											is_subject_of = c:GBR
-										}
-										AND = {
-											exists = c:RUS
-											is_subject_of = c:RUS
-										}
-										this.power_bloc ?= {
-											c:GBR ?= this.power_bloc_leader
-										}
-										this.power_bloc ?= {
-											c:RUS ?= this.power_bloc_leader
-										}
-									}
-								}
+					any_country_in_persia_old = {
+						count = all
+						OR = {
+							AND = {
+								exists = c:GBR
+								is_subject_of = c:GBR
+							}
+							AND = {
+								exists = c:RUS
+								is_subject_of = c:RUS
+							}
+							this.power_bloc ?= {
+								c:GBR ?= this.power_bloc_leader
+							}
+							this.power_bloc ?= {
+								c:RUS ?= this.power_bloc_leader
 							}
 						}
 					}
@@ -215,14 +191,14 @@ je_great_game_control = {
 							any_subject_or_below = {
 								any_scope_state = {
 									OR = {
-										region = sr:region_persia
+										is_in_geographic_region = geographic_region_persia_old
 										region = sr:region_central_asia
 									}
 								}
 							}
 							any_scope_state = {
 								OR = {
-									region = sr:region_persia
+									is_in_geographic_region = geographic_region_persia_old
 									region = sr:region_central_asia
 								}
 							}
@@ -235,14 +211,14 @@ je_great_game_control = {
 							any_subject_or_below = {
 								any_scope_state = {
 									OR = {
-										region = sr:region_persia
+										is_in_geographic_region = geographic_region_persia_old
 										region = sr:region_central_asia
 									}
 								}
 							}
 							any_scope_state = {
 								OR = {
-									region = sr:region_persia
+									is_in_geographic_region = geographic_region_persia_old
 									region = sr:region_central_asia
 								}
 							}
@@ -291,7 +267,7 @@ je_great_game_control = {
 							any_country = {
 								capital = {
 									OR = {
-										region = sr:region_persia
+										is_in_geographic_region = geographic_region_persia_old
 										region = sr:region_central_asia
 									}
 								}
@@ -307,14 +283,14 @@ je_great_game_control = {
 										any_subject_or_below = {
 											any_scope_state = {
 												OR = {
-													region = sr:region_persia
+													is_in_geographic_region = geographic_region_persia_old
 													region = sr:region_central_asia
 												}
 											}
 										}
 										any_scope_state = {
 											OR = {
-												region = sr:region_persia
+												is_in_geographic_region = geographic_region_persia_old
 												region = sr:region_central_asia
 											}
 										}
@@ -327,14 +303,14 @@ je_great_game_control = {
 										any_subject_or_below = {
 											any_scope_state = {
 												OR = {
-													region = sr:region_persia
+													is_in_geographic_region = geographic_region_persia_old
 													region = sr:region_central_asia
 												}
 											}
 										}
 										any_scope_state = {
 											OR = {
-												region = sr:region_persia
+												is_in_geographic_region = geographic_region_persia_old
 												region = sr:region_central_asia
 											}
 										}
@@ -861,7 +837,7 @@ je_chinese_concessions = {
 	complete = {
 		OR = {
 			any_scope_state = {
-				region = sr:region_manchuria
+				is_in_geographic_region = geographic_region_manchuria_old
 				is_treaty_port = yes
 			}
 			AND = {
@@ -872,7 +848,7 @@ je_chinese_concessions = {
 		}
         any_state = {
             filter = {
-                region = sr:region_manchuria
+                is_in_geographic_region = geographic_region_manchuria_old
 				custom_tooltip = {
 					text = owned_by_russia_or_chinese_country
 					OR = {
@@ -1003,8 +979,8 @@ je_counter_russian_pacific_influence = {
 		any_diplomatically_relevant_country = {
 			country_rank >= rank_value:unrecognized_major_power
 			OR = {
-				capital.region = sr:region_japan
-				capital.region = sr:region_manchuria
+				capital = { is_in_geographic_region = geographic_region_japan_old }
+				capital = { is_in_geographic_region = geographic_region_manchuria_old }
 				capital.region = sr:region_north_china
 				capital.region = sr:region_south_china
 				capital.region = sr:region_indonesia
@@ -1088,8 +1064,8 @@ je_consolidate_british_india = {
 				any_country = {
 					capital = {
 						OR = {
-							region = sr:region_bengal
-							region = sr:region_madras
+							is_in_geographic_region = geographic_region_bengal_old
+							is_in_geographic_region = geographic_region_madras_old
 						}
 					}
 					NOT = {
@@ -1246,7 +1222,7 @@ je_maintain_afghan_protectorate = {
 		cu:tajik = {
 			save_scope_as = tajik_scope
 		}
-		sr:region_persia = {
+		sr:region_greater_persia = {
 			save_scope_as = persia_region
 		}
 	}
@@ -1260,7 +1236,7 @@ je_maintain_afghan_protectorate = {
 						any_country = {
 							filter = {
 								capital = {
-									region = sr:region_persia
+									is_in_geographic_region = geographic_region_persia_old
 								}
 								OR = {
 									country_has_primary_culture = cu:tajik
@@ -1279,7 +1255,7 @@ je_maintain_afghan_protectorate = {
 					NOT = {
 						any_country = {
 							capital = {
-								region = sr:region_persia
+								is_in_geographic_region = geographic_region_persia_old
 							}
 							OR = {
 								country_has_primary_culture = cu:tajik
@@ -1289,7 +1265,7 @@ je_maintain_afghan_protectorate = {
 					}
 					any_state = {
 						filter = {
-							region = sr:region_persia
+							is_in_geographic_region = geographic_region_persia_old
 							state_region = {
 								is_homeland = cu:pashtun
 							}
@@ -1317,7 +1293,7 @@ je_maintain_afghan_protectorate = {
 			limit = {
 				any_country = {
 					capital = {
-						region = sr:region_persia
+						is_in_geographic_region = geographic_region_persia_old
 					}
 					OR = {
 						country_has_primary_culture = cu:tajik
@@ -1330,7 +1306,7 @@ je_maintain_afghan_protectorate = {
 				any_country = {
 					filter = {
 						capital = {
-							region = sr:region_persia
+							is_in_geographic_region = geographic_region_persia_old
 						}
 						OR = {
 							country_has_primary_culture = cu:tajik
@@ -1345,7 +1321,7 @@ je_maintain_afghan_protectorate = {
 		trigger_else = {
 			any_state = {
 				filter = {
-					region = sr:region_persia
+					is_in_geographic_region = geographic_region_persia_old
 					state_region = {
 						is_homeland = cu:pashtun
 					}
@@ -1392,7 +1368,7 @@ je_maintain_afghan_protectorate = {
 		any_country = {
 			filter = {
 				capital = {
-					region = sr:region_persia
+					is_in_geographic_region = geographic_region_persia_old
 				}
 				OR = {
 					country_has_primary_culture = cu:tajik
@@ -1433,7 +1409,7 @@ je_maintain_afghan_protectorate = {
 			limit = {
 				any_country = {
 					capital = {
-						region = sr:region_persia
+						is_in_geographic_region = geographic_region_persia_old
 					}
 					OR = {
 						country_has_primary_culture = cu:tajik
@@ -1444,7 +1420,7 @@ je_maintain_afghan_protectorate = {
 			any_country = {
 				filter = {
 					capital = {
-						region = sr:region_persia
+						is_in_geographic_region = geographic_region_persia_old
 					}
 					OR = {
 						country_has_primary_culture = cu:tajik
@@ -1458,7 +1434,7 @@ je_maintain_afghan_protectorate = {
 		trigger_else = {
 			any_state = {
 				filter = {
-					region = sr:region_persia
+					is_in_geographic_region = geographic_region_persia_old
 					state_region = {
 						is_homeland = cu:pashtun
 					}
@@ -1552,7 +1528,7 @@ je_secure_influence_over_persia = {
 		trigger_else = {
 			any_state = {
 				filter = {
-					region = sr:region_persia
+					is_in_geographic_region = geographic_region_persia_old
 					state_region = {
 						is_homeland = cu:persian
 					}
@@ -1609,7 +1585,7 @@ je_secure_influence_over_persia = {
 		trigger_else = {
 			any_state = {
 				filter = {
-					region = sr:region_persia
+					is_in_geographic_region = geographic_region_persia_old
 					state_region = {
 						is_homeland = cu:persian
 					}
@@ -1646,7 +1622,7 @@ je_secure_influence_over_persia = {
 					}
 					any_state = {
 						filter = {
-							region = sr:region_persia
+							is_in_geographic_region = geographic_region_persia_old
 							state_region = {
 								is_homeland = cu:persian
 							}

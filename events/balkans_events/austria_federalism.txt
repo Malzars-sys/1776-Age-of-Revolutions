@@ -655,10 +655,10 @@ austria_federation.1 = { # Popovici Proposal
 			limit = {
 				capital = {
 					OR = {
-						region = sr:region_danubia
-						region = sr:region_poland
+						is_in_geographic_region = geographic_region_danubia_old
+						is_in_geographic_region = geographic_region_poland_old
 						region = sr:region_balkans
-						region = sr:region_south_germany
+						is_in_geographic_region = geographic_region_south_germany_old
 					}
 				}
 			}
@@ -849,7 +849,7 @@ austria_federation.3 = { # Czechs
 	option = {  # Trade Czechoslovakia for Bohemian Germans
 		name = austria_federation.3.c
 		trigger = {
-			sr:region_danubia = {
+			sr:region_balkans = {
 				any_scope_state = {
 					state_region = {
 						is_homeland = cu:slovak
@@ -881,7 +881,7 @@ austria_federation.3 = { # Czechs
 	option = {  # Endorse Czechoslovakia
 		name = austria_federation.3.d
 		trigger = {
-			sr:region_danubia = {
+			sr:region_balkans = {
 				any_scope_state = {
 					state_region = {
 						is_homeland = cu:slovak

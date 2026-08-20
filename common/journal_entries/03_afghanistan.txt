@@ -10,7 +10,7 @@
 	}
 
 	is_shown_when_inactive = {
-		has_interest_marker_in_region = region_persia
+		has_interest_marker_in_region = sr:region_greater_persia
 		country_rank >= rank_value:great_power
 		has_dlc_feature = ep1_content
 		NOT = {
@@ -98,7 +98,7 @@
 						}
 						overlord ?= {
 							country_rank >= rank_value:great_power
-							has_interest_marker_in_region = region_persia
+							has_interest_marker_in_region = sr:region_greater_persia
 							NOT = {
 								THIS = ROOT
 							}
@@ -109,7 +109,7 @@
 					}
 					c:RUS ?= {
 						country_rank >= rank_value:great_power
-						has_interest_marker_in_region = region_persia
+						has_interest_marker_in_region = sr:region_greater_persia
 						any_neighbouring_state = {
 							c:AFG ?= owner
 						}
@@ -123,7 +123,7 @@
 				limit = {
 					c:RUS ?= {
 						country_rank >= rank_value:great_power
-						has_interest_marker_in_region = region_persia
+						has_interest_marker_in_region = sr:region_greater_persia
 						any_neighbouring_state = {
 							c:AFG ?= owner
 						}
@@ -145,7 +145,7 @@
 						}
 						overlord ?= {
 							country_rank >= rank_value:great_power
-							has_interest_marker_in_region = region_persia
+							has_interest_marker_in_region = sr:region_greater_persia
 							NOT = {
 								THIS = ROOT
 							}
@@ -163,7 +163,7 @@
 						}
 						overlord = {
 							country_rank >= rank_value:great_power
-							has_interest_marker_in_region = region_persia
+							has_interest_marker_in_region = sr:region_greater_persia
 							NOT = {
 								THIS = ROOT
 							}
@@ -194,7 +194,7 @@
 						}
 						overlord ?= {
 							country_rank >= rank_value:great_power
-							has_interest_marker_in_region = region_persia
+							has_interest_marker_in_region = sr:region_greater_persia
 							NOT = {
 								THIS = ROOT
 							}
@@ -205,7 +205,7 @@
 					}
 					c:GBR ?= {
 						country_rank >= rank_value:great_power
-						has_interest_marker_in_region = region_persia
+						has_interest_marker_in_region = sr:region_greater_persia
 						any_neighbouring_state = {
 							c:AFG ?= owner
 						}
@@ -219,7 +219,7 @@
 				limit = {
 					c:GBR ?= {
 						country_rank >= rank_value:great_power
-						has_interest_marker_in_region = region_persia
+						has_interest_marker_in_region = sr:region_greater_persia
 						any_neighbouring_state = {
 							c:AFG ?= owner
 						}
@@ -241,7 +241,7 @@
 						}
 						overlord ?= {
 							country_rank >= rank_value:great_power
-							has_interest_marker_in_region = region_persia
+							has_interest_marker_in_region = sr:region_greater_persia
 							NOT = {
 								THIS = ROOT
 							}
@@ -259,7 +259,7 @@
 						}
 						overlord = {
 							country_rank >= rank_value:great_power
-							has_interest_marker_in_region = region_persia
+							has_interest_marker_in_region = sr:region_greater_persia
 							NOT = {
 								THIS = ROOT
 							}
@@ -283,7 +283,7 @@
 				limit = {
 					any_country = {
 						country_rank >= rank_value:great_power
-						has_interest_marker_in_region = region_persia
+						has_interest_marker_in_region = sr:region_greater_persia
 						any_neighbouring_state = {
 							c:AFG ?= owner
 						}
@@ -295,7 +295,7 @@
 				random_country = {
 					limit = {
 						country_rank >= rank_value:great_power
-						has_interest_marker_in_region = region_persia
+						has_interest_marker_in_region = sr:region_greater_persia
 						any_neighbouring_state = {
 							c:AFG ?= owner
 						}
@@ -315,7 +315,7 @@
 						}
 						overlord ?= {
 							country_rank >= rank_value:great_power
-							has_interest_marker_in_region = region_persia
+							has_interest_marker_in_region = sr:region_greater_persia
 							NOT = {
 								THIS = ROOT
 							}
@@ -333,7 +333,7 @@
 						}
 						overlord = {
 							country_rank >= rank_value:great_power
-							has_interest_marker_in_region = region_persia
+							has_interest_marker_in_region = sr:region_greater_persia
 							NOT = {
 								THIS = ROOT
 							}
@@ -440,7 +440,7 @@
 					NOT = {
 						THIS = ROOT
 					}
-					has_interest_marker_in_region = region_persia
+					has_interest_marker_in_region = sr:region_greater_persia
 					any_scope_state = {
 						OR = {
 							region = sr:region_central_asia
@@ -458,7 +458,7 @@
 					}
 					overlord ?= {
 						country_rank >= rank_value:great_power
-						has_interest_marker_in_region = region_persia
+						has_interest_marker_in_region = sr:region_greater_persia
 						NOT = {
 							THIS = ROOT
 						}
@@ -1831,7 +1831,7 @@ je_unify_afghanistan = {
 	is_shown_in_lobby = {
 		has_dlc_feature = ep1_content #spheres of influence
 		capital ?= {
-			region = sr:region_persia
+			is_in_geographic_region = geographic_region_persia_old
 		}
 		OR = {
 			country_has_primary_culture = cu:pashtun
@@ -1844,7 +1844,7 @@ je_unify_afghanistan = {
 
 	possible = {
 		capital ?= {
-			region = sr:region_persia
+			is_in_geographic_region = geographic_region_persia_old
 		}
 		OR = {
 			country_has_primary_culture = cu:pashtun
