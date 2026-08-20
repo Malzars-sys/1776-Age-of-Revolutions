@@ -61,9 +61,14 @@
 #			country = c:KAL
 #			type = vassal
 #		}
-		create_diplomatic_pact = {
-			country = c:KAF
-			type = vassal
+		if = {
+			limit = {
+				exists = c:KAF
+			}
+			create_diplomatic_pact = {
+				country = c:KAF
+				type = vassal
+			}
 		}
 	}
 	c:POR ?= {
@@ -141,13 +146,19 @@
 			country = c:KZH
 			type = protectorate
 		}
-		create_diplomatic_pact = {
-			country = c:UZH
-			type = protectorate
+		if = {
+			limit = { exists = c:UZH }
+			create_diplomatic_pact = {
+				country = c:UZH
+				type = protectorate
+			}
 		}
-		create_diplomatic_pact = {
-			country = c:OZH
-			type = protectorate
+		if = {
+			limit = { exists = c:OZH }
+			create_diplomatic_pact = {
+				country = c:OZH
+				type = protectorate
+			}
 		}
 	}
 	c:PRU ?= {
@@ -181,13 +192,23 @@
 		}
 	}
 	c:USA ?= {
-		create_diplomatic_pact = {
-			country = c:SEQ
-			type = puppet
+		if = {
+			limit = {
+				exists = c:SEQ
+			}
+			create_diplomatic_pact = {
+				country = c:SEQ
+				type = puppet
+			}
 		}
-		create_diplomatic_pact = {
-			country = c:LIB
-			type = protectorate
+		if = {
+			limit = {
+				exists = c:LIB
+			}
+			create_diplomatic_pact = {
+				country = c:LIB
+				type = protectorate
+			}
 		}
 	}
 	c:AUS ?= {
@@ -226,9 +247,14 @@
 			country = c:BIC
 			type = chartered_company
 		}
-		create_diplomatic_pact = {
-			country = c:ORG
-			type = colony
+		if = {
+			limit = {
+				exists = c:ORG
+			}
+			create_diplomatic_pact = {
+				country = c:ORG
+				type = colony
+			}
 		}
 		create_diplomatic_pact = {
 			country = c:HAN
@@ -391,9 +417,14 @@
 			country = c:ARB
 			type = vassal
 		}
-		create_diplomatic_pact = { # Armenia
-			country = c:ARM
-			type = vassal
+		if = {
+			limit = {
+				exists = c:ARM
+			}
+			create_diplomatic_pact = { # Armenia
+				country = c:ARM
+				type = vassal
+			}
 		}
 	}
 
@@ -414,12 +445,12 @@
 		add_liberty_desire = -30
 	}
 
-	c:OZH = {
+	c:OZH ?= {
 		add_liberty_desire = 10
 	}
 
 
-	c:UZH = {
+	c:UZH ?= {
 		add_liberty_desire = 10
 	}
 
@@ -427,7 +458,7 @@
 #		add_liberty_desire = 10
 #	}
 
-	c:SER = {
+	c:SER ?= {
 		add_liberty_desire = 20
 	}
 
@@ -439,7 +470,7 @@
 		add_liberty_desire = 20
 	}
 
-	c:EGY = {
+	c:EGY ?= {
 		add_liberty_desire = 45
 	}
 	
