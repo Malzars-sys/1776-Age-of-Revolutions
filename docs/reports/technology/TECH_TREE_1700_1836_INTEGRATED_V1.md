@@ -1,12 +1,12 @@
 # TECH-2 — Integrated Technology Tree 1700–1836 V1
 
-Status: `INPUT_FOR_HUMAN_REVIEW` · `CANONICAL_PLAN_BEFORE_IMPLEMENTATION` · `NO_GAMEPLAY_CHANGE`
+Status: `TECH2H_HUMAN_FREEZE_REVIEW_PASS` · `CANONICAL_PLAN_BEFORE_IMPLEMENTATION` · `NO_GAMEPLAY_CHANGE`
 
 Baseline: Victoria 3 1.13.9 / twelve-era engine validated by TECH-0P. This document designs eras I–VI only. The machine-readable authority for individual nodes is `TECH_TREE_1700_1836_INTEGRATED_V1.csv`.
 
 ## 1. Executive Summary
 
-The integrated graph contains 117 technologies: 42 Production, 21 Military, 15 Naval and 39 Society. It is not a concatenation of the three source lists: 30 cross-branch prerequisite edges create material, scientific, institutional and doctrinal convergences. Static validation finds zero broken references, zero prerequisite cycles, zero isolated technologies and zero technologies without AI context metadata.
+The integrated graph contains 118 technologies: 42 Production, 21 Military, 15 Naval and 40 Society. TECH-2H reviewed all 30 proposed cross-branch edges and retained only 14 as hard prerequisites. Static validation finds zero broken references, zero prerequisite cycles, zero orphan technologies and zero technologies without AI context metadata. `international_relations` is an intentionally independent foundational node with direct vanilla unlocks, not an orphan.
 
 The period is organized into six provisional eras: I (c.1690–1719), II (1720–1749), III (1750–1774), IV (1775–1799), V (1800–1824) and VI (1825–1849). The 1836 start date is not treated as a hard intellectual boundary. Era VI deliberately hosts transitions that mature around 1840 while retaining explicit bridges into later vanilla content.
 
@@ -20,7 +20,8 @@ Public V1 requires `salt` and `spices`. Every other proposed new good remains op
 - Keep early political/intellectual antecedents distinct from mature anarchism, organized feminism, later socialism and modern psychiatry.
 - Require salt and spices in public V1; defer copper, industrial chemicals, cement, pharmaceuticals and other new goods.
 - Give direct POP salt consumption a zero minimum share. Early military supply consumes salt plus cereals; advanced groceries-based supply does not consume salt a second time.
-- Use Great Wave 1.13 architecture. Copper Sheathing is a real component in existing `ship_mod_slot_utility_1`; no new slot is created.
+- Use Great Wave 1.13 architecture. Copper Sheathing is a real component proposed for existing `ship_mod_slot_utility_2`; no new slot definition is created, and runtime/default-template validation remains mandatory.
+- Diagonal Ship Framing directly gates the two existing vanilla Seppings-Braced Hull armor modifications; it does not duplicate them with a shipyard modifier.
 - Use progressive, state-attached geological discovery bounded by hidden deposits.
 - Give every researchable technology general contextual AI metadata; country flavor and advanced archetypes remain later layers.
 
@@ -28,7 +29,7 @@ Public V1 requires `salt` and `spices`. Every other proposed new good remains op
 
 | Era | Window | Nodes | Role | Proposed relative band |
 |---|---|---:|---|---|
-| I | c.1690–1719 | 12 | inherited institutions and first practical pivots | `BAND_A_LOWEST` |
+| I | c.1690–1719 | 13 | inherited institutions and first practical pivots | `BAND_A_LOWEST` |
 | II | 1720–1749 | 6 | early diffusion and administrative measurement | `BAND_B_LOW` |
 | III | 1750–1774 | 19 | pre-revolutionary acceleration and specialization | `BAND_C_LOW_MEDIUM` |
 | IV | 1775–1799 | 28 | revolutionary-era convergence and first mechanization | `BAND_D_MEDIUM` |
@@ -65,15 +66,15 @@ The 15-node Naval branch uses Great Wave’s actual separation of ship type, pro
 - State Dockyard Systems and Enclosed Dock Systems establish military/civil capacity separately.
 - Scientific Naval Architecture enables design capability, not a fictional hull slot.
 - Marine Chronometry, Hydrographic Surveying, classification, safety and lighthouse optics are country/port/navigation effects.
-- Paddle Steamer rewires propulsion and shipbuilding and requires both Rotative Steam Power and High-Pressure Steam.
+- Paddle Steamer rewires propulsion and shipbuilding and requires Rotative Steam Power. High-Pressure Steam is contextual synergy, not a hard prerequisite: early paddle propulsion did not universally depend on it.
 - Mechanized Naval Dockyards is a shipyard PM/capacity unlock.
-- Diagonal Ship Framing is a shipyard/building modifier, not a component.
+- Diagonal Ship Framing directly unlocks vanilla `ship_mod_frigate_armor_medium` and `ship_mod_ship_of_the_line_armor_medium`, both localized as Seppings-Braced Hull and using `ship_mod_slot_armor`.
 - Shell Gun is a guns-slot weapon unlock.
 - Iron Hull Construction is a structural ship-type/hull step and bridges to, but is not, `ironclad_tech`.
 
 ## 7. Society Tree
 
-The 39-node Society branch models capability rather than a Westernization ladder. It covers administration, statistics, public credit, capital markets, insurance, scientific exchange, education, medicine, print, political discourse and mobilization.
+The 40-node Society branch models capability rather than a Westernization ladder. It covers administration, statistics, public credit, capital markets, insurance, scientific exchange, diplomacy, education, medicine, print, political discourse and mobilization.
 
 The applied-science backbone is preserved:
 
@@ -81,30 +82,24 @@ The applied-science backbone is preserved:
 
 Political nodes unlock or weight institutions and movements; they do not automatically impose laws. Human Rights and National & Popular Sovereignty remain distinct. Early Socialism & Cooperativism does not retroproject mature later socialist or anarchist movements into the eighteenth century.
 
+`international_relations` is preserved under its vanilla ID and name. TECH-1A classified its former match to Institutionalized Scientific Exchange as `NAME_COLLISION_ONLY`; diplomatic treaty mechanics therefore remain on their own node.
+
 ## 8. Cross-Branch Dependencies
 
-Thirty explicit edges are retained. Major convergences include:
+TECH-2H reviewed all 30 proposed edges: 14 remain hard prerequisites, 11 were weakened to AI/contextual synergy and 5 were removed as false dependencies. The retained hard edges are:
 
 | From | To | Dependency represented |
 |---|---|---|
-| Institutionalized Scientific Exchange | Industrial Acids / Applied Mineralogy / Industrial Ceramics | scientific circulation |
-| Public Credit + Administrative Statistics | Industrial Canals | finance and state survey capacity |
 | Standardized Field Artillery | Precision Boring | artillery-boring demand |
-| Polytechnical Education | Professional Civil Engineering | professional training |
-| Cadastral Surveying + Metrology | Geological Surveying | measured territory and standards |
 | Precision Boring | Armament Inspection | industrial inspection capability |
-| Technical Academies | Permanent Engineer Services | trained military engineers |
-| Administrative Statistics | Military Topographic Surveying | state information capacity |
 | Mechanical Tools | Rifling | reproducible precision manufacture |
 | Veterinary Science | Military Veterinary Services | medical knowledge |
-| Rotative + High-Pressure Steam | Paddle Steamer | practical marine propulsion |
+| Rotative Steam Power | Paddle Steamer | practical marine propulsion |
 | Mechanical Tools + Rotative Steam | Mechanized Naval Dockyards | machinery and power |
 | Puddling/Rolling + Mechanical Tools | Iron Hull Construction | structural iron and fabrication |
 | Pressed Glass | Modern Lighthouse Optics | optical material capability |
-| Industrial Ceramics | Optical Telegraph Networks | optics/engineering material base |
 | Tools + steam + continuous paper | Mechanized Printing | machine and feedstock convergence |
-| Industrial Acids | Laboratories / Active-Principle Pharmacy | experimental chemical infrastructure |
-| Mechanized Weaving | Labor Movement | industrial wage-work condition |
+| Industrial Acids | Active-Principle Pharmacy | chemical isolation infrastructure |
 
 Same-era prerequisites are allowed only where they express a real convergence; they are not used to force linear chronology.
 
@@ -141,9 +136,11 @@ Geological Surveying opens later Coal Geology, Ore Geology, Industrial Minerals 
 
 ## 12. Ship Designer Integration
 
-Copper Sheathing is confirmed as a real `ship_modification` using existing `ship_mod_slot_utility_1`, not a new slot. Utility is chosen over Range because sheathing is optional equipment and must not replace the mandatory stowage/range selection. Planned compatibility is restricted to historically appropriate wooden frigate and ship-of-the-line types.
+Copper Sheathing remains a real `ship_modification`, but TECH-2H changes the proposed mapping from `ship_mod_slot_utility_1` to existing `ship_mod_slot_utility_2`. On the wooden frigate and ship-of-the-line, utility 1 already competes with patrol boats, large carronades and landing skiffs; armor must remain available for Seppings bracing, and range must remain available for stowage. Utility 2 is therefore the only non-exclusive existing candidate. Adding it to those two wooden type allow-lists requires runtime/default-template validation, but creates no new slot definition.
 
-Implementation must provide technology gating, type allow-lists, contextual AI weight, default-template inclusion, custom-template behavior and a non-DLC default path. The economic input is unresolved because the copper good is deferred; this blocks implementation values, not the component architecture.
+Vanilla 1.13.9 already contains `ship_mod_frigate_armor_medium` and `ship_mod_ship_of_the_line_armor_medium`, both localized as Seppings-Braced Hull. They occupy `ship_mod_slot_armor`, cost hardwood in construction, and add armor plus hit points. They currently have no `unlocking_technologies`. Diagonal Ship Framing will gate both objects directly; the former duplicate shipyard/building modifier is removed from the plan. Copper Sheathing remains compatible because it uses a separate utility slot.
+
+Implementation must provide technology gating, type allow-lists, contextual AI weight, default-template inclusion, custom-template behavior and a non-DLC default path. The Copper Sheathing economic input is `UNRESOLVED_PENDING_IMPLEMENTATION_DESIGN`; the copper good remains deferred.
 
 ## 13. AI Research Architecture
 
@@ -166,17 +163,17 @@ The CSV classifies all nodes without modifying country setup:
 | Adoption class | Count |
 |---|---:|
 | widely established before 1776 | 5 |
-| regionally established before 1776 | 13 |
+| regionally established before 1776 | 14 |
 | frontier / limited adoption in 1776 | 19 |
 | post-1776 | 80 |
 
-Scope metadata contains 103 universal, 11 universal-starting-differential, 2 event-acquired-universal and 1 regional-innovation nodes. These are categories for later setup research, not automatic grants.
+Scope metadata contains 103 universal, 12 universal-starting-differential, 2 event-acquired-universal and 1 regional-innovation nodes. These are categories for later setup research, not automatic grants.
 
 ## 16. Vanilla Preservation / Reuse Matrix
 
 | Action | Count | Meaning in this plan |
 |---|---:|---|
-| KEEP | 9 | concept remains viable with minimal intervention |
+| KEEP | 10 | concept remains viable with minimal intervention |
 | RETIME | 19 | historical placement changes |
 | REWIRE | 7 | role/name broadly retained but dependencies change |
 | SPLIT | 21 | vanilla node compresses distinct historical capabilities |
@@ -185,7 +182,7 @@ Scope metadata contains 103 universal, 11 universal-starting-differential, 2 eve
 | REPLACE | 0 | no full replacement needed after consolidation |
 | NEW | 59 | no adequate vanilla node |
 
-Twenty rows preserve a vanilla name and ID directly; 38 historically necessary split/rewire rows do not; 59 new nodes have no vanilla name to preserve. Examples retained include Shaft Mining, Atmospheric Engine, Cotton Gin, Mechanical Tools, Canneries, Railways, Paddle Steamer, Logistics, Percussion Cap, General Staff, Shell Gun, Stock Exchange, Medical Degrees, Human Rights, Postal Savings and Labor Movement.
+Twenty-one rows preserve a vanilla name and ID directly; 38 historically necessary split/rewire rows do not; 59 new nodes have no vanilla name to preserve. Examples retained include Shaft Mining, Atmospheric Engine, Cotton Gin, Mechanical Tools, Canneries, Railways, Paddle Steamer, Logistics, Percussion Cap, General Staff, Shell Gun, Stock Exchange, Medical Degrees, Human Rights, Postal Savings, Labor Movement and International Relations.
 
 ## 17. Post-1836 Transition
 
@@ -204,7 +201,7 @@ Post-1836 vanilla successors stay in place by default until their own integratio
 
 ## 18. Pacing Risks
 
-The 117-node half-tree is denser in eras IV–V (28 and 33 nodes). The band proposal therefore requires runtime testing for optimized human completion, normal AI progression, spread and ahead penalties. Industrial Knowledge is not included in the baseline. It becomes required only if a highly optimized player cannot complete the intended full-game tree without absurdly low costs.
+The 118-node half-tree is denser in eras IV–V (28 and 33 nodes). The band proposal therefore requires runtime testing for optimized human completion, normal AI progression, spread and ahead penalties. Industrial Knowledge is not included in the baseline. It becomes required only if a highly optimized player cannot complete the intended full-game tree without absurdly low costs.
 
 No numeric technology cost is frozen here. Era bands express order only and must be calibrated with the certified 12-era runtime harness.
 
@@ -215,7 +212,7 @@ No numeric technology cost is frozen here. Era bands express order only and must
 - Salt/spice maps and starting supply can create global shortages before AI reacts.
 - Progressive discovery needs idempotent save/load state and bounded candidate scans.
 - Same-era convergence must remain acyclic after implementation IDs are finalized.
-- Interface density, localization and icon coverage must be validated for 117 early nodes.
+- Interface density, localization and icon coverage must be validated for 118 early nodes.
 - No `BASELINE_*` placeholder may enter gameplay prerequisites; they only describe pre-1690 knowledge.
 
 ## 20. Deferred Systems
@@ -239,7 +236,7 @@ Technology placeholder: `gfx/error_manul.dds`. Building placeholder: `gfx/error_
 
 Before public release, static checks require zero new techs without AI weight, missing icon/description, broken prerequisite, orphan good/building/PM/PMG or unresolved external dependency. Runtime checks require all eligible new techs to be researchable by AI, every required chain bootstrap/import path to work, salt-alone famine to remain impossible, discovery to remain idempotent across save/load, valid AI naval designs and zero critical long-run failures.
 
-TECH-2 currently passes the **design/static graph gate only**: 117 unique nodes, 30 cross-branch edges, zero broken graph references, zero cycles, zero isolated nodes and zero missing AI contexts. Gameplay-object and runtime gates are intentionally pending implementation.
+TECH-2H passes the **human design/static graph gate only**: 118 unique nodes, 30 proposed cross-branch edges reviewed, 14 hard cross-branch edges retained, zero broken graph references, zero cycles, zero orphan nodes and zero missing AI contexts. Gameplay-object and runtime gates are intentionally pending implementation.
 
 ## 23. Visual Tree
 
@@ -290,17 +287,10 @@ flowchart LR
     MC[Marine Chronometry] --> HS[Hydrographic Surveying] --> MSS[Maritime Safety]
   end
 
-  SE -.science.-> IA
-  SE -.science.-> AM
   SA -.boring demand.-> PB
-  PE -.training.-> PC
-  CS -.survey.-> GS
   PB -.inspection.-> AI
-  TA -.engineers.-> ESVC
-  AS -.state data.-> TS
   MT -.precision.-> RF
   RS -.propulsion.-> PS
-  HP -.propulsion.-> PS
   MT -.machinery.-> MD
   PR -.iron structure.-> IH
   MT -.fabrication.-> IH
@@ -316,4 +306,4 @@ flowchart LR
   ES --> POST
 ```
 
-`TECH2_INTEGRATED_TREE = PASS` for consolidated design and static graph review. No implementation, commit or push is authorized by this phase.
+`TECH2H_FREEZE_REVIEW = PASS` and `TREE_READY_TO_FREEZE = YES` for consolidated design and static graph review. No gameplay implementation, commit or push is authorized by this phase.
