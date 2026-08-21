@@ -1,0 +1,17 @@
+layer,object_or_relation,reference_behavior,source_file,static_value_or_count,1776_decision,risk_or_note
+identity,Basileia Romaion 1736,"Version 1.5.0; target 1.13.*; Workshop 2880120246",.metadata/metadata.json,1 reference mod,REFERENCE_ONLY,Community Mod Framework dependency and broad replace paths
+good,spices,luxury good,common/goods/br_goods.txt,"cost 60; traded_quantity 10; convoy 0.25; obsession 3; prestige 10",REIMPLEMENT_LOCALLY,All values deferred
+pop_need,popneed_luxury_food,direct luxury-food demand,common/pop_needs/br_pop_needs.txt,"weight 0.75; max 0.50; min 0.01",ADAPT_CONCEPT,Minimum share requires stress testing
+building,building_spices_plantation,arable plantation,common/buildings/br_building_plantations.txt,"construction_cost_low; gate br_tech_plantation_system",ADOPT_CONCEPT,Regional crop must exist before technology
+pm,default_building_spices_plantation,basic production,common/production_methods/br_pm_agro.txt,output spices 15,REIMPLEMENT_LOCALLY,Quantity non-canonical
+pm,automatic_irrigation_building_spices_plantation,advanced production,common/production_methods/br_pm_agro.txt,"input engines 5; output spices 45; gate pumpjacks",ADAPT_CONCEPT,Post-1836 bridge only
+pm,pm_spiced_food,Food Industries consumer,common/production_methods/br_pm_industry.txt,"grain 40; spices 5; sugar 2; groceries 75",ADOPT_CONCEPT,Do not copy quantities or replacement scope
+pm,later grocery PM injections,Food Industries consumers,common/production_methods/br_pm_industry.txt,spices 5 and 10,ADAPT_CONCEPT,Must avoid excessive compulsory demand
+technology,br_tech_plantation_system,plantation unlock,common/technology/technologies/br_production_1736-1836.txt,"era_1; ai_weight 2",REJECT_AS_SPICE_ORIGIN,Spices are established regional production
+regional_bonus,br_tech_indonesia_spices,non-researchable output bonus,common/technology/technologies/br_unique_techs.txt,"spices output +25%; ai_weight -99",REFERENCE_ONLY,Possible flavor layer deferred
+map,arable eligibility,plantation included in arable_resources,map_data/state_regions/*.txt,131 state regions,REJECT_MAP_AS_IS,Breadth is not a historical commodity audit
+map,state_trait_spice_islands,plantation throughput bonus,common/state_traits/br_state_traits.txt,+50% in 3 parsed state blocks,ADAPT_CONCEPT,Exact geography and magnitude deferred
+setup,starting plantations,scripted building creation,common/history/buildings/*.txt,"22 create blocks; 63 ownership levels indexed",REFERENCE_ONLY,Scenario branches prevent runtime-total inference
+trade,spice export stance,export preference,common/ai_strategies/*.txt,3 explicit goods stances,REIMPLEMENT_LOCALLY,Needs domestic-shortage guard and importer logic
+companies,trade-company plantation support,company eligibility/prestige,common/company_types/*.txt,multiple company references,DEFERRED,Companies cannot be sole bootstrap
+ai,spice bootstrap and shortage recovery,no dedicated complete mechanism found,common/ai_strategies/*.txt,PARTIAL,REIMPLEMENT_LOCALLY,General 1776 AI must build import protect and brake
