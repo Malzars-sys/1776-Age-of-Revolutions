@@ -118,7 +118,7 @@ antibiotics = {
 	}
 
 	unlocking_technologies = {
-		pharmaceuticals
+		active_principle_pharmacy
 		experimental_research_laboratories
 	}
 
@@ -618,28 +618,6 @@ civilizing_mission = {
 	}
 }
 
-colonization = {
-	# Unlocks Colonial Resettlement, Colonial Exploitation - Colonial Affairs Laws
-	# Unlocks various expedition decisions
-	# Unlocks the Suez Canal
-	era = era_4
-	texture = "gfx/interface/icons/invention_icons/colonization.dds"
-	category = society
-
-	modifier = {
-		country_institution_colonial_affairs_max_investment_add = 2
-		country_infamy_generation_against_unrecognized_mult = -0.1
-	}
-
-	unlocking_technologies = {
-		international_relations
-	}
-
-	ai_weight = {
-		value = 1
-	}
-}
-
 combustion_engine = {
 	# Unlocks Automobile Production PM in Motor Industries
 	# Unlocks Diesel Pump PM in Coal, Iron, Lead, Sulfur Mines
@@ -758,6 +736,7 @@ corporate_charters = {
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/corporate_charters.dds"
 	category = society
+	can_research = no # TECH4C4 consumed compatibility alias; retained for external gameplay/script references
 
 	modifier = {
 		country_max_companies_add = 1
@@ -899,21 +878,6 @@ corporatism = {
 	}
 }
 
-crystal_glass = {
-	# Unlocks Leaded Glass PM in Glassworks
-	era = era_6
-	texture = "gfx/interface/icons/invention_icons/crystal_glass.dds"
-	category = production
-
-	unlocking_technologies = {
-		lathe
-	}
-
-	ai_weight = {
-		value = 1
-	}
-}
-
 currency_standards = {
 	# Unlocks Payroll Tax - Income Taxation Law
 	era = era_7
@@ -1009,23 +973,6 @@ dialectics = {
 
 	unlocking_technologies = {
 		empiricism
-	}
-
-	ai_weight = {
-		value = 1
-	}
-}
-
-distillation = {
-	# Unlocks Pot Stills PM in Food Industry
-	# Unlocks Sweeteners PM in Food Industry
-	# Unlocks Fish Press PM in Fishing Wharfs
-	era = era_5
-	texture = "gfx/interface/icons/invention_icons/distillation.dds"
-	category = production
-
-	unlocking_technologies = {
-		manufacturies
 	}
 
 	ai_weight = {
@@ -1352,6 +1299,7 @@ enclosure = {
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
 	category = production
+	can_research = no # TECH4C4 consumed compatibility alias; retained for external gameplay/script references
 
 	ai_weight = {
 		value = 3 # Very important tech in general
@@ -1656,7 +1604,7 @@ improved_fertilizer = {
 	category = production
 
 	unlocking_technologies = {
-		intensive_agriculture
+		industrial_acids
 	}
 
 	ai_weight = {
@@ -1671,6 +1619,7 @@ intensive_agriculture = {
 	era = era_5
 	texture = "gfx/interface/icons/invention_icons/intensive_agriculture.dds"
 	category = production
+	can_research = no # TECH4C4 consumed compatibility alias; retained for external gameplay/script references
 
 	unlocking_technologies = {
 		enclosure
@@ -1840,6 +1789,7 @@ lathe = {
 	era = era_5
 	texture = "gfx/interface/icons/invention_icons/lathe.dds"
 	category = production
+	can_research = no # TECH4C4 consumed compatibility alias; retained for external gameplay/script references
 
 	unlocking_technologies = {
 		cotton_gin
@@ -1981,6 +1931,7 @@ manufacturies = {
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
 	category = production
+	can_research = no # TECH4C4 consumed compatibility alias; retained for external gameplay/script references
 
 	ai_weight = {
 		value = 3 # Very important tech in general
@@ -2593,6 +2544,7 @@ pharmaceuticals = {
 	era = era_6
 	texture = "gfx/interface/icons/invention_icons/pharmaceuticals.dds"
 	category = society
+	can_research = no # TECH4C4 consumed compatibility alias; retained for external gameplay/script references
 
 	modifier = {
 		country_institution_health_system_max_investment_add = 1
@@ -2840,7 +2792,7 @@ quinine = {
 	}
 
 	unlocking_technologies = {
-		pharmaceuticals
+		active_principle_pharmacy
 	}
 
 	ai_weight = {
