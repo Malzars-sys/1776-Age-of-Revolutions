@@ -1,0 +1,323 @@
+﻿# TECH-3A generated from frozen TECH-2H authority.
+
+scientific_fortification_siegecraft = {
+	# TECH3A conceptual branch: Military
+	era = era_1
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+regulated_small_arms = {
+	# TECH3A conceptual branch: Military
+	era = era_2
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		scientific_fortification_siegecraft
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+light_infantry_tactics = {
+	# TECH3A conceptual branch: Military
+	era = era_3
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		regulated_small_arms
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+standardized_field_artillery = {
+	# TECH3A conceptual branch: Military
+	era = era_3
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+permanent_military_hospitals = {
+	# TECH3A conceptual branch: Military
+	era = era_3
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		medical_degrees
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+armament_standardization_inspection = {
+	# TECH3A conceptual branch: Military
+	era = era_4
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		regulated_small_arms
+		standardized_field_artillery
+		precision_boring
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+permanent_engineer_services = {
+	# TECH3A conceptual branch: Military
+	era = era_4
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		scientific_fortification_siegecraft
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+horse_artillery = {
+	# TECH3A conceptual branch: Military
+	era = era_4
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		standardized_field_artillery
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+military_topographic_surveying = {
+	# TECH3A conceptual branch: Military
+	era = era_4
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		permanent_engineer_services
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+mysorean_iron_cased_rocketry = {
+	# TECH3A conceptual branch: Military
+	era = era_4
+	texture = "gfx/error_manul.dds"
+	category = military
+	can_research = no
+	# Regional/event acquisition is implemented in a later phase.
+
+	ai_weight = {
+		value = 0.25
+	}
+}
+
+rifling = {
+	# TECH3A conceptual branch: Military
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/rifling.dds"
+	category = military
+
+	unlocking_technologies = {
+		light_infantry_tactics
+		armament_standardization_inspection
+		mechanical_tools
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+corps_organization = {
+	# TECH3A conceptual branch: Military
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		horse_artillery
+		permanent_engineer_services
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+logistics = {
+	# TECH3A conceptual branch: Military
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/logistics_tech.dds"
+	category = military
+
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		systematic_administrative_statistics
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+field_engineering_pontoon_trains = {
+	# TECH3A conceptual branch: Military
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		permanent_engineer_services
+		logistics
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+explosive_field_ammunition = {
+	# TECH3A conceptual branch: Military
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		standardized_field_artillery
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+battlefield_evacuation = {
+	# TECH3A conceptual branch: Military
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		permanent_military_hospitals
+		logistics
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+military_veterinary_services = {
+	# TECH3A conceptual branch: Military
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		veterinary_science
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+casemated_fortifications = {
+	# TECH3A conceptual branch: Military
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		permanent_engineer_services
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+standardized_military_rockets = {
+	# TECH3A conceptual branch: Military
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		explosive_field_ammunition
+		armament_standardization_inspection
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+percussion_cap = {
+	# TECH3A conceptual branch: Military
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/percussion_cap.dds"
+	category = military
+
+	unlocking_technologies = {
+		armament_standardization_inspection
+		rifling
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+general_staff = {
+	# TECH3A conceptual branch: Military
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/general_staff.dds"
+	category = military
+
+	unlocking_technologies = {
+		corps_organization
+		military_topographic_surveying
+		logistics
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}

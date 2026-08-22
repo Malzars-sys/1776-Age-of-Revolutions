@@ -1,0 +1,310 @@
+﻿# TECH-3A generated from frozen TECH-2H authority.
+
+state_dockyard_systems = {
+	# TECH3A conceptual branch: Naval
+	era = era_1
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		institutionalized_public_credit
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+enclosed_dock_systems = {
+	# TECH3A conceptual branch: Naval
+	era = era_1
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+scientific_naval_architecture = {
+	# TECH3A conceptual branch: Naval
+	era = era_3
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		state_dockyard_systems
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+marine_chronometry = {
+	# TECH3A conceptual branch: Naval
+	era = era_3
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+ship_classification_surveying = {
+	# TECH3A conceptual branch: Naval
+	era = era_3
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		enclosed_dock_systems
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+copper_sheathing = {
+	# TECH3A conceptual branch: Naval
+	era = era_4
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+hydrographic_surveying = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		marine_chronometry
+		military_topographic_surveying
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+standardized_naval_signals = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+paddle_steamer = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/paddle_steamer.dds"
+	category = military
+
+
+	modifier = {
+		ship_hull_damage_mult = 0.05
+		ship_crew_damage_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+		rotative_steam_power
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+mechanized_naval_dockyards = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+		state_dockyard_systems
+		mechanical_tools
+		rotative_steam_power
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+diagonal_ship_framing = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+shell_gun = {
+	# TECH3A conceptual branch: Naval
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/shell_gun.dds"
+	category = military
+
+	unlocking_technologies = {
+		standardized_field_artillery
+		scientific_naval_architecture
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+maritime_safety_standards = {
+	# TECH3A conceptual branch: Naval
+	era = era_6
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		ship_classification_surveying
+		hydrographic_surveying
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+modern_lighthouse_optics = {
+	# TECH3A conceptual branch: Naval
+	era = era_6
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		hydrographic_surveying
+		pressed_glass
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+iron_hull_construction = {
+	# TECH3A conceptual branch: Naval
+	era = era_6
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+		mechanized_naval_dockyards
+		puddling_and_rolling
+		mechanical_tools
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}

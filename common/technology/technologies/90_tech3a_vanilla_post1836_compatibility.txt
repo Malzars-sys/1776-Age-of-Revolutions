@@ -1,0 +1,3530 @@
+﻿# Vanilla 1.13.9 technology definitions preserved under replace_path.
+# Original era I compatibility nodes and vanilla eras II-V are provisionally remapped to eras VII-XII.
+
+academia = {
+	# Unlocks University building
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/academia.dds"
+	category = society
+
+	modifier = {
+		state_education_access_wealth_add = 0.005
+	}
+
+	unlocking_technologies = {
+		rationalism
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+admiralty = {
+	# Unlocks building_naval_administration building
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+
+	modifier = {
+		#state_building_naval_administration_max_level_add = 4
+    }
+
+	unlocking_technologies = {
+		navigation
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+analytical_philosophy = {
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/analytical_philosophy.dds"
+	category = society
+
+	modifier = {
+		state_literacy_growth_add = 0.0002
+	}
+
+	unlocking_technologies = {
+		psychoanalysis
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+anarchism = {
+	# Unlocks Anarchy - Distribution of Power Law
+	# New leaders may spawn with the Anarchist Ideology
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/anarchy.dds"
+	category = society
+
+	unlocking_technologies = {
+		egalitarianism
+			early_socialism_cooperativism
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_egalitarian_agenda
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+					has_strategy = ai_strategy_maintain_mandate_of_heaven
+				}
+			}
+			add = -0.5
+		}
+	}
+}
+
+aniline = {
+	# Unlocks Synthetic Plants building
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/aniline.dds"
+	category = production
+
+	unlocking_technologies = {
+		rubber_mastication
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+antibiotics = {
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/antibiotics.dds"
+	category = society
+
+	modifier = {
+		country_institution_health_system_max_investment_add = 1
+		state_harvest_condition_disease_outbreak_impact_mult = -0.15
+	}
+
+	unlocking_technologies = {
+		malaria_prevention
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+arc_welding = {
+	# Unlocks Arc Welding Shipbuilding PM in Shipyards
+	# Unlocks Very Fast PM in Construction Camps
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/arc_welding.dds"
+	category = production
+
+	unlocking_technologies = {
+		electric_arc_process
+		pneumatic_tools
+	}
+
+	modifier = {
+		country_ship_group_capital_ships_construction_progress_max_add = 20
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+army_reserves = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/army_reserves.dds"
+	category = military
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		line_infantry
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+art_silk = {
+	# Unlocks the Rayon PM in Synthetic Plants
+	# Unlocks the Bleached Paper PM in Paper Mills
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/art_silk.dds"
+	category = production
+
+	unlocking_technologies = {
+		aniline
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+artillery = {
+	# Unlocks Artillery Production PM in Arms Industries
+	# Unlocks Cannon Artillery PM in Barracks
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/artillery.dds"
+	category = military
+
+	unlocking_technologies = {
+		gunsmithing
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+automatic_bottle_blowers = {
+	# Unlocks the Automatic Bottle Blowers PM in Glassworks
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/automatic_bottle_blowers.dds"
+	category = production
+
+	unlocking_technologies = {
+		vulcanization
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+automatic_machine_guns = {
+	# Unlocks Recoil Mechaniscm PM in Arms Factory
+	# Unlocks Machine Gunners PMs in Barracks and Conscription Centers
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/machine_gun.dds"
+	category = military
+
+	unlocking_technologies = {
+		handcranked_machine_gun
+		bolt_action_rifles
+	}
+
+	ai_weight = {
+		value = 1.5 # important for everyone
+	}
+}
+
+baking_powder = {
+	# Unlocks Baking Powder PM in Food Industries
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/baking_powder.dds"
+	category = production
+
+	unlocking_technologies = {
+		fractional_distillation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+banking = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/banking.dds"
+	category = society
+
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
+	}
+
+	unlocking_technologies = {
+		currency_standards
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+battlefleet_tactics = {
+	# Unlocks Battlefleet Tactics PM in Naval Bases
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/battlefleet_tactics.dds"
+	category = military
+
+	modifier = {
+		#state_building_naval_administration_max_level_add = 2
+		country_admiral_rank_impact_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		battleship_tech
+		sea_lane_strategies
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+battleship_tech = {
+	# Unlocks Battleships PM in Naval Bases
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/battleship_tech.dds"
+	category = military
+
+	unlocking_technologies = {
+		dreadnought_tech
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+behaviorism = {
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/behaviorism.dds"
+	category = society
+
+	modifier = {
+		country_influence_mult = 0.5
+		country_diplomatic_play_maneuvers_mult = 0.5
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+	}
+
+	unlocking_technologies = {
+		psychoanalysis
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+bessemer_process = {
+	# Unlocks Bessemer Process PM in Steel Mills
+	# Unlocks Steel [Tools] PM in Tooling Workshops
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/bessemer_process.dds"
+	category = production
+
+	unlocking_technologies = {
+		steelworking
+			hot_blast_smelting
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				 has_strategy = ai_strategy_industrial_expansion
+			}
+			add = 1
+		}
+	}
+}
+
+bolt_action_rifles = {
+	# Unlocks Bolt Action Rifles PM in Arms Industry
+	# Global Unlock for Bolt Action Rifles PM in Barracks
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/bolt_action_rifles.dds"
+	category = military
+
+	unlocking_technologies = {
+		repeaters
+	}
+
+	ai_weight = {
+		value = 2 # important for everyone
+	}
+}
+
+breech_loading_artillery = {
+	# Unlocks Breech Loading Artillery Production PM in Arms Industries
+	# Unlocks Breech Loading Artillery PM in Barracks
+	# Unlocks Railway Guns PM in Railways
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/breech_loading_artillery.dds"
+	category = military
+
+	unlocking_technologies = {
+		rifling
+		shell_gun
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 8
+		}
+	}
+}
+
+camera = {
+	# Unlocks Photographic Art, Improved Propaganda Centers PMs in Art Academy
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/camera.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		realism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+carrier_tech = {
+	# Unlocks Carriers PM in Naval Bases
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/carrier_tech.dds"
+	category = military
+
+	unlocking_technologies = {
+		dreadnought_tech
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+central_archives = {
+	# Unlocks Secret Police - Internal Security Law
+	# Unlocks Horizontal Drawer Cabinets PM for Government Administration
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/central_archives.dds"
+	category = society
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		centralization
+	}
+
+	on_researched = {
+		if = {
+			limit = {
+				NOT = {
+					any_political_movement = {
+						is_political_movement_type = movement_modernizer
+					}
+				}
+				OR = {
+					AND = {
+						OR = {
+							is_in_geographic_region = geographic_region_south_america
+							is_in_geographic_region = geographic_region_central_america_old
+						}
+						country_rank <= rank_value:major_power
+					}
+					country_is_colonial_or_company = yes
+					is_country_type = unrecognized
+				}
+				NAND = {
+					has_law_or_variant = law_type:law_protectionism
+					OR = {
+						has_law_or_variant = law_type:law_interventionism
+						has_law_or_variant = law_type:law_command_economy
+						has_law_or_variant = law_type:law_laissez_faire
+					}
+					has_law_or_variant = law_type:law_compulsory_primary_school
+				}
+			}
+			create_political_movement = { type = movement_modernizer }
+		}
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+central_banking = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/central_banking.dds"
+	category = society
+
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
+	}
+
+	unlocking_technologies = {
+		banking
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+central_planning = {
+	# Unlocks Command Economy - Economic System Law
+	# Unlocks Vertical Filing Cabinets PM in Government Administrations
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/central_planning.dds"
+	category = society
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_government_dividends_efficiency_add = 0.05
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+		state_literacy_growth_add = 0.0002
+	}
+
+	unlocking_technologies = {
+		identification_documents
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+centralization = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/centralization.dds"
+	category = society
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		tech_bureaucracy
+		nationalism
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+
+		if = {
+			limit = { has_journal_entry = je_age_of_princes }
+			add = 20
+		}
+	}
+}
+
+chemical_warfare = {
+	# Unlocks Chemical Artillery PM in Barracks
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/chemical_warfare.dds"
+	category = military
+
+	unlocking_technologies = {
+		automatic_machine_guns
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+civilizing_mission = {
+	# Unlocks Panama Canal survey expedition decision
+	# Unlocks the Panama Canal
+
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/civilizing_mission.dds"
+	category = society
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
+		country_infamy_generation_against_unrecognized_mult = -0.25
+	}
+
+	unlocking_technologies = {
+		quinine
+		nationalism
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for colonizers
+		if = {
+			limit = {
+				navy_size >= 25
+				is_country_type = recognized
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			add = 1
+		}
+	}
+}
+
+colonization = {
+	# Unlocks Colonial Resettlement, Colonial Exploitation - Colonial Affairs Laws
+	# Unlocks various expedition decisions
+	# Unlocks the Suez Canal
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/colonization.dds"
+	category = society
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 2
+		country_infamy_generation_against_unrecognized_mult = -0.1
+	}
+
+	unlocking_technologies = {
+		international_relations
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+combustion_engine = {
+	# Unlocks Automobile Production PM in Motor Industries
+	# Unlocks Diesel Pump PM in Coal, Iron, Lead, Sulfur Mines
+	# Unlocks Chainsaws PM in Logging Camps
+	# Unlocks Combustion Derricks PM in Oil Rigs
+	# Unlocks Public Motor Carriages PM in Urban Centers
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/combustion_engine.dds"
+	category = production
+
+	unlocking_technologies = {
+		rotary_valve_engine
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+compression_ignition = {
+	# Unlocks Diesel Trains PM in Railways
+	# Unlocks Compression Ignition Tractors PM in Rye Farms, Wheat Farms, Millet Farms
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/compression_ignition.dds"
+	category = production
+
+	unlocking_technologies = {
+		combustion_engine
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+concrete_dockyards = {
+	# Unlocks Modern Port PM in Ports
+	# Increases Max Port Level by 4
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/concrete_dockyards.dds"
+	category = military
+
+	modifier = {
+		ship_ship_type_supply_ship_supply_capacity_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		floating_harbor
+	}
+
+	modifier = {
+		country_ship_group_capital_ships_construction_progress_max_add = 10
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 0.5
+		}
+	}
+}
+
+concrete_fortifications = {
+	# Increases defense
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/concrete_fortifications.dds"
+	category = military
+
+	modifier = {
+		# build the maginot line and be completely unstoppable, forever, especially if you're France
+		# bonus to general defensiveness or specifically to forts if they become a thing
+		unit_army_defense_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		defense_in_depth
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+conveyors = {
+	# Unlocks the Assembly Lines PM in Furniture Manufacturies, Tooling Workshops, Motor Industry
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/conveyers.dds"
+	category = production
+
+	unlocking_technologies = {
+		vulcanization
+		shift_work
+		electrical_generation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+corporate_charters = {
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/corporate_charters.dds"
+	category = society
+
+	modifier = {
+		country_max_companies_add = 1
+		country_free_charters_add = 2
+	}
+
+	unlocking_technologies = {
+		stock_exchange
+	}
+
+	ai_weight = {
+		value = 3 # very important tech
+	}
+}
+
+corporate_management = {
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/corporate_management.dds"
+	category = society
+
+	modifier = {
+		country_max_companies_add = 1
+		state_urbanization_per_level_mult = -0.25
+	}
+
+	unlocking_technologies = {
+		investment_banks
+	}
+
+	ai_weight = {
+		value = 2 # important tech
+	}
+}
+
+corporatism = {
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/corporatism.dds"
+	category = society
+
+	on_researched = {
+		if = {
+			limit = {
+				NOT = { has_variable = corporatism_researched }
+			}
+			set_variable = corporatism_researched
+			ig:ig_devout ?= {
+				remove_ideology = ideology_pious
+				add_ideology = ideology_corporatist
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:spanish # I am in Spain...
+					country_has_primary_culture = cu:catalan # ...without the S
+					country_has_primary_culture = cu:basque # ...without the A
+				}
+			}
+			custom_tooltip = {
+				text = carlist_amended_tt
+				every_character = {
+					limit = {
+						has_ideology = ideology:ideology_carlist
+						OR = {
+							owner ?= ROOT
+							home_country ?= ROOT
+						}
+					}
+					set_ideology = ideology:ideology_carlist_2
+				}
+				every_political_movement = {
+					limit = {
+						has_core_ideology = ideology:ideology_carlist_movement
+					}
+					set_core_ideology = ideology_carlist_movement_2
+				}
+				every_interest_group = {
+					limit = {
+						has_ideology = ideology:ideology_carlist_ig
+					}
+					remove_ideology = ideology_carlist_ig
+					add_ideology = ideology_carlist_ig_2
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_has_primary_culture = cu:portuguese
+			}
+			custom_tooltip = {
+				text = miguelist_amended_tt
+				every_character = {
+					limit = {
+						has_ideology = ideology:ideology_miguelist
+						OR = {
+							owner ?= ROOT
+							home_country ?= ROOT
+						}
+					}
+					set_ideology = ideology:ideology_miguelist_2
+				}
+				every_political_movement = {
+					limit = {
+						has_core_ideology = ideology:ideology_miguelist_movement
+					}
+					set_core_ideology = ideology_miguelist_movement_2
+				}
+			}
+		}
+	}
+
+	modifier = {
+		state_radicals_from_political_movements_mult = -0.1
+	}
+
+	unlocking_technologies = {
+		labor_movement
+		nationalism
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_egalitarian_agenda
+			}
+			add = -0.5
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+			}
+			add = 1.5
+		}
+	}
+}
+
+crystal_glass = {
+	# Unlocks Leaded Glass PM in Glassworks
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/crystal_glass.dds"
+	category = production
+
+	unlocking_technologies = {
+		lathe
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+currency_standards = {
+	# Unlocks Payroll Tax - Income Taxation Law
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/currency_standards.dds"
+	category = society
+
+	unlocking_technologies = {
+		international_trade
+		centralization
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+
+		if = {
+			limit = { has_journal_entry = je_sick_man_bureaucracy }
+			add = 20
+		}
+	}
+}
+
+defense_in_depth = {
+	# Increases defense
+	# Unlock Delay Order?
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/defense_in_depth.dds"
+	category = military
+
+	modifier = {
+		# defensive bonus, either to the army or ideally to fortifications
+		unit_army_defense_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		trench_works
+		handcranked_machine_gun
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+democracy = {
+	# Unlocks Right of Assembly - Freedom of Speech Law
+	# Unlocks Landed Voting, Wealth Voting, Census Voting - Distribution of Power Laws
+	# Unlocks Presidential Republic, Parliamentary Republic - Governance Principles Law
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/democracy.dds"
+	category = society
+
+	modifier = {
+		country_institution_social_security_max_investment_add = 2
+	}
+
+	unlocking_technologies = {
+		rationalism
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+destroyer = {
+	# Unlocks Destroyer PM on Naval Bases
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/destroyers.dds"
+	category = military
+
+	unlocking_technologies = {
+		monitor_tech
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+dialectics = {
+	# Unlocks Philosophy Department PM in Universities
+
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/dialectics.dds"
+	category = society
+
+	modifier = {
+		country_institution_schools_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		empiricism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+distillation = {
+	# Unlocks Pot Stills PM in Food Industry
+	# Unlocks Sweeteners PM in Food Industry
+	# Unlocks Fish Press PM in Fishing Wharfs
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/distillation.dds"
+	category = production
+
+	unlocking_technologies = {
+		manufacturies
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+dough_rollers = {
+	# Unlocks the Automated Bakery PM in Food Industries
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/rollers.dds"
+	category = production
+
+	unlocking_technologies = {
+		conveyors
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+dreadnought_tech = {
+	# Unlocks Dreadnoughts PM in Naval Bases
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/dreadnought.dds"
+	category = military
+
+	modifier = {
+		# increased coal consumption
+		# increased offense and defense?
+
+		# prestige bonus? Or a prestige bonus to overall naval size. Could apply this to mahanian_thought instead.
+	}
+
+	unlocking_technologies = {
+		pre_dreadnought_tech
+		sea_lane_strategies
+		concrete_dockyards
+		military_aviation
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+drydocks = {
+	# Increases Port max level by 3
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/drydock.dds"
+	category = military
+
+	unlocking_technologies = {
+		navigation
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 0.5
+		}
+	}
+}
+
+dynamite = {
+	# Unlocks Vacuum Evaporation PM in Chemical Plants
+	# Unlocks Explosive Shells PM in Munitions Plants
+	# Unlocks Dynamite PM in Coal, Iron, Lean, Sulfur Mines
+	# Countries get a +25% chance of discovering new resources
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+
+	modifier = {
+		country_resource_discovery_chance_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		nitroglycerin
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+egalitarianism = {
+	# Unlocks Universal Suffrage - Distribution of Power Law
+	# Unlocks Egalitarian - Citizenship Law
+	# Unlocks Proportional Taxation - Income Taxation Law
+	# New leaders may spawn with the Radical Ideology
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/egalitarianism.dds"
+	category = society
+
+	modifier = {
+		state_expected_sol_from_literacy = 1
+		country_institution_social_security_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		democracy
+	}
+
+	on_researched = {
+		if = {
+			limit = {
+				has_journal_entry = je_springtime_of_the_peoples
+				NOT = {
+					is_involved_in_journal_entry = je_springtime_of_the_peoples
+				}
+			}
+			je:je_springtime_of_the_peoples ?= {
+				add_involved_country = ROOT
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_progressive_agenda
+			}
+			add = 2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+					has_strategy = ai_strategy_maintain_mandate_of_heaven
+				}
+			}
+			add = -0.5
+		}
+	}
+}
+
+electric_arc_process = {
+	# Unlocks the Electric Arc Process PM in Steel Mills
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/electric_arc_process.dds"
+	category = production
+
+	unlocking_technologies = {
+		open_hearth_process
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+electric_railway = {
+	# Unlocks Electric Trains PM in Railways
+	# Unlocks Log Carts PM in Logging Camps
+	# Unlocks Refrigerated Rail Carts in Fishing Wharfs
+	# Increases Railway max level by 1
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/electric_railway.dds"
+	category = production
+
+	unlocking_technologies = {
+		electrical_capacitors
+		steel_railway_cars
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+electric_telegraph = {
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/electrical_telegraph.dds"
+	category = military
+
+	modifier = {
+		country_war_exhaustion_casualties_mult = -0.25
+	}
+
+	unlocking_technologies = {
+		logistics
+			optical_telegraph_networks
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 8
+		}
+	}
+}
+
+electrical_capacitors = {
+	# Unlocks Electric Sewing Machines PM and Automatic Power Looms PM in Textile Mills
+	# Unlocks Brine Electrolysis PM in Chemical Plants
+	# Unlocks Electric Saw Mills PM in Logging Camps
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/electrical_capacitors.dds"
+	category = production
+
+	unlocking_technologies = {
+		electrical_generation
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+electrical_generation = {
+	# Unlocks Power Plants
+	# Unlocks Electric Sewing Machines PM and Automatic Power Looms PM in Textile Mills
+	# Unlocks Brine Electrolysis PM in Chemical Plants
+	# Unlocks Electric Fencing PM and Refrigerated Storage PM in Livestock Ranches
+	# Unlocks Refrigerated Storage PM in Fishing Wharfs
+	# Unlocks Electric Saw Mills PM in Logging Camps
+	# Unlocks Electric Streetlights PM in Urban Centers
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/electrical_generation.dds"
+	category = production
+
+	unlocking_technologies = {
+		rotary_valve_engine
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+elevator = {
+	# Unlocks Arcades PM in Urban Center
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/elevator.dds"
+	category = society
+
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_infrastructure_from_population_max_add = 20
+		state_building_construction_sector_max_level_add = 5
+		country_max_weekly_construction_progress_add = 5
+	}
+
+	unlocking_technologies = {
+		steel_frame_buildings
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+empiricism = {
+	# Unlocks Total Separation - Church and State Law
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/empiricism.dds"
+	category = society
+
+	modifier = {
+		country_influence_mult = 0.25
+		country_diplomatic_play_maneuvers_mult = 0.25
+		country_institution_schools_max_investment_add = 1
+		state_education_access_wealth_add = 0.005
+	}
+
+	unlocking_technologies = {
+		academia
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+enclosure = {
+	# Unlocks construction of Farms and Plantations
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+enlistment_offices = {
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/enlistment_offices.dds"
+	category = military
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		logistics
+		mandatory_service
+		army_reserves
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 8
+		}
+	}
+}
+
+feminism = {
+	# Unlocks Women in the Workplace - Rights of Women Law
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/feminism.dds"
+	category = society
+
+	on_researched = {
+		if = {
+			limit = {
+				NOT = { has_variable = feminism_researched }
+			}
+			set_variable = feminism_researched
+			custom_tooltip = {
+				text = liberal_and_egalitarian_amended_tt
+				every_interest_group = {
+					limit = {
+						has_ideology = ideology:ideology_liberal
+					}
+					remove_ideology = ideology_liberal
+					add_ideology = ideology_liberal_modern
+				}
+				every_interest_group = {
+					limit = {
+						has_ideology = ideology:ideology_egalitarian
+					}
+					remove_ideology = ideology_egalitarian
+					add_ideology = ideology_egalitarian_modern
+				}
+			}
+		}
+	}
+
+	modifier = {
+		country_institution_social_security_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		human_rights
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_egalitarian_agenda
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+					has_strategy = ai_strategy_maintain_mandate_of_heaven
+				}
+			}
+			add = -0.5
+		}
+	}
+}
+
+field_works = {
+	# Increases defense
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/field_works.dds"
+	category = military
+
+	modifier = {
+		# defensive bonus, either directly to army or (ideally) a fortifications bonus, if we get forts
+		# Lower kill rate?
+		unit_army_defense_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		napoleonic_warfare
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+film = {
+	# Unlocks Film Propaganda Center PM in Arts Academies
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/film.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		camera
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+flamethrowers = {
+	# Increases kill rate (lowers opponent survival rate)
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/flamethrowers.dds"
+	category = military
+
+	unlocking_technologies = {
+		trench_works
+		automatic_machine_guns
+	}
+	modifier = {
+		unit_kill_rate_add = 0.05
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+flash_freezing = {
+	# Unlocks Refrigerated Rail Cars PM in Livestock Ranches
+	# Unlocks Flash Freezing PM in Fishing Wharfs
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/flash_freezing.dds"
+	category = production
+
+	unlocking_technologies = {
+		pasteurization
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+floating_harbor = {
+	# Unlocks Industrial Port PM in Ports
+	# Increases Port Level by 4
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/floating_harbor.dds"
+	category = military
+
+	unlocking_technologies = {
+		gantry_cranes
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 0.5
+		}
+	}
+}
+
+gantry_cranes = {
+	# Increases Port max level by 4
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/gantry_crane.dds"
+	category = military
+
+	modifier = {
+		ship_ship_type_supply_ship_supply_capacity_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		hydraulic_cranes
+		screw_frigate
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+gunsmithing = {
+	# Unlocks Arms Industry building
+	# Global Unlock for Muskets PM in Barracks
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/gunsmithing.dds"
+	category = military
+
+	unlocking_technologies = {
+		standing_army
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+handcranked_machine_gun = {
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/handcranked_machine_gun.dds"
+	category = military
+
+	modifier = {
+		unit_army_defense_add = 5
+		unit_kill_rate_add = 0.05
+	}
+
+	unlocking_technologies = {
+		repeaters
+		breech_loading_artillery
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+hydraulic_cranes = {
+	# Increases Port max level by 3
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/hydraulic_cranes.dds"
+	category = military
+
+	unlocking_technologies = {
+		drydocks
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for anyone with a navy
+		if = {
+			limit = { navy_size >= 5 }
+			add = 0.5
+		}
+	}
+}
+
+identification_documents = {
+	# Unlocks Identification Documents PM in Government Administrations
+	# Unlocks Closed Borders Law in Migration
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/identification_documents.dds"
+	category = society
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		central_archives
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+improved_fertilizer = {
+	# Unlocks Improved Fertilizer PM in Chemical Plants
+	# Unlocks Fertilization PM in Rye, Wheat, Rice, Maize, Millet Farms
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/improved_fertilizer.dds"
+	category = production
+
+	unlocking_technologies = {
+		intensive_agriculture
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+intensive_agriculture = {
+	# Unlocks Chemical Plants
+	# Unlocks Intensive Agriculture PM on Rye Farms, Wheat Farms, Rice Farms, Maize Farms, Millet Farms
+	# Unlocks Intensize Grazing Ranch PM on Livestock Ranches
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/intensive_agriculture.dds"
+	category = production
+
+	unlocking_technologies = {
+		enclosure
+	}
+
+	ai_weight = {
+		value = 2 # Important tech for everyone
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_agricultural_expansion
+					has_strategy = ai_strategy_plantation_economy
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+international_exchange_standards = {
+	# Should increase trade power maybe
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/international_exchange_standards.dds"
+	category = society
+
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
+	}
+
+	unlocking_technologies = {
+		mutual_funds
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+international_trade = {
+	# Unlocks Trade Center building
+	# Unlocks Free Trade - Economic System Law
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/international_trade.dds"
+	category = society
+
+	unlocking_technologies = {
+		tech_bureaucracy
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+investment_banks = {
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/investment_banks.dds"
+	category = society
+
+	modifier = {
+		country_max_companies_add = 1
+		country_free_charters_add = 1
+		state_urbanization_per_level_mult = -0.15
+	}
+
+	unlocking_technologies = {
+		joint_stock_companies
+		mutual_funds
+	}
+
+	ai_weight = {
+		value = 2 # important tech
+	}
+}
+
+ironclad_tech = {
+	# Unlocks Metal Shipbuilding PM in Shipyards
+	# Unlocks Ironclads PM in Naval Base
+	# Unlocks Steam Trawlers PM in Fishing Wharves
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/ironclad_tech.dds"
+	category = military
+
+	unlocking_technologies = {
+		screw_frigate
+			iron_hull_construction
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Very Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 2
+		}
+	}
+}
+
+jeune_ecole = {
+	# Unlocks Jeune Ecole PM in Naval Base
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/jeune_ecole.dds"
+	category = military
+
+	modifier = {
+		#state_building_naval_administration_max_level_add = 2
+		country_admiral_rank_impact_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		self_propelled_torpedoes
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+joint_stock_companies = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/joint_stock_companies.dds"
+	category = society
+
+	modifier = {
+		country_max_companies_add = 1
+		state_urbanization_per_level_mult = -0.1
+	}
+
+	unlocking_technologies = {
+		banking
+		corporate_charters
+	}
+
+	ai_weight = {
+		value = 2 # important tech
+	}
+}
+
+landing_craft = {
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/landing_craft.dds"
+	category = military
+
+	unlocking_technologies = {
+		jeune_ecole
+		monitor_tech
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 1
+		}
+	}
+}
+
+lathe = {
+	# Unlocks Lathes PM in Furniture Manufacturies
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/lathe.dds"
+	category = production
+
+	unlocking_technologies = {
+		cotton_gin
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+law_enforcement = {
+	# Unlocks Local Police, Dedicated Police - Policing Laws
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/law_enforcement.dds"
+	category = society
+
+	modifier = {
+		country_institution_police_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		tech_bureaucracy
+		urban_planning
+		professional_civil_policing
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+line_infantry = {
+	# Unlocks Line Infantry PM in Barracks
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/line_infantry.dds"
+	category = military
+
+	unlocking_technologies = {
+		mandatory_service
+		military_drill
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+macroeconomics = {
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/macroeconomics.dds"
+	category = society
+
+	modifier = {
+		country_max_companies_add = 1
+		state_market_access_price_impact = 0.05
+	}
+
+	unlocking_technologies = {
+		international_exchange_standards
+		corporate_management
+	}
+
+	ai_weight = {
+		value = 3 # very important tech
+	}
+}
+
+malaria_prevention = {
+	# Should permit for colonization of state regions with severe malaria
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/malaria_prevention.dds"
+	category = society
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
+		country_institution_health_system_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		civilizing_mission
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for colonizers
+		if = {
+			limit = {
+				navy_size >= 25
+				is_country_type = recognized
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			add = 1
+		}
+	}
+}
+
+mandatory_service = {
+	# Unlocks Army Model - National Militia
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/mandatory_service.dds"
+	category = military
+
+	modifier = {
+		state_conscription_rate_mult = 0.2
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		standing_army
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+manufacturies = {
+	# Unlocks Mercantilism Law
+	# Unlocks Food Industry, Textile Mills, Furniture Manufacturies, Glassworks, Tooling Workshops, Paper Mills
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/manufacturies.dds"
+	category = production
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+mass_communication = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/mass_communication.dds"
+	category = society
+
+	modifier = {
+		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		democracy
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+mass_propaganda = {
+	# Unlocks Better Radios PM in Electrics Industries
+	# New leaders may spawn with the Fascist Ideology
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/mass_propaganda.dds"
+	category = society
+
+	modifier = {
+		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
+		state_expected_sol_from_literacy = 1
+		country_agitator_slots_add = 1
+		country_support_separatism_strength_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		political_agitation
+		film
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+mass_surveillance = {
+	# Unlocks Personal Files PM in Government Administrations
+	# Unlocks Militarized Police - Policing Law
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/mass_surveillance.dds"
+	category = society
+
+	modifier = {
+		state_tax_capacity_add = 25
+		country_support_separatism_resistance_mult = 0.25
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		central_planning
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+mechanized_farming = {
+	# Unlocks Tractors PM in Rye Farms, Wheat Farms, Millet Farms
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/mechanized_farming.dds"
+	category = production
+
+	unlocking_technologies = {
+		threshing_machine
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_agricultural_expansion
+					has_strategy = ai_strategy_plantation_economy
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+mechanized_workshops = {
+	# Unlocks Slaughterhouses PM in Livestock Ranches
+	# Unlocks Sewing Machines PM and Mechanized Looms PM in Textile Mills
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/mechanized_workshops.dds"
+	category = production
+
+	modifier = {
+		building_economy_of_scale_level_cap_add = 10
+	}
+
+	unlocking_technologies = {
+		canneries
+		mechanical_tools
+		manufacturies
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				 has_strategy = ai_strategy_industrial_expansion
+			}
+			add = 1
+		}
+	}
+}
+
+military_aviation = {
+	# Unlocks Vehicles Industries
+	# Unlocks Tanks, Planes and Tanks PM in Barracks
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/military_aviation.dds"
+	category = military
+
+	modifier = {
+		# increased oil consumption
+		# increased recon/scouting/go fast
+	}
+
+	unlocking_technologies = {
+		handcranked_machine_gun
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+military_drill = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/military_drill.dds"
+	category = military
+
+	modifier = {
+		unit_experience_gain_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		standing_army
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+military_statistics = {
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/military_statistics.dds"
+	category = military
+
+
+	modifier = {
+		military_formation_organization_gain_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		electric_telegraph
+		general_staff
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+mobile_armor = {
+	# Unlocks Tanks PM in Vehicles Industries
+	# Unlocks Tanks, Planes and Tanks PM in Barracks
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/mobile_armor.dds"
+	category = military
+
+	unlocking_technologies = {
+		concrete_fortifications
+		nco_training
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+modern_financial_instruments = {
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/modern_financial_instruments.dds"
+	category = society
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		country_government_dividends_efficiency_add = 0.05
+	}
+	unlocking_technologies = {
+		international_exchange_standards
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+modern_nursing = {
+	# Unlocks Field Hospitals PM in Barracks
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/modern_nursing.dds"
+	category = military
+
+	unlocking_technologies = {
+		triage
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+modern_sewerage = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/modern_sewerage.dds"
+	category = society
+
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_infrastructure_from_population_max_add = 20
+		state_building_construction_sector_max_level_add = 5
+		country_max_weekly_construction_progress_add = 5
+		state_pollution_reduction_health_mult = -0.1
+		state_harvest_condition_flood_impact_mult = -0.1
+	}
+
+	unlocking_technologies = {
+		urban_planning
+	}
+
+	ai_weight = {
+		value = 1.5 # Important in general
+	}
+}
+
+monitor_tech = {
+	# Unlocks Monitors PM in Naval Base
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/monitor_tech.dds"
+	category = military
+
+	modifier = {
+		# increased offense and defense.
+	}
+
+	unlocking_technologies = {
+		ironclad_tech
+		breech_loading_artillery
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+multilateral_alliances = {
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/multilateral_alliances.dds"
+	category = society
+
+	modifier = {
+		country_infamy_generation_mult = -0.25
+		country_diplomatic_play_maneuvers_mult = 0.5
+		country_allow_multiple_alliances_bool = yes
+	}
+
+	unlocking_technologies = {
+		pan-nationalism
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { country_rank >= rank_value:great_power }
+			add = 2
+		}
+	}
+}
+
+mutual_funds = {
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/mutual_funds.dds"
+	category = society
+
+	modifier = {
+		country_minting_mult = 0.1
+		country_loan_interest_rate_add = -0.02
+		state_max_trade_advantage_from_capacity_add = 0.05
+	}
+
+	unlocking_technologies = {
+		central_banking
+		postal_savings
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+napoleonic_warfare = {
+	# Unlocks Mobile Artillery PM in Barracks
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/napoleonic_warfare.dds"
+	category = military
+
+	unlocking_technologies = {
+		line_infantry
+		artillery
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+
+		if = {
+			limit = { has_journal_entry = je_sick_man_army }
+			add = 100
+		}
+	}
+}
+
+nationalism = {
+	# Unlocks the Immigration Controls Law in Migration
+	# New leaders may spawn with the Ethno-Nationalist Ideology
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/nationalism.dds"
+	category = society
+
+	modifier = {
+		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		mass_communication
+		national_sovereignty
+	}
+
+	ai_weight = {
+		value = 2 # Important in general
+
+		# Extra-important for major unifications
+		if = {
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+				}
+			}
+			add = 4
+		}
+
+		if = {
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+				}
+				any_country = {
+					has_journal_entry = je_risorgimento
+				}
+			}
+			multiply = 4
+		}
+
+		if = { # Important for Hungary and the Balkan states
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:croat
+					country_has_primary_culture = cu:serb
+					country_has_primary_culture = cu:slovene
+					country_has_primary_culture = cu:bosniak
+					country_has_primary_culture = cu:hungarian
+				}
+			}
+			multiply = 4
+		}
+	}
+}
+
+navigation = {
+	# Unlocks Shipyards
+	# Unlocks Ports
+	# Increases Port max level by 2
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/navigation.dds"
+	category = military
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+nco_training = {
+	# Unlocks Advanced Officer Training PM in Barracks
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/nco_training.dds"
+	category = military
+
+	modifier = {
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		wargaming
+		trench_works
+	}
+
+	ai_weight = {
+		value = 2 # Important tech in general
+	}
+}
+
+nitrogen_fixation = {
+	# Unlocks Nitrogen Fixation PM in Chemical Plants
+	# Unlocks Chemical Fertilizer PM in Rye, Wheat, Rice, Maize, Millet Farms
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/nitrogen_fixation.dds"
+	category = production
+
+	unlocking_technologies = {
+		improved_fertilizer
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+nitroglycerin = {
+	# Unlocks Nitroglycerin PM in Coal, Iron, Lead, Sulfur Mines
+	# Unlocks Ammonia-Soda Process PM in Chemical Industries
+	# Countries get a +25% chance of discovering new resources
+
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/nitroglycerin.dds"
+	category = production
+
+	modifier = {
+		country_resource_discovery_chance_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		intensive_agriculture
+		prospecting
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+oil_turbine = {
+	# Unlocks Oil-Fired Plant PM in Power Plants
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/oil_turbines.dds"
+	category = production
+
+	unlocking_technologies = {
+		steam_turbine
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+open_hearth_process = {
+	# Unlocks Open Hearth Process PM in Steel Mills
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/open_hearth_process.dds"
+	category = production
+
+	unlocking_technologies = {
+		bessemer_process
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+organized_sports = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/organized_sports.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		nationalism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+pan-nationalism = {
+	# Permits for the formation of a number of pan-nationalist countries
+	# Permits the Unify Germany and Unify Italy Diplomatic Plays
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/pan_nationalism.dds"
+	category = society
+
+	modifier = {
+		country_authority_mult = 0.1
+		country_support_separatism_strength_mult = 0.25
+		country_voting_power_mult = 0.1
+	}
+
+	unlocking_technologies = {
+		nationalism
+	}
+
+	ai_weight = {
+		value = 2 # Important in general
+
+		# Extra-important for major unifications
+		if = {
+			limit = {
+				OR = {
+					country_has_primary_culture = cu:north_german
+					country_has_primary_culture = cu:south_german
+					country_has_primary_culture = cu:north_italian
+					country_has_primary_culture = cu:south_italian
+					country_has_primary_culture = cu:croat
+					country_has_primary_culture = cu:serb
+					country_has_primary_culture = cu:slovene
+					country_has_primary_culture = cu:bosniak
+				}
+			}
+			add = 5
+		}
+	}
+}
+
+pasteurization = {
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/pasteurization.dds"
+	category = production
+
+	unlocking_technologies = {
+		vacuum_canning
+		electrical_capacitors
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+paved_roads = {
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/paved_roads.dds"
+	category = society
+	should_update_map = yes # This technology adds paved roads to the map
+
+	modifier = {
+		state_infrastructure_from_automobiles_consumption_add = 0.25
+	}
+
+	unlocking_technologies = {
+		elevator
+	}
+
+	ai_weight = {
+		value = 2 # Important for those nice-looking roads!
+	}
+}
+
+pharmaceuticals = {
+	# Increases the ratio of pop casualties that survive a battle
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/pharmaceuticals.dds"
+	category = society
+
+	modifier = {
+		country_institution_health_system_max_investment_add = 1
+		state_harvest_condition_disease_outbreak_impact_mult = -0.2
+	}
+
+	unlocking_technologies = {
+		medical_degrees
+		organized_immunization_campaigns
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+philosophical_pragmatism = {
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/philosophical_pragmatism.dds"
+	category = society
+
+	modifier = {
+		country_influence_mult = 0.25
+		country_diplomatic_play_maneuvers_mult = 0.25
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+		state_literacy_growth_add = 0.0001
+	}
+
+	unlocking_technologies = {
+		psychiatry
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+plastics = {
+	# Unlocks the Houseware Plastics PM in Glassworks
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/plastics.dds"
+	category = production
+
+	unlocking_technologies = {
+		reinforced_concrete
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+pneumatic_tools = {
+	# +15% construction throughput
+	# Countries get a +25% chance of discovering new resources
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/pneumatic_tools.dds"
+	category = production
+
+	modifier = {
+		building_construction_sector_throughput_add = 0.1
+		goods_output_hardwood_mult = 0.25
+		country_resource_discovery_chance_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		rotary_valve_engine
+		reinforced_concrete
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+political_agitation = {
+	# Unlocks Women's Suffrage - Rights of Women Law
+	# Increases political participation from poor pop types
+	# New leaders may spawn with the Feminist, Vanguardist Ideology
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/political_agitation.dds"
+	category = society
+
+	modifier = {
+		state_expected_sol_from_literacy = 1
+		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
+		country_agitator_slots_add = 1
+	}
+
+	unlocking_technologies = {
+		anarchism
+		socialism
+		corporatism
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_egalitarian_agenda
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+			}
+			add = -0.5
+		}
+	}
+}
+
+power_of_the_purse = {
+	# Unlocks the Power of the Purse PM in Naval Bases
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/power_of_the_purse.dds"
+	category = military
+
+	modifier = {
+		#state_building_naval_administration_max_level_add = 2
+		country_admiral_rank_impact_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		admiralty
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+pre_dreadnought_tech = {
+	# Unlocks Pre-Dreadnoughts
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/pre_dreadnought.dds"
+	category = military
+
+	unlocking_technologies = {
+		ironclad_tech
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+prospecting = {
+	# Unlocks possibility to discover Gold Fields
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/prospecting_tech.dds"
+	category = production
+
+	unlocking_technologies = {
+		geological_surveying
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+psychiatry = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/psychiatry.dds"
+	category = society
+
+	modifier = {
+		country_influence_mult = 0.25
+		country_diplomatic_play_maneuvers_mult = 0.25
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+	}
+
+	unlocking_technologies = {
+		empiricism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+psychoanalysis = {
+	# Should provide additional methods for dealing with negative psychological character traits
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/psychoanalysis.dds"
+	category = society
+
+	modifier = {
+		country_influence_mult = 0.25
+		country_diplomatic_play_maneuvers_mult = 0.25
+		state_bureaucracy_population_base_cost_factor_mult = -0.05
+	}
+
+	unlocking_technologies = {
+		philosophical_pragmatism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+pumpjacks = {
+	# Unlocks possibility to discover Oil (to build Oil Rigs)
+	# Unlocks Oil Rig building
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/pumpjacks.dds"
+	category = production
+
+	unlocking_technologies = {
+		steam_donkey
+		dynamite
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+quinine = {
+	# Permits colonization of state regions with the Malaria trait
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/quinine.dds"
+	category = society
+
+	modifier = {
+		country_institution_colonial_affairs_max_investment_add = 1
+		country_institution_health_system_max_investment_add = 1
+	}
+
+	unlocking_technologies = {
+		colonization
+		pharmaceuticals
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for colonizers
+		if = {
+			limit = {
+				navy_size >= 25
+				is_country_type = recognized
+			}
+			add = 1
+		}
+		if = {
+			limit = {
+				has_strategy = ai_strategy_colonial_expansion
+			}
+			add = 1
+
+			if = {
+				limit = {
+					any_scope_state = {
+						is_in_geographic_region = geographic_region_africa
+					}
+				}
+				add = 3
+			}
+		}
+	}
+}
+
+radio = {
+	# Unlocks Radios PM in Electrics Industry
+	era = era_11
+	texture = "gfx/interface/icons/invention_icons/radio.dds"
+	category = production
+
+	unlocking_technologies = {
+		telephone
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+rationalism = {
+	# Unlocks Freedom of Conscience - Church and State Law
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
+	category = society
+
+	modifier = {
+		country_institution_schools_max_investment_add = 1
+		state_education_access_wealth_add = 0.01
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+realism = {
+	# Unlocks Realist Art PM in Art Academies
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/realism.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		romanticism
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+reinforced_concrete = {
+	# +15% construction throughput
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/reinforced_concrete.dds"
+	category = production
+
+	modifier = {
+		building_construction_sector_throughput_add = 0.15
+	}
+
+	unlocking_technologies = {
+		bessemer_process
+			hydraulic_cements
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+repeaters = {
+	# Unlocks Repeaters PM in Arms Industry
+	# Global Unlock for Repeaters PM in Barracks
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/repeaters.dds"
+	category = military
+
+	unlocking_technologies = {
+		rifling
+			percussion_cap
+	}
+
+	ai_weight = {
+		value = 1.5 # Important tech in general
+	}
+}
+
+romanticism = {
+	# Unlocks Arts Academy building
+	# Unlocks Greener Grass Campaign Decree
+	# Unlocks Agrarianism - Economic System Law
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/romanticism.dds"
+	category = society
+
+	modifier = {
+		country_prestige_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		academia
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+rotary_valve_engine = {
+	# Unlocks Rotary Valve Engine PM in Furniture Manufacturies, Tooling Workshops, Paper Mills, Steel Mills, Motor Industry
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/rotary_valve_engine.dds"
+	category = production
+
+	unlocking_technologies = {
+		watertube_boiler
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+rubber_mastication = {
+	# Unlocks Rubber Plantations
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/rubber.dds"
+	category = production
+
+	unlocking_technologies = {
+		fractional_distillation
+		chemical_bleaching
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 3
+		}
+	}
+}
+
+screw_frigate = {
+	# Unlocks Complex Shipbuilding PM in Shipyards
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/screw_frigate.dds"
+	category = military
+
+	modifier = {
+		# ship go faster
+	}
+
+	unlocking_technologies = {
+		paddle_steamer
+	}
+
+	ai_weight = {
+		value = 1
+
+		# Important for naval powers
+		if = {
+			limit = { navy_size >= 20 }
+			add = 0.5
+		}
+	}
+}
+
+sea_lane_strategies = {
+	# Unlocks Sea Lane Strategies PM in Naval Bases
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/sea_lane_strategies.dds"
+	category = military
+
+	modifier = {
+		#state_building_naval_administration_max_level_add = 2
+		country_admiral_rank_impact_mult = 0.25
+	}
+
+	unlocking_technologies = {
+		jeune_ecole
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+self_propelled_torpedoes = {
+	# Unlocks Torpedo Boat PM in Naval Base
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/self_propelled_torpedoes.dds"
+	category = military
+
+	unlocking_technologies = {
+		power_of_the_purse
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+sericulture = {
+	# Unlocks Mulberry Groves PM on Rice Farms
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
+	category = production
+	can_research = no
+
+	modifier = {
+		building_silk_plantation_throughput_add = 0.25
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+shift_work = {
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/shift_work.dds"
+	category = production
+
+	modifier = {
+		building_economy_of_scale_level_cap_add = 20
+	}
+
+	unlocking_technologies = {
+		mechanized_workshops
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+socialism = {
+	# Unlocks Council Republic - Governance Principles Law
+	# Unlocks Graduated Taxation - Income Taxation Law
+	# New leaders may spawn with the Social Democrat, Communist Ideologies
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/socialism.dds"
+	category = society
+
+	modifier = {
+		state_expected_sol_from_literacy = 1
+		country_institution_workplace_safety_max_investment_add = 2
+	}
+
+	on_researched = {
+		if = {
+			limit = {
+				NOT = { has_variable = socialism_researched }
+			}
+			set_variable = socialism_researched
+			ig:ig_trade_unions ?= {
+				add_ideology = ideology_socialist
+			}
+		}
+	}
+
+	unlocking_technologies = {
+		labor_movement
+		dialectics
+			early_socialism_cooperativism
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_egalitarian_agenda
+			}
+			add = -0.5
+		}
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_conservative_agenda
+					has_strategy = ai_strategy_reactionary_agenda
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+standing_army = {
+	# Unlocks Barracks building
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/standing_army.dds"
+	category = military
+
+	ai_weight = {
+		value = 3 # Very important tech in general
+	}
+}
+
+steam_donkey = {
+	# Unlocks Steam Donkey PM in Logging Camps
+	# Unlocks Steam Donkey PM in Coal, Iron, Lead, Sulfur Mines
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/steam_donkey.dds"
+	category = production
+
+	unlocking_technologies = {
+		intensive_agriculture
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 2
+		}
+	}
+}
+
+steam_turbine = {
+	# Unlocks the Coal-Firing PM in Power Plants
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/steam_turbines.dds"
+	category = production
+
+	unlocking_technologies = {
+		electrical_generation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+steel_frame_buildings = {
+	# Unlocks Covered Markets PM in Urban Centers
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/steel_frame_buildings.dds"
+	category = society
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_infrastructure_from_population_max_add = 20
+		state_building_construction_sector_max_level_add = 5
+		country_max_weekly_construction_progress_add = 5
+		state_harvest_condition_flood_impact_mult = -0.05
+	}
+
+	unlocking_technologies = {
+		modern_sewerage
+	}
+
+	ai_weight = {
+		value = 2 # Important in general
+	}
+}
+
+steel_railway_cars = {
+	# Unlocks Steel Passenger Carriages PM and Armored Cars PM in Railways
+	# Unlocks Tanker Cars PM in Oil Rig buildings
+	# Increases Railway max level by 1
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/steel_railway_cars.dds"
+	category = production
+
+	unlocking_technologies = {
+		railways
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+steelworking = {
+	# Unlocks Steel Mills
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/steelworking.dds"
+	category = production
+
+	unlocking_technologies = {
+		hot_blast_smelting
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					 has_strategy = ai_strategy_industrial_expansion
+					 has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+stormtroopers = {
+	# Unlocks Infiltrators PM in Barracks
+	era = era_12
+	texture = "gfx/interface/icons/invention_icons/stormtroopers.dds"
+	category = military
+
+	modifier = {
+		unit_kill_rate_add = 0.05
+		unit_combat_unit_type_trench_infantry_offense_add = 5
+		unit_combat_unit_type_squad_infantry_offense_add = 5
+		unit_combat_unit_type_mechanized_infantry_offense_add = 5
+	}
+	unlocking_technologies = {
+		wargaming
+		trench_works
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+submarine = {
+	# Unlocks Submarine PM on Naval Bases
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/submarine.dds"
+	category = military
+
+	modifier = {
+		# inproved disruption of supply lines, improved evasion, improved [something naval and dickish]
+	}
+
+	unlocking_technologies = {
+		self_propelled_torpedoes
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+tech_bureaucracy = {
+	# Unlocks Government Administration building
+	# Unlocks Isolationism - Economic System Law
+	# Unlocks Road Maintenance Decree
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/bureaucracy.dds"
+	category = society
+
+	modifier = {
+		country_institution_police_max_investment_add = 2
+	}
+
+	unlocking_technologies = {
+		urbanization
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+telephone = {
+	# Unlocks Electrics Industry building
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/telephone.dds"
+	category = production
+
+	unlocking_technologies = {
+		shift_work
+		electrical_generation
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+trench_works = {
+	# Unlocks Officer Training PM in Barracks
+	# Unlocks Barbed Wire Fences in Livestock Ranches
+	# Unlocks Trench Infantry
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/trench_works.dds"
+	category = military
+
+	unlocking_technologies = {
+		general_staff
+		electric_telegraph
+		field_works
+	}
+
+	ai_weight = {
+		value = 2 # important for everyone
+	}
+}
+
+triage = {
+	# Unlocks Basic Medical Aid PM in Barracks
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/triage.dds"
+	category = military
+
+	unlocking_technologies = {
+		logistics
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_unify_germany
+			}
+			add = 8
+		}
+	}
+}
+
+urban_planning = {
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/urban_planning.dds"
+	category = society
+
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_infrastructure_from_population_max_add = 20
+		state_building_construction_sector_max_level_add = 5
+		country_max_weekly_construction_progress_add = 5
+	}
+
+	unlocking_technologies = {
+		urbanization
+	}
+
+	ai_weight = {
+		value = 2 # Important in general
+	}
+}
+
+urbanization = {
+	# Unlocks Urban Centers building
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	category = society
+
+	modifier = {
+		state_infrastructure_from_population_add = 2
+		state_infrastructure_from_population_max_add = 40
+		state_building_construction_sector_max_level_add = 10
+		country_max_weekly_construction_progress_add = 10
+	}
+
+	ai_weight = {
+		value = 3 # Very important in general
+	}
+}
+
+vacuum_canning = {
+	# Unlocks Vacuum Canning PM in Food Industries
+	era = era_8
+	texture = "gfx/interface/icons/invention_icons/vacuum_canning.dds"
+	category = production
+
+	unlocking_technologies = {
+		mechanized_workshops
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+vulcanization = {
+	# Unlocks Elastics PM in Textile Mills
+	era = era_9
+	texture = "gfx/interface/icons/invention_icons/vulcanization.dds"
+	category = production
+
+	unlocking_technologies = {
+		rubber_mastication
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+war_propaganda = {
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/war_propaganda.dds"
+	category = military
+
+	modifier = {
+		unit_morale_loss_mult = -0.05
+		state_conscription_rate_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		enlistment_offices
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+wargaming = {
+	# Unlocks Siege Artillery PM in Barracks
+	# Reduces Morale loss
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/wargaming.dds"
+	category = military
+
+	modifier = {
+		unit_army_offense_mult = 0.1
+		country_general_rank_impact_mult = 0.2
+	}
+
+	unlocking_technologies = {
+		military_statistics
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+watertube_boiler = {
+	# Unlocks Watertube Boiler PM in Furniture Manufacturies, Tooling Workshops, Paper Mills, Steel Mills, Motor Industry
+	# Unlocks Condensing Engine Pump in Coal Mines, Iron Mines, Lead Mines, Sulfur Mines
+	era = era_7
+	texture = "gfx/interface/icons/invention_icons/watertube_boiler.dds"
+	category = production
+
+	unlocking_technologies = {
+		high_pressure_steam
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+zeppelins = {
+	era = era_10
+	texture = "gfx/interface/icons/invention_icons/zeppelins.dds"
+	category = society
+
+	modifier = {
+		state_market_access_price_impact = 0.05
+	}
+
+	unlocking_technologies = {
+		steel_frame_buildings
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
