@@ -34,7 +34,7 @@ No other file was changed.
 | Technology | Destination | Era | Category | Prerequisites |
 |---|---|---|---|---|
 | `distillation` | `10_tech3a_production.txt` | I | Production | none |
-| `crystal_glass` | `10_tech3a_production.txt` | I | Production | none |
+| `crystal_glass` | `10_tech3a_production.txt` | IV | Production | `industrial_ceramics` |
 | `colonization` | `30_tech3a_society.txt` | IV | Society | `international_relations` |
 
 `distillation` and `crystal_glass` retain their original textures, AI weights, and comments. `colonization` retains its original modifier, texture, prerequisite, AI weight, category, and era. Each ID remains defined exactly once.
@@ -58,13 +58,14 @@ Their modifiers, textures, AI weights, existing internal alias relationships, an
 
 ### Active prerequisite rewires
 
-Only the five authorized gameplay prerequisite changes are present:
+Six final active prerequisite changes are present:
 
 - `distillation`: `manufacturies` → none.
-- `crystal_glass`: `lathe` → none.
+- `crystal_glass`: `lathe` → `industrial_ceramics`.
 - `improved_fertilizer`: `intensive_agriculture` → `industrial_acids`.
 - `quinine`: `pharmaceuticals` → `active_principle_pharmacy`.
 - `antibiotics`: `pharmaceuticals` → `active_principle_pharmacy`; `experimental_research_laboratories` remains unchanged.
+- `chemical_bleaching`: `industrial_acids` → `industrial_acids`, `industrial_ceramics`.
 
 ### GUI filters
 
@@ -96,7 +97,7 @@ Each new ID appears once in each filter. No layout, position, dimension, zoom, e
 | `TOTAL_GUI_HIDDEN_ALIASES` | 44 |
 | `SURVIVORS_MOVED_TO_TECH3A` | 3 |
 | `DISTILLATION_ERA` | I |
-| `CRYSTAL_GLASS_ERA` | I |
+| `CRYSTAL_GLASS_ERA` | IV |
 | `COLONIZATION_ERA` | IV |
 | `CROSS_CATEGORY_EDGES` | 0 |
 | `BROKEN_REFERENCES` | 0 |
@@ -108,7 +109,7 @@ Each new ID appears once in each filter. No layout, position, dimension, zoom, e
 | `GAMEPLAY_GATE_TRANSFERS` | 0 |
 | `STARTING_TECH_CHANGES` | 0 |
 
-The effective parser found 276 definitions in total, 232 non-hidden concepts across the complete tree, and 289 active prerequisite edges. All 121 visible Era I–VI concepts are present in the 121-row TECH3A index.
+The effective parser found 276 definitions in total, 232 non-hidden concepts across the complete tree, and 291 active prerequisite edges. All 121 visible Era I–VI concepts are present in the 121-row TECH3A index.
 
 ## Scope guards
 
@@ -116,19 +117,21 @@ The effective parser found 276 definitions in total, 232 non-hidden concepts acr
 - No building, production method, good, law, institution, company, unit, ship, event, journal entry, decree, history, or starting-technology file changed.
 - No gameplay responsibility was transferred.
 - No modifier or `on_researched` effect was added, removed, or changed.
-- The only era changes are `distillation` Era V → I and `crystal_glass` Era VI → I.
+- The only era changes are `distillation` Era V → I and `crystal_glass` Era VI → IV.
 
-## Manual runtime checklist
+## Manual runtime validation
 
-Runtime status is not validated by this report. Verify manually:
+The full runtime review passed except for one isolated Production-tree defect: `crystal_glass` appeared as an orphan-like Era I root. The targeted correction moves it to Era IV behind `industrial_ceramics`.
 
 - Production: no cards for Enclosure, Intensive Agriculture, Manufacturies, or Lathe.
-- Production: Crystal Glass and Distillation visible in Era I.
-- Production: Pressed Glass and Fractional Distillation still visible in Era VI.
-- Production: no line rendered from a hidden compatibility alias.
+- Production: Distillation remains visible in Era I.
+- Production: Crystal Glass is now defined in Era IV after Industrial Ceramics.
+- Production: Chemical Bleaching now requires both Industrial Acids and Industrial Ceramics.
+- Production: Pressed Glass and Fractional Distillation remain visible in Era VI.
+- Production: no line is rendered from a hidden compatibility alias.
 - Society: no cards for Corporate Charters or Pharmaceuticals.
-- Society: Colonization visible in Era IV after International Relations.
+- Society: Colonization is visible in Era IV after International Relations.
 - Society: Quinine and Antibiotics have no visible dependency on a hidden alias.
-- Military: no structural or visual change.
+- Military: no structural or visual anomaly was observed.
 
-`TECH4C4_FINAL_EARLY_TREE_STRUCTURE_STATIC_PASS_RUNTIME_PENDING`
+`TECH4C4_FINAL_EARLY_TREE_STRUCTURE_RUNTIME_PASS_WITH_TARGETED_FIX`
