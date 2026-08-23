@@ -44,9 +44,14 @@ coke_smelting = {
 
 atmospheric_engine = {
 	# TECH3A conceptual branch: Production
-	era = era_1
+	era = era_2
 	texture = "gfx/interface/icons/invention_icons/atmospheric_engine.dds"
 	category = production
+	
+	unlocking_technologies = {
+        shaft_mining
+		coke_smelting
+    }
 
 	ai_weight = {
 		value = 2
@@ -305,6 +310,10 @@ industrial_ceramics = {
 	era = era_3
 	texture = "gfx/error_manul.dds"
 	category = production
+	
+	unlocking_technologies = {
+        traditional_glassmaking
+    }
 
 	ai_weight = {
 		value = 2
@@ -588,6 +597,7 @@ mechanical_tools = {
 
 	unlocking_technologies = {
 		precision_boring
+		organized_forestry
 	}
 
 	ai_weight = {
@@ -614,6 +624,7 @@ high_pressure_steam = {
 	unlocking_technologies = {
 		atmospheric_engine
 		mechanical_tools
+		rotative_steam_power
 	}
 
 	ai_weight = {
@@ -791,6 +802,7 @@ continuous_papermaking = {
 
 	unlocking_technologies = {
 		precision_boring
+		traditional_papermaking
 	}
 
 	ai_weight = {
@@ -1068,4 +1080,40 @@ fractional_distillation = {
 			add = 1
 		}
 	}
+}
+
+organized_forestry = {
+    # TECH3A conceptual branch: Production
+    era = era_1
+    texture = "gfx/error_manul.dds"
+    category = production
+
+    ai_weight = {
+        value = 2
+    }
+}
+
+traditional_papermaking = {
+    # TECH3A conceptual branch: Production
+    era = era_1
+    texture = "gfx/error_manul.dds"
+    category = production
+
+    ai_weight = {
+        value = 2
+    }
+}
+
+traditional_glassmaking = {
+    era = era_2
+    texture = "gfx/error_manul.dds"
+    category = production
+
+    unlocking_technologies = {
+        organized_forestry
+    }
+
+    ai_weight = {
+        value = 1
+    }
 }
