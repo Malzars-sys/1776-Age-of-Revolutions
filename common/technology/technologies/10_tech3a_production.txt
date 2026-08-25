@@ -192,6 +192,7 @@ advanced_crop_rotations = {
 
 	unlocking_technologies = {
 		improved_husbandry
+		selective_breeding
 	}
 
 	ai_weight = {
@@ -265,6 +266,10 @@ mechanized_spinning = {
 	texture = "gfx/error_manul.dds"
 	category = production
 
+	unlocking_technologies = {
+        organized_textile_production
+    }
+	
 	ai_weight = {
 		value = 2
 
@@ -572,6 +577,7 @@ automated_flour_milling = {
 
 	unlocking_technologies = {
 		improved_agricultural_implements
+		traditional_food_processing
 	}
 
 	ai_weight = {
@@ -597,7 +603,6 @@ mechanical_tools = {
 
 	unlocking_technologies = {
 		precision_boring
-		organized_forestry
 	}
 
 	ai_weight = {
@@ -770,28 +775,35 @@ systematic_field_drainage = {
 }
 
 mine_safety_engineering = {
-	# TECH3A conceptual branch: Production
-	era = era_5
-	texture = "gfx/error_manul.dds"
-	category = production
+    # TECH3A conceptual branch: Production
+    era = era_5
+    texture = "gfx/error_manul.dds"
+    category = production
 
-	unlocking_technologies = {
-		deep_mine_engineering
+    unlocking_technologies = {
+        deep_mine_engineering
+    }
+
+    modifier = {
+    building_group_bg_mining_laborers_mortality_mult = -0.05
+    building_group_bg_mining_machinists_mortality_mult = -0.025
+    building_group_bg_mining_engineers_mortality_mult = -0.01
+    building_group_bg_mining_slaves_mortality_mult = -0.10
 	}
 
-	ai_weight = {
-		value = 1
+    ai_weight = {
+        value = 1
 
-		if = {
-			limit = {
-				OR = {
-					has_strategy = ai_strategy_industrial_expansion
-					has_strategy = ai_strategy_resource_expansion
-				}
-			}
-			add = 1
-		}
-	}
+        if = {
+            limit = {
+                OR = {
+                    has_strategy = ai_strategy_industrial_expansion
+                    has_strategy = ai_strategy_resource_expansion
+                }
+            }
+            add = 1
+        }
+    }
 }
 
 continuous_papermaking = {
@@ -934,6 +946,10 @@ geological_surveying = {
 		applied_mineralogy
 		professional_civil_engineering
 	}
+
+    modifier = {
+        country_resource_discovery_chance_mult = 0.25
+    }
 
 	ai_weight = {
 		value = 1
@@ -1115,5 +1131,94 @@ traditional_glassmaking = {
 
     ai_weight = {
         value = 1
+    }
+}
+
+industrial_paper_bleaching = {
+    era = era_6
+    texture = "gfx/error_manul.dds"
+    category = production
+
+    unlocking_technologies = {
+        continuous_papermaking
+        chemical_bleaching
+    }
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+traditional_food_processing = {
+    era = era_1
+    texture = "gfx/error_manul.dds"
+    category = production
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+traditional_furniture_making = {
+    era = era_2
+    texture = "gfx/error_manul.dds"
+    category = production
+
+    unlocking_technologies = {
+        organized_forestry
+    }
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+sugar_refining = {
+    era = era_2
+    texture = "gfx/error_manul.dds"
+    category = production
+
+    unlocking_technologies = {
+        traditional_food_processing
+    }
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+mechanized_irrigation = {
+    era = era_6
+    texture = "gfx/error_manul.dds"
+    category = production
+
+    unlocking_technologies = {
+        systematic_field_drainage
+        rotative_steam_power
+    }
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+organized_textile_production = {
+    # TECH3A conceptual branch: Production
+    era = era_1
+    texture = "gfx/error_manul.dds"
+    category = production
+
+    ai_weight = {
+        value = 2
+
+        if = {
+            limit = {
+                OR = {
+                    has_strategy = ai_strategy_industrial_expansion
+                    has_strategy = ai_strategy_resource_expansion
+                }
+            }
+            add = 1
+        }
     }
 }
