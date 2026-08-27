@@ -542,6 +542,93 @@ on_monthly_pulse_country = {
 	}
 
 	effect = {
+		# TECH6A-2C: France-only Gabelle controller. This must live in the
+		# canonical monthly effect block; a second effect block is discarded.
+		if = {
+			limit = { c:FRA ?= this }
+
+			# One-time cleanup of timed modifiers from the first workaround.
+			if = {
+				limit = {
+					NOT = { has_variable = tech6a2c_gabelle_controller_migrated }
+				}
+				if = {
+					limit = { has_modifier = gabelle_income }
+					remove_modifier = gabelle_income
+				}
+				if = {
+					limit = { has_modifier = gabelle_income_reformed }
+					remove_modifier = gabelle_income_reformed
+				}
+				set_variable = tech6a2c_gabelle_controller_migrated
+			}
+
+			# Restore a missing phase, but never duplicate an inactive instance.
+			if = {
+				limit = {
+					has_consumption_tax = g:salt
+					has_variable = lagab_gabelle_reformed
+					NOT = { has_journal_entry = je_gabelle }
+					NOT = { has_journal_entry = je_gabelle_reformed }
+					NOT = { has_inactive_journal_entry = je_gabelle_reformed }
+				}
+				add_journal_entry = { type = je_gabelle_reformed }
+			}
+			else_if = {
+				limit = {
+					has_consumption_tax = g:salt
+					NOT = { has_variable = lagab_gabelle_reformed }
+					NOT = { has_journal_entry = je_gabelle }
+					NOT = { has_journal_entry = je_gabelle_reformed }
+					NOT = { has_inactive_journal_entry = je_gabelle }
+				}
+				add_journal_entry = { type = je_gabelle }
+			}
+
+			# A valid reform movement must persist for three monthly checks.
+			if = {
+				limit = {
+					has_consumption_tax = g:salt
+					has_journal_entry = je_gabelle
+					NOT = { has_variable = lagab_gabelle_reformed }
+					any_political_movement = {
+						OR = {
+							is_political_movement_type = movement_nihilist
+							is_political_movement_type = movement_labor
+							is_political_movement_type = movement_land_reform
+							is_political_movement_type = movement_liberal
+						}
+					}
+				}
+
+				if = {
+					limit = { has_variable = lagab_gabelle_reform_months }
+					change_variable = {
+						name = lagab_gabelle_reform_months
+						add = 1
+					}
+				}
+				else = {
+					set_variable = {
+						name = lagab_gabelle_reform_months
+						value = 1
+					}
+				}
+
+				if = {
+					limit = { var:lagab_gabelle_reform_months >= 3 }
+					remove_variable = lagab_gabelle_reform_months
+					trigger_event = { id = lagab_france.2 }
+				}
+			}
+			else = {
+				if = {
+					limit = { has_variable = lagab_gabelle_reform_months }
+					remove_variable = lagab_gabelle_reform_months
+				}
+			}
+		}
+
 		# Ottoman Monarchy Events #
 		if = { # Coup of Abdulaziz, Murad becomes the ruler
 			limit = {
