@@ -9,6 +9,7 @@ company_dutch_east_india_company = {
 
 	building_types = {
 		building_tea_plantation
+		building_spice_plantation
 		building_tobacco_plantation
 		building_coffee_plantation
 	}
@@ -19,7 +20,7 @@ company_dutch_east_india_company = {
 	}
 
 	possible_prestige_goods = {
-		prestige_good_java_coffee
+		prestige_good_dutch_east_indies_spices
 	}
 
 	potential = {
@@ -42,6 +43,7 @@ company_dutch_east_india_company = {
 					is_building_type = building_tea_plantation
 					is_building_type = building_tobacco_plantation
 					is_building_type = building_opium_plantation
+					is_building_type = building_spice_plantation
 				}
 				level >= 5
 			}
@@ -95,6 +97,16 @@ company_dutch_east_india_company = {
 				OR = {
 					region = sr:region_north_india
 					region = sr:region_south_india
+				}
+			}
+		}
+		building_spice_plantation = {
+			level = 5
+			state_trigger = {
+				OR = {
+					region = sr:region_north_india
+					region = sr:region_south_india
+					region = sr:region_indonesia
 				}
 			}
 		}
