@@ -239,7 +239,7 @@ The erroneous French La Gabelle references to prestige **fish** were corrected t
 
 No general Gabelle journal entry, tax system, event set, or modifier set was imported.
 
-All seven additional DDS files are exact local copies of the La Gabelle assets. Like the three TECH6A-1B DDS files, they are ignored locally and remain untracked and unstaged while redistribution permission is pending.
+All seven additional DDS files are exact local copies of the La Gabelle assets. Redistribution permission was granted by Tokugawa_Mori on 2026-08-28; the former local Git exclusions were removed during TECH6A-3F so these files may now be tracked and distributed with attribution.
 
 ## 9. Static validation
 
@@ -262,7 +262,7 @@ All seven additional DDS files are exact local copies of the La Gabelle assets. 
 | T6A2-S15 | PASS | no `BASELINE_*` prerequisite |
 | T6A2-S16 | PASS | one resource relation per state/type |
 | T6A2-S17 | PASS | no starting `STATE_URALSK` duplicate |
-| T6A2-S18 | PASS | all temporary DDS untracked and unstaged |
+| T6A2-S18 | PASS | all La Gabelle DDS visible to Git, trackable, and unstaged after permission grant |
 | T6A2-S19 | PASS | HEAD remains `907940e5ec94399afd14ddb5fa5ab82c3b7dbf61`; no commit created |
 | T6A2-S20 | PASS | no push performed |
 
@@ -359,6 +359,11 @@ RUNTIME_STATUS = NOT_RUN_BY_CODEX
 
 SALT_LOCAL_ASSETS_GIT_TRACKED = NO
 SALT_LOCAL_ASSETS_GIT_STAGED = NO
+SALT_LOCAL_ASSETS_GIT_IGNORED = NO
+SALT_LOCAL_ASSETS_GIT_TRACKABLE = YES
+LA_GABELLE_PERMISSION = GRANTED
+PERMISSION_DATE = 2026-08-28
+ORIGINAL_AUTHOR = Tokugawa_Mori
 
 COMMITS_CREATED = 0
 PUSH_PERFORMED = NO

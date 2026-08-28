@@ -8,7 +8,7 @@ Commit / push : non effectués
 
 ## Résultat
 
-Le prestige good exclusif de la VOC `prestige_good_dutch_east_indies_spices` est défini et relié au bien `spices`. La plantation d’épices est intégrée aux cinq compagnies de la whitelist TECH6A-3P, et les huit niveaux initiaux de Java sont désormais possédés par `company_dutch_east_india_company` pour `c:NET`.
+Le prestige good exclusif de la VOC `prestige_good_fine_batavian_spices` est défini et relié au bien `spices`. La plantation d’épices est intégrée aux cinq compagnies de la whitelist TECH6A-3P, et les huit niveaux initiaux de Java sont possédés par `company_dutch_east_india_company` pour `c:NET`.
 
 Aucun événement, monthly pulse, scripted effect ou système parallèle n’a été créé. Le nouveau bien suit le mécanisme vanilla normal des prestige goods de compagnie.
 
@@ -28,7 +28,7 @@ La syntaxe retenue reproduit les objets agricoles vanilla : `possible`, `base_go
 Fichier : `common/prestige_goods/10_tech6a3_spices.txt`
 
 ```text
-ID = prestige_good_dutch_east_indies_spices
+ID = prestige_good_fine_batavian_spices
 base_good = spices
 possible = has_dlc_feature mp1_content
 prestige_bonus = 0.1
@@ -39,8 +39,8 @@ Le bonus `0.1` et le gate `mp1_content` sont repris sans changement de `prestige
 
 Localisations :
 
-- EN : **Dutch East Indies Spices** ;
-- FR : **Épices des Indes orientales néerlandaises**.
+- EN : **Fine Batavian Spices** ;
+- FR : **Fines épices de Batavia**.
 
 Le DDS existant est réutilisé et son en-tête a été validé. Aucun nouvel asset n’a été créé.
 
@@ -48,7 +48,7 @@ Le DDS existant est réutilisé et son en-tête a été validé. Aucun nouvel as
 
 | Compagnie | Intégration de `building_spice_plantation` | Prestige good VOC | Logique de formation | Cible IA ajoutée |
 |---|---|---|---|---|
-| `company_dutch_east_india_company` | Core | Oui, exclusif ; Java Coffee conservé | Épices ajoutées à la liste compatible existante, sans réduire les seuils | Indonésie, Inde du Nord et Inde du Sud |
+| `company_dutch_east_india_company` | Core | Oui, exclusif ; Java Coffee retiré | Épices ajoutées à la liste compatible existante, sans réduire les seuils | Indonésie, Inde du Nord et Inde du Sud |
 | `company_east_india_company` | Core | Non ; Bengal Opium conservé | Épices ajoutées à la liste compatible en Inde | Inde du Sud |
 | `company_nhm` | Core | Non ; Java Coffee conservé | Épices ajoutées à la liste compatible de Java occidental | Java occidental |
 | `company_guthrie` | Extension | Non | Fondation maintenue sur café/thé pour ne pas permettre une création uniquement par les épices | Malaya |
@@ -95,12 +95,13 @@ TECH6A-3P n’a modifié aucun chiffre ou objet de balance concernant :
 ## QA statique
 
 ```text
-PRESTIGE_GOOD_DUTCH_EAST_INDIES_SPICES_DEFINED = YES
+PRESTIGE_GOOD_FINE_BATAVIAN_SPICES_DEFINED = YES
 PRESTIGE_GOOD_BASE_GOOD = spices
 PRESTIGE_GOOD_ICON_VALID = YES
 VOC_SPICE_CORE_BUILDING = YES
 VOC_SPICE_PRESTIGE_AVAILABLE = YES
-VOC_JAVA_COFFEE_PRESERVED = YES
+VOC_JAVA_COFFEE = NO
+NHM_JAVA_COFFEE = YES
 WEST_JAVA_SPICE_LEVELS = 4
 CENTRAL_JAVA_SPICE_LEVELS = 2
 EAST_JAVA_SPICE_LEVELS = 2
@@ -127,6 +128,29 @@ DUPLICATE_COMPANY_IDS = 0
 DUPLICATE_PRESTIGE_GOOD_IDS = 0
 ```
 
+## TECH6A-3F — FINAL POLISH / FINE FOOD
+
+Le prestige spices a été renommé en `prestige_good_fine_batavian_spices` sans changer son `base_good = spices`, son bonus 0.1, son gate DLC ou son asset. La VOC ne possède désormais qu’un prestige good possible, **Fines épices de Batavia** ; `prestige_good_java_coffee` reste exclusivement préservé dans la NHM parmi ces deux compagnies néerlandaises.
+
+La whitelist des compagnies est figée et inchangée : VOC, East India Company, NHM, Guthrie et `company_basic_colonial_plantations_2`. Les niveaux et owners de Java restent exactement 4/2/2, soit 8/8 possédés par la VOC.
+
+Le nouveau bien manufacturé `fine_food` et sa conversion par les Food Industries sont documentés dans le rapport TECH6A-3 principal. L’audit des technologies Society conclut `KEEP_CURRENT_GATE` : aucun candidat Society existant n’est assez directement lié à l’alimentation pour remplacer proprement `distillation` et `baking_powder`.
+
+Les variantes prestige restent substituables comme inputs via leurs `base_good` et le define moteur inchangé `PRESTIGE_GOODS_INPUT_THROUGHPUT_BONUS = 0.2`.
+
+```text
+LA_GABELLE_PERMISSION = GRANTED
+PERMISSION_DATE = 2026-08-28
+ORIGINAL_AUTHOR = Tokugawa_Mori
+LA_GABELLE_GIT_EXCLUDES_REMOVED = YES
+LA_GABELLE_ATTRIBUTION_ADDED = YES
+SPICES_GLOBAL_BALANCE = DEFERRED_UNTIL_NAVAL_CONVOY_SETUP_FIXED
+```
+
+Assets intégrés : icône `fine_food`, icônes des trois options du PMG Food Industries, dont l’icône barrée fournie pour « Aucune préparation raffinée », et version finalisée de `building_spice_plantation`. L’asset prestige `epice de lux.dds` était déjà installé à l’identique et a été conservé.
+
+La QA statique finale confirme : anciennes références du prestige spices = 0, références goods/PM/prestige invalides = 0, localisations manquantes = 0, textures manquantes = 0. Le runtime TECH6A-3P déjà fourni par l’utilisateur reste validé ; seul le nouveau contenu TECH6A-3F demande un contrôle en jeu.
+
 ## Checklist runtime utilisateur
 
 1. Redémarrer complètement Victoria 3 et lancer une nouvelle partie en 1776.
@@ -138,32 +162,39 @@ DUPLICATE_PRESTIGE_GOOD_IDS = 0
 7. Vérifier que la NHM accepte les plantations d’épices comme industrie principale.
 8. Vérifier que Guthrie accepte les plantations d’épices uniquement comme extension.
 9. Vérifier que `company_basic_colonial_plantations_2` accepte les plantations d’épices comme industrie principale.
-10. Faire prospérer la VOC et vérifier l’apparition de **Épices des Indes orientales néerlandaises** via le mécanisme normal des prestige goods.
+10. Faire prospérer la VOC et vérifier l’apparition de **Fines épices de Batavia** via le mécanisme normal des prestige goods.
 11. Vérifier l’icône `generic_spices_prestige.dds` dans l’interface du prestige good.
-12. Vérifier que **Java Coffee** reste disponible pour la VOC et la NHM.
+12. Vérifier que **Java Coffee** n’est plus disponible pour la VOC mais reste disponible pour la NHM.
 13. Vérifier qu’aucune autre compagnie ne propose le prestige good VOC.
-14. Vérifier que production, prix, PM, consommation et carte des épices restent identiques au runtime TECH6A-3R validé.
+14. Vérifier que la carte, les niveaux initiaux, les outputs 20/45 des plantations et la consommation POP directe des épices restent identiques au runtime validé.
 15. Contrôler `error.log` pour les IDs company, prestige good, building et ownership.
 
 ## Sortie finale
 
 ```text
-TECH6A3P_SPICES_PRESTIGE_COMPANIES = PASS
-VOC_PRESTIGE_SPICES_IMPLEMENTED = YES
-VOC_PRESTIGE_SPICES_ID = prestige_good_dutch_east_indies_spices
-VOC_SPICE_CORE_BUILDING = YES
+TECH6A3F_FINAL_POLISH = PASS
+LA_GABELLE_PERMISSION = GRANTED
+LA_GABELLE_GIT_EXCLUDES_REMOVED = YES
+LA_GABELLE_ATTRIBUTION_ADDED = YES
+FINE_FOOD_IMPLEMENTED = YES
+FINE_FOOD_BASE_PRICE = 50
+FINE_FOOD_BASIC_FOOD = YES
+FINE_FOOD_LUXURY_FOOD = YES
+SPICED_FOOD_PM_UPDATED = YES
+REFINED_SPICED_FOOD_PM_UPDATED = YES
+PRESTIGE_SPICE_ID = prestige_good_fine_batavian_spices
+VOC_PRESTIGE_GOODS_COUNT = 1
+VOC_JAVA_COFFEE = NO
+NHM_JAVA_COFFEE = YES
+SOCIETY_GATE_AUDIT = KEEP_CURRENT_GATE
+SOCIETY_GATE_SELECTED = NONE
 VOC_JAVA_SPICE_OWNERSHIP = 8/8
-EIC_SPICE_INTEGRATION = YES
-NHM_SPICE_INTEGRATION = YES
-GUTHRIE_SPICE_INTEGRATION = YES
-GENERIC_PLANTATION_SPICE_INTEGRATION = YES
-JAVA_COFFEE_PRESERVED = YES
-RESOURCE_MAP_CHANGED = NO
-SPICE_BALANCE_CHANGED = NO
-SALT_FILES_TOUCHED = 0
-GABELLE_FILES_TOUCHED = 0
+PRESTIGE_INPUT_THROUGHPUT_BONUS = 0.20
+SPICES_DIRECT_POP_CONSUMPTION = PRESERVED
+SPICES_GLOBAL_BALANCE = DEFERRED_UNTIL_NAVAL_CONVOYS
 INVALID_REFERENCES = 0
-RUNTIME_TEST = NOT_RUN_USER_REQUIRED
+MISSING_LOCALIZATION = 0
+MISSING_TEXTURES = 0
 COMMIT = NO
 PUSH = NO
 ```

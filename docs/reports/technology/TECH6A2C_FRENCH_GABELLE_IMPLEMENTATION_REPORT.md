@@ -5,7 +5,7 @@ Project: Victoria 3 — 1776 Age of Revolutions
 Branch: `tech4c2-audit-snapshot`  
 Vanilla reference: Victoria 3 1.13.9 (`C:\Games\Victoria 3\game`)  
 Source mod: La Gabelle 1.0.2 (`3715913236`)  
-Redistribution permission: **PENDING**  
+Redistribution permission: **GRANTED** by Tokugawa_Mori on 2026-08-28
 Runtime status: **USER RETEST REQUIRED AFTER MONTHLY-CONTROLLER FIX**
 
 ## 1. Result
@@ -264,7 +264,7 @@ The implementation uses the existing vanilla `event_protest.dds`, so TECH6A-2C a
   - adds the France-only restoration controller to the already existing canonical monthly `effect` block;
   - performs one-time cleanup of legacy timed country modifiers.
 
-### Local-only La Gabelle-derived files created
+### La Gabelle-derived files created
 
 - `common/journal_entries/11_tech6a2c_french_gabelle.txt`
 - `common/static_modifiers/10_tech6a2c_french_gabelle.txt`
@@ -276,17 +276,17 @@ The implementation uses the existing vanilla `event_protest.dds`, so TECH6A-2C a
 
 - `docs/reports/technology/TECH6A2C_FRENCH_GABELLE_IMPLEMENTATION_REPORT.md`
 
-## 12. Local Git exclusion and rights status
+## 12. Git tracking and rights status
 
-The five La Gabelle-derived gameplay/localization files above are listed exactly in `.git/info/exclude`.
+Tokugawa_Mori granted explicit permission to use and distribute the La Gabelle-derived work on 2026-08-28: “Yes, just go ahead!”. The temporary entries previously protecting this content were removed from `.git/info/exclude` during TECH6A-3F. The files are now visible to Git and may be committed later with attribution; this report does not infer any standalone MIT, GPL or other license.
 
 Validation result:
 
-- derived files tracked: `0`;
-- derived files staged: `0`;
-- derived files locally excluded: `5/5`;
-- previously imported La Gabelle salt/building/company/prestige assets still tracked: `0/10`;
-- those ten existing local assets staged: `0/10` and locally excluded: `10/10`;
+- derived gameplay/localization files visible to Git: `5/5`;
+- pre-existing La Gabelle assets and salt texticon visible to Git: `11/11`;
+- La Gabelle files still locally excluded: `0/16`;
+- La Gabelle files staged by this phase: `0/16`;
+- La Gabelle files committed by this phase: `0/16`;
 - public `.gitignore` modified: no;
 - commit created: no;
 - push performed: no;
@@ -315,7 +315,7 @@ The three small integration edits in existing project files also remain uncommit
 | GAB-S15 | PASS | existing salt pop-needs hash unchanged |
 | GAB-S16 | PASS | both active JE phases, legacy cleanup phase, controller, and events are restricted to `c:FRA` |
 | GAB-S17 | PASS | no anachronistic marker; all used 1.13.9 dependencies verified |
-| GAB-S18 | PASS | five new derived files and ten pre-existing source assets are untracked, unstaged, and locally excluded |
+| GAB-S18 | PASS | all 16 La Gabelle files are visible to Git, trackable, and unstaged; none remains locally excluded |
 
 ### Runtime duplication/return regression fix — static checks
 
@@ -419,9 +419,13 @@ RUNTIME_TEST_REQUIRED_BY_USER = YES
 RUNTIME_TEST_PERFORMED_BY_CODEX = NO
 RUNTIME_STATUS = USER_RETEST_REQUIRED_AFTER_CONTROLLER_FIX
 
-LA_GABELLE_PERMISSION = PENDING
+LA_GABELLE_PERMISSION = GRANTED
+PERMISSION_DATE = 2026-08-28
+ORIGINAL_AUTHOR = Tokugawa_Mori
 LA_GABELLE_DERIVED_FILES_GIT_TRACKED = NO
 LA_GABELLE_DERIVED_FILES_GIT_STAGED = NO
+LA_GABELLE_DERIVED_FILES_GIT_IGNORED = NO
+LA_GABELLE_DERIVED_FILES_GIT_TRACKABLE = YES
 
 COMMITS_CREATED = 0
 PUSH_PERFORMED = NO

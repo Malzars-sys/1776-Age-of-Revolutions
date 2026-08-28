@@ -31,6 +31,14 @@ This is an unofficial fork. The original author is not presented as endorsing, m
 - Modification: converted to OGG and extended into a seamless looping frontend track.
 - Required attribution is present in both Steam descriptions.
 
+## La Gabelle
+
+- **EN:** La Gabelle — original salt/Gabelle implementation and assets by **Tokugawa_Mori**, used with permission.
+- **FR:** La Gabelle — implémentation et assets originaux liés au sel et à la Gabelle par **Tokugawa_Mori**, utilisés avec autorisation.
+- Permission granted by Tokugawa_Mori on `2026-08-28`: “Yes, just go ahead!”
+- Permission status: `LA_GABELLE_PERMISSION = GRANTED`.
+- No specific standalone license was asserted; this record documents explicit permission to use and distribute the adapted material.
+
 ## Historical artwork
 
 | Use | Work | Creator | Source / institution | Rights basis |

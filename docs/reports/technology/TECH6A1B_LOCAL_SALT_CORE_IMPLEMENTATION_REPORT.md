@@ -4,7 +4,7 @@ Date: 2026-08-26
 Branch: `tech4c2-audit-snapshot`  
 Victoria 3 reference: 1.13.9 (`C:\Games\Victoria 3\game`)  
 Reference mod: La Gabelle 1.0.2 (local Workshop copy)  
-Asset redistribution permission: **PENDING**
+Asset redistribution permission: **GRANTED** by Tokugawa_Mori on 2026-08-28.
 
 ## 1. Scope and result
 
@@ -36,7 +36,7 @@ Localization created:
 
 Local repository metadata modified:
 
-- `.git/info/exclude` — exact exclusions for the three temporary DDS files; this is local-only and does not modify a shared `.gitignore`
+- `.git/info/exclude` — contenait initialement les exclusions temporaires des assets, retirées dans TECH6A-3F après l’autorisation explicite de Tokugawa_Mori ; le `.gitignore` partagé n’a pas été modifié
 
 All new Clausewitz text and localization files use UTF-8 with BOM, as required by the 1.13.9 parser.
 
@@ -152,12 +152,14 @@ Copied only for personal local testing:
 
 Each destination hash equals its La Gabelle source hash. The source files were read/copy sources only and were not modified.
 
-Git verification:
+Git verification — statut actuel après TECH6A-3F :
 
 ```text
-SALT_LOCAL_ASSETS_GIT_IGNORED = YES
+SALT_LOCAL_ASSETS_GIT_IGNORED = NO
 SALT_LOCAL_ASSETS_GIT_TRACKED = NO
 SALT_LOCAL_ASSETS_GIT_STAGED = NO
+SALT_LOCAL_ASSETS_GIT_TRACKABLE = YES
+LA_GABELLE_PERMISSION = GRANTED
 ALL_STAGED_FILES = 0
 ```
 
@@ -176,7 +178,7 @@ No commit, push, release, archive, or Workshop publication was performed.
 | G. No salt in `popneed_basic_food` | PASS |
 | H. Luxury-food salt entry has weight 0.5, minimum 0, maximum 0.15 | PASS |
 | I. Three local DDS files exist and match source hashes | PASS |
-| J. Three DDS files are neither tracked nor staged | PASS |
+| J. Three DDS files are visible to Git, trackable, and not staged | PASS |
 | K. No `map_data/state_regions` status or diff | PASS |
 | L. No salt resource geography or discovery data imported | PASS |
 
@@ -256,6 +258,11 @@ SALT_LUXURY_MIN_SUPPLY_SHARE = 0
 SALT_LOCAL_ASSETS_COPIED = YES
 SALT_LOCAL_ASSETS_GIT_TRACKED = NO
 SALT_LOCAL_ASSETS_GIT_STAGED = NO
+SALT_LOCAL_ASSETS_GIT_IGNORED = NO
+SALT_LOCAL_ASSETS_GIT_TRACKABLE = YES
+LA_GABELLE_PERMISSION = GRANTED
+PERMISSION_DATE = 2026-08-28
+ORIGINAL_AUTHOR = Tokugawa_Mori
 
 RESOURCE_MAP_CHANGED = NO
 DISCOVERY_IMPLEMENTED = NO

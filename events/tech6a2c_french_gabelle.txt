@@ -1,0 +1,154 @@
+﻿namespace = lagab_france
+
+# Crisis of Legitimacy: a revolutionary crisis may force a decision on the Gabelle.
+lagab_france.1 = {
+	type = country_event
+	event_image = {
+		video = "votp_barricade"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = lagab_france.1.t
+	desc = lagab_france.1.d
+	flavor = lagab_france.1.f
+	duration = 3
+	cooldown = { days = long_modifier_time }
+
+	trigger = {
+		c:FRA ?= this
+		has_consumption_tax = g:salt
+		OR = {
+			has_journal_entry = je_gabelle
+			has_journal_entry = je_gabelle_reformed
+		}
+		any_civil_war = {
+			is_civil_war_type = revolution
+			civil_war_progress_medium = yes
+		}
+	}
+
+	immediate = {
+		random_civil_war = {
+			limit = {
+				is_civil_war_type = revolution
+			}
+			civil_war_save_scopes = yes
+		}
+	}
+
+	option = {
+		name = lagab_france.1.a
+		default_option = yes
+		ai_chance = { base = 1 }
+		scope:ongoing_revolution = {
+			add_civil_war_progress = revolution_advance_medium
+		}
+	}
+
+	option = {
+		name = lagab_france.1.b
+		ai_chance = { base = 1 }
+		random_list = {
+			1 = {
+				scope:ongoing_revolution = {
+					add_civil_war_progress = revolution_retreat_medium
+				}
+			}
+			1 = {
+				scope:ongoing_revolution = {
+					add_civil_war_progress = revolution_advance_large
+				}
+			}
+		}
+	}
+
+	option = {
+		name = lagab_france.1.c
+		ai_chance = { base = 0.5 }
+		add_loyalists = {
+			value = medium_radicals
+			strata = lower
+		}
+		remove_taxed_goods = g:salt
+		scope:ongoing_revolution = {
+			add_civil_war_progress = revolution_retreat_small
+		}
+	}
+}
+
+# Voices of Reform: adapted for 1776 and made reachable before the reform variable exists.
+lagab_france.2 = {
+	type = country_event
+	event_image = {
+		video = "unspecific_signed_contract"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	title = lagab_france.2.t
+	desc = lagab_france.2.d
+	flavor = lagab_france.2.f
+	duration = 3
+	cooldown = { years = 50 }
+
+	trigger = {
+		c:FRA ?= this
+		has_consumption_tax = g:salt
+		has_journal_entry = je_gabelle
+		NOT = { has_variable = lagab_gabelle_reformed }
+		any_political_movement = {
+			OR = {
+				is_political_movement_type = movement_nihilist
+				is_political_movement_type = movement_labor
+				is_political_movement_type = movement_land_reform
+				is_political_movement_type = movement_liberal
+			}
+		}
+	}
+
+	immediate = {
+		random_political_movement = {
+			limit = {
+				OR = {
+					is_political_movement_type = movement_nihilist
+					is_political_movement_type = movement_labor
+					is_political_movement_type = movement_land_reform
+					is_political_movement_type = movement_liberal
+				}
+			}
+			save_scope_as = political_movement_scope
+		}
+	}
+
+	option = {
+		name = lagab_france.2.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					OR = {
+						has_law_or_variant = law_type:law_council_republic
+						has_law_or_variant = law_type:law_presidential_republic
+						has_law_or_variant = law_type:law_parliamentary_republic
+						has_law_or_variant = law_type:law_corporate_state
+					}
+				}
+				add = 1
+			}
+		}
+		set_variable = lagab_gabelle_reformed
+	}
+
+	option = {
+		name = lagab_france.2.b
+		default_option = yes
+		ai_chance = { base = 1 }
+		scope:political_movement_scope ?= {
+			add_modifier = {
+				name = modifier_suppress_dissent
+				years = 1
+			}
+		}
+	}
+}

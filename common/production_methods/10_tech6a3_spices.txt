@@ -41,11 +41,11 @@ pm_mechanized_spice_cultivation = {
 }
 
 pm_no_spiced_food = {
-	texture = "gfx/interface/icons/production_method_icons/no_canning.dds"
+	texture = "gfx/interface/icons/production_method_icons/no_fine_food_preparations.dds"
 }
 
 pm_spiced_food_preparations = {
-	texture = "gfx/interface/icons/production_method_icons/sweeteners.dds"
+	texture = "gfx/interface/icons/production_method_icons/spiced_food_preparations.dds"
 
 	unlocking_technologies = {
 		distillation
@@ -55,13 +55,15 @@ pm_spiced_food_preparations = {
 		workforce_scaled = {
 			goods_input_spices_add = 5
 			goods_input_coffee_add = 5
-			goods_output_groceries_add = 20
+			goods_input_wine_add = 10
+			goods_output_groceries_add = -15
+			goods_output_fine_food_add = 20
 		}
 	}
 }
 
 pm_refined_spiced_food_preparations = {
-	texture = "gfx/interface/icons/production_method_icons/baking_powder.dds"
+	texture = "gfx/interface/icons/production_method_icons/refined_spiced_food_preparations.dds"
 
 	unlocking_technologies = {
 		baking_powder
@@ -71,7 +73,9 @@ pm_refined_spiced_food_preparations = {
 		workforce_scaled = {
 			goods_input_spices_add = 10
 			goods_input_coffee_add = 15
-			goods_output_groceries_add = 45
+			goods_input_wine_add = 20
+			goods_output_groceries_add = -30
+			goods_output_fine_food_add = 55
 		}
 	}
 }

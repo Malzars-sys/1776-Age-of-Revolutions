@@ -233,11 +233,11 @@ Les 12 DDS font chacun 87,556 octets. `gui/lagab_salt_texticons.gui` déclare le
 
 Localisations : six fichiers dans chacune des langues `english`, `french` et `simp_chinese`, couvrant buildings, companies, events, goods, journal entries et modifiers. Les noms français canoniques observés sont `Sel`, `Mines de sel` et `Marais salant`.
 
-Le package ne contient aucun `LICENSE`, fichier de crédits ou texte d’autorisation. `README.md` liste seulement les compagnies et pays taxant le sel. Les métadonnées ne donnent aucune permission de redistribution.
+Le package audité ne contient aucun `LICENSE`, fichier de crédits ou texte d’autorisation. `README.md` liste seulement les compagnies et pays taxant le sel. Ce constat historique sur le contenu du package reste exact, mais il a été remplacé juridiquement par l’autorisation directe donnée ultérieurement par Tokugawa_Mori le 2026-08-28 : « Yes, just go ahead! ».
 
-`REDISTRIBUTION_PERMISSION_FOUND = NO`
+`REDISTRIBUTION_PERMISSION_FOUND_IN_PACKAGE = NO`
 
-Conséquence : aucun asset ou texte ne doit être copié sans autorisation séparée; une implémentation peut réutiliser les IDs/concepts audités mais doit créer ses propres assets/localisations si l’autorisation reste absente.
+Statut actuel : `LA_GABELLE_PERMISSION = GRANTED`. Les adaptations et assets concernés peuvent être trackés, commités ultérieurement et distribués avec attribution à Tokugawa_Mori. Aucune licence MIT, GPL ou autre n’est déduite de cette autorisation explicite.
 
 ## Autres objets sel
 
@@ -292,7 +292,7 @@ Le PM 1776 `pm_brine_electrolysis` existe déjà par son nom, mais il ne référ
 | Sink productif précoce | `YES` |
 | Pop needs compatibles tels quels | `NO` |
 | Gate mine compatible avec la décision 1776 | `YES`, déjà `shaft_mining` |
-| Permission de redistribution | `NO` dans le package local |
+| Permission de redistribution | `GRANTED` directement par Tokugawa_Mori le 2026-08-28 ; aucune permission incluse dans le package lui-même |
 | Runtime nécessaire avant implémentation finale | `YES` pour découverte, doublon Uralsk, AI et économie |
 
 ## Résumé final obligatoire
@@ -322,7 +322,10 @@ RECOMMENDED_DISCOVERY_ARCHITECTURE = NATIVE_DISCOVERY_ONLY
 
 LA_GABELLE_TECH_GATE_ADAPTATION_REQUIRED = NO
 
-REDISTRIBUTION_PERMISSION_FOUND = NO
+REDISTRIBUTION_PERMISSION_FOUND_IN_PACKAGE = NO
+LA_GABELLE_PERMISSION = GRANTED
+PERMISSION_DATE = 2026-08-28
+ORIGINAL_AUTHOR = Tokugawa_Mori
 
 GAMEPLAY_FILES_CHANGED = 0
 COMMITS_CREATED = 0
