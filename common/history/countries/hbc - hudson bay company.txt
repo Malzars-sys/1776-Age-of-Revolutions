@@ -1,13 +1,15 @@
 ﻿COUNTRIES = {
 	c:HBC ?= {
+		# TECH6B3H: authoritative merge of the former "hubson" and "hudson" setups.
 		effect_starting_technology_tier_4_tech = yes
-		add_technology_researched = academia
+		effect_starting_politics_conservative = yes
+
+		# regulated_small_arms is supplied once by the reconciled tier 4.
+		add_technology_researched = institutionalized_scientific_exchange
 		add_technology_researched = colonization
-		add_technology_researched = line_infantry
-		add_technology_researched = mandatory_service
-		
+
 		activate_law = law_type:law_colonial_administration
-		activate_law = law_type:law_autocracy 
+		activate_law = law_type:law_autocracy
 		activate_law = law_type:law_total_separation
 		activate_law = law_type:law_racial_segregation # George Simpson's policies regarding the Métis were harsh
 		activate_law = law_type:law_mercantilism
@@ -16,12 +18,28 @@
 		activate_law = law_type:law_right_of_assembly
 		activate_law = law_type:law_land_based_taxation
 		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_slave_trade
+		activate_law = law_type:law_religious_schools
 
+		set_institution_investment_level = {
+			institution = institution_schools
+			level = 1
+		}
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
 			level = 2
 		}
-		
+
+		ig:ig_industrialists = {
+			add_ruling_interest_group = yes
+			add_ideology = ideology_colonialist
+		}
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
 		add_taxed_goods = g:grain
 	}
 }
