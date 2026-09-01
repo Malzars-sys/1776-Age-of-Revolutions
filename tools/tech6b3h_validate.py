@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Validate TECH6B3H and regenerate its row-by-row AFTER matrix."""
 
 from __future__ import annotations

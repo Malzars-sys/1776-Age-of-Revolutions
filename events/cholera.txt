@@ -46,12 +46,12 @@ cholera.1 = {
 		}
 		OR = {
 			AND = {
-				has_technology_researched = urban_planning
+				has_technology_researched = modern_sewerage
 				NOT = { has_technology_researched = modern_sewerage }
 			}
 			AND = {
 				has_technology_researched = medical_degrees
-				NOT = { has_technology_researched = pharmaceuticals }
+				NOT = { has_technology_researched = active_principle_pharmacy }
 			}
 		}
 	}
@@ -75,7 +75,7 @@ cholera.1 = {
 		name = cholera.1.a
 		default_option = yes
 		trigger = {
-			has_technology_researched = urban_planning
+			has_technology_researched = modern_sewerage
 			NOT = { has_technology_researched = modern_sewerage }
 		}
 		add_technology_progress = {
@@ -98,11 +98,11 @@ cholera.1 = {
 		}
 		if = {
 			limit = {
-				NOT = { has_technology_researched = pharmaceuticals }
+				NOT = { has_technology_researched = active_principle_pharmacy }
 			}
 			add_technology_progress = {
 				progress = 3500
-				technology = pharmaceuticals
+				technology = active_principle_pharmacy
 			}
 		}
 		scope:cholera_state = {

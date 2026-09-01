@@ -8,10 +8,6 @@ academia = {
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		state_education_access_wealth_add = 0.005
-	}
-
 	unlocking_technologies = {
 		rationalism
 	}
@@ -154,10 +150,6 @@ army_reserves = {
 	category = military
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		state_conscription_rate_mult = 0.2
-		country_general_rank_impact_mult = 0.2
-	}
 
 	unlocking_technologies = {
 		line_infantry
@@ -254,12 +246,6 @@ banking = {
 	texture = "gfx/interface/icons/invention_icons/banking.dds"
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
-
-	modifier = {
-		country_minting_mult = 0.1
-		country_loan_interest_rate_add = -0.02
-		state_max_trade_advantage_from_capacity_add = 0.05
-	}
 
 	unlocking_technologies = {
 		currency_standards
@@ -447,47 +433,8 @@ central_archives = {
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		state_tax_capacity_add = 25
-		country_institution_home_affairs_max_investment_add = 1
-		state_incorporation_speed_mult = 0.05
-	}
-
 	unlocking_technologies = {
 		centralization
-	}
-
-	on_researched = {
-		if = {
-			limit = {
-				NOT = {
-					any_political_movement = {
-						is_political_movement_type = movement_modernizer
-					}
-				}
-				OR = {
-					AND = {
-						OR = {
-							is_in_geographic_region = geographic_region_south_america
-							is_in_geographic_region = geographic_region_central_america_old
-						}
-						country_rank <= rank_value:major_power
-					}
-					country_is_colonial_or_company = yes
-					is_country_type = unrecognized
-				}
-				NAND = {
-					has_law_or_variant = law_type:law_protectionism
-					OR = {
-						has_law_or_variant = law_type:law_interventionism
-						has_law_or_variant = law_type:law_command_economy
-						has_law_or_variant = law_type:law_laissez_faire
-					}
-					has_law_or_variant = law_type:law_compulsory_primary_school
-				}
-			}
-			create_political_movement = { type = movement_modernizer }
-		}
 	}
 
 	ai_weight = {
@@ -500,12 +447,6 @@ central_banking = {
 	texture = "gfx/interface/icons/invention_icons/central_banking.dds"
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
-
-	modifier = {
-		country_minting_mult = 0.1
-		country_loan_interest_rate_add = -0.02
-		state_max_trade_advantage_from_capacity_add = 0.05
-	}
 
 	unlocking_technologies = {
 		banking
@@ -545,12 +486,6 @@ centralization = {
 	texture = "gfx/interface/icons/invention_icons/centralization.dds"
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
-
-	modifier = {
-		state_tax_capacity_add = 25
-		country_institution_home_affairs_max_investment_add = 1
-		state_incorporation_speed_mult = 0.05
-	}
 
 	unlocking_technologies = {
 		tech_bureaucracy
@@ -711,6 +646,7 @@ concrete_fortifications = {
 
 	unlocking_technologies = {
 		defense_in_depth
+		casemated_fortifications
 	}
 
 	ai_weight = {
@@ -740,11 +676,6 @@ corporate_charters = {
 	texture = "gfx/interface/icons/invention_icons/corporate_charters.dds"
 	category = society
 	can_research = no # TECH4C4 consumed compatibility alias; retained for external gameplay/script references
-
-	modifier = {
-		country_max_companies_add = 1
-		country_free_charters_add = 2
-	}
 
 	unlocking_technologies = {
 		stock_exchange
@@ -934,10 +865,6 @@ democracy = {
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		country_institution_social_security_max_investment_add = 2
-	}
-
 	unlocking_technologies = {
 		rationalism
 	}
@@ -970,9 +897,6 @@ dialectics = {
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		country_institution_schools_max_investment_add = 1
-	}
 
 	unlocking_technologies = {
 		empiricism
@@ -1080,28 +1004,10 @@ egalitarianism = {
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		state_expected_sol_from_literacy = 1
-		country_institution_social_security_max_investment_add = 1
-	}
-
 	unlocking_technologies = {
 		democracy
 	}
 
-	on_researched = {
-		if = {
-			limit = {
-				has_journal_entry = je_springtime_of_the_peoples
-				NOT = {
-					is_involved_in_journal_entry = je_springtime_of_the_peoples
-				}
-			}
-			je:je_springtime_of_the_peoples ?= {
-				add_involved_country = ROOT
-			}
-		}
-	}
 
 	ai_weight = {
 		value = 1
@@ -1281,13 +1187,6 @@ empiricism = {
 	texture = "gfx/interface/icons/invention_icons/empiricism.dds"
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
-
-	modifier = {
-		country_influence_mult = 0.25
-		country_diplomatic_play_maneuvers_mult = 0.25
-		country_institution_schools_max_investment_add = 1
-		state_education_access_wealth_add = 0.005
-	}
 
 	unlocking_technologies = {
 		academia
@@ -1594,6 +1493,7 @@ identification_documents = {
 
 	unlocking_technologies = {
 		central_statistical_offices
+		professional_civil_policing
 	}
 
 	ai_weight = {
@@ -1750,19 +1650,18 @@ jeune_ecole = {
 }
 
 joint_stock_companies = {
-	era = era_7
+	era = era_6
 	texture = "gfx/interface/icons/invention_icons/joint_stock_companies.dds"
 	category = society
-	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
 	modifier = {
 		country_max_companies_add = 1
-		state_urbanization_per_level_mult = -0.1
+		country_free_charters_add = 1
 	}
 
 	unlocking_technologies = {
-		banking
-		corporate_charters
+		postal_savings
+		commercial_insurance_markets
 	}
 
 	ai_weight = {
@@ -1822,10 +1721,6 @@ law_enforcement = {
 	texture = "gfx/interface/icons/invention_icons/law_enforcement.dds"
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
-
-	modifier = {
-		country_institution_police_max_investment_add = 1
-	}
 
 	unlocking_technologies = {
 		tech_bureaucracy
@@ -1919,10 +1814,6 @@ mandatory_service = {
 	category = military
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		state_conscription_rate_mult = 0.2
-		country_general_rank_impact_mult = 0.2
-	}
 
 	unlocking_technologies = {
 		standing_army
@@ -1951,11 +1842,6 @@ mass_communication = {
 	texture = "gfx/interface/icons/invention_icons/mass_communication.dds"
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
-
-	modifier = {
-		country_authority_mult = 0.1
-		country_voting_power_mult = 0.1
-	}
 
 	unlocking_technologies = {
 		democracy
@@ -2048,10 +1934,6 @@ mechanized_workshops = {
 	category = production
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		building_economy_of_scale_level_cap_add = 10
-	}
-
 	unlocking_technologies = {
 		canneries
 		mechanical_tools
@@ -2097,9 +1979,6 @@ military_drill = {
 	category = military
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		unit_experience_gain_mult = 0.05
-	}
 
 	unlocking_technologies = {
 		standing_army
@@ -2269,7 +2148,7 @@ mutual_funds = {
 
 	unlocking_technologies = {
 		institutionalized_public_credit
-		postal_savings
+		joint_stock_companies
 	}
 
 	ai_weight = {
@@ -2533,6 +2412,10 @@ paved_roads = {
 
 	modifier = {
 		state_infrastructure_from_automobiles_consumption_add = 0.25
+		country_max_weekly_construction_progress_add = 10
+		state_building_construction_sector_max_level_add = 10
+		state_infrastructure_from_population_add = 2
+		state_infrastructure_from_population_max_add = 40
 	}
 
 	unlocking_technologies = {
@@ -2550,11 +2433,6 @@ pharmaceuticals = {
 	texture = "gfx/interface/icons/invention_icons/pharmaceuticals.dds"
 	category = society
 	can_research = no # TECH4C4 consumed compatibility alias; retained for external gameplay/script references
-
-	modifier = {
-		country_institution_health_system_max_investment_add = 1
-		state_harvest_condition_disease_outbreak_impact_mult = -0.2
-	}
 
 	unlocking_technologies = {
 		medical_degrees
@@ -2672,10 +2550,6 @@ power_of_the_purse = {
 	category = military
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		#state_building_naval_administration_max_level_add = 2
-		country_admiral_rank_impact_mult = 0.25
-	}
 
 	unlocking_technologies = {
 		admiralty
@@ -2723,11 +2597,6 @@ psychiatry = {
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		country_influence_mult = 0.25
-		country_diplomatic_play_maneuvers_mult = 0.25
-		state_bureaucracy_population_base_cost_factor_mult = -0.05
-	}
 
 	unlocking_technologies = {
 		empiricism
@@ -2851,11 +2720,6 @@ rationalism = {
 	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
-
-	modifier = {
-		country_institution_schools_max_investment_add = 1
-		state_education_access_wealth_add = 0.01
-	}
 
 	ai_weight = {
 		value = 3 # Very important in general
@@ -3047,9 +2911,6 @@ sericulture = {
 	category = production
 	can_research = no
 
-	modifier = {
-		building_silk_plantation_throughput_add = 0.25
-	}
 
 	ai_weight = {
 		value = 1
@@ -3296,10 +3157,6 @@ tech_bureaucracy = {
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		country_institution_police_max_investment_add = 2
-	}
-
 	unlocking_technologies = {
 		urbanization
 	}
@@ -3370,12 +3227,6 @@ urban_planning = {
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		state_infrastructure_from_population_add = 1
-		state_infrastructure_from_population_max_add = 20
-		state_building_construction_sector_max_level_add = 5
-		country_max_weekly_construction_progress_add = 5
-	}
 
 	unlocking_technologies = {
 		urbanization
@@ -3393,12 +3244,6 @@ urbanization = {
 	category = society
 	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
 
-	modifier = {
-		state_infrastructure_from_population_add = 2
-		state_infrastructure_from_population_max_add = 40
-		state_building_construction_sector_max_level_add = 10
-		country_max_weekly_construction_progress_add = 10
-	}
 
 	ai_weight = {
 		value = 3 # Very important in general

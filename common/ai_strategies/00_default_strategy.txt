@@ -4148,11 +4148,11 @@ ai_strategy_default = {
 		combat_unit_group_artillery = {
 			value = 0
 			if = {
-				limit = { has_technology_researched = artillery }
+				limit = { has_technology_researched = standardized_field_artillery }
 				add = 15
 			}
 			if = {
-				limit = { has_technology_researched = napoleonic_warfare }
+				limit = { has_technology_researched = corps_organization }
 				add = 5
 			}
 			if = {
@@ -4245,13 +4245,13 @@ ai_strategy_default = {
 
 		if = {
 			limit = {
-				has_technology_researched = mandatory_service
+				has_technology_researched = corps_organization
 			}
 			multiply = 1.15
 		}
 		if = {
 			limit = {
-				has_technology_researched = army_reserves
+				has_technology_researched = corps_organization
 			}
 			multiply = 1.15
 		}
@@ -4315,13 +4315,13 @@ ai_strategy_default = {
 		small_arms = {
 			stance = wants_high_supply
 			trigger = {
-				has_technology_researched = line_infantry
+				has_technology_researched = regulated_small_arms
 			}
 		}
 		artillery = {
 			stance = wants_high_supply
 			trigger = {
-				has_technology_researched = artillery
+				has_technology_researched = standardized_field_artillery
 			}
 		}
 		ammunition = {
@@ -4347,7 +4347,7 @@ ai_strategy_default = {
 		clippers = {
 			stance = wants_high_supply
 			trigger = {
-				has_technology_researched = navigation
+				has_technology_researched = marine_chronometry
 				NAND = {
 					has_technology_researched = ironclad_tech
 					has_technology_researched = gantry_cranes
@@ -4359,7 +4359,7 @@ ai_strategy_default = {
 		manowars = {
 			stance = wants_high_supply
 			trigger = {
-				has_technology_researched = admiralty
+				has_technology_researched = state_dockyard_systems
 				NAND = {
 					has_technology_researched = ironclad_tech
 					has_technology_researched = gantry_cranes
@@ -4389,7 +4389,7 @@ ai_strategy_default = {
 		paper = {
 			stance = wants_high_supply
 			trigger = {
-				has_technology_researched = centralization
+				has_technology_researched = systematic_administrative_statistics
 				total_population >= 1000000
 				NOT = { has_law_or_variant = law_type:law_traditionalism }
 			}
@@ -4416,7 +4416,7 @@ ai_strategy_default = {
 			stance = wants_high_supply
 			trigger = {
 				has_building = building_textile_mill
-				has_technology_researched = lathe
+				has_technology_researched = precision_boring
 			}
 		}
 		silk = {

@@ -89,8 +89,8 @@ trade_route_events.2 = {
         any_market = {
             OR = {
                 AND = {
-                    root = { is_researching_technology = gunsmithing }
-                    owner = { has_technology_researched = gunsmithing }
+                    root = { is_researching_technology = regulated_small_arms }
+                    owner = { has_technology_researched = regulated_small_arms }
                 }
                 AND = {
                     root = { is_researching_technology = percussion_cap }
@@ -120,8 +120,8 @@ trade_route_events.2 = {
 			limit = {
 				OR = {
                     AND = {
-                        root = { is_researching_technology = gunsmithing }
-                        owner = { has_technology_researched = gunsmithing }
+                        root = { is_researching_technology = regulated_small_arms }
+                        owner = { has_technology_researched = regulated_small_arms }
                     }
                     AND = {
                         root = { is_researching_technology = percussion_cap }
@@ -158,9 +158,9 @@ trade_route_events.2 = {
 			days = normal_modifier_time
 		}
 		if = {
-			limit = { is_researching_technology = gunsmithing }
+			limit = { is_researching_technology = regulated_small_arms }
 			add_technology_progress = {
-				technology = gunsmithing
+				technology = regulated_small_arms
 				progress = 2500
 			}
 		}

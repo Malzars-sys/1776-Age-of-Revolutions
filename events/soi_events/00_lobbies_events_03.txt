@@ -1560,7 +1560,7 @@ lobby_events.51 = {
 	trigger = {
 		has_dlc_feature = lobbies
 		is_revolutionary = no
-		has_technology_researched = mass_communication
+		has_technology_researched = periodical_print_networks
 		any_political_lobby = {
 			any_lobby_member = {
 				is_powerful = yes
@@ -1719,7 +1719,7 @@ lobby_events.53 = {
 	trigger = {
 		has_dlc_feature = lobbies
 		is_revolutionary = no
-		has_technology_researched = mass_communication
+		has_technology_researched = periodical_print_networks
 		any_political_lobby = {
 			OR = {
 				is_political_lobby_type = lobby_pro_country
@@ -2123,10 +2123,10 @@ lobby_events.57 = {
 					}
 				}
 				AND = {
-					target = { has_technology_researched = pharmaceuticals }
+					target = { has_technology_researched = active_principle_pharmacy }
 					ROOT = {
-						NOT = { has_technology_researched = pharmaceuticals }
-						can_research = pharmaceuticals
+						NOT = { has_technology_researched = active_principle_pharmacy }
+						can_research = active_principle_pharmacy
 					}
 				}
 				AND = {
@@ -2170,10 +2170,10 @@ lobby_events.57 = {
 						}
 					}
 					AND = {
-						target = { has_technology_researched = pharmaceuticals }
+						target = { has_technology_researched = active_principle_pharmacy }
 						ROOT = {
-							NOT = { has_technology_researched = pharmaceuticals }
-							can_research = pharmaceuticals
+							NOT = { has_technology_researched = active_principle_pharmacy }
+							can_research = active_principle_pharmacy
 						}
 					}
 					AND = {
@@ -2240,10 +2240,10 @@ lobby_events.57 = {
  		}
  		else_if = {
  			limit = {
- 				NOT = { has_technology_researched = pharmaceuticals }
- 				can_research = pharmaceuticals
+				NOT = { has_technology_researched = active_principle_pharmacy }
+				can_research = active_principle_pharmacy
  			}
- 			add_technology_progress = { progress = 3500 technology = pharmaceuticals }
+			add_technology_progress = { progress = 3500 technology = active_principle_pharmacy }
  		}
  		 else_if = {
  			limit = {
@@ -2405,7 +2405,7 @@ lobby_events.59 = {
 	trigger = {
 		has_dlc_feature = lobbies
 		is_revolutionary = no
-		has_technology_researched = mass_communication
+		has_technology_researched = periodical_print_networks
 		NOT = {
 			OR = {
 				has_law_or_variant = law_type:law_elder_council
@@ -2499,7 +2499,7 @@ lobby_events.60 = {
 	trigger = {
 		has_dlc_feature = lobbies
 		is_revolutionary = no
-		has_technology_researched = mass_communication
+		has_technology_researched = periodical_print_networks
 		any_political_lobby = {
 			OR = {
 				is_political_lobby_type = lobby_anti_country

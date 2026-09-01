@@ -11,7 +11,7 @@
 		ig:ig_industrialists = {
 			add_ruling_interest_group = yes
 		}
-		
+
 		effect_starting_technology_tier_4_tech = yes
 
 		activate_law = law_type:law_colonial_administration
@@ -26,22 +26,22 @@
 		activate_law = law_type:law_slave_trade
 		activate_law = law_type:law_colonial_exploitation
 		activate_law = law_type:law_serfdom
-		
+
 		activate_law = law_type:law_right_of_assembly
-		
+
 		active_law:lawgroup_citizenship ?= { # Subjecthood
 			add_amendment = {
 				type = amendment_racialized_subjecthood
 				sponsor = PREV.ig:ig_industrialists
 			}
 		}
-		
+
 		set_variable = {
 			name = malaya_subject_var
 		}
-		
+
 		add_modifier = colonial_administration_76
-		
+
 		add_modifier = modifier_india_company_rule
 	}
 }

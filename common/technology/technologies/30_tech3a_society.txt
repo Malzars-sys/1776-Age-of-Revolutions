@@ -6,6 +6,12 @@ institutionalized_scientific_exchange = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	modifier = {
+		country_influence_mult = 0.25
+		country_diplomatic_play_maneuvers_mult = 0.25
+		country_tech_spread_mult = 0.05
+	}
+
 	ai_weight = {
 		value = 2
 	}
@@ -28,6 +34,12 @@ institutionalized_public_credit = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	modifier = {
+		country_minting_mult = 0.2
+		country_loan_interest_rate_add = -0.04
+		state_max_trade_advantage_from_capacity_add = 0.1
+	}
+
 	ai_weight = {
 		value = 2
 	}
@@ -42,6 +54,9 @@ stock_exchange = {
 
 	modifier = {
 		state_market_access_price_impact = 0.1
+		country_max_companies_add = 1
+		country_free_charters_add = 1
+		state_urbanization_per_level_mult = -0.1
 	}
 
 	unlocking_technologies = {
@@ -75,6 +90,11 @@ periodical_print_networks = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	modifier = {
+		country_authority_mult = 0.1
+		country_voting_power_mult = 0.1
+	}
+
 	ai_weight = {
 		value = 2
 	}
@@ -85,6 +105,12 @@ systematic_administrative_statistics = {
 	era = era_2
 	texture = "gfx/error_manul.dds"
 	category = society
+
+	modifier = {
+		state_tax_capacity_add = 50
+		country_institution_home_affairs_max_investment_add = 1
+		state_incorporation_speed_mult = 0.1
+	}
 
 	ai_weight = {
 		value = 2
@@ -127,6 +153,7 @@ political_economy = {
 	unlocking_technologies = {
 		systematic_administrative_statistics
 		codified_practical_knowledge
+		commercial_insurance_markets
 	}
 
 	ai_weight = {
@@ -169,6 +196,11 @@ organized_elementary_schooling = {
 	era = era_3
 	texture = "gfx/error_manul.dds"
 	category = society
+
+	modifier = {
+		country_institution_schools_max_investment_add = 2
+		state_education_access_wealth_add = 0.02
+	}
 
 	unlocking_technologies = {
         periodical_print_networks
@@ -235,6 +267,10 @@ constitutional_government = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	modifier = {
+		country_institution_social_security_max_investment_add = 2
+	}
+
 	unlocking_technologies = {
 		periodical_print_networks
 	}
@@ -252,7 +288,8 @@ human_rights = {
 
 
 	modifier = {
-		country_institution_social_security_max_investment_add = 1
+		state_expected_sol_from_literacy = 1
+		country_institution_social_security_max_investment_add = 2
 	}
 
 	unlocking_technologies = {
@@ -305,7 +342,6 @@ abolitionist_mobilization = {
 
 	unlocking_technologies = {
 		organized_reform_movements
-		human_rights
 	}
 
 	ai_weight = {
@@ -367,6 +403,7 @@ vaccination = {
 
 	unlocking_technologies = {
 		variolation_networks
+		medical_degrees
 	}
 
 	ai_weight = {
@@ -379,6 +416,10 @@ polytechnical_education = {
 	era = era_4
 	texture = "gfx/error_manul.dds"
 	category = society
+
+	modifier = {
+		country_institution_schools_max_investment_add = 1
+	}
 
 	unlocking_technologies = {
 		specialized_technical_academies
@@ -432,6 +473,43 @@ central_statistical_offices = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	modifier = {
+		country_institution_home_affairs_max_investment_add = 1
+	}
+
+	on_researched = {
+		if = {
+			limit = {
+				NOT = {
+					any_political_movement = {
+						is_political_movement_type = movement_modernizer
+					}
+				}
+				OR = {
+					AND = {
+						OR = {
+							is_in_geographic_region = geographic_region_south_america
+							is_in_geographic_region = geographic_region_central_america_old
+						}
+						country_rank <= rank_value:major_power
+					}
+					country_is_colonial_or_company = yes
+					is_country_type = unrecognized
+				}
+				NAND = {
+					has_law_or_variant = law_type:law_protectionism
+					OR = {
+						has_law_or_variant = law_type:law_interventionism
+						has_law_or_variant = law_type:law_command_economy
+						has_law_or_variant = law_type:law_laissez_faire
+					}
+					has_law_or_variant = law_type:law_compulsory_primary_school
+				}
+			}
+			create_political_movement = { type = movement_modernizer }
+		}
+	}
+
 	unlocking_technologies = {
 		systematic_administrative_statistics
 		systematic_population_registration
@@ -450,6 +528,7 @@ organized_immunization_campaigns = {
 
 	unlocking_technologies = {
 		vaccination
+		active_principle_pharmacy
 	}
 
 	ai_weight = {
@@ -477,6 +556,10 @@ experimental_research_laboratories = {
 	era = era_5
 	texture = "gfx/error_manul.dds"
 	category = society
+
+	modifier = {
+		country_weekly_innovation_max_add = 5
+	}
 
 	unlocking_technologies = {
 		polytechnical_education
@@ -527,6 +610,11 @@ active_principle_pharmacy = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	modifier = {
+		country_institution_health_system_max_investment_add = 1
+		state_harvest_condition_disease_outbreak_impact_mult = -0.2
+	}
+
 	unlocking_technologies = {
 		experimental_research_laboratories
 		medical_degrees
@@ -568,6 +656,10 @@ professional_civil_policing = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	modifier = {
+		country_institution_police_max_investment_add = 3
+	}
+
 	unlocking_technologies = {
 		systematic_legal_codification
 		systematic_administrative_statistics
@@ -596,7 +688,7 @@ mass_circulation_press = {
 
 liberal_constitutionalism = {
 	# TECH3A conceptual branch: Society
-	era = era_6
+	era = era_5
 	texture = "gfx/error_manul.dds"
 	category = society
 
@@ -604,6 +696,20 @@ liberal_constitutionalism = {
 		constitutional_government
 		human_rights
 		classical_political_economy
+	}
+
+	on_researched = {
+		if = {
+			limit = {
+				has_journal_entry = je_springtime_of_the_peoples
+				NOT = {
+					is_involved_in_journal_entry = je_springtime_of_the_peoples
+				}
+			}
+			je:je_springtime_of_the_peoples ?= {
+				add_involved_country = ROOT
+			}
+		}
 	}
 
 	ai_weight = {
@@ -631,6 +737,7 @@ labor_movement = {
 
 	unlocking_technologies = {
 		organized_reform_movements
+		liberal_constitutionalism
 	}
 
 	ai_weight = {

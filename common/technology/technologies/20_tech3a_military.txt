@@ -32,6 +32,10 @@ light_infantry_tactics = {
 	texture = "gfx/error_manul.dds"
 	category = military
 
+	modifier = {
+		unit_experience_gain_mult = 0.05
+	}
+
 	unlocking_technologies = {
 		regulated_small_arms
 	}
@@ -167,6 +171,11 @@ corps_organization = {
 	texture = "gfx/error_manul.dds"
 	category = military
 
+	modifier = {
+		country_general_rank_impact_mult = 0.2
+		state_conscription_rate_mult = 0.2
+	}
+
 	unlocking_technologies = {
 		horse_artillery
 		permanent_engineer_services
@@ -293,7 +302,7 @@ standardized_military_rockets = {
 
 percussion_cap = {
 	# TECH3A conceptual branch: Military
-	era = era_6
+	era = era_5
 	texture = "gfx/interface/icons/invention_icons/percussion_cap.dds"
 	category = military
 
@@ -317,6 +326,7 @@ general_staff = {
 		corps_organization
 		military_topographic_surveying
 		logistics
+		percussion_cap
 	}
 
 	ai_weight = {

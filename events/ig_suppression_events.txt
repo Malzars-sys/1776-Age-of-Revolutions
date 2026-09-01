@@ -166,7 +166,7 @@ ig_suppression_events.2 = { #scandal / es can da lo es un escandalo
 				modifier = {
 					if = {
 						limit = {
-							NOT = { has_technology_researched = dialectics }
+							NOT = { has_technology_researched = socialism }
 						}
 						add = 10
 					}
@@ -215,7 +215,7 @@ ig_suppression_events.2 = { #scandal / es can da lo es un escandalo
 				modifier = {
 					if = {
 						limit = {
-							NOT = { has_technology_researched = dialectics }
+							NOT = { has_technology_researched = socialism }
 						}
 					}
 					add = 10
@@ -291,7 +291,7 @@ ig_suppression_events.3 = { #make them step down
 		trigger = {
 			OR = {
 				has_technology_researched = mass_propaganda
-				has_technology_researched = mass_communication
+				has_technology_researched = periodical_print_networks
 			}
 		}
 		scope:target = {
@@ -835,20 +835,20 @@ ig_suppression_events.1000 = { #Write negative article about IG
 		default_option = yes
 		if = {
 			limit = {
-				NOT = { has_technology_researched = democracy }
-				can_research = democracy
+				NOT = { has_technology_researched = constitutional_government }
+				can_research = constitutional_government
 			}
-			add_technology_progress = { progress = 2500 technology = democracy }
+			add_technology_progress = { progress = 2500 technology = constitutional_government }
 		}
 		else_if = {
 			limit = {
-				NOT = { has_technology_researched = dialectics }
-				can_research = dialectics
+				NOT = { has_technology_researched = socialism }
+				can_research = socialism
 				any_state = {
 					has_building = building_art_academy
 				}
 			}
-			add_technology_progress = { progress = 3500 technology = dialectics }
+			add_technology_progress = { progress = 3500 technology = socialism }
 		}
 		else = {
 			random_interest_group = {
@@ -949,15 +949,15 @@ ig_suppression_events.1001 = {
 		default_option = yes
 		if = {
 			limit = {
-				NOT = { has_technology_researched = democracy }
-				can_research = democracy
+				NOT = { has_technology_researched = constitutional_government }
+				can_research = constitutional_government
 			}
-			add_technology_progress = { progress = 2500 technology = democracy }
+			add_technology_progress = { progress = 2500 technology = constitutional_government }
 		}
 		else_if = {
 			limit = {
 				NOT = { has_technology_researched = international_relations }
-				has_technology_researched = centralization
+				has_technology_researched = systematic_administrative_statistics
 				can_research = international_relations
 			}
 			add_technology_progress = { progress = 2500 technology = international_relations }
