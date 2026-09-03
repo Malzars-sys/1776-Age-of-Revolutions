@@ -231,3 +231,9 @@ PUSH = NO
 TECH6B3F a appliqué les responsabilités non-starting autorisées par cette matrice : 178 lignes sont implémentées, deux gates de bâtiments urbains sont explicitement différés et les quatre sentinelles d'alias vides restent autorisées. Les sept gates de lois cachés, les 19 responsabilités de modifiers directs et les autres hooks non-starting ont été redistribués vers leurs owners visibles validés.
 
 Les 229 grants initiaux ne sont pas modifiés. Ils sont enregistrés dans `TECH6B3F_STARTING_TECH_DEFERRED_MATRIX.csv` pour `TECH6B3G_STARTING_TECH_RECONCILIATION`. Les 44 alias restent présents comme couche de compatibilité. Les décisions humaines post-TECH6B3D, le GUI financier, les Starting Technologies et le design béton sont inchangés.
+
+## Addendum TECH6B3F-CIT — statut d'Egalitarianism superseded
+
+La décision historique `egalitarianism = hidden consumed alias` est partiellement superseded par la décision utilisateur TECH6B3F-CIT. `egalitarianism` est désormais une technologie Society active, visible et recherchable, placée en `era_9` derrière `feminism`, et sert exclusivement de gate technologique direct tardif à `law_multicultural`.
+
+Toutes les anciennes responsabilités gameplay redistribuées par TECH6B3F restent sur leurs nouveaux owners. Cet addendum ne réécrit ni les constats ni les recommandations historiques de l'audit : le décompte actuel des alias cachés passe de 44 à 43 uniquement parce qu'`egalitarianism` a été réactivé.

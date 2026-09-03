@@ -204,3 +204,8 @@ Aucune nouvelle partie ni passage d'un mois n'a été observé ; aucun runtime g
 
 TECH6B3F est clos sans blocker. La phase suivante est `TECH6B3G_STARTING_TECH_RECONCILIATION`, qui devra examiner les 229 grants pays/tier un par un. Aucun commit, push, asset, GUI, Steam ou béton n'a été modifié.
 
+## Addendum TECH6B3F-CIT — réactivation ciblée d'Egalitarianism
+
+La classification TECH6B3F d'`egalitarianism` comme alias caché consommé est partiellement superseded. Par décision utilisateur ultérieure, l'ID existant est redevenu une technologie Society active, visible et recherchable en `era_9`, avec `feminism` pour unique parent et `law_multicultural` pour unique nouvelle responsabilité gameplay directe.
+
+Les migrations TECH6B3F restent autoritatives : ni le suffrage universel, ni la taxation proportionnelle, ni `radical_party`, ni le Printemps des Peuples, ni l'ancien `on_researched`, ni les autres hooks redistribués ne reviennent sur `egalitarianism`. Le décompte courant des alias cachés est donc 43 ; les valeurs 44 de ce rapport demeurent le checkpoint historique avant TECH6B3F-CIT.
