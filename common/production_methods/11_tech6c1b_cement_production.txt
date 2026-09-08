@@ -1,0 +1,25 @@
+pm_portland_cement_process = {
+	texture = "gfx/error_deer.dds" # TECH6C1B TEMP_ASSET
+	is_default = yes
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 15
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_limestone_add = 30
+			goods_input_coal_add = 15
+			goods_output_cement_add = 40
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 3000
+			building_employment_machinists_add = 1000
+			building_employment_engineers_add = 500
+		}
+	}
+}

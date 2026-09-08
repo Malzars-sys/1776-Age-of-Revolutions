@@ -1,0 +1,21 @@
+portland_cement = {
+	# TECH6C1B post-1836 continuation of the hydraulic cement branch.
+	era = era_7
+	texture = "gfx/error_manul.dds" # TECH6C1B TEMP_ASSET
+	category = production
+
+	unlocking_technologies = {
+		hydraulic_cements
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_industrial_expansion
+			}
+			add = 1
+		}
+	}
+}
