@@ -251,3 +251,63 @@ pm_dynamite_building_phosphate_mine = {
         }
     }
 }
+
+pm_no_ore_concentration_building_gold_mine = {
+    texture = "gfx/error_deer.dds"
+}
+
+pm_ore_concentration_building_gold_mine = {
+    texture = "gfx/error_deer.dds"
+
+    unlocking_technologies = {
+        geological_surveying
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_pollution_generation_add = 5
+        }
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            goods_input_tools_add = 5
+            goods_input_industrial_chemicals_add = 5
+
+            goods_output_gold_add = 5
+        }
+    }
+
+    country_modifiers = {
+        workforce_scaled = {
+            country_minting_add = 125
+        }
+    }
+}
+
+pm_no_salt_processing_building_salt_mine = {
+    texture = "gfx/error_deer.dds"
+}
+
+pm_salt_purification_building_salt_mine = {
+    texture = "gfx/error_deer.dds"
+
+    unlocking_technologies = {
+        geological_surveying
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_pollution_generation_add = 5
+        }
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            goods_input_tools_add = 5
+            goods_input_industrial_chemicals_add = 5
+
+            goods_output_salt_add = 16
+        }
+    }
+}

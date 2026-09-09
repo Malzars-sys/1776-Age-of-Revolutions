@@ -14,3 +14,30 @@ pm_picks_and_shovels_building_limestone_quarry = {
 		}
 	}
 }
+
+pm_no_stone_processing_building_limestone_quarry = {
+    texture = "gfx/error_deer.dds"
+}
+
+pm_crushing_and_screening_building_limestone_quarry = {
+    texture = "gfx/error_deer.dds"
+
+    unlocking_technologies = {
+        geological_surveying
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_pollution_generation_add = 5
+        }
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            goods_input_tools_add = 5
+            goods_input_engines_add = 1
+
+            goods_output_limestone_add = 18
+        }
+    }
+}
