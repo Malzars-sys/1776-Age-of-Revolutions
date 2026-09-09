@@ -1,0 +1,13 @@
+﻿object_type,object_id,chain_role,action,status,technology_gate,recipe_or_rule,scope_note
+GOOD,phosphates,RAW_INPUT,CREATE,IMPLEMENTED,none,cost 30; industrial; tradeable,No pop consumption
+BUILDING,building_phosphate_mine,PRODUCER,CREATE,IMPLEMENTED,applied_mineralogy,capped resource mine,Dedicated geography and capacity
+PM,pm_picks_and_shovels_building_phosphate_mine,PRODUCER,CREATE,IMPLEMENTED,building gate,5 tools -> 25 phosphates,5000 workforce; pollution 5
+BUILDING,building_chemical_plant,CONVERTER,KEEP,UNCHANGED,industrial_acids,existing fertilizer building,No duplicate fertilizer building
+PMG,pmg_fertilizer_production,ROUTE_SELECTOR,KEEP,UNCHANGED,building gate,three mutually exclusive PMs,No new PMG
+PM,pm_artificial_fertilizers,CONSUMER,RECIPE_CHANGE,IMPLEMENTED,industrial_acids via building,20 phosphates + 20 industrial chemicals + 10 coal -> 80 fertilizer,Existing PM ID preserved
+PM,pm_improved_fertilizer,CONSUMER,RECIPE_CHANGE,IMPLEMENTED,improved_fertilizer,30 phosphates + 25 industrial chemicals + 15 coal -> 120 fertilizer,Existing PM ID and gate preserved
+PM,pm_nitrogen_fixation,LATE_FERTILIZER,KEEP,FROZEN,nitrogen_fixation,unchanged,Deferred to TECH6C6C
+PM_FAMILY,agricultural_fertilizer_consumers,DOWNSTREAM,KEEP,FROZEN,existing,continue consuming fertilizer,No direct phosphate input
+PM_FAMILY,explosives_production,DOWNSTREAM,KEEP,FROZEN,existing,unchanged,Nitrates and explosives deferred
+PM_FAMILY,ammunition_and_mines,DOWNSTREAM,KEEP,FROZEN,existing,continue consuming explosives,No direct phosphate input
+TECHNOLOGY,starting_technology_distribution,COUNTRY_SETUP,DEFER,OUT_OF_SCOPE,n/a,unchanged,Explicitly deferred until all new goods are complete

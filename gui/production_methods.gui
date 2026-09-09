@@ -34,8 +34,14 @@ types production_methods
 		}
 
 		### TOP ITEM
-		widget = {
-			size = { @panel_width_plus_14 95 }
+		container = {
+			minimumsize = { @panel_width_plus_14 95 }
+
+			# TECH6R1-UI1: reserve a second full-height PM row only when needed.
+			widget = {
+				visible = "[GreaterThan_int32( GetDataModelSize( BuildingBrowserBuildingTypeItem.GetBuildingType.AccessProductionMethodGroups ), '(int32)4' )]"
+				size = { @panel_width_plus_14 145 }
+			}
 
 			highlight_tutorial = {
 	   			visible = "[BuildingType.IsBeingTutorialHighlighted]"
@@ -94,14 +100,13 @@ types production_methods
 				fixedgridbox = {
 					datamodel = "[BuildingBrowserBuildingTypeItem.GetBuildingType.AccessProductionMethodGroups]"
 					flipdirection = yes
-					# TECH6A-3F: the compact 540 px building summary can contain
-					# five Food Industry PM groups before its action buttons.
-					addcolumn = 42
+					datamodel_wrap = 4
+					addcolumn = 52
 					addrow = 50
 
 					item = {
 						widget = {
-							size = { 40 50 }
+							size = { 50 50 }
 							tooltip = "BUILDING_TYPE_BULK_CHANGE_TOOLTIP"
 							using = tooltip_ne
 
@@ -314,8 +319,14 @@ types production_methods
 		spacing = 10
 
 		### TOP ITEM
-		widget = {
-			size = { @panel_width_plus_14 95 }
+		container = {
+			minimumsize = { @panel_width_plus_14 95 }
+
+			# TECH6R1-UI1: potential entries use the same generic two-row geometry.
+			widget = {
+				visible = "[GreaterThan_int32( GetDataModelSize( BuildingBrowserBuildingTypeItem.GetBuildingType.AccessProductionMethodGroups ), '(int32)4' )]"
+				size = { @panel_width_plus_14 145 }
+			}
 
 			highlight_tutorial = {
 	   			visible = "[BuildingType.IsBeingTutorialHighlighted]"
@@ -355,6 +366,7 @@ types production_methods
 				fixedgridbox = {
 					datamodel = "[BuildingBrowserBuildingTypeItem.GetBuildingType.AccessProductionMethodGroups]"
 					flipdirection = yes
+					datamodel_wrap = 4
 					addcolumn = 52
 					addrow = 50
 
@@ -591,8 +603,14 @@ types production_methods
 		spacing = 10
 
 		### TOP ITEM
-		widget = {
-			size = { @panel_width_plus_14 95 }
+		container = {
+			minimumsize = { @panel_width_plus_14 95 }
+
+			# TECH6R1-UI1: construction entries grow only for a second PM row.
+			widget = {
+				visible = "[GreaterThan_int32( GetDataModelSize( BuildingProductionMethodsEntry.GetBuildingType.AccessProductionMethodGroups ), '(int32)4' )]"
+				size = { @panel_width_plus_14 145 }
+			}
 
 			highlight_tutorial = {
 	   			visible = "[BuildingType.IsBeingTutorialHighlighted]"
@@ -659,6 +677,7 @@ types production_methods
 						fixedgridbox = {
 							datamodel = "[BuildingProductionMethodsEntry.GetBuildingType.AccessProductionMethodGroups]"
 							flipdirection = yes
+							datamodel_wrap = 4
 							addcolumn = 52
 							addrow = 50
 

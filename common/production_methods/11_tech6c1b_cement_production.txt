@@ -1,6 +1,39 @@
+pm_hydraulic_cement_process = {
+	texture = "gfx/error_deer.dds" # TECH6C4.5 TEMP_ASSET
+	is_default = yes
+
+	unlocking_technologies = {
+		hydraulic_cements
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 10
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_limestone_add = 30
+			goods_input_coal_add = 10
+			goods_output_cement_add = 30
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 3000
+			building_employment_machinists_add = 1000
+			building_employment_engineers_add = 500
+		}
+	}
+}
+
 pm_portland_cement_process = {
 	texture = "gfx/error_deer.dds" # TECH6C1B TEMP_ASSET
-	is_default = yes
+
+	unlocking_technologies = {
+		portland_cement
+	}
 
 	state_modifiers = {
 		workforce_scaled = {

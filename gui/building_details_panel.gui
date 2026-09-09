@@ -2701,6 +2701,14 @@ types building_panels
 		### PMS / EMPLOYMENT / CASH RESERVES
 		container = {
 			minimumsize = { @panel_width 80 }
+
+			# TECH6R1-UI1: the compact row keeps its vanilla height up to four PMGs,
+			# then reserves one additional 70 px row without building-specific logic.
+			widget = {
+				visible = "[GreaterThan_int32( GetDataModelSize( Building.AccessProductionMethodGroups ), '(int32)4' )]"
+				size = { @panel_width 150 }
+			}
+
 			container = {
 				parentanchor = vcenter
 
@@ -2727,24 +2735,11 @@ types building_panels
 
 			block "building_progressbars" {
 				building_progressbars = {
-					visible = "[Not(Building.IsBuildingType('building_food_industry'))]"
 					position = { -5 0 }
 					parentanchor = right|vcenter
 
 					blockoverride "progressbar_size" {
 						size = { 230 26 }
-					}
-				}
-
-				# TECH6A-3F: five PM groups occupy 360 px in Food Industries.
-				# A 170 px progress area keeps the fifth group visible inside the 540 px row.
-				building_progressbars = {
-					visible = "[Building.IsBuildingType('building_food_industry')]"
-					position = { -5 0 }
-					parentanchor = right|vcenter
-
-					blockoverride "progressbar_size" {
-						size = { 170 26 }
 					}
 				}
 			}
@@ -3358,6 +3353,10 @@ types building_panels
 			name = "tutorial_highlight_condensed_production_methods"
 			datamodel = "[Building.AccessProductionMethodGroups]"
 			flipdirection = yes
+
+			block "pms_wrap" {
+				datamodel_wrap = 4
+			}
 
 			block "pms_slot_sizes" {
 				addcolumn = 52
