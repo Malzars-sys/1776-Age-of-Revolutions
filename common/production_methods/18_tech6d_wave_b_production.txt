@@ -1,0 +1,138 @@
+# TECH6D — Wave B production methods
+
+pm_pressed_glass = {
+	texture = "gfx/error_deer.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 12
+		}
+	}
+
+	unlocking_technologies = {
+		pressed_glass
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# inputs
+			goods_input_coal_add = 10
+			goods_input_lead_add = 15
+			goods_input_limestone_add = 15
+			goods_input_industrial_chemicals_add = 10
+			goods_input_tools_add = 5
+
+			# output
+			goods_output_glass_add = 80
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 2750
+			building_employment_machinists_add = 1250
+			building_employment_engineers_add = 500
+		}
+	}
+}
+
+
+pm_thermal_catalytic_cracking_refinery = {
+	texture = "gfx/error_deer.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 20
+		}
+	}
+
+	unlocking_technologies = {
+		plastics
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# inputs
+			goods_input_oil_add = 30
+			goods_input_industrial_chemicals_add = 10
+			goods_input_electricity_add = 5
+
+			# outputs
+			goods_output_refined_fuels_add = 30
+			goods_output_lubricants_add = 6
+			goods_output_heavy_petroleum_products_add = 10
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 2000
+			building_employment_machinists_add = 1500
+			building_employment_engineers_add = 1000
+		}
+	}
+
+	required_input_goods = electricity
+}
+
+
+pm_no_mine_ventilation = {
+	texture = "gfx/error_deer.dds"
+}
+
+
+pm_steam_mine_ventilation = {
+	texture = "gfx/error_deer.dds"
+
+	unlocking_technologies = {
+		deep_mine_engineering
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_engines_add = 2
+			goods_input_coal_add = 5
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -250
+			building_employment_machinists_add = 200
+			building_employment_engineers_add = 50
+		}
+
+		unscaled = {
+			building_laborers_mortality_mult = -0.10
+			building_machinists_mortality_mult = -0.05
+			building_engineers_mortality_mult = -0.05
+		}
+	}
+}
+
+
+pm_electric_mine_ventilation = {
+	texture = "gfx/error_deer.dds"
+
+	unlocking_technologies = {
+		electrical_capacitors
+        deep_mine_engineering
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_engines_add = 2
+			goods_input_electricity_add = 5
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = -500
+			building_employment_machinists_add = 350
+			building_employment_engineers_add = 150
+		}
+
+		unscaled = {
+			building_laborers_mortality_mult = -0.20
+			building_machinists_mortality_mult = -0.10
+			building_engineers_mortality_mult = -0.10
+		}
+	}
+
+	required_input_goods = electricity
+}
