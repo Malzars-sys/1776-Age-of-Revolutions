@@ -30,14 +30,20 @@ international_relations = {
 
 institutionalized_public_credit = {
 	# TECH3A conceptual branch: Society
-	era = era_1
+	era = era_2
 	texture = "gfx/error_manul.dds"
 	category = society
+
+	unlocking_technologies = {
+		organized_financial_institutions
+	}
 
 	modifier = {
 		country_minting_mult = 0.2
 		country_loan_interest_rate_add = -0.04
 		state_max_trade_advantage_from_capacity_add = 0.1
+		country_max_companies_add = 1
+		country_free_charters_add = 1
 	}
 
 	ai_weight = {
@@ -51,16 +57,16 @@ stock_exchange = {
 	texture = "gfx/interface/icons/invention_icons/stock_exchanges.dds"
 	category = society
 
+	unlocking_technologies = {
+		organized_financial_institutions
+	}
+
 
 	modifier = {
 		state_market_access_price_impact = 0.1
-		country_max_companies_add = 1
-		country_free_charters_add = 1
+		country_max_companies_add = 2
+		country_free_charters_add = 2
 		state_urbanization_per_level_mult = -0.1
-	}
-
-	unlocking_technologies = {
-		institutionalized_public_credit
 	}
 
 	ai_weight = {
@@ -75,8 +81,7 @@ commercial_insurance_markets = {
 	category = society
 
 	unlocking_technologies = {
-		institutionalized_public_credit
-		international_relations
+		organized_financial_institutions
 	}
 
 	ai_weight = {
@@ -123,25 +128,26 @@ variolation_networks = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	# Temporary TECH debt bonus; replace with early preventive-health content.
+	modifier = {
+		state_mortality_mult = -0.0025
+	}
+
+	unlocking_technologies = {
+		institutionalized_scientific_exchange
+	}
+
 	ai_weight = {
 		value = 2
 	}
 }
 
 codified_practical_knowledge = {
-	# TECH3A conceptual branch: Society
+	# Post-runtime compatibility alias; responsibilities migrated to active foundations.
 	era = era_2
 	texture = "gfx/error_manul.dds"
 	category = society
-
-	unlocking_technologies = {
-		institutionalized_scientific_exchange
-		periodical_print_networks
-	}
-
-	ai_weight = {
-		value = 1
-	}
+	can_research = no
 }
 
 political_economy = {
@@ -151,9 +157,8 @@ political_economy = {
 	category = society
 
 	unlocking_technologies = {
+		periodical_print_networks
 		systematic_administrative_statistics
-		codified_practical_knowledge
-		commercial_insurance_markets
 	}
 
 	ai_weight = {
@@ -182,6 +187,11 @@ veterinary_science = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	# Temporary TECH debt bonus; replace with animal-health and epizootic content.
+	modifier = {
+		building_livestock_ranch_throughput_add = 0.05
+	}
+
 	unlocking_technologies = {
 		institutionalized_scientific_exchange
 	}
@@ -203,8 +213,8 @@ organized_elementary_schooling = {
 	}
 
 	unlocking_technologies = {
-        periodical_print_networks
-    }
+		periodical_print_networks
+	}
 
 	ai_weight = {
 		value = 2
@@ -309,6 +319,11 @@ national_sovereignty = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	# Temporary TECH debt bonus; replace with nationality and state-building content.
+	modifier = {
+		country_influence_add = 10
+	}
+
 	unlocking_technologies = {
 		constitutional_government
 		periodical_print_networks
@@ -360,6 +375,10 @@ systematic_cadastral_surveying = {
 		systematic_administrative_statistics
 	}
 
+	modifier = {
+		state_tax_capacity_add = 10
+	}
+
 	ai_weight = {
 		value = 1
 	}
@@ -370,6 +389,11 @@ systematic_legal_codification = {
 	era = era_4
 	texture = "gfx/error_manul.dds"
 	category = society
+
+	# Temporary TECH debt bonus; replace with courts and legal-administration content.
+	modifier = {
+		country_law_enactment_success_add = 0.02
+	}
 
 	unlocking_technologies = {
 		systematic_administrative_statistics
@@ -386,6 +410,11 @@ scientific_metrology = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	# Temporary TECH debt bonus; replace with standards and precision-industry content.
+	modifier = {
+		country_tech_spread_mult = 0.025
+	}
+
 	unlocking_technologies = {
 		systematic_administrative_statistics
 		institutionalized_scientific_exchange
@@ -401,6 +430,11 @@ vaccination = {
 	era = era_4
 	texture = "gfx/error_manul.dds"
 	category = society
+
+	# Temporary TECH debt bonus; replace with vaccination campaigns and production content.
+	modifier = {
+		state_mortality_mult = -0.005
+	}
 
 	unlocking_technologies = {
 		variolation_networks
@@ -441,6 +475,10 @@ optical_telegraph_networks = {
 		periodical_print_networks
 	}
 
+	modifier = {
+		country_influence_add = 10
+	}
+
 	ai_weight = {
 		value = 1
 	}
@@ -449,7 +487,6 @@ optical_telegraph_networks = {
 colonization = {
 	# Unlocks Colonial Resettlement, Colonial Exploitation - Colonial Affairs Laws
 	# Unlocks various expedition decisions
-	# Unlocks the Suez Canal
 	era = era_4
 	texture = "gfx/interface/icons/invention_icons/colonization.dds"
 	category = society
@@ -593,6 +630,11 @@ clinicopathological_medicine = {
 	era = era_5
 	texture = "gfx/error_manul.dds"
 	category = society
+
+	# Temporary TECH debt bonus; replace with clinical hospital and diagnostic content.
+	modifier = {
+		state_harvest_condition_disease_outbreak_impact_mult = -0.10
+	}
 
 	unlocking_technologies = {
 		medical_degrees

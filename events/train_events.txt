@@ -20,7 +20,7 @@ trains.1 = {
 	trigger = {
 		has_technology_researched  = steel_railway_cars
 		any_scope_state = {
-			has_building = building_railway
+			state_has_active_rail_network = yes
 		}
 		any_interest_group = {
 			is_revolutionary = no
@@ -34,7 +34,7 @@ trains.1 = {
 
 	immediate = {
 		random_scope_state = {
-			limit = { has_building = building_railway }
+			limit = { state_has_active_rail_network = yes }
 			save_scope_as = train_crashing_state
 		}
 		random_interest_group = {

@@ -1,0 +1,113 @@
+pm_traditional_road_network = {
+	texture = "gfx/error_deer.dds"
+	is_default = yes
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wood_add = 5
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 900
+			building_employment_clerks_add = 100
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 3
+		}
+	}
+}
+
+pm_turnpike_road_network = {
+	texture = "gfx/error_deer.dds"
+
+	unlocking_technologies = {
+		turnpike_road_networks
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wood_add = 4
+			goods_input_tools_add = 2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 750
+			building_employment_clerks_add = 150
+			building_employment_bureaucrats_add = 100
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 7
+			state_infrastructure_from_population_add = 0.02
+			state_infrastructure_from_population_max_add = 0.5
+		}
+	}
+}
+
+pm_engineered_road_network = {
+	texture = "gfx/error_deer.dds"
+
+	unlocking_technologies = {
+		improved_road_engineering
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_limestone_add = 5
+			goods_input_tools_add = 3
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 600
+			building_employment_machinists_add = 200
+			building_employment_engineers_add = 100
+			building_employment_clerks_add = 100
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 12
+			state_infrastructure_from_population_add = 0.05
+			state_infrastructure_from_population_max_add = 1
+		}
+	}
+}
+
+pm_paved_road_network = {
+	texture = "gfx/error_deer.dds"
+
+	unlocking_technologies = {
+		paved_roads
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_tools_add = 4
+			goods_input_cement_add = 5
+			goods_input_limestone_add = 5
+			goods_input_heavy_petroleum_products_add = 2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 400
+			building_employment_machinists_add = 250
+			building_employment_engineers_add = 150
+			building_employment_clerks_add = 200
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 20
+			state_infrastructure_from_population_add = 0.1
+			state_infrastructure_from_population_max_add = 2
+			state_infrastructure_from_automobiles_consumption_add = 0.01
+		}
+	}
+}

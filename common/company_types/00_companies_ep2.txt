@@ -158,7 +158,10 @@ company_yasuda = {
 				any_scope_building = {
 					OR = {
 						is_building_type = building_sulfur_mine
-						is_building_type = building_railway
+						AND = {
+							is_building_type = building_railway
+							NOT = { has_active_production_method = pm_no_rail_network }
+						}
 						is_building_type = building_port
 					}
 					level >= 5
@@ -997,7 +1000,7 @@ company_maschinenfabrik_oerlikon = {
 	}
 
 	prosperity_modifier = {
-		building_railway_throughput_add = 0.1
+		goods_output_transportation_mult = 0.1
 		country_weekly_innovation_mult = 0.05
 	}
 

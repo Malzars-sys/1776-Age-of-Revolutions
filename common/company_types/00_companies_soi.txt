@@ -116,6 +116,7 @@ company_iranian_state_railway = {
 			is_incorporated = yes
 			any_scope_building = {
 				is_building_type = building_railway
+				NOT = { has_active_production_method = pm_no_rail_network }
 				level >= 5
 			}
 			count >= 2
@@ -186,11 +187,12 @@ company_tashkent_railroad = {
 		any_scope_state = {
 			state_region = s:STATE_FERGANA
 			is_incorporated = yes
-			has_building = building_railway
+			state_has_active_rail_network = yes
 			custom_tooltip = {
 				text = has_at_least_5_levels_of_railway_tt
 				any_scope_building = {
 					is_building_type = building_railway
+					NOT = { has_active_production_method = pm_no_rail_network }
 					level >= 5
 				}
 			}
@@ -202,6 +204,7 @@ company_tashkent_railroad = {
 				text = has_at_least_5_levels_of_railway_tt
 				any_scope_building = {
 					is_building_type = building_railway
+					NOT = { has_active_production_method = pm_no_rail_network }
 					level >= 5
 				}
 			}
@@ -651,7 +654,7 @@ company_hanseong_jeongi_hoesa = {
 
 	prosperity_modifier = {
 		building_art_academy_throughput_add = 0.05
-		building_railway_throughput_add = 0.05
+		goods_output_transportation_mult = 0.05
 	}
 
 	ai_will_do = {

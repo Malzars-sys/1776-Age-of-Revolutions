@@ -27,7 +27,8 @@ coke_smelting = {
 	texture = "gfx/error_manul.dds"
 	category = production
 	unlocking_technologies ={
-		organized_forestry
+		organized_workshops
+		shaft_mining
 	}
 	ai_weight = {
 		value = 2
@@ -52,7 +53,6 @@ atmospheric_engine = {
 	
 	unlocking_technologies = {
         shaft_mining
-		coke_smelting
     }
 
 	ai_weight = {
@@ -99,6 +99,10 @@ distillation = {
 	texture = "gfx/interface/icons/invention_icons/distillation.dds"
 	category = production
 
+	unlocking_technologies = {
+		traditional_food_processing
+	}
+
 	ai_weight = {
 		value = 1
 	}
@@ -112,6 +116,7 @@ crystal_glass = {
 
 	unlocking_technologies = {
 		industrial_ceramics
+		organized_workshops
 	}
 
 	ai_weight = {
@@ -121,7 +126,7 @@ crystal_glass = {
 
 improved_agricultural_implements = {
 	# TECH3A conceptual branch: Production
-	era = era_2
+	era = era_1
 	texture = "gfx/error_manul.dds"
 	category = production
 
@@ -212,9 +217,35 @@ advanced_crop_rotations = {
 	}
 }
 
+artificial_fertilizers = {
+	# Early industrial fertilizer foundation: unlocks the fertilizer plant and its base process
+	era = era_4
+	texture = "gfx/error_deer.dds"
+	category = production
+
+	unlocking_technologies = {
+		advanced_crop_rotations
+		industrial_acids
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_agricultural_expansion
+					has_strategy = ai_strategy_industrial_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
 selective_breeding = {
 	# TECH3A conceptual branch: Production
-	era = era_3
+	era = era_2
 	texture = "gfx/error_manul.dds"
 	category = production
 
@@ -321,10 +352,10 @@ industrial_ceramics = {
 	era = era_3
 	texture = "gfx/error_manul.dds"
 	category = production
-	
+
 	unlocking_technologies = {
-        traditional_glassmaking
-    }
+		organized_workshops
+	}
 
 	ai_weight = {
 		value = 2
@@ -350,6 +381,7 @@ precision_boring = {
 	unlocking_technologies = {
 		coke_smelting
 		atmospheric_engine
+		organized_workshops
 	}
 
 	ai_weight = {
@@ -477,6 +509,7 @@ deep_mine_engineering = {
 	unlocking_technologies = {
 		shaft_mining
 		atmospheric_engine
+		applied_mineralogy
 	}
 
 	ai_weight = {
@@ -521,12 +554,12 @@ threshing_machine = {
 
 chemical_bleaching = {
 	# TECH3A conceptual branch: Production
-	era = era_4
+	era = era_5
 	texture = "gfx/interface/icons/invention_icons/chemical_bleaching.dds"
 	category = production
 
 	unlocking_technologies = {
-		industrial_acids
+		industrial_alkalis
 		industrial_ceramics
 	}
 
@@ -760,6 +793,11 @@ systematic_field_drainage = {
 	texture = "gfx/error_manul.dds"
 	category = production
 
+	# Temporary TECH debt bonus; replace with drainage and land-improvement content.
+	modifier = {
+		building_group_bg_agriculture_throughput_add = 0.03
+	}
+
 	unlocking_technologies = {
 		advanced_crop_rotations
 		improved_road_engineering
@@ -982,6 +1020,11 @@ hot_blast_smelting = {
 	texture = "gfx/error_manul.dds"
 	category = production
 
+	# Temporary TECH debt bonus; replace with blast-furnace and metallurgy content.
+	modifier = {
+		building_group_bg_heavy_industry_throughput_add = 0.03
+	}
+
 	unlocking_technologies = {
 		puddling_and_rolling
 		rotative_steam_power
@@ -1029,15 +1072,11 @@ hydraulic_cements = {
 }
 
 hydraulic_turbines = {
-	# TECH3A conceptual branch: Production
+	# TECH TREE Wave 3 compatibility alias: concept absorbed by professional_civil_engineering.
 	era = era_6
 	texture = "gfx/error_manul.dds"
 	category = production
-
-	unlocking_technologies = {
-		professional_civil_engineering
-		mechanical_tools
-	}
+	can_research = no
 
 	ai_weight = {
 		value = 1
@@ -1110,9 +1149,17 @@ fractional_distillation = {
 
 organized_forestry = {
     # TECH3A conceptual branch: Production
-    era = era_1
+    era = era_2
     texture = "gfx/error_manul.dds"
     category = production
+
+    unlocking_technologies = {
+        improved_husbandry
+    }
+
+    modifier = {
+        building_group_bg_logging_throughput_add = 0.05
+    }
 
     ai_weight = {
         value = 2
@@ -1125,27 +1172,17 @@ traditional_papermaking = {
     texture = "gfx/error_manul.dds"
     category = production
 
-    unlocking_technologies = {
-        organized_forestry
-    }
-
     ai_weight = {
         value = 2
     }
 }
 
 traditional_glassmaking = {
+	# Post-runtime compatibility alias; glassworks moved to organized_workshops.
     era = era_2
     texture = "gfx/error_manul.dds"
     category = production
-
-    unlocking_technologies = {
-        organized_forestry
-    }
-
-    ai_weight = {
-        value = 1
-    }
+	can_research = no
 }
 
 industrial_paper_bleaching = {
@@ -1173,14 +1210,10 @@ traditional_food_processing = {
     }
 }
 
-traditional_furniture_making = {
-    era = era_2
+organized_workshops = {
+    era = era_1
     texture = "gfx/error_manul.dds"
     category = production
-
-    unlocking_technologies = {
-        organized_forestry
-    }
 
     ai_weight = {
         value = 1

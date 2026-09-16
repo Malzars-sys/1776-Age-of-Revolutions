@@ -34,7 +34,7 @@ company_sao_paulo_railway = {
 		any_scope_state = {
 			state_region = s:STATE_SAO_PAULO
 			is_incorporated = yes
-			has_building = building_railway
+			state_has_active_rail_network = yes
 			any_scope_building = {
 				is_building_type = building_coffee_plantation
 				level >= 5
@@ -45,6 +45,7 @@ company_sao_paulo_railway = {
 			is_incorporated = yes
 			any_scope_building = {
 				is_building_type = building_railway
+				NOT = { has_active_production_method = pm_no_rail_network }
 				level >= 5
 			}
 			count >= 2
@@ -709,13 +710,14 @@ company_cordoba_railway = {
 		any_scope_state = {
 			state_region = s:STATE_LA_PAMPA
 			is_incorporated = yes
-			has_building = building_railway
+			state_has_active_rail_network = yes
 		}
 		any_scope_state = {
 			has_state_trait = state_trait_pampas
 			is_incorporated = yes
 			any_scope_building = {
 				is_building_type = building_railway
+				NOT = { has_active_production_method = pm_no_rail_network }
 				level >= 5
 			}
 			count >= 2

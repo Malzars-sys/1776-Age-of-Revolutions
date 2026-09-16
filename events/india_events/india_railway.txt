@@ -27,7 +27,7 @@ india_railway.1 = {
 		is_subject = yes
 		liberty_desire >= 25
 		any_scope_state = {
-			has_building = building_railway
+			state_has_active_rail_network = yes
 			NOT = { has_variable = railway_robbery_happened }
 			NOT = { has_variable = railway_trial_completed }
 			any_scope_pop = {
@@ -45,7 +45,7 @@ india_railway.1 = {
 	immediate = {
 		random_scope_state = {
 			limit = {
-				has_building = building_railway
+				state_has_active_rail_network = yes
 				NOT = { has_variable = railway_robbery_happened }
 				NOT = { has_variable = railway_trial_completed }
 				any_scope_pop = {
@@ -141,7 +141,7 @@ india_railway.2 = {
 	trigger = {
 		# Triggered by Purveyor of Progres JE
 		any_scope_state = {
-			has_building = building_railway
+			state_has_active_rail_network = yes
 			has_variable = railway_robbery_happened
 			NOT = { has_variable = railway_trial_completed }
 			any_scope_pop = {
@@ -153,7 +153,7 @@ india_railway.2 = {
 	immediate = {
 		random_scope_state = {
 			limit = {
-				has_building = building_railway
+				state_has_active_rail_network = yes
 				has_variable = railway_robbery_happened
 				NOT = { has_variable = railway_trial_completed }
 				any_scope_pop = {
@@ -238,7 +238,7 @@ india_railway.3 = {
 		# Triggered by Purveyor of Progres JE
 		is_subject = yes
 		any_scope_state = {
-			has_building = building_railway
+			state_has_active_rail_network = yes
 			any_scope_pop = {
 				pop_acceptance < acceptance_status_4
 			}
@@ -249,7 +249,7 @@ india_railway.3 = {
 	immediate = {
 		random_scope_state = {
 			limit = {
-				has_building = building_railway
+				state_has_active_rail_network = yes
 				any_scope_pop = {
 					pop_acceptance < acceptance_status_4
 				}
@@ -344,7 +344,7 @@ india_railway.4 = {
 		# Triggered by Purveyor of Progres JE
 		is_subject = yes
 		any_scope_state = {
-			has_building = building_railway
+			state_has_active_rail_network = yes
 			any_scope_pop = {
 				pop_acceptance < acceptance_status_4
 			}
@@ -360,7 +360,7 @@ india_railway.4 = {
 	immediate = {
 		random_scope_state = {
 			limit = {
-				has_building = building_railway
+				state_has_active_rail_network = yes
 			}
 			random_scope_pop = {
 				limit = {

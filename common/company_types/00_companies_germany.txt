@@ -50,7 +50,7 @@ company_krupp = {
 	}
 
 	prosperity_modifier = {
-		building_railway_throughput_add = 0.1
+		goods_output_transportation_mult = 0.1
 		unit_kill_rate_add = 0.1
 	}
 
@@ -390,6 +390,7 @@ company_prussian_state_railways = {
 			is_incorporated = yes
 			any_scope_building = {
 				is_building_type = building_railway
+				NOT = { has_active_production_method = pm_no_rail_network }
 				level >= 5
 			}
 			count >= 3

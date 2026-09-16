@@ -1,0 +1,167 @@
+REPLACE_OR_CREATE:company_mantetsu = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/japanese_mantetsu.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+
+	category = bureaucrat_owned
+	flavored_company = yes
+	preferred_headquarters = { STATE_SHENGJING }
+
+	building_types = {
+		building_railway
+		building_coal_mine
+		building_glassworks
+	}
+
+	extension_building_types = {
+		building_food_industry
+		building_chemical_plant
+	}
+
+	potential = {
+		c:JAP ?= this
+	}
+
+	possible = {
+		country_or_subject_owns_entire_state_region = STATE_SHENGJING
+		has_technology_researched = railways
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_scope_state = {
+			OR = {
+				region = sr:region_northeast_asia
+				region = sr:region_north_china
+			}
+			state_has_active_rail_network = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 5
+				NOT = { has_active_production_method = pm_no_rail_network }
+			}
+			count >= 2
+		}
+	}
+
+	prosperity_modifier = {
+		state_non_homeland_colony_growth_speed_mult = 0.1
+		building_wheat_farm_throughput_add = 0.15
+	}
+
+	ai_will_do = {
+		country_or_subject_owns_entire_state_region = STATE_SHENGJING
+		has_technology_researched = railways
+		custom_tooltip = {
+			text = is_meiji_japan
+			has_variable = japan_restoration_complete
+		}
+		any_scope_state = {
+			OR = {
+				region = sr:region_northeast_asia
+				region = sr:region_north_china
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_railway = {
+			level = 5
+			state_trigger = {
+				OR = {
+					region = sr:region_northeast_asia
+					region = sr:region_north_china
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3
+		if = {
+			limit = {
+				has_journal_entry = je_colonize_korea
+				NOT = {
+					any_company = {
+						is_company_type = company_type:company_oriental_development_company
+					}
+				}
+			}
+			add = 6
+		}
+	}
+}
+
+REPLACE_OR_CREATE:company_imperial_ethiopian_railways = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/company_imperial_ethiopian_railways.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_railways.dds"
+
+	flavored_company = yes
+
+	building_types = {
+		building_railway
+	}
+
+	extension_building_types = {
+		building_motor_industry
+	}
+
+	potential = {
+		has_interest_marker_in_region = sr:region_east_africa
+	}
+
+	attainable = {
+	}
+
+	possible = {
+		has_technology_researched = railways
+		any_scope_state = {
+			region = sr:region_east_africa
+			state_has_active_rail_network = yes
+			any_scope_building = {
+				is_building_type = building_coffee_plantation
+				level >= 5
+			}
+		}
+		any_scope_state = {
+			region = sr:region_east_africa
+			is_coastal = yes
+			state_has_active_rail_network = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				level >= 5
+				NOT = { has_active_production_method = pm_no_rail_network }
+			}
+		}
+	}
+
+	prosperity_modifier = {
+		building_coffee_plantation_throughput_add = 0.1
+		building_livestock_ranch_throughput_add = 0.05
+	}
+
+	ai_will_do = {
+		has_technology_researched = railways
+		any_scope_state = {
+			region = sr:region_east_africa
+		}
+	}
+
+	ai_construction_targets = {
+		building_coffee_plantation = {
+			level = 5
+			state_trigger = {
+				region = sr:region_east_africa
+			}
+		}
+		building_railway = {
+			level = 5
+			state_trigger = {
+				region = sr:region_east_africa
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}

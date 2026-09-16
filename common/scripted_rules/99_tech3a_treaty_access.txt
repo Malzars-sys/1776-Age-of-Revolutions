@@ -1,0 +1,15 @@
+# TECH3A: formal treaty drafting requires both signatories to understand
+# international diplomacy.  The vanilla UI already queries this rule for the
+# country-panel button and the country right-click menu, so keeping the gate
+# here also prevents the AI from bypassing it.
+REPLACE_OR_CREATE:can_sign_treaty_with = {
+	root = {
+		has_technology_researched = international_relations
+		NOT = { is_diplomatic_play_enemy_of = scope:other_country }
+	}
+
+	scope:other_country = {
+		has_technology_researched = international_relations
+		NOT = { is_country_type = decentralized }
+	}
+}

@@ -780,7 +780,7 @@ acw_events.8 = {
 			c:FSA ?= THIS
 		}
 		any_scope_state = {
-			has_building = building_railway
+			state_has_active_rail_network = yes
 			NOT = { has_modifier = protected_trains }
 		}
 	}
@@ -788,7 +788,7 @@ acw_events.8 = {
 	immediate = {
 		random_scope_state = {
 			limit = {
-				has_building = building_railway
+				state_has_active_rail_network = yes
 				NOT = { has_modifier = protected_trains }
 			}
 			save_scope_as = great_locomotive_chase_state

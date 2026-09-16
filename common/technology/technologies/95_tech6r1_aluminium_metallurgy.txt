@@ -1,14 +1,53 @@
-aluminium_metallurgy = {
-    era = era_10
-    category = production
-    texture = "gfx/error_manul.dds"
+alloysworking = {
+	# Early industrial metallurgy and the alloy works imported from Tech & Res.
+	era = era_2
+	category = production
+	texture = "gfx/interface/icons/invention_icons/alloysworking.dds"
 
-    unlocking_technologies = {
-        electrical_capacitors
-        industrial_alkalis
-    }
+	unlocking_technologies = {
+		shaft_mining
+	}
 
-    ai_weight = {
-		value = 1
+	ai_weight = {
+		value = 2
+	}
+}
+
+bauxite_processing = {
+	# Chemical aluminium route: deliberately earlier than electrical mass production.
+	era = era_6
+	category = production
+	texture = "gfx/interface/icons/invention_icons/bauxite_processing.dds"
+
+	unlocking_technologies = {
+		alloysworking
+		industrial_alkalis
+	}
+
+	on_researched = {
+		tech6c_reveal_bauxite_deposits = yes
+		custom_tooltip = {
+			text = bauxite_mining_deposits_visible_tt
+		}
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+bayer_process = {
+	# Industrial purification and electrical generation enable Hall-Heroult electrolysis.
+	era = era_10
+	category = production
+	texture = "gfx/interface/icons/invention_icons/bayer_process.dds"
+
+	unlocking_technologies = {
+		bauxite_processing
+		electrical_capacitors
+	}
+
+	ai_weight = {
+		value = 2
 	}
 }

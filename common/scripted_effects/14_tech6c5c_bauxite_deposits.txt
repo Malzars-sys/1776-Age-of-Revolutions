@@ -1,0 +1,250 @@
+tech6c_reveal_bauxite_deposits = {
+	if = {
+		limit = {
+			NOT = { has_global_variable = tech6c_bauxite_deposits_revealed }
+		}
+		set_global_variable = tech6c_bauxite_deposits_revealed
+		tech6c_bauxite_nano_add_deposits = yes
+		tech6c_bauxite_small_add_deposits = yes
+		tech6c_bauxite_medium_add_deposits = yes
+		tech6c_bauxite_big_add_deposits = yes
+		tech6c_bauxite_huge_add_deposits = yes
+	}
+}
+
+tech6c_bauxite_nano_add_deposits = {
+	every_state_region = {
+		limit = {
+			OR = {
+				this = s:STATE_ZULIA
+				this = s:STATE_ANTIOQUIA
+				this = s:STATE_CHIHUAHUA
+				this = s:STATE_CALIFORNIA
+				this = s:STATE_SOUTH_CAROLINA
+				this = s:STATE_TENNESSEE
+				this = s:STATE_ALBERTA
+				this = s:STATE_CALABRIA
+				this = s:STATE_LOMBARDY
+				this = s:STATE_CONSTANTINE
+				this = s:STATE_RHONE
+				this = s:STATE_RHINELAND
+				this = s:STATE_FRANCONIA
+				this = s:STATE_BOHEMIA
+				this = s:STATE_EMILIA
+				this = s:STATE_DALMATIA
+				this = s:STATE_KOSOVO
+				this = s:STATE_NORTHERN_THRACE
+				this = s:STATE_WESTERN_THRACE
+				this = s:STATE_ATTICA
+				this = s:STATE_BULGARIA
+				this = s:STATE_KASTAMONU
+				this = s:STATE_ANKARA
+				this = s:STATE_TOGO
+				this = s:STATE_VOLTA
+				this = s:STATE_GABON
+				this = s:STATE_EQUATEUR
+				this = s:STATE_UBANGI_SHARI
+				this = s:STATE_UGANDA
+				this = s:STATE_CONGO_ORIENTALE
+				this = s:STATE_LURISTAN
+				this = s:STATE_ISFAHAN
+				this = s:STATE_TABRIZ
+				this = s:STATE_IRAKAJEMI
+				this = s:STATE_RAJPUTANA
+				this = s:STATE_PUNJAB
+				this = s:STATE_MANDALAY
+				this = s:STATE_XIAN
+				this = s:STATE_JIANGXI
+				this = s:STATE_NINGXIA
+				this = s:STATE_CHUGOKU
+				this = s:STATE_BUSAN
+				this = s:STATE_SURGUT
+				this = s:STATE_PERM
+				this = s:STATE_ARMENIA
+				this = s:STATE_NAKHON_RATCHASIMA
+				this = s:STATE_ANNAM
+				this = s:STATE_LAOS
+				this = s:STATE_NORTHERN_ANHUI
+				this = s:STATE_BEIJING
+				this = s:STATE_LUZON
+				this = s:STATE_SOUTH_SUMATRA
+				this = s:STATE_PALESTINE
+			}
+		}
+		change_resource_potential = {
+			type = building_bauxite_mine
+			amount = 10
+		}
+	}
+}
+
+tech6c_bauxite_small_add_deposits = {
+	every_state_region = {
+		limit = {
+			OR = {
+				# Central Asia and Russia
+				this = s:STATE_URAL
+				this = s:STATE_TOBOLSK
+				this = s:STATE_UZBEKIA
+				this = s:STATE_TOMSK
+				this = s:STATE_INGRIA
+				# Europe
+				this = s:STATE_HIGHLANDS
+				this = s:STATE_ULSTER
+				this = s:STATE_MUNSTER
+				this = s:STATE_AUSTRIA
+				this = s:STATE_RUHR
+				this = s:STATE_BADEN
+				this = s:STATE_PIEDMONT
+				this = s:STATE_UMBRIA
+				this = s:STATE_LEON
+				this = s:STATE_NEW_CASTILE
+				this = s:STATE_CORSICA
+				this = s:STATE_CROATIA
+				this = s:STATE_ISTRIA
+				this = s:STATE_WESTERN_SERBIA
+				this = s:STATE_EASTERN_SERBIA
+				this = s:STATE_UPPER_SILESIA
+				this = s:STATE_ALBANIA
+				this = s:STATE_SLOVAKIA
+				this = s:STATE_PROVENCE
+				this = s:STATE_SLOVENIA
+				this = s:STATE_STYRIA
+				this = s:STATE_LANGUEDOC
+				this = s:STATE_TYROL
+				this = s:STATE_SOUTH_TYROL
+				this = s:STATE_BAVARIA
+				this = s:STATE_GUYENNE
+				# North America and the Caribbean
+				this = s:STATE_OREGON
+				this = s:STATE_BRITISH_COLUMBIA
+				this = s:STATE_ARKANSAS
+				this = s:STATE_HAITI
+				this = s:STATE_ALABAMA
+				this = s:STATE_GEORGIA
+				this = s:STATE_MASSACHUSETTS
+				this = s:STATE_WYOMING
+				this = s:STATE_CENTRAL_CUBA
+				this = s:STATE_EASTERN_CUBA
+				# Africa
+				this = s:STATE_TUNISIA
+				this = s:STATE_GOLD_COAST
+				this = s:STATE_EAST_HAUSALAND
+				this = s:STATE_NIGERIA
+				this = s:STATE_NORTH_CAMEROON
+				this = s:STATE_CONGO
+				this = s:STATE_SIERRA_LEONE
+				this = s:STATE_LIBERIA
+				this = s:STATE_NIGER_DELTA
+				this = s:STATE_BENIN
+				this = s:STATE_SOUTH_MADAGASCAR
+				# East and Southeast Asia
+				this = s:STATE_HENAN
+				this = s:STATE_KYUSHU
+				this = s:STATE_EASTERN_HUBEI
+				this = s:STATE_WESTERN_HUBEI
+				this = s:STATE_MALAYA
+				this = s:STATE_CAMBODIA
+				this = s:STATE_NORTH_BORNEO
+				this = s:STATE_GUIZHOU
+				this = s:STATE_LHASA
+				this = s:STATE_TONKIN
+				# Middle East
+				this = s:STATE_NEJD
+				this = s:STATE_ABU_DHABI
+				this = s:STATE_KHORASAN
+				# South America
+				this = s:STATE_RIO_DE_JANEIRO
+				this = s:STATE_PANAMA
+				# India
+				this = s:STATE_BOMBAY
+				this = s:STATE_CENTRAL_PROVINCES
+				this = s:STATE_GUJARAT
+				this = s:STATE_BIHAR
+				this = s:STATE_BALUCHISTAN
+			}
+		}
+		change_resource_potential = {
+			type = building_bauxite_mine
+			amount = 25
+		}
+	}
+}
+
+tech6c_bauxite_medium_add_deposits = {
+	every_state_region = {
+		limit = {
+			OR = {
+				this = s:STATE_SARDINIA
+				this = s:STATE_BOSNIA
+				this = s:STATE_MONTENEGRO
+				this = s:STATE_NEVADA
+				this = s:STATE_JAMAICA
+				this = s:STATE_HUDAVENDIGAR
+				this = s:STATE_SHANXI
+				this = s:STATE_SKOPIA
+				this = s:STATE_THESSALIA
+				this = s:STATE_FLORIDA
+				this = s:STATE_TRANSDANUBIA
+				this = s:STATE_BASRA
+				this = s:STATE_MIRANDA
+				this = s:STATE_MARANHAO
+				this = s:STATE_MINAS_GERAIS
+				this = s:STATE_IVORY_COAST
+				this = s:STATE_MEKONG
+				this = s:STATE_WEST_BORNEO
+				this = s:STATE_YUNNAN
+				this = s:STATE_EASTERN_THRACE
+				this = s:STATE_KASAI
+				this = s:STATE_GUAYANA
+				this = s:STATE_QINGHAI
+				this = s:STATE_GUANGXI
+			}
+		}
+		add_state_trait = state_trait_medium_bauxite_mine
+		change_resource_potential = {
+			type = building_bauxite_mine
+			amount = 50
+		}
+	}
+}
+
+tech6c_bauxite_big_add_deposits = {
+	every_state_region = {
+		limit = {
+			OR = {
+				this = s:STATE_QUEENSLAND
+				this = s:STATE_WESTERN_AUSTRALIA
+				this = s:STATE_NORTHERN_TERRITORY
+				this = s:STATE_WASHINGTON
+				this = s:STATE_BOLIVAR
+				this = s:STATE_SOUTH_CAMEROON
+				this = s:STATE_CIRCARS
+				this = s:STATE_CHONGQING
+				this = s:STATE_MACEDONIA
+			}
+		}
+		add_state_trait = state_trait_big_bauxite_mine
+		change_resource_potential = {
+			type = building_bauxite_mine
+			amount = 120
+		}
+	}
+}
+
+tech6c_bauxite_huge_add_deposits = {
+	every_state_region = {
+		limit = {
+			OR = {
+				this = s:STATE_PARA
+				this = s:STATE_GUINEA
+				this = s:STATE_SICHUAN
+			}
+		}
+		add_state_trait = state_trait_huge_bauxite_mine
+		change_resource_potential = {
+			type = building_bauxite_mine
+			amount = 200
+		}
+	}
+}

@@ -330,19 +330,26 @@ pm_sewing_machines = {
 		advanced_spinning
 	}
 
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 5
+		}
+	}
+
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
 			goods_input_fabric_add = 60		# x20 = 1200
 			goods_input_dye_add = 10			# x40 =  400
 			goods_input_tools_add = 5		# x40 =  200
+			goods_input_industrial_chemicals_add = 10 # x40 = 400
 
 			# output goods
-			goods_output_clothes_add = 100	# x30 = 3000
+			goods_output_clothes_add = 120	# x30 = 3600
 		}
 
 		level_scaled = {
-			# profit = 1000
+			# Base-price gross margin before wages: 1400.
 			building_employment_shopkeepers_add = 500
 			building_employment_laborers_add = 3500
 			building_employment_machinists_add = 750
@@ -358,6 +365,12 @@ pm_electric_sewing_machines = {
 		electrical_capacitors
 	}
 
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 5
+		}
+	}
+
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
@@ -365,13 +378,14 @@ pm_electric_sewing_machines = {
 			goods_input_dye_add = 20
 			goods_input_tools_add = 10
 			goods_input_electricity_add = 10
+			goods_input_industrial_chemicals_add = 15
 
 			# output goods
-			goods_output_clothes_add = 140
+			goods_output_clothes_add = 165
 		}
 
 		level_scaled = {
-			# profit = 1300
+			# Base-price gross margin before wages: 1650.
 			building_employment_shopkeepers_add = 500
 			building_employment_laborers_add = 3000
 			building_employment_machinists_add = 1000
@@ -562,7 +576,8 @@ pm_mechanized_workshops = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_wood_add = 50
+			goods_input_wood_add = 40
+			goods_input_alloys_add = 10
 			goods_input_fabric_add = 10
 			goods_input_tools_add = 10
 
@@ -991,7 +1006,8 @@ pm_steel = {
 		workforce_scaled = {
 			# input goods
 			goods_input_wood_add = 30
-			goods_input_steel_add = 20
+			goods_input_alloys_add = 2
+			goods_input_steel_add = 18
 
 			# output goods
 			goods_output_tools_add = 80
@@ -1015,7 +1031,8 @@ pm_rubber_grips = {
 		workforce_scaled = {
 			# input goods
 			goods_input_rubber_add = 10
-			goods_input_steel_add = 30
+			goods_input_alloys_add = 5
+			goods_input_steel_add = 25
 			goods_input_industrial_chemicals_add = 5
 
 			# output goods
@@ -1451,6 +1468,7 @@ pm_brine_electrolysis = {
 
     unlocking_technologies = {
         electrical_capacitors
+        nitroglycerin
     }
 
     state_modifiers = {
@@ -1977,6 +1995,7 @@ pm_assembly_lines_building_automotive_industry = {
 
 	unlocking_technologies = {
 		conveyors
+		combustion_engine
 	}
 
 	building_modifiers = {
@@ -2081,9 +2100,10 @@ pm_metal_shipbuilding = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add = 30
+			goods_input_steel_add = 20
 			goods_input_coal_add = 10
 			goods_input_engines_add = 10
+			goods_input_alloys_add = 10
 
 			# output goods
 			goods_output_steamers_add = 65
@@ -2121,9 +2141,10 @@ pm_arc_welding_shipbuilding = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add = 30
+			goods_input_steel_add = 20
 			goods_input_electricity_add = 30
 			goods_input_engines_add = 10
+			goods_input_alloys_add = 10
 			goods_input_precision_machinery_add = 5
 
 			# output goods
@@ -2254,6 +2275,7 @@ pm_automobile_production = {
 		workforce_scaled = {
 			# input goods
 			goods_input_engines_add = 10 # 600
+			goods_input_alloys_add = 5
 			goods_input_rubber_add = 5 # 200
 			goods_input_refined_fuels_add = 3# 200
 			goods_input_precision_machinery_add = 3
@@ -2286,6 +2308,7 @@ pm_mass_automobile_production = {
 		workforce_scaled = {
 			# input goods
 			goods_input_engines_add = 10 # 600
+			goods_input_alloys_add = 10
 			goods_input_rubber_add = 10 # 400
 			goods_input_refined_fuels_add = 6 # 400
 			goods_input_precision_machinery_add = 6
@@ -2312,6 +2335,7 @@ pm_aeroplane_production = {
 
 	unlocking_technologies = {
 		military_aviation
+		combustion_engine
 	}
 
 	building_modifiers = {
@@ -2469,6 +2493,7 @@ pm_repeaters = {
 			goods_input_steel_add = 20
 			goods_input_hardwood_add = 10
 			goods_input_tools_add = 5
+			goods_input_alloys_add = 5
 			goods_input_precision_machinery_add = 3
 
 			# output goods
@@ -2498,6 +2523,7 @@ pm_bolt_action_rifles = {
 			goods_input_steel_add = 20
 			goods_input_hardwood_add = 10
 			goods_input_tools_add = 10
+			goods_input_alloys_add = 10
 			goods_input_precision_machinery_add = 5
 			goods_input_lubricants_add = 8
 
@@ -2554,8 +2580,9 @@ pm_smoothbores = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_iron_add = 25
+			goods_input_iron_add = 20
 			goods_input_hardwood_add = 15
+			goods_input_alloys_add = 5
 
 			# output goods
 			goods_output_artillery_add = 45
@@ -2580,9 +2607,10 @@ pm_breech_loaders = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add = 25
+			goods_input_steel_add = 20
 			goods_input_hardwood_add = 10
 			goods_input_tools_add = 5
+			goods_input_alloys_add = 5
 			goods_input_precision_machinery_add = 3
 
 			# output goods
@@ -2608,8 +2636,9 @@ pm_recoiled_barrels = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			goods_input_steel_add = 40
+			goods_input_steel_add = 30
 			goods_input_tools_add = 10
+			goods_input_alloys_add = 10
 			goods_input_precision_machinery_add = 5
 			goods_input_lubricants_add = 8
 			# output goods

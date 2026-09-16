@@ -6,6 +6,10 @@ scientific_fortification_siegecraft = {
 	texture = "gfx/error_manul.dds"
 	category = military
 
+	unlocking_technologies = {
+		organized_military_establishments
+	}
+
 	ai_weight = {
 		value = 2
 	}
@@ -18,7 +22,7 @@ regulated_small_arms = {
 	category = military
 
 	unlocking_technologies = {
-		scientific_fortification_siegecraft
+		organized_military_establishments
 	}
 
 	ai_weight = {
@@ -32,12 +36,12 @@ light_infantry_tactics = {
 	texture = "gfx/error_manul.dds"
 	category = military
 
-	modifier = {
-		unit_experience_gain_mult = 0.05
+	unlocking_technologies = {
+		organized_military_establishments
 	}
 
-	unlocking_technologies = {
-		regulated_small_arms
+	modifier = {
+		unit_experience_gain_mult = 0.05
 	}
 
 	ai_weight = {
@@ -52,7 +56,7 @@ standardized_field_artillery = {
 	category = military
 
 	unlocking_technologies = {
-		regulated_small_arms
+		organized_military_establishments
 	}
 
 	ai_weight = {
@@ -67,7 +71,7 @@ permanent_military_hospitals = {
 	category = military
 
 	unlocking_technologies = {
-		scientific_fortification_siegecraft
+		organized_military_establishments
 	}
 
 	ai_weight = {
@@ -80,6 +84,11 @@ armament_standardization_inspection = {
 	era = era_4
 	texture = "gfx/error_manul.dds"
 	category = military
+
+	# Temporary TECH debt bonus; replace with armament inspection and standards content.
+	modifier = {
+		building_group_bg_military_industry_throughput_add = 0.05
+	}
 
 	unlocking_technologies = {
 		regulated_small_arms
@@ -98,7 +107,7 @@ permanent_engineer_services = {
 	category = military
 
 	unlocking_technologies = {
-		scientific_fortification_siegecraft
+		organized_military_establishments
 	}
 
 	ai_weight = {
@@ -126,6 +135,11 @@ military_topographic_surveying = {
 	era = era_4
 	texture = "gfx/error_manul.dds"
 	category = military
+
+	# Temporary TECH debt bonus; replace with staff mapping and reconnaissance content.
+	modifier = {
+		unit_army_offense_mult = 0.025
+	}
 
 	unlocking_technologies = {
 		permanent_engineer_services
@@ -224,14 +238,11 @@ field_engineering_pontoon_trains = {
 }
 
 explosive_field_ammunition = {
-	# TECH3A conceptual branch: Military
+	# TECH TREE Wave 3 compatibility alias: concept absorbed by standardized_field_artillery.
 	era = era_5
 	texture = "gfx/error_manul.dds"
 	category = military
-
-	unlocking_technologies = {
-		standardized_field_artillery
-	}
+	can_research = no
 
 	ai_weight = {
 		value = 1
@@ -243,6 +254,11 @@ battlefield_evacuation = {
 	era = era_5
 	texture = "gfx/error_manul.dds"
 	category = military
+
+	# Temporary TECH debt bonus; replace with field ambulance and military medicine content.
+	modifier = {
+		unit_recovery_rate_add = 0.05
+	}
 
 	unlocking_technologies = {
 		permanent_military_hospitals
@@ -262,6 +278,7 @@ military_veterinary_services = {
 
 	unlocking_technologies = {
 		horse_artillery
+		veterinary_science
 	}
 
 	ai_weight = {
@@ -276,7 +293,7 @@ casemated_fortifications = {
 	category = military
 
 	unlocking_technologies = {
-		permanent_engineer_services
+		scientific_fortification_siegecraft
 	}
 
 	ai_weight = {
@@ -285,15 +302,11 @@ casemated_fortifications = {
 }
 
 standardized_military_rockets = {
-	# TECH3A conceptual branch: Military
+	# TECH TREE Wave 3 compatibility alias: concept absorbed by the artillery chain.
 	era = era_5
 	texture = "gfx/error_manul.dds"
 	category = military
-
-	unlocking_technologies = {
-		explosive_field_ammunition
-		armament_standardization_inspection
-	}
+	can_research = no
 
 	ai_weight = {
 		value = 1

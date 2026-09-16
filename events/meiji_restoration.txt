@@ -180,7 +180,7 @@ meiji.1 = {
 						is_building_type = building_urban_center
 						level >= 5
 					}
-					has_building = building_railway
+					state_has_active_rail_network = yes
 					percent > 0.7
 				}
 			}
@@ -299,7 +299,7 @@ meiji.1 = {
 						is_building_type = building_urban_center
 						level >= 5
 					}
-					has_building = building_railway
+					state_has_active_rail_network = yes
 					percent > 0.7
 				}
 			}
@@ -1089,7 +1089,7 @@ meiji.8 = {
 		has_technology_researched = railways
 		any_scope_state = {
 			has_building = building_barrack
-			NOT = { has_building = building_railway }
+			NOT = { state_has_active_rail_network = yes }
 		}
 		NOT = { has_modifier = retained_railway_control }
 	}
@@ -1098,7 +1098,7 @@ meiji.8 = {
 		random_scope_state = {
 			limit = {
 				has_building = building_barrack
-				NOT = { has_building = building_railway }
+				NOT = { state_has_active_rail_network = yes }
 			}
 			save_scope_as = military_railway_state
 		}
@@ -1110,9 +1110,21 @@ meiji.8 = {
 	option = {
 		name = meiji.8.a
 		scope:military_railway_state = {
-			create_building = {
-				building = building_railway
-				level = 1
+			if = {
+				limit = {
+					has_building = building_railway # Regional Infrastructure already exists.
+				}
+				activate_production_method = {
+					building_type = building_railway
+					production_method = pm_early_trains
+				}
+			}
+			else = {
+				create_building = {
+					building = building_railway
+					level = 1
+					activate_production_methods = { pm_early_trains pm_no_passenger_trains }
+				}
 			}
 		}
 		ig:ig_armed_forces ?= {

@@ -3,11 +3,30 @@
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_wood_add = 30
+			goods_output_wood_add = 40
 		}
 
 		level_scaled = {
 			# employment
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 4500
+		}
+	}
+}
+
+pm_organized_forestry = {
+	texture = "gfx/interface/icons/production_method_icons/simple_forestry.dds"
+
+	unlocking_technologies = {
+		organized_forestry
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_wood_add = 40
+		}
+
+		level_scaled = {
 			building_employment_shopkeepers_add = 500
 			building_employment_laborers_add = 4500
 		}
@@ -26,7 +45,7 @@ pm_saw_mills = {
 			goods_input_tools_add = 5
 
 			# output goods
-			goods_output_wood_add = 60
+			goods_output_wood_add = 80
 		}
 
 		level_scaled = {
@@ -51,7 +70,7 @@ pm_electric_saw_mills = {
 			goods_input_electricity_add = 5
 
 			# output goods
-			goods_output_wood_add = 100 #+800
+			goods_output_wood_add = 160
 		}
 
 		level_scaled = {
@@ -569,6 +588,7 @@ pm_combustion_derricks = {
 
 	unlocking_technologies = {
 		combustion_engine
+		pumpjacks
 	}
 
 	building_modifiers = {
@@ -600,6 +620,7 @@ pm_rail_transport_building_oil_rig = {
 
 	unlocking_technologies = {
 		railways
+		pumpjacks
 	}
 
 	building_modifiers = {
@@ -624,6 +645,7 @@ pm_tanker_cars = {
 
 	unlocking_technologies = {
 		steel_railway_cars
+		pumpjacks
 	}
 
 	building_modifiers = {

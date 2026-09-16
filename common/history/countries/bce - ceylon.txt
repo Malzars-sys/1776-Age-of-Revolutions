@@ -1,0 +1,55 @@
+﻿COUNTRIES = {
+	c:BCE ?= {
+		add_technology_researched = colonization
+		add_technology_researched = distillation
+		add_technology_researched = enclosed_dock_systems
+		add_technology_researched = improved_husbandry
+		add_technology_researched = institutionalized_scientific_exchange
+		add_technology_researched = international_relations
+		add_technology_researched = permanent_engineer_services
+		add_technology_researched = permanent_military_hospitals
+		add_technology_researched = scientific_fortification_siegecraft
+		add_technology_researched = scientific_naval_architecture
+		add_technology_researched = state_dockyard_systems
+		add_technology_researched = sugar_refining
+		add_technology_researched = systematic_administrative_statistics
+		add_technology_researched = traditional_food_processing
+		add_technology_researched = organized_workshops
+		add_technology_researched = organized_military_establishments
+
+
+
+
+
+
+		
+		activate_law = law_type:law_colonial_administration
+		activate_law = law_type:law_total_separation
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_subjecthood
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_oligarchy
+
+		active_law:lawgroup_citizenship ?= { # Subjecthood
+			add_amendment = {
+				type = amendment_racialized_subjecthood
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+
+		
+		ig:ig_landowners ?= {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_armed_forces ?= {
+			add_ruling_interest_group = yes
+		}
+
+		add_taxed_goods = g:grain
+	}
+}

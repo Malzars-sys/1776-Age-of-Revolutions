@@ -1,0 +1,37 @@
+﻿COUNTRIES = {
+	c:KAS ?= {
+		add_technology_researched = distillation
+		add_technology_researched = improved_husbandry
+		add_technology_researched = international_relations
+		add_technology_researched = organized_textile_production
+		add_technology_researched = sugar_refining
+		add_technology_researched = systematic_administrative_statistics
+		add_technology_researched = traditional_food_processing
+		add_technology_researched = organized_workshops
+		add_technology_researched = traditional_papermaking
+
+
+
+
+
+
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_debt_slavery
+		activate_law = law_type:law_state_religion
+
+		ig:ig_landowners ?= {
+			add_ruling_interest_group = yes
+		}
+
+		set_state_religion = rel:hindu
+
+		ig:ig_devout ?= {
+			set_interest_group_name = ig_hindu_priesthood
+			remove_ideology = ideology_moralist
+			add_ideology = ideology_hindu_moralist
+			set_ig_trait = ig_trait:ig_trait_pious_fiction
+			set_ig_trait = ig_trait:ig_trait_divine_right
+			set_ig_trait = ig_trait:ig_trait_asceticism
+		}
+	}
+}

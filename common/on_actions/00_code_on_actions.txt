@@ -239,6 +239,7 @@ on_monthly_pulse = {
 						has_technology_researched = mutual_funds
 						any_scope_building = {
 							is_building_type = building_railway
+							NOT = { has_active_production_method = pm_no_rail_network }
 						}
 						percent >= 0.75
 					}
@@ -261,6 +262,7 @@ on_monthly_pulse = {
 							has_technology_researched = mutual_funds
 							any_scope_building = {
 								is_building_type = building_railway
+								NOT = { has_active_production_method = pm_no_rail_network }
 							}
 						}
 						change_global_variable = { name = grunderzeit_countries_percent add = 1 }

@@ -28,16 +28,15 @@ building_port = {
 }
 
 building_railway = {
-	building_group = bg_private_infrastructure
-	icon = "gfx/interface/icons/building_icons/building_railway.dds"
-
-	ai_nationalization_desire = 0.5 # AI is reluctant to privatize railways since they are likely to need subsidies anyway
-
-	unlocking_technologies = {
-		railways
-	}
+	aliases = { building_land_transport_network }
+	building_group = bg_land_transport_network
+	icon = "gfx/error_deer.dds"
+	city_type = city
+	levels_per_mesh = 50
 
 	production_method_groups = {
+		pmg_base_building_land_transport_network
+		pmg_land_transport_canals
 		pmg_base_building_railway
 		pmg_passenger_trains
 	}
@@ -73,7 +72,7 @@ building_railway = {
 					state_region = s:STATE_OUTER_MANCHURIA
 				}
 				NOR = {
-					has_building = building_railway
+					state_has_active_rail_network = yes
 					any_scope_building = {
 						is_building_type = building_railway
 						is_under_construction = yes
@@ -89,7 +88,7 @@ building_railway = {
 				}
 				is_incorporated = yes # Japan proper
 				NOR = {
-					has_building = building_railway
+					state_has_active_rail_network = yes
 					any_scope_building = {
 						is_building_type = building_railway
 						is_under_construction = yes
@@ -111,7 +110,7 @@ building_railway = {
 					state_region = s:STATE_CALIFORNIA
 				}
 				NOR = {
-					has_building = building_railway
+					state_has_active_rail_network = yes
 					any_scope_building = {
 						is_building_type = building_railway
 						is_under_construction = yes
@@ -134,7 +133,7 @@ building_railway = {
 					state_region = s:STATE_MANITOBA
 				}
 				NOR = {
-					has_building = building_railway
+					state_has_active_rail_network = yes
 					any_scope_building = {
 						is_building_type = building_railway
 						is_under_construction = yes
@@ -151,7 +150,7 @@ building_railway = {
 				}
 				is_incorporated = yes
 				NOR = {
-					has_building = building_railway
+					state_has_active_rail_network = yes
 					any_scope_building = {
 						is_building_type = building_railway
 						is_under_construction = yes
@@ -167,7 +166,7 @@ building_railway = {
 				}
 				is_incorporated = yes
 				NOR = {
-					has_building = building_railway
+					state_has_active_rail_network = yes
 					any_scope_building = {
 						is_building_type = building_railway
 						is_under_construction = yes
@@ -212,10 +211,6 @@ building_railway = {
 	should_auto_expand = {
 		occupancy >= 0.8
 		OR = {
-			cash_reserves_ratio > 0.5
-			is_subsidized = yes
-		}
-		OR = {
 			state = {
 				sg:transportation = {
 					state_goods_pricier > 0.5
@@ -228,7 +223,6 @@ building_railway = {
 		NOT = { is_under_construction = yes }
 
 	}
-	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_railways.dds"
 }

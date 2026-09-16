@@ -760,7 +760,7 @@ production_tech_events.501 = {
 			has_building = building_motor_industry
 		}
 		any_scope_state = {
-			has_building = building_railway
+			state_has_active_rail_network = yes
 		}
 		trigger_if = {
 			limit = {
@@ -847,12 +847,13 @@ production_tech_events.501 = {
 		}
 		random_scope_state = {
 			limit = {
-				has_building = building_railway
+				state_has_active_rail_network = yes
 			}
 			save_scope_as = railway_state
 			random_scope_building = {
 				limit = {
 					is_building_type = building_railway
+					NOT = { has_active_production_method = pm_no_rail_network }
 				}
 				save_scope_as = railway_building
 			}
@@ -1069,6 +1070,7 @@ production_tech_events.700 = {
 		any_scope_state = {
 			any_scope_building = {
 				is_building_type = building_railway
+				NOT = { has_active_production_method = pm_no_rail_network }
 				occupancy > 0.75
 			}
 			custom_tooltip = {
@@ -1077,6 +1079,7 @@ production_tech_events.700 = {
 					owner = ROOT
 					any_scope_building = {
 						is_building_type = building_railway
+						NOT = { has_active_production_method = pm_no_rail_network }
 						occupancy > 0.75
 					}
 				}
@@ -1113,12 +1116,14 @@ production_tech_events.700 = {
 			limit = {
 				any_scope_building = {
 					is_building_type = building_railway
+					NOT = { has_active_production_method = pm_no_rail_network }
 					occupancy > 0.75
 				}
 				any_neighbouring_state = {
 					owner = ROOT
 					any_scope_building = {
 						is_building_type = building_railway
+						NOT = { has_active_production_method = pm_no_rail_network }
 						occupancy > 0.75
 					}
 				}
@@ -1129,6 +1134,7 @@ production_tech_events.700 = {
 					owner = ROOT
 					any_scope_building = {
 						is_building_type = building_railway
+						NOT = { has_active_production_method = pm_no_rail_network }
 						occupancy > 0.75
 					}
 				}

@@ -72,6 +72,41 @@ combat_unit_type_irregular_infantry = {
     }
 
 	upgrades = {
+		combat_unit_type_musket_infantry
+		combat_unit_type_line_infantry
+		combat_unit_type_skirmish_infantry
+        combat_unit_type_trench_infantry
+        combat_unit_type_squad_infantry
+        combat_unit_type_mechanized_infantry
+	}
+}
+
+combat_unit_type_musket_infantry = {
+	group = combat_unit_group_infantry
+	max_manpower = 1000
+	supply_capacity = 30
+
+	conscript_peasant_levies = yes
+
+	upkeep_modifier = {
+		goods_input_small_arms_add = 1
+	}
+
+	battle_modifier = {
+		unit_offense_add = 15
+		unit_defense_add = 20
+        unit_morale_loss_add = 10
+        unit_naval_invasion_efficiency_mult = -0.25
+    }
+
+	unlocking_technologies = { regulated_small_arms }
+
+    combat_unit_image = {
+        # Temporary placeholder until a dedicated 1776 musket illustration is produced.
+        texture = "gfx/error_deer.dds"
+    }
+
+	upgrades = {
 		combat_unit_type_line_infantry
 		combat_unit_type_skirmish_infantry
         combat_unit_type_trench_infantry
@@ -390,6 +425,44 @@ combat_unit_type_cannon_artillery = {
     }
 
     battle_modifier = {
+        unit_offense_add = 20
+        unit_defense_add = 15
+        unit_morale_loss_add = 10
+        unit_kill_rate_add = 0.1
+        unit_devastation_mult = 0.1
+        unit_naval_invasion_efficiency_mult = -0.25
+    }
+
+    formation_modifier = {
+        military_formation_mobilization_speed_mult = -0.2
+        military_formation_army_movement_speed_mult = -0.2
+    }
+
+	unlocking_technologies = { organized_military_establishments }
+
+    combat_unit_image = {
+        # Temporary placeholder until a dedicated bombard illustration is produced.
+        texture = "gfx/error_deer.dds"
+    }
+
+    upgrades = {
+        combat_unit_type_improved_cannon_artillery
+        combat_unit_type_mobile_artillery
+        combat_unit_type_shrapnel_artillery
+        combat_unit_type_siege_artillery
+    }
+}
+
+combat_unit_type_improved_cannon_artillery = {
+	group = combat_unit_group_artillery
+	max_manpower = 1000
+	supply_capacity = 30
+
+	upkeep_modifier = {
+		goods_input_artillery_add = 1
+    }
+
+    battle_modifier = {
         unit_offense_add = 25
         unit_defense_add = 15
         unit_morale_loss_add = 10
@@ -406,36 +479,8 @@ combat_unit_type_cannon_artillery = {
 	unlocking_technologies = { standardized_field_artillery }
 
     combat_unit_image = {
-        trigger = {
-            has_culture_graphics = east_asian
-        }
-        texture = "gfx/unit_illustrations/artillery_east_asian_cannon.dds"
-    }
-
-    combat_unit_image = {
-        trigger = {
-            has_culture_graphics = south_asian
-        }
-        texture = "gfx/unit_illustrations/artillery_south_asian_cannon.dds"
-    }
-
-    combat_unit_image = {
-        trigger = {
-            has_culture_graphics = african
-        }
-        texture = "gfx/unit_illustrations/artillery_african_cannon.dds"
-    }
-
-    combat_unit_image = {
-        trigger = {
-            has_culture_graphics = arabic
-        }
-        texture = "gfx/unit_illustrations/artillery_arabic_cannon.dds"
-    }
-
-    combat_unit_image = {
-        # fallback
-        texture = "gfx/unit_illustrations/artillery_eu_cannon.dds"
+        # Temporary placeholder until a dedicated field-cannon illustration is produced.
+        texture = "gfx/error_deer.dds"
     }
 
     upgrades = {

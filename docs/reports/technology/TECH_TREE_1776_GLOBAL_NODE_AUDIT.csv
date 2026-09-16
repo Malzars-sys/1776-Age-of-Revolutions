@@ -1,0 +1,293 @@
+﻿Technology_ID,Category,Era,Parent_Count,Parents,Child_Count,Children,Building_Unlocks,PM_Unlocks,Law_Unlocks,Modifier_Count,Start_Country_Count,Role,Problem_Flags,Recommendation
+enclosed_dock_systems,military,era_1,1,state_dockyard_systems,1,mechanized_naval_dockyards,building_port,,,0,30,Déblocage bâtiment,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+organized_military_establishments,military,era_1,0,,6,light_infantry_tactics;permanent_engineer_services;permanent_military_hospitals;regulated_small_arms;scientific_fortification_siegecraft;standardized_field_artillery,building_barrack,,,0,138,Déblocage bâtiment,OK,KEEP
+organized_naval_establishments,military,era_1,0,,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+scientific_fortification_siegecraft,military,era_1,1,organized_military_establishments,1,casemated_fortifications,building_naval_fortification,,,0,65,Déblocage bâtiment,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+state_dockyard_systems,military,era_1,0,,4,enclosed_dock_systems;mechanized_naval_dockyards;scientific_naval_architecture;ship_classification_surveying,building_naval_administration;building_shipyard,,,1,54,Déblocage bâtiment,ROOT_OVER_SPECIALIZED;BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+regulated_small_arms,military,era_2,1,organized_military_establishments,1,armament_standardization_inspection,building_arms_industry,,,0,76,Déblocage bâtiment/contenu militaire/diplomatique,OK,KEEP
+scientific_naval_architecture,military,era_2,1,state_dockyard_systems,5,copper_sheathing;diagonal_ship_framing;mechanized_naval_dockyards;paddle_steamer;shell_gun,,,,0,29,Déblocage contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+light_infantry_tactics,military,era_3,1,organized_military_establishments,1,rifling,,,,1,109,Déblocage contenu militaire/diplomatique,OK,KEEP
+marine_chronometry,military,era_3,1,ship_classification_surveying,1,hydrographic_surveying,building_fishing_wharf;building_whaling_station,,,0,2,Déblocage bâtiment,OK,KEEP
+permanent_military_hospitals,military,era_3,1,organized_military_establishments,1,battlefield_evacuation,,,,0,22,Déblocage contenu militaire/diplomatique,OK,KEEP
+ship_classification_surveying,military,era_3,1,state_dockyard_systems,3,marine_chronometry;maritime_safety_standards;standardized_naval_signals,,,,0,9,Nœud structurel,OK,KEEP
+standardized_field_artillery,military,era_3,1,organized_military_establishments,3,armament_standardization_inspection;horse_artillery;shell_gun,building_artillery_foundry,pm_cannons,,0,74,Déblocage bâtiment/PM/contenu militaire/diplomatique,OK,KEEP
+armament_standardization_inspection,military,era_4,2,regulated_small_arms;standardized_field_artillery,2,percussion_cap;rifling,,,,0,15,Nœud structurel,OK,KEEP
+copper_sheathing,military,era_4,1,scientific_naval_architecture,0,,,pm_copper_sheathing_building_shipyard,,0,1,Déblocage PM,LOW_VALUE,KEEP
+horse_artillery,military,era_4,1,standardized_field_artillery,2,corps_organization;military_veterinary_services,,,,0,1,Déblocage contenu militaire/diplomatique,OK,KEEP
+military_topographic_surveying,military,era_4,1,permanent_engineer_services,2,general_staff;hydrographic_surveying,,,,0,22,Nœud structurel,OK,KEEP
+mysorean_iron_cased_rocketry,military,era_4,0,,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+permanent_engineer_services,military,era_4,1,organized_military_establishments,3,corps_organization;field_engineering_pontoon_trains;military_topographic_surveying,,,,0,45,Déblocage contenu militaire/diplomatique,OK,KEEP
+battlefield_evacuation,military,era_5,2,logistics;permanent_military_hospitals,1,modern_nursing,,,,0,0,Nœud structurel,OK,KEEP
+casemated_fortifications,military,era_5,1,scientific_fortification_siegecraft,1,concrete_fortifications,,pm_naval_fortification_reinforced,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+corps_organization,military,era_5,2,horse_artillery;permanent_engineer_services,3,enlistment_offices;general_staff;logistics,,,law_national_militia;law_professional_army,1,0,Déblocage loi/contenu militaire/diplomatique,OK,KEEP
+diagonal_ship_framing,military,era_5,1,scientific_naval_architecture,1,iron_hull_construction,,,,0,0,Nœud structurel,OK,KEEP
+explosive_field_ammunition,military,era_5,0,,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+field_engineering_pontoon_trains,military,era_5,2,logistics;permanent_engineer_services,1,landing_craft,,,,0,0,Déblocage contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+hydrographic_surveying,military,era_5,2,marine_chronometry;military_topographic_surveying,2,maritime_safety_standards;modern_lighthouse_optics,,,,0,0,Nœud structurel,OK,KEEP
+logistics,military,era_5,1,corps_organization,6,battlefield_evacuation;electric_telegraph;enlistment_offices;field_engineering_pontoon_trains;general_staff;triage,,,,1,0,Nœud structurel,OK,KEEP
+mechanized_naval_dockyards,military,era_5,3,enclosed_dock_systems;scientific_naval_architecture;state_dockyard_systems,2,gantry_cranes;iron_hull_construction,,pm_trade_center_trade_quantity_high,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+military_veterinary_services,military,era_5,2,horse_artillery;veterinary_science,0,,,,,0,0,Déblocage contenu militaire/diplomatique,LOW_VALUE,KEEP
+paddle_steamer,military,era_5,1,scientific_naval_architecture,2,iron_hull_construction;screw_frigate,,pm_complex_shipbuilding;pm_military_shipbuilding_wooden_2,,1,0,Déblocage PM,OK,KEEP
+percussion_cap,military,era_5,2,armament_standardization_inspection;rifling,2,general_staff;repeaters,building_munition_plant,pm_percussion_caps,,0,0,Déblocage bâtiment/PM,OK,KEEP
+rifling,military,era_5,2,armament_standardization_inspection;light_infantry_tactics,2,percussion_cap;repeaters,,pm_rifles,,0,0,Déblocage PM,OK,KEEP
+standardized_military_rockets,military,era_5,0,,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,MERGE dans explosive_field_ammunition; conserver l’ID comme alias non recherchable tant qu’aucun contenu fusée n’existe
+standardized_naval_signals,military,era_5,1,ship_classification_surveying,0,,,pm_power_of_the_purse,law_diplomatic_navy;law_professional_navy,0,0,Déblocage PM/loi,OK,KEEP
+general_staff,military,era_6,4,corps_organization;logistics;military_topographic_surveying;percussion_cap,2,field_works;military_statistics,,pm_general_training;pm_general_training_conscription,,0,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+iron_hull_construction,military,era_6,3,diagonal_ship_framing;mechanized_naval_dockyards;paddle_steamer,1,ironclad_tech,,,,0,0,Nœud structurel,OK,KEEP
+maritime_safety_standards,military,era_6,2,hydrographic_surveying;ship_classification_surveying,1,gantry_cranes,,,,0,0,Nœud structurel,OK,KEEP
+modern_lighthouse_optics,military,era_6,1,hydrographic_surveying,0,,,,,1,0,Bonus technologique,LOW_VALUE,ADD_MODIFIER: building_port_throughput_add = 0.05
+shell_gun,military,era_6,2,scientific_naval_architecture;standardized_field_artillery,2,breech_loading_artillery;self_propelled_torpedoes,,pm_smoothbores,,0,0,Déblocage PM/contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+admiralty,military,era_7,1,navigation,1,power_of_the_purse,,,,1,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+army_reserves,military,era_7,1,line_infantry,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+artillery,military,era_7,1,gunsmithing,1,napoleonic_warfare,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+drydocks,military,era_7,1,navigation,1,hydraulic_cranes,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+electric_telegraph,military,era_7,1,logistics,0,,,,,1,0,Bonus technologique,LOW_VALUE,KEEP
+field_works,military,era_7,1,general_staff,1,trench_works,,pm_barbed_wire_fences,,1,0,Déblocage PM,OK,KEEP
+gunsmithing,military,era_7,1,standing_army,1,artillery,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+hydraulic_cranes,military,era_7,1,drydocks,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+ironclad_tech,military,era_7,1,iron_hull_construction,2,monitor_tech;pre_dreadnought_tech,building_kiel_canal,pm_military_shipbuilding_steam,,0,0,Déblocage bâtiment/PM/contenu militaire/diplomatique,OK,KEEP
+line_infantry,military,era_7,2,mandatory_service;military_drill,2,army_reserves;napoleonic_warfare,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+mandatory_service,military,era_7,1,standing_army,1,line_infantry,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+military_drill,military,era_7,1,standing_army,1,line_infantry,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+modern_nursing,military,era_7,1,battlefield_evacuation,0,,,,,0,0,Déblocage contenu militaire/diplomatique,LOW_VALUE,KEEP
+napoleonic_warfare,military,era_7,2,artillery;line_infantry,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+navigation,military,era_7,0,,2,admiralty;drydocks,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+power_of_the_purse,military,era_7,1,admiralty,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+screw_frigate,military,era_7,1,paddle_steamer,0,,,,,1,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+standing_army,military,era_7,0,,3,gunsmithing;mandatory_service;military_drill,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+triage,military,era_7,1,logistics,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+breech_loading_artillery,military,era_8,1,shell_gun,1,monitor_tech,,pm_breech_loaders,,0,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+enlistment_offices,military,era_8,2,corps_organization;logistics,1,war_propaganda,,,law_mass_conscription,1,0,Déblocage loi,OK,KEEP
+gantry_cranes,military,era_8,2,maritime_safety_standards;mechanized_naval_dockyards,1,floating_harbor,,pm_industrial_port;pm_metal_shipbuilding,,1,0,Déblocage PM,OK,KEEP
+monitor_tech,military,era_8,2,breech_loading_artillery;ironclad_tech,1,destroyer,,,,1,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+repeaters,military,era_8,2,percussion_cap;rifling,2,bolt_action_rifles;handcranked_machine_gun,,pm_repeaters,,0,0,Déblocage PM,OK,KEEP
+self_propelled_torpedoes,military,era_8,1,shell_gun,2,jeune_ecole;submarine,,,,0,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+bolt_action_rifles,military,era_9,1,repeaters,1,automatic_machine_guns,,pm_bolt_action_rifles,,0,0,Déblocage PM,OK,KEEP
+floating_harbor,military,era_9,1,gantry_cranes,2,concrete_dockyards;landing_craft,,pm_trade_center_trade_quantity_very_high,,0,0,Déblocage PM,OK,KEEP
+handcranked_machine_gun,military,era_9,1,repeaters,1,automatic_machine_guns,,,,1,0,Nœud structurel,OK,KEEP
+jeune_ecole,military,era_9,1,self_propelled_torpedoes,1,sea_lane_strategies,,pm_jeune_ecole,law_jeune_ecole,1,0,Déblocage PM/loi,OK,KEEP
+military_statistics,military,era_9,1,general_staff,1,wargaming,,pm_advanced_tactics_training;pm_advanced_tactics_training_conscription,,1,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+trench_works,military,era_9,1,field_works,4,chemical_warfare;defense_in_depth;flamethrowers;stormtroopers,,,,0,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+wargaming,military,era_9,1,military_statistics,2,military_aviation;nco_training,,pm_training_streamlining;pm_training_streamlining_conscription,,1,0,Déblocage PM,OK,KEEP
+concrete_dockyards,military,era_10,1,floating_harbor,1,battleship_tech,,pm_modern_port,,2,0,Déblocage PM,OK,KEEP
+military_aviation,military,era_10,1,wargaming,2,carrier_tech;mobile_armor,,pm_aeroplane_production;pm_all_metal_aircraft,,1,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+pre_dreadnought_tech,military,era_10,1,ironclad_tech,1,dreadnought_tech,,,,0,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+sea_lane_strategies,military,era_10,1,jeune_ecole,1,battlefleet_tactics,,pm_sea_lane_strategies,,1,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+war_propaganda,military,era_10,1,enlistment_offices,0,,,,,1,0,Bonus technologique,LOW_VALUE,KEEP
+automatic_machine_guns,military,era_11,2,bolt_action_rifles;handcranked_machine_gun,1,defense_in_depth,,pm_recoiled_barrels,,0,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+concrete_fortifications,military,era_11,2,casemated_fortifications;defense_in_depth,0,,,pm_naval_fortification_advanced,,1,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+defense_in_depth,military,era_11,2,automatic_machine_guns;trench_works,1,concrete_fortifications,,,,1,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+destroyer,military,era_11,1,monitor_tech,1,battlefleet_tactics,,,,0,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+dreadnought_tech,military,era_11,1,pre_dreadnought_tech,3,battlefleet_tactics;battleship_tech;carrier_tech,,,,1,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+landing_craft,military,era_11,2,field_engineering_pontoon_trains;floating_harbor,0,,,,,0,0,Déblocage contenu militaire/diplomatique,LOW_VALUE;BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+nco_training,military,era_11,1,wargaming,1,stormtroopers,,pm_nco_incorporation;pm_nco_incorporation_conscription,,1,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+stormtroopers,military,era_11,2,nco_training;trench_works,1,mobile_armor,,,,1,0,Nœud structurel,OK,KEEP
+submarine,military,era_11,1,self_propelled_torpedoes,0,,,,,1,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+battlefleet_tactics,military,era_12,3,destroyer;dreadnought_tech;sea_lane_strategies,0,,,pm_battlefleet_tactics,,1,0,Déblocage PM,OK,KEEP
+battleship_tech,military,era_12,2,concrete_dockyards;dreadnought_tech,0,,,,,0,0,Déblocage contenu militaire/diplomatique,LOW_VALUE,KEEP
+carrier_tech,military,era_12,2,dreadnought_tech;military_aviation,0,,,,,0,0,Déblocage contenu militaire/diplomatique,LOW_VALUE,KEEP
+chemical_warfare,military,era_12,1,trench_works,0,,,,,0,0,Déblocage contenu militaire/diplomatique,LOW_VALUE,KEEP
+flamethrowers,military,era_12,1,trench_works,0,,,,,1,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+mobile_armor,military,era_12,2,military_aviation;stormtroopers,0,,,pm_mobile_warfare_tactics;pm_mobile_warfare_tactics_conscription;pm_tank_production,,0,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+coke_smelting,production,era_1,2,organized_workshops;shaft_mining,3,coal_gasification;precision_boring;puddling_and_rolling,building_steel_mill,,,0,2,Déblocage bâtiment,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+distillation,production,era_1,1,traditional_food_processing,1,fractional_distillation,,pm_pot_stills;pm_spiced_food_preparations,,0,262,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+improved_agricultural_implements,production,era_1,1,improved_husbandry,2,automated_flour_milling;threshing_machine,,pm_tools,,0,138,Déblocage PM,OK,KEEP
+improved_husbandry,production,era_1,0,,4,advanced_crop_rotations;improved_agricultural_implements;organized_forestry;selective_breeding,building_banana_plantation;building_coffee_plantation;building_dye_plantation;building_livestock_ranch;building_maize_farm;building_millet_farm;building_opium_plantation;building_rice_farm;building_rye_farm;building_silk_plantation;building_spice_plantation;building_sugar_plantation;building_tea_plantation;building_tobacco_plantation;building_vineyard;building_wheat_farm,,,0,401,Déblocage bâtiment/contenu militaire/diplomatique,OK,KEEP
+organized_textile_production,production,era_1,0,,1,mechanized_spinning,building_textile_mill,pm_craftsman_sewing,,0,293,Déblocage bâtiment/PM,OK,KEEP
+organized_workshops,production,era_1,0,,4,coke_smelting;crystal_glass;industrial_ceramics;precision_boring,building_furniture_manufactory;building_glassworks;building_tooling_workshop,,,0,217,Déblocage bâtiment,ROOT_OVER_SPECIALIZED,REVIEW_TOPOLOGY
+shaft_mining,production,era_1,0,,4,applied_mineralogy;atmospheric_engine;coke_smelting;deep_mine_engineering,building_coal_mine;building_copper_mine;building_iron_mine;building_lead_mine;building_limestone_quarry;building_salt_mine;building_sulfur_mine,,,0,55,Déblocage bâtiment/contenu militaire/diplomatique,ROOT_OVER_SPECIALIZED,REVIEW_TOPOLOGY
+traditional_food_processing,production,era_1,0,,3,automated_flour_milling;distillation;sugar_refining,building_food_industry,,,0,396,Déblocage bâtiment,OK,KEEP
+traditional_papermaking,production,era_1,0,,1,continuous_papermaking,building_paper_mill,,,0,78,Déblocage bâtiment,ROOT_OVER_SPECIALIZED;BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+atmospheric_engine,production,era_2,1,shaft_mining,4,condensing_steam_engines;deep_mine_engineering;high_pressure_steam;precision_boring,,pm_atmospheric_engine_pump_building_bauxite_mine;pm_atmospheric_engine_pump_building_coal_mine;pm_atmospheric_engine_pump_building_copper_mine;pm_atmospheric_engine_pump_building_gold_mine;pm_atmospheric_engine_pump_building_iron_mine;pm_atmospheric_engine_pump_building_lead_mine;pm_atmospheric_engine_pump_building_phosphate_mine;pm_atmospheric_engine_pump_building_salt_mine;pm_atmospheric_engine_pump_building_sulfur_mine,,0,8,Déblocage PM,OK,KEEP
+industrial_acids,production,era_2,0,,5,artificial_fertilizers;coal_gasification;fractional_distillation;industrial_alkalis;nitroglycerin,building_chemical_works,,,0,4,Déblocage bâtiment,ROOT_OVER_SPECIALIZED;BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+organized_forestry,production,era_2,1,improved_husbandry,0,,,pm_organized_forestry,,1,30,Déblocage PM,OK,ADD_MODIFIER: building_logging_camp_throughput_add = 0.05
+selective_breeding,production,era_2,1,improved_husbandry,2,advanced_crop_rotations;mechanized_farming,,pm_sheep_farms,,1,45,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+sugar_refining,production,era_2,1,traditional_food_processing,1,baking_powder,,pm_sweeteners,,0,104,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+traditional_glassmaking,production,era_2,0,,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+turnpike_road_networks,production,era_2,0,,2,improved_road_engineering;industrial_canals,,pm_market_squares;pm_turnpike_road_network,,0,15,Déblocage PM,ROOT_OVER_SPECIALIZED,REVIEW_TOPOLOGY
+advanced_crop_rotations,production,era_3,2,improved_husbandry;selective_breeding,2,artificial_fertilizers;systematic_field_drainage,,pm_soil_enriching_farming;pm_soil_enriching_farming_building_rice_farm,,0,43,Déblocage PM,OK,KEEP
+applied_mineralogy,production,era_3,1,shaft_mining,2,deep_mine_engineering;geological_surveying,building_gold_field;building_gold_mine;building_phosphate_mine,,,0,30,Déblocage bâtiment,OK,KEEP
+industrial_canals,production,era_3,1,turnpike_road_networks,1,professional_civil_engineering,,pm_industrial_canals,,0,10,Déblocage PM,OK,KEEP
+industrial_ceramics,production,era_3,1,organized_workshops,3,chemical_bleaching;crystal_glass;hydraulic_cements,,pm_ceramics;pm_leaded_glass,,0,30,Déblocage PM,OK,KEEP
+mechanized_spinning,production,era_3,1,organized_textile_production,3,advanced_spinning;cotton_gin;mechanized_weaving,,pm_dye_workshops,,0,2,Déblocage PM,OK,KEEP
+mechanized_weaving,production,era_3,1,mechanized_spinning,1,electrical_capacitors,,pm_mechanized_looms,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+advanced_spinning,production,era_4,1,mechanized_spinning,1,electrical_capacitors,,pm_sewing_machines,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+artificial_fertilizers,production,era_4,2,advanced_crop_rotations;industrial_acids,1,improved_fertilizer,building_chemical_plant,,,0,0,Déblocage bâtiment,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+automated_flour_milling,production,era_4,2,improved_agricultural_implements;traditional_food_processing,1,canneries,,pm_cylinder_flour_milling,,0,0,Déblocage PM,OK,KEEP
+condensing_steam_engines,production,era_4,2,atmospheric_engine;precision_boring,1,rotative_steam_power,,pm_condensing_engine_pump_building_coal_mine;pm_condensing_engine_pump_building_copper_mine;pm_condensing_engine_pump_building_gold_mine;pm_condensing_engine_pump_building_iron_mine;pm_condensing_engine_pump_building_lead_mine;pm_condensing_engine_pump_building_phosphate_mine;pm_condensing_engine_pump_building_salt_mine;pm_condensing_engine_pump_building_sulfur_mine,,0,0,Déblocage PM,OK,KEEP
+cotton_gin,production,era_4,1,mechanized_spinning,1,lathe,,,,1,0,Nœud structurel,OK,KEEP
+crystal_glass,production,era_4,2,industrial_ceramics;organized_workshops,1,pressed_glass,,pm_crystal_glass,,0,0,Déblocage PM,OK,KEEP
+deep_mine_engineering,production,era_4,3,applied_mineralogy;atmospheric_engine;shaft_mining,1,mine_safety_engineering,,pm_electric_mine_ventilation;pm_electric_mine_ventilation_building_bauxite_mine;pm_steam_mine_ventilation;pm_steam_mine_ventilation_building_bauxite_mine,,0,0,Déblocage PM,OK,KEEP
+enclosure,production,era_4,0,,1,intensive_agriculture,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+manufacturies,production,era_4,0,,1,mechanized_workshops,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+precision_boring,production,era_4,3,atmospheric_engine;coke_smelting;organized_workshops,3,condensing_steam_engines;continuous_papermaking;mechanical_tools,,pm_pig_iron,,0,1,Déblocage PM,OK,KEEP
+puddling_and_rolling,production,era_4,1,coke_smelting,3,hot_blast_smelting;mechanical_tools;railways,,pm_blister_steel_process,,0,0,Déblocage PM,OK,KEEP
+threshing_machine,production,era_4,1,improved_agricultural_implements,1,mechanized_farming,,pm_steam_threshers;pm_steam_threshers_building_rice_farm,,0,0,Déblocage PM,OK,KEEP
+canneries,production,era_5,1,automated_flour_milling,1,mechanized_workshops,,pm_cannery;pm_cannery_fish,,0,0,Déblocage PM,OK,KEEP
+chemical_bleaching,production,era_5,2,industrial_alkalis;industrial_ceramics,1,industrial_paper_bleaching,,pm_bone_china;pm_chemical_bleaching_textile_mill,,0,0,Déblocage PM,OK,KEEP
+coal_gasification,production,era_5,2,coke_smelting;industrial_acids,0,,,pm_gas_streetlights,,0,0,Déblocage PM,LOW_VALUE;BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+continuous_papermaking,production,era_5,2,precision_boring;traditional_papermaking,1,industrial_paper_bleaching,,pm_sulfite_pulping,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+high_pressure_steam,production,era_5,3,atmospheric_engine;mechanical_tools;rotative_steam_power,2,railways;watertube_boiler,,pm_vapor_compression_refrigeration_building_fishing_wharf;pm_vapor_compression_refrigeration_building_livestock_ranch;pm_vapor_compression_refrigeration_building_whaling_station,,0,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+improved_road_engineering,production,era_5,1,turnpike_road_networks,2,professional_civil_engineering;systematic_field_drainage,,pm_engineered_road_network,,0,0,Déblocage PM,OK,KEEP
+industrial_alkalis,production,era_5,1,industrial_acids,4,baking_powder;bauxite_processing;chemical_bleaching;pressed_glass,,pm_brine_electrolysis_building_chemical_works;pm_leblanc_alkali_process,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+intensive_agriculture,production,era_5,1,enclosure,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+lathe,production,era_5,1,cotton_gin,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+mechanical_tools,production,era_5,2,precision_boring;puddling_and_rolling,6,fractional_distillation;high_pressure_steam;interchangeable_manufacture;mechanized_workshops;pressed_glass;steam_donkey,building_pena_palace,pm_lathe;pm_precision_tools;pm_saw_mills;pm_slaughterhouses;pm_steel,,0,0,Déblocage bâtiment/PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+mine_safety_engineering,production,era_5,1,deep_mine_engineering,0,,,,,1,0,Bonus technologique,LOW_VALUE,KEEP
+professional_civil_engineering,production,era_5,2,improved_road_engineering;industrial_canals,4,geological_surveying;hydraulic_cements;paved_roads;railways,building_cement_works,pm_engineered_canals;pm_iron_frame_buildings,,0,0,Déblocage bâtiment/PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+rotative_steam_power,production,era_5,1,condensing_steam_engines,3,high_pressure_steam;hot_blast_smelting;mechanized_irrigation,building_motor_industry,,,0,0,Déblocage bâtiment,OK,KEEP
+systematic_field_drainage,production,era_5,2,advanced_crop_rotations;improved_road_engineering,1,mechanized_irrigation,,,,0,0,Nœud structurel,OK,KEEP
+fractional_distillation,production,era_6,3,distillation;industrial_acids;mechanical_tools,2,aniline;rubber_mastication,building_oil_refinery,pm_fractional_distillation_refinery;pm_patent_stills,,0,0,Déblocage bâtiment/PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+geological_surveying,production,era_6,2,applied_mineralogy;professional_civil_engineering,2,prospecting;pumpjacks,,pm_crushing_and_screening_building_limestone_quarry;pm_ore_concentration_building_bauxite_mine;pm_ore_concentration_building_coal_mine;pm_ore_concentration_building_copper_mine;pm_ore_concentration_building_gold_mine;pm_ore_concentration_building_iron_mine;pm_ore_concentration_building_lead_mine;pm_ore_concentration_building_phosphate_mine;pm_ore_concentration_building_sulfur_mine;pm_salt_purification_building_salt_mine,,1,0,Déblocage PM,OK,KEEP
+hot_blast_smelting,production,era_6,2,puddling_and_rolling;rotative_steam_power,2,bessemer_process;steelworking,,,,0,0,Nœud structurel,OK,KEEP
+hydraulic_cements,production,era_6,2,industrial_ceramics;professional_civil_engineering,1,portland_cement,,pm_hydraulic_cement_process,,0,0,Déblocage PM,OK,KEEP
+hydraulic_turbines,production,era_6,0,,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,MERGE dans professional_civil_engineering; conserver l’ID comme alias non recherchable jusqu’à un vrai PM hydraulique
+industrial_paper_bleaching,production,era_6,2,chemical_bleaching;continuous_papermaking,0,,,pm_bleached_paper,,0,0,Déblocage PM,LOW_VALUE,KEEP
+interchangeable_manufacture,production,era_6,1,mechanical_tools,2,shift_work;vacuum_canning,,pm_mechanized_workshops;pm_precision_machine_tools,,1,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+mechanized_irrigation,production,era_6,2,rotative_steam_power;systematic_field_drainage,0,,,pm_mechanized_spice_cultivation,,0,0,Déblocage PM,LOW_VALUE,KEEP
+pressed_glass,production,era_6,3,crystal_glass;industrial_alkalis;mechanical_tools,1,automatic_bottle_blowers,,pm_pressed_glass,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+railways,production,era_6,3,high_pressure_steam;professional_civil_engineering;puddling_and_rolling,1,steel_railway_cars,,pm_diesel_trains;pm_diesel_trains_principle_transport_3;pm_early_trains;pm_electric_trains;pm_electric_trains_principle_transport_3;pm_public_trams;pm_rail_transport_building_bauxite_mine;pm_rail_transport_building_logging_camp;pm_rail_transport_building_oil_rig;pm_rail_transport_mine;pm_steam_rail_transport;pm_steam_rail_transport_building_rubber_plantation;pm_steam_trains;pm_steam_trains_principle_transport_3;pm_steel_passenger_carriages;pm_wooden_passenger_carriages,,0,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+baking_powder,production,era_7,2,industrial_alkalis;sugar_refining,0,,,pm_baking_powder;pm_refined_spiced_food_preparations,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+bessemer_process,production,era_7,1,hot_blast_smelting,3,open_hearth_process;reinforced_concrete;steel_railway_cars,,pm_bessemer_process;pm_thomas_process,,0,0,Déblocage PM,OK,KEEP
+mechanized_farming,production,era_7,2,selective_breeding;threshing_machine,1,compression_ignition,,pm_intensive_grazing_ranch;pm_mechanized_slaughtering;pm_tractors,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+mechanized_workshops,production,era_7,3,canneries;manufacturies;mechanical_tools,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+nitroglycerin,production,era_7,1,industrial_acids,1,dynamite,building_explosives_factory,pm_ammonia-soda_process;pm_brine_electrolysis;pm_nitroglycerin_building_bauxite_mine;pm_nitroglycerin_building_coal_mine;pm_nitroglycerin_building_copper_mine;pm_nitroglycerin_building_gold_mine;pm_nitroglycerin_building_iron_mine;pm_nitroglycerin_building_lead_mine;pm_nitroglycerin_building_phosphate_mine;pm_nitroglycerin_building_salt_mine;pm_nitroglycerin_building_sulfur_mine;pm_solvay_process_building_chemical_works,,0,0,Déblocage bâtiment/PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+portland_cement,production,era_7,1,hydraulic_cements,1,reinforced_concrete,,pm_portland_cement_process,,0,0,Déblocage PM,OK,KEEP
+prospecting,production,era_7,1,geological_surveying,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+rubber_mastication,production,era_7,1,fractional_distillation,1,vulcanization,building_rubber_plantation,pm_steam_rail_transport_building_rubber_plantation,,0,0,Déblocage bâtiment/PM,OK,KEEP
+sericulture,production,era_7,0,,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+steelworking,production,era_7,1,hot_blast_smelting,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+watertube_boiler,production,era_7,1,high_pressure_steam,2,rotary_valve_engine;steam_donkey,,pm_condensing_engine_pump_building_bauxite_mine;pm_steam_trawlers;pm_steam_whaling_ships;pm_watertube_boiler_building_furniture_manufactory;pm_watertube_boiler_building_motor_industry;pm_watertube_boiler_building_paper_mill;pm_watertube_boiler_building_steel_mill;pm_watertube_boiler_building_tooling_workshop,,0,0,Déblocage PM/contenu militaire/diplomatique,OK,KEEP
+aniline,production,era_8,1,fractional_distillation,1,art_silk,building_synthetics_plant,pm_synthetic_pharmaceuticals,,0,0,Déblocage bâtiment/PM,OK,KEEP
+dynamite,production,era_8,1,nitroglycerin,0,,,pm_dynamite_building_bauxite_mine;pm_dynamite_building_coal_mine;pm_dynamite_building_copper_mine;pm_dynamite_building_gold_mine;pm_dynamite_building_iron_mine;pm_dynamite_building_lead_mine;pm_dynamite_building_phosphate_mine;pm_dynamite_building_salt_mine;pm_dynamite_building_sulfur_mine;pm_explosive_shells;pm_vacuum_evaporation,,1,0,Déblocage PM,OK,KEEP
+improved_fertilizer,production,era_8,1,artificial_fertilizers,1,nitrogen_fixation,,pm_fertilization;pm_fertilization_building_rice_farm;pm_improved_fertilizer;pm_sugar_beets,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+open_hearth_process,production,era_8,1,bessemer_process,1,electric_arc_process,,pm_open_hearth_process,,0,0,Déblocage PM,OK,KEEP
+reinforced_concrete,production,era_8,2,bessemer_process;portland_cement,1,arc_welding,building_kaiserforum_1;building_manila_cathedral_monument;building_sagrada_familia_cathedral_1,,,1,0,Déblocage bâtiment,OK,KEEP
+rotary_valve_engine,production,era_8,1,watertube_boiler,4,combustion_engine;electrical_generation;pneumatic_tools;steam_turbine,,pm_rotary_valve_engine_building_arms_industry;pm_rotary_valve_engine_building_furniture_manufactory;pm_rotary_valve_engine_building_motor_industry;pm_rotary_valve_engine_building_munition_plant;pm_rotary_valve_engine_building_paper_mill;pm_rotary_valve_engine_building_steel_mill;pm_rotary_valve_engine_building_tooling_workshop,,0,0,Déblocage PM,OK,KEEP
+shift_work,production,era_8,1,interchangeable_manufacture,1,conveyors,,,,1,0,Nœud structurel,OK,KEEP
+steel_railway_cars,production,era_8,2,bessemer_process;railways,1,electric_railway,,pm_steam_trains;pm_steam_trains_principle_transport_3;pm_steel_passenger_carriages;pm_tanker_cars,,0,0,Déblocage PM,OK,KEEP
+vacuum_canning,production,era_8,1,interchangeable_manufacture,1,pasteurization,,pm_vacuum_canning;pm_vacuum_canning_principle_3,,0,0,Déblocage PM,OK,KEEP
+vulcanization,production,era_8,1,rubber_mastication,1,conveyors,,pm_elastics;pm_rubber_grips,,0,0,Déblocage PM,OK,KEEP
+combustion_engine,production,era_9,1,rotary_valve_engine,2,compression_ignition;paved_roads,building_automotive_industry,pm_aeroplane_production;pm_all_metal_aircraft;pm_assembly_lines_building_automotive_industry;pm_automobile_production;pm_chainsaws;pm_combustion_derricks;pm_public_motor_carriages;pm_scientific_management_automotive_industry,,0,0,Déblocage bâtiment/PM/contenu militaire/diplomatique,OK,KEEP
+electrical_capacitors,production,era_9,3,advanced_spinning;electrical_generation;mechanized_weaving,2,bauxite_processing;electric_railway,,pm_automatic_power_looms;pm_brine_electrolysis;pm_brine_electrolysis_building_chemical_works;pm_electric_mine_ventilation;pm_electric_mine_ventilation_building_bauxite_mine;pm_electric_sewing_machines;pm_electrical_precision_machinery;pm_tabulating_offices;pm_unit_electric_drive_building_glassworks;pm_unit_electric_drive_building_motor_industry;pm_unit_electric_drive_building_paper_mill;pm_unit_electric_drive_building_steel_mill;pm_unit_electric_drive_building_tooling_workshop,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+electrical_generation,production,era_9,1,rotary_valve_engine,4,conveyors;electrical_capacitors;steam_turbine;telephone,building_power_plant,pm_coal-fired_plant;pm_electric_fencing;pm_electric_saw_mills;pm_electric_streetlights,,0,0,Déblocage bâtiment/PM,OK,KEEP
+pumpjacks,production,era_9,2,geological_surveying;steam_donkey,0,,building_oil_rig,pm_combustion_derricks;pm_rail_transport_building_oil_rig;pm_tanker_cars,,0,0,Déblocage bâtiment/PM,OK,KEEP
+steam_donkey,production,era_9,2,mechanical_tools;watertube_boiler,1,pumpjacks,,pm_steam_donkey_building_bauxite_mine;pm_steam_donkey_building_coal_mine;pm_steam_donkey_building_logging_camp;pm_steam_donkey_mine,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+telephone,production,era_9,1,electrical_generation,1,radio,building_electrics_industry,pm_scientific_management_electrics_industry,,0,0,Déblocage bâtiment/PM,OK,KEEP
+art_silk,production,era_10,1,aniline,1,plastics,,pm_rayon,,0,0,Déblocage PM,OK,KEEP
+automatic_bottle_blowers,production,era_10,1,pressed_glass,0,,,pm_automatic_bottle_blowers,,0,0,Déblocage PM,LOW_VALUE;BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+bauxite_processing,production,era_10,2,electrical_capacitors;industrial_alkalis,1,bayer_process,building_bauxite_mine;building_non_ferrous_metallurgy_works,pm_aluminium_housewares;pm_atmospheric_engine_pump_building_bauxite_mine;pm_condensing_engine_pump_building_bauxite_mine;pm_diesel_pump_building_bauxite_mine;pm_dynamite_building_bauxite_mine;pm_electric_mine_ventilation_building_bauxite_mine;pm_nitroglycerin_building_bauxite_mine;pm_ore_concentration_building_bauxite_mine;pm_rail_transport_building_bauxite_mine;pm_steam_donkey_building_bauxite_mine;pm_steam_mine_ventilation_building_bauxite_mine;pm_wohler_deville_process,,0,0,Déblocage bâtiment/PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+conveyors,production,era_10,3,electrical_generation;shift_work;vulcanization,1,dough_rollers,,pm_assembly_lines_building_arms_industry;pm_assembly_lines_building_automotive_industry;pm_assembly_lines_building_furniture_manufactory;pm_assembly_lines_building_motor_industry;pm_assembly_lines_building_munition_plant;pm_assembly_lines_building_tooling_workshop,,0,0,Déblocage PM,OK,KEEP
+electric_arc_process,production,era_10,1,open_hearth_process,1,arc_welding,,pm_electric_arc_process,,0,0,Déblocage PM,OK,KEEP
+electric_railway,production,era_10,2,electrical_capacitors;steel_railway_cars,0,,,pm_electric_engines;pm_electric_trains;pm_electric_trains_principle_transport_3;pm_log_carts;pm_refrigerated_rail_cars_building_fishing_wharf;pm_refrigerated_rail_cars_building_livestock_ranch;pm_refrigerated_rail_cars_building_whaling_station,,0,0,Déblocage PM,OK,KEEP
+pasteurization,production,era_10,1,vacuum_canning,1,flash_freezing,,pm_refrigerated_storage_building_fishing_wharf;pm_refrigerated_storage_building_livestock_ranch;pm_refrigerated_storage_building_whaling_station,,0,0,Déblocage PM,OK,KEEP
+paved_roads,production,era_10,2,combustion_engine;professional_civil_engineering,0,,,pm_paved_road_network,,1,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+plastics,production,era_10,1,art_silk,0,,,pm_houseware_plastics;pm_thermal_catalytic_cracking_refinery,,0,0,Déblocage PM,OK,KEEP
+pneumatic_tools,production,era_10,1,rotary_valve_engine,1,arc_welding,building_cristo_redentor;building_gran_teatro_de_la_habana,,,1,0,Déblocage bâtiment,OK,KEEP
+steam_turbine,production,era_10,2,electrical_generation;rotary_valve_engine,1,oil_turbine,,pm_coal-fired_plant,,0,0,Déblocage PM,OK,KEEP
+arc_welding,production,era_11,3,electric_arc_process;pneumatic_tools;reinforced_concrete,0,,,pm_arc_welded_buildings;pm_arc_welding_shipbuilding;pm_military_shipbuilding_steam_2,,1,0,Déblocage PM,OK,KEEP
+bayer_process,production,era_11,1,bauxite_processing,0,,,pm_all_metal_aircraft;pm_aluminium_conductors_building_power_plant;pm_aluminium_passenger_carriages;pm_hall_heroult_process,,0,0,Déblocage PM,OK,KEEP
+compression_ignition,production,era_11,2,combustion_engine;mechanized_farming,0,,,pm_compression_ignition_tractors;pm_diesel_engines;pm_diesel_pump_building_bauxite_mine;pm_diesel_pump_building_coal_mine;pm_diesel_pump_building_copper_mine;pm_diesel_pump_building_gold_mine;pm_diesel_pump_building_iron_mine;pm_diesel_pump_building_lead_mine;pm_diesel_pump_building_phosphate_mine;pm_diesel_pump_building_salt_mine;pm_diesel_pump_building_sulfur_mine;pm_diesel_trains;pm_diesel_trains_principle_transport_3;pm_mass_automobile_production,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+nitrogen_fixation,production,era_11,1,improved_fertilizer,0,,,pm_chemical_fertilizer;pm_chemical_fertilizer_building_rice_farm;pm_nitrogen_fixation,,0,0,Déblocage PM,OK,KEEP
+radio,production,era_11,1,telephone,0,,,pm_radios,,0,0,Déblocage PM,LOW_VALUE,KEEP
+dough_rollers,production,era_12,1,conveyors,0,,,pm_automated_bakery,,0,0,Déblocage PM,LOW_VALUE,KEEP
+flash_freezing,production,era_12,1,pasteurization,0,,,pm_flash_freezing_building_fishing_wharf;pm_flash_freezing_building_whaling_station,,0,0,Déblocage PM,OK,KEEP
+oil_turbine,production,era_12,1,steam_turbine,0,,,pm_oil-fired_plant,,0,0,Déblocage PM,LOW_VALUE,KEEP
+institutionalized_scientific_exchange,society,era_1,0,,7,experimental_research_laboratories;medical_degrees;romanticism;scientific_metrology;specialized_technical_academies;variolation_networks;veterinary_science,,,law_freedom_of_conscience,1,110,Déblocage loi/contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+international_relations,society,era_1,0,,3,colonization;international_exchange_standards;multilateral_alliances,,,law_mercantilism,0,309,Déblocage loi/contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+organized_financial_institutions,society,era_1,0,,3,commercial_insurance_markets;institutionalized_public_credit;stock_exchange,,,,0,34,Nœud structurel,OK,KEEP_AS_TRUNK
+periodical_print_networks,society,era_1,0,,8,constitutional_government;human_rights;mechanized_printing;national_sovereignty;optical_telegraph_networks;organized_elementary_schooling;organized_reform_movements;political_economy,,,law_censorship;law_religious_schools,1,60,Déblocage loi,TOO_MANY_CHILDREN;VISUAL_SPAGHETTI;BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+codified_practical_knowledge,society,era_2,0,,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,"KEEP_AS_TRUNK pour éducation, médecine, droit et économie politique"
+commercial_insurance_markets,society,era_2,1,organized_financial_institutions,1,joint_stock_companies,,,law_mercantilism;law_mercantilism_navigation_acts,0,23,Déblocage loi/contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+institutionalized_public_credit,society,era_2,1,organized_financial_institutions,3,international_exchange_standards;mutual_funds;postal_savings,,,,1,24,Déblocage contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+stock_exchange,society,era_2,1,organized_financial_institutions,2,corporate_charters;investment_banks,,,,1,8,Déblocage contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+systematic_administrative_statistics,society,era_2,0,,7,central_statistical_offices;political_economy;professional_civil_policing;scientific_metrology;systematic_cadastral_surveying;systematic_legal_codification;systematic_population_registration,building_government_administration,,,1,102,Déblocage bâtiment/contenu militaire/diplomatique,ROOT_OVER_SPECIALIZED;BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+variolation_networks,society,era_2,1,institutionalized_scientific_exchange,1,vaccination,,,,0,69,Nœud structurel,OK,KEEP
+medical_degrees,society,era_3,1,institutionalized_scientific_exchange,4,active_principle_pharmacy;clinicopathological_medicine;pharmaceuticals;vaccination,,,law_charitable_health_system,1,56,Déblocage loi,OK,KEEP
+organized_elementary_schooling,society,era_3,1,periodical_print_networks,1,mass_circulation_press,,,law_private_schools,1,26,Déblocage loi,OK,KEEP
+political_economy,society,era_3,2,periodical_print_networks;systematic_administrative_statistics,1,classical_political_economy,,,law_protectionism,0,17,Déblocage loi,OK,KEEP
+specialized_technical_academies,society,era_3,1,institutionalized_scientific_exchange,1,polytechnical_education,building_university,,,0,24,Déblocage bâtiment,OK,KEEP
+systematic_population_registration,society,era_3,1,systematic_administrative_statistics,2,central_statistical_offices;classical_political_economy,,pm_horizontal_drawer_cabinets,law_per_capita_based_taxation,0,19,Déblocage PM/loi,OK,KEEP
+veterinary_science,society,era_3,1,institutionalized_scientific_exchange,1,military_veterinary_services,,,,0,7,Nœud structurel,OK,ADD_EDGE comme parent de military_veterinary_services
+classical_political_economy,society,era_4,2,political_economy;systematic_population_registration,3,early_socialism_cooperativism;liberal_constitutionalism;macroeconomics,,,law_free_trade;law_interventionism,0,0,Déblocage loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+colonization,society,era_4,1,international_relations,2,civilizing_mission;quinine,,,law_colonial_exploitation;law_colonial_resettlement;law_extraction_economy;law_frontier_colonization,1,34,Déblocage loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+constitutional_government,society,era_4,1,periodical_print_networks,3,human_rights;liberal_constitutionalism;national_sovereignty,,,law_census_voting;law_debt_slavery;law_landed_voting;law_parliamentary_republic;law_poor_laws;law_presidential_republic;law_racial_segregation;law_wealth_voting,1,5,Déblocage loi,OK,KEEP
+corporate_charters,society,era_4,1,stock_exchange,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+human_rights,society,era_4,2,constitutional_government;periodical_print_networks,3,feminism;liberal_constitutionalism;organized_reform_movements,,,law_colonial_slavery;law_cultural_exclusion;law_protected_speech;law_regulatory_bodies;law_restricted_child_labor;law_wage_subsidies,1,0,Déblocage loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+national_sovereignty,society,era_4,2,constitutional_government;periodical_print_networks,2,anarchism;nationalism,,,,0,0,Nœud structurel,OK,KEEP
+optical_telegraph_networks,society,era_4,1,periodical_print_networks,0,,,,,1,0,Bonus technologique,LOW_VALUE,ADD_MODIFIER: country_influence_add = 25
+polytechnical_education,society,era_4,1,specialized_technical_academies,1,experimental_research_laboratories,,pm_philosophy_department,,1,0,Déblocage PM,OK,KEEP
+scientific_metrology,society,era_4,2,institutionalized_scientific_exchange;systematic_administrative_statistics,1,experimental_research_laboratories,,,,0,0,Nœud structurel,OK,KEEP
+systematic_cadastral_surveying,society,era_4,1,systematic_administrative_statistics,0,,,,,1,15,Bonus technologique,LOW_VALUE,ADD_MODIFIER: state_tax_capacity_add = 10
+systematic_legal_codification,society,era_4,1,systematic_administrative_statistics,1,professional_civil_policing,,,,0,18,Nœud structurel,OK,KEEP
+vaccination,society,era_4,2,medical_degrees;variolation_networks,1,organized_immunization_campaigns,,,,0,0,Nœud structurel,OK,KEEP
+abolitionist_mobilization,society,era_5,1,organized_reform_movements,1,civilizing_mission,,,law_slavery_banned,0,0,Déblocage loi,OK,KEEP
+active_principle_pharmacy,society,era_5,2,experimental_research_laboratories;medical_degrees,2,organized_immunization_campaigns;quinine,,pm_standardized_pharmaceuticals,law_private_health_insurance,1,0,Déblocage PM/loi,OK,KEEP
+central_statistical_offices,society,era_5,2,systematic_administrative_statistics;systematic_population_registration,2,identification_documents;macroeconomics,,pm_tabulating_offices;pm_vertical_filing_cabinets,law_technocracy,1,0,Déblocage PM/loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+clinicopathological_medicine,society,era_5,2,experimental_research_laboratories;medical_degrees,1,psychoanalysis,,,,0,0,Nœud structurel,BAD_ERA_CHAIN,KEEP
+experimental_research_laboratories,society,era_5,3,institutionalized_scientific_exchange;polytechnical_education;scientific_metrology,7,active_principle_pharmacy;antibiotics;behaviorism;camera;clinicopathological_medicine;philosophical_pragmatism;specialized_professional_societies,,,,1,0,Nœud structurel,BAD_ERA_CHAIN,KEEP
+liberal_constitutionalism,society,era_5,3,classical_political_economy;constitutional_government;human_rights,1,labor_movement,,,law_total_separation;law_universal_suffrage,0,0,Déblocage loi/contenu militaire/diplomatique,OK,KEEP
+mechanized_printing,society,era_5,1,periodical_print_networks,1,mass_circulation_press,,pm_mechanized_typesetting,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+organized_reform_movements,society,era_5,2,human_rights;periodical_print_networks,4,abolitionist_mobilization;early_socialism_cooperativism;labor_movement;political_agitation,,,law_legacy_slavery,0,0,Déblocage loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+postal_savings,society,era_5,1,institutionalized_public_credit,1,joint_stock_companies,,,,1,0,Nœud structurel,OK,KEEP
+specialized_professional_societies,society,era_5,1,experimental_research_laboratories,1,analytical_philosophy,,pm_professional_faculties,,0,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+early_socialism_cooperativism,society,era_6,2,classical_political_economy;organized_reform_movements,2,anarchism;socialism,,,law_proportional_taxation,0,0,Déblocage loi,OK,KEEP
+joint_stock_companies,society,era_6,2,commercial_insurance_markets;postal_savings,1,mutual_funds,,,law_laissez_faire,1,0,Déblocage loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+labor_movement,society,era_6,2,liberal_constitutionalism;organized_reform_movements,2,corporatism;socialism,,,law_compulsory_primary_school;law_old_age_pension;law_worker_protections,1,0,Déblocage loi/contenu militaire/diplomatique,OK,KEEP
+mass_circulation_press,society,era_6,2,mechanized_printing;organized_elementary_schooling,1,political_agitation,,pm_rotary_press,law_public_schools,0,0,Déblocage PM/loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+organized_immunization_campaigns,society,era_6,2,active_principle_pharmacy;vaccination,4,antibiotics;malaria_prevention;modern_sewerage;pharmaceuticals,,,law_public_health_insurance,0,0,Déblocage loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+pharmaceuticals,society,era_6,2,medical_degrees;organized_immunization_campaigns,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+professional_civil_policing,society,era_6,2,systematic_administrative_statistics;systematic_legal_codification,2,identification_documents;law_enforcement,,,law_dedicated_police;law_local_police;law_national_guard;law_secret_police;law_shinsengumi,1,0,Déblocage loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+academia,society,era_7,1,rationalism,1,empiricism,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+anarchism,society,era_7,2,early_socialism_cooperativism;national_sovereignty,0,,,,law_anarchy,0,0,Déblocage loi/contenu militaire/diplomatique,OK,KEEP
+banking,society,era_7,1,currency_standards,1,central_banking,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+camera,society,era_7,2,experimental_research_laboratories;romanticism,1,film,,pm_photographic_art,,1,0,Déblocage PM,OK,KEEP
+central_archives,society,era_7,1,centralization,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+central_banking,society,era_7,1,banking,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+centralization,society,era_7,2,nationalism;tech_bureaucracy,2,central_archives;currency_standards,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+currency_standards,society,era_7,2,centralization;international_trade,1,banking,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+democracy,society,era_7,1,rationalism,1,mass_communication,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+dialectics,society,era_7,1,empiricism,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+empiricism,society,era_7,1,academia,2,dialectics;psychiatry,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+international_trade,society,era_7,1,tech_bureaucracy,1,currency_standards,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+law_enforcement,society,era_7,3,professional_civil_policing;tech_bureaucracy;urban_planning,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+mass_communication,society,era_7,1,democracy,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+nationalism,society,era_7,1,national_sovereignty,5,centralization;civilizing_mission;corporatism;organized_sports;pan-nationalism,,,law_national_supremacy,1,0,Déblocage loi/contenu militaire/diplomatique,OK,KEEP
+psychiatry,society,era_7,1,empiricism,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+quinine,society,era_7,2,active_principle_pharmacy;colonization,2,civilizing_mission;malaria_prevention,building_suez_canal,,,1,0,Déblocage bâtiment,OK,KEEP
+rationalism,society,era_7,0,,2,academia;democracy,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+realism,society,era_7,1,romanticism,0,,,pm_bourgeoisie_patronage;pm_independent_artists;pm_realist_art,,1,0,Déblocage PM,OK,KEEP
+romanticism,society,era_7,1,institutionalized_scientific_exchange,2,camera;realism,building_art_academy,,law_agrarianism;law_industry_banned,1,0,Déblocage bâtiment/loi/contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+socialism,society,era_7,2,early_socialism_cooperativism;labor_movement,0,,,,law_collectivized_agriculture;law_council_republic;law_factory_councils;law_graduated_taxation;law_state_atheism,1,0,Déblocage loi/contenu militaire/diplomatique,OK,KEEP
+tech_bureaucracy,society,era_7,0,,3,centralization;international_trade;law_enforcement,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+urban_planning,society,era_7,0,,1,law_enforcement,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+urbanization,society,era_7,0,,0,,,,,0,0,Alias de compatibilité non recherchable,COMPATIBILITY_ALIAS,KEEP_COMPATIBILITY_ALIAS
+civilizing_mission,society,era_8,4,abolitionist_mobilization;colonization;nationalism;quinine,1,malaria_prevention,building_panama_canal,,,1,0,Déblocage bâtiment/contenu militaire/diplomatique,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+feminism,society,era_8,1,human_rights,1,egalitarianism,,,law_women_in_the_workplace;law_womens_suffrage,1,0,Déblocage loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+identification_documents,society,era_8,2,central_statistical_offices;professional_civil_policing,1,central_planning,,,,1,0,Nœud structurel,OK,KEEP
+modern_sewerage,society,era_8,1,organized_immunization_campaigns,1,steel_frame_buildings,,,,1,0,Nœud structurel,OK,KEEP
+mutual_funds,society,era_8,2,institutionalized_public_credit;joint_stock_companies,1,investment_banks,,pm_financial_district_publicly_traded,law_commercialized_agriculture,1,0,Déblocage PM/loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+organized_sports,society,era_8,1,nationalism,1,mass_propaganda,,,,1,0,Nœud structurel,OK,KEEP
+pan-nationalism,society,era_8,1,nationalism,1,multilateral_alliances,,,law_ethnostate,1,0,Déblocage loi,OK,KEEP
+philosophical_pragmatism,society,era_8,1,experimental_research_laboratories,1,behaviorism,,,,1,0,Nœud structurel,OK,KEEP
+corporatism,society,era_9,2,labor_movement;nationalism,0,,,,law_corporate_state;law_corporatized_unions;law_social_monarchy,1,0,Déblocage loi,OK,KEEP
+egalitarianism,society,era_9,1,feminism,0,,,,law_multicultural,0,0,Déblocage loi,LOW_VALUE,KEEP
+investment_banks,society,era_9,2,mutual_funds;stock_exchange,2,corporate_management;steel_frame_buildings,,,,1,0,Nœud structurel,BAD_ERA_CHAIN,KEEP
+steel_frame_buildings,society,era_9,2,investment_banks;modern_sewerage,2,elevator;zeppelins,building_eiffel_tower;building_estacion_de_madrid_atocha;building_statue_of_liberty;building_victoria_terminus,pm_covered_markets;pm_steel_frame_buildings,,1,0,Déblocage bâtiment/PM,OK,KEEP
+corporate_management,society,era_10,1,investment_banks,1,modern_financial_instruments,,pm_scientific_management;pm_scientific_management_automotive_industry;pm_scientific_management_electrics_industry,,1,0,Déblocage PM,OK,KEEP
+elevator,society,era_10,1,steel_frame_buildings,0,,,pm_arcades,,1,0,Déblocage PM,OK,KEEP
+film,society,era_10,1,camera,1,mass_propaganda,,pm_film_art,,1,0,Déblocage PM,OK,KEEP
+international_exchange_standards,society,era_10,2,institutionalized_public_credit;international_relations,1,modern_financial_instruments,,,,1,0,Nœud structurel,BAD_ERA_CHAIN,KEEP
+malaria_prevention,society,era_10,3,civilizing_mission;organized_immunization_campaigns;quinine,1,antibiotics,,,,1,0,Nœud structurel,BAD_ERA_CHAIN,KEEP
+multilateral_alliances,society,era_10,2,international_relations;pan-nationalism,0,,,,,1,0,Bonus technologique,LOW_VALUE;BAD_ERA_CHAIN,KEEP
+political_agitation,society,era_10,2,mass_circulation_press;organized_reform_movements,1,mass_propaganda,,,law_outlawed_dissent;law_single_party_state,1,0,Déblocage loi,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+psychoanalysis,society,era_10,1,clinicopathological_medicine,0,,,,,1,0,Bonus technologique,LOW_VALUE;BAD_ERA_CHAIN,KEEP
+zeppelins,society,era_10,1,steel_frame_buildings,0,,,pm_airship_mooring_post,,1,0,Déblocage PM,OK,KEEP
+analytical_philosophy,society,era_11,1,specialized_professional_societies,0,,,pm_analytical_philosophy_department,,1,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+behaviorism,society,era_11,2,experimental_research_laboratories;philosophical_pragmatism,0,,,,,1,0,Bonus technologique,LOW_VALUE;BAD_ERA_CHAIN,KEEP
+central_planning,society,era_11,1,identification_documents,1,mass_surveillance,,pm_switch_boards,law_command_economy,1,0,Déblocage PM/loi,OK,KEEP
+mass_propaganda,society,era_11,3,film;organized_sports;political_agitation,0,,,,,1,0,Déblocage contenu militaire/diplomatique,OK,KEEP
+antibiotics,society,era_12,3,experimental_research_laboratories;malaria_prevention;organized_immunization_campaigns,0,,,pm_antibiotic_mass_production,,1,0,Déblocage PM,BAD_ERA_CHAIN,REVIEW_TOPOLOGY
+macroeconomics,society,era_12,2,central_statistical_offices;classical_political_economy,0,,,,,1,0,Bonus technologique,LOW_VALUE;BAD_ERA_CHAIN,KEEP
+mass_surveillance,society,era_12,1,central_planning,0,,,,law_militarized_police,1,0,Déblocage loi,OK,KEEP
+modern_financial_instruments,society,era_12,2,corporate_management;international_exchange_standards,0,,,,,1,0,Bonus technologique,LOW_VALUE,KEEP

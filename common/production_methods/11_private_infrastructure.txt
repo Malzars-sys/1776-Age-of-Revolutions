@@ -90,8 +90,17 @@ pm_modern_port = {
 	}
 }
 
+pm_no_rail_network = {
+	texture = "gfx/error_deer.dds"
+	is_default = yes
+}
+
 pm_early_trains = {
 	texture = "gfx/interface/icons/production_method_icons/experimental_trains.dds"
+
+	unlocking_technologies = {
+		railways
+	}
 
 	building_modifiers = {
 		workforce_scaled = {
@@ -108,7 +117,7 @@ pm_early_trains = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add = 20
+			state_infrastructure_add = 5
 			state_pollution_generation_add = 25
 		}
 	}
@@ -119,6 +128,7 @@ pm_steam_trains = {
 	replacement_if_valid = pm_steam_trains_principle_transport_3
 
 	unlocking_technologies = {
+		railways
 		steel_railway_cars
 	}
 
@@ -137,7 +147,7 @@ pm_steam_trains = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add = 25
+			state_infrastructure_add = 9
 			state_pollution_generation_add = 20
 		}
 	}
@@ -152,6 +162,7 @@ pm_steam_trains_principle_transport_3 = {
 	}
 
 	unlocking_technologies = {
+		railways
 		steel_railway_cars
 	}
 
@@ -170,7 +181,7 @@ pm_steam_trains_principle_transport_3 = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add = 30
+			state_infrastructure_add = 14
 			state_pollution_generation_add = 25
 		}
 	}
@@ -181,6 +192,7 @@ pm_electric_trains = {
 	replacement_if_valid = pm_electric_trains_principle_transport_3
 
 	unlocking_technologies = {
+		railways
 		electric_railway
 	}
 
@@ -200,7 +212,7 @@ pm_electric_trains = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add = 30
+			state_infrastructure_add = 14
 		}
 	}
 
@@ -216,6 +228,7 @@ pm_electric_trains_principle_transport_3 = {
 	}
 
 	unlocking_technologies = {
+		railways
 		electric_railway
 	}
 
@@ -235,7 +248,7 @@ pm_electric_trains_principle_transport_3 = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add = 40
+			state_infrastructure_add = 24
 		}
 	}
 
@@ -247,6 +260,7 @@ pm_diesel_trains = {
 	replacement_if_valid = pm_diesel_trains_principle_transport_3
 
 	unlocking_technologies = {
+		railways
 		compression_ignition
 	}
 
@@ -266,7 +280,7 @@ pm_diesel_trains = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add = 40
+			state_infrastructure_add = 17
 			state_pollution_generation_add = 15
 		}
 	}
@@ -281,6 +295,7 @@ pm_diesel_trains_principle_transport_3 = {
 	}
 
 	unlocking_technologies = {
+		railways
 		compression_ignition
 	}
 
@@ -300,7 +315,7 @@ pm_diesel_trains_principle_transport_3 = {
 
 	state_modifiers = {
 		workforce_scaled = {
-			state_infrastructure_add = 55
+			state_infrastructure_add = 32
 			state_pollution_generation_add = 20
 		}
 	}
@@ -312,6 +327,10 @@ pm_no_passenger_trains = {
 
 pm_wooden_passenger_carriages = {
 	texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
+
+	unlocking_technologies = {
+		railways
+	}
 
 	building_modifiers = {
 		workforce_scaled = {
@@ -328,6 +347,7 @@ pm_steel_passenger_carriages = {
 	texture = "gfx/interface/icons/production_method_icons/passenger_carriages.dds"
 
 	unlocking_technologies = {
+		railways
 		steel_railway_cars
 	}
 
