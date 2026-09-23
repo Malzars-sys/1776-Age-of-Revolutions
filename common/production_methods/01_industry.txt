@@ -1276,6 +1276,10 @@ pm_rotary_valve_engine_building_paper_mill = {
 	}
 }
 
+pm_no_fertilizer_production = {
+	texture = "gfx/error_deer.dds" # TEMP_ASSET: no dedicated disabled-fertilizer icon exists
+}
+
 pm_artificial_fertilizers = {
 	texture = "gfx/interface/icons/production_method_icons/chemical_fertilizers.dds"
 	state_modifiers = {
@@ -1286,6 +1290,9 @@ pm_artificial_fertilizers = {
 
 	building_modifiers = {
 		workforce_scaled = {
+			# The early acidulated-limestone process predates dependable
+			# phosphate-rock supply.  Phosphates enter the improved and
+			# nitrogen-fixation recipes below, where the mining chain exists.
 			goods_input_limestone_add = 20
 			goods_input_tools_add = 5
 
@@ -1316,6 +1323,8 @@ pm_improved_fertilizer = {
 
 	building_modifiers = {
 		workforce_scaled = {
+			# 1776 fork phosphate chain retained in the Tech & Res-style
+			# consolidated chemical plant.
 			goods_input_limestone_add = 30
 			goods_input_phosphates_add = 20
 			goods_input_industrial_chemicals_add = 20

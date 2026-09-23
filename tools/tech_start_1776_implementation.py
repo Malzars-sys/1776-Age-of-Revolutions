@@ -188,14 +188,28 @@ def country_overlay() -> tuple[dict[str, tuple[Path, bool]], dict[str, list[str]
     for name, (path, _) in by_name.items():
         text, _ = read_text(path)
         tags = TAG_RE.findall(text)
-        if len(tags) != 1:
-            raise ValueError(f"{path}: {len(tags)} définition(s) de pays")
-        names_by_tag[tags[0]].append(name)
+        if not tags:
+            raise ValueError(f"{path}: aucune définition de pays")
+        # Generated additive overlays can legitimately contain several
+        # country scopes in one file.  Keep the shared path indexed for every
+        # contained tag; parse_country_tech isolates the matching scope.
+        for tag in tags:
+            names_by_tag[tag].append(name)
     return by_name, names_by_tag
 
 
-def parse_country_tech(path: Path, tiers: dict[int, set[str]]) -> tuple[set[str], list[int], list[str]]:
+def parse_country_tech(
+    path: Path,
+    tiers: dict[int, set[str]],
+    tag: str | None = None,
+) -> tuple[set[str], list[int], list[str]]:
     text, _ = read_text(path)
+    if tag is not None:
+        matches = [match for match in TAG_RE.finditer(text) if match.group(1) == tag]
+        if len(matches) != 1:
+            raise ValueError(f"{path}: expected one c:{tag} scope, got {len(matches)}")
+        opening = text.find("{", matches[0].start(), matches[0].end())
+        text = extract_braced_block(text, opening)
     tier_ids: list[int] = []
     explicit: list[str] = []
     for line in text.splitlines():
@@ -224,7 +238,7 @@ def overlay_state(plan_tags, overlay, names_by_tag, tiers):
         explicit: list[str] = []
         counts: dict[str, int] = defaultdict(int)
         for name in names_by_tag[tag]:
-            values, file_tiers, file_explicit = parse_country_tech(overlay[name][0], tiers)
+            values, file_tiers, file_explicit = parse_country_tech(overlay[name][0], tiers, tag)
             effective.update(values)
             tier_ids.extend(file_tiers)
             explicit.extend(file_explicit)
@@ -468,7 +482,10 @@ def structural_errors(graph: dict[str, set[str]]) -> list[str]:
         "building_tooling_workshop": {"organized_workshops"},
         "building_glassworks": {"organized_workshops"},
         "building_steel_mill": {"coke_smelting"},
-        "building_chemical_plant": {"artificial_fertilizers"},
+        # Tech & Res-style consolidation: the canonical chemical complex is
+        # available with industrial acids; fertilizer progression is handled
+        # by its PMs and the artificial-fertilizers throughput effect.
+        "building_chemical_plant": {"industrial_acids"},
         "building_explosives_factory": {"nitroglycerin"},
     }
     for building, expected in expected_building_gates.items():
@@ -483,9 +500,8 @@ def structural_errors(graph: dict[str, set[str]]) -> list[str]:
         "organized_financial_institutions"
     }:
         errors.append("building_construction_sector: gate organized_financial_institutions absent")
-    chemical_works = ROOT / "common/buildings/12_tech6c3a_chemical_works.txt"
-    if listed_technologies(named_block(chemical_works, "building_chemical_works")) != {"industrial_acids"}:
-        errors.append("building_chemical_works gate incorrect")
+    if (ROOT / "common/buildings/12_tech6c3a_chemical_works.txt").exists():
+        errors.append("obsolete separate building_chemical_works definition still present")
     suez_canal = ROOT / "common/buildings/10_canals.txt"
     if listed_technologies(named_block(suez_canal, "building_suez_canal")) != {"quinine"}:
         errors.append("building_suez_canal gate incorrect")
@@ -913,7 +929,7 @@ def main() -> None:
         canonical = canonical_name(tag, names, overlay)
         active_tiers: list[int] = []
         for name in names:
-            _, file_tiers, _ = parse_country_tech(overlay[name][0], tiers)
+            _, file_tiers, _ = parse_country_tech(overlay[name][0], tiers, tag)
             active_tiers.extend(file_tiers)
         tier_base: set[str] = set()
         for tier in active_tiers:
@@ -1039,7 +1055,13 @@ def main() -> None:
             check_paths.update(folder.glob("*.txt"))
         check_paths.add(TIER_FILE)
         for path in sorted(check_paths):
-            text, _ = read_text(path)
+            # In --validate-only mode, vanilla-backed country rewrites may be
+            # represented by a not-yet-created destination path.  Validate
+            # the computed payload instead of attempting to read that path.
+            if path in writes and not path.exists():
+                text = writes[path][0]
+            else:
+                text, _ = read_text(path)
             if brace_balance(text) != 0:
                 brace_errors.append(str(path.relative_to(ROOT)))
 
