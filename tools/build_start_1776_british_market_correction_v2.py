@@ -487,7 +487,7 @@ The supplied British-market capture showed red shortages for fruit (398), lead (
 
 The local subscribed `[1.13] Tech & Res` mod at `C:/Program Files (x86)/Steam/steamapps/workshop/content/529340/3472248460` was used as the structural reference: fertilizer and industrial-chemical production now coexist as separate PM groups in the canonical `building_chemical_plant`.
 
-The complex unlocks at `industrial_acids`, which Great Britain already possesses. `artificial_fertilizers` now improves complex throughput instead of gating the whole building. The early fertilizer PM uses limestone and tools; the fork's phosphate input is preserved in the improved and nitrogen-fixation PMs, where the advanced mining chain is appropriate. The obsolete separate `building_chemical_works` definition and placement were removed/migrated.
+The complex unlocks at `industrial_acids`, which Great Britain already possesses. The obsolete `artificial_fertilizers` technology was removed; `improved_fertilizer` now requires `advanced_crop_rotations` and `industrial_acids` directly. The early fertilizer PM uses limestone and tools; the fork's phosphate input is preserved in the improved and nitrogen-fixation PMs, where the advanced mining chain is appropriate. The obsolete separate `building_chemical_works` definition and placement were removed/migrated.
 
 ## Infrastructure
 

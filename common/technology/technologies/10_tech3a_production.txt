@@ -217,39 +217,6 @@ advanced_crop_rotations = {
 	}
 }
 
-artificial_fertilizers = {
-	# Early industrial fertilizer foundation.  The consolidated chemical
-	# complex is already unlocked by industrial_acids; this technology
-	# improves the whole fertilizer/chemical branch instead of spawning a
-	# duplicate building type.
-	era = era_4
-	texture = "gfx/error_deer.dds"
-	category = production
-
-	unlocking_technologies = {
-		advanced_crop_rotations
-		industrial_acids
-	}
-
-	modifier = {
-		building_chemical_plant_throughput_add = 0.1
-	}
-
-	ai_weight = {
-		value = 1
-
-		if = {
-			limit = {
-				OR = {
-					has_strategy = ai_strategy_agricultural_expansion
-					has_strategy = ai_strategy_industrial_expansion
-				}
-			}
-			add = 1
-		}
-	}
-}
-
 selective_breeding = {
 	# TECH3A conceptual branch: Production
 	era = era_2

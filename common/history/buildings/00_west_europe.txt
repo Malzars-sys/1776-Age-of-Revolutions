@@ -2572,6 +2572,32 @@ BUILDINGS={
 	s:STATE_NORMANDY={
 		region_state:FRA={
 			create_building = {
+				building = "building_livestock_ranch"
+				add_ownership = {
+					building = {
+						type = "building_manor_house"
+						country = "c:FRA"
+						levels = 2
+						region = "STATE_NORMANDY"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+			create_building = {
+				building = "building_limestone_quarry"
+				add_ownership = {
+					building = {
+						type = "building_limestone_quarry"
+						country = "c:FRA"
+						levels = 2
+						region = "STATE_NORMANDY"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_picks_and_shovels_building_limestone_quarry" "pm_no_stone_processing_building_limestone_quarry" }
+			}
+			create_building = {
 				building = "building_chemical_plant"
 				add_ownership = {
 					building = {
@@ -3259,7 +3285,7 @@ BUILDINGS={
 					building={
 						type="building_manor_house"
 						country="c:FRA"
-						levels=1
+						levels=2
 						region="STATE_ILE_DE_FRANCE"
 					}
 
@@ -3308,7 +3334,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:FRA"
-						levels=2
+						levels=4
 						region="STATE_AUVERGNE_LIMOUSIN"
 					}
 					building={
@@ -3340,7 +3366,7 @@ BUILDINGS={
 								building={
 									type="building_manor_house"
 									country="c:FRA"
-									levels=2
+									levels=3
 									region="STATE_AUVERGNE_LIMOUSIN"
 								}
 							}
@@ -3408,7 +3434,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:FRA"
-						levels=4
+						levels=7
 						region="STATE_BRITTANY"
 					}
 				}
@@ -3656,7 +3682,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:FRA"
-									levels=1
+									levels=3
 									region="STATE_FRANCHE_COMTE"
 								}
 
@@ -3685,6 +3711,19 @@ BUILDINGS={
 	}
 	s:STATE_LORRAINE={
 		region_state:FRA={
+			create_building = {
+				building = "building_sulfur_mine"
+				add_ownership = {
+					building = {
+						type = "building_sulfur_mine"
+						country = "c:FRA"
+						levels = 1
+						region = "STATE_LORRAINE"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_picks_and_shovels_building_sulfur_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
+			}
 			create_building={
 				building="building_tooling_workshop"
 				add_ownership={
@@ -3707,7 +3746,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:FRA"
-						levels=2
+						levels=4
 						region="STATE_LORRAINE"
 					}
 					building={
@@ -3879,7 +3918,7 @@ BUILDINGS={
 					building={
 						type="building_manor_house"
 						country="c:FRA"
-						levels=1
+						levels=2
 						region="STATE_ORLEANS"
 					}
 				}

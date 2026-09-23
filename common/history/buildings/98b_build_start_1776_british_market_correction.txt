@@ -1,0 +1,256 @@
+# British-market shortage correction; no resource potentials were added.
+# Colonial placements exclude BIC.  Manufacturing/tooling remains British.
+BUILDINGS = {
+	s:STATE_BAHAMAS = {
+		region_state:GBR = {
+			create_building = {
+				building = "building_limestone_quarry"
+				add_ownership = {
+					building = {
+						type = "building_limestone_quarry"
+						country = "c:GBR"
+						levels = 3
+						region = "STATE_BAHAMAS"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_picks_and_shovels_building_limestone_quarry" "pm_no_stone_processing_building_limestone_quarry" }
+			}
+		}
+	}
+	s:STATE_FLORIDA = {
+		region_state:GBR = {
+			create_building = {
+				building = "building_limestone_quarry"
+				add_ownership = {
+					building = {
+						type = "building_limestone_quarry"
+						country = "c:GBR"
+						levels = 2
+						region = "STATE_FLORIDA"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_picks_and_shovels_building_limestone_quarry" "pm_no_stone_processing_building_limestone_quarry" }
+			}
+		}
+	}
+	s:STATE_JAMAICA = {
+		region_state:GBR = {
+			create_building = {
+				building = "building_banana_plantation"
+				add_ownership = {
+					building = {
+						type = "building_manor_house"
+						country = "c:GBR"
+						levels = 8
+						region = "STATE_JAMAICA"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "default_building_banana_plantation" "default_labour" "pm_road_carts" }
+			}
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:GBR"
+						levels = 3
+						region = "STATE_JAMAICA"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_simple_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" }
+			}
+		}
+	}
+	s:STATE_LANCASHIRE = {
+		region_state:GBR = {
+			create_building = {
+				building = "building_chemical_plant"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:GBR"
+						levels = 2
+						region = "STATE_LANCASHIRE"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_artificial_fertilizers" "pm_no_industrial_chemicals" "pm_no_pharmaceutical_production" }
+			}
+		}
+	}
+	s:STATE_MANITOBA = {
+		region_state:HBC = {
+			create_building = {
+				building = "building_railway"
+				add_ownership = {
+					building = {
+						type = "building_railway"
+						country = "c:HBC"
+						levels = 1
+						region = "STATE_MANITOBA"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+		}
+	}
+	s:STATE_NEWFOUNDLAND = {
+		region_state:GBR = {
+			create_building = {
+				building = "building_lead_mine"
+				add_ownership = {
+					building = {
+						type = "building_lead_mine"
+						country = "c:GBR"
+						levels = 4
+						region = "STATE_NEWFOUNDLAND"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_picks_and_shovels_building_lead_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_lead_mine" "pm_no_mine_ventilation" }
+			}
+		}
+	}
+	s:STATE_ONTARIO = {
+		region_state:HBC = {
+			create_building = {
+				building = "building_railway"
+				add_ownership = {
+					building = {
+						type = "building_railway"
+						country = "c:HBC"
+						levels = 1
+						region = "STATE_ONTARIO"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+		}
+	}
+	s:STATE_QUEBEC = {
+		region_state:HBC = {
+			create_building = {
+				building = "building_railway"
+				add_ownership = {
+					building = {
+						type = "building_railway"
+						country = "c:HBC"
+						levels = 1
+						region = "STATE_QUEBEC"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+		}
+	}
+	s:STATE_SENEGAL = {
+		region_state:SIL = {
+			create_building = {
+				building = "building_port"
+				add_ownership = {
+					building = {
+						type = "building_port"
+						country = "c:SIL"
+						levels = 1
+						region = "STATE_SENEGAL"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_anchorage" }
+			}
+			create_building = {
+				building = "building_railway"
+				add_ownership = {
+					building = {
+						type = "building_railway"
+						country = "c:SIL"
+						levels = 16
+						region = "STATE_SENEGAL"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+			create_building = {
+				building = "building_salt_pan"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:GBR"
+						levels = 24
+						region = "STATE_SENEGAL"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "default_building_salt_pan" }
+			}
+		}
+	}
+	s:STATE_WEST_COUNTRY = {
+		region_state:GBR = {
+			create_building = {
+				building = "building_furniture_manufactory"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:GBR"
+						levels = 4
+						region = "STATE_WEST_COUNTRY"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_handcrafted_furniture" "pm_no_luxuries" "pm_automation_disabled" }
+			}
+			create_building = {
+				building = "building_lead_mine"
+				add_ownership = {
+					building = {
+						type = "building_lead_mine"
+						country = "c:GBR"
+						levels = 5
+						region = "STATE_WEST_COUNTRY"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_picks_and_shovels_building_lead_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_lead_mine" "pm_no_mine_ventilation" }
+			}
+			create_building = {
+				building = "building_textile_mill"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:GBR"
+						levels = 4
+						region = "STATE_WEST_COUNTRY"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_handsewn_clothes" "pm_craftsman_sewing" "pm_traditional_looms" }
+			}
+		}
+	}
+	s:STATE_WEST_INDIES = {
+		region_state:GBR = {
+			create_building = {
+				building = "building_banana_plantation"
+				add_ownership = {
+					building = {
+						type = "building_manor_house"
+						country = "c:GBR"
+						levels = 6
+						region = "STATE_WEST_INDIES"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "default_building_banana_plantation" "default_labour" "pm_road_carts" }
+			}
+		}
+	}
+}

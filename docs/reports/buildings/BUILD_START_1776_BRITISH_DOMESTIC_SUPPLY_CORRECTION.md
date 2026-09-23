@@ -31,7 +31,7 @@ The local subscribed `[1.13] Tech & Res` mod at `C:/Program Files (x86)/Steam/st
 
 The complex unlocks at `industrial_acids`, which Great Britain already possesses. `artificial_fertilizers` now improves complex throughput instead of gating the whole building. The early fertilizer PM uses limestone and tools; the fork's phosphate input is preserved in the improved and nitrogen-fixation PMs, where the advanced mining chain is appropriate. The obsolete separate `building_chemical_works` definition and placement were removed/migrated.
 
-The consolidated building is presented in game as **Usine chimique** / **Chemical Works**. Its building illustration is a local copy of Tech & Res' `building_pharmaceuticals_industry.dds`, and `industrial_chemicals` uses a local copy of Tech & Res' `fertilizer.dds`. Both assets are namespaced inside this fork, so the runtime does not require Tech & Res to remain enabled.
+The consolidated building is presented in game as **Usine chimique** / **Chemical Works**. Its illustration is now `chemicals_industry.dds`, the base-game chemical-factory icon retained by Tech & Res for `building_chemical_plant`, rather than the pharmaceutical-factory illustration. The `pharmaceuticals` good and the pharmaceutical production methods use local, namespaced copies of Tech & Res' assets. The no-pharmaceutical-production method uses its generic disabled icon; the PM group uses the same base mixed icon as Tech & Res. `industrial_chemicals` continues to use a local copy of Tech & Res' `fertilizer.dds`. The fork does not require Tech & Res to remain enabled.
 
 ## Infrastructure
 
