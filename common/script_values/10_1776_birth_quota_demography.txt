@@ -1,0 +1,38 @@
+# The mod's birth curve is 0.00510/month at SoL 10, falling linearly to
+# 0.00110/month at SoL 25. This estimate uses state average SoL; the engine
+# computes the real curve separately for each pop.
+birth_quota_state_base_birthrate = {
+	value = average_sol
+	min = 10
+	max = 25
+	subtract = 10
+	multiply = -0.000266666666667
+	add = 0.00510
+}
+
+# Required extra multiplier to keep the SoL-10 birthrate, including the law's
+# existing +15% bonus. At SoL 25 this reaches about +4.18 (418%).
+birth_quota_sol_counterweight = {
+	value = 0.00510
+	divide = birth_quota_state_base_birthrate
+	subtract = 1
+	multiply = 1.15
+	min = 0
+	max = 4.18182
+}
+
+# Code's literacy_penalty is -0.10 multiplied by each pop's literacy. The
+# country literacy rate is only a proxy, not an exact pop-level cancellation.
+birth_quota_literacy_counterweight = {
+	value = owner.literacy_rate
+	multiply = 0.10
+	min = 0
+	max = 0.10
+}
+
+birth_quota_total_counterweight = {
+	value = birth_quota_sol_counterweight
+	add = birth_quota_literacy_counterweight
+	# The permanent country modifier supplies the first +1%.
+	subtract = 0.01
+}

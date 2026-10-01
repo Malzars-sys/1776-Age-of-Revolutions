@@ -1,0 +1,176 @@
+# Building scope: nominal input needs ignore our own output discounts.
+laboratory_1776_nominal_raw_demand = {
+	value = 20
+	if = { limit = { has_active_production_method = pm_1776_electrical_research_laboratory } value = 40 }
+	else_if = { limit = { has_active_production_method = pm_1776_advanced_research_laboratory } value = 80 }
+	multiply = level
+	multiply = occupancy
+}
+
+# Building scope: compilation now competes with laboratories for raw data.
+# Keep nominal input demand even when a shortage reduces actual production.
+laboratory_1776_nominal_compilation_raw_demand = {
+	value = 0
+	if = { limit = { has_active_production_method = pm_1776_trade_data_reporting } add = 1 }
+	if = { limit = { has_active_production_method = pm_1776_administrative_data_reporting } add = 1 }
+	if = { limit = { has_active_production_method = pm_1776_institutional_data_reporting } add = 2 }
+	multiply = level
+	multiply = occupancy
+}
+
+laboratory_1776_nominal_organized_demand = {
+	value = 0
+	if = { limit = { has_active_production_method = pm_1776_advanced_research_laboratory } add = 40 }
+	if = {
+		limit = {
+			OR = {
+				has_active_production_method = pm_1776_production_research
+				has_active_production_method = pm_1776_military_research
+				has_active_production_method = pm_1776_society_research
+			}
+		}
+		add = 20
+	}
+	multiply = level
+	multiply = occupancy
+}
+
+# Market scope: include all countries, not only the laboratory owner's country.
+# Exports remain demand even if domestic laboratories are in an outage.
+laboratory_1776_market_raw_demand = {
+	value = 0
+	every_scope_country = {
+		every_scope_building = {
+			limit = { is_building_type = building_research_laboratory }
+			add = laboratory_1776_nominal_raw_demand
+		}
+		every_scope_building = {
+			limit = {
+				OR = {
+					has_active_production_method = pm_1776_trade_data_reporting
+					has_active_production_method = pm_1776_administrative_data_reporting
+					has_active_production_method = pm_1776_institutional_data_reporting
+				}
+			}
+			add = laboratory_1776_nominal_compilation_raw_demand
+		}
+	}
+	mg:raw_industrial_data = { add = market_goods_exports }
+}
+laboratory_1776_market_organized_demand = {
+	value = 0
+	every_scope_country = {
+		every_scope_building = {
+			limit = { is_building_type = building_research_laboratory }
+			add = laboratory_1776_nominal_organized_demand
+		}
+	}
+	mg:organized_research_data = { add = market_goods_exports }
+}
+
+# Market-goods scope. Values cached once per country tick before building checks.
+laboratory_1776_raw_warning_threshold = {
+	value = market.var:laboratory_1776_raw_demand
+	multiply = 0.75
+}
+
+laboratory_1776_raw_severe_threshold = {
+	value = market.var:laboratory_1776_raw_demand
+	multiply = 0.5
+}
+
+laboratory_1776_raw_critical_threshold = {
+	value = market.var:laboratory_1776_raw_demand
+	multiply = 0.1
+}
+
+laboratory_1776_organized_warning_threshold = {
+	value = market.var:laboratory_1776_organized_demand
+	multiply = 0.75
+}
+
+laboratory_1776_organized_severe_threshold = {
+	value = market.var:laboratory_1776_organized_demand
+	multiply = 0.5
+}
+
+laboratory_1776_organized_critical_threshold = {
+	value = market.var:laboratory_1776_organized_demand
+	multiply = 0.1
+}
+
+# Building scope: the worse of the two shortages wins; penalties do not stack.
+laboratory_1776_data_efficiency = {
+	value = 1
+	if = { limit = { laboratory_1776_data_shortage_critical = yes } value = 0.05 }
+	else_if = { limit = { laboratory_1776_data_shortage_severe = yes } value = 0.20 }
+	else_if = { limit = { laboratory_1776_data_shortage_warning = yes } value = 0.50 }
+	# The engine's other input shortages must not leave a full research bonus.
+	else_if = { limit = { building_has_goods_shortage = yes } value = 0.50 }
+}
+laboratory_1776_effective_levels = {
+	value = level
+	multiply = occupancy
+	multiply = laboratory_1776_data_efficiency
+}
+laboratory_1776_effective_capacity = {
+	value = 5
+	if = { limit = { has_active_production_method = pm_1776_electrical_research_laboratory } value = 10 }
+	else_if = { limit = { has_active_production_method = pm_1776_advanced_research_laboratory } value = 20 }
+	multiply = laboratory_1776_effective_levels
+}
+
+# Country scope: only laboratories add these bonuses, never innovation points.
+laboratory_1776_country_capacity = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_type = building_research_laboratory }
+		add = laboratory_1776_effective_capacity
+	}
+}
+# Country scope: a general level contributes one quarter of a specialized level
+# to each category, after the same employment and supply discounts.
+laboratory_1776_country_general_weighted_levels = {
+	value = 0
+	every_scope_building = {
+		limit = {
+			is_building_type = building_research_laboratory
+			has_active_production_method = pm_1776_general_research
+		}
+		add = laboratory_1776_effective_levels
+	}
+	multiply = 0.25
+}
+
+laboratory_1776_country_production_levels = {
+	value = laboratory_1776_country_general_weighted_levels
+	every_scope_building = {
+		limit = {
+			is_building_type = building_research_laboratory
+			has_active_production_method = pm_1776_production_research
+		}
+		add = laboratory_1776_effective_levels
+	}
+}
+
+laboratory_1776_country_military_levels = {
+	value = laboratory_1776_country_general_weighted_levels
+	every_scope_building = {
+		limit = {
+			is_building_type = building_research_laboratory
+			has_active_production_method = pm_1776_military_research
+		}
+		add = laboratory_1776_effective_levels
+	}
+}
+
+laboratory_1776_country_society_levels = {
+	value = laboratory_1776_country_general_weighted_levels
+	every_scope_building = {
+		limit = {
+			is_building_type = building_research_laboratory
+			has_active_production_method = pm_1776_society_research
+		}
+		add = laboratory_1776_effective_levels
+	}
+}

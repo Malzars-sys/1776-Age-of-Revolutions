@@ -244,15 +244,6 @@ negotiation.1 = {
 		currently_enacting_law = {
 			save_scope_as = law
 		}
-		scope:law = {
-			random_possible_amendment_type = {
-				limit = {
-					amendment_banned_from_enactment = no
-					scope:ig = { would_sponsor_amendment = prev }
-				}
-				save_scope_as = amendment_type
-			}
-		}
 		scope:ig = {
 			set_variable = {
 				name = promise_quest_degree
@@ -265,6 +256,103 @@ negotiation.1 = {
 		set_negotiation_loc = yes
 		## Set option variables. Do this last.
 		set_neg_options = yes
+		# The vanilla option generator has already selected its amendment. Only
+		# when that option was drawn do quotas get a fresh 1:3 choice between an
+		# IG-specific compromise and an ordinary vanilla generic proposal.
+		if = {
+			limit = {
+				scope:law = {
+					type = law_type:law_birth_quotas
+					any_possible_amendment_type = {
+						save_temporary_scope_as = quota_amendment_to_assess
+						birth_quota_negotiated_amendment_type = yes
+						amendment_banned_from_enactment = no
+						NOT = {
+							PREV = {
+								any_scope_amendment = {
+									type ?= scope:quota_amendment_to_assess
+								}
+							}
+						}
+						scope:ig = { would_sponsor_amendment = scope:quota_amendment_to_assess }
+					}
+					any_possible_amendment_type = {
+						save_temporary_scope_as = generic_amendment_to_assess
+						amendment_is_generic = yes
+						amendment_is_valid_for_promise_quest_degree = yes
+						amendment_banned_from_enactment = no
+						NOT = {
+							PREV = {
+								any_scope_amendment = {
+									type ?= scope:generic_amendment_to_assess
+								}
+							}
+						}
+						scope:ig = { would_sponsor_amendment = scope:generic_amendment_to_assess }
+					}
+				}
+				OR = {
+					var:negotiation_option_a = 8
+					var:negotiation_option_b = 8
+					var:negotiation_option_c = 8
+				}
+			}
+			random_list = {
+				1 = {
+					scope:law = {
+						random_possible_amendment_type = {
+							limit = {
+								save_temporary_scope_as = quota_amendment_to_assess
+								birth_quota_negotiated_amendment_type = yes
+								amendment_banned_from_enactment = no
+								NOT = {
+									PREV = {
+										any_scope_amendment = {
+											type ?= scope:quota_amendment_to_assess
+										}
+									}
+								}
+								scope:ig = { would_sponsor_amendment = scope:quota_amendment_to_assess }
+							}
+							save_scope_as = quota_selected_amendment
+						}
+					}
+					scope:ig = {
+						set_variable = {
+							name = negotiation_amendment_type
+							value = scope:quota_selected_amendment
+						}
+					}
+				}
+				3 = {
+					scope:law = {
+						random_possible_amendment_type = {
+							limit = {
+								save_temporary_scope_as = generic_amendment_to_assess
+								amendment_is_generic = yes
+								amendment_is_valid_for_promise_quest_degree = yes
+								amendment_banned_from_enactment = no
+								NOT = {
+									PREV = {
+										any_scope_amendment = {
+											type ?= scope:generic_amendment_to_assess
+										}
+									}
+								}
+								scope:ig = { would_sponsor_amendment = scope:generic_amendment_to_assess }
+							}
+							save_scope_as = quota_selected_amendment
+						}
+					}
+					scope:ig = {
+						set_variable = {
+							name = negotiation_amendment_type
+							value = scope:quota_selected_amendment
+						}
+					}
+				}
+			}
+		}
 	}
 
 	after = {
@@ -621,17 +709,33 @@ negotiation.1 = {
 				var:negotiation_option_b = 8
 				var:negotiation_option_c = 8
 			}
+			exists = scope:ig.var:negotiation_amendment_type
 		}
 
 		ai_chance = { #AI should always do this, on the rare occasions it's available
 			base = 100
 		}
 
-		scope:law = {
-			add_amendment = {
-				type = scope:ig.var:amendment_type
-				sponsor = scope:ig
-				cooldown = 120
+		if = {
+			limit = {
+				var:negotiation_amendment_type ?= amendment_type:amendment_short_term_tax_cuts
+			}
+			scope:law = {
+				add_amendment = {
+					type = scope:ig.var:negotiation_amendment_type
+					sponsor = scope:ig
+					cooldown = 24
+					timeout = 60
+				}
+			}
+		}
+		else = {
+			scope:law = {
+				add_amendment = {
+					type = scope:ig.var:negotiation_amendment_type
+					sponsor = scope:ig
+					cooldown = 120
+				}
 			}
 		}
 		scope:ig = {

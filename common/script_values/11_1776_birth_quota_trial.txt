@@ -1,0 +1,15 @@
+﻿# State expected SoL is exposed by the engine; weight it by population to
+# compare against the country's average SoL in the journal.
+birth_quota_country_expected_sol = {
+	value = 0
+	every_scope_state = {
+		add = {
+			value = average_expected_sol
+			multiply = state_population
+		}
+	}
+	if = {
+		limit = { total_population > 0 }
+		divide = total_population
+	}
+}

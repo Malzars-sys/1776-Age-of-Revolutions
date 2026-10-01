@@ -749,6 +749,7 @@ historical_agitators.8 = { #Napoleon III
 		has_dlc_feature = voice_of_the_people_content
 		empty_agitator_slots >= 1
 		c:FRA ?= this
+		game_date >= 1848.1.1
 		game_date < 1870.1.1
 		OR = {
 			AND = {
@@ -762,6 +763,7 @@ historical_agitators.8 = { #Napoleon III
 			}
 		}
 		NOT = { has_global_variable = napoleon_iii_spawn }
+		NOT = { is_template_used = fra_napoleon_iii_character_template }
 	}
 
 	immediate = {

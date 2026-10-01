@@ -1,0 +1,44 @@
+﻿namespace = birth_quota_agitators
+
+birth_quota_agitators.1 = {
+	type = country_event
+	placement = root
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	title = birth_quota_agitators.1.t
+	desc = birth_quota_agitators.1.d
+	flavor = birth_quota_agitators.1.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+
+	trigger = {
+		c:FRA ?= this
+		game_date > 1895.12.31
+		game_date < 1922.7.4
+		has_technology_researched = mass_propaganda
+		empty_agitator_slots >= 1
+		NOT = { has_variable = birth_quota_bertillon_spawned }
+		NOT = { has_law_or_variant = law_type:law_birth_quotas }
+	}
+
+	immediate = {
+		# Console `event` bypasses the trigger. Never create a historical
+		# character before birth or after death in an early-start test game.
+		if = {
+			limit = {
+				game_date > 1895.12.31
+				game_date < 1922.7.4
+				NOT = { has_variable = birth_quota_bertillon_spawned }
+			}
+			create_character = {
+				template = FRA_jacques_bertillon_natalist
+				save_scope_as = birth_quota_bertillon
+			}
+			set_variable = birth_quota_bertillon_spawned
+		}
+	}
+
+	option = {
+		name = birth_quota_agitators.1.a
+		default_option = yes
+	}
+}

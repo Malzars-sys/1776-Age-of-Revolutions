@@ -3,7 +3,7 @@
 institutionalized_scientific_exchange = {
 	# TECH3A conceptual branch: Society
 	era = era_1
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/preview_basileia_scientific_exchange.dds"
 	category = society
 
 	modifier = {
@@ -31,7 +31,7 @@ international_relations = {
 institutionalized_public_credit = {
 	# TECH3A conceptual branch: Society
 	era = era_2
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/central_banking.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -77,7 +77,7 @@ stock_exchange = {
 commercial_insurance_markets = {
 	# TECH3A conceptual branch: Society
 	era = era_2
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/corporate_charters.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -92,12 +92,13 @@ commercial_insurance_markets = {
 periodical_print_networks = {
 	# TECH3A conceptual branch: Society
 	era = era_1
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/mass_communication.dds"
 	category = society
 
 	modifier = {
 		country_authority_mult = 0.1
 		country_voting_power_mult = 0.1
+		country_institution_schools_max_investment_add = 1
 	}
 
 	ai_weight = {
@@ -108,7 +109,7 @@ periodical_print_networks = {
 systematic_administrative_statistics = {
 	# TECH3A conceptual branch: Society
 	era = era_2
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/centralization.dds"
 	category = society
 
 	modifier = {
@@ -128,9 +129,8 @@ variolation_networks = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
-	# Temporary TECH debt bonus; replace with early preventive-health content.
 	modifier = {
-		state_mortality_mult = -0.0025
+		state_mortality_mult = -0.01
 	}
 
 	unlocking_technologies = {
@@ -153,7 +153,7 @@ codified_practical_knowledge = {
 political_economy = {
 	# TECH3A conceptual branch: Society
 	era = era_3
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/currency_standards.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -169,7 +169,7 @@ political_economy = {
 specialized_technical_academies = {
 	# TECH3A conceptual branch: Society
 	era = era_3
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/empiricism.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -208,7 +208,7 @@ organized_elementary_schooling = {
 	category = society
 
 	modifier = {
-		country_institution_schools_max_investment_add = 2
+		country_institution_schools_max_investment_add = 1
 		state_education_access_wealth_add = 0.02
 	}
 
@@ -245,6 +245,7 @@ medical_degrees = {
 
 	modifier = {
 		country_institution_health_system_max_investment_add = 1
+		state_mortality_mult = -0.01
 	}
 
 	unlocking_technologies = {
@@ -259,7 +260,7 @@ medical_degrees = {
 classical_political_economy = {
 	# TECH3A conceptual branch: Society
 	era = era_4
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/international_trade.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -428,12 +429,11 @@ scientific_metrology = {
 vaccination = {
 	# TECH3A conceptual branch: Society
 	era = era_4
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/preview_morgenroete_vaccination.dds"
 	category = society
 
-	# Temporary TECH debt bonus; replace with vaccination campaigns and production content.
 	modifier = {
-		state_mortality_mult = -0.005
+		state_mortality_mult = -0.02
 	}
 
 	unlocking_technologies = {
@@ -449,12 +449,8 @@ vaccination = {
 polytechnical_education = {
 	# TECH3A conceptual branch: Society
 	era = era_4
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/dialectics.dds"
 	category = society
-
-	modifier = {
-		country_institution_schools_max_investment_add = 1
-	}
 
 	unlocking_technologies = {
 		specialized_technical_academies
@@ -508,7 +504,7 @@ colonization = {
 central_statistical_offices = {
 	# TECH3A conceptual branch: Society
 	era = era_5
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/central_archives.dds"
 	category = society
 
 	modifier = {
@@ -564,6 +560,10 @@ organized_immunization_campaigns = {
 	texture = "gfx/error_manul.dds"
 	category = society
 
+	modifier = {
+		state_mortality_mult = -0.03
+	}
+
 	unlocking_technologies = {
 		vaccination
 		active_principle_pharmacy
@@ -577,7 +577,7 @@ organized_immunization_campaigns = {
 mechanized_printing = {
 	# TECH3A conceptual branch: Society
 	era = era_5
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/preview_morgenroete_mechanized_printing.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -613,7 +613,7 @@ experimental_research_laboratories = {
 specialized_professional_societies = {
 	# TECH3A conceptual branch: Society
 	era = era_5
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/rationalism.dds"
 	category = society
 
 	unlocking_technologies = {
@@ -628,11 +628,11 @@ specialized_professional_societies = {
 clinicopathological_medicine = {
 	# TECH3A conceptual branch: Society
 	era = era_5
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/psychiatry.dds"
 	category = society
 
-	# Temporary TECH debt bonus; replace with clinical hospital and diagnostic content.
 	modifier = {
+		state_mortality_mult = -0.02
 		state_harvest_condition_disease_outbreak_impact_mult = -0.10
 	}
 
@@ -649,11 +649,12 @@ clinicopathological_medicine = {
 active_principle_pharmacy = {
 	# TECH3A conceptual branch: Society
 	era = era_5
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/pharmaceuticals.dds"
 	category = society
 
 	modifier = {
 		country_institution_health_system_max_investment_add = 1
+		state_mortality_mult = -0.01
 		state_harvest_condition_disease_outbreak_impact_mult = -0.2
 	}
 
@@ -697,7 +698,7 @@ postal_savings = {
 professional_civil_policing = {
 	# TECH3A conceptual branch: Society
 	era = era_6
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/law_enforcement.dds"
 	category = society
 
 	modifier = {
@@ -725,6 +726,10 @@ mass_circulation_press = {
 		organized_elementary_schooling
 	}
 
+	modifier = {
+		country_institution_schools_max_investment_add = 1
+	}
+
 	ai_weight = {
 		value = 1
 	}
@@ -733,7 +738,7 @@ mass_circulation_press = {
 liberal_constitutionalism = {
 	# TECH3A conceptual branch: Society
 	era = era_5
-	texture = "gfx/error_manul.dds"
+	texture = "gfx/interface/icons/invention_icons/democracy.dds"
 	category = society
 
 	unlocking_technologies = {

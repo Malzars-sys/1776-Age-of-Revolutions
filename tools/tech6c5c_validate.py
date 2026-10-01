@@ -69,7 +69,7 @@ def check_braces() -> None:
     ).stdout.splitlines()
     for rel in sorted(set(changed + untracked)):
         path = ROOT / rel
-        if path.suffix in {".txt", ".gui"}:
+        if path.exists() and path.suffix in {".txt", ".gui"}:
             text = read(path)
             if text.count("{") != text.count("}"):
                 fail(f"Unbalanced braces: {rel}")
@@ -173,7 +173,7 @@ def check_gates_and_recipes() -> None:
     tech_path = ROOT / "common/technology/technologies/95_tech6r1_aluminium_metallurgy.txt"
     tech_eras = {
         "alloysworking": "era_2",
-        "bauxite_processing": "era_6",
+        "bauxite_processing": "era_9",
         "bayer_process": "era_10",
     }
     for tech_id, era in tech_eras.items():
@@ -191,8 +191,8 @@ def check_gates_and_recipes() -> None:
         fail("Electric arc alloying is not unlocked by electric_arc_process")
     if technology_requirements(hall) != late:
         fail("Hall-Heroult PM is not unlocked by bayer_process")
-    if technology_requirements(aircraft) != late | {"military_aviation", "combustion_engine"}:
-        fail("All-metal aircraft gate is not the required three-tech conjunction")
+    if technology_requirements(aircraft) != {"military_aviation"}:
+        fail("All-metal aircraft must use only the military aviation gate")
     if technology_requirements(aluminium_conductors) != late:
         fail("Aluminium conductors are not unlocked by bayer_process")
     if technology_requirements(passenger) != late:
@@ -311,21 +311,21 @@ def check_gates_and_recipes() -> None:
             fail(f"Bauxite mine recipe invariant failed: {pm_id} {key}={value}")
 
     gated_bauxite_mine_pms = {
-        "pm_atmospheric_engine_pump_building_bauxite_mine",
-        "pm_condensing_engine_pump_building_bauxite_mine",
-        "pm_diesel_pump_building_bauxite_mine",
-        "pm_nitroglycerin_building_bauxite_mine",
-        "pm_dynamite_building_bauxite_mine",
-        "pm_ore_concentration_building_bauxite_mine",
-        "pm_steam_donkey_building_bauxite_mine",
-        "pm_rail_transport_building_bauxite_mine",
-        "pm_steam_mine_ventilation_building_bauxite_mine",
-        "pm_electric_mine_ventilation_building_bauxite_mine",
+        "pm_atmospheric_engine_pump_building_bauxite_mine": "atmospheric_engine",
+        "pm_condensing_engine_pump_building_bauxite_mine": "watertube_boiler",
+        "pm_diesel_pump_building_bauxite_mine": "compression_ignition",
+        "pm_nitroglycerin_building_bauxite_mine": "nitroglycerin",
+        "pm_dynamite_building_bauxite_mine": "dynamite",
+        "pm_ore_concentration_building_bauxite_mine": "geological_surveying",
+        "pm_steam_donkey_building_bauxite_mine": "steam_donkey",
+        "pm_rail_transport_building_bauxite_mine": "railways",
+        "pm_steam_mine_ventilation_building_bauxite_mine": "deep_mine_engineering",
+        "pm_electric_mine_ventilation_building_bauxite_mine": "electrical_capacitors",
     }
-    for pm_id in gated_bauxite_mine_pms:
+    for pm_id, technology in gated_bauxite_mine_pms.items():
         block = get_block(recipe_path, pm_id)
-        if "bauxite_processing" not in technology_requirements(block):
-            fail(f"Bauxite mine PM can predate its building unlock: {pm_id}")
+        if technology_requirements(block) != {technology}:
+            fail(f"Bauxite mine PM needs exactly {technology}: {pm_id}")
 
 
 def check_resolution_and_spelling() -> None:
@@ -396,7 +396,7 @@ def check_localization() -> None:
         "pmg_mine_ventilation_building_bauxite_mine",
         "pm_steam_donkey_building_bauxite_mine", "pm_rail_transport_building_bauxite_mine",
         "pm_steam_mine_ventilation_building_bauxite_mine", "pm_electric_mine_ventilation_building_bauxite_mine",
-        "bauxite_processing", "bayer_process", "bauxite_mining_deposits_visible_tt",
+        "bauxite_processing", "bayer_process",
     }
     for language in ("english", "french"):
         localized: set[str] = set()
@@ -412,56 +412,49 @@ def check_state_regions() -> str:
     paths = sorted((ROOT / "map_data/state_regions").glob("*.txt"))
     for path in paths:
         parts.append(f"{path.name}:{hashlib.sha256(path.read_bytes()).hexdigest().upper()}")
-        text = read(path)
-        if re.search(r"(?m)^\s*building_(?:aluminium|aluminum|bauxite|alumina)", text):
-            fail(f"Forbidden aluminium-chain state resource in {path.name}")
     aggregate = hashlib.sha256("|".join(parts).encode()).hexdigest().upper()
     return aggregate
 
 
-def check_dynamic_distribution() -> int:
-    effect_path = ROOT / "common/scripted_effects/14_tech6c5c_bauxite_deposits.txt"
-    text = read(effect_path)
+def check_static_distribution() -> int:
     tiers = {
-        "tech6c_bauxite_nano_add_deposits": (53, 10, None),
-        "tech6c_bauxite_small_add_deposits": (72, 25, None),
-        "tech6c_bauxite_medium_add_deposits": (24, 50, "state_trait_medium_bauxite_mine"),
-        "tech6c_bauxite_big_add_deposits": (9, 120, "state_trait_big_bauxite_mine"),
-        "tech6c_bauxite_huge_add_deposits": (3, 200, "state_trait_huge_bauxite_mine"),
+        10: (53, None),
+        25: (72, None),
+        50: (24, "state_trait_medium_bauxite_mine"),
+        120: (9, "state_trait_big_bauxite_mine"),
+        200: (3, "state_trait_huge_bauxite_mine"),
     }
-    all_distributed: list[str] = []
-    for effect_id, (wanted_count, amount, trait) in tiers.items():
-        block = dict(blocks(text, rf"(?m)^({effect_id})\s*=\s*\{{")).get(effect_id, "")
-        if not block:
-            fail(f"Missing bauxite distribution effect: {effect_id}")
-            continue
-        states = re.findall(r"\bthis\s*=\s*s:(STATE_[A-Z0-9_]+)", block)
-        if len(states) != wanted_count:
-            fail(f"{effect_id}: expected {wanted_count} states, found {len(states)}")
-        if not re.search(rf"\btype\s*=\s*building_bauxite_mine\b.*?\bamount\s*=\s*{amount}\b", block, re.S):
-            fail(f"{effect_id}: expected resource amount {amount}")
-        if trait and not re.search(rf"\badd_state_trait\s*=\s*{trait}\b", block):
-            fail(f"{effect_id}: missing {trait}")
-        all_distributed.extend(states)
-
-    duplicates = sorted(state for state, count in Counter(all_distributed).items() if count > 1)
-    if duplicates:
-        fail(f"Bauxite states occur in more than one tier: {duplicates}")
-
-    known_states: set[str] = set()
+    found: dict[str, int] = {}
     for path in (ROOT / "map_data/state_regions").glob("*.txt"):
-        known_states.update(re.findall(r"(?m)^(STATE_[A-Z0-9_]+)\s*=\s*\{", read(path)))
-    unknown = sorted(set(all_distributed) - known_states)
-    if unknown:
-        fail(f"Unknown state IDs in bauxite distribution: {unknown}")
-
-    orchestrator = dict(blocks(text, r"(?m)^(tech6c_reveal_bauxite_deposits)\s*=\s*\{")).get("tech6c_reveal_bauxite_deposits", "")
-    for effect_id in tiers:
-        if not re.search(rf"\b{effect_id}\s*=\s*yes\b", orchestrator):
-            fail(f"Bauxite orchestrator does not invoke {effect_id}")
-    if "has_global_variable = tech6c_bauxite_deposits_revealed" not in orchestrator or "set_global_variable = tech6c_bauxite_deposits_revealed" not in orchestrator:
-        fail("Bauxite distribution is not protected by its one-shot global variable")
-    return len(all_distributed)
+        for state_id, state in blocks(read(path), r"(?m)^(STATE_[A-Z0-9_]+)\s*=\s*\{"):
+            resources = []
+            for match in re.finditer(r"(?m)^    resource\s*=\s*\{", state):
+                resource = state[match.start():brace_end(state, state.find("{", match.start()))]
+                if re.search(r'\btype\s*=\s*"building_bauxite_mine"', resource):
+                    resources.append(resource)
+            if not resources:
+                continue
+            if len(resources) != 1 or state_id in found:
+                fail(f"Duplicate bauxite resource in {state_id}")
+                continue
+            amount = re.search(r"\bundiscovered_amount\s*=\s*(\d+)", resources[0])
+            if not amount or re.search(r"(?<!undiscovered_)\bamount\s*=", resources[0]):
+                fail(f"Bauxite in {state_id} must be undiscovered from game start")
+                continue
+            value = int(amount.group(1))
+            found[state_id] = value
+            trait = tiers.get(value, (0, None))[1]
+            if trait and not re.search(rf'\btraits\s*=\s*\{{[^}}]*"{trait}"', state):
+                fail(f"Missing {trait} in {state_id}")
+    distribution = Counter(found.values())
+    for amount, (wanted, _) in tiers.items():
+        if distribution[amount] != wanted:
+            fail(f"Bauxite tier {amount}: expected {wanted} states, got {distribution[amount]}")
+    if set(distribution) != set(tiers):
+        fail(f"Unexpected bauxite tiers: {sorted(set(distribution) - set(tiers))}")
+    if (ROOT / "common/scripted_effects/14_tech6c5c_bauxite_deposits.txt").exists():
+        fail("Obsolete dynamic bauxite-discovery effect still exists")
+    return len(found)
 
 
 def check_technology_graph() -> int:
@@ -529,12 +522,12 @@ def main() -> None:
     check_resolution_and_spelling()
     check_localization()
     state_hash = check_state_regions()
-    distributed_states = check_dynamic_distribution()
+    distributed_states = check_static_distribution()
     nodes = check_technology_graph()
     check_copper_preserved()
     print(f"technology_graph: nodes={nodes} cycles=0 alloy_aluminium_techs=3")
-    print(f"bauxite_distribution: states={distributed_states} tiers=5 duplicates=0 unknown_states=0")
-    print(f"state_regions: files=16 aggregate_sha256={state_hash} direct_bauxite_entries=0")
+    print(f"bauxite_distribution: static_undiscovered_states={distributed_states} tiers=5 duplicates=0")
+    print(f"state_regions: files=16 aggregate_sha256={state_hash} static_bauxite_entries={distributed_states}")
     if ERRORS:
         print(f"FAIL ({len(ERRORS)} errors)")
         for error in ERRORS:

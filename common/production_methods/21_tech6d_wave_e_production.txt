@@ -2,7 +2,6 @@ pm_tabulating_offices = {
 	texture = "gfx/error_deer.dds"
 
 	unlocking_technologies = {
-		central_statistical_offices
 		electrical_capacitors
 	}
 
@@ -58,6 +57,12 @@ pm_mechanized_typesetting = {
 			building_employment_machinists_add = 100
 		}
 	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_education_access_add = 0.01
+		}
+	}
 }
 
 pm_rotary_press = {
@@ -78,6 +83,12 @@ pm_rotary_press = {
 			building_employment_clerks_add = 200
 			building_employment_machinists_add = 100
 			building_employment_engineers_add = 50
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_weekly_innovation_max_add = 0.1
 		}
 	}
 

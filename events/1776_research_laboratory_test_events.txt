@@ -1,0 +1,603 @@
+namespace = research_laboratory_tests
+
+# Manual-only test menus. NEVER attach these events to on_actions or random pools.
+# No immediate effects; the default option changes nothing.
+research_laboratory_tests.1 = {
+	type = country_event
+	orphan = yes
+	placement = root
+	title = research_laboratory_tests.1.t
+	desc = research_laboratory_tests.1.d
+	duration = 30
+	icon = "gfx/interface/icons/building_icons/1776_research_laboratory.dds"
+	option = { name = research_laboratory_tests.close default_option = yes }
+
+	option = {
+		name = research_laboratory_tests.1.on
+		trigger = {
+			has_technology_researched = scientific_metrology
+			has_technology_researched = specialized_professional_societies
+		}
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			if = {
+				limit = { has_building = building_phosphate_mine }
+				activate_production_method = { building_type = building_phosphate_mine production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_alloys_plant }
+				activate_production_method = { building_type = building_alloys_plant production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_bauxite_mine }
+				activate_production_method = { building_type = building_bauxite_mine production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_copper_mine }
+				activate_production_method = { building_type = building_copper_mine production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_oil_refinery }
+				activate_production_method = { building_type = building_oil_refinery production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_cement_works }
+				activate_production_method = { building_type = building_cement_works production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_port }
+				activate_production_method = { building_type = building_port production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_trade_center }
+				activate_production_method = { building_type = building_trade_center production_method = pm_1776_trade_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_limestone_quarry }
+				activate_production_method = { building_type = building_limestone_quarry production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_salt_mine }
+				activate_production_method = { building_type = building_salt_mine production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_salt_pan }
+				activate_production_method = { building_type = building_salt_pan production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_government_administration }
+				activate_production_method = { building_type = building_government_administration production_method = pm_1776_administrative_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_university }
+				activate_production_method = { building_type = building_university production_method = pm_1776_institutional_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_coal_mine }
+				activate_production_method = { building_type = building_coal_mine production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_iron_mine }
+				activate_production_method = { building_type = building_iron_mine production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_lead_mine }
+				activate_production_method = { building_type = building_lead_mine production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_sulfur_mine }
+				activate_production_method = { building_type = building_sulfur_mine production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_gold_mine }
+				activate_production_method = { building_type = building_gold_mine production_method = pm_1776_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_food_industry }
+				activate_production_method = { building_type = building_food_industry production_method = pm_1776_light_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_textile_mill }
+				activate_production_method = { building_type = building_textile_mill production_method = pm_1776_light_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_furniture_manufactory }
+				activate_production_method = { building_type = building_furniture_manufactory production_method = pm_1776_light_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_glassworks }
+				activate_production_method = { building_type = building_glassworks production_method = pm_1776_light_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_tooling_workshop }
+				activate_production_method = { building_type = building_tooling_workshop production_method = pm_1776_light_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_paper_mill }
+				activate_production_method = { building_type = building_paper_mill production_method = pm_1776_light_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_chemical_plant }
+				activate_production_method = { building_type = building_chemical_plant production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_explosives_factory }
+				activate_production_method = { building_type = building_explosives_factory production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_synthetics_plant }
+				activate_production_method = { building_type = building_synthetics_plant production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_steel_mill }
+				activate_production_method = { building_type = building_steel_mill production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_motor_industry }
+				activate_production_method = { building_type = building_motor_industry production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_shipyard }
+				activate_production_method = { building_type = building_shipyard production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_automotive_industry }
+				activate_production_method = { building_type = building_automotive_industry production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_electrics_industry }
+				activate_production_method = { building_type = building_electrics_industry production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_arms_industry }
+				activate_production_method = { building_type = building_arms_industry production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_artillery_foundry }
+				activate_production_method = { building_type = building_artillery_foundry production_method = pm_1776_heavy_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_munition_plant }
+				activate_production_method = { building_type = building_munition_plant production_method = pm_1776_heavy_data_reporting }
+			}
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+
+	option = {
+		name = research_laboratory_tests.1.off
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			if = {
+				limit = { has_building = building_phosphate_mine }
+				activate_production_method = { building_type = building_phosphate_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_alloys_plant }
+				activate_production_method = { building_type = building_alloys_plant production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_bauxite_mine }
+				activate_production_method = { building_type = building_bauxite_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_copper_mine }
+				activate_production_method = { building_type = building_copper_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_oil_refinery }
+				activate_production_method = { building_type = building_oil_refinery production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_cement_works }
+				activate_production_method = { building_type = building_cement_works production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_port }
+				activate_production_method = { building_type = building_port production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_trade_center }
+				activate_production_method = { building_type = building_trade_center production_method = pm_1776_no_organized_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_limestone_quarry }
+				activate_production_method = { building_type = building_limestone_quarry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_salt_mine }
+				activate_production_method = { building_type = building_salt_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_salt_pan }
+				activate_production_method = { building_type = building_salt_pan production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_government_administration }
+				activate_production_method = { building_type = building_government_administration production_method = pm_1776_no_organized_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_university }
+				activate_production_method = { building_type = building_university production_method = pm_1776_no_organized_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_coal_mine }
+				activate_production_method = { building_type = building_coal_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_iron_mine }
+				activate_production_method = { building_type = building_iron_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_lead_mine }
+				activate_production_method = { building_type = building_lead_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_sulfur_mine }
+				activate_production_method = { building_type = building_sulfur_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_gold_mine }
+				activate_production_method = { building_type = building_gold_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_food_industry }
+				activate_production_method = { building_type = building_food_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_textile_mill }
+				activate_production_method = { building_type = building_textile_mill production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_furniture_manufactory }
+				activate_production_method = { building_type = building_furniture_manufactory production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_glassworks }
+				activate_production_method = { building_type = building_glassworks production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_tooling_workshop }
+				activate_production_method = { building_type = building_tooling_workshop production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_paper_mill }
+				activate_production_method = { building_type = building_paper_mill production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_chemical_plant }
+				activate_production_method = { building_type = building_chemical_plant production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_explosives_factory }
+				activate_production_method = { building_type = building_explosives_factory production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_synthetics_plant }
+				activate_production_method = { building_type = building_synthetics_plant production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_steel_mill }
+				activate_production_method = { building_type = building_steel_mill production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_motor_industry }
+				activate_production_method = { building_type = building_motor_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_shipyard }
+				activate_production_method = { building_type = building_shipyard production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_automotive_industry }
+				activate_production_method = { building_type = building_automotive_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_electrics_industry }
+				activate_production_method = { building_type = building_electrics_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_arms_industry }
+				activate_production_method = { building_type = building_arms_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_artillery_foundry }
+				activate_production_method = { building_type = building_artillery_foundry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_munition_plant }
+				activate_production_method = { building_type = building_munition_plant production_method = pm_1776_no_raw_data_reporting }
+			}
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+
+	option = {
+		name = research_laboratory_tests.1.raw_off
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			if = {
+				limit = { has_building = building_phosphate_mine }
+				activate_production_method = { building_type = building_phosphate_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_alloys_plant }
+				activate_production_method = { building_type = building_alloys_plant production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_bauxite_mine }
+				activate_production_method = { building_type = building_bauxite_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_copper_mine }
+				activate_production_method = { building_type = building_copper_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_oil_refinery }
+				activate_production_method = { building_type = building_oil_refinery production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_cement_works }
+				activate_production_method = { building_type = building_cement_works production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_port }
+				activate_production_method = { building_type = building_port production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_limestone_quarry }
+				activate_production_method = { building_type = building_limestone_quarry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_salt_mine }
+				activate_production_method = { building_type = building_salt_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_salt_pan }
+				activate_production_method = { building_type = building_salt_pan production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_coal_mine }
+				activate_production_method = { building_type = building_coal_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_iron_mine }
+				activate_production_method = { building_type = building_iron_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_lead_mine }
+				activate_production_method = { building_type = building_lead_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_sulfur_mine }
+				activate_production_method = { building_type = building_sulfur_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_gold_mine }
+				activate_production_method = { building_type = building_gold_mine production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_food_industry }
+				activate_production_method = { building_type = building_food_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_textile_mill }
+				activate_production_method = { building_type = building_textile_mill production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_furniture_manufactory }
+				activate_production_method = { building_type = building_furniture_manufactory production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_glassworks }
+				activate_production_method = { building_type = building_glassworks production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_tooling_workshop }
+				activate_production_method = { building_type = building_tooling_workshop production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_paper_mill }
+				activate_production_method = { building_type = building_paper_mill production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_chemical_plant }
+				activate_production_method = { building_type = building_chemical_plant production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_explosives_factory }
+				activate_production_method = { building_type = building_explosives_factory production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_synthetics_plant }
+				activate_production_method = { building_type = building_synthetics_plant production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_steel_mill }
+				activate_production_method = { building_type = building_steel_mill production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_motor_industry }
+				activate_production_method = { building_type = building_motor_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_shipyard }
+				activate_production_method = { building_type = building_shipyard production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_automotive_industry }
+				activate_production_method = { building_type = building_automotive_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_electrics_industry }
+				activate_production_method = { building_type = building_electrics_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_arms_industry }
+				activate_production_method = { building_type = building_arms_industry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_artillery_foundry }
+				activate_production_method = { building_type = building_artillery_foundry production_method = pm_1776_no_raw_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_munition_plant }
+				activate_production_method = { building_type = building_munition_plant production_method = pm_1776_no_raw_data_reporting }
+			}
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+
+	option = {
+		name = research_laboratory_tests.1.organized_off
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			if = {
+				limit = { has_building = building_trade_center }
+				activate_production_method = { building_type = building_trade_center production_method = pm_1776_no_organized_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_government_administration }
+				activate_production_method = { building_type = building_government_administration production_method = pm_1776_no_organized_data_reporting }
+			}
+			if = {
+				limit = { has_building = building_university }
+				activate_production_method = { building_type = building_university production_method = pm_1776_no_organized_data_reporting }
+			}
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+
+	option = {
+		name = research_laboratory_tests.1.build
+		show_as_unavailable = { always = yes }
+		trigger = { has_technology_researched = experimental_research_laboratories capital = { NOT = { has_building = building_research_laboratory } } }
+		custom_tooltip = research_laboratory_tests.warning
+		capital = {
+			create_building = {
+				building = building_research_laboratory
+				level = 1
+				activate_production_methods = { pm_1776_manual_research_laboratory pm_1776_general_research }
+			}
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+}
+
+research_laboratory_tests.2 = {
+	type = country_event
+	orphan = yes
+	placement = root
+	title = research_laboratory_tests.2.t
+	desc = research_laboratory_tests.2.d
+	duration = 30
+	icon = "gfx/interface/icons/building_icons/1776_research_laboratory.dds"
+	option = { name = research_laboratory_tests.close default_option = yes }
+
+	option = {
+		name = pm_1776_manual_research_laboratory
+		show_as_unavailable = { always = yes }
+		trigger = { any_scope_state = { has_building = building_research_laboratory } }
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			limit = { has_building = building_research_laboratory }
+			activate_production_method = { building_type = building_research_laboratory production_method = pm_1776_manual_research_laboratory }
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+
+	option = {
+		name = pm_1776_electrical_research_laboratory
+		show_as_unavailable = { always = yes }
+		trigger = { any_scope_state = { has_building = building_research_laboratory } has_technology_researched = electrical_generation }
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			limit = { has_building = building_research_laboratory }
+			activate_production_method = { building_type = building_research_laboratory production_method = pm_1776_electrical_research_laboratory }
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+
+	option = {
+		name = pm_1776_advanced_research_laboratory
+		show_as_unavailable = { always = yes }
+		trigger = { any_scope_state = { has_building = building_research_laboratory } has_technology_researched = radio }
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			limit = { has_building = building_research_laboratory }
+			activate_production_method = { building_type = building_research_laboratory production_method = pm_1776_advanced_research_laboratory }
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+}
+
+research_laboratory_tests.3 = {
+	type = country_event
+	orphan = yes
+	placement = root
+	title = research_laboratory_tests.3.t
+	desc = research_laboratory_tests.3.d
+	duration = 30
+	icon = "gfx/interface/icons/building_icons/1776_research_laboratory.dds"
+	option = { name = research_laboratory_tests.close default_option = yes }
+
+	option = {
+		name = pm_1776_general_research
+		show_as_unavailable = { always = yes }
+		trigger = { any_scope_state = { has_building = building_research_laboratory } }
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			limit = { has_building = building_research_laboratory }
+			activate_production_method = { building_type = building_research_laboratory production_method = pm_1776_general_research }
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+
+	option = {
+		name = pm_1776_production_research
+		show_as_unavailable = { always = yes }
+		trigger = { any_scope_state = { has_building = building_research_laboratory } }
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			limit = { has_building = building_research_laboratory }
+			activate_production_method = { building_type = building_research_laboratory production_method = pm_1776_production_research }
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+
+	option = {
+		name = pm_1776_military_research
+		show_as_unavailable = { always = yes }
+		trigger = { any_scope_state = { has_building = building_research_laboratory } }
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			limit = { has_building = building_research_laboratory }
+			activate_production_method = { building_type = building_research_laboratory production_method = pm_1776_military_research }
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+
+	option = {
+		name = pm_1776_society_research
+		show_as_unavailable = { always = yes }
+		trigger = { any_scope_state = { has_building = building_research_laboratory } }
+		custom_tooltip = research_laboratory_tests.warning
+		every_scope_state = {
+			limit = { has_building = building_research_laboratory }
+			activate_production_method = { building_type = building_research_laboratory production_method = pm_1776_society_research }
+		}
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+}

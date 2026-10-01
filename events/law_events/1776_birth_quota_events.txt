@@ -1,0 +1,316 @@
+﻿namespace = birth_quota_events
+
+# Debate and advance events: selected by the law checkpoint on-actions.
+birth_quota_events.1 = {
+	type = country_event
+	placement = root
+	category = enactment
+	title = birth_quota_events.1.t
+	desc = birth_quota_events.1.d
+	flavor = birth_quota_events.1.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = { is_enacting_law = law_type:law_birth_quotas }
+	option = {
+		name = birth_quota_events.1.a
+		default_option = yes
+		add_radicals = { pop_type = clerks value = medium_radicals }
+	}
+	option = {
+		name = birth_quota_events.1.b
+		add_radicals = { pop_type = aristocrats value = small_radicals }
+	}
+}
+
+birth_quota_events.2 = {
+	type = country_event
+	placement = root
+	category = enactment
+	title = birth_quota_events.2.t
+	desc = birth_quota_events.2.d
+	flavor = birth_quota_events.2.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = { is_enacting_law = law_type:law_birth_quotas }
+	option = {
+		name = birth_quota_events.2.a
+		default_option = yes
+		add_radicals = { pop_type = laborers value = medium_radicals }
+	}
+	option = {
+		name = birth_quota_events.2.b
+		add_radicals = { pop_type = clergymen value = small_radicals }
+	}
+}
+
+birth_quota_events.3 = {
+	type = country_event
+	placement = root
+	category = enactment
+	title = birth_quota_events.3.t
+	desc = birth_quota_events.3.d
+	flavor = birth_quota_events.3.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = { is_enacting_law = law_type:law_birth_quotas }
+	option = {
+		name = birth_quota_events.3.a
+		default_option = yes
+		add_radicals = { pop_type = peasants value = medium_radicals }
+	}
+	option = {
+		name = birth_quota_events.3.b
+		add_radicals = { pop_type = academics value = medium_radicals }
+	}
+}
+
+# Promulgation itself has an immediate political cost.
+birth_quota_events.4 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.4.t
+	desc = birth_quota_events.4.d
+	flavor = birth_quota_events.4.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = { has_law = law_type:law_birth_quotas }
+	immediate = { ensure_birth_quota_trial = yes }
+	option = {
+		name = birth_quota_events.4.a
+		default_option = yes
+		custom_tooltip = birth_quota_trial_activated_tt
+		add_radicals = { pop_type = clerks value = large_radicals }
+		add_radicals = { pop_type = academics value = medium_radicals }
+	}
+}
+
+# Enforcement crises after adoption. Each event has its own cooldown.
+birth_quota_events.5 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.5.t
+	desc = birth_quota_events.5.d
+	flavor = birth_quota_events.5.f
+	duration = 3
+	cooldown = { days = 1095 }
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = { has_law = law_type:law_birth_quotas }
+	option = {
+		name = birth_quota_events.5.a
+		default_option = yes
+		add_radicals = { pop_type = peasants value = medium_radicals }
+	}
+	option = {
+		name = birth_quota_events.5.b
+		add_radicals = { pop_type = clerks value = small_radicals }
+	}
+}
+
+birth_quota_events.6 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.6.t
+	desc = birth_quota_events.6.d
+	flavor = birth_quota_events.6.f
+	duration = 3
+	cooldown = { days = 1095 }
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = { has_law = law_type:law_birth_quotas }
+	option = {
+		name = birth_quota_events.6.a
+		default_option = yes
+		add_radicals = { pop_type = machinists value = medium_radicals }
+	}
+	option = {
+		name = birth_quota_events.6.b
+		add_radicals = { pop_type = capitalists value = medium_radicals }
+	}
+}
+
+birth_quota_events.7 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.7.t
+	desc = birth_quota_events.7.d
+	flavor = birth_quota_events.7.f
+	duration = 3
+	cooldown = { days = 1095 }
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = { has_law = law_type:law_birth_quotas }
+	option = {
+		name = birth_quota_events.7.a
+		default_option = yes
+		add_radicals = { pop_type = academics value = medium_radicals }
+	}
+	option = {
+		name = birth_quota_events.7.b
+		add_radicals = { pop_type = clergymen value = small_radicals }
+	}
+}
+
+# Foreign responses are selected according to the foreign ruler or ruling IG.
+birth_quota_events.8 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.8.t
+	desc = birth_quota_events.8.d
+	flavor = birth_quota_events.8.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	option = {
+		name = birth_quota_events.8.a
+		default_option = yes
+		change_relations = { country = scope:quota_enacting_country value = -15 }
+		scope:quota_enacting_country = {
+			add_radicals = { pop_type = academics value = small_radicals }
+		}
+	}
+}
+
+birth_quota_events.9 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.9.t
+	desc = birth_quota_events.9.d
+	flavor = birth_quota_events.9.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	option = {
+		name = birth_quota_events.9.a
+		default_option = yes
+		change_relations = { country = scope:quota_enacting_country value = 10 }
+		add_radicals = { pop_type = clerks value = small_radicals }
+	}
+}
+
+birth_quota_events.10 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.10.t
+	desc = birth_quota_events.10.d
+	flavor = birth_quota_events.10.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	option = {
+		name = birth_quota_events.10.a
+		default_option = yes
+		change_relations = { country = scope:quota_enacting_country value = -5 }
+	}
+}
+
+# Journal outcomes. The journal entry performs the mechanical changes; these
+# events explain the result to the player.
+birth_quota_events.11 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.11.t
+	desc = birth_quota_events.11.d
+	flavor = birth_quota_events.11.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	option = {
+		name = birth_quota_events.11.a
+		default_option = yes
+		custom_tooltip = birth_quota_victory_ideology_tt
+		custom_tooltip = birth_quota_victory_modifier_tt
+	}
+}
+
+birth_quota_events.12 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.12.t
+	desc = birth_quota_events.12.d
+	flavor = birth_quota_events.12.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	option = {
+		name = birth_quota_events.12.a
+		default_option = yes
+		custom_tooltip = birth_quota_failure_guardianship_tt
+	}
+}
+
+# The intervention war goal enacts the victor's women's-rights law before
+# showing one of these explanatory events to the defeated country.
+birth_quota_events.13 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.13.t
+	desc = birth_quota_events.13.d
+	flavor = birth_quota_events.13.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = { has_law = law_type:law_womens_suffrage }
+	option = {
+		name = birth_quota_events.13.a
+		default_option = yes
+		custom_tooltip = birth_quota_intervention_suffrage_tt
+	}
+}
+
+birth_quota_events.14 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.14.t
+	desc = birth_quota_events.14.d
+	flavor = birth_quota_events.14.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = { has_law = law_type:law_women_in_the_workplace }
+	option = {
+		name = birth_quota_events.14.a
+		default_option = yes
+		custom_tooltip = birth_quota_intervention_workplace_tt
+	}
+}
+
+# A non-marginal Trade Unions IG may demand compensation while the quota trial
+# is active. The immediate flag keeps the offer unique even if the player declines.
+birth_quota_events.15 = {
+	type = country_event
+	placement = root
+	title = birth_quota_events.15.t
+	desc = birth_quota_events.15.d
+	flavor = birth_quota_events.15.f
+	duration = 3
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	trigger = {
+		has_law = law_type:law_birth_quotas
+		has_journal_entry = je_birth_quota_trial
+		NOT = { has_variable = birth_quota_housewife_wage_decided }
+		ig:ig_trade_unions ?= { ig_counts_as_marginal = no }
+		active_law:lawgroup_rights_of_women ?= {
+			NOT = { has_amendment = amendment_type:amendment_birth_quota_housewife_wage }
+		}
+	}
+	immediate = { set_variable = birth_quota_housewife_wage_decided }
+	option = {
+		name = birth_quota_events.15.a
+		default_option = yes
+		active_law:lawgroup_rights_of_women = {
+			add_amendment = {
+				type = amendment_birth_quota_housewife_wage
+				sponsor = PREV.ig:ig_trade_unions
+			}
+		}
+	}
+	option = {
+		name = birth_quota_events.15.b
+	}
+}

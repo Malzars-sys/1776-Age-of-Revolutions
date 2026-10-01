@@ -14,21 +14,14 @@ alloysworking = {
 }
 
 bauxite_processing = {
-	# Chemical aluminium route: deliberately earlier than electrical mass production.
-	era = era_6
+	# Wöhler-Deville chemical aluminium route, before electrical mass production.
+	era = era_9
 	category = production
 	texture = "gfx/interface/icons/invention_icons/bauxite_processing.dds"
 
 	unlocking_technologies = {
 		alloysworking
 		industrial_alkalis
-	}
-
-	on_researched = {
-		tech6c_reveal_bauxite_deposits = yes
-		custom_tooltip = {
-			text = bauxite_mining_deposits_visible_tt
-		}
 	}
 
 	ai_weight = {

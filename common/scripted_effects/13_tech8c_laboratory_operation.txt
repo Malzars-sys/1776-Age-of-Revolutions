@@ -1,0 +1,62 @@
+# Country scope. Rebuild a short-lived, visible contribution from existing labs.
+refresh_1776_laboratory_operation = {
+	market = {
+		set_variable = { name = laboratory_1776_raw_demand value = laboratory_1776_market_raw_demand days = 4 }
+		set_variable = { name = laboratory_1776_organized_demand value = laboratory_1776_market_organized_demand days = 4 }
+	}
+	every_scope_building = {
+		limit = { is_building_type = building_research_laboratory }
+		remove_modifier = laboratory_data_shortage_warning
+		remove_modifier = laboratory_data_shortage_severe
+		remove_modifier = laboratory_data_shortage_critical
+		remove_modifier = laboratory_equipment_shortage
+		if = {
+			limit = { laboratory_1776_data_shortage_critical = yes }
+			add_modifier = { name = laboratory_data_shortage_critical days = 4 }
+		}
+		else_if = {
+			limit = { laboratory_1776_data_shortage_severe = yes }
+			add_modifier = { name = laboratory_data_shortage_severe days = 4 }
+		}
+		else_if = {
+			limit = { laboratory_1776_data_shortage_warning = yes }
+			add_modifier = { name = laboratory_data_shortage_warning days = 4 }
+		}
+		else_if = {
+			limit = { building_has_goods_shortage = yes }
+			add_modifier = { name = laboratory_equipment_shortage days = 4 }
+		}
+	}
+	remove_modifier = laboratory_operational_innovation_capacity
+	if = {
+		limit = { laboratory_1776_country_capacity > 0 }
+		add_modifier = { name = laboratory_operational_innovation_capacity multiplier = laboratory_1776_country_capacity days = 4 }
+	}
+	remove_modifier = laboratory_operational_production_research
+	if = {
+		limit = { laboratory_1776_country_production_levels > 0 }
+		add_modifier = { name = laboratory_operational_production_research multiplier = laboratory_1776_country_production_levels days = 4 }
+	}
+	remove_modifier = laboratory_operational_military_research
+	if = {
+		limit = { laboratory_1776_country_military_levels > 0 }
+		add_modifier = { name = laboratory_operational_military_research multiplier = laboratory_1776_country_military_levels days = 4 }
+	}
+	remove_modifier = laboratory_operational_society_research
+	if = {
+		limit = { laboratory_1776_country_society_levels > 0 }
+		add_modifier = { name = laboratory_operational_society_research multiplier = laboratory_1776_country_society_levels days = 4 }
+	}
+}
+
+# Country scope. Pending marker avoids duplicate two-day chains.
+ensure_1776_laboratory_monitor = {
+	if = {
+		limit = {
+			any_scope_building = { is_building_type = building_research_laboratory }
+			NOT = { has_variable = laboratory_1776_monitor_pending }
+		}
+		set_variable = { name = laboratory_1776_monitor_pending days = 3 }
+		trigger_event = { on_action = laboratory_1776_monitor_tick days = 2 }
+	}
+}

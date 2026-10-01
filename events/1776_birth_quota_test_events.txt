@@ -1,0 +1,92 @@
+namespace = birth_quota_tests
+
+# Manual-only catalogue: `event birth_quota_tests.1` opens it without changing
+# the country. Amendments are added only if the player selects the test option.
+# This event must never be referenced by a random event pool or an on_action.
+birth_quota_tests.1 = {
+	type = country_event
+	orphan = yes
+	placement = root
+	title = birth_quota_tests.1.t
+	desc = birth_quota_tests.1.d
+	duration = 30
+	event_image = { video = "birth_quota_scene" }
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+
+	option = {
+		name = birth_quota_tests.1.close
+		default_option = yes
+	}
+
+	option = {
+		name = birth_quota_tests.1.add
+		show_as_unavailable = { always = yes }
+		trigger = { has_law = law_type:law_birth_quotas }
+		custom_tooltip = birth_quota_tests.1.warning
+		active_law:lawgroup_rights_of_women = {
+			if = {
+				limit = { NOT = { has_amendment = amendment_type:amendment_birth_quota_landowner_authority } }
+				add_amendment = {
+					type = amendment_birth_quota_landowner_authority
+					sponsor = PREV.ig:ig_landowners
+				}
+			}
+			if = {
+				limit = { NOT = { has_amendment = amendment_type:amendment_birth_quota_devout_patronage } }
+				add_amendment = {
+					type = amendment_birth_quota_devout_patronage
+					sponsor = PREV.ig:ig_devout
+				}
+			}
+			if = {
+				limit = { NOT = { has_amendment = amendment_type:amendment_birth_quota_military_households } }
+				add_amendment = {
+					type = amendment_birth_quota_military_households
+					sponsor = PREV.ig:ig_armed_forces
+				}
+			}
+			if = {
+				limit = { NOT = { has_amendment = amendment_type:amendment_birth_quota_family_shops } }
+				add_amendment = {
+					type = amendment_birth_quota_family_shops
+					sponsor = PREV.ig:ig_petty_bourgeoisie
+				}
+			}
+			if = {
+				limit = { NOT = { has_amendment = amendment_type:amendment_birth_quota_rural_exemptions } }
+				add_amendment = {
+					type = amendment_birth_quota_rural_exemptions
+					sponsor = PREV.ig:ig_rural_folk
+				}
+			}
+			if = {
+				limit = { NOT = { has_amendment = amendment_type:amendment_birth_quota_industrial_exemptions } }
+				add_amendment = {
+					type = amendment_birth_quota_industrial_exemptions
+					sponsor = PREV.ig:ig_industrialists
+				}
+			}
+			if = {
+				limit = { NOT = { has_amendment = amendment_type:amendment_birth_quota_education_guarantees } }
+				add_amendment = {
+					type = amendment_birth_quota_education_guarantees
+					sponsor = PREV.ig:ig_intelligentsia
+				}
+			}
+			if = {
+				limit = { NOT = { has_amendment = amendment_type:amendment_birth_quota_worker_protections } }
+				add_amendment = {
+					type = amendment_birth_quota_worker_protections
+					sponsor = PREV.ig:ig_trade_unions
+				}
+			}
+			if = {
+				limit = { NOT = { has_amendment = amendment_type:amendment_birth_quota_housewife_wage } }
+				add_amendment = {
+					type = amendment_birth_quota_housewife_wage
+					sponsor = PREV.ig:ig_trade_unions
+				}
+			}
+		}
+	}
+}

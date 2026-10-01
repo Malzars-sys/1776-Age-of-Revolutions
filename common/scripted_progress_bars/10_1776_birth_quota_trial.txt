@@ -1,0 +1,39 @@
+﻿birth_quota_trial_progress_bar = {
+	name = "birth_quota_trial_progress_bar"
+	desc = "birth_quota_trial_progress_bar_desc"
+	default = yes
+	monthly_progress = {
+		if = {
+			limit = { owner = { country_fervor_primary_culture > 35 } }
+			add = { desc = birth_quota_fervor_positive_tt value = 1 }
+		}
+		else = { subtract = { desc = birth_quota_fervor_negative_tt value = 1 } }
+		if = {
+			limit = { owner = { is_at_war = no is_active_in_diplomatic_play = no } }
+			add = { desc = birth_quota_peace_positive_tt value = 1 }
+		}
+		else = { subtract = { desc = birth_quota_peace_negative_tt value = 1 } }
+		if = {
+			limit = { owner = { average_sol > birth_quota_country_expected_sol } }
+			add = { desc = birth_quota_sol_positive_tt value = 1 }
+		}
+		else = { subtract = { desc = birth_quota_sol_negative_tt value = 1 } }
+		if = {
+			limit = {
+				owner = {
+					NOT = {
+						any_civil_war = {
+							is_civil_war_type = revolution
+							civil_war_progress > 0.75
+						}
+					}
+				}
+			}
+			add = { desc = birth_quota_revolution_positive_tt value = 1 }
+		}
+		else = { subtract = { desc = birth_quota_revolution_negative_tt value = 1 } }
+	}
+	start_value = 50
+	min_value = 0
+	max_value = 200
+}

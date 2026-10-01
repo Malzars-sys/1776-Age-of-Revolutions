@@ -1,0 +1,22 @@
+# Experimental, victory-gated countermodifier. The game applies the literacy
+# penalty per pop and the SoL birth curve in code; neither is edited globally.
+birth_quota_demographic_countermodifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_birth_rate_mult = 1
+}
+
+# Permanent while the victorious country keeps birth quotas. The state-level
+# recalculation subtracts this 1% share so the overall compensation is unchanged.
+birth_quota_demographic_victory_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_birth_rate_mult = 0.01
+}
+
+# Legacy definition kept only to migrate existing saves to the law amendment.
+birth_quota_housewife_wage_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_statue_positive.dds
+	state_dependent_wage_mult = 0.10
+	state_birth_rate_mult = 0.05
+	tax_income_add = -0.02
+	tax_dividends_add = 0.04
+}

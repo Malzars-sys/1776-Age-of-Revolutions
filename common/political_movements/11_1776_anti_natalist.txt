@@ -1,0 +1,38 @@
+﻿movement_anti_natalist = {
+	category = movement_category_anti_natalist
+	ideology = ideology_anti_natalist_movement
+	character_ideologies = {
+		ideology_feminist
+		ideology_humanitarian
+		ideology_radical
+	}
+	creation_trigger = { has_journal_entry = je_birth_quota_trial }
+	creation_weight = { value = 200 }
+	on_created = { add_movement_enthusiasm_modifier = yes }
+	disband_trigger = { NOT = { has_journal_entry = je_birth_quota_trial } }
+	character_support_trigger = {
+		OR = {
+			has_ideology = ideology:ideology_feminist
+			has_ideology = ideology:ideology_humanitarian
+			has_ideology = ideology:ideology_radical
+			is_interest_group_type = ig_trade_unions
+			is_interest_group_type = ig_industrialists
+		}
+	}
+	character_support_weight = { value = 300 }
+	pop_support_trigger = { NOT = { is_pop_type = slaves } }
+	pop_support_factors = {
+		movement_support_academics
+		movement_support_bureaucrats
+		movement_support_clerks
+		movement_support_laborers
+		movement_support_capitalists
+	}
+	pop_support_weight = { value = 200 }
+	additional_radicalism_factors = {
+		if = {
+			limit = { owner = { has_journal_entry = je_birth_quota_trial } }
+			add = { value = 0.5 desc = birth_quota_anti_natalist_radicalism_tt }
+		}
+	}
+}

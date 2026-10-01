@@ -1,0 +1,72 @@
+﻿movement_natalist = {
+	category = movement_category_natalist
+	ideology = ideology_natalist_movement
+
+	character_ideologies = {
+		ideology_utilitarian_leader
+	}
+
+	creation_trigger = {
+		has_technology_researched = mass_propaganda
+		NOT = { has_law_or_variant = law_type:law_birth_quotas }
+	}
+
+	creation_weight = {
+		value = 75
+	}
+
+	on_created = {
+		add_movement_enthusiasm_modifier = yes
+	}
+
+	disband_trigger = {
+		has_law_or_variant = law_type:law_birth_quotas
+	}
+
+	character_support_trigger = {
+		has_ideology = ideology:ideology_utilitarian_leader
+	}
+
+	character_support_weight = {
+		value = 100000
+		if = {
+			limit = { has_ideology = ideology:ideology_utilitarian_leader }
+			multiply = 5
+		}
+		if = {
+			limit = { is_interest_group_type = ig_intelligentsia }
+			multiply = 3
+		}
+	}
+
+	pop_support_trigger = {
+		NOT = { is_pop_type = slaves }
+	}
+
+	pop_support_factors = {
+		movement_support_academics
+		movement_support_bureaucrats
+		movement_support_clerks
+		movement_support_clergymen
+		movement_support_peasants
+		movement_support_farmers
+		movement_support_soldiers
+	}
+
+	pop_support_weight = {
+		value = 100
+		if = {
+			limit = { is_pop_type = academics }
+			multiply = 4
+		}
+		else_if = {
+			limit = {
+				OR = {
+					is_pop_type = bureaucrats
+					is_pop_type = clerks
+				}
+			}
+			multiply = 2
+		}
+	}
+}

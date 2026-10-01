@@ -1,0 +1,32 @@
+﻿# Intervention remains available only while the target's quota trial is active.
+dp_end_birth_quotas = {
+	war_goal = end_birth_quotas
+	texture = "gfx/interface/icons/war_goals/birth_quota_intervention.dds"
+	add_infamy_for_starting_initiator_wargoals = no
+	add_infamy_for_starting_target_wargoals = no
+	possible = {
+		NOT = { is_country_type = decentralized }
+		aggressive_diplomatic_plays_permitted = yes
+		OR = {
+			has_law = law_type:law_women_in_the_workplace
+			has_law = law_type:law_womens_suffrage
+		}
+		NOT = { is_subject_of = scope:target_country }
+		scope:target_country = {
+			NOT = { is_country_type = decentralized }
+			NOT = { is_subject_of = root }
+			has_law = law_type:law_birth_quotas
+			has_journal_entry = je_birth_quota_trial
+		}
+	}
+	ai_acceptance_max = 90
+	on_weekly_pulse = {}
+	on_war_begins = {}
+	on_war_end = {}
+}
+
+# Remove vanilla's launch-time infamy charge for the slavery intervention.
+INJECT:dp_ban_slavery = {
+	add_infamy_for_starting_initiator_wargoals = no
+	add_infamy_for_starting_target_wargoals = no
+}

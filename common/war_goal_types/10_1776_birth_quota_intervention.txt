@@ -1,0 +1,54 @@
+﻿end_birth_quotas = {
+	icon = "gfx/interface/icons/war_goals/birth_quota_intervention.dds"
+	kind = custom
+	settings = {
+		require_target_be_part_of_war
+		validate_conflicts_war_goals_all
+	}
+	target_type = country
+	possible = {
+		ROOT = {
+			OR = {
+				has_law = law_type:law_women_in_the_workplace
+				has_law = law_type:law_womens_suffrage
+			}
+		}
+		scope:target_country = {
+			has_law = law_type:law_birth_quotas
+			has_journal_entry = je_birth_quota_trial
+		}
+	}
+	valid = {
+		ROOT = {
+			OR = {
+				has_law = law_type:law_women_in_the_workplace
+				has_law = law_type:law_womens_suffrage
+			}
+		}
+		scope:target_country = { has_law = law_type:law_birth_quotas }
+	}
+	maneuvers = { value = 10 }
+	infamy = { value = 0 }
+	on_enforced = {
+		if = {
+			limit = { ROOT = { has_law = law_type:law_womens_suffrage } }
+			scope:target_country = {
+				activate_law = law_type:law_womens_suffrage
+				trigger_event = { id = birth_quota_events.13 days = 1 popup = yes }
+			}
+		}
+		else = {
+			scope:target_country = {
+				activate_law = law_type:law_women_in_the_workplace
+				trigger_event = { id = birth_quota_events.14 days = 1 popup = yes }
+			}
+		}
+	}
+	ai = { is_significant_demand = yes }
+}
+
+# No infamy charge when the abolition play starts; a fixed 12-point reduction
+# is applied separately by the diplomatic-play-started on-action.
+INJECT:ban_slavery = {
+	infamy = { value = 0 }
+}

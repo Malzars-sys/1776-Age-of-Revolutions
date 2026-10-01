@@ -1,0 +1,87 @@
+# Organized data compile raw industrial data at a nominal 1:1 ratio.
+# Off PMs are the defaults; research unlocks reporting without forcing activation.
+# On an existing save, verify the added PMGs after reloading.
+pm_1776_raw_data_reporting = {
+	texture = "gfx/interface/icons/production_method_icons/tech_and_res_manual_data_reporting.dds"
+	unlocking_technologies = { scientific_metrology }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_raw_industrial_data_add = 1
+			goods_input_paper_add = 0.1
+		}
+		level_scaled = { building_employment_clerks_add = 10 }
+	}
+}
+
+pm_1776_heavy_data_reporting = {
+	texture = "gfx/interface/icons/production_method_icons/tech_and_res_manual_data_reporting.dds"
+	unlocking_technologies = { scientific_metrology }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_raw_industrial_data_add = 4
+			goods_input_paper_add = 0.4
+		}
+		level_scaled = { building_employment_clerks_add = 40 }
+	}
+}
+
+pm_1776_trade_data_reporting = {
+	texture = "gfx/interface/icons/production_method_icons/tech_and_res_manual_data_optimization.dds"
+	unlocking_technologies = { specialized_professional_societies }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_organized_research_data_add = 1
+			goods_input_raw_industrial_data_add = 1
+			goods_input_paper_add = 0.25
+		}
+		level_scaled = { building_employment_clerks_add = 10 }
+	}
+}
+
+pm_1776_light_data_reporting = {
+	texture = "gfx/interface/icons/production_method_icons/tech_and_res_manual_data_reporting.dds"
+	unlocking_technologies = { scientific_metrology }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_raw_industrial_data_add = 2
+			goods_input_paper_add = 0.2
+		}
+		level_scaled = { building_employment_clerks_add = 20 }
+	}
+}
+
+pm_1776_administrative_data_reporting = {
+	texture = "gfx/interface/icons/production_method_icons/tech_and_res_manual_data_optimization.dds"
+	unlocking_technologies = { specialized_professional_societies }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_organized_research_data_add = 1
+			goods_input_raw_industrial_data_add = 1
+			goods_input_paper_add = 0.25
+		}
+		level_scaled = { building_employment_clerks_add = 10 }
+	}
+}
+
+pm_1776_institutional_data_reporting = {
+	texture = "gfx/interface/icons/production_method_icons/tech_and_res_manual_data_optimization.dds"
+	unlocking_technologies = { specialized_professional_societies }
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_organized_research_data_add = 2
+			goods_input_raw_industrial_data_add = 2
+			goods_input_paper_add = 0.5
+		}
+		level_scaled = { building_employment_clerks_add = 20 }
+	}
+}
+
+pm_1776_no_raw_data_reporting = {
+	texture = "gfx/interface/icons/production_method_icons/tech_and_res_no_data_reporting.dds"
+	is_default = yes
+}
+
+pm_1776_no_organized_data_reporting = {
+	texture = "gfx/interface/icons/production_method_icons/tech_and_res_no_data_reporting.dds"
+	is_default = yes
+}

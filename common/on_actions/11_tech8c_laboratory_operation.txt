@@ -1,0 +1,58 @@
+# Child actions extend engine actions without replacing their effects.
+on_game_started = { on_actions = { laboratory_1776_initialize } }
+laboratory_1776_initialize = {
+	effect = {
+		every_country = {
+			limit = { any_scope_building = { is_building_type = building_research_laboratory } }
+			refresh_1776_laboratory_operation = yes
+			ensure_1776_laboratory_monitor = yes
+		}
+	}
+}
+on_building_built = { on_actions = { laboratory_1776_building_changed } }
+on_building_expanded = { on_actions = { laboratory_1776_building_changed } }
+on_production_method_changed = { on_actions = { laboratory_1776_building_changed } }
+on_state_owner_change = { on_actions = { laboratory_1776_state_changed } }
+laboratory_1776_state_changed = {
+	effect = {
+		if = {
+			limit = { has_building = building_research_laboratory }
+			owner = {
+				refresh_1776_laboratory_operation = yes
+				ensure_1776_laboratory_monitor = yes
+			}
+		}
+	}
+}
+laboratory_1776_building_changed = {
+	effect = {
+		if = {
+			limit = { is_building_type = building_research_laboratory }
+			owner = {
+				refresh_1776_laboratory_operation = yes
+				ensure_1776_laboratory_monitor = yes
+			}
+		}
+	}
+}
+# Monthly pulse only repairs a missing monitor after a reload/ownership change.
+on_monthly_pulse_country = { on_actions = { laboratory_1776_repair_monitor } }
+laboratory_1776_repair_monitor = {
+	effect = {
+		if = {
+			limit = {
+				any_scope_building = { is_building_type = building_research_laboratory }
+				NOT = { has_variable = laboratory_1776_monitor_pending }
+			}
+			refresh_1776_laboratory_operation = yes
+			ensure_1776_laboratory_monitor = yes
+		}
+	}
+}
+laboratory_1776_monitor_tick = {
+	effect = {
+		remove_variable = laboratory_1776_monitor_pending
+		refresh_1776_laboratory_operation = yes
+		ensure_1776_laboratory_monitor = yes
+	}
+}

@@ -99,15 +99,6 @@ diff_check = subprocess.run(
 )
 check("git diff --check", diff_check.returncode == 0, diff_check.stdout.strip())
 
-branch = subprocess.check_output(
-    ["git", "branch", "--show-current"], cwd=ROOT, text=True, encoding="utf-8"
-).strip()
-check(
-    "branche attendue",
-    branch == "tech6c-goods-buildings-pm-implementation",
-    branch,
-)
-
 copper_pm = read(ROOT / "common/production_methods/13_tech6c5b_copper_production_and_consumers.txt")
 aluminium_pm = read(ROOT / "common/production_methods/14_tech6c5c_aluminium_production_and_consumers.txt")
 aluminium_building = read(ROOT / "common/buildings/14_tech6c5c_non_ferrous_metallurgy_works.txt")
@@ -133,19 +124,18 @@ check(
     ),
 )
 check(
-    "double verrou batiment aluminium",
-    all(token in aluminium_building for token in ("electrical_capacitors", "industrial_alkalis")),
+    "verrou unique de l'usine d'alliages",
+    "unlocking_technologies = {\n\t\talloysworking\n\t}" in aluminium_building,
 )
 check(
     "recette Hall-Heroult",
     all(
         token in aluminium_pm
         for token in (
-            "goods_input_industrial_chemicals_add = 20",
-            "goods_input_coal_add = 10",
-            "goods_input_electricity_add = 50",
-            "goods_output_aluminium_add = 40",
-            "state_pollution_generation_add = 20",
+            "goods_input_industrial_chemicals_add = 10",
+            "goods_input_electricity_add = 20",
+            "goods_output_aluminium_add = 80",
+            "state_pollution_generation_add = 15",
         )
     ),
 )

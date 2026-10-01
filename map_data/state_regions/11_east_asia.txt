@@ -42,7 +42,7 @@ STATE_SICHUAN = {
     id = 480
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x0502BE" "x05195F" "x092323" "x09C8CB" "x0BAD6F" "x0D68E8" "x102905" "x11062E" "x11B3F7" "x12B742" "x143D50" "x154288" "x157E2E" "x162AC1" "x1C5B2A" "x1C8A07" "x2332C5" "x24A95A" "x25C936" "x28C7CA" "x2B4D74" "x2CC651" "x2F07EE" "x39A321" "x3E073E" "x411CFE" "x41F76A" "x42DB73" "x49C4AB" "x4BBCD9" "x4BEFB9" "x4C02B1" "x5056A4" "x509862" "x5304E5" "x59CA77" "x5B7400" "x5C8BAE" "x5D7F15" "x5F792D" "x60B060" "x60E0D5" "x654894" "x66015E" "x6E1C89" "x6FFCF0" "x710D15" "x735688" "x745C03" "x7511D0" "x787852" "x793905" "x7D9239" "x7F3356" "x7F900E" "x82755F" "x83A248" "x85F99B" "x87C535" "x891A77" "x8A6C0F" "x8B74E5" "x8C298E" "x8D0615" "x8F60D5" "x8FC46D" "x93091D" "x98345A" "x9F1EF5" "x9F88D3" "xA1C52B" "xA5D674" "xAD69D9" "xAE99AF" "xAF900C" "xB391A8" "xBAD952" "xBB4B6C" "xBC9630" "xBE3227" "xBE3ADF" "xBF0445" "xBFC5D3" "xC38352" "xC3C67F" "xC5FA12" "xC943C3" "xC97B8A" "xCAEF49" "xCCB937" "xD3C3F5" "xD57DC5" "xD7D182" "xD91B4A" "xDDCBB6" "xE0B060" "xE9438D" "xEA3DB0" "xF0F6C5" "xF47E4A" "xF64FC1" "xF6FED1" "xF72ADD" "xFF933F" }
-    traits = { "state_trait_yangtze_river" "state_trait_the_red_basin" }
+    traits = { "state_trait_yangtze_river" "state_trait_the_red_basin" "state_trait_huge_bauxite_mine" }
     city = "x60E0D5"
     farm = "x28C7CA"
     mine = "xF0F6C5"
@@ -62,13 +62,17 @@ STATE_SICHUAN = {
         discovered_amount = 30
         undiscovered_amount = 0
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 200
+    }
 }
 
 STATE_YUNNAN = {
     id = 481
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x006A4F" "x013B73" "x0441DB" "x0DD716" "x1030E0" "x145038" "x15778F" "x171D65" "x182F15" "x192036" "x1A9B06" "x1CB687" "x1F78D6" "x20105C" "x201A85" "x208960" "x21761F" "x258B0E" "x2C11A0" "x30B020" "x324DBC" "x361595" "x380CC0" "x3F1A1A" "x4371C1" "x4BFD9D" "x560DE1" "x58693A" "x596A3B" "x5B4D62" "x620CDD" "x6A589B" "x6B38F7" "x71C144" "x78DC66" "x7B64C3" "x7D9D85" "x7F74E1" "x813682" "x81C1EF" "x82A017" "x82DE53" "x869E15" "x88F06D" "x8A64C4" "x8DE825" "x8F7B8D" "x90B060" "x93373E" "x96953B" "x9CC299" "x9F048D" "x9F3CF8" "xA5EE2A" "xA76417" "xAAC8DF" "xB2ED64" "xB31532" "xB44B2B" "xB6C5A6" "xB75AA7" "xB789C6" "xB8B1E3" "xBE3E11" "xC0166A" "xC5D4FD" "xCEA509" "xCEE3D4" "xD050BA" "xD3FD34" "xD77B27" "xD7C8CD" "xDA3D4C" "xE4031D" "xE436A1" "xE67199" "xE7A2A1" "xEB44C6" "xF901AE" "xF979F9" "xFA541A" "xFDF8D0" "xFE5E24" }
-    traits = { "state_trait_yangtze_river" }
+    traits = { "state_trait_yangtze_river" "state_trait_medium_bauxite_mine" }
     city = "x78DC66"
     farm = "xE67199"
     mine = "x6A589B"
@@ -82,6 +86,10 @@ STATE_YUNNAN = {
         building_limestone_quarry = 80
         building_copper_mine = 48
         building_phosphate_mine = 48
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 50
     }
 }
 
@@ -102,6 +110,10 @@ STATE_GUIZHOU = {
         building_limestone_quarry = 80
         building_copper_mine = 24
         building_phosphate_mine = 48
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 25
     }
 }
 
@@ -173,7 +185,7 @@ STATE_GUANGXI = {
     id = 486
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x0359FB" "x0422AC" "x05C2CD" "x09D527" "x0F948D" "x116561" "x12B2EF" "x135B0F" "x1380FF" "x1E5C7E" "x201F22" "x244859" "x25EA31" "x368CDE" "x37E3AC" "x3B542C" "x4269D4" "x432FE3" "x48D397" "x505080" "x5100A2" "x53ABCA" "x58D3A8" "x686CE7" "x6D1ACD" "x6EB824" "x702462" "x84BD66" "x84F9AF" "x8834F9" "x8D45C0" "x942ACA" "x94D1BC" "x9E2972" "x9E70F2" "x9F05B1" "xA34E72" "xA98A12" "xB0B0E0" "xB1309B" "xB71848" "xBA0CC4" "xBC6F1C" "xBE7B7A" "xC20E6A" "xC3BDF0" "xC407AF" "xC776A0" "xCC1018" "xD8799B" "xDCC7E1" "xDDB27C" "xE19EFE" "xE2A874" "xE33EC4" "xE38868" "xF071A0" "xF0F0A0" "xF4850E" "xFA9280" "xFF1286" }
-    traits = { "state_trait_pearl_river" }
+    traits = { "state_trait_pearl_river" "state_trait_medium_bauxite_mine" }
     city = "x37E3AC"
     farm = "x8834F9"
     mine = "x505080"
@@ -184,6 +196,10 @@ STATE_GUANGXI = {
         building_logging_camp = 9
         building_limestone_quarry = 80
         building_copper_mine = 16
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 50
     }
 }
 
@@ -207,6 +223,10 @@ STATE_BEIJING = {
         building_fishing_wharf = 3
         building_salt_pan = 80
         building_limestone_quarry = 16
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
     }
     naval_exit_id = 3138
 }
@@ -314,7 +334,7 @@ STATE_SHANXI = {
     id = 491
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x04647B" "x092D9A" "x0F7841" "x102702" "x149A35" "x1A2B77" "x21C69F" "x2BAB5F" "x2E1AF5" "x2E331F" "x352689" "x406C38" "x41D423" "x554E31" "x5DD6C0" "x62F096" "x6A2320" "x703060" "x71F0A0" "x771E37" "x778646" "x7EECDC" "x7F5143" "x9090C0" "xA0F6F6" "xA3D4C9" "xA892F9" "xB53053" "xB63C5E" "xBBD804" "xBDBFAF" "xBDF913" "xC933A2" "xD09041" "xD29750" "xE75A35" "xE79EED" "xF141F6" "xF45F74" "xF87F8F" "xFA7945" }
-    traits = { "state_trait_the_loess_plateau" "state_trait_yellow_river" }
+    traits = { "state_trait_the_loess_plateau" "state_trait_yellow_river" "state_trait_medium_bauxite_mine" }
     city = "xF87F8F"
     farm = "x62F096"
     mine = "x2BAB5F"
@@ -337,6 +357,10 @@ STATE_SHANXI = {
         discovered_amount = 25
         undiscovered_amount = 0
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 50
+    }
 }
 
 STATE_NINGXIA = {
@@ -353,6 +377,10 @@ STATE_NINGXIA = {
     capped_resources = {
         building_logging_camp = 8
         building_limestone_quarry = 8
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
     }
 }
 
@@ -399,13 +427,17 @@ STATE_XIAN = {
         type = "building_oil_rig"
         undiscovered_amount = 20
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
+    }
 }
 
 STATE_QINGHAI = {
     id = 495
     subsistence_building = "building_subsistence_farm"
     provinces = { "x01EA55" "x023DAA" "x059EA0" "x069EBD" "x098A48" "x0C669D" "x0CCB8F" "x0E7AF6" "x0F110A" "x101FD6" "x111768" "x118595" "x16B891" "x1835D1" "x183BC0" "x1AB66B" "x1B5D55" "x1BF6D6" "x1C7488" "x1FBFBC" "x207F70" "x20B0E0" "x21632D" "x23738C" "x23998A" "x24E110" "x2599E5" "x2821E5" "x283C64" "x2CAFE8" "x2F0405" "x2FFEAA" "x30AAC3" "x351164" "x39205F" "x3A7DD1" "x3B8905" "x4037B8" "x41E71B" "x4374C9" "x438218" "x4382DA" "x48C531" "x4BA0B6" "x4EF4E7" "x4F7F80" "x51E934" "x52D6EF" "x53C731" "x5476D4" "x5538A6" "x55AD3D" "x5782C6" "x578717" "x592A1D" "x5ADB03" "x5B452E" "x5E0C1F" "x5F6C64" "x603060" "x60BB6E" "x6144EE" "x635113" "x6450DE" "x649DE3" "x65C7FB" "x66E588" "x6A29B3" "x6EE031" "x7102E1" "x713CDF" "x73716C" "x7384EB" "x752E9C" "x77631B" "x7C1B07" "x7C70E2" "x82F9A2" "x843F30" "x84D005" "x8638AC" "x879B7B" "x8B7006" "x8FA6BB" "x934412" "x947C19" "x950F2F" "x95EBD6" "x97D0F7" "x9911F6" "x9A3932" "x9B47C8" "xA005D5" "xA0B0E0" "xA43247" "xA5B235" "xA65827" "xA65852" "xA65C2D" "xAB96DC" "xAB9B7F" "xACBB53" "xAE2378" "xAFA6D4" "xB05071" "xB179AA" "xB56153" "xB6FDB8" "xB7A66A" "xB7EAA8" "xB8062C" "xBE9BED" "xBF0F3F" "xBF3B4E" "xC14095" "xC2E1A3" "xC3A077" "xC3B802" "xC63AA0" "xC6F997" "xC8B3E2" "xC909EC" "xCC0798" "xCDA5B8" "xCDBBBB" "xCDCC17" "xCE8D54" "xCEF931" "xCF5578" "xD386AD" "xD438C6" "xD81ABC" "xD85009" "xD88595" "xDCCF57" "xDD43E0" "xDF82D2" "xE297F2" "xE2B866" "xE487C8" "xE75D52" "xEA9D45" "xF0D030" "xF19D57" "xF24B9B" "xF27128" "xF2CD54" "xF396BA" "xF564BF" "xF58A1A" "xF5ECB0" "xF67C16" "xF71E73" "xF79E07" "xF7EAC3" "xF813D9" "xF8163B" "xF8355E" "xFB6246" "xFC7955" "xFFE05D" }
-    traits = { "state_trait_yellow_river" }
+    traits = { "state_trait_yellow_river" "state_trait_medium_bauxite_mine" }
     city = "x53C731"
     farm = "xBF0F3F"
     mine = "xCE8D54"
@@ -423,13 +455,17 @@ STATE_QINGHAI = {
         discovered_amount = 25
         undiscovered_amount = 0
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 50
+    }
 }
 
 STATE_CHONGQING = {
     id = 496
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x0CEE46" "x108674" "x129329" "x192C0F" "x243438" "x283D57" "x4A9929" "x509000" "x5C003D" "x5C0A38" "x645EEC" "x690CD4" "x6C2938" "x6CAE25" "x7B51C8" "x7D0C5B" "x901000" "x901080" "x92D298" "x939CA3" "x97F6FB" "x98D5B2" "x98EF3E" "xAF5569" "xB52752" "xBD8F39" "xBE05F5" "xC35036" "xC54CCD" "xC64D28" "xC8F378" "xCE5914" "xD09000" "xD5B480" "xDBB445" "xDBFEDF" "xE0F0E0" "xE88BF8" "xF9B015" "xFBD426" }
-    traits = { "state_trait_yangtze_river" "state_trait_the_red_basin" }
+    traits = { "state_trait_yangtze_river" "state_trait_the_red_basin" "state_trait_big_bauxite_mine" }
     city = "x6CAE25"
     farm = "x690CD4"
     mine = "xF9B015"
@@ -445,6 +481,10 @@ STATE_CHONGQING = {
     resource = {
         type = "building_oil_rig"
         undiscovered_amount = 10
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 120
     }
 }
 
@@ -563,6 +603,10 @@ STATE_HENAN = {
         building_logging_camp = 11
         building_limestone_quarry = 48
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 25
+    }
 }
 
 STATE_ZHILI = {
@@ -607,6 +651,10 @@ STATE_JIANGXI = {
         building_limestone_quarry = 48
         building_copper_mine = 36
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
+    }
 }
 
 STATE_SOUTHERN_ANHUI = {
@@ -642,6 +690,10 @@ STATE_NORTHERN_ANHUI = {
         building_logging_camp = 6
         building_limestone_quarry = 28
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
+    }
 }
 
 STATE_WESTERN_HUBEI = {
@@ -661,6 +713,10 @@ STATE_WESTERN_HUBEI = {
         building_copper_mine = 16
         building_phosphate_mine = 48
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 25
+    }
 }
 
 STATE_EASTERN_HUBEI = {
@@ -678,6 +734,10 @@ STATE_EASTERN_HUBEI = {
         building_logging_camp = 8
         building_limestone_quarry = 28
         building_phosphate_mine = 24
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 25
     }
 }
 
@@ -839,6 +899,10 @@ STATE_CAMBODIA = {
         type = "building_rubber_plantation"
         undiscovered_amount = 12
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 25
+    }
     naval_exit_id = 3072
 }
 
@@ -895,6 +959,10 @@ STATE_TONKIN = {
         type = "building_rubber_plantation"
         undiscovered_amount = 16
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 25
+    }
     naval_exit_id = 3056
 }
 
@@ -922,6 +990,10 @@ STATE_ANNAM = {
         type = "building_rubber_plantation"
         undiscovered_amount = 6
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
+    }
     naval_exit_id = 3056
 }
 
@@ -930,7 +1002,7 @@ STATE_MEKONG = {
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x00C0B0" "x0C662E" "x1C5BE6" "x1D9718" "x217F68" "x223DD3" "x246E58" "x248BCA" "x3C8C22" "x4080B0" "x474B0B" "x47ADCE" "x4923A3" "x58B174" "x5E16EB" "x5F0DAB" "x70B060" "x72E436" "x7D46C6" "x841E31" "xA4DBB7" "xB366DB" "xC080B0" "xD8BFF1" "xDF070D" "xE5A4DA" "xFD66E6" }
     prime_land = { "x246E58" "x4923A3" "x223DD3" "xDF070D" "x1D9718" "x4080B0" "x474B0B" "xE5A4DA" "x00C0B0" "x7D46C6" }
-    traits = { "state_trait_mekong_delta" "state_trait_indochinese_forest" }
+    traits = { "state_trait_mekong_delta" "state_trait_indochinese_forest" "state_trait_medium_bauxite_mine" }
     city = "xE5A4DA"
     port = "xE5A4DA"
     farm = "x3C8C22"
@@ -947,6 +1019,10 @@ STATE_MEKONG = {
     resource = {
         type = "building_rubber_plantation"
         undiscovered_amount = 8
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 50
     }
     naval_exit_id = 3072
 }
@@ -968,6 +1044,10 @@ STATE_LAOS = {
         building_logging_camp = 23
         building_limestone_quarry = 48
         building_copper_mine = 16
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
     }
 }
 
@@ -1013,6 +1093,10 @@ STATE_NAKHON_RATCHASIMA = {
     resource = {
         type = "building_rubber_plantation"
         undiscovered_amount = 2
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
     }
     naval_exit_id = 3072
     resource = {
@@ -1265,6 +1349,10 @@ STATE_KYUSHU = {
         building_limestone_quarry = 16
         building_copper_mine = 8
     }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 25
+    }
     naval_exit_id = 3058
 }
 
@@ -1310,6 +1398,10 @@ STATE_CHUGOKU = {
         building_whaling_station = 3
         building_salt_pan = 10
         building_limestone_quarry = 16
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
     }
     naval_exit_id = 3086
 }
@@ -1384,6 +1476,10 @@ STATE_BUSAN = {
         building_fishing_wharf = 11
         building_limestone_quarry = 16
         building_copper_mine = 8
+    }
+    resource = {
+        type = "building_bauxite_mine"
+        undiscovered_amount = 10
     }
     naval_exit_id = 3058
 }

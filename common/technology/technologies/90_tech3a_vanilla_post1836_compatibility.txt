@@ -2301,7 +2301,7 @@ nitroglycerin = {
 	category = production
 
 	unlocking_technologies = {
-		industrial_acids
+		industrial_alkalis
 	}
 
 	ai_weight = {
@@ -2911,12 +2911,15 @@ self_propelled_torpedoes = {
 }
 
 sericulture = {
-	# Unlocks Mulberry Groves PM on Rice Farms
-	era = era_7
+	# Ancient regional starting knowledge; granted in country history, not researchable.
+	era = era_1
 	texture = "gfx/interface/icons/invention_icons/sericulture.dds"
 	category = production
 	can_research = no
 
+	modifier = {
+		building_silk_plantation_throughput_add = 0.25
+	}
 
 	ai_weight = {
 		value = 1

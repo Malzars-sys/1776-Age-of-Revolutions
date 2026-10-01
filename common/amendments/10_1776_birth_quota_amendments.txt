@@ -1,0 +1,167 @@
+# Each interest group brings a different compromise to negotiations over birth
+# quotas. Vanilla negotiation.1 randomly selects among these and its existing
+# amendments; none of these is forced into a negotiation.
+
+amendment_birth_quota_landowner_authority = {
+	parent = law_birth_quotas
+	allowed_laws = { law_birth_quotas }
+	modifier = {
+		state_birth_rate_mult = 0.005
+		state_working_adult_ratio_add = -0.01
+		interest_group_ig_landowners_pol_str_mult = 0.10
+		# Reduce radicalism increases at every acceptance level, irrespective
+		# of their source, without also reducing loyalism gains from rising SoL.
+		country_radicalism_increases_violent_hostility_mult = -0.10
+		country_radicalism_increases_cultural_erasure_mult = -0.10
+		country_radicalism_increases_open_prejudice_mult = -0.10
+		country_radicalism_increases_second_rate_citizen_mult = -0.10
+		country_radicalism_increases_full_acceptance_mult = -0.10
+	}
+	possible = { always = yes }
+	would_sponsor = { is_interest_group_type = ig_landowners }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+amendment_birth_quota_devout_patronage = {
+	parent = law_birth_quotas
+	allowed_laws = { law_birth_quotas }
+	modifier = {
+		state_birth_rate_mult = 0.02
+		state_working_adult_ratio_add = -0.02
+		interest_group_ig_devout_pol_str_mult = 0.10
+	}
+	possible = { always = yes }
+	would_sponsor = { is_interest_group_type = ig_devout }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+amendment_birth_quota_military_households = {
+	parent = law_birth_quotas
+	allowed_laws = { law_birth_quotas }
+	modifier = {
+		state_birth_rate_mult = 0.01
+		state_working_adult_ratio_add = -0.01
+		state_conscription_rate_mult = 0.05
+	}
+	possible = { always = yes }
+	would_sponsor = { is_interest_group_type = ig_armed_forces }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+amendment_birth_quota_family_shops = {
+	parent = law_birth_quotas
+	allowed_laws = { law_birth_quotas }
+	modifier = {
+		state_birth_rate_mult = -0.01
+		state_working_adult_ratio_add = 0.01
+		interest_group_ig_petty_bourgeoisie_pol_str_mult = 0.05
+		building_self_investment_chance_add = 0.10
+		# Match the five building groups covered by the vanilla guild system.
+		building_group_bg_manufacturing_allowed_collectivization_add = 0.12
+		building_group_bg_extraction_allowed_collectivization_add = 0.12
+		building_group_bg_power_allowed_collectivization_add = 0.12
+		building_group_bg_private_infrastructure_allowed_collectivization_add = 0.12
+		building_group_bg_arts_allowed_collectivization_add = 0.12
+		state_dependent_wage_mult = 0.10
+	}
+	possible = { always = yes }
+	would_sponsor = { is_interest_group_type = ig_petty_bourgeoisie }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+amendment_birth_quota_rural_exemptions = {
+	parent = law_birth_quotas
+	allowed_laws = { law_birth_quotas }
+	modifier = {
+		state_birth_rate_mult = 0.01
+		state_working_adult_ratio_add = -0.01
+		building_group_bg_agriculture_throughput_add = 0.02
+	}
+	possible = { always = yes }
+	would_sponsor = { is_interest_group_type = ig_rural_folk }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+amendment_birth_quota_industrial_exemptions = {
+	parent = law_birth_quotas
+	allowed_laws = { law_birth_quotas }
+	modifier = {
+		state_birth_rate_mult = -0.02
+		state_working_adult_ratio_add = 0.03
+		building_group_bg_manufacturing_throughput_add = 0.02
+	}
+	possible = { always = yes }
+	would_sponsor = { is_interest_group_type = ig_industrialists }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+amendment_birth_quota_education_guarantees = {
+	parent = law_birth_quotas
+	allowed_laws = { law_birth_quotas }
+	modifier = {
+		state_birth_rate_mult = -0.02
+		state_working_adult_ratio_add = 0.01
+		state_education_access_add = 0.05
+	}
+	possible = { always = yes }
+	would_sponsor = { is_interest_group_type = ig_intelligentsia }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+amendment_birth_quota_worker_protections = {
+	parent = law_birth_quotas
+	allowed_laws = { law_birth_quotas }
+	modifier = {
+		state_birth_rate_mult = -0.01
+		state_working_adult_ratio_add = 0.02
+		state_dependent_wage_mult = 0.05
+	}
+	possible = { always = yes }
+	would_sponsor = { is_interest_group_type = ig_trade_unions }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}
+
+# This additional amendment is granted by birth_quota_events.15, not drawn in
+# the ordinary negotiation pool. Its fiscal trade-off replaces the old modifier.
+amendment_birth_quota_housewife_wage = {
+	parent = law_birth_quotas
+	allowed_laws = { law_birth_quotas }
+	modifier = {
+		state_dependent_wage_mult = 0.10
+		state_birth_rate_mult = 0.05
+		tax_income_add = -0.04
+		tax_dividends_add = 0.04
+	}
+	# Consumption tax supplement, not a per-capita levy. Match the vanilla
+	# consumption-tax proportions (0.15/0.20/0.25/0.30/0.35), with 0.15 at medium.
+	tax_modifier_very_low = { tax_consumption_add = 0.09 }
+	tax_modifier_low = { tax_consumption_add = 0.12 }
+	tax_modifier_medium = { tax_consumption_add = 0.15 }
+	tax_modifier_high = { tax_consumption_add = 0.18 }
+	tax_modifier_very_high = { tax_consumption_add = 0.21 }
+	possible = { always = yes }
+	would_sponsor = { always = no }
+	on_activate = {
+		add_radicals = { pop_type = capitalists value = 0.10 }
+		add_radicals = { pop_type = aristocrats value = 0.10 }
+	}
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.5
+}

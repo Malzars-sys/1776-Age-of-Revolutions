@@ -1451,7 +1451,7 @@ NPops = {
 	OBSESSION_POP_NEED_EXPENSE_MULT = 0.25		# Total spent on pop needs including obsessions is changed by this (scaled by number of obsessions, money is given or taken from other needs)
 	TABOO_POP_NEED_EXPENSE_MULT = -0.25			# Total spent on pop needs including taboos is changed by this (scaled by number of taboos, money is given or taken from other needs)
 
-	WORKING_ADULT_RATIO_BASE = 0.25				# Base ratio of working adults to dependents, this can be overridden by pop type definition and country modifiers.
+	WORKING_ADULT_RATIO_BASE = 0.30				# Base ratio of working adults to dependents, this can be overridden by pop type definition and country modifiers.
 	WORKING_ADULT_RATIO_SKEW_MAXIMUM = 2.0		# When the ratio of working adults to dependents is skewed, it tends to correct itself, this value clamps the maximum effect of this
 	DEPENDENT_CONSUMPTION_RATIO = 0.5			# Dependents consume this multiple of Needs compared to Working Adults
 
@@ -1679,10 +1679,10 @@ NPops = {
 
 ### Pop Growth Constants
 ## Base Values per month
-@min_birthrate = 0.00060			# Minimum base birthrate per month (at POP_GROWTH_STABLE_SOL)
-@max_birthrate = 0.00450			# Maximum base birthrate per month (at SOL = 0)
-@min_mortality = 0.00045			# Minimum base mortality per month (at POP_GROWTH_STABLE_SOL)
-@max_mortality = 0.00550			# Maximum base mortality per month (at SOL = 0)
+@min_birthrate = 0.00110			# Higher gross births at high SoL; keep net growth near the old baseline.
+@max_birthrate = 0.00510			# High pre-transition birthrate.
+@min_mortality = 0.00095			# Higher gross mortality leaves room for medical advances.
+@max_mortality = 0.00620			# High mortality in severe poverty.
 
 ## SoL Thresholds
 @pop_growth_equilibrium_sol = 5		# Equilibrium is pops stop starving and where growth first becomes positive
@@ -1692,7 +1692,7 @@ NPops = {
 
 ## Others
 @transition_birthrate_mult = 1 		# If you want the birthrate "lag" to go to a higher or lower value than max_birthrate. (you can also just change it directly below)
-@max_growth_mortality_mult = 0.35	# What proportion of birthrate_at_growth_max mortality should be at. Higher means lower growth
+@max_growth_mortality_mult = 0.50	# Higher mortality at peak growth balances the increased birthrate.
 
 ### Pop Growth Derived values
 # Generally, for each one of these derived values below we're really just doing one of three operations (or combination of them):

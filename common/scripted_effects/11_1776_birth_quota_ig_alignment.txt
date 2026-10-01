@@ -1,0 +1,35 @@
+﻿# Keep the quota stance independent of the technology that unlocks the law.
+# Re-run on monthly pulses so existing saves and newly formed IGs are repaired.
+align_birth_quota_interest_groups = {
+	every_interest_group = {
+		# Clear the obsolete pro-quota IG ideology from older saves.
+		if = {
+			limit = { has_ideology = ideology:ideology_birth_quota_ig_support }
+			remove_ideology = ideology_birth_quota_ig_support
+		}
+		if = {
+			limit = {
+				OR = {
+					is_interest_group_type = ig_devout
+					is_interest_group_type = ig_armed_forces
+					AND = {
+						is_interest_group_type = ig_intelligentsia
+						owner = { has_variable = birth_quota_journal_victory }
+					}
+					AND = {
+						is_interest_group_type = ig_intelligentsia
+						leader = { has_ideology = ideology:ideology_utilitarian_leader }
+					}
+				}
+			}
+			if = {
+				limit = { has_ideology = ideology:ideology_birth_quota_ig_opposition }
+				remove_ideology = ideology_birth_quota_ig_opposition
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_ideology = ideology:ideology_birth_quota_ig_opposition } }
+			add_ideology = ideology_birth_quota_ig_opposition
+		}
+	}
+}

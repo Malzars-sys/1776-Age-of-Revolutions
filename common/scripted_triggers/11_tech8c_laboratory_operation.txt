@@ -1,0 +1,72 @@
+# Building scope. General early-tier laboratories do not need organized data.
+laboratory_1776_uses_organized_data = {
+	OR = {
+		has_active_production_method = pm_1776_advanced_research_laboratory
+		has_active_production_method = pm_1776_production_research
+		has_active_production_method = pm_1776_military_research
+		has_active_production_method = pm_1776_society_research
+	}
+}
+
+laboratory_1776_data_shortage_critical = {
+	OR = {
+		market = {
+			mg:raw_industrial_data = {
+				market_goods_sell_orders < laboratory_1776_raw_critical_threshold
+			}
+		}
+		AND = {
+			laboratory_1776_uses_organized_data = yes
+			market = {
+				mg:organized_research_data = {
+					market_goods_sell_orders < laboratory_1776_organized_critical_threshold
+				}
+			}
+		}
+	}
+}
+
+laboratory_1776_data_shortage_severe = {
+	OR = {
+		market = {
+			mg:raw_industrial_data = {
+				market_goods_sell_orders < laboratory_1776_raw_severe_threshold
+			}
+		}
+		AND = {
+			laboratory_1776_uses_organized_data = yes
+			market = {
+				mg:organized_research_data = {
+					market_goods_sell_orders < laboratory_1776_organized_severe_threshold
+				}
+			}
+		}
+		state = {
+			OR = {
+				sg:raw_industrial_data = { state_goods_has_local_goods_shortage = yes }
+				AND = {
+					b:building_research_laboratory = { laboratory_1776_uses_organized_data = yes }
+					sg:organized_research_data = { state_goods_has_local_goods_shortage = yes }
+				}
+			}
+		}
+	}
+}
+
+laboratory_1776_data_shortage_warning = {
+	OR = {
+		market = {
+			mg:raw_industrial_data = {
+				market_goods_sell_orders < laboratory_1776_raw_warning_threshold
+			}
+		}
+		AND = {
+			laboratory_1776_uses_organized_data = yes
+			market = {
+				mg:organized_research_data = {
+					market_goods_sell_orders < laboratory_1776_organized_warning_threshold
+				}
+			}
+		}
+	}
+}

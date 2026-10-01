@@ -1,0 +1,155 @@
+﻿# Child actions compose with the existing engine actions. A second effect on
+# the parent would replace the original effect rather than extend it.
+on_game_started = {
+	on_actions = { birth_quota_initialize_igs }
+}
+
+birth_quota_initialize_igs = {
+	effect = {
+		every_country = {
+			align_birth_quota_interest_groups = yes
+			ensure_birth_quota_trial = yes
+			refresh_birth_quota_demography = yes
+		}
+	}
+}
+
+# An Intelligentsia leader with utilitarian views changes the group's stance
+# immediately, without waiting for the next monthly pulse.
+on_new_interest_group_leader = {
+	on_actions = { birth_quota_new_ig_leader }
+}
+
+# Ensure a natalist movement exists when a utilitarian agitator is hired.
+# Character affiliation is then selected by the engine from support weights.
+on_character_recruitment = {
+	on_actions = { birth_quota_recruit_utilitarian }
+}
+
+birth_quota_recruit_utilitarian = {
+	effect = {
+		if = {
+			limit = {
+				has_role_of_type = agitator
+				has_ideology = ideology:ideology_utilitarian_leader
+			}
+			owner = {
+				if = {
+					limit = {
+						has_technology_researched = mass_propaganda
+						NOT = { has_law = law_type:law_birth_quotas }
+						NOT = {
+							any_political_movement = {
+								is_political_movement_type = movement_natalist
+							}
+						}
+					}
+					create_political_movement = { type = movement_natalist }
+				}
+			}
+		}
+	}
+}
+
+# Root is a diplomatic play; the launcher receives the infamy reduction once.
+on_diplomatic_play_started = {
+	on_actions = { birth_quota_intervention_play_started }
+}
+
+birth_quota_intervention_play_started = {
+	effect = {
+		if = {
+			limit = { is_diplomatic_play_type = dp_end_birth_quotas }
+			scope:initiator = { change_infamy = -10 }
+		}
+		else_if = {
+			limit = { is_diplomatic_play_type = dp_ban_slavery }
+			scope:initiator = { change_infamy = -12 }
+		}
+	}
+}
+
+birth_quota_new_ig_leader = {
+	effect = {
+		owner ?= {
+			align_birth_quota_interest_groups = yes
+		}
+	}
+}
+
+on_monthly_pulse_country = {
+	on_actions = { birth_quota_monthly_pulse }
+}
+
+birth_quota_monthly_pulse = {
+	effect = {
+		align_birth_quota_interest_groups = yes
+		ensure_birth_quota_trial = yes
+		refresh_birth_quota_demography = yes
+	}
+	random_events = {
+		chance_to_happen = 12
+		10 = birth_quota_events.5
+		10 = birth_quota_events.6
+		10 = birth_quota_events.7
+		20 = birth_quota_events.15
+	}
+}
+
+# Jacques Bertillon becomes available only after his historical natalist
+# organizing date, and only if France has developed mass propaganda.
+on_yearly_pulse_country = {
+	on_actions = { birth_quota_yearly_pulse }
+}
+
+birth_quota_yearly_pulse = {
+	effect = {
+		if = {
+			limit = {
+				c:FRA ?= this
+				game_date > 1895.12.31
+				game_date < 1922.7.4
+				has_technology_researched = mass_propaganda
+				empty_agitator_slots >= 1
+				NOT = { has_variable = birth_quota_bertillon_spawned }
+				NOT = { has_law_or_variant = law_type:law_birth_quotas }
+			}
+			trigger_event = { id = birth_quota_agitators.1 days = 1 }
+		}
+	}
+}
+
+# Recalculate the counterweight after a law change. It applies only after
+# victory in the quota journal and is removed if the quota law is replaced.
+on_law_activated = {
+	on_actions = { birth_quota_law_activated }
+}
+
+birth_quota_law_activated = {
+	effect = {
+		owner = {
+			refresh_birth_quota_demography = yes
+		}
+	}
+}
+
+on_law_enactment_started = {
+	on_actions = { birth_quota_enactment_started }
+}
+
+birth_quota_enactment_started = {
+	effect = {
+		if = {
+			limit = { is_enacting_law = law_type:law_birth_quotas }
+			trigger_event = { id = birth_quota_events.1 days = 1 }
+		}
+	}
+}
+
+on_law_checkpoint_debate = {
+	random_events = { 10 = birth_quota_events.2 }
+}
+
+on_law_checkpoint_stall = {
+	random_events = { 10 = birth_quota_events.3 }
+}
