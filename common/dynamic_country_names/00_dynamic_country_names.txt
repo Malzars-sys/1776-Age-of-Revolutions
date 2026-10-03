@@ -4516,8 +4516,8 @@ AFG = {
 
 GEO = {
 	dynamic_country_name = {
-		name = dyn_c_kartli_kakheti
-		adjective = dyn_c_kartli_kakheti_adj
+		name = aor1776_kartli_kakheti_kingdom
+		adjective = aor1776_kartli_kakheti_kingdom_adj
 
 		is_main_tag_only = yes
 		priority = 1
@@ -4525,7 +4525,8 @@ GEO = {
 		trigger = {
 			exists = scope:actor
 			scope:actor ?= {
-				is_country_type = unrecognized
+				# Historical monarchy name also applies to recognized GEO in 1776.
+				has_law = law_type:law_monarchy
 				NOT = {
 					has_technology_researched = nationalism
 				}

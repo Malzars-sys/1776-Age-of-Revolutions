@@ -1,0 +1,28 @@
+# Erekle II of the Bagrationi dynasty, King of Kartli-Kakheti (1762-1798).
+# Birth and reign: https://georgianencyclopedia.ge/en/form_eng/768
+# Gameplay profile inferred from pre-1776 conduct, not historical party membership.
+# Sources and limits: docs/reports/map/MAP_REWORK_D909641_FIX_2026-10-03.md
+# No invented portrait DNA or additional military roles.
+CHARACTERS = {
+	c:GEO ?= {
+		create_character = {
+			first_name = aor1776_erekle_ii_first_name
+			last_name = aor1776_bagrationi_last_name
+			historical = yes
+			culture = cu:georgian
+			religion = rel:orthodox
+			ruler = yes
+			birth_date = 1720.11.7
+			# Warrior king and royal military reformer, rather than noble privilege.
+			interest_group = ig_armed_forces
+			# Explicit historical profile; the random-generation tech gate is not a grant.
+			ideology = ideology_modernizer_leader
+			traits = {
+				# Personal fighting at Aspindza (1770), including the reported duel.
+				brave
+				# Administrative/economic reforms and novel military organization.
+				innovative
+			}
+		}
+	}
+}

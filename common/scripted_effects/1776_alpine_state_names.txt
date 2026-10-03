@@ -1,0 +1,41 @@
+# State scope. Name the Austrian/Venetian portions, not the whole state region.
+# Vanilla naming remains responsible for hubs and any other owner.
+# Once a region is reunified, keep the vanilla name instead of a partial-state name.
+assign_1776_alpine_split_state_name = {
+	if = {
+		limit = { is_split_state = yes }
+		if = {
+			limit = { state_region = s:STATE_LOMBARDY }
+			if = {
+				limit = { owner = { c:AUS ?= this } }
+				set_state_name = aor1776_state_duchy_of_milan
+			}
+			else_if = {
+				limit = { owner = { c:VEN ?= this } }
+				set_state_name = aor1776_state_bergamo_brescia
+			}
+		}
+		else_if = {
+			limit = { state_region = s:STATE_SOUTH_TYROL }
+			if = {
+				limit = { owner = { c:AUS ?= this } }
+				set_state_name = aor1776_state_trent
+			}
+			else_if = {
+				limit = { owner = { c:VEN ?= this } }
+				set_state_name = aor1776_state_venetian_tyrol
+			}
+		}
+		else_if = {
+			limit = { state_region = s:STATE_ISTRIA }
+			if = {
+				limit = { owner = { c:AUS ?= this } }
+				set_state_name = aor1776_state_trieste
+			}
+			else_if = {
+				limit = { owner = { c:VEN ?= this } }
+				set_state_name = aor1776_state_venetian_istria
+			}
+		}
+	}
+}

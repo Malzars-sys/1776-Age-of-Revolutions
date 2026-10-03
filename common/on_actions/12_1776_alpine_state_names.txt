@@ -1,0 +1,26 @@
+# Child actions run after the parent effect; do not replace vanilla naming.
+on_game_started = { on_actions = { aor1776_alpine_names_initialize } }
+on_game_started_after_lobby = { on_actions = { aor1776_alpine_names_initialize } }
+on_state_created = { on_actions = { aor1776_alpine_state_name_changed } }
+on_state_owner_change = { on_actions = { aor1776_alpine_state_name_changed } }
+on_become_subject = { on_actions = { aor1776_alpine_country_names_changed } }
+on_become_independent = { on_actions = { aor1776_alpine_country_names_changed } }
+
+# Global scope, after bookmark initialization and after the lobby naming reset.
+aor1776_alpine_names_initialize = {
+	effect = {
+		every_state = { assign_1776_alpine_split_state_name = yes }
+	}
+}
+
+# State scope, after vanilla has named the new owner/state.
+aor1776_alpine_state_name_changed = {
+	effect = { assign_1776_alpine_split_state_name = yes }
+}
+
+# Country scope, after vanilla has refreshed this country's states.
+aor1776_alpine_country_names_changed = {
+	effect = {
+		every_scope_state = { assign_1776_alpine_split_state_name = yes }
+	}
+}

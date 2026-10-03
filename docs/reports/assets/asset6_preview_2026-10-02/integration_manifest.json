@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-03",
+  "mode": "BUILTIN_IMAGE_GEN",
+  "approval": {
+    "approved": true,
+    "user_request": "tu peut integré le rest",
+    "clarification": "je parle de la rafinierie",
+    "additional_requested_edit": "etre aussi transparent le noir autour du feu",
+    "refinery": {
+      "approved": true,
+      "date": "2026-10-03",
+      "user_request": "Hop, c'est mieux, tu peux l'intégrer.",
+      "validated_source": "previews/oil_refinery_v3_foreground_contrast.png",
+      "opacity_note_accepted": true
+    }
+  },
+  "status": "SIX_ICONS_INTEGRATED_AND_STATICALLY_VALIDATED",
+  "protected_baseline": "refinery_integration_gameplay_and_gfx_baseline.json",
+  "definition_baseline": {
+    "common/goods/12_tech6c4_petroleum_products.txt": {
+      "sha256": "b274ead2724fca5ef532e2dc587d6756f8fccf9f9d97f3dfd6438af664cd4345",
+      "text": "refined_fuels = {\r\n\ttexture = \"gfx/interface/icons/goods_icons/1776_refined_fuels.dds\"\r\n\tcost = 60\r\n\tcategory = industrial\r\n\ttradeable = yes\r\n\r\n\tprestige_factor = 5\r\n\ttraded_quantity = 5\r\n\tconvoy_cost_multiplier = 0.5\r\n}\r\n\r\nlubricants = {\r\n\ttexture = \"gfx/interface/icons/goods_icons/1776_lubricants.dds\"\r\n\tcost = 50\r\n\tcategory = industrial\r\n\ttradeable = yes\r\n\r\n\tprestige_factor = 4\r\n\ttraded_quantity = 5\r\n\tconvoy_cost_multiplier = 0.5\r\n}\r\n\r\nheavy_petroleum_products = {\r\n\ttexture = \"gfx/interface/icons/goods_icons/1776_heavy_petroleum_products.dds\"\r\n\tcost = 30\r\n\tcategory = industrial\r\n\ttradeable = yes\r\n\r\n\tprestige_factor = 3\r\n\ttraded_quantity = 10\r\n\tconvoy_cost_multiplier = 0.5\r\n}\r\n"
+    },
+    "common/production_methods/12_tech6c4_oil_refinery_production.txt": {
+      "sha256": "8e1e2e697af1235a2567d32f420fc6d2035ceb2ac2e79d022d90a46f6854c58e",
+      "text": "pm_fractional_distillation_refinery = {\r\n\ttexture = \"gfx/interface/icons/production_method_icons/1776_fractional_distillation_refinery.dds\"\r\n\r\n\tunlocking_technologies = {\r\n\t\tfractional_distillation\r\n\t}\r\n\t\r\n\tstate_modifiers = {\r\n    \t\tworkforce_scaled = {\r\n        \tstate_pollution_generation_add = 20\r\n    \t\t}\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\r\n\t\t\t# Inputs\r\n\t\t\tgoods_input_oil_add = 30\r\n\t\t\tgoods_input_coal_add = 5\r\n\t\t\tgoods_input_tools_add = 5\r\n\r\n\t\t\t# Outputs\r\n\t\t\tgoods_output_refined_fuels_add = 22\r\n\t\t\tgoods_output_lubricants_add = 6\r\n\t\t\tgoods_output_heavy_petroleum_products_add = 16\r\n\t\t}\r\n\t\t\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_shopkeepers_add = 500\r\n\t\t\tbuilding_employment_laborers_add = 2500\r\n\t\t\tbuilding_employment_machinists_add = 1500\r\n\t\t\tbuilding_employment_engineers_add = 500\r\n\t\t}\r\n\t}\r\n}\r\n"
+    },
+    "common/production_methods/18_tech6d_wave_b_production.txt": {
+      "sha256": "9cc72dfdefcf95346bd2e1e5db01f1af7ccbb58ca31150b514e78e97d9f8a4fc",
+      "text": "# TECH6D — Wave B production methods\n\npm_pressed_glass = {\n\ttexture = \"gfx/error_deer.dds\"\n\n\tstate_modifiers = {\n\t\tworkforce_scaled = {\n\t\t\tstate_pollution_generation_add = 12\n\t\t}\n\t}\n\n\tunlocking_technologies = {\n\t\tpressed_glass\n\t}\n\n\tbuilding_modifiers = {\n\t\tworkforce_scaled = {\n\t\t\t# inputs\n\t\t\tgoods_input_coal_add = 10\n\t\t\tgoods_input_lead_add = 15\n\t\t\tgoods_input_limestone_add = 15\n\t\t\tgoods_input_industrial_chemicals_add = 10\n\t\t\tgoods_input_tools_add = 5\n\n\t\t\t# output\n\t\t\tgoods_output_glass_add = 80\n\t\t}\n\n\t\tlevel_scaled = {\n\t\t\tbuilding_employment_shopkeepers_add = 500\n\t\t\tbuilding_employment_laborers_add = 2750\n\t\t\tbuilding_employment_machinists_add = 1250\n\t\t\tbuilding_employment_engineers_add = 500\n\t\t}\n\t}\n}\n\n\npm_thermal_catalytic_cracking_refinery = {\n\ttexture = \"gfx/interface/icons/production_method_icons/1776_thermal_catalytic_cracking_refinery.dds\"\n\n\tstate_modifiers = {\n\t\tworkforce_scaled = {\n\t\t\tstate_pollution_generation_add = 20\n\t\t}\n\t}\n\n\tunlocking_technologies = {\n\t\tplastics\n\t}\n\n\tbuilding_modifiers = {\n\t\tworkforce_scaled = {\n\t\t\t# inputs\n\t\t\tgoods_input_oil_add = 30\n\t\t\tgoods_input_industrial_chemicals_add = 10\n\t\t\tgoods_input_electricity_add = 5\n\n\t\t\t# outputs\n\t\t\tgoods_output_refined_fuels_add = 30\n\t\t\tgoods_output_lubricants_add = 6\n\t\t\tgoods_output_heavy_petroleum_products_add = 10\n\t\t}\n\n\t\tlevel_scaled = {\n\t\t\tbuilding_employment_shopkeepers_add = 500\n\t\t\tbuilding_employment_laborers_add = 2000\n\t\t\tbuilding_employment_machinists_add = 1500\n\t\t\tbuilding_employment_engineers_add = 1000\n\t\t}\n\t}\n\n\trequired_input_goods = electricity\n}\n\n\npm_no_mine_ventilation = {\n\ttexture = \"gfx/error_deer.dds\"\n}\n\n\npm_steam_mine_ventilation = {\n\ttexture = \"gfx/error_deer.dds\"\n\n\tunlocking_technologies = {\n\t\tdeep_mine_engineering\n\t}\n\n\tbuilding_modifiers = {\n\t\tworkforce_scaled = {\n\t\t\tgoods_input_engines_add = 2\n\t\t\tgoods_input_coal_add = 5\n\t\t}\n\n\t\tlevel_scaled = {\n\t\t\tbuilding_employment_laborers_add = -250\n\t\t\tbuilding_employment_machinists_add = 200\n\t\t\tbuilding_employment_engineers_add = 50\n\t\t}\n\n\t\tunscaled = {\n\t\t\tbuilding_laborers_mortality_mult = -0.10\n\t\t\tbuilding_machinists_mortality_mult = -0.05\n\t\t\tbuilding_engineers_mortality_mult = -0.05\n\t\t}\n\t}\n}\n\n\npm_electric_mine_ventilation = {\n\ttexture = \"gfx/error_deer.dds\"\n\n\tunlocking_technologies = {\n\t\telectrical_capacitors\n\t}\n\n\tbuilding_modifiers = {\n\t\tworkforce_scaled = {\n\t\t\tgoods_input_engines_add = 2\n\t\t\tgoods_input_electricity_add = 5\n\t\t}\n\n\t\tlevel_scaled = {\n\t\t\tbuilding_employment_laborers_add = -500\n\t\t\tbuilding_employment_machinists_add = 350\n\t\t\tbuilding_employment_engineers_add = 150\n\t\t}\n\n\t\tunscaled = {\n\t\t\tbuilding_laborers_mortality_mult = -0.20\n\t\t\tbuilding_machinists_mortality_mult = -0.10\n\t\t\tbuilding_engineers_mortality_mult = -0.10\n\t\t}\n\t}\n\n\trequired_input_goods = electricity\n}\n"
+    },
+    "common/buildings/12_tech6c4_oil_refinery.txt": {
+      "sha256": "440ea8b449a0b9fcf57383d30690af9f24e5f9b58a031ef0c34d210e9fef935e",
+      "text": "building_oil_refinery = {\r\n\tbuilding_group = bg_heavy_industry\r\n\r\n\ticon = \"gfx/error_deer.dds\" # TEMP_ASSET\r\n\r\n\tcity_type = city\r\n\tlevels_per_mesh = 50\r\n\r\n\tunlocking_technologies = {\r\n\t\tfractional_distillation\r\n\t}\r\n\r\n\tproduction_method_groups = {\r\n\t\tpmg_base_building_oil_refinery\r\n\t\tpmg_1776_heavy_data_reporting\r\n\t}\r\n\r\n\trequired_construction = construction_cost_very_high\r\n\r\n\tpossible = {\r\n\t\towner = {\r\n\t\t\tNOT = {\r\n\t\t\t\tOR = {\r\n\t\t\t\t\thas_law_or_variant = law_type:law_industry_banned\r\n\t\t\t\t\thas_law_or_variant = law_type:law_extraction_economy\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\townership_type = self\r\n\r\n\tbackground = \"gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds\"\r\n}\r\n"
+    }
+  },
+  "entries": [
+    {
+      "key": "refined_fuels",
+      "id": "refined_fuels",
+      "family": "GOOD",
+      "label": "Carburants raffinés",
+      "definition": "common/goods/12_tech6c4_petroleum_products.txt",
+      "field": "texture",
+      "previous_texture": "gfx/error_deer.dds",
+      "preview": "previews/refined_fuels.png",
+      "source_sha256": "3dff60dfab65db6eded2a4661049efa0131d0dc51d9c066de45f68f1dd3c51bb",
+      "dds": "gfx/interface/icons/goods_icons/1776_refined_fuels.dds",
+      "size": 256,
+      "mips": 9
+    },
+    {
+      "key": "lubricants",
+      "id": "lubricants",
+      "family": "GOOD",
+      "label": "Lubrifiants",
+      "definition": "common/goods/12_tech6c4_petroleum_products.txt",
+      "field": "texture",
+      "previous_texture": "gfx/error_deer.dds",
+      "preview": "previews/lubricants.png",
+      "source_sha256": "87456f821629d44801223bbe001fe19fbd168980179f53e7b4eb69cc4ce6dab7",
+      "dds": "gfx/interface/icons/goods_icons/1776_lubricants.dds",
+      "size": 256,
+      "mips": 9
+    },
+    {
+      "key": "heavy_petroleum_products",
+      "id": "heavy_petroleum_products",
+      "family": "GOOD",
+      "label": "Produits pétroliers lourds",
+      "definition": "common/goods/12_tech6c4_petroleum_products.txt",
+      "field": "texture",
+      "previous_texture": "gfx/error_deer.dds",
+      "preview": "previews/heavy_petroleum_products.png",
+      "source_sha256": "18efe8127e0a7c71f484172975925c2488936e781e86c3084f3f6a4907587154",
+      "dds": "gfx/interface/icons/goods_icons/1776_heavy_petroleum_products.dds",
+      "size": 256,
+      "mips": 9
+    },
+    {
+      "key": "fractional_distillation_refinery",
+      "id": "pm_fractional_distillation_refinery",
+      "family": "PM",
+      "label": "Distillation fractionnée",
+      "definition": "common/production_methods/12_tech6c4_oil_refinery_production.txt",
+      "field": "texture",
+      "previous_texture": "gfx/interface/icons/production_method_icons/patent_stills.dds",
+      "preview": "previews/fractional_distillation_refinery.png",
+      "source_sha256": "117baf10110dbf578eff78e74e0672336538a677a532cd6fa19ea692f20320a6",
+      "dds": "gfx/interface/icons/production_method_icons/1776_fractional_distillation_refinery.dds",
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "thermal_catalytic_cracking_refinery",
+      "id": "pm_thermal_catalytic_cracking_refinery",
+      "family": "PM",
+      "label": "Craquage thermique et catalytique",
+      "definition": "common/production_methods/18_tech6d_wave_b_production.txt",
+      "field": "texture",
+      "previous_texture": "gfx/error_deer.dds",
+      "preview": "previews/thermal_catalytic_cracking_refinery_v2_open_fire.png",
+      "source_sha256": "070daf43d234ef159771379768abfc579fc0eb23a73237b64b6d8416250af12f",
+      "dds": "gfx/interface/icons/production_method_icons/1776_thermal_catalytic_cracking_refinery.dds",
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "oil_refinery",
+      "id": "building_oil_refinery",
+      "family": "BUILDING",
+      "label": "Raffinerie de pétrole",
+      "definition": "common/buildings/12_tech6c4_oil_refinery.txt",
+      "field": "icon",
+      "previous_texture": "gfx/error_deer.dds",
+      "preview": "previews/oil_refinery_v3_foreground_contrast.png",
+      "source_sha256": "e013854bd8a34f63779071c9a46f123c775abb93f4133856fa4657a8f16c1972",
+      "dds": "gfx/interface/icons/building_icons/1776_oil_refinery.dds",
+      "size": 256,
+      "mips": 9,
+      "opacity_note_accepted": true
+    }
+  ],
+  "technical_warning": "Source alpha is preserved, including the refinery's noted slight interior translucency (minimum 250/255 in the master), explicitly accepted with approval of the displayed version. No automatic recoloring or alpha correction.",
+  "stage_allowed_changed": [
+    "common/buildings/12_tech6c4_oil_refinery.txt"
+  ]
+}
