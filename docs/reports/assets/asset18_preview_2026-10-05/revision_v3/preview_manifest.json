@@ -1,0 +1,181 @@
+{
+  "batch": 15,
+  "date": "2026-10-05",
+  "canvas_padding": 160,
+  "mode": "BUILTIN_IMAGE_GEN",
+  "status": "GENERATED_AWAITING_USER_APPROVAL",
+  "integrated": false,
+  "user_approved": false,
+  "approval_required_before_integration": true,
+  "game_tested": false,
+  "protected_baseline": "gameplay_and_gfx_baseline.json",
+  "style_references": [
+    "docs/reports/assets/asset18_preview_2026-10-05/references/vanilla_mechanical_tools.png",
+    "docs/reports/assets/asset18_preview_2026-10-05/references/vanilla_crystal_glass.png",
+    "docs/reports/assets/asset18_preview_2026-10-05/references/vanilla_chemical_bleaching.png"
+  ],
+  "style_reference_labels": [
+    "Vanilla : outils mécaniques",
+    "Vanilla : verre de cristal",
+    "Vanilla : blanchiment chimique"
+  ],
+  "historical_references": "../revision_v2/historical_references_v2.json",
+  "excluded": [
+    "copper production chain",
+    "all seven existing laboratory PM icons",
+    "gameplay, costs and unlocks",
+    "previously approved assets"
+  ],
+  "future_export_layout": "BGRA8 legacy A8R8G8B8, 256 square, 9 mip levels; only after approval",
+  "entries": [
+    {
+      "key": "interchangeable_manufacture",
+      "label_fr": "Pièces interchangeables",
+      "subject": "Two matching screws viewed from their shank side, with slotted back faces hidden; two matching spur gears unchanged.",
+      "prompt": "Use case: precise-object-edit.\nAsset type: transparent hand-painted TECHNOLOGY icon for Victoria 3.\nInput images: Image 1 is the edit target, containing two matching screws and two matching spur gear wheels.\nPrimary request: correct ONLY the physically impossible head perspective on BOTH screws. Their threaded tips point diagonally toward the viewer at lower-right; their thick cylindrical heads are farther away at upper-left. Therefore the slotted screwdriver face is on the FAR BACK side of each head, facing AWAY from the viewer, and must be FULLY HIDDEN.\nShow the NEAR-FACING UNDERSIDE of each screw head: a continuous plain annular metal shoulder surrounding the central shank that emerges from it toward the viewer. The shaft and threaded tip remain in their original lower-right direction. Render the head's thickness as a rounded cylindrical rim behind that shoulder, with perspective consistent with the shaft axis. The visible underside is unbroken metal: NO screwdriver slot, groove, cut, cross, socket, hole through the shoulder, or notch. The hidden top face still belongs on the opposite end; do not put the slot on the side wall or threaded tip. This is NOT a screw viewed from its screwdriver side and NOT merely a slot erased on the wrong-facing top face.\nPreserve BOTH gear wheels, their silhouettes, teeth, spokes, central bores, relative positions, scale and overlaps. Preserve the two screws' positions, matching dimensions, shafts and threads. Keep the same compact overall composition, natural warm-neutral iron finish, painted grain and soft upper-left lighting. Change only the small head/shoulder areas as needed to make the geometry coherent; do not redesign the group.\nGenuine transparent alpha around the group and through gear openings; square canvas at least 1024 pixels. No background, floor, ground shadow, frame, medallion, text, new props, blue/teal tint or sepia filter. Whole group intact and readable at 48/64 pixels.",
+      "id": "interchangeable_manufacture",
+      "era": "era_6",
+      "family": "TECH",
+      "definition": "common/technology/technologies/10_tech3a_production.txt",
+      "field": "texture",
+      "current_texture": "gfx/error_manul.dds",
+      "target_dds": "gfx/interface/icons/invention_icons/1776_interchangeable_manufacture.dds",
+      "preview": "previews/interchangeable_manufacture_padded.png",
+      "generated_source": "previews/interchangeable_manufacture_v3.png",
+      "target_size": 256,
+      "mips": 9,
+      "edit_target": "docs/reports/assets/asset18_preview_2026-10-05/revision_v2/previews/interchangeable_manufacture_v2.png"
+    },
+    {
+      "key": "pressed_glass",
+      "label_fr": "Verre pressé",
+      "subject": "Manual lever press, aligned plunger and glass mold, without separate finished tumbler.",
+      "prompt": "Use case: precise-object-edit.\nAsset type: transparent TECHNOLOGY invention icon for Victoria 3, not a building icon or a flat production-method pictogram.\nInput images: Image 1 is the existing icon to edit; preserve its hand-painted volumetric style, viewpoint, material palette and lighting.\nBackground: genuine transparent alpha around the object and through exterior openings. Preserve transparency, no black or checkerboard painted background, floor, ground shadow, building scene, frame, medallion or text.\nNatural warm-neutral material colors, no blue/teal cast, no sepia overlay. Compact silhouette, whole subject intact, generous transparent margins, square canvas at least 1024 pixels; readable at 48/64 pixels.\nPrimary request: remove ONLY the finished clear fluted drinking tumbler at the FRONT-RIGHT of the pressed-glass icon. The remaining manual press alone represents the TECHNOLOGY, without a finished product placed in front like a building thumbnail.\nPreserve the entire existing cast-iron lever press: the lever and its visible pivot, top bridge, both posts, connecting base, vertical plunger, ribbed cup mold and small orange hot-glass charge INSIDE the mold. Keep the same plunger/mold alignment, shape, perspective, proportions, natural grey iron patina and upper-left highlights. Do NOT remove the hot glass inside the mold.\nWhere the separate tumbler was, restore genuine transparent exterior; if it occludes a small portion of the press base or right post, continue only that existing structure naturally. No new accessory, finished glass, scenery, pedestal, labels or building. Change no other object.",
+      "id": "pressed_glass",
+      "era": "era_6",
+      "family": "TECH",
+      "definition": "common/technology/technologies/10_tech3a_production.txt",
+      "field": "texture",
+      "current_texture": "gfx/error_manul.dds",
+      "target_dds": "gfx/interface/icons/invention_icons/1776_pressed_glass.dds",
+      "preview": "../revision_v2/previews/pressed_glass_padded.png",
+      "generated_source": "../revision_v2/previews/pressed_glass_v2.png",
+      "target_size": 256,
+      "mips": 9,
+      "edit_target": "docs/reports/assets/asset18_preview_2026-10-05/previews/pressed_glass.png",
+      "retained_sha256": "cc4a23ca1c2066f5a550e242a3b08dee174535a287242eb35823d7ec7b6a75c3",
+      "retained_from_revision": 2,
+      "regenerated": false
+    },
+    {
+      "key": "industrial_paper_bleaching",
+      "label_fr": "Blanchiment papetier industriel",
+      "subject": "Open bleaching vat and connected paddle agitator, without separate paper stack.",
+      "prompt": "Use case: precise-object-edit.\nAsset type: transparent TECHNOLOGY invention icon for Victoria 3, not a building icon or a flat production-method pictogram.\nInput images: Image 1 is the existing icon to edit; preserve its hand-painted volumetric style, viewpoint, material palette and lighting.\nBackground: genuine transparent alpha around the object and through exterior openings. Preserve transparency, no black or checkerboard painted background, floor, ground shadow, building scene, frame, medallion or text.\nNatural warm-neutral material colors, no blue/teal cast, no sepia overlay. Compact silhouette, whole subject intact, generous transparent margins, square canvas at least 1024 pixels; readable at 48/64 pixels.\nPrimary request: remove ONLY the separate stack of white paper sheets at the FRONT-RIGHT of the paper-bleaching icon. The remaining open vat and its agitator alone represent the TECHNOLOGY, without a finished product placed in front like a building thumbnail.\nPreserve the entire existing squat warm-grey vat: thick rim, pale off-white fibrous pulp INSIDE it, three feet, wooden bridge supported on both rim edges, central shaft, connected iron crank and wood handle, two paddles submerged in the pulp, small ripples, and the closed outlet at front-left. Keep the same viewpoint, form, proportions, natural grey/wood/iron colors, matte painted texture and upper-left light. Do NOT remove or darken the pale pulp inside the vat.\nRestore genuine transparent exterior where the sheets were. Naturally reconstruct only the small portions of the existing vat wall and foot previously hidden by the paper, with coherent supports. No paper sheets, envelope, scroll, book, other product, accessory, floor, building or scenery. Change nothing else.",
+      "id": "industrial_paper_bleaching",
+      "era": "era_6",
+      "family": "TECH",
+      "definition": "common/technology/technologies/10_tech3a_production.txt",
+      "field": "texture",
+      "current_texture": "gfx/error_manul.dds",
+      "target_dds": "gfx/interface/icons/invention_icons/1776_industrial_paper_bleaching.dds",
+      "preview": "../revision_v2/previews/industrial_paper_bleaching_padded.png",
+      "generated_source": "../revision_v2/previews/industrial_paper_bleaching_v2.png",
+      "target_size": 256,
+      "mips": 9,
+      "edit_target": "docs/reports/assets/asset18_preview_2026-10-05/previews/industrial_paper_bleaching.png",
+      "retained_sha256": "d23a82e611cd54d23b91ab56f206b76ad43b1ac1a5c2ca853d18bf20d2e99d1d",
+      "retained_from_revision": 2,
+      "regenerated": false
+    }
+  ],
+  "revision": 3,
+  "parent_preview_pack": "docs/reports/assets/asset18_preview_2026-10-05/revision_v2",
+  "user_request": "Corriger la perspective des vis : les faces fendues sont tournées à l'opposé du spectateur et doivent être cachées.",
+  "edit_scope": [
+    "interchangeable_manufacture"
+  ],
+  "results": [
+    {
+      "key": "interchangeable_manufacture",
+      "source": "previews/interchangeable_manufacture_padded.png",
+      "sha256": "d2787117a023cad41e53e61af469111b3d3b8e8b93ed6c1f6dd862d1605024c4",
+      "dimensions": [
+        1574,
+        1574
+      ],
+      "transparent": 1673661,
+      "partial": 802696,
+      "opaque": 1119,
+      "bounds": [
+        185,
+        246,
+        1389,
+        1328
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "target_png": "target_size_png/interchangeable_manufacture.png",
+      "target_size": 256,
+      "dds_exported": false
+    },
+    {
+      "key": "pressed_glass",
+      "source": "../revision_v2/previews/pressed_glass_padded.png",
+      "sha256": "cc4a23ca1c2066f5a550e242a3b08dee174535a287242eb35823d7ec7b6a75c3",
+      "dimensions": [
+        1574,
+        1574
+      ],
+      "transparent": 1948988,
+      "partial": 527130,
+      "opaque": 1358,
+      "bounds": [
+        213,
+        193,
+        1360,
+        1381
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "target_png": "target_size_png/pressed_glass.png",
+      "target_size": 256,
+      "dds_exported": false
+    },
+    {
+      "key": "industrial_paper_bleaching",
+      "source": "../revision_v2/previews/industrial_paper_bleaching_padded.png",
+      "sha256": "d23a82e611cd54d23b91ab56f206b76ad43b1ac1a5c2ca853d18bf20d2e99d1d",
+      "dimensions": [
+        1574,
+        1574
+      ],
+      "transparent": 1625840,
+      "partial": 850945,
+      "opaque": 691,
+      "bounds": [
+        222,
+        239,
+        1351,
+        1334
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "target_png": "target_size_png/industrial_paper_bleaching.png",
+      "target_size": 256,
+      "dds_exported": false
+    }
+  ]
+}

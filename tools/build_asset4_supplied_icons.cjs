@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-// Format-only preparation: split supplied sheets and export PNG masters + RGBA8 DDS.
+// Format-only preparation; all DDS use native BGRA storage.
 // No recoloring, alpha guessing, background removal, or generated-art integration.
 "use strict";
 const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
+const { nativeIconDds } = require("./native_icon_dds.cjs");
 const sharp = require(require.resolve("sharp", {
   paths: [__dirname, path.resolve(path.dirname(process.execPath), "..")]
 }));
@@ -37,7 +38,8 @@ async function exportDds(master, size, output) {
     [76, 32], [80, 0x41], [88, 32], [92, 0xff], [96, 0xff00],
     [100, 0xff0000], [104, 0xff000000], [108, 0x401008]
   ]) header.writeUInt32LE(value, offset);
-  const dds = Buffer.concat([header, ...levels]);
+  const rawDds = Buffer.concat([header, ...levels]);
+  const dds = nativeIconDds(rawDds);
   const expectedMips = size === 208 ? 8 : 9;
   const expectedBytes = size === 208 ? 230828 : 349652;
   if (levels.length !== expectedMips || dds.length !== expectedBytes)

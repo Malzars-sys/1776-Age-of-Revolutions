@@ -1,0 +1,38 @@
+{
+  "status": "APPROVED_AND_INTEGRATED",
+  "date": "2026-10-05",
+  "revision": 2,
+  "user_approved": true,
+  "integrated": true,
+  "game_tested": false,
+  "boards_inspected": [
+    "LOT_14_APERCU.png",
+    "LOT_14_COMPARAISON_VANILLA.png",
+    "LOT_14_ALPHA_DAMIER.png"
+  ],
+  "native_references_compared": 3,
+  "reduced_sizes_inspected": [
+    32,
+    48,
+    64
+  ],
+  "entries": [
+    {
+      "key": "deep_mine_engineering",
+      "assessment": "Depth is now dominant: isolated tall rock cutaway, long lined shaft/ladder/rope and bucket low down; small surface hoist. Two clearly visible stacked gallery levels with paired supported openings. The cutaway distinguishes it from a simple pithead.",
+      "prompt_variation": "Prompt requested three gallery levels; output has two distinct horizontal levels and a deeper shaft-bottom space. Accepted for user review because the user's requirement is clearly visible depth, not a specified number of levels.",
+      "limitations": "At 32 px the bucket and ladder become small details; shaft/gallery mass is legible at 48/64. Conceptual cutaway, not a full landscape or scale reconstruction."
+    },
+    {
+      "key": "mine_safety_engineering",
+      "assessment": "Retained exactly, hash verified; no new generation or retouch."
+    },
+    {
+      "key": "hot_blast_smelting",
+      "assessment": "Solid iron chamber now visibly red/orange-hot over its broad front and lower side. Rivets and seams remain, inlet cooler and hot outlet grading to grey. Original hearth, supported chamber and integral chimney retained. Heat readable at 48/64.",
+      "limitations": "Incandescent chamber is a user-requested conceptual temperature cue, not a measured-temperature replica of the original first apparatus."
+    }
+  ],
+  "scope_proof": "integration_static_validation.json: three native BGRA8 DDS, nine mips each; all decoded colors and alpha match approved PNGs. Only three texture lines changed; 1240 other protected files unchanged. Sources, seven laboratory PM and copper untouched. Engine test not performed.",
+  "integrated_board_inspected": "LOT_14_DDS_INTEGRES_QA.png"
+}

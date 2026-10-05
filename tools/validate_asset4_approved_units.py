@@ -6,6 +6,7 @@ import struct
 import subprocess
 
 from PIL import Image
+from building_dds_compat import assert_export_layout, matches_export_hash
 from asset4_style_reference_audit import ROOT, TOKENS, catalog, field, pairs, parse
 
 
@@ -40,7 +41,8 @@ def main():
             assert hashlib.sha256(image.read_bytes()).hexdigest().upper() == item["sha256"]
             payload = (ROOT / item["target_dds"]).read_bytes()
             assert payload[:4] == b"DDS " and len(payload) == 1398228
-            assert hashlib.sha256(payload).hexdigest().upper() == item["export_sha256"]
+            assert_export_layout(payload, item["target_dds"])
+            assert matches_export_hash(payload, item["export_sha256"], item["target_dds"])
             assert struct.unpack_from("<II", payload, 12) == (512, 512)
             assert struct.unpack_from("<I", payload, 28)[0] == 10
             assert all(value == 255 for value in payload[131::4]), item["key"]

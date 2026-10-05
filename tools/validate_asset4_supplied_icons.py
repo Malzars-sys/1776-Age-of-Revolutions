@@ -8,6 +8,7 @@ import subprocess
 from PIL import Image
 
 from asset4_style_reference_audit import ROOT, TOKENS, field, pairs, parse
+from building_dds_compat import assert_export_layout
 
 
 def main():
@@ -18,6 +19,7 @@ def main():
         assert field(definitions[entry["id"]], entry["field"]) == entry["dds"], entry["id"]
         payload = (ROOT / entry["dds"]).read_bytes()
         assert payload[:4] == b"DDS "
+        assert_export_layout(payload, entry["dds"])
         height, width = struct.unpack_from("<II", payload, 12)
         mips = struct.unpack_from("<I", payload, 28)[0]
         assert (width, height) == (entry["size"], entry["size"])

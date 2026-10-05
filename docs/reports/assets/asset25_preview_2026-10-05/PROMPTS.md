@@ -1,0 +1,42 @@
+# Lot 22 — prompts exacts
+
+Génération avec l’outil intégré imagegen, un appel par icône. Pas de CLI/API. Aperçus uniquement, intégration sur approbation distincte.
+
+## Génie et pontons
+
+```text
+Use case: stylized-concept.
+Asset type: ONE original TECHNOLOGY invention icon for Victoria 3 / 1776 Age of Revolutions.
+Style/medium: native-compatible hand-painted volumetric illustration, broad readable masses, restrained matte fine grain. Soft upper-left illumination, slightly darker undersides, natural individually colored materials. Not a glossy CGI render, photo, flat production-method glyph, uniform sepia or gold badge.
+Composition: one compact coherent apparatus or concept, whole silhouette uncut with generous margins. Elevated three-quarter view where useful. Square high-resolution image at least 1024 pixels, recognizable at 48/64 pixels. No framed building vignette or separate foreground commodity.
+Background: real transparent alpha around the subject and through open gaps. No fake black/white/checkerboard background, decorative frame, medallion, plinth, display stand, floor, external cast shadow, surrounding landscape, sky, scenery or room.
+Constraints: no text, letters, numerals, captions, logos or watermark; no humans, flags, modern plastic, electronics, rubber tires or inappropriate modern equipment. Natural warm brown wood, neutral iron, pale warm stone and nearly-white linen. No blue/teal color cast. Historical references guide functional construction and materials, not an exact artifact facsimile. Return ONE icon, never an icon sheet.
+Primary subject:
+A SHORT WORKING SECTION OF AN EARLY NINETEENTH-CENTURY MILITARY PONTOON BRIDGE: exactly THREE open wooden BOAT PONTOONS, parallel to one another, regularly spaced, with their long axes PERPENDICULAR to the crossing direction. A continuous broad PLANK DECK crosses their middles, resting directly on coherent connected longitudinal wooden bearers and visible crossbeams. The full curved bows of the three boats project beyond the deck along the near side so it reads unmistakably as a floating bridge supported by boats, NOT a land bridge or a boat trailer. Warm oak deck, darker planked boat hulls, a few restrained iron straps and rope lashings physically attached at beam/pontoon junctions. Some open boat interior and ribs visible beside the deck. Elevated three-quarter perspective with visible support connections. Complete full bridge section and hulls inside canvas; no legs beneath, stone arches, metal Bailey truss, barrels, cylindrical inflatable floats, sails, masts, wheels, cart, army, anchor lying separately, riverbank or scenery. No water rectangle or terrain base: this is the isolated assembled modular equipment, not a miniature landscape.
+```
+
+## Évacuation des blessés
+
+```text
+Use case: stylized-concept.
+Asset type: ONE original TECHNOLOGY invention icon for Victoria 3 / 1776 Age of Revolutions.
+Style/medium: native-compatible hand-painted volumetric illustration, broad readable masses, restrained matte fine grain. Soft upper-left illumination, slightly darker undersides, natural individually colored materials. Not a glossy CGI render, photo, flat production-method glyph, uniform sepia or gold badge.
+Composition: one compact coherent apparatus or concept, whole silhouette uncut with generous margins. Elevated three-quarter view where useful. Square high-resolution image at least 1024 pixels, recognizable at 48/64 pixels. No framed building vignette or separate foreground commodity.
+Background: real transparent alpha around the subject and through open gaps. No fake black/white/checkerboard background, decorative frame, medallion, plinth, display stand, floor, external cast shadow, surrounding landscape, sky, scenery or room.
+Constraints: no text, letters, numerals, captions, logos or watermark; no humans, flags, modern plastic, electronics, rubber tires or inappropriate modern equipment. Natural warm brown wood, neutral iron, pale warm stone and nearly-white linen. No blue/teal color cast. Historical references guide functional construction and materials, not an exact artifact facsimile. Return ONE icon, never an icon sheet.
+Primary subject:
+ONE EARLY NINETEENTH-CENTURY HORSE-DRAWN FIELD AMBULANCE CARRIAGE, inspired by Larrey's two-wheeled flying-ambulance concept, isolated and empty. The dominant compact wooden rectangular PATIENT COMPARTMENT has a simple curved nearly-white linen roof supported by a coherent wooden frame, mounted on one visible iron-sprung AXLE with exactly TWO large spoked oak wheels, one each side. Show the near wheel clearly and the partly visible opposite wheel aligned on that same axle; no third wheel or unsupported disconnected hub. Two plain wooden shafts extend from the front and are attached to the chassis; no horses or driver. At the rear, a partly rolled-up plain linen curtain exposes the head end of ONE empty nearly-white canvas STRETCHER secured INSIDE the patient compartment, with its two wooden poles resting on interior supports. A small functional rear loading step belongs to the chassis. All parts correctly joined, warm brown wood, neutral dark iron fittings, off-white linen; restrained patina, no saturated military blue paint. Clear silhouette of a specialized transport vehicle, not a tent, coach for passengers, covered freight wagon or mobile house. NO RED CROSS, medical emblem, writing, imperial crest or markings. No wounded person, blood, surgical tools, loose medical chest, modern ambulance, rubber tires, extra stretcher leaning outside, countryside, road, display base or ground shadow.
+```
+
+## Forts casematés
+
+```text
+Use case: stylized-concept.
+Asset type: ONE original TECHNOLOGY invention icon for Victoria 3 / 1776 Age of Revolutions.
+Style/medium: native-compatible hand-painted volumetric illustration, broad readable masses, restrained matte fine grain. Soft upper-left illumination, slightly darker undersides, natural individually colored materials. Not a glossy CGI render, photo, flat production-method glyph, uniform sepia or gold badge.
+Composition: one compact coherent apparatus or concept, whole silhouette uncut with generous margins. Elevated three-quarter view where useful. Square high-resolution image at least 1024 pixels, recognizable at 48/64 pixels. No framed building vignette or separate foreground commodity.
+Background: real transparent alpha around the subject and through open gaps. No fake black/white/checkerboard background, decorative frame, medallion, plinth, display stand, floor, external cast shadow, surrounding landscape, sky, scenery or room.
+Constraints: no text, letters, numerals, captions, logos or watermark; no humans, flags, modern plastic, electronics, rubber tires or inappropriate modern equipment. Natural warm brown wood, neutral iron, pale warm stone and nearly-white linen. No blue/teal color cast. Historical references guide functional construction and materials, not an exact artifact facsimile. Return ONE icon, never an icon sheet.
+Primary subject:
+ONE COMPACT EXPLANATORY ARCHITECTURAL CUTAWAY of an EARLY NINETEENTH-CENTURY ARTILLERY CASEMATE: a SINGLE long BARREL-VAULTED MASONRY GUN CHAMBER, capped by a substantial earth layer with a restrained thin muted-olive grassy top. In elevated three-quarter view, remove ONLY the near long side wall in a clean cutaway to expose the interior and reveal the layered arch profile. The curved brick-and-stone vault is structurally supported by thick side walls; a solid intact FRONT WALL has ONE small correctly aligned SPLAYED GUN EMBRASURE. ONE neutral dark-iron period muzzle-loading cannon, on a low wooden garrison carriage with four small solid wooden truck wheels, is secured on the chamber floor and aimed THROUGH that front embrasure; its muzzle emerges slightly on the exterior side. Keep the barrel, carriage, firing aperture and front wall spatially coherent, no gun protruding through solid masonry, duplicated barrels or dangling wheels. The roof's cut end visibly shows masonry below and earth above; use warm-grey stone, muted red brick, brown earth, dark iron and warm wood. Chamber silhouette and protective arch dominate at 48/64 pixels. This is a cutaway teaching-object icon, not a landscape or entire fortress. NO Vauban star plan, city, castle, tower, huge earth island, rectangular terrain slab, display pedestal, external ground, mountains, cannonballs displayed separately, map, tool, flag or people. No reinforced concrete, gun turret, modern bunker, sandbags, steel rail or modern cannon.
+```

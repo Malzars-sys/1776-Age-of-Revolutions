@@ -7,6 +7,7 @@ import sys
 
 from PIL import Image, ImageDraw, ImageFont
 from asset4_style_reference_audit import ROOT, TOKENS, field, pairs, parse
+from building_dds_compat import assert_export_layout, matches_export_hash
 
 PACK = ROOT / "docs/reports/assets/asset5_preview_2026-10-02"
 
@@ -21,9 +22,10 @@ def tokens(text):
 
 def main():
     args = sys.argv[1:]
-    if args and (len(args) != 1 or not args[0].startswith("--only=")):
-        raise SystemExit("Usage: validate_asset5_approved_icons.py [--only=asset_key]")
-    only = args[0].split("=", 1)[1] if args else None
+    if args and (len(args) != 1 or not (args[0].startswith("--only=") or args[0] == "--assets-only")):
+        raise SystemExit("Usage: validate_asset5_approved_icons.py [--only=asset_key|--assets-only]")
+    assets_only = args == ["--assets-only"]
+    only = args[0].split("=", 1)[1] if args and args[0].startswith("--only=") else None
     manifest = json.loads((PACK / "integration_manifest.json").read_text(encoding="utf-8"))
     exports = json.loads((PACK / "integration_export_validation.json").read_text(encoding="utf-8"))
     baseline = json.loads((PACK / manifest["protected_baseline"]).read_text(encoding="utf-8"))
@@ -45,7 +47,7 @@ def main():
         assert (width, height) == (entry["size"], entry["size"])
         assert mips == entry["mips"]
         assert struct.unpack_from("<II", payload, 76) == (32, 0x41)
-        assert struct.unpack_from("<IIIII", payload, 88) == (32, 0xff, 0xff00, 0xff0000, 0xff000000)
+        assert_export_layout(payload, entry["dds"])
         offset, level = 128, entry["size"]
         mip_sizes = []
         for _ in range(mips):
@@ -59,7 +61,7 @@ def main():
         export = next(row for row in exports["results"] if row["key"] == entry["key"])
         expected = Image.open(PACK / export["target_png"]).convert("RGBA")
         assert decoded.tobytes() == expected.tobytes(), "DDS differs from native-size PNG"
-        assert sha(payload) == export["dds_sha256"]
+        assert matches_export_hash(payload, export["dds_sha256"], entry["dds"])
         alpha = decoded.getchannel("A")
         assert alpha.getextrema()[0] == 0 and alpha.getextrema()[1] >= 240
         assert all(alpha.getpixel(p) == 0 for p in [(0,0),(width-1,0),(0,height-1),(width-1,height-1)])
@@ -68,13 +70,15 @@ def main():
                      "sha256":sha(payload),"true_exterior_alpha":True,"interior_alpha":interior_alpha})
         decoded_icons.append((entry, decoded))
 
-    if only:
+    if only or assets_only:
         # Deliberately scoped: retain the historic lot-wide baseline report.
-        decoded_icons[0][1].save(PACK / f"{only}_dds_decoded_current.png")
+        if only:
+            decoded_icons[0][1].save(PACK / f"{only}_dds_decoded_current.png")
         report = {"status":"PASS_TARGET_ASSET_BINDING_AND_DECODED_DDS",
-                  "asset":only,"assets":rows,"source_alpha_preserved":True,
+                  "asset":only or "all_current_assets","assets":rows,"source_alpha_preserved":True,
                   "historic_batch_baseline_checked":False,"game_tested":False}
-        (PACK / f"{only}_replacement_validation.json").write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
+        filename = f"{only}_replacement_validation.json" if only else "current_asset_color_validation.json"
+        (PACK / filename).write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
         print(json.dumps(report,indent=2))
         return
 

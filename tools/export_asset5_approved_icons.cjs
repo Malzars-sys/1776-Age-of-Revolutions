@@ -2,6 +2,7 @@
 // Format-only export of approved lot 2. No regeneration, recoloring or alpha correction.
 "use strict";
 const fs = require("node:fs"), path = require("node:path"), crypto = require("node:crypto");
+const { nativeIconDds } = require("./native_icon_dds.cjs");
 const sharp = require(require.resolve("sharp", {paths:[__dirname, path.resolve(path.dirname(process.execPath), "..")]}));
 const root = path.resolve(__dirname, "..");
 const pack = path.join(root, "docs/reports/assets/asset5_preview_2026-10-02");
@@ -48,7 +49,8 @@ const replacementKey = args.length ? args[0].slice("--replace=".length) : null;
     for (const [offset,value] of [[4,124],[8,0x2100f],[12,size],[16,size],[20,size*4],[28,levels.length],
       [76,32],[80,0x41],[88,32],[92,0xff],[96,0xff00],[100,0xff0000],[104,0xff000000],[108,0x401008]])
       header.writeUInt32LE(value,offset);
-    const dds=Buffer.concat([header,...levels]);
+    const rawDds=Buffer.concat([header,...levels]);
+    const dds=nativeIconDds(rawDds);
     if (levels.length !== entry.mips || dds.length !== (size===208 ? 230828 : 349652))
       throw new Error("Invalid mipmap payload: " + entry.key);
     const destination=path.join(root,entry.dds);
@@ -77,7 +79,7 @@ const replacementKey = args.length ? args[0].slice("--replace=".length) : null;
     await sharp(base,{raw:{width:entry.size,height:entry.size,channels:4}}).png().toFile(path.join(pack,png));
     results.push({key:entry.key,id:entry.id,dds:entry.dds,target_png:png,source:entry.preview,source_sha256:entry.source_sha256,
       dds_sha256:hash(dds),dimensions:[entry.size,entry.size],mips:entry.mips,bytes:dds.length,
-      transparent_pixels:transparent,near_opaque_pixels:nearOpaque,format:"DDS RGBA8 legacy header",alpha_policy:"Unmodified source alpha; only native-size resampling and mip generation"});
+      transparent_pixels:transparent,near_opaque_pixels:nearOpaque,format:"DDS BGRA8 native asset layout",alpha_policy:"Unmodified source alpha; only native-size resampling and mip generation"});
   }
   const previousPath = path.join(pack,"integration_export_validation.json");
   const previousResults = replacementKey && fs.existsSync(previousPath) ? JSON.parse(fs.readFileSync(previousPath,"utf8")).results : [];

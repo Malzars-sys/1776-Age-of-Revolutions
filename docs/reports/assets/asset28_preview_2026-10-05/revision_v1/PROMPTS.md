@@ -1,0 +1,17 @@
+# Lot 25 — révision 1 : Ateliers organisés
+
+Mode : imagegen intégré. Nouvelle génération guidée par la photo fournie, pas suppression de filigrane ni copie photographique. Les deux premières icônes sont conservées à l'identique.
+
+```text
+Use case: stylized-concept.
+Asset type: ONE new original transparent TECHNOLOGY icon for Victoria 3 / 1776 Age of Revolutions, Ateliers organisés.
+Input image 1: SUBJECT AND ORGANIZATION REFERENCE ONLY — the user's watermarked photograph of a wheelwright/woodworking shop. This is NOT an image to clean, crop, remove a watermark from, trace or reproduce as a photograph.
+Primary request: reinterpret the photograph's workbench, systematically arranged hand tools, and wooden wheel-making as ONE compact isolated painted ARTISAN WORKSTATION. The organized workshop must read as equipped skilled craft, not merely an empty table.
+Subject: a stout worn oak workbench, four coherently connected legs, heavy top, low stretchers and simple lower shelf. Directly behind it stands one upright WOODEN TOOL-CABINET BACKBOARD carried by two structural uprights connected to the rear of the bench: a compact open shallow cupboard with orderly rows of a few broad chisels, wooden mallet, wooden plane and frame saw. Five or six readable hand-tool shapes, no mass of tiny clutter. This bench and attached tool-storage unit are ONE dominant apparatus, not a room or separate buildings. Keep the full rack and bench visible.
+Single supporting workpiece: ONE wooden cart wheel in progress secured upright in a clearly connected wooden bench vise at one end of the top. One coherent central wooden hub, EIGHT regularly spaced wooden spokes terminating in a continuous jointed wooden rim, NO iron tyre yet. It is an unfinished craft component being worked on at the bench, NOT a separate finished commodity displayed in front. The wheel must not obscure most of the tool cupboard. Do not add other wheels, loose rim rings, goods stacks, carts or barrels.
+Style: hand-painted volumetric Victoria 3 technology art, readable broad forms, modest fine matte grain, soft upper-left illumination, natural warm oak and neutral dark iron tool blades, subtle worn surfaces. No overall sepia/gold wash or blue cast, photograph, glossy CGI or flat PM glyph. Simplify the photo substantially; no exact replica of the museum or its layout.
+Composition: compact unified object group in elevated three-quarter view, sufficient contrast between cabinet, tools, wheel and bench. Square at least 1024 pixels with generous transparent margins, clear at 48/64 px. No cropped legs, rack or wheel; no external ground shadow.
+Background: actual transparent alpha outside the complete workstation and through the bench/leg and wheel/spoke gaps. No floor patch, stone wall, ceiling, roof, windows, workshop room or landscape, building-style frame, medallion or background disc.
+Period adaptation: manual woodworking tools only. Do not copy the reference's electric hanging light, powered bandsaw, motors, cables, modern storage or other modern fittings. The user photo is a visual reference, not proof of a precise eighteenth-century museum date.
+Constraints: no people, writing, decorative pseudo-text, labels, logos, watermark, stock-photo credit, modern plastic, bright colors or unrelated accessories. Create ONE original illustrated icon from the reference concept; do not reproduce or edit the source photo. Only this technology is being revised.
+```

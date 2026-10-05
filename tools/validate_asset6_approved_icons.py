@@ -3,8 +3,10 @@ from io import BytesIO
 import hashlib
 import json
 import struct
+import sys
 from PIL import Image, ImageDraw, ImageFont
 from asset4_style_reference_audit import ROOT, TOKENS, field, pairs, parse
+from building_dds_compat import assert_export_layout, matches_export_hash
 
 PACK = ROOT / "docs/reports/assets/asset6_preview_2026-10-02"
 
@@ -14,6 +16,9 @@ def sha(data):
 
 
 def main():
+    args = sys.argv[1:]
+    if args not in ([], ["--assets-only"]):
+        raise SystemExit("Usage: validate_asset6_approved_icons.py [--assets-only]")
     manifest = json.loads((PACK / "integration_manifest.json").read_text(encoding="utf-8"))
     exports = json.loads((PACK / "integration_export_validation.json").read_text(encoding="utf-8"))
     baseline = json.loads((PACK / manifest["protected_baseline"]).read_text(encoding="utf-8"))
@@ -34,7 +39,7 @@ def main():
         mips = struct.unpack_from("<I", payload, 28)[0]
         assert (height, width, mips) == (entry["size"], entry["size"], entry["mips"])
         assert struct.unpack_from("<II", payload, 76) == (32, 0x41)
-        assert struct.unpack_from("<IIIII", payload, 88) == (32, 0xff, 0xff00, 0xff0000, 0xff000000)
+        assert_export_layout(payload, entry["dds"])
         offset, size, mip_sizes = 128, width, []
         for _ in range(mips):
             assert len(payload[offset:offset + size * size * 4]) == size * size * 4
@@ -45,7 +50,7 @@ def main():
         decoded = Image.open(BytesIO(payload)).convert("RGBA")
         export = next(row for row in exports["results"] if row["key"] == entry["key"])
         expected = Image.open(PACK / export["target_png"]).convert("RGBA")
-        assert decoded.tobytes() == expected.tobytes() and sha(payload) == export["dds_sha256"]
+        assert decoded.tobytes() == expected.tobytes() and matches_export_hash(payload, export["dds_sha256"], entry["dds"])
         alpha = decoded.getchannel("A")
         assert alpha.getextrema()[0] == 0 and alpha.getextrema()[1] >= 240
         assert all(alpha.getpixel(p) == 0 for p in [(0, 0), (width-1, 0), (0, height-1), (width-1, height-1)])
@@ -60,6 +65,15 @@ def main():
                 assert alpha.getpixel((int(x*width), int(y*height))) >= 240, "Gold subject lost"
         rows.append({"id": entry["id"], "dds": entry["dds"], "sha256": sha(payload), "dimensions": [width, height], "mip_sizes": mip_sizes, "binding_and_decode_valid": True})
         decoded_icons.append((entry, decoded))
+
+    if args == ["--assets-only"]:
+        # Preserve the historical lot-wide baseline; the color migration has its own snapshot.
+        report = {"status": "PASS_CURRENT_ASSET_BINDINGS_AND_NATIVE_DDS", "assets": rows,
+                  "historic_batch_baseline_checked": False, "game_tested": False,
+                  "source_alpha_preserved": True, "transparent_furnace_opening_verified": True}
+        (PACK / "current_asset_color_validation.json").write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8")
+        print(json.dumps(report, indent=2))
+        return
 
     # Ignore only requested visual fields; all logical gameplay values must match.
     for filename, old_file in manifest["definition_baseline"].items():
