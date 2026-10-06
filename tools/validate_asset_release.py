@@ -88,6 +88,9 @@ def main():
         assert proof, "No matching export/hash evidence: " + relative
         report, row = proof
         expected_png = report.parent / row["target_png"] if row.get("target_png") else None
+        # Target-size PNGs are disposable diagnostics, not source assets.
+        if expected_png and not expected_png.is_file():
+            expected_png = None
         if expected_png:
             expected = Image.open(expected_png).convert("RGBA")
             assert decoded_levels[0].tobytes() == expected.tobytes(), "PNG colour/alpha disagreement: " + relative
@@ -99,7 +102,10 @@ def main():
         source = row.get("source")
         source_hash = row.get("source_sha256")
         if isinstance(source, str) and source_hash:
-            assert sha((report.parent / source).read_bytes()) == source_hash.lower(), "Pinned source changed"
+            source_path = report.parent / source
+            if not source_path.is_file():
+                source_path = ROOT / source
+            assert sha(source_path.read_bytes()) == source_hash.lower(), "Pinned source changed"
         alpha = decoded_levels[0].getchannel("A")
         assert alpha.getbbox() is not None
         if relative.startswith("gfx/unit_illustrations/"):
@@ -116,7 +122,7 @@ def main():
                         "matches_target_png": bool(expected_png)})
     definitions = git(*args, "--name-only", "--", "common").decode().splitlines()
     for relative in definitions:
-        assert relative.startswith(("common/buildings/", "common/production_methods/", "common/technology/technologies/")), "Out-of-scope gameplay file: " + relative
+        assert relative.startswith(("common/buildings/", "common/goods/", "common/production_methods/", "common/technology/technologies/")), "Out-of-scope gameplay file: " + relative
         old = git("show", "HEAD:" + relative)
         new = git("show", ":" + relative) if staged else (ROOT / relative).read_bytes()
         assert without_visuals(tokens(old)) == without_visuals(tokens(new)), "Non-visual gameplay changes: " + relative

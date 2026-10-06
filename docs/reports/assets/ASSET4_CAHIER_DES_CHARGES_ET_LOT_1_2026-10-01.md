@@ -73,6 +73,8 @@ L'infanterie à mousquet doit se distinguer de l'infanterie irrégulière et du 
 
 ## 4. Livrables et contraintes techniques
 
+**Conservation simplifiée demandée par le joueur, 6 octobre 2026 :** versionner les masters finaux, prompts, paramètres d'export et DDS utilisés en jeu, mais pas les planches temporaires, copies de références vanilla, anciennes variantes abandonnées ni PNG de chaque mipmap. Les contrôles et dérivés vont dans `.asset-cache/`, ignoré par Git. Les mipmaps nécessaires restent intégrées aux DDS. Voir [les règles de conservation et de reconstruction](README.md).
+
 Les dimensions sont fondées sur les DDS inspectés ; les PM existent réellement dans deux tailles. Ne pas appliquer 256 × 256 à toutes les familles.
 
 | Famille | Master PNG de travail recommandé | Export retenu pour le lot | Mipmaps proposées | Alpha |
