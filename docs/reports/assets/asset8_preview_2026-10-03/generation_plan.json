@@ -1,0 +1,130 @@
+{
+  "batch": 5,
+  "date": "2026-10-03",
+  "mode": "BUILTIN_IMAGE_GEN",
+  "intent": "GENERATE",
+  "status": "SUPERSEDED_BY_USER_CORRECTION_NOT_FOR_INTEGRATION",
+  "approval_required_before_integration": true,
+  "protected_baseline": "gameplay_and_gfx_baseline.json",
+  "previous_batch_integration": "../asset7_preview_2026-10-03/integration_static_validation.json",
+  "research": "research_sources.json",
+  "excluded": [
+    "copper chain",
+    "canal methods",
+    "railway methods",
+    "transport good",
+    "gameplay changes"
+  ],
+  "style_references": {
+    "BUILDING": [
+      "docs/reports/assets/asset6_preview_2026-10-02/references/vanilla_building_steel_mill.png",
+      "docs/reports/assets/asset6_preview_2026-10-02/references/vanilla_building_chemical_plant.png"
+    ],
+    "TECH": [
+      "docs/reports/assets/asset5_preview_2026-10-02/references/vanilla_academia.png",
+      "docs/reports/assets/asset5_preview_2026-10-02/references/vanilla_mechanical_tools.png"
+    ],
+    "PM": [
+      "docs/reports/assets/asset6_preview_2026-10-02/references/vanilla_pm_open_hearth_process.png",
+      "docs/reports/assets/asset6_preview_2026-10-02/references/vanilla_pm_patent_stills.png"
+    ]
+  },
+  "related_pending_binding": {
+    "id": "pmg_base_building_land_transport_network",
+    "definition": "common/production_method_groups/22_tech7a_wave_a_land_transport_pmgs.txt",
+    "field": "texture",
+    "current_texture": "gfx/error_deer.dds",
+    "proposed_reuse": "1776_engineered_road_network.dds",
+    "requires_user_approval": true
+  },
+  "entries": [
+    {
+      "key": "regional_infrastructure",
+      "id": "building_railway",
+      "family": "BUILDING",
+      "label_fr": "Infrastructures régionales",
+      "definition": "common/buildings/11_private_infrastructure.txt",
+      "field": "icon",
+      "current_texture": "gfx/error_deer.dds",
+      "target_dds": "gfx/interface/icons/building_icons/1776_regional_infrastructure.dds",
+      "preview": "previews/regional_infrastructure_v2.png",
+      "target_size": 256,
+      "mips": 9,
+      "prompt": "Use case: stylized-concept. Asset type: original Victoria 3 BUILDING icon for regional land-transport infrastructure, not a goods cutout and not a production-method glyph. Paint a compact elevated three-quarter view of a late-eighteenth/early-nineteenth-century road interchange around a modest masonry coaching inn with stable yard, a little arched stone bridge and a wooden toll gate. Clear road connection between structures; large readable architecture, limited tiny details. This building represents a network, not only a railway station: no train, rails or modern vehicles in this initial road-based visual. A single large traditional four-wheel wooden passenger carriage is the functional symbol in the lower-right foreground, with cream upper body, dark red lower coach body, brown spoked wheels and visible undercarriage; stationary in the yard, no horses needed for this symbol. Keep the carriage large and clear, without covering the main bridge or inn. Darken ONLY the scene behind the foreground coach using natural local shadows so the coach stands out; preserve natural warm stone, brown wood, muted green foliage and neutral lighting elsewhere, no overall blue or sepia cast. Hand-painted stylized historical game art with visible broad brush texture, not photorealism. Include the thin patinated metal rounded-square frame characteristic of Victoria 3 BUILDING icons, complete and uncut. Fill the frame with the small scene, genuine transparent alpha only outside its rounded corners and perimeter; no black padding baked into the art. Square master at least 1024 pixels, entire coach and frame visible, opaque interior scene (not translucent). No readable text, number, sign lettering, flags, logo, watermark, glowing border or interface elements. Original illustrative transport hub, not a certified reconstruction or direct copy of a photograph."
+    },
+    {
+      "key": "improved_road_engineering",
+      "id": "improved_road_engineering",
+      "family": "TECH",
+      "label_fr": "Génie routier",
+      "era": "era_5",
+      "definition": "common/technology/technologies/10_tech3a_production.txt",
+      "field": "texture",
+      "current_texture": "gfx/error_manul.dds",
+      "target_dds": "gfx/interface/icons/invention_icons/1776_improved_road_engineering.dds",
+      "preview": "previews/improved_road_engineering.png",
+      "target_size": 256,
+      "mips": 9,
+      "prompt": "Use case: stylized-concept. Asset type: single Victoria 3 TECHNOLOGY icon for early-nineteenth-century engineered roads. Show one compact physical cutaway SAMPLE of a raised cambered road, with an earthy foundation, visible large interlocking foundation stones, a finer compacted aggregate layer on top and slightly lowered drainage channels at the sides. A short wooden-handled iron hand tamper rests diagonally against the sample as the only accessory. The broad stone layers are the dominant subject. Inspired by the documented Telford system of drainage and graded stones, not an exact dimensioned engineering diagram. No cobblestone street scene, bitumen/asphalt coating, modern road markings, vehicle, landscaped terrain, people or bridge. Three-quarter slightly elevated view; isolated object group, entire sample and hand tamper visible with small transparent margins. Hand-painted volumetric Victoria 3 technology-art style with matte natural warm gray limestone, brown earth, oak handle and dark gray iron; broad brushwork, restrained highlights, NOT uniform gold monochrome like a PM, no overall blue or sepia tint. Square master at least 1024 pixels. Genuine transparent alpha background and gaps, all four corners exactly transparent. No frame, medallion, badge, background disc, tabletop, floor, readable text, labels, numbers, arrows, logo, watermark, glow or photorealistic rendering."
+    },
+    {
+      "key": "traditional_road_network",
+      "id": "pm_traditional_road_network",
+      "family": "PM",
+      "label_fr": "Routes en terre",
+      "definition": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+      "field": "texture",
+      "current_texture": "gfx/error_deer.dds",
+      "target_dds": "gfx/interface/icons/production_method_icons/1776_traditional_road_network.dds",
+      "preview": "previews/traditional_road_network.png",
+      "target_size": 208,
+      "mips": 8,
+      "prompt": "Use case: stylized-concept. Asset type: single Victoria 3 production-method pictogram, NOT a technology illustration or building vignette. Simplified compact raised-relief painting with bold dark brown outlines, broad ochre/beige/patinated gold surfaces, restrained highlights and few details. Two principal symbols maximum, readable at 32 and 48 pixels. Center the entire silhouette with modest transparent margins on a square master at least 1024 pixels. Genuine transparent alpha background and open gaps, all four corners fully transparent. No frame, scene, tabletop, floor, backing disc, badge, decorative letters, numbers, arrows, UI square, black/gray backdrop, glow, logo or watermark. Not photorealistic, not glossy 3D. Subject: a short chunky unpaved earth-road strip seen in three-quarter relief, with TWO deep parallel wagon ruts and uneven soft shoulders. One large old wooden spoked wagon wheel rests against its near edge as the supporting symbol. Dirt ruts must distinguish this from a smooth stone engineered road; no loose pebble pile, stone pavement, toll gate or tar. Keep the wheel complete and the road as a small isolated symbol, not a landscape. Restrained ochre-gold bas-relief palette consistent with the road PM series."
+    },
+    {
+      "key": "turnpike_road_network",
+      "id": "pm_turnpike_road_network",
+      "family": "PM",
+      "label_fr": "Routes à péage",
+      "era": "era_2",
+      "definition": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+      "field": "texture",
+      "current_texture": "gfx/error_deer.dds",
+      "target_dds": "gfx/interface/icons/production_method_icons/1776_turnpike_road_network.dds",
+      "preview": "previews/turnpike_road_network.png",
+      "target_size": 208,
+      "mips": 8,
+      "prompt": "Use case: stylized-concept. Asset type: single Victoria 3 production-method pictogram, NOT a technology illustration or building vignette. Simplified compact raised-relief painting with bold dark brown outlines, broad ochre/beige/patinated gold surfaces, restrained highlights and few details. Two principal symbols maximum, readable at 32 and 48 pixels. Center the entire silhouette with modest transparent margins on a square master at least 1024 pixels. Genuine transparent alpha background and open gaps, all four corners fully transparent. No frame, scene, tabletop, floor, backing disc, badge, decorative letters, numbers, arrows, UI square, black/gray backdrop, glow, logo or watermark. Not photorealistic, not glossy 3D. Subject: a sturdy traditional wooden turnpike gate with two posts, a horizontal bar and a simple diagonal brace, plus ONE large plain round coin at its lower foreground to indicate road toll payment. Gate and coin only; no hand, road landscape, toll house or modern red-white barrier. The coin has no currency sign, portrait, readable letters or numbers. Gate inspired by historic turnpike toll gates, not a modern parking arm. A clear wide closed-gate silhouette with all posts visible. Same restrained ochre-gold bas-relief palette and strong dark outlines as the road PM series."
+    },
+    {
+      "key": "engineered_road_network",
+      "id": "pm_engineered_road_network",
+      "family": "PM",
+      "label_fr": "Routes pavées",
+      "era": "era_5",
+      "definition": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+      "field": "texture",
+      "current_texture": "gfx/error_deer.dds",
+      "target_dds": "gfx/interface/icons/production_method_icons/1776_engineered_road_network.dds",
+      "preview": "previews/engineered_road_network.png",
+      "target_size": 208,
+      "mips": 8,
+      "prompt": "Use case: stylized-concept. Asset type: single Victoria 3 production-method pictogram, NOT a technology illustration or building vignette. Simplified compact raised-relief painting with bold dark brown outlines, broad ochre/beige/patinated gold surfaces, restrained highlights and few details. Two principal symbols maximum, readable at 32 and 48 pixels. Center the entire silhouette with modest transparent margins on a square master at least 1024 pixels. Genuine transparent alpha background and open gaps, all four corners fully transparent. No frame, scene, tabletop, floor, backing disc, badge, decorative letters, numbers, arrows, UI square, black/gray backdrop, glow, logo or watermark. Not photorealistic, not glossy 3D. Subject: a thick compact isolated CROSS-SECTION of an engineered stone road, showing a large foundation-stone row below a finer compacted gravel surface with a shallow raised center. ONE upright old hand tamper, a short wooden handle above a broad heavy foot, stands beside this road sample to indicate compaction. The road and tamper are the two symbols. No wagon wheel, gate, coin, bitumen, asphalt, dark top coating, landscape, human worker or written engineering labels. This is the simplified ochre-gold PM version, not the full-color technology illustration; use only a few broad foundation stones for small-size legibility. Consistent dark outlines, matte pale gold top surface and darker ochre base."
+    },
+    {
+      "key": "paved_road_network",
+      "id": "pm_paved_road_network",
+      "family": "PM",
+      "label_fr": "Routes goudronnées",
+      "era": "era_10",
+      "definition": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+      "field": "texture",
+      "current_texture": "gfx/error_deer.dds",
+      "target_dds": "gfx/interface/icons/production_method_icons/1776_paved_road_network.dds",
+      "preview": "previews/paved_road_network.png",
+      "target_size": 208,
+      "mips": 8,
+      "prompt": "Use case: stylized-concept. Asset type: single Victoria 3 production-method pictogram, NOT a technology illustration or building vignette. Simplified compact raised-relief painting with bold dark brown outlines, broad ochre/beige/patinated gold surfaces, restrained highlights and few details. Two principal symbols maximum, readable at 32 and 48 pixels. Center the entire silhouette with modest transparent margins on a square master at least 1024 pixels. Genuine transparent alpha background and open gaps, all four corners fully transparent. No frame, scene, tabletop, floor, backing disc, badge, decorative letters, numbers, arrows, UI square, black/gray backdrop, glow, logo or watermark. Not photorealistic, not glossy 3D. Subject: a short isolated road-surface sample with a clearly smooth, continuous DARK BROWN top coating over a chunky ochre aggregate base, accompanied by ONE tilted old metal tar-pouring pail with a small thick dark stream flowing onto the road. The dark coating distinguishes the later surfaced-road method from earth ruts and graded stone. Keep the pail, handle and dark stream readable; no extra tools, wheel, gate, coin, vehicle, construction scene, contemporary machinery or highway markings. Historical surface application is symbolized, not dated to 1776: this method is unlocked by the mod's later paved-road technology. Same simple patinated beige/gold road PM family, with the dark brown coating as functional contrast, no black backing or large shadow slab around the icon."
+    }
+  ]
+}

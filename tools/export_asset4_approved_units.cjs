@@ -4,6 +4,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
+const { nativeIconDds } = require("./native_icon_dds.cjs");
 const sharp = require(require.resolve("sharp", {
   paths: [__dirname, path.resolve(path.dirname(process.execPath), "..")]
 }));
@@ -61,7 +62,7 @@ const digest = bytes => crypto.createHash("sha256").update(bytes).digest("hex").
       [76, 32], [80, 0x41], [88, 32], [92, 0xff], [96, 0xff00],
       [100, 0xff0000], [104, 0xff000000], [108, 0x401008]
     ]) header.writeUInt32LE(value, offset);
-    const dds = Buffer.concat([header, ...levels]);
+    const dds = nativeIconDds(Buffer.concat([header, ...levels]));
     if (levels.length !== 10 || dds.length !== 1398228) throw new Error("Invalid DDS payload");
     const destination = path.join(root, entry.target_dds);
     if (fs.existsSync(destination)) {
@@ -72,7 +73,7 @@ const digest = bytes => crypto.createHash("sha256").update(bytes).digest("hex").
       fs.writeFileSync(destination, dds);
     }
     results.push({ ...entry, export_size: size, mipLevels: levels.length, bytes: dds.length,
-      export_sha256: digest(dds), format: "DDS RGBA8 legacy header, opaque" });
+      export_sha256: digest(dds), format: "DDS BGRA8 native asset layout, opaque" });
   }
   fs.writeFileSync(path.join(pack, "approved_unit_export_validation.json"), JSON.stringify({
     status: "PASS_DDS_EXPORT", approval: "unit_art_approval.json", results,

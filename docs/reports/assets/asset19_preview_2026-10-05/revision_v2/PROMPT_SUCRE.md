@@ -1,0 +1,20 @@
+# Raffinage du sucre — deuxième proposition
+
+Générateur intégré **image_gen.imagegen**, remplacement du sujet uniquement. Les deux autres icônes sont conservées sans retouche.
+
+```text
+Use case: precise-object-edit.
+Asset type: ONE TECHNOLOGY invention icon for Victoria 3 / 1776 Age of Revolutions, a painted volumetric concept with genuine transparent alpha.
+Input images: Image 1 is the old sugar refining icon to REPLACE in subject, not preserve in composition. Images 2 and 3 are native Victoria 3 TECHNOLOGY STYLE REFERENCES ONLY; do not insert their drill, sack, seedling, outlines or blue accents.
+Primary request: The old stacked clay cone and jar is not readable as SUGAR REFINING. Completely replace that apparatus with a bright white, clearly crystallized SUGARLOAF as the dominant subject and its matching EMPTY CONICAL TERRACOTTA REFINING MOULD as the sole meaningful accessory. These two matching forms communicate the forming and crystallization of refined sugar, not two ordinary pots.
+Main subject: ONE solid unwrapped historical cone-shaped sugarloaf, broad circular flat base, moderately tall tapering body and softly rounded narrow tip, standing upright in a modest three-quarter view. Matte clean near-white crystalline sugar, fine restrained granules and a few tiny irregular crystal facets, not cloth, paper, stone, chalk, ice, snow, candle or dessert. The cone is entirely visible and clearly dominant in scale and contrast.
+Accessory: ONE open, EMPTY reddish terracotta conical mould positioned close beside and slightly behind the sugarloaf, tilted so its wide open elliptical mouth and dark hollow interior are plainly visible. Its narrow closed tip points away. The internal taper, usable depth and opening diameter plausibly match the FULL sugarloaf standing beside it: the loaf could have been formed inside this mould. Thick simple rim, smooth gently worn earthenware sides. This is an intact deep conical mould, not a terracotta flower pot with flat bottom, a small bowl, half-shell, ladle or funnel with a tube.
+Compact coherent two-object group: large white loaf plus one closely adjacent mould. No jar underneath, no extra pots, no third object. Clear non-overlapping essential silhouettes. The mould explains the technique; the bright crystal cone makes SUGAR immediately visible. Do not place a factory or boiler behind them and do not make a finished-goods ornament in front of a building.
+Style: hand-painted vanilla-compatible technology illustration, broad readable masses, restrained matte brushed and granular textures, real volume and soft upper-left material lighting. Keep the warm-neutral style of the old icon without copying its pottery composition. Not a flat PM pictogram, glossy CGI photograph, badge or landscape. White sugar must remain genuinely near-white, pottery naturally reddish-brown; no global blue/teal cast, no sepia filter.
+Background and framing: genuine transparent alpha around the whole group, in exterior gaps and visible openings not occupied by material. Square at least 1024 pixels, generous transparent margins, entire tip, base and mould intact. No floor, tabletop, ground plane, cast ground shadow, frame, circle or medallion. Only contact/object shading.
+Readability: large simple conical crystal mass, one strongly contrasting mould mouth; legible at 48/64 pixels. Do not rely on tiny detailing or captions.
+Historical basis: sugar was refined and crystallized into cone-shaped loaves in earthenware moulds. Represent a conceptual refinement-and-moulding group, not a certified museum replica or the older collecting-pot assembly.
+Do not add sugar cubes (modern visual cue), sugar paper, sack, cane stems, sugar nippers, spoon, chunks, bowl of powder, smoke, furnace, text, labels, watermark, numbers, arrows, people, hands, ornament or modern equipment. Only the white loaf and its one matching hollow mould.
+Change the sugar icon only. The separately approved forestry and hand-quern images are not input targets and must remain unmodified.
+```
+

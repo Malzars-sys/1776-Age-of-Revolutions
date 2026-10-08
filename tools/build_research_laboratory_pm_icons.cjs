@@ -4,6 +4,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
+const { nativeIconDds } = require("./native_icon_dds.cjs");
 const sharp = require(require.resolve("sharp", {
   paths: [__dirname, path.resolve(path.dirname(process.execPath), "..")]
 }));
@@ -46,7 +47,7 @@ const manifest = JSON.parse(fs.readFileSync(path.join(root, "docs/reports/assets
       levels.push(await sharp(base, { raw: { width: size, height: size, channels: 4 } })
         .resize(levelSize, levelSize, { kernel: "lanczos3" }).raw().toBuffer());
     }
-    // Legacy DDS RGBA8; complete mip chain matching native 208px PM icons.
+    // Native BGRA8 storage; complete mip chain matching native 208px PM icons.
     const header = Buffer.alloc(128);
     header.write("DDS ", 0, "ascii");
     for (const [offset, value] of [
@@ -54,7 +55,7 @@ const manifest = JSON.parse(fs.readFileSync(path.join(root, "docs/reports/assets
       [76, 32], [80, 0x41], [88, 32], [92, 0xff], [96, 0xff00],
       [100, 0xff0000], [104, 0xff000000], [108, 0x401008]
     ]) header.writeUInt32LE(value, offset);
-    const dds = Buffer.concat([header, ...levels]);
+    const dds = nativeIconDds(Buffer.concat([header, ...levels]));
     if (size !== 208 || dds.length !== 230828 || levels.length !== manifest.mipLevels)
       throw new Error("Invalid DDS mip payload: " + entry.name);
     fs.mkdirSync(path.dirname(output), { recursive: true });

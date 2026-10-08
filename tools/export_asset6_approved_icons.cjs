@@ -2,6 +2,7 @@
 // Record the actual working-tree baseline and export explicitly approved petroleum icons.
 "use strict";
 const fs=require("node:fs"),path=require("node:path"),crypto=require("node:crypto");
+const {nativeIconDds}=require("./native_icon_dds.cjs");
 const sharp=require(require.resolve("sharp",{paths:[__dirname,path.resolve(path.dirname(process.execPath),"..")]}));
 const root=path.resolve(__dirname,".."),pack=path.join(root,"docs/reports/assets/asset6_preview_2026-10-02");
 const keys=["refined_fuels","lubricants","heavy_petroleum_products","fractional_distillation_refinery","thermal_catalytic_cracking_refinery"];
@@ -71,7 +72,8 @@ async function exportIcons(onlyRefinery=false){
     for(let size=e.size;size>=1;size>>=1)levels.push(await sharp(base,{raw:{width:e.size,height:e.size,channels:4}}).resize(size,size,{kernel:"lanczos3"}).raw().toBuffer());
     const header=Buffer.alloc(128);header.write("DDS ",0,"ascii");
     for(const [offset,value] of [[4,124],[8,0x2100f],[12,e.size],[16,e.size],[20,e.size*4],[28,levels.length],[76,32],[80,0x41],[88,32],[92,0xff],[96,0xff00],[100,0xff0000],[104,0xff000000],[108,0x401008]])header.writeUInt32LE(value,offset);
-    const dds=Buffer.concat([header,...levels]);
+    const rawDds=Buffer.concat([header,...levels]);
+    const dds=nativeIconDds(rawDds);
     if(levels.length!==e.mips||dds.length!==(e.size===208?230828:349652))throw Error("Invalid mip chain");
     const dest=path.resolve(root,e.dds);
     if(!dest.startsWith(path.join(root,"gfx")+path.sep))throw Error("Export outside gfx");
@@ -85,7 +87,7 @@ async function exportIcons(onlyRefinery=false){
     if(!fs.existsSync(dest))fs.writeFileSync(dest,dds);
     const png=`integrated_target_png/${e.key}.png`;
     await sharp(base,{raw:{width:e.size,height:e.size,channels:4}}).png().toFile(path.join(pack,png));
-    results.push({key:e.key,dds:e.dds,dds_sha256:hash(dds),source:e.preview,source_sha256:e.source_sha256,target_png:png,dimensions:[e.size,e.size],mips:e.mips,bytes:dds.length,format:"DDS RGBA8 legacy header"});
+    results.push({key:e.key,dds:e.dds,dds_sha256:hash(dds),source:e.preview,source_sha256:e.source_sha256,target_png:png,dimensions:[e.size,e.size],mips:e.mips,bytes:dds.length,format:"DDS BGRA8 native asset layout"});
   }
   const previous=onlyRefinery?JSON.parse(fs.readFileSync(path.join(pack,"integration_export_validation.json"),"utf8")).results:[];
   const combined=[...previous.filter(row=>!results.some(e=>e.key===row.key)),...results];

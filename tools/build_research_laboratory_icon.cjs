@@ -4,6 +4,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
+const { nativeBuildingDds } = require("./native_building_dds.cjs");
 const sharp = require(require.resolve("sharp", {
   paths: [__dirname, path.resolve(path.dirname(process.execPath), "..")]
 }));
@@ -22,7 +23,7 @@ const preview = path.join(root, "docs/reports/assets/tech8c_research_laboratory_
     levels.push(await sharp(base, { raw: { width: 256, height: 256, channels: 4 } })
       .resize(size, size, { kernel: "lanczos3" }).raw().toBuffer());
   }
-  // Legacy DDS RGBA8 with a complete mip chain, like native building icons.
+  // Assemble RGBA, then convert storage to native building BGRA without recoloring.
   const header = Buffer.alloc(128);
   header.write("DDS ", 0, "ascii");
   for (const [offset, value] of [
@@ -30,7 +31,7 @@ const preview = path.join(root, "docs/reports/assets/tech8c_research_laboratory_
     [76, 32], [80, 0x41], [88, 32], [92, 0xff], [96, 0xff00],
     [100, 0xff0000], [104, 0xff000000], [108, 0x401008]
   ]) header.writeUInt32LE(value, offset);
-  const dds = Buffer.concat([header, ...levels]);
+  const dds = nativeBuildingDds(Buffer.concat([header, ...levels]));
   if (dds.length !== 349652 || levels.length !== 9) throw new Error("Invalid DDS mip payload");
   fs.mkdirSync(path.dirname(output), { recursive: true });
   fs.writeFileSync(output, dds);

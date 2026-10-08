@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-05",
+  "mode": "BUILTIN_IMAGE_GEN",
+  "status": "THREE_ICONS_INTEGRATED_STATICALLY_VALIDATED",
+  "approval": {
+    "date": "2026-10-05",
+    "approved": true,
+    "user_message": "Ok, tu peux intégrer et passer au lieu suivant.",
+    "scope": "Exact final lot 23, revision_v3 with theodolite and Napoleonic bicorne; next lot remains preview-only.",
+    "entries": [
+      {
+        "key": "military_veterinary_services",
+        "preview": "../previews/military_veterinary_services_padded.png",
+        "sha256": "abdf289bdbb166ff43f2619c4cb761dc58855de3eb70a5becba7ea30bbe54bdc"
+      },
+      {
+        "key": "permanent_engineer_services",
+        "preview": "previews/permanent_engineer_services_padded.png",
+        "sha256": "44f22da07c8244dc6dd1cf9658c61cd6527e5d16bf8bbb46ff1f638bd1d6d71e"
+      },
+      {
+        "key": "horse_artillery",
+        "preview": "../previews/horse_artillery_padded.png",
+        "sha256": "77213d8fc1a29c3026e404ae4954447310d3a501a0e2bf39860cd6123ed970b3"
+      }
+    ]
+  },
+  "protected_baseline": "integration_gameplay_and_gfx_baseline.json",
+  "definition_baseline": {
+    "common/technology/technologies/20_tech3a_military.txt": {
+      "sha256": "070f9f0346e016d7bbc7ffce1d8753e1001797bf4f7b9e9480499e5fa5fb31b6",
+      "text": "﻿# TECH-3A generated from frozen TECH-2H authority.\r\n\r\nscientific_fortification_siegecraft = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_1\r\n\ttexture = \"gfx/interface/icons/invention_icons/1776_scientific_fortification_siegecraft.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\torganized_military_establishments\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 2\r\n\t}\r\n}\r\n\r\nregulated_small_arms = {\n\t# TECH3A conceptual branch: Military\n\tera = era_2\n\ttexture = \"gfx/interface/icons/invention_icons/gunsmithing.dds\"\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\torganized_military_establishments\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nlight_infantry_tactics = {\n\t# TECH3A conceptual branch: Military\n\tera = era_3\n\ttexture = \"gfx/interface/icons/invention_icons/line_infantry.dds\"\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\torganized_military_establishments\r\n\t}\r\n\r\n\tmodifier = {\r\n\t\tunit_experience_gain_mult = 0.05\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nstandardized_field_artillery = {\n\t# TECH3A conceptual branch: Military\n\tera = era_3\n\ttexture = \"gfx/interface/icons/invention_icons/artillery.dds\"\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\torganized_military_establishments\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 2\r\n\t}\r\n}\r\n\r\npermanent_military_hospitals = {\n\t# TECH3A conceptual branch: Military\n\tera = era_3\n\ttexture = \"gfx/interface/icons/invention_icons/triage.dds\"\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\torganized_military_establishments\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\narmament_standardization_inspection = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_4\r\n\ttexture = \"gfx/interface/icons/invention_icons/1776_armament_standardization_inspection.dds\"\r\n\tcategory = military\r\n\r\n\t# Temporary TECH debt bonus; replace with armament inspection and standards content.\r\n\tmodifier = {\r\n\t\tbuilding_group_bg_military_industry_throughput_add = 0.05\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tregulated_small_arms\r\n\t\tstandardized_field_artillery\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\npermanent_engineer_services = {\n\t# TECH3A conceptual branch: Military\n\tera = era_4\n\ttexture = \"gfx/interface/icons/invention_icons/military_drill.dds\"\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\torganized_military_establishments\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nhorse_artillery = {\n\t# TECH3A conceptual branch: Military\n\tera = era_4\n\ttexture = \"gfx/interface/icons/invention_icons/napoleonic_warfare.dds\"\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tstandardized_field_artillery\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nmilitary_topographic_surveying = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_4\r\n\ttexture = \"gfx/interface/icons/invention_icons/1776_military_topographic_surveying.dds\"\r\n\tcategory = military\r\n\r\n\t# Temporary TECH debt bonus; replace with staff mapping and reconnaissance content.\r\n\tmodifier = {\r\n\t\tunit_army_offense_mult = 0.025\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tpermanent_engineer_services\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nmysorean_iron_cased_rocketry = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_4\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\tcan_research = no\r\n\t# Regional/event acquisition is implemented in a later phase.\r\n\r\n\tai_weight = {\r\n\t\tvalue = 0.25\r\n\t}\r\n}\r\n\r\nrifling = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_5\r\n\ttexture = \"gfx/interface/icons/invention_icons/rifling.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tlight_infantry_tactics\r\n\t\tarmament_standardization_inspection\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\ncorps_organization = {\n\t# TECH3A conceptual branch: Military\n\tera = era_5\n\ttexture = \"gfx/interface/icons/invention_icons/army_reserves.dds\"\n\tcategory = military\r\n\r\n\tmodifier = {\r\n\t\tcountry_general_rank_impact_mult = 0.2\r\n\t\tstate_conscription_rate_mult = 0.2\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\thorse_artillery\r\n\t\tpermanent_engineer_services\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nlogistics = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_5\r\n\ttexture = \"gfx/interface/icons/invention_icons/logistics_tech.dds\"\r\n\tcategory = military\r\n\r\n\r\n\tmodifier = {\r\n\t\tstate_conscription_rate_mult = 0.2\r\n\t\tcountry_general_rank_impact_mult = 0.2\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tcorps_organization\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nfield_engineering_pontoon_trains = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_5\r\n\ttexture = \"gfx/interface/icons/invention_icons/1776_field_engineering_pontoon_trains.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tpermanent_engineer_services\r\n\t\tlogistics\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nexplosive_field_ammunition = {\r\n\t# TECH TREE Wave 3 compatibility alias: concept absorbed by standardized_field_artillery.\r\n\tera = era_5\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\tcan_research = no\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nbattlefield_evacuation = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_5\r\n\ttexture = \"gfx/interface/icons/invention_icons/1776_battlefield_evacuation.dds\"\r\n\tcategory = military\r\n\r\n\t# Temporary TECH debt bonus; replace with field ambulance and military medicine content.\r\n\tmodifier = {\r\n\t\tunit_recovery_rate_add = 0.05\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tpermanent_military_hospitals\r\n\t\tlogistics\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nmilitary_veterinary_services = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_5\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\thorse_artillery\r\n\t\tveterinary_science\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\ncasemated_fortifications = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_5\r\n\ttexture = \"gfx/interface/icons/invention_icons/1776_casemated_fortifications.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tscientific_fortification_siegecraft\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\nstandardized_military_rockets = {\r\n\t# TECH TREE Wave 3 compatibility alias: concept absorbed by the artillery chain.\r\n\tera = era_5\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\tcan_research = no\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\npercussion_cap = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_5\r\n\ttexture = \"gfx/interface/icons/invention_icons/percussion_cap.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tarmament_standardization_inspection\r\n\t\trifling\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n\r\ngeneral_staff = {\r\n\t# TECH3A conceptual branch: Military\r\n\tera = era_6\r\n\ttexture = \"gfx/interface/icons/invention_icons/general_staff.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tcorps_organization\r\n\t\tmilitary_topographic_surveying\r\n\t\tlogistics\r\n\t\tpercussion_cap\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\t}\r\n}\r\n"
+    }
+  },
+  "entries": [
+    {
+      "key": "military_veterinary_services",
+      "id": "military_veterinary_services",
+      "label": "Services vétérinaires",
+      "family": "TECH",
+      "definition": "common/technology/technologies/20_tech3a_military.txt",
+      "field": "texture",
+      "previous_texture": "gfx/error_manul.dds",
+      "preview": "../previews/military_veterinary_services_padded.png",
+      "source_sha256": "abdf289bdbb166ff43f2619c4cb761dc58855de3eb70a5becba7ea30bbe54bdc",
+      "dds": "gfx/interface/icons/invention_icons/1776_military_veterinary_services.dds",
+      "size": 256,
+      "mips": 9
+    },
+    {
+      "key": "permanent_engineer_services",
+      "id": "permanent_engineer_services",
+      "label": "Corps du génie",
+      "family": "TECH",
+      "definition": "common/technology/technologies/20_tech3a_military.txt",
+      "field": "texture",
+      "previous_texture": "gfx/interface/icons/invention_icons/military_drill.dds",
+      "preview": "previews/permanent_engineer_services_padded.png",
+      "source_sha256": "44f22da07c8244dc6dd1cf9658c61cd6527e5d16bf8bbb46ff1f638bd1d6d71e",
+      "dds": "gfx/interface/icons/invention_icons/1776_permanent_engineer_services.dds",
+      "size": 256,
+      "mips": 9
+    },
+    {
+      "key": "horse_artillery",
+      "id": "horse_artillery",
+      "label": "Artillerie à cheval",
+      "family": "TECH",
+      "definition": "common/technology/technologies/20_tech3a_military.txt",
+      "field": "texture",
+      "previous_texture": "gfx/interface/icons/invention_icons/napoleonic_warfare.dds",
+      "preview": "../previews/horse_artillery_padded.png",
+      "source_sha256": "77213d8fc1a29c3026e404ae4954447310d3a501a0e2bf39860cd6123ed970b3",
+      "dds": "gfx/interface/icons/invention_icons/1776_horse_artillery.dds",
+      "size": 256,
+      "mips": 9
+    }
+  ],
+  "game_tested": false
+}

@@ -687,8 +687,8 @@ for (const entry of pmIconManifest.entries) {
   check(data.toString("ascii",0,4) === "DDS " && data.readUInt32LE(4) === 124, "Invalid laboratory PM DDS header: " + entry.pm);
   check(data.readUInt32LE(12) === 208 && data.readUInt32LE(16) === 208, "Wrong laboratory PM image dimensions: " + entry.pm);
   check(data.readUInt32LE(28) === 8, "Laboratory PM requires full 8-level mip chain: " + entry.pm);
-  check(data.readUInt32LE(80) === 0x41 && data.readUInt32LE(88) === 32, "Laboratory PM DDS must be RGBA8: " + entry.pm);
-  check([92,96,100,104].map(o => data.readUInt32LE(o)).join() === [0xff,0xff00,0xff0000,0xff000000].join(), "Invalid laboratory PM DDS channel masks: " + entry.pm);
+  check(data.readUInt32LE(80) === 0x41 && data.readUInt32LE(88) === 32, "Laboratory PM DDS must be native BGRA8: " + entry.pm);
+  check([92,96,100,104].map(o => data.readUInt32LE(o)).join() === [0xff0000,0xff00,0xff,0xff000000].join(), "Invalid laboratory PM DDS channel masks: " + entry.pm);
   if (pmIconManifest.transparentBackground) {
     const cutoutPath = entry.cutout ? path.join(root,entry.cutout) : null;
     check(Boolean(cutoutPath && fs.existsSync(cutoutPath)), "Missing transparent PM cutout: " + entry.pm);
@@ -744,6 +744,7 @@ if (fs.existsSync(laboratoryDdsPath)) {
     check(data.toString("ascii",0,4) === "DDS " && data.readUInt32LE(4) === 124, "Invalid laboratory DDS header");
     check(data.readUInt32LE(12) === 256 && data.readUInt32LE(16) === 256, "Laboratory icon should match native 256px dimensions");
     check(data.readUInt32LE(28) === 9, "Laboratory icon requires 9 mip levels");
+    check([92,96,100,104].map(o=>data.readUInt32LE(o)).join() === [0xff0000,0xff00,0xff,0xff000000].join(), "Laboratory building must use native BGRA storage, not RGBA");
   }
 }
 for (const f of newPaths) for (const m of read(f).matchAll(/(?:texture|icon|background)\s*=\s*"([^"]+\.dds)"/g)) assets.add(m[1]);

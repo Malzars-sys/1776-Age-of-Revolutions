@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-04",
+  "mode": "BUILTIN_IMAGE_GEN",
+  "status": "THREE_ICONS_INTEGRATED_STATICALLY_VALIDATED",
+  "approval": {
+    "date": "2026-10-04",
+    "approved": true,
+    "source": "Explicit user authorization in current conversation",
+    "user_request": "Voilà chargé, tu peux intégrer.",
+    "scope": "Integrate the three lot-7 maritime technology icons exactly as previewed; no new generation or gameplay changes.",
+    "entries": [
+      {
+        "key": "marine_chronometry",
+        "preview": "previews/marine_chronometry.png",
+        "sha256": "9e973d5c574282c30a27b31c2e252aa58b79c58b93f3a033bfe93d1c9234fbba"
+      },
+      {
+        "key": "hydrographic_surveying",
+        "preview": "previews/hydrographic_surveying.png",
+        "sha256": "514128149624735a496d5c3639e0c9f38c271714eea1ba85f97baff493b56655"
+      },
+      {
+        "key": "modern_lighthouse_optics",
+        "preview": "previews/modern_lighthouse_optics.png",
+        "sha256": "87b5a43a0ff9dd1e4b673b91366239d40474c26d02c2f15d9270fc70ae468042"
+      }
+    ]
+  },
+  "protected_baseline": "integration_gameplay_and_gfx_baseline.json",
+  "definition_baseline": {
+    "common/technology/technologies/25_tech3a_naval.txt": {
+      "sha256": "b1e6e0cd3e2d0d0ffc7a9eb36f15f55a367bd1a283f4acf20849159ac2433688",
+      "text": "﻿# TECH-3A generated from frozen TECH-2H authority.\r\n\r\nstate_dockyard_systems = {\n\t# TECH3A conceptual branch: Naval\n\tera = era_1\n\ttexture = \"gfx/interface/icons/invention_icons/admiralty.dds\"\n\tcategory = military\r\n\r\n\tmodifier = {\r\n\t\tcountry_admiral_rank_impact_mult = 0.25\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nenclosed_dock_systems = {\n\t# TECH3A conceptual branch: Naval\n\tera = era_1\n\ttexture = \"gfx/interface/icons/invention_icons/drydock.dds\"\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tstate_dockyard_systems\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 2\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nscientific_naval_architecture = {\n\t# TECH3A conceptual branch: Naval\n\tera = era_2\n\ttexture = \"gfx/interface/icons/invention_icons/screw_frigate.dds\"\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tstate_dockyard_systems\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nmarine_chronometry = {\r\n\t# TECH3A conceptual branch: Naval\r\n\tera = era_3\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tship_classification_surveying\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 2\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nship_classification_surveying = {\n\t# TECH3A conceptual branch: Naval\n\tera = era_3\n\ttexture = \"gfx/interface/icons/invention_icons/power_of_the_purse.dds\"\n\tcategory = military\r\n\r\n\t# Temporary TECH debt bonus; replace with naval registry and inspection content.\r\n\tmodifier = {\r\n\t\tbuilding_naval_administration_throughput_add = 0.05\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tstate_dockyard_systems\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\ncopper_sheathing = {\r\n\t# TECH3A conceptual branch: Naval\r\n\tera = era_4\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tscientific_naval_architecture\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nhydrographic_surveying = {\r\n\t# TECH3A conceptual branch: Naval\r\n\tera = era_5\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\r\n\t# Temporary TECH debt bonus; replace with charts, beacons and hydrographic services.\r\n\tmodifier = {\r\n\t\tship_max_distance_to_port_mult = 0.05\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tmarine_chronometry\r\n\t\tmilitary_topographic_surveying\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nstandardized_naval_signals = {\r\n\t# TECH3A conceptual branch: Naval\r\n\tera = era_5\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tship_classification_surveying\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\npaddle_steamer = {\r\n\t# TECH3A conceptual branch: Naval\r\n\tera = era_5\r\n\ttexture = \"gfx/interface/icons/invention_icons/paddle_steamer.dds\"\r\n\tcategory = military\r\n\r\n\r\n\tmodifier = {\r\n\t\tship_hull_damage_mult = 0.05\r\n\t\tship_crew_damage_mult = 0.05\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tscientific_naval_architecture\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nmechanized_naval_dockyards = {\n\t# TECH3A conceptual branch: Naval\n\tera = era_5\n\ttexture = \"gfx/interface/icons/invention_icons/hydraulic_cranes.dds\"\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tscientific_naval_architecture\r\n\t\tstate_dockyard_systems\r\n\t\tenclosed_dock_systems\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\ndiagonal_ship_framing = {\r\n\t# TECH3A conceptual branch: Naval\r\n\tera = era_5\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\r\n\t# Temporary TECH debt bonus; replace with reinforced wooden shipbuilding content.\r\n\tmodifier = {\r\n\t\tship_hit_points_max_mult = 0.05\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tscientific_naval_architecture\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nshell_gun = {\r\n\t# TECH3A conceptual branch: Naval\r\n\tera = era_6\r\n\ttexture = \"gfx/interface/icons/invention_icons/shell_gun.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\tstandardized_field_artillery\r\n\t\tscientific_naval_architecture\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nmaritime_safety_standards = {\n\t# TECH3A conceptual branch: Naval\n\tera = era_6\n\ttexture = \"gfx/interface/icons/invention_icons/navigation.dds\"\n\tcategory = military\r\n\r\n\t# Temporary TECH debt bonus; replace with maritime safety and rescue content.\r\n\tmodifier = {\r\n\t\tship_suffered_crew_damage_mult = -0.05\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tship_classification_surveying\r\n\t\thydrographic_surveying\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\nmodern_lighthouse_optics = {\r\n\t# TECH3A conceptual branch: Naval\r\n\tera = era_6\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\r\n\tunlocking_technologies = {\r\n\t\thydrographic_surveying\r\n\t}\r\n\r\n\tmodifier = {\r\n\t\tbuilding_port_throughput_add = 0.05\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\niron_hull_construction = {\r\n\t# TECH3A conceptual branch: Naval\r\n\tera = era_6\r\n\ttexture = \"gfx/error_manul.dds\"\r\n\tcategory = military\r\n\r\n\t# Temporary TECH debt bonus; replace with iron-hull shipyard and armor content.\r\n\tmodifier = {\r\n\t\tship_armor_mult = 0.05\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tmechanized_naval_dockyards\r\n\t\tdiagonal_ship_framing\r\n\t\tpaddle_steamer\r\n\t}\r\n\r\n\tai_weight = {\r\n\t\tvalue = 1\r\n\r\n\t\tif = {\r\n\t\t\tlimit = { navy_size >= 5 }\r\n\t\t\tadd = 1\r\n\t\t}\r\n\t}\r\n}\r\n"
+    }
+  },
+  "entries": [
+    {
+      "key": "marine_chronometry",
+      "id": "marine_chronometry",
+      "label": "Chronométrie marine",
+      "family": "TECH",
+      "definition": "common/technology/technologies/25_tech3a_naval.txt",
+      "field": "texture",
+      "previous_texture": "gfx/error_manul.dds",
+      "preview": "previews/marine_chronometry.png",
+      "source_sha256": "9e973d5c574282c30a27b31c2e252aa58b79c58b93f3a033bfe93d1c9234fbba",
+      "dds": "gfx/interface/icons/invention_icons/1776_marine_chronometry.dds",
+      "size": 256,
+      "mips": 9
+    },
+    {
+      "key": "hydrographic_surveying",
+      "id": "hydrographic_surveying",
+      "label": "Levé hydrographique",
+      "family": "TECH",
+      "definition": "common/technology/technologies/25_tech3a_naval.txt",
+      "field": "texture",
+      "previous_texture": "gfx/error_manul.dds",
+      "preview": "previews/hydrographic_surveying.png",
+      "source_sha256": "514128149624735a496d5c3639e0c9f38c271714eea1ba85f97baff493b56655",
+      "dds": "gfx/interface/icons/invention_icons/1776_hydrographic_surveying.dds",
+      "size": 256,
+      "mips": 9
+    },
+    {
+      "key": "modern_lighthouse_optics",
+      "id": "modern_lighthouse_optics",
+      "label": "Optique des phares",
+      "family": "TECH",
+      "definition": "common/technology/technologies/25_tech3a_naval.txt",
+      "field": "texture",
+      "previous_texture": "gfx/error_manul.dds",
+      "preview": "previews/modern_lighthouse_optics.png",
+      "source_sha256": "87b5a43a0ff9dd1e4b673b91366239d40474c26d02c2f15d9270fc70ae468042",
+      "dds": "gfx/interface/icons/invention_icons/1776_modern_lighthouse_optics.dds",
+      "size": 256,
+      "mips": 9
+    }
+  ],
+  "game_tested": false
+}

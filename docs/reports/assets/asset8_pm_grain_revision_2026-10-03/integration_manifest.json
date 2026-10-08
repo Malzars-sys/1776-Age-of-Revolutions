@@ -1,0 +1,269 @@
+{
+  "date": "2026-10-04",
+  "status": "TEN_PM_INTEGRATED_STATICALLY_VALIDATED_SEVEN_LABORATORY_RETAINED",
+  "mode": "BUILTIN_IMAGE_GEN",
+  "approval": {
+    "date": "2026-10-04",
+    "user_request": "Ok, tout est bon, sauf pour les méthodes de production du laboratoire. Tu gardes les anciennes. Voilà.",
+    "status": "PARTIALLY_APPROVED_EXCLUDING_LABORATORY",
+    "approved_scope": "10 revised PM: four road methods and six industrial/extraction methods",
+    "laboratory_scope": "Keep the seven existing in-game DDS and bindings unchanged; do not integrate either proposed flat or grain revisions",
+    "approved_keys": [
+      "fractional_distillation_refinery",
+      "manual_ore_sorting",
+      "no_stone_processing",
+      "ore_concentration",
+      "stone_crushing_screening",
+      "thermal_catalytic_cracking_refinery",
+      "traditional_road_network",
+      "turnpike_road_network",
+      "engineered_road_network",
+      "paved_road_network"
+    ],
+    "rejected_keys": [
+      "laboratory_advanced",
+      "laboratory_electrical",
+      "laboratory_general",
+      "laboratory_manual",
+      "laboratory_military",
+      "laboratory_production",
+      "laboratory_society"
+    ],
+    "technology_scope": "Unchanged; not included in this PM approval"
+  },
+  "protected_baseline": "integration_gameplay_and_gfx_baseline.json",
+  "definition_baseline": {
+    "common/production_methods/12_tech6c4_oil_refinery_production.txt": {
+      "sha256": "8e1e2e697af1235a2567d32f420fc6d2035ceb2ac2e79d022d90a46f6854c58e",
+      "text": "pm_fractional_distillation_refinery = {\r\n\ttexture = \"gfx/interface/icons/production_method_icons/1776_fractional_distillation_refinery.dds\"\r\n\r\n\tunlocking_technologies = {\r\n\t\tfractional_distillation\r\n\t}\r\n\t\r\n\tstate_modifiers = {\r\n    \t\tworkforce_scaled = {\r\n        \tstate_pollution_generation_add = 20\r\n    \t\t}\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\r\n\t\t\t# Inputs\r\n\t\t\tgoods_input_oil_add = 30\r\n\t\t\tgoods_input_coal_add = 5\r\n\t\t\tgoods_input_tools_add = 5\r\n\r\n\t\t\t# Outputs\r\n\t\t\tgoods_output_refined_fuels_add = 22\r\n\t\t\tgoods_output_lubricants_add = 6\r\n\t\t\tgoods_output_heavy_petroleum_products_add = 16\r\n\t\t}\r\n\t\t\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_shopkeepers_add = 500\r\n\t\t\tbuilding_employment_laborers_add = 2500\r\n\t\t\tbuilding_employment_machinists_add = 1500\r\n\t\t\tbuilding_employment_engineers_add = 500\r\n\t\t}\r\n\t}\r\n}\r\n"
+    },
+    "common/production_methods/15_tech6c6b_phosphate_extraction.txt": {
+      "sha256": "97c498c7a2ee52f52ccba5a29c6dab61a57a0d431359ebb9ea5970a7330c6456",
+      "text": "pm_picks_and_shovels_building_phosphate_mine = {\r\n\ttexture = \"gfx/interface/icons/production_method_icons/picks_and_shovels.dds\"\r\n\r\n\tstate_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tstate_pollution_generation_add = 5\r\n\t\t}\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_tools_add = 5\r\n\t\t\tgoods_output_phosphates_add = 25\r\n\t\t}\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_shopkeepers_add = 500\r\n\t\t\tbuilding_employment_laborers_add = 4500\r\n\t\t}\r\n\t}\r\n}\r\n\r\npm_no_ore_concentration_building_phosphate_mine = {\r\n    texture = \"gfx/interface/icons/production_method_icons/1776_manual_ore_sorting.dds\"\r\n}\r\n\r\npm_ore_concentration_building_phosphate_mine = {\r\n    texture = \"gfx/interface/icons/production_method_icons/1776_ore_concentration.dds\"\r\n\r\n    unlocking_technologies = {\r\n        geological_surveying\r\n    }\r\n\r\n    state_modifiers = {\r\n        workforce_scaled = {\r\n            state_pollution_generation_add = 5\r\n        }\r\n    }\r\n\r\n    building_modifiers = {\r\n        workforce_scaled = {\r\n            goods_input_tools_add = 5\r\n            goods_input_industrial_chemicals_add = 5\r\n\r\n            goods_output_phosphates_add = 16\r\n        }\r\n    }\r\n}\r\n"
+    },
+    "common/production_methods/10_tech6c1_limestone_production.txt": {
+      "sha256": "265cfd06f43b3c9c23116cd54665ef3cac0828cb3311dd0e025edbad358f2aca",
+      "text": "pm_picks_and_shovels_building_limestone_quarry = {\r\n\ttexture = \"gfx/interface/icons/production_method_icons/picks_and_shovels.dds\"\r\n\tis_default = yes\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_tools_add = 2\r\n\t\t\tgoods_output_limestone_add = 30\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_shopkeepers_add = 500\r\n\t\t\tbuilding_employment_laborers_add = 4500\r\n\t\t}\r\n\t}\r\n}\r\n\r\npm_no_stone_processing_building_limestone_quarry = {\r\n    texture = \"gfx/interface/icons/production_method_icons/1776_no_stone_processing.dds\"\r\n}\r\n\r\npm_crushing_and_screening_building_limestone_quarry = {\r\n    texture = \"gfx/interface/icons/production_method_icons/1776_stone_crushing_screening.dds\"\r\n\r\n    unlocking_technologies = {\r\n        geological_surveying\r\n    }\r\n\r\n    state_modifiers = {\r\n        workforce_scaled = {\r\n            state_pollution_generation_add = 5\r\n        }\r\n    }\r\n\r\n    building_modifiers = {\r\n        workforce_scaled = {\r\n            goods_input_tools_add = 5\r\n            goods_input_engines_add = 1\r\n\r\n            goods_output_limestone_add = 18\r\n        }\r\n    }\r\n}\r\n"
+    },
+    "common/production_methods/18_tech6d_wave_b_production.txt": {
+      "sha256": "eabfcc061c6efc8560bc82e7e933f9aca41d97c362db830d23ac2ceffb95569c",
+      "text": "# TECH6D — Wave B production methods\r\n\r\npm_pressed_glass = {\r\n\ttexture = \"gfx/error_deer.dds\"\r\n\r\n\tstate_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tstate_pollution_generation_add = 12\r\n\t\t}\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tpressed_glass\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\t# inputs\r\n\t\t\tgoods_input_coal_add = 10\r\n\t\t\tgoods_input_lead_add = 15\r\n\t\t\tgoods_input_limestone_add = 15\r\n\t\t\tgoods_input_industrial_chemicals_add = 10\r\n\t\t\tgoods_input_tools_add = 5\r\n\r\n\t\t\t# output\r\n\t\t\tgoods_output_glass_add = 80\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_shopkeepers_add = 500\r\n\t\t\tbuilding_employment_laborers_add = 2750\r\n\t\t\tbuilding_employment_machinists_add = 1250\r\n\t\t\tbuilding_employment_engineers_add = 500\r\n\t\t}\r\n\t}\r\n}\r\n\r\n\r\npm_thermal_catalytic_cracking_refinery = {\r\n\ttexture = \"gfx/interface/icons/production_method_icons/1776_thermal_catalytic_cracking_refinery.dds\"\r\n\r\n\tstate_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tstate_pollution_generation_add = 20\r\n\t\t}\r\n\t}\r\n\r\n\tunlocking_technologies = {\r\n\t\tplastics\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\t# inputs\r\n\t\t\tgoods_input_oil_add = 30\r\n\t\t\tgoods_input_industrial_chemicals_add = 10\r\n\t\t\tgoods_input_electricity_add = 5\r\n\r\n\t\t\t# outputs\r\n\t\t\tgoods_output_refined_fuels_add = 30\r\n\t\t\tgoods_output_lubricants_add = 6\r\n\t\t\tgoods_output_heavy_petroleum_products_add = 10\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_shopkeepers_add = 500\r\n\t\t\tbuilding_employment_laborers_add = 2000\r\n\t\t\tbuilding_employment_machinists_add = 1500\r\n\t\t\tbuilding_employment_engineers_add = 1000\r\n\t\t}\r\n\t}\r\n\r\n\trequired_input_goods = electricity\r\n}\r\n\r\n\r\npm_no_mine_ventilation = {\r\n\ttexture = \"gfx/error_deer.dds\"\r\n}\r\n\r\n\r\npm_steam_mine_ventilation = {\r\n\ttexture = \"gfx/error_deer.dds\"\r\n\r\n\tunlocking_technologies = {\r\n\t\tdeep_mine_engineering\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_engines_add = 2\r\n\t\t\tgoods_input_coal_add = 5\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_laborers_add = -250\r\n\t\t\tbuilding_employment_machinists_add = 200\r\n\t\t\tbuilding_employment_engineers_add = 50\r\n\t\t}\r\n\r\n\t\tunscaled = {\r\n\t\t\tbuilding_laborers_mortality_mult = -0.10\r\n\t\t\tbuilding_machinists_mortality_mult = -0.05\r\n\t\t\tbuilding_engineers_mortality_mult = -0.05\r\n\t\t}\r\n\t}\r\n}\r\n\r\n\r\npm_electric_mine_ventilation = {\r\n\ttexture = \"gfx/error_deer.dds\"\r\n\r\n\tunlocking_technologies = {\r\n\t\telectrical_capacitors\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_engines_add = 2\r\n\t\t\tgoods_input_electricity_add = 5\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_laborers_add = -500\r\n\t\t\tbuilding_employment_machinists_add = 350\r\n\t\t\tbuilding_employment_engineers_add = 150\r\n\t\t}\r\n\r\n\t\tunscaled = {\r\n\t\t\tbuilding_laborers_mortality_mult = -0.20\r\n\t\t\tbuilding_machinists_mortality_mult = -0.10\r\n\t\t\tbuilding_engineers_mortality_mult = -0.10\r\n\t\t}\r\n\t}\r\n\r\n\trequired_input_goods = electricity\r\n}\r\n"
+    },
+    "common/production_methods/22_tech7a_wave_a_land_transport_production.txt": {
+      "sha256": "d916232d328f1e8091cb9db203727a1d0a580384f8274bc4482214165a9348d3",
+      "text": "pm_traditional_road_network = {\r\n\ttexture = \"gfx/error_deer.dds\"\r\n\tis_default = yes\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_wood_add = 5\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_laborers_add = 900\r\n\t\t\tbuilding_employment_clerks_add = 100\r\n\t\t}\r\n\t}\r\n\r\n\tstate_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tstate_infrastructure_add = 3\r\n\t\t}\r\n\t}\r\n}\r\n\r\npm_turnpike_road_network = {\r\n\ttexture = \"gfx/error_deer.dds\"\r\n\r\n\tunlocking_technologies = {\r\n\t\tturnpike_road_networks\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_wood_add = 4\r\n\t\t\tgoods_input_tools_add = 2\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_laborers_add = 750\r\n\t\t\tbuilding_employment_clerks_add = 150\r\n\t\t\tbuilding_employment_bureaucrats_add = 100\r\n\t\t}\r\n\t}\r\n\r\n\tstate_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tstate_infrastructure_add = 7\r\n\t\t\tstate_infrastructure_from_population_add = 0.02\r\n\t\t\tstate_infrastructure_from_population_max_add = 0.5\r\n\t\t}\r\n\t}\r\n}\r\n\r\npm_engineered_road_network = {\r\n\ttexture = \"gfx/error_deer.dds\"\r\n\r\n\tunlocking_technologies = {\r\n\t\timproved_road_engineering\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_limestone_add = 5\r\n\t\t\tgoods_input_tools_add = 3\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_laborers_add = 600\r\n\t\t\tbuilding_employment_machinists_add = 200\r\n\t\t\tbuilding_employment_engineers_add = 100\r\n\t\t\tbuilding_employment_clerks_add = 100\r\n\t\t}\r\n\t}\r\n\r\n\tstate_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tstate_infrastructure_add = 12\r\n\t\t\tstate_infrastructure_from_population_add = 0.05\r\n\t\t\tstate_infrastructure_from_population_max_add = 1\r\n\t\t}\r\n\t}\r\n}\r\n\r\npm_paved_road_network = {\r\n\ttexture = \"gfx/error_deer.dds\"\r\n\r\n\tunlocking_technologies = {\r\n\t\tpaved_roads\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_tools_add = 4\r\n\t\t\tgoods_input_cement_add = 5\r\n\t\t\tgoods_input_limestone_add = 5\r\n\t\t\tgoods_input_heavy_petroleum_products_add = 2\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_laborers_add = 400\r\n\t\t\tbuilding_employment_machinists_add = 250\r\n\t\t\tbuilding_employment_engineers_add = 150\r\n\t\t\tbuilding_employment_clerks_add = 200\r\n\t\t}\r\n\t}\r\n\r\n\tstate_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tstate_infrastructure_add = 20\r\n\t\t\tstate_infrastructure_from_population_add = 0.1\r\n\t\t\tstate_infrastructure_from_population_max_add = 2\r\n\t\t\tstate_infrastructure_from_automobiles_consumption_add = 0.01\r\n\t\t}\r\n\t}\r\n}\r\n"
+    }
+  },
+  "entries": [
+    {
+      "key": "fractional_distillation_refinery",
+      "label": "Distillation fractionnée",
+      "id": "pm_fractional_distillation_refinery",
+      "definition": "common/production_methods/12_tech6c4_oil_refinery_production.txt",
+      "previous_texture": "gfx/interface/icons/production_method_icons/1776_fractional_distillation_refinery.dds",
+      "preview": "previews/fractional_distillation_refinery_grain_gradient.png",
+      "source_sha256": "1640f0a0f34012b2aedbe83000e4904aca8f6f90fac6cdb7a9e5d3b23ecb933d",
+      "dds": "gfx/interface/icons/production_method_icons/1776_fractional_distillation_refinery.dds",
+      "previous_dds_sha256": "3289e7ba985c4d82c9e0b704f5f695b817f57f95b98d13579dd3a738e9f068fb",
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "manual_ore_sorting",
+      "label": "Tri manuel",
+      "id": "pm_no_ore_concentration_building_phosphate_mine",
+      "definition": "common/production_methods/15_tech6c6b_phosphate_extraction.txt",
+      "previous_texture": "gfx/interface/icons/production_method_icons/1776_manual_ore_sorting.dds",
+      "preview": "previews/manual_ore_sorting_grain_gradient.png",
+      "source_sha256": "77f94604f22bffbc55f05507528c59e07d95bea8377982dd7e79df2e0a4a89cb",
+      "dds": "gfx/interface/icons/production_method_icons/1776_manual_ore_sorting.dds",
+      "previous_dds_sha256": "d21875f794a8dd4a15472f21ff1ac6d7f63b4f383c314fddbf96d5002375f5e8",
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "no_stone_processing",
+      "label": "Pierre brute",
+      "id": "pm_no_stone_processing_building_limestone_quarry",
+      "definition": "common/production_methods/10_tech6c1_limestone_production.txt",
+      "previous_texture": "gfx/interface/icons/production_method_icons/1776_no_stone_processing.dds",
+      "preview": "previews/no_stone_processing_grain_gradient.png",
+      "source_sha256": "0c4efeee00055b0a4b9fc0494016e3fdc9aafbe254061ed769bc7b49ccf5ba6b",
+      "dds": "gfx/interface/icons/production_method_icons/1776_no_stone_processing.dds",
+      "previous_dds_sha256": "0dcd3845347495319915a3a5d8d758f02b0ff98770aa649087d7a7d6720c4cd6",
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "ore_concentration",
+      "label": "Concentration des minerais",
+      "id": "pm_ore_concentration_building_phosphate_mine",
+      "definition": "common/production_methods/15_tech6c6b_phosphate_extraction.txt",
+      "previous_texture": "gfx/interface/icons/production_method_icons/1776_ore_concentration.dds",
+      "preview": "previews/ore_concentration_grain_gradient.png",
+      "source_sha256": "a68d5d8038ad02c85bea521b2c5dc1d9380cc31db817457500005eb35b982376",
+      "dds": "gfx/interface/icons/production_method_icons/1776_ore_concentration.dds",
+      "previous_dds_sha256": "e89643c32fa6404bb56aade9d7a8e12617b0a5b8d06d2fa349a9870a50355100",
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "stone_crushing_screening",
+      "label": "Concassage et criblage",
+      "id": "pm_crushing_and_screening_building_limestone_quarry",
+      "definition": "common/production_methods/10_tech6c1_limestone_production.txt",
+      "previous_texture": "gfx/interface/icons/production_method_icons/1776_stone_crushing_screening.dds",
+      "preview": "previews/stone_crushing_screening_grain_gradient.png",
+      "source_sha256": "422298bffd3c22487b0b46cdce68b78a3d463989d479468ca23ad830998f9e36",
+      "dds": "gfx/interface/icons/production_method_icons/1776_stone_crushing_screening.dds",
+      "previous_dds_sha256": "8ec17a52243a78e671c6a36586729f9a9384d34fd2d2f2854a6218d698b87be9",
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "thermal_catalytic_cracking_refinery",
+      "label": "Craquage thermique et catalytique",
+      "id": "pm_thermal_catalytic_cracking_refinery",
+      "definition": "common/production_methods/18_tech6d_wave_b_production.txt",
+      "previous_texture": "gfx/interface/icons/production_method_icons/1776_thermal_catalytic_cracking_refinery.dds",
+      "preview": "previews/thermal_catalytic_cracking_refinery_grain_gradient.png",
+      "source_sha256": "0e6308439268e3c983ee95e329c86c987223812d624cbd36e5097c6267755543",
+      "dds": "gfx/interface/icons/production_method_icons/1776_thermal_catalytic_cracking_refinery.dds",
+      "previous_dds_sha256": "074e38e470e51654b1d3075a39a8fbaadcb867a51407b7030328bf60f5d8ee16",
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "traditional_road_network",
+      "label": "Routes en terre",
+      "id": "pm_traditional_road_network",
+      "definition": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+      "previous_texture": "gfx/error_deer.dds",
+      "preview": "previews/traditional_road_network_grain_gradient.png",
+      "source_sha256": "289783d965a1a9baaa66610d9f9a736f005fc6ebe9819641300976283b03059d",
+      "dds": "gfx/interface/icons/production_method_icons/1776_traditional_road_network.dds",
+      "previous_dds_sha256": null,
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "turnpike_road_network",
+      "label": "Routes à péage",
+      "id": "pm_turnpike_road_network",
+      "definition": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+      "previous_texture": "gfx/error_deer.dds",
+      "preview": "previews/turnpike_road_network_grain_gradient.png",
+      "source_sha256": "9503d8f3472256cfcd9deb590de74559da00fcb116761ac7c3751d3ee1034b8c",
+      "dds": "gfx/interface/icons/production_method_icons/1776_turnpike_road_network.dds",
+      "previous_dds_sha256": null,
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "engineered_road_network",
+      "label": "Routes pavées",
+      "id": "pm_engineered_road_network",
+      "definition": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+      "previous_texture": "gfx/error_deer.dds",
+      "preview": "previews/engineered_road_network_grain_gradient.png",
+      "source_sha256": "76c1fa42b31195d6143b60b9a1d335ac34632d277bde4d8a11758fc7001d4747",
+      "dds": "gfx/interface/icons/production_method_icons/1776_engineered_road_network.dds",
+      "previous_dds_sha256": null,
+      "size": 208,
+      "mips": 8
+    },
+    {
+      "key": "paved_road_network",
+      "label": "Routes goudronnées",
+      "id": "pm_paved_road_network",
+      "definition": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+      "previous_texture": "gfx/error_deer.dds",
+      "preview": "previews/paved_road_network_grain_gradient.png",
+      "source_sha256": "703a12b2e50f1a652d1d2cca51ed75a7f71cdb60ecb85e5539ab7ece7c34e520",
+      "dds": "gfx/interface/icons/production_method_icons/1776_paved_road_network.dds",
+      "previous_dds_sha256": null,
+      "size": 208,
+      "mips": 8
+    }
+  ],
+  "retained_laboratory": [
+    {
+      "key": "laboratory_advanced",
+      "dds": "gfx/interface/icons/production_method_icons/1776_laboratory_advanced.dds",
+      "sha256": "5464007011dd6ac616041228012da1f741f7a1de7b1321c6756cad69247d5cfb",
+      "bindings": [
+        {
+          "id": "pm_1776_advanced_research_laboratory",
+          "file": "common/production_methods/24_tech8c_research_laboratory.txt"
+        }
+      ]
+    },
+    {
+      "key": "laboratory_electrical",
+      "dds": "gfx/interface/icons/production_method_icons/1776_laboratory_electrical.dds",
+      "sha256": "c3240456828bec7e46a731565b4d6de42b00a1e0685d6486e5a32f91c65aa105",
+      "bindings": [
+        {
+          "id": "pm_1776_electrical_research_laboratory",
+          "file": "common/production_methods/24_tech8c_research_laboratory.txt"
+        }
+      ]
+    },
+    {
+      "key": "laboratory_general",
+      "dds": "gfx/interface/icons/production_method_icons/1776_laboratory_general.dds",
+      "sha256": "bca246949c92421cc942647317ffecb6299ccd53875cd96165a2f07579da941e",
+      "bindings": [
+        {
+          "id": "pm_1776_general_research",
+          "file": "common/production_methods/24_tech8c_research_laboratory.txt"
+        }
+      ]
+    },
+    {
+      "key": "laboratory_manual",
+      "dds": "gfx/interface/icons/production_method_icons/1776_laboratory_manual.dds",
+      "sha256": "ab6489e37591f9f802143138e72eeb6aa18e049b98d1285bfd6baa1fef0ad963",
+      "bindings": [
+        {
+          "id": "pm_1776_manual_research_laboratory",
+          "file": "common/production_methods/24_tech8c_research_laboratory.txt"
+        }
+      ]
+    },
+    {
+      "key": "laboratory_military",
+      "dds": "gfx/interface/icons/production_method_icons/1776_laboratory_military.dds",
+      "sha256": "d380376557bd9a535bb34784782ea7f13e47a936701f8d8615f90c4983da9c06",
+      "bindings": [
+        {
+          "id": "pm_1776_military_research",
+          "file": "common/production_methods/24_tech8c_research_laboratory.txt"
+        }
+      ]
+    },
+    {
+      "key": "laboratory_production",
+      "dds": "gfx/interface/icons/production_method_icons/1776_laboratory_production.dds",
+      "sha256": "6b3300361f5a28a38147e0b8296993ec1591f49f8fac3c8c1fbfa46a98034936",
+      "bindings": [
+        {
+          "id": "pm_1776_production_research",
+          "file": "common/production_methods/24_tech8c_research_laboratory.txt"
+        }
+      ]
+    },
+    {
+      "key": "laboratory_society",
+      "dds": "gfx/interface/icons/production_method_icons/1776_laboratory_society.dds",
+      "sha256": "f080d155608dba750455ebe2f3655e651f365ebe2dffb59e6441ed6c5b326206",
+      "bindings": [
+        {
+          "id": "pm_1776_society_research",
+          "file": "common/production_methods/24_tech8c_research_laboratory.txt"
+        }
+      ]
+    }
+  ],
+  "game_tested": false
+}
