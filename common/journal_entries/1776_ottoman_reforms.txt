@@ -1,0 +1,112 @@
+﻿je_1776_porte_burden = {
+	icon = "gfx/interface/icons/event_icons/1776_porte_burden.dds"
+	group = je_group_1776_imperial_crises
+	# The engine precreates inactive entries. Activate them through eligibility,
+	# rather than add_journal_entry (which refuses an existing inactive entry).
+	is_shown_when_inactive = {
+		has_variable = ottoman_1776_initialized
+		has_variable = ottoman_1776_admin_opened
+		NOT = { has_variable = ottoman_1776_admin_complete }
+	}
+	possible = {
+		has_variable = ottoman_1776_initialized
+		has_variable = ottoman_1776_admin_opened
+		NOT = { has_variable = ottoman_1776_admin_complete }
+	}
+	modifiers_while_active = { ottoman_1776_admin_burden }
+	on_weekly_pulse = { effect = { ottoman_1776_sync_administration = yes } }
+	on_monthly_pulse = { effect = { ottoman_1776_update_administration = yes } }
+	complete = {
+		var:ottoman_1776_admin_months >= 12
+		ottoman_1776_completion_reforms = yes
+		custom_tooltip = { text = ottoman_1776_goal_offices_tt ottoman_1776_goal_offices = yes }
+		custom_tooltip = { text = ottoman_1776_goal_balance_tt ottoman_1776_goal_balance = yes }
+		custom_tooltip = { text = ottoman_1776_goal_reserve_tt ottoman_1776_goal_reserve = yes }
+		custom_tooltip = { text = ottoman_1776_goal_supply_tt ottoman_1776_goal_supply = yes }
+		custom_tooltip = { text = ottoman_1776_goal_land_tax_tt ottoman_1776_goal_land_tax = yes }
+		custom_tooltip = { text = ottoman_1776_goal_consumption_tax_tt ottoman_1776_goal_consumption_tax = yes }
+		custom_tooltip = { text = ottoman_1776_goal_police_tt ottoman_1776_goal_police = yes }
+		custom_tooltip = { text = ottoman_1776_goal_schools_tt ottoman_1776_goal_schools = yes }
+		custom_tooltip = { text = ottoman_1776_goal_tax_capacity_tt ottoman_1776_goal_tax_capacity = yes }
+		custom_tooltip = { text = ottoman_1776_goal_staff_tt ottoman_1776_goal_staff = yes }
+	}
+	on_complete = {
+		# Show the current relief as CURRENT in status, not as a future reward.
+		custom_tooltip = ottoman_1776_admin_completion_tt
+		hidden_effect = {
+			set_variable = ottoman_1776_admin_complete
+			ottoman_1776_remove_relief = yes
+		}
+		trigger_event = { id = ottoman_1776.1 }
+	}
+	on_invalid = { ottoman_1776_remove_relief = yes }
+	current_value = { value = var:ottoman_1776_admin_months }
+	goal_add_value = { add = 12 }
+	progressbar = yes
+	transferable = no
+	can_revolution_inherit = yes
+	weight = 1000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+je_1776_many_masters = {
+	icon = "gfx/interface/icons/event_icons/1776_many_masters.dds"
+	group = je_group_1776_imperial_crises
+	is_shown_when_inactive = {
+		has_variable = ottoman_1776_initialized
+		has_variable = ottoman_1776_political_opened
+		NOR = {
+			has_variable = ottoman_1776_political_complete
+			has_variable = ottoman_1776_political_failed
+			has_variable = sick_man_complete
+			has_journal_entry = je_sick_man_main
+		}
+	}
+	possible = {
+		has_variable = ottoman_1776_initialized
+		has_variable = ottoman_1776_political_opened
+		NOR = {
+			has_variable = ottoman_1776_political_complete
+			has_variable = ottoman_1776_political_failed
+			has_variable = sick_man_complete
+			has_journal_entry = je_sick_man_main
+		}
+	}
+	modifiers_while_active = { ottoman_1776_many_masters_pressure }
+	on_monthly_pulse = { effect = { ottoman_1776_update_politics = yes } }
+	complete = {
+		game_date < 1836.1.1
+		var:ottoman_1776_stability_months >= 36
+		ottoman_1776_politically_stable = yes
+	}
+	on_complete = {
+		set_variable = ottoman_1776_political_complete
+		trigger_event = { id = ottoman_1776.2 }
+	}
+	fail = {
+		# Firm deadline, or prolonged instability with current severe pressure.
+		OR = {
+			game_date >= 1836.1.1
+			AND = {
+				var:ottoman_1776_crisis_months >= 120
+				ottoman_1776_politically_stable = no
+				ottoman_1776_severe_pressure = yes
+			}
+		}
+	}
+	on_fail = {
+		set_variable = ottoman_1776_political_failed
+		# Let the old JE be removed before adding its replacement.
+		trigger_event = { id = ottoman_1776.3 days = 1 }
+	}
+	invalid = {
+		OR = { has_journal_entry = je_sick_man_main has_variable = sick_man_complete }
+	}
+	current_value = { value = var:ottoman_1776_stability_months }
+	goal_add_value = { add = 36 }
+	progressbar = yes
+	transferable = no
+	can_revolution_inherit = yes
+	weight = 1000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

@@ -32,6 +32,8 @@ on_game_started = {
 # No root scope set
 on_game_started_after_lobby = {
 	effect = {
+		# Ottoman opening events are shown after selecting a country, not in lobby.
+		c:TUR ?= { ottoman_1776_launch_introductions = yes }
 		# Game Rule: No Dynamic Naming
 		if = {
 			limit = {
@@ -544,6 +546,12 @@ on_monthly_pulse_country = {
 	}
 
 	effect = {
+		# Ottoman transition recovery shares this canonical monthly effect block.
+		if = {
+			limit = { has_variable = ottoman_1776_initialized }
+			ottoman_1776_reconcile = yes
+		}
+
 		# TECH6A-2C: France-only Gabelle controller. This must live in the
 		# canonical monthly effect block; a second effect block is discarded.
 		if = {

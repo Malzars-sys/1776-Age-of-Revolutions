@@ -100,9 +100,11 @@
 
 			map_color = { 78 134 62 }
 
-			founding_date = 1825.12.1 # Coronation of Nicholas I
+			founding_date = 1721.11.2 # Proclamation of the Russian Empire (Gregorian date).
 			identity = identity_sovereign_empire
 			principle = principle_vassalization_1
+			member = c:PLC # Russian political influence, NOT subjecthood or annexation.
+			member = c:CRI # Independent of Ottoman suzerainty since the 1774 treaty.
 
 			# subjects are automatically part of the bloc
 		}
@@ -113,6 +115,12 @@
 			power_bloc = {
 				add_principle = principle_defensive_cooperation_1
 			}
+		}
+		# One-time native bloc-scope leverage, NOT a leave lock or forced rejoin.
+		# Native cap is 1000 and influence subsequently drifts towards its target.
+		power_bloc = {
+			add_leverage = { target = c:PLC value = 650 }
+			add_leverage = { target = c:CRI value = 550 }
 		}
 	}
 

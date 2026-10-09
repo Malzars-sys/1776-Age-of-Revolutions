@@ -86,6 +86,8 @@
 
 	progressbar = yes
 
+	can_revolution_inherit = yes
+
 	weight = 10000
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
@@ -172,6 +174,7 @@ je_sick_man_syria = {
 	}
 
 	transferable = no
+	can_revolution_inherit = yes
 
 	weight = 5000
 
@@ -216,6 +219,7 @@ je_sick_man_egypt = {
 	}
 
 	transferable = no
+	can_revolution_inherit = yes
 
 	weight = 5000
 
@@ -253,6 +257,7 @@ je_sick_man_economy = {
 	}
 
 	transferable = no
+	can_revolution_inherit = yes
 
 	weight = 5000
 	should_be_pinned_by_default_uninvolved_or_context = yes
@@ -300,6 +305,7 @@ je_sick_man_education = {
 	}
 
 	transferable = no
+	can_revolution_inherit = yes
 
 	weight = 5000
 
@@ -382,6 +388,7 @@ je_sick_man_separatism = {
 	}
 
 	transferable = no
+	can_revolution_inherit = yes
 
 	weight = 5000
 
@@ -445,6 +452,7 @@ je_sick_man_army = {
 	}
 
 	transferable = no
+	can_revolution_inherit = yes
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
 
@@ -475,7 +483,10 @@ je_sick_man_bureaucracy = {
 			name = sick_man_var
 			add = 1
 		}
-		remove_modifier = outmoded_bureaucracy
+		if = {
+			limit = { has_modifier = outmoded_bureaucracy }
+			remove_modifier = outmoded_bureaucracy
+		}
 	}
 
 	on_monthly_pulse = {
@@ -493,6 +504,7 @@ je_sick_man_bureaucracy = {
 	}
 
 	transferable = no
+	can_revolution_inherit = yes
 
 	weight = 5000
 

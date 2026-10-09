@@ -319,6 +319,11 @@
 	}
 
 	c:TUR ?= {
+		# Low-autonomy gameplay approximation of the Ottoman province ruled by Mamluk beys.
+		create_diplomatic_pact = {
+			country = c:EGY
+			type = puppet
+		}
 		create_diplomatic_pact = {
 			country = c:IR1
 			type = protectorate
@@ -471,7 +476,7 @@
 	}
 
 	c:EGY ?= {
-		add_liberty_desire = 45
+		add_liberty_desire = 20 # Low legal autonomy, but not automatic political loyalty.
 	}
 	
 	c:USA = {

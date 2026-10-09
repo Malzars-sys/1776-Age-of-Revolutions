@@ -1,0 +1,277 @@
+﻿ottoman_1776_initialize = {
+	if = {
+		limit = { NOT = { has_variable = ottoman_1776_initialized } }
+		set_variable = ottoman_1776_initialized
+		# New campaigns wait for each introductory event's single choice.
+		set_variable = ottoman_1776_intro_flow
+		set_variable = { name = ottoman_1776_admin_months value = 0 }
+		set_variable = { name = ottoman_1776_admin_score value = 0 }
+		set_variable = { name = ottoman_1776_stability_months value = 0 }
+		set_variable = { name = ottoman_1776_crisis_months value = 0 }
+		# Engine-precreated custom entries activate through their eligibility.
+	}
+	# Old saves must not retain the parallel vanilla fiscal penalty.
+	if = {
+		limit = { has_modifier = outmoded_bureaucracy }
+		remove_modifier = outmoded_bureaucracy
+	}
+}
+
+ottoman_1776_launch_introductions = {
+	if = {
+		limit = {
+			has_variable = ottoman_1776_initialized
+			has_variable = ottoman_1776_intro_flow
+			NOR = {
+				has_variable = ottoman_1776_admin_intro_sent
+				has_variable = ottoman_1776_admin_opened
+				has_variable = ottoman_1776_admin_complete
+			}
+		}
+		set_variable = ottoman_1776_admin_intro_sent
+		trigger_event = { id = ottoman_1776.10 days = 0 popup = yes }
+	}
+	if = {
+		limit = {
+			has_variable = ottoman_1776_initialized
+			has_variable = ottoman_1776_intro_flow
+			NOR = {
+				has_variable = ottoman_1776_political_intro_sent
+				has_variable = ottoman_1776_political_opened
+				has_variable = ottoman_1776_political_complete
+				has_variable = ottoman_1776_political_failed
+				has_variable = sick_man_complete
+				has_journal_entry = je_sick_man_main
+			}
+		}
+		set_variable = ottoman_1776_political_intro_sent
+		trigger_event = { id = ottoman_1776.11 days = 0 popup = yes }
+	}
+}
+
+ottoman_1776_open_administration = {
+	if = {
+		limit = {
+			has_variable = ottoman_1776_initialized
+			NOR = { has_variable = ottoman_1776_admin_opened has_variable = ottoman_1776_admin_complete }
+		}
+		# Eligibility activates the engine-precreated entry; do not add a duplicate.
+		set_variable = ottoman_1776_admin_opened
+		ottoman_1776_sync_administration = yes
+	}
+}
+
+ottoman_1776_open_politics = {
+	if = {
+		limit = {
+			has_variable = ottoman_1776_initialized
+			NOR = {
+				has_variable = ottoman_1776_political_opened
+				has_variable = ottoman_1776_political_complete
+				has_variable = ottoman_1776_political_failed
+				has_variable = sick_man_complete
+				has_journal_entry = je_sick_man_main
+			}
+		}
+		set_variable = ottoman_1776_political_opened
+	}
+}
+
+ottoman_1776_remove_relief = {
+	if = {
+		limit = { has_modifier = ottoman_1776_admin_relief_1 }
+		remove_modifier = ottoman_1776_admin_relief_1
+	}
+	if = {
+		limit = { has_modifier = ottoman_1776_admin_relief_2 }
+		remove_modifier = ottoman_1776_admin_relief_2
+	}
+	if = {
+		limit = { has_modifier = ottoman_1776_admin_relief }
+		remove_modifier = ottoman_1776_admin_relief
+	}
+}
+
+ottoman_1776_sync_administration = {
+	if = {
+		limit = { NOT = { has_variable = ottoman_1776_admin_v2 } }
+		# Migrate the old three-axis model once; its months are not valid here.
+		set_variable = ottoman_1776_admin_v2
+		set_variable = { name = ottoman_1776_admin_months value = 0 }
+		set_variable = { name = ottoman_1776_admin_applied_score value = -1 }
+		ottoman_1776_remove_relief = yes
+	}
+	set_variable = { name = ottoman_1776_admin_score value = 0 }
+	if = {
+		limit = { ottoman_1776_goal_offices = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	if = {
+		limit = { ottoman_1776_goal_balance = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	if = {
+		limit = { ottoman_1776_goal_reserve = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	if = {
+		limit = { ottoman_1776_goal_supply = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	if = {
+		limit = { ottoman_1776_goal_land_tax = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	if = {
+		limit = { ottoman_1776_goal_consumption_tax = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	if = {
+		limit = { ottoman_1776_goal_police = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	if = {
+		limit = { ottoman_1776_goal_schools = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	if = {
+		limit = { ottoman_1776_goal_tax_capacity = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	if = {
+		limit = { ottoman_1776_goal_staff = yes }
+		change_variable = { name = ottoman_1776_admin_score add = 1 }
+	}
+	# At most ten increments; only replace the modifier when the score changes.
+	if = {
+		limit = {
+			OR = {
+				NOT = { var:ottoman_1776_admin_applied_score = var:ottoman_1776_admin_score }
+				AND = {
+					var:ottoman_1776_admin_score > 0
+					NOT = { has_modifier = ottoman_1776_admin_relief }
+				}
+			}
+		}
+		if = {
+			limit = { has_modifier = ottoman_1776_admin_relief }
+			remove_modifier = ottoman_1776_admin_relief
+		}
+		if = {
+			limit = { var:ottoman_1776_admin_score > 0 }
+			add_modifier = {
+				name = ottoman_1776_admin_relief
+				multiplier = var:ottoman_1776_admin_score
+				months = -1
+			}
+		}
+		set_variable = { name = ottoman_1776_admin_applied_score value = var:ottoman_1776_admin_score }
+	}
+	# Losing any objective breaks the consecutive sequence at this weekly pulse.
+	if = {
+		limit = { ottoman_1776_all_admin_goals = no }
+		set_variable = { name = ottoman_1776_admin_months value = 0 }
+	}
+	if = {
+		limit = { has_modifier = outmoded_bureaucracy }
+		remove_modifier = outmoded_bureaucracy
+	}
+}
+
+ottoman_1776_update_administration = {
+	ottoman_1776_sync_administration = yes
+	if = {
+		limit = { ottoman_1776_all_admin_goals = yes }
+		change_variable = { name = ottoman_1776_admin_months add = 1 }
+	}
+	else = { set_variable = { name = ottoman_1776_admin_months value = 0 } }
+}
+
+ottoman_1776_update_politics = {
+	if = {
+		limit = { ottoman_1776_politically_stable = yes }
+		change_variable = { name = ottoman_1776_stability_months add = 1 }
+		if = {
+			limit = { has_variable = ottoman_1776_admin_complete }
+			change_variable = { name = ottoman_1776_stability_months add = 1 }
+		}
+		if = {
+			limit = { var:ottoman_1776_crisis_months > 0 }
+			change_variable = { name = ottoman_1776_crisis_months subtract = 1 }
+		}
+	}
+	else = {
+		set_variable = { name = ottoman_1776_stability_months value = 0 }
+		change_variable = { name = ottoman_1776_crisis_months add = 1 }
+		if = {
+			limit = { ottoman_1776_severe_pressure = yes }
+			change_variable = { name = ottoman_1776_crisis_months add = 1 }
+		}
+		if = {
+			limit = { bureaucracy < 0 }
+			change_variable = { name = ottoman_1776_crisis_months add = 1 }
+		}
+	}
+}
+
+ottoman_1776_start_sick_man = {
+	# Used by the delayed event and monthly recovery hook. A repeated call is inert.
+	if = {
+		limit = {
+			has_variable = ottoman_1776_political_failed
+			NOR = {
+				has_journal_entry = je_1776_many_masters
+				has_journal_entry = je_sick_man_main
+				has_variable = ottoman_1776_sick_man_started
+				has_variable = sick_man_complete
+			}
+		}
+		if = {
+			limit = { has_modifier = ottoman_1776_many_masters_pressure }
+			remove_modifier = ottoman_1776_many_masters_pressure
+		}
+		if = {
+			limit = { has_modifier = outmoded_bureaucracy }
+			remove_modifier = outmoded_bureaucracy
+		}
+		set_variable = ottoman_1776_sick_man_started
+		set_variable = { name = sick_man_var value = 0 }
+		set_variable = { name = sick_man_separatist_var value = 0 }
+		# Vanilla initialization, but the independent administrative JE already
+		# models fiscal dysfunction: do NOT stack outmoded_bureaucracy on top.
+		add_modifier = { name = sick_man_of_europe months = -1 }
+		add_journal_entry = { type = je_sick_man_main }
+		add_journal_entry = { type = je_sick_man_syria }
+		add_journal_entry = { type = je_sick_man_economy }
+		add_journal_entry = { type = je_sick_man_education }
+		add_journal_entry = { type = je_sick_man_separatism }
+		add_journal_entry = { type = je_sick_man_army }
+		add_journal_entry = { type = je_sick_man_bureaucracy }
+	}
+}
+
+ottoman_1776_reconcile = {
+	if = {
+		limit = { has_variable = ottoman_1776_initialized }
+		if = {
+			# Previous-version saves already had the journals. Preserve them without
+			# replaying introductions or resetting score/consolidation/stability.
+			limit = { NOT = { has_variable = ottoman_1776_intro_flow } }
+			set_variable = ottoman_1776_intro_flow
+			set_variable = ottoman_1776_admin_opened
+			set_variable = ottoman_1776_political_opened
+		}
+		if = {
+			limit = { has_modifier = outmoded_bureaucracy }
+			remove_modifier = outmoded_bureaucracy
+		}
+	}
+	if = {
+		limit = {
+			has_variable = ottoman_1776_initialized
+			has_variable = ottoman_1776_political_failed
+			NOT = { has_journal_entry = je_1776_many_masters }
+		}
+		ottoman_1776_start_sick_man = yes
+	}
+}

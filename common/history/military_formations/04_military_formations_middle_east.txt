@@ -1,4 +1,53 @@
-MILITARY_FORMATIONS = {
+﻿MILITARY_FORMATIONS = {
+	c:EGY ?= {
+		# Existing Egyptian recruits transferred from Ottoman formations, not duplicated.
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_nile_basin
+			name = formation_1776_mamluk_egypt
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_LOWER_EGYPT
+				count = 16
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_MIDDLE_EGYPT
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_UPPER_EGYPT
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_LOWER_EGYPT
+				count = 9
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_LOWER_EGYPT
+				count = 6
+			}
+			save_scope_as = formation_1776_egypt
+		}
+		create_character = {
+			first_name = name_1776_murad
+			last_name = name_1776_bey
+			historical = yes
+			culture = cu:north_caucasian
+			religion = rel:sunni
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = commander_1776_murad
+		}
+		scope:commander_1776_murad = { transfer_to_formation = scope:formation_1776_egypt }
+	}
+
 	c:IR1 ?= {
 		create_military_formation = {
 			type = army
@@ -92,15 +141,16 @@ MILITARY_FORMATIONS = {
 				state_region = s:STATE_ALBANIA
 				count = 11
 			}
+			# 1776 reinforcement: permanent infantry, not additional conscripts.
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_EASTERN_THRACE
+				count = 8
+			}
 			save_scope_as = hassa_ordusu
 
 			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_LOWER_EGYPT
-				count = 16
-			}
+
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
@@ -113,12 +163,7 @@ MILITARY_FORMATIONS = {
 				state_region = s:STATE_EASTERN_THRACE
 				count = 8
 			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_MIDDLE_EGYPT
-				count = 7
-			}
+
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
@@ -257,12 +302,7 @@ MILITARY_FORMATIONS = {
 				state_region = s:STATE_PALESTINE
 				count = 2
 			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				service_type = conscript
-				state_region = s:STATE_UPPER_EGYPT
-				count = 2
-			}
+
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
@@ -322,10 +362,16 @@ MILITARY_FORMATIONS = {
 				state_region = s:STATE_ALBANIA
 				count = 2
 			}
+
 			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_LOWER_EGYPT
-				count = 9
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_BOSNIA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_BULGARIA
+				count = 4
 			}
 			save_scope_as = rumeli_ordusu
 		}
@@ -357,6 +403,11 @@ MILITARY_FORMATIONS = {
 				count = 4
 			}
 
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_ANKARA
+				count = 6
+			}
 			save_scope_as = cleanup2d4_formation_109
 		}
 
@@ -384,11 +435,7 @@ MILITARY_FORMATIONS = {
 				state_region = s:STATE_ADANA
 				count = 4
 			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_LOWER_EGYPT
-				count = 6
-			}
+
 
 			save_scope_as = cleanup2d4_formation_110
 		}

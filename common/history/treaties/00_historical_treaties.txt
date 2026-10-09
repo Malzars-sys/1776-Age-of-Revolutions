@@ -1,20 +1,56 @@
 ﻿TREATIES = {
 
-	# mod treaties
-	
-	# 	Bourbon Compact
+	# Binding periods are withdrawal locks, NOT automatic treaty lifetimes.
+	# These old treaties remain active but freely renegotiable in 1776.
+	create_treaty = {
+		name = treaty_1776_capitulations
+		first_country = c:TUR
+		second_country = c:FRA
+		is_draft = no
+		entered_into_force_on = 1740.5.28
+		binding_period = { years = 5 }
+		articles_to_create = {
+			{ article = trade_privilege source_country = c:TUR target_country = c:FRA }
+		}
+	}
+	create_treaty = {
+		name = treaty_1776_versailles
+		first_country = c:FRA
+		second_country = c:AUS
+		is_draft = no
+		entered_into_force_on = 1756.5.1
+		binding_period = { years = 5 }
+		articles_to_create = { { article = defensive_pact } }
+	}
+	create_treaty = {
+		name = treaty_1776_windsor
+		first_country = c:GBR
+		second_country = c:POR
+		is_draft = no
+		entered_into_force_on = 1386.5.9
+		binding_period = { years = 5 }
+		articles_to_create = { { article = alliance } }
+	}
+	# No signed American treaty at the January bookmark: September's Model
+	# Treaty is a proposal; French treaties (1778) and Spanish intervention (1779)
+	# depend on future diplomacy, not on a backdated support pact.
+
+	# mod treaties (1776 bookmark)
+
+	# Third Family Compact, 15 August 1761. Article XXIV concerns reciprocal
+	# privileges in the European kingdoms; whole-market privileges are a game proxy.
 	create_treaty = {
 		name = treaty_name_mod_bourbon_compact_alliance
 		first_country = c:SPA
 		second_country = c:FRA
 
 		is_draft = no
-		entered_into_force_on = 1775.4.22
-		binding_period = { years = 5 } 
+		entered_into_force_on = 1761.8.15
+		binding_period = { years = 5 } # Already elapsed: NOT an expiry date.
 
 		articles_to_create = {
 			{ # Alliance
-				article = defensive_pact
+				article = alliance
 			}
 			{ 
 				article = trade_privilege
@@ -28,7 +64,7 @@
 			}
 		}
 	}
-				
+
 	create_treaty = { # Persia's Karim Khan Zand set up agreements with DEI
 		first_country = c:PER
 		second_country = c:DEI
@@ -45,148 +81,8 @@
 			}
 		}
 	}
-	
-	create_treaty = { # French helping American Revolutionary traitors
-		first_country = c:FRA
-		second_country = c:USA
 
-		is_draft = no
-		entered_into_force_on = 1775.1.1 
-		binding_period = { years = 10 } 
-
-		articles_to_create = {
-			{
-				article = support_independence
-				source_country = c:FRA
-				target_country = c:USA
-			}
-		}
-	}
-	
-	create_treaty = { # Spanish helping American Revolutionary traitors
-		first_country = c:SPA
-		second_country = c:USA
-
-		is_draft = no
-		entered_into_force_on = 1775.1.1 
-		binding_period = { years = 10 } 
-
-		articles_to_create = {
-			{
-				article = support_independence
-				source_country = c:SPA
-				target_country = c:USA
-			}
-		}
-	}
-
-	### Quadruple Alliance
-	# Quadruple Alliance - GBR/POR
-	if = {
-		limit = {
-			OR = {
-				has_dlc_feature = foreign_investment
-				has_dlc_feature = mp1_treaties
-			}
-		}
-		create_treaty = {
-			name = treaty_name_quadruple_alliance
-			first_country = c:GBR
-			second_country = c:POR
-
-			is_draft = no
-			entered_into_force_on = 1775.4.22
-			binding_period = { years = 10 } # 8 years
-
-			articles_to_create = {
-				{ # Anglo-Portuguese Alliance
-					article = defensive_pact
-				}
-				{ # British Military Assistance to Portugal
-					article = military_assistance
-					source_country = c:GBR
-					target_country = c:POR
-				}
-				{ # British Economic interests in Portugal
-					article = foreign_investment_rights
-					source_country = c:POR
-					target_country = c:GBR
-				}
-				{ # British Portuguese Trade Agreement
-					article = trade_privilege
-					source_country = c:GBR
-					target_country = c:POR
-				}
-				{ # British Portuguese Trade Agreement
-					article = trade_privilege
-					source_country = c:POR
-					target_country = c:GBR
-				}
-				{ # Port wine trade
-					article = goods_transfer
-					source_country = c:POR
-					target_country = c:GBR
-					inputs = {
-						{ goods = g:wine }
-						{ quantity = 20 }
-					}
-				}
-			}
-		}
-	}
-	else = {
-		create_treaty = {
-			name = treaty_name_quadruple_alliance
-			first_country = c:GBR
-			second_country = c:POR
-
-			is_draft = no
-			entered_into_force_on = 1775.4.22
-			binding_period = { years = 10 } # 8 years
-
-			articles_to_create = {
-				{ # Anglo-Portuguese Alliance
-					article = defensive_pact
-				}
-				{ # British Military Assistance to Portugal
-					article = military_assistance
-					source_country = c:GBR
-					target_country = c:POR
-				}
-				{ # British Portuguese Trade Agreement
-					article = trade_privilege
-					source_country = c:GBR
-					target_country = c:POR
-				}
-				{ # Port wine trade
-					article = goods_transfer
-					source_country = c:POR
-					target_country = c:GBR
-					inputs = {
-						{ goods = g:wine }
-						{ quantity = 20 }
-					}
-				}
-			}
-		}
-	}
-
-	# Quadruple Alliance - POR/SPA
-	create_treaty = {
-		name = treaty_name_quadruple_alliance
-		first_country = c:SPA
-		second_country = c:POR
-
-		is_draft = no
-		entered_into_force_on = 1775.4.22
-		binding_period = { years = 10 } # 8 years
-
-		articles_to_create = {
-			{ # Defensive Pact
-				article = defensive_pact
-			}
-		}
-	}
+	# No transplanted 1834 Quadruple Alliance in 1776.
 
 	# Transit Rights Agreement for Switzerland
 	create_treaty = {
@@ -258,7 +154,6 @@
 
 	# Singapore Treaty Port
 
-
 	# Hormuz Treaty Port
 	create_treaty = {
 
@@ -288,7 +183,7 @@
 			}
 		}
 	}
-	
+
 	# Durrani - Oman Treaty Ports
 	create_treaty = {
 
@@ -318,7 +213,7 @@
 			}
 		}
 	}
-	
+
 	create_treaty = {
 
 		first_country = c:OMA
@@ -442,7 +337,6 @@
 		}
 	}
 
-
 	# Sino-Japanese Trade relationship / Nagasaki / Not official treaty
 	create_treaty = {
 		name = treaty_name_nagasaki_trade
@@ -474,8 +368,6 @@
 			}
 		}
 	}
-	
-
 
 	# Siam supporting Cambodian independence - TODO fix this PRCAL-39401
 	create_treaty = {
@@ -632,7 +524,6 @@
 			}
 		}
 	}
-
 
 	### South African treaties for initial trading and such
 

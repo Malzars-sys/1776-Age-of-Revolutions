@@ -1,0 +1,9 @@
+﻿# Display only: mirrors the existing scaled modifier, without changing it.
+ottoman_1776_current_tax_relief = {
+	value = 0
+	if = {
+		limit = { has_variable = ottoman_1776_admin_score }
+		value = var:ottoman_1776_admin_score
+		multiply = 10
+	}
+}

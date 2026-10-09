@@ -1,0 +1,89 @@
+﻿namespace = ottoman_1776
+
+ottoman_1776.10 = {
+	type = country_event
+	placement = root
+	title = ottoman_1776.10.t
+	desc = ottoman_1776.10.d
+	flavor = ottoman_1776.10.f
+	icon = "gfx/interface/icons/event_icons/1776_porte_burden.dds"
+	event_image = { video = "middleeast_courtroom_upheaval" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	duration = 3
+	trigger = {
+		has_variable = ottoman_1776_initialized
+		has_variable = ottoman_1776_intro_flow
+		NOR = { has_variable = ottoman_1776_admin_opened has_variable = ottoman_1776_admin_complete }
+	}
+	option = {
+		name = ottoman_1776.10.a
+		default_option = yes
+		custom_tooltip = ottoman_1776.10.a.tt
+		hidden_effect = { ottoman_1776_open_administration = yes }
+	}
+}
+
+ottoman_1776.11 = {
+	type = country_event
+	placement = root
+	title = ottoman_1776.11.t
+	desc = ottoman_1776.11.d
+	flavor = ottoman_1776.11.f
+	icon = "gfx/interface/icons/event_icons/1776_many_masters.dds"
+	event_image = { video = "middleeast_upperclass_party" }
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	duration = 3
+	trigger = {
+		has_variable = ottoman_1776_initialized
+		has_variable = ottoman_1776_intro_flow
+		NOR = {
+			has_variable = ottoman_1776_political_opened
+			has_variable = ottoman_1776_political_complete
+			has_variable = ottoman_1776_political_failed
+			has_variable = sick_man_complete
+			has_journal_entry = je_sick_man_main
+		}
+	}
+	option = {
+		name = ottoman_1776.11.a
+		default_option = yes
+		custom_tooltip = ottoman_1776.11.a.tt
+		hidden_effect = { ottoman_1776_open_politics = yes }
+	}
+}
+
+ottoman_1776.1 = {
+	type = country_event
+	placement = root
+	title = ottoman_1776.1.t
+	desc = ottoman_1776.1.d
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	duration = 3
+	option = { name = ottoman_1776.1.a default_option = yes }
+}
+
+ottoman_1776.2 = {
+	type = country_event
+	placement = root
+	title = ottoman_1776.2.t
+	desc = ottoman_1776.2.d
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+	duration = 3
+	option = { name = ottoman_1776.2.a default_option = yes }
+}
+
+ottoman_1776.3 = {
+	type = country_event
+	placement = root
+	title = sick_man.1.t
+	desc = ottoman_1776.3.d
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+	duration = 3
+	trigger = {
+		has_variable = ottoman_1776_political_failed
+		NOT = { has_journal_entry = je_1776_many_masters }
+		NOT = { has_variable = sick_man_complete }
+	}
+	immediate = { ottoman_1776_start_sick_man = yes }
+	option = { name = sick_man.1.a default_option = yes }
+}

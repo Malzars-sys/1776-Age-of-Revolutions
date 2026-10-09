@@ -64,173 +64,10 @@
 		add = 9000000
 	}
 	
-	timeout = 6000
-	
-	on_timeout = {
-		custom_tooltip = {
-			text = partition_begins_tt
-		}
-		c:RUS ?= {
-			trigger_event = { id = random_mod_events.1 }
-		}
-		c:AUS ?= {
-			trigger_event = { id = random_mod_events.1 }
-		}
-		c:PRU ?= {
-			trigger_event = { id = random_mod_events.1 }
-		}
-		hidden_effect = {
-			# Russia Annex
-			random_state = {
-				limit = {
-					state_region = s:STATE_MINSK
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:RUS
-			}
-			random_state = {
-				limit = {
-					state_region = s:STATE_KAUNAS
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:RUS
-			}
-			random_state = {
-				limit = {
-					state_region = s:STATE_VILNIUS
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:RUS
-			}
-			random_state = {
-				limit = {
-					state_region = s:STATE_BREST
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:RUS
-			}
-			random_state = {
-				limit = {
-					state_region = s:STATE_VOLHYNIA
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:RUS
-			}
-			random_state = {
-				limit = {
-					state_region = s:STATE_KIEV
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:RUS
-			}
-			random_state = {
-				limit = {
-					state_region = s:STATE_COURLAND
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:RUS
-			}	
-			# Prussia
-			random_state = {
-				limit = {
-					state_region = s:STATE_POSEN
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:PRU
-			}
-			random_state = {
-				limit = {
-					state_region = s:STATE_MAZOVIA
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:PRU
-			}
-			random_state = {
-				limit = {
-					state_region = s:STATE_WEST_PRUSSIA
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:PRU
-			}
-			# Austria
-			random_state = {
-				limit = {
-					state_region = s:STATE_LESSER_POLAND
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:AUS
-			}
-			random_state = {
-				limit = {
-					state_region = s:STATE_GREATER_POLAND
-					owner = {
-						OR = {
-							this = root
-							is_subject_of = root
-						}
-					}
-				}
-				set_state_owner = c:AUS
-			}			
-		}
-		
-		
-	}
+	# No automatic territorial partition on a fixed timer.
+	# Keep the existing reform goals/rewards; a future conditional journal
+	# must negotiate or fight for any transfer of Commonwealth territory.
+
 	
 	progressbar = yes
 
@@ -362,7 +199,7 @@ je_plc_reform_education = { # Education
     complete = {
 		any_scope_state = {
 			has_building = building_university
-			value >= 5
+			count >= 5
 		}
     }
 
@@ -589,9 +426,7 @@ je_plc_reform_great_power = { # Poland Can Into Great Power
     }
 
     on_complete = {
-        remove_modifier = {
-            name = the_white_eagle_reborn
-        }
+        remove_modifier = the_white_eagle_reborn
         add_modifier = {
             name = the_white_eagle_takes_flight
         }

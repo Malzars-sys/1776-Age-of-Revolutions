@@ -6,7 +6,7 @@
 	c:PLC ?= {
 		set_relations = { country = c:AUS value = -30 }
 		set_relations = { country = c:PRU value = -30 }
-		set_relations = { country = c:RUS value = -30 }
+		set_relations = { country = c:RUS value = 0 } # Crown accommodation, not popular friendship.
 	}
 	c:AUS ?= {
 		if = {
@@ -97,7 +97,7 @@
 	}
 	c:EGY ?= {
 		set_relations = { country = c:HDJ value = -30 }
-		set_relations = { country = c:TUR value = -50 }
+		set_relations = { country = c:TUR value = -10 } # Mamluk provincial tensions, not the 1830s war.
 		set_relations = { country = c:RUS value = -30 }
 		set_relations = { country = c:FRA value = 10 }
 		set_relations = { country = c:GBR value = 10 }
@@ -111,16 +111,16 @@
 		set_relations = { country = c:PLY value = 30 }
 		set_relations = { country = c:GBR value = -40 }
 		set_relations = { country = c:PRU value = -20 }
-		set_relations = { country = c:AUS value = 20 }
+		set_relations = { country = c:AUS value = 20 } # A legal alliance need not imply close political alignment.
 		set_relations = { country = c:NET value = -30 }
 		if = {
 			limit = { exists = c:BEL }
 			set_relations = { country = c:BEL value = -1 }
 		}
-		set_relations = { country = c:SPA value = -20 }
+		set_relations = { country = c:SPA value = 50 } # Bourbon Family Compact.
 		set_relations = { country = c:MAS value = -30 }
 		set_relations = { country = c:PAP value = 30 }
-		set_relations = { country = c:TUR value = -20 }
+		set_relations = { country = c:TUR value = 20 } # Capitulations, not a military alliance.
 		set_relations = { country = c:USA value = 30 }
 		set_relations = { country = c:CON value = -50 }
 		set_relations = { country = c:MAS value = -50 }
@@ -262,7 +262,7 @@
 	c:RUS ?= {
 		set_relations = { country = c:AUS value = 30 }
 		set_relations = { country = c:TUR value = -30 }
-		set_relations = { country = c:CRI value = -30 }
+		set_relations = { country = c:CRI value = -10 } # Influence under duress; Devlet Giray remains ruler.
 		set_relations = { country = c:SWE value = -30 }
 		set_relations = { country = c:CHI value = 20 }
 		set_relations = { country = c:CHC value = -50 }

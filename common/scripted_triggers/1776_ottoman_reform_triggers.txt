@@ -1,0 +1,147 @@
+﻿# Country-scope objectives: ten scored reforms, no religious-law requirement.
+ottoman_1776_goal_offices = {
+	NOT = { has_law_or_variant = law_type:law_hereditary_bureaucrats }
+}
+
+ottoman_1776_goal_balance = {
+	bureaucracy >= 0
+}
+
+ottoman_1776_goal_reserve = {
+	bureaucracy >= 0
+	approaching_bureaucracy_shortage = no
+}
+
+ottoman_1776_goal_supply = {
+	any_scope_building = { is_building_type = building_government_administration }
+	any_scope_building = {
+		filter = { is_building_type = building_government_administration }
+		building_has_goods_shortage = no
+		percent >= 0.9
+	}
+}
+
+ottoman_1776_goal_land_tax = {
+	NOT = { has_law_or_variant = law_type:law_land_based_taxation }
+}
+
+ottoman_1776_goal_consumption_tax = {
+	NOT = { has_law_or_variant = law_type:law_consumption_based_taxation }
+}
+
+ottoman_1776_goal_police = {
+	institution_investment_level = { institution = institution_police value >= 3 }
+}
+
+ottoman_1776_goal_schools = {
+	institution_investment_level = { institution = institution_schools value >= 3 }
+}
+
+ottoman_1776_goal_tax_capacity = {
+	# Incorporated provinces form the regular imperial tax base, not Egypt.
+	# Nonempty guard prevents vacuous success after losing all such provinces.
+	any_scope_state = { is_incorporated = yes }
+	any_scope_state = {
+		filter = { is_incorporated = yes }
+		tax_capacity >= tax_capacity_usage
+		percent >= 0.75
+	}
+}
+
+ottoman_1776_goal_staff = {
+	# Staffing is distinct from goods supply and requires no 19th-century law.
+	any_scope_building = { is_building_type = building_government_administration }
+	any_scope_building = {
+		filter = { is_building_type = building_government_administration }
+		occupancy >= 0.8
+		percent >= 0.9
+	}
+}
+
+ottoman_1776_all_admin_goals = {
+	ottoman_1776_completion_reforms = yes
+	ottoman_1776_goal_offices = yes
+	ottoman_1776_goal_balance = yes
+	ottoman_1776_goal_reserve = yes
+	ottoman_1776_goal_supply = yes
+	ottoman_1776_goal_land_tax = yes
+	ottoman_1776_goal_consumption_tax = yes
+	ottoman_1776_goal_police = yes
+	ottoman_1776_goal_schools = yes
+	ottoman_1776_goal_tax_capacity = yes
+	ottoman_1776_goal_staff = yes
+}
+
+# Mandatory in both journals, including the compromise and restoration paths.
+ottoman_1776_institutions_reformed = {
+	ottoman_1776_goal_police = yes
+	ottoman_1776_goal_schools = yes
+}
+
+# Completion gates do not add new points to the ten-objective fiscal modifier.
+# Ending slave TRADE does not require abolishing all forms of slavery.
+ottoman_1776_completion_reforms = {
+	has_technology_researched = rifling
+	has_technology_researched = abolitionist_mobilization
+	NOT = { has_law_or_variant = law_type:law_slave_trade }
+}
+
+ottoman_1776_territory_secure = {
+	# Core provincial centres, not a demand to annex Egypt or all historical lands.
+	owns_entire_state_region = STATE_EASTERN_THRACE
+	owns_entire_state_region = STATE_ANKARA
+	owns_entire_state_region = STATE_ALBANIA
+	owns_entire_state_region = STATE_BOSNIA
+	OR = {
+		owns_entire_state_region = STATE_LOWER_EGYPT
+		AND = {
+			exists = c:EGY
+			c:EGY ?= { is_subject_of = ROOT }
+		}
+	}
+}
+
+ottoman_1776_subjects_loyal = {
+	NOT = { any_subject_or_below = { liberty_desire >= 50 } }
+}
+
+ottoman_1776_politically_stable = {
+	ottoman_1776_completion_reforms = yes
+	ottoman_1776_institutions_reformed = yes
+	ottoman_1776_territory_secure = yes
+	custom_tooltip = { text = ottoman_1776_subjects_50_tt ottoman_1776_subjects_loyal = yes }
+	highest_secession_progress < 0.25
+	has_revolution = no
+	is_at_war = no
+	in_default = no
+	bureaucracy >= 0
+	OR = {
+		# Institutional centralisation or a strong negotiated settlement.
+		custom_tooltip = {
+			text = ottoman_1776_path_institutions_tt
+			government_legitimacy >= 60
+			ottoman_1776_institutions_reformed = yes
+		}
+		custom_tooltip = {
+			text = ottoman_1776_path_compromise_tt
+			government_legitimacy >= 75
+			NOT = { any_subject_or_below = { liberty_desire >= 25 } }
+		}
+		custom_tooltip = {
+			text = ottoman_1776_path_administration_tt
+			has_variable = ottoman_1776_admin_complete
+			government_legitimacy >= 50
+		}
+	}
+}
+
+ottoman_1776_severe_pressure = {
+	OR = {
+		ottoman_1776_territory_secure = no
+		highest_secession_progress >= 0.5
+		has_revolution = yes
+		in_default = yes
+		AND = { is_at_war = yes bureaucracy < 0 }
+		AND = { is_at_war = yes government_legitimacy < 40 }
+	}
+}
