@@ -88,7 +88,7 @@ MILITARY_FORMATIONS = {
 			name = cleanup2d3b_usa_naval_1
 
 			ship = {
-				type = ship_type:ship_type_frigate
+				type = ship_type:ship_type_caravel
 				count = 5
 			}
 			save_scope_as = cleanup2d6_fleet_030
@@ -261,9 +261,9 @@ MILITARY_FORMATIONS = {
 			name = cleanup2d3b_hbc_land_1
 
 			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
+				type = unit_type:combat_unit_type_line_infantry
 				state_region = s:STATE_MANITOBA
-				count = 1
+				count = 2
 			}
 
 			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
@@ -320,4 +320,64 @@ MILITARY_FORMATIONS = {
 		# END CLEANUP-2D-4 STARTING GENERALS 1776
 	}
 
+
+	c:ONT ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_canada
+			supply_hub = s:STATE_ONTARIO
+			name = aor_ont_garrison
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ONTARIO
+				count = 5
+			}
+		}
+	}
+
+	c:QUE ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_canada
+			supply_hub = s:STATE_QUEBEC
+			name = aor_que_garrison
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_QUEBEC
+				count = 5
+			}
+		}
+	}
+
+	c:NBS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_canada
+			supply_hub = s:STATE_NEW_BRUNSWICK
+			name = aor_nbs_garrison
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_NEW_BRUNSWICK
+				count = 2
+			}
+		}
+	}
+
+	c:NVS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_canada
+			supply_hub = s:STATE_NEW_BRUNSWICK
+			name = aor_nvs_garrison
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NEW_BRUNSWICK
+				count = 3
+			}
+		}
+	}
 }

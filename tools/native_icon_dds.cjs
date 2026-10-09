@@ -7,10 +7,10 @@ const masks=b=>[92,96,100,104].map(o=>b.readUInt32LE(o));
 const is=(a,b)=>a.every((v,i)=>v===b[i]);
 function nativeIconDds(input){
   if(input.length<128||input.toString("ascii",0,4)!=="DDS "||input.readUInt32LE(4)!==124||input.readUInt32LE(76)!==32||input.readUInt32LE(80)!==0x41||input.readUInt32LE(88)!==32)throw Error("Only uncompressed legacy 32-bit alpha DDS is supported");
-  const size=input.readUInt32LE(16),height=input.readUInt32LE(12),count=input.readUInt32LE(28);
-  if(size!==height||count!==Math.floor(Math.log2(size))+1)throw Error("Expected square asset with complete mipmaps");
-  let expected=128,n=size;for(let i=0;i<count;i++){expected+=n*n*4;n=Math.max(1,n>>1);}
-  if(expected!==input.length||n!==1)throw Error("Invalid complete DDS payload");
+  const width=input.readUInt32LE(16),height=input.readUInt32LE(12),count=input.readUInt32LE(28);
+  if(!width||!height||count!==Math.floor(Math.log2(Math.max(width,height)))+1)throw Error("Expected positive dimensions with complete mipmaps");
+  let expected=128,w=width,h=height;for(let i=0;i<count;i++){expected+=w*h*4;w=Math.max(1,w>>1);h=Math.max(1,h>>1);}
+  if(expected!==input.length||w!==1||h!==1)throw Error("Invalid complete DDS payload");
   const before=masks(input);if(is(before,BGRA))return Buffer.from(input);
   if(!is(before,RGBA))throw Error("Unknown channel layout; refusing to guess");
   const output=Buffer.from(input);

@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "status": "APPROVED_AND_INTEGRATED",
+  "approval": {
+    "date": "2026-10-08",
+    "instruction": "Ok, tu peux intégrer.",
+    "palette_instruction": "Caravelles orange ; galères bleues ; cogues comme les transports de troupes (bleu)."
+  },
+  "generation": {
+    "mode": "built-in image_gen",
+    "transparent_background": true,
+    "prompts": [
+      {
+        "id": "caravel",
+        "label": "Caravelle",
+        "prompt": "Use case: stylized-concept\nAsset type: original 2D ship profile icon for the ship-construction menu in a historical strategy game, not a production-method icon and not a 3D asset.\nStyle/medium: flat graphic cutout silhouette, very simplified readable shapes, restrained fine matte grain, gentle vertical light-to-dark color gradient. No bevels, no physical lighting, no 3D render, no photorealism. Dark thin unobtrusive contour only. Natural transparent openings between hull, sails and spars.\nComposition/framing: one entire ship viewed exactly broadside, bow facing right, centered in a landscape canvas, clean generous transparent margin; clear readable silhouette even when only 30 pixels high. No perspective, no crew, no background, no sea, no waves, no cast shadow, no flags, no lettering, no border, no emblem, no watermark. Actual transparent alpha background, not a drawn checkerboard.\nPrimary request: a small early sailing caravel with a gently curved low wooden hull, slightly raised stern at the left, two masts carrying two large clearly triangular lateen sails. A short bowsprit at right. Use broad simple sail masses and only essential spars, omit miniature rigging and plank detail. Clearly unlike a multi-deck ship of the line.\nColor palette: exclusively muted pale steel blue at the top transitioning into slate blue at the bottom, similar to historical strategy-game cruiser ship silhouettes (approximately #9bbcd0 to #536c9c). Hull and sails belong to the same monochrome blue family. No brown or white coloring."
+      },
+      {
+        "id": "galley",
+        "label": "Galère",
+        "prompt": "Use case: stylized-concept\nAsset type: original 2D ship profile icon for the ship-construction menu in a historical strategy game, not a production-method icon and not a 3D asset.\nStyle/medium: flat graphic cutout silhouette, very simplified readable shapes, restrained fine matte grain, gentle vertical light-to-dark color gradient. No bevels, no physical lighting, no 3D render, no photorealism. Dark thin unobtrusive contour only. Natural transparent openings between hull, sails and spars.\nComposition/framing: one entire ship viewed exactly broadside, bow facing right, centered in a landscape canvas, clean generous transparent margin; clear readable silhouette even when only 30 pixels high. No perspective, no crew, no background, no sea, no waves, no cast shadow, no flags, no lettering, no border, no emblem, no watermark. Actual transparent alpha background, not a drawn checkerboard.\nPrimary request: a long narrow low galley with an elevated small stern at the left, projecting pointed bow on the right, one central mast carrying one large triangular lateen sail. A clearly visible orderly row of 10 to 12 stout simplified diagonal oars protrudes below the hull, a defining feature. Wide low hull distinguishes it from both the caravel and cog. Essential spars only, no tiny ropes or ornamental detail.\nColor palette: exclusively muted warm pale yellow at the top transitioning into ochre gold at the bottom, similar to historical strategy-game capital ship silhouettes (approximately #ece078 to #a48b35). Hull, oars and sail all belong to the same monochrome yellow family. No brown or white coloring."
+      },
+      {
+        "id": "cog",
+        "label": "Cogue",
+        "prompt": "Use case: stylized-concept\nAsset type: original 2D ship profile icon for the ship-construction menu in a historical strategy game, not a production-method icon and not a 3D asset.\nStyle/medium: flat graphic cutout silhouette, very simplified readable shapes, restrained fine matte grain, gentle vertical light-to-dark color gradient. No bevels, no physical lighting, no 3D render, no photorealism. Dark thin unobtrusive contour only. Natural transparent openings between hull, sails and spars.\nComposition/framing: one entire ship viewed exactly broadside, bow facing right, centered in a landscape canvas, clean generous transparent margin; clear readable silhouette even when only 30 pixels high. No perspective, no crew, no background, no sea, no waves, no cast shadow, no flags, no lettering, no border, no emblem, no watermark. Actual transparent alpha background, not a drawn checkerboard.\nPrimary request: a compact medieval cargo cog with a deep broad round hull, small raised blocky sterncastle at left and modest raised forecastle at the right. Exactly one central mast and one large unmistakably rectangular square sail, one horizontal yard. Simple substantial sturdy shapes, minimal internal detailing, no lateen sails, no row of oars. More squat and bulky than a caravel. Short modest bow on the right.\nColor palette: exclusively muted pale steel blue at the top transitioning into slate blue at the bottom, similar to historical strategy-game cruiser ship silhouettes (approximately #9bbcd0 to #536c9c). Hull and sail belong to the same monochrome blue family. No brown or white coloring."
+      }
+    ],
+    "alpha_cleanup_prompt": "Use case: background-extraction\nInput image: the sole edit target, an existing monochrome ship UI icon.\nPrimary request: remove ALL external glow, haze and soft shadow around the ship. Replace ALL the empty space outside and between the ship's parts by absolutely empty true transparent alpha. This must be a clean hard-edged game icon cutout, not a luminous illustration. Only the vessel's physical silhouette, spars, sails, hull and oars may remain visible; absolutely no pixels of atmospheric glow around them. A one-pixel anti-aliased edge is fine. The ship itself is fully opaque, not ghostlike or translucent.\nPreserve the original ship exactly: its broadside orientation, proportions, framing, mast and sail count, oars, internal drawing, monochrome palette and matte grain. Do not add or redesign any vessel parts. No background color, no checkerboard, no water, no shadow, no light rays, no text, no border. Output with genuine transparent background."
+  },
+  "colour_revision": {
+    "method": "deterministic HSV colour correction only; no AI regeneration",
+    "transport_reference": {
+      "path": "C:\\Games\\Victoria 3\\game\\gfx\\interface\\icons\\ships\\ship_types\\silhouette_troop_ship.dds",
+      "sha256": "bd6c79cf7f0f33cf83be4c2fbbe44e9897378e4126446dcc69b1fb5373c29631",
+      "palette": {
+        "hue_degrees": 212.40242577258402,
+        "saturation": 0.43434264993690663
+      },
+      "verified_colour": "blue",
+      "native_type": "ship_type_troop_ship",
+      "native_label": "Navire de transport de troupes"
+    },
+    "candidates": [
+      {
+        "id": "caravel",
+        "palette": "orange",
+        "original_sha256": "07c4a96aab1224b20b07f3b59648e70ce0110316512c015390a7191b31422424",
+        "source_sha256": "3e5ea7d5583fac00a8ac9c69b836ba8fdcdc6211e41333308f503ad3a8ba2570",
+        "hue_delta_degrees": -180.54376914303774,
+        "saturation_scale": 1,
+        "alpha_identical": true,
+        "value_identical": true,
+        "drawing_regenerated": false
+      },
+      {
+        "id": "galley",
+        "palette": "blue",
+        "original_sha256": "130321d94d6b8220902454d723e12a2cb67fd237edb0c07e71135f57191e8a9e",
+        "source_sha256": "867ae382367158484efb86bc0d58844b9cbb3c9a3367206e8ea603897368639f",
+        "hue_delta_degrees": 166.62008015725877,
+        "saturation_scale": 0.6777955799565686,
+        "alpha_identical": true,
+        "value_identical": true,
+        "drawing_regenerated": false
+      },
+      {
+        "id": "cog",
+        "palette": "blue",
+        "original_sha256": "ec1600e4d98c32a86a1f4366ca6fd73cba2f130ba62a56dd4eaac96ba8687520",
+        "source_sha256": "ec1600e4d98c32a86a1f4366ca6fd73cba2f130ba62a56dd4eaac96ba8687520",
+        "hue_delta_degrees": 0,
+        "saturation_scale": 1,
+        "alpha_identical": true,
+        "value_identical": true,
+        "drawing_regenerated": false
+      }
+    ]
+  },
+  "export": {
+    "format": "native BGRA8 A8R8G8B8",
+    "width": 240,
+    "height": 160,
+    "mips": 8,
+    "tool": "tools/rebuild_asset_icons.cjs",
+    "qa_written_to": ".asset-cache only"
+  },
+  "engine_tested": false,
+  "assets": [
+    {
+      "id": "caravel",
+      "label": "Caravelle",
+      "type": "ship_type_caravel",
+      "palette": "orange",
+      "source": "docs/reports/assets/early_ship_sources_2026-10-08/caravel.png",
+      "source_sha256": "3e5ea7d5583fac00a8ac9c69b836ba8fdcdc6211e41333308f503ad3a8ba2570",
+      "dds": "gfx/interface/icons/ships/ship_types/1776_silhouette_caravel.dds",
+      "dds_sha256": "7c8ab00789cc3f1f525dc37b36e6a1b1a977f16de967a3c7262455ba484ceb7c"
+    },
+    {
+      "id": "galley",
+      "label": "Galère",
+      "type": "ship_type_galley",
+      "palette": "blue",
+      "source": "docs/reports/assets/early_ship_sources_2026-10-08/galley.png",
+      "source_sha256": "867ae382367158484efb86bc0d58844b9cbb3c9a3367206e8ea603897368639f",
+      "dds": "gfx/interface/icons/ships/ship_types/1776_silhouette_galley.dds",
+      "dds_sha256": "87bd5d4e62e86539b7ddf26c44e8c5984e5680f8854456aab5ddfcbc7408d7cf"
+    },
+    {
+      "id": "cog",
+      "label": "Cogue",
+      "type": "ship_type_cog",
+      "palette": "blue",
+      "source": "docs/reports/assets/early_ship_sources_2026-10-08/cog.png",
+      "source_sha256": "ec1600e4d98c32a86a1f4366ca6fd73cba2f130ba62a56dd4eaac96ba8687520",
+      "dds": "gfx/interface/icons/ships/ship_types/1776_silhouette_cog.dds",
+      "dds_sha256": "710fee86e36cde7f6b4ec26280027dbc7f120ab769081cd1c393d8388a35ae28"
+    }
+  ]
+}

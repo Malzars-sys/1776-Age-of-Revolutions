@@ -1,0 +1,36 @@
+﻿# Opt-in for Frederick II only. No fallback and no random headgear allocation.
+aor1776_frederick_tricorne_portrait = {
+	usage = game
+	selection_behavior = weighted_random
+	aor1776_frederick_tricorne_enabled = {
+		dna_modifiers = {
+			accessory = {
+				# Like vanilla headgear: special genes are absent from saved DNA.
+				# Add the accessory rather than replacing a nonexistent DNA entry.
+				mode = add
+				gene = aor1776_headgear
+				template = aor1776_frederick_tricorne
+				range = { 0.5 0.5 }
+			}
+			# Avoid stacking generic military hats on this named character.
+			accessory = {
+				mode = replace
+				gene = headgear
+				template = no_headgear
+				range = { 0.5 0.5 }
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 90000
+				scope:character ?= {
+					has_variable = aor1776_frederick_tricorne
+					is_historical = yes
+					is_female = no
+					is_adult = yes
+				}
+			}
+		}
+	}
+}

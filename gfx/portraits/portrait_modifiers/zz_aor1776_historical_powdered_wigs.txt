@@ -1,0 +1,29 @@
+# Explicit character opt-in only. Reuses the existing CC BY 4.0 wig asset.
+# No fallback: as in vanilla's accessories group, zero weight means no change.
+aor1776_historical_powdered_wigs = {
+	usage = game
+	selection_behavior = weighted_random
+
+	aor1776_named_ruler_wig = {
+		dna_modifiers = {
+			accessory = {
+				mode = replace
+				gene = hairstyles
+				template = aor_frederick_wig
+				range = { 0.5 0.5 }
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 90000
+				scope:character ?= {
+					has_variable = aor1776_historical_powdered_wig
+					is_historical = yes
+					is_female = no
+					is_adult = yes
+				}
+			}
+		}
+	}
+}

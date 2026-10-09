@@ -1,0 +1,41 @@
+# Local qualification floor for the approved turnpike states.
+# Runs after native national starting literacy; never lowers it.
+# No changes to culture, religion, profession, or national education.
+POPULATION = {
+	c:GBR ?= {
+		every_scope_pop = {
+			limit = {
+				literacy_rate < 0.35
+				NOT = { is_pop_type = slaves }
+				state = {
+					OR = {
+						state_region = s:STATE_HOME_COUNTIES
+						state_region = s:STATE_HIGHLANDS
+						state_region = s:STATE_MIDLANDS
+						state_region = s:STATE_EAST_ANGLIA
+						state_region = s:STATE_JAMAICA
+						state_region = s:STATE_BAHAMAS
+						state_region = s:STATE_NEWFOUNDLAND
+					}
+				}
+			}
+			set_pop_literacy = { literacy_rate = 0.35 }
+		}
+	}
+	c:FRA ?= {
+		every_scope_pop = {
+			limit = {
+				literacy_rate < 0.35
+				NOT = { is_pop_type = slaves }
+				state = {
+					OR = {
+						state_region = s:STATE_AQUITAINE
+						state_region = s:STATE_AUVERGNE_LIMOUSIN
+						state_region = s:STATE_LANGUEDOC
+					}
+				}
+			}
+			set_pop_literacy = { literacy_rate = 0.35 }
+		}
+	}
+}

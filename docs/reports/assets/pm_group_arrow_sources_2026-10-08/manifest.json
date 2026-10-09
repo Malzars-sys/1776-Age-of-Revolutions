@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "date": "2026-10-08",
+  "batch": 13,
+  "status": "APPROVED_AND_INTEGRATED",
+  "approval": "ok le lot est validé [...] tu peut integré et passé au lot suivant",
+  "universal_arrow_policy": "Reuse the same existing double arrow across groups; respect the family colour. No new AI arrow generation or redraw.",
+  "generated": false,
+  "redraw": false,
+  "shared_export": {
+    "dds": "gfx/interface/icons/generic_icons/1776_mixed_icon_production_yellow.dds",
+    "size": 120,
+    "mips": 7,
+    "source": "docs/reports/assets/pm_group_arrow_sources_2026-10-08/production_yellow.png",
+    "source_sha256": "5323758c0f2fd93dd484a5326e096de7e64e39cc70332cca9e3233a0785c8e95",
+    "dds_sha256": "c256101ec58f2dfc471ee115444ba71292a0013ffd906c3af872743ec61b4d51",
+    "format": "native BGRA8 A8R8G8B8",
+    "native_source": "C:/Games/Victoria 3/game/gfx/interface/icons/generic_icons/mixed_icon_automation.dds",
+    "native_source_sha256": "e488eae4629af123ee5cc53bc77cc434647159ad4d69f891fc63459c1d59126b",
+    "method": "tools/recolour_pm_icons.py; hue shift only, same dimensions, alpha and HSV value",
+    "hue_delta_degrees": -45.43445720595102,
+    "saturation_scale": 1,
+    "yellow_reference": "gfx/interface/icons/production_method_icons/1776_salt_pan_pm.dds",
+    "reference_sha256": "b4a07b06a8c696ac0e902e2650120afc3d5a2f94e93c46dc65d29f90884e4ed9"
+  },
+  "bindings": [
+    {
+      "id": "pmg_base_building_land_transport_network",
+      "label": "Groupe des routes",
+      "file": "common/production_method_groups/22_tech7a_wave_a_land_transport_pmgs.txt",
+      "before": "gfx/error_deer.dds",
+      "texture": "gfx/interface/icons/generic_icons/1776_mixed_icon_production_yellow.dds",
+      "palette": "ochre"
+    },
+    {
+      "id": "pmg_mining_equipment_building_phosphate_mine",
+      "label": "Extraction du phosphate",
+      "file": "common/production_method_groups/15_tech6c6b_phosphate_pmgs.txt",
+      "before": "",
+      "texture": "gfx/interface/icons/generic_icons/1776_mixed_icon_production_yellow.dds",
+      "palette": "ochre"
+    },
+    {
+      "id": "pmg_steam_automation_building_phosphate_mine",
+      "label": "Automatisation du phosphate",
+      "file": "common/production_method_groups/16_tech6r1_mine_processing_pmgs.txt",
+      "before": "",
+      "texture": "gfx/interface/icons/generic_icons/mixed_icon_automation.dds",
+      "palette": "green",
+      "native_sha256": "e488eae4629af123ee5cc53bc77cc434647159ad4d69f891fc63459c1d59126b"
+    }
+  ],
+  "qa": {
+    "runtime_baseline": ".asset-cache/pm_batch_13_group_bindings_2026-10-08/integration_baseline.json",
+    "group_baseline": ".asset-cache/pm_batch_13_group_bindings_2026-10-08/integration_group_baseline.json",
+    "engine_tested": false,
+    "scope": "Three group texture bindings only. Individual PM drawings, recipes, unlocks, copper, laboratories, wagons, naval and population changes preserved."
+  }
+}
