@@ -1,0 +1,383 @@
+# AI-only regional infrastructure maintenance. No buildings, goods, technologies
+# or subsidies are created. Players retain complete control of their PMs.
+
+# State scope; idempotent to avoid unnecessary production-method changes.
+aor1776_ai_apply_regional_infrastructure_pm = {
+	if = {
+		limit = {
+			NOT = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = $PM$
+				}
+			}
+		}
+		activate_production_method = {
+			building_type = building_railway
+			production_method = $PM$
+		}
+	}
+}
+
+# Country scope. Explicit zero-based positions avoid ambiguous min/max semantics.
+# Rank ALL owned states, not only states with a regional infrastructure building.
+aor1776_ai_mark_canal_gdp_position = {
+	ordered_scope_state = {
+		order_by = gdp
+		position = $POSITION$
+		check_range_bounds = no
+		set_variable = aor1776_ai_top_gdp_canal_state
+	}
+}
+
+# State scope. Test eligibility before checking whether the PM is already active:
+# an already active best PM must not cause fall-through to a lower tier.
+aor1776_ai_choose_regional_roads = {
+	if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_paved_road_network
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_paved_road_network
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_paved_road_network }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_engineered_road_network
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_engineered_road_network
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_engineered_road_network }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_turnpike_road_network
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_turnpike_road_network
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_turnpike_road_network }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_traditional_road_network
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_traditional_road_network
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_traditional_road_network }
+	}
+}
+
+# State scope. Test eligibility before checking whether the PM is already active:
+# an already active best PM must not cause fall-through to a lower tier.
+aor1776_ai_choose_regional_rail = {
+	if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_diesel_trains_principle_transport_3
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_diesel_trains_principle_transport_3
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_diesel_trains_principle_transport_3 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_diesel_trains
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_diesel_trains
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_diesel_trains }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_electric_trains_principle_transport_3
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_electric_trains_principle_transport_3
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_electric_trains_principle_transport_3 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_electric_trains
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_electric_trains
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_electric_trains }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_steam_trains_principle_transport_3
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_steam_trains_principle_transport_3
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_steam_trains_principle_transport_3 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_steam_trains
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_steam_trains
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_steam_trains }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_early_trains
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_early_trains
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_early_trains }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_no_rail_network
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_no_rail_network
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_rail_network }
+	}
+}
+
+# State scope. Test eligibility before checking whether the PM is already active:
+# an already active best PM must not cause fall-through to a lower tier.
+aor1776_ai_choose_regional_wagons = {
+	if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_aluminium_passenger_carriages
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_aluminium_passenger_carriages
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_aluminium_passenger_carriages }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_steel_passenger_carriages
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_steel_passenger_carriages
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_steel_passenger_carriages }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_wooden_passenger_carriages
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_wooden_passenger_carriages
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_wooden_passenger_carriages }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_no_passenger_trains
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_no_passenger_trains
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_passenger_trains }
+	}
+}
+
+# State scope. Test eligibility before checking whether the PM is already active:
+# an already active best PM must not cause fall-through to a lower tier.
+aor1776_ai_choose_regional_canals = {
+	if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_engineered_canals
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_engineered_canals
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_engineered_canals }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_industrial_canals
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_industrial_canals
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_industrial_canals }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				any_scope_building = {
+					is_building_type = building_railway
+					has_active_production_method = pm_no_canal_network
+				}
+				can_activate_production_method = {
+					building_type = building_railway
+					production_method = pm_no_canal_network
+				}
+			}
+		}
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_canal_network }
+	}
+}
+
+# Country scope. Runs at start and monthly, including when loading an existing
+# campaign. Never touches player countries or creates/expands infrastructure.
+aor1776_ai_refresh_regional_infrastructure = {
+	if = {
+		limit = {
+			is_ai = yes
+			any_scope_building = { is_building_type = building_railway }
+		}
+		every_scope_state = {
+			limit = { has_variable = aor1776_ai_top_gdp_canal_state }
+			remove_variable = aor1776_ai_top_gdp_canal_state
+		}
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 0 }
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 1 }
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 2 }
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 3 }
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 4 }
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 5 }
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 6 }
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 7 }
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 8 }
+		aor1776_ai_mark_canal_gdp_position = { POSITION = 9 }
+		every_scope_state = {
+			limit = { has_building = building_railway }
+			aor1776_ai_choose_regional_roads = yes
+			aor1776_ai_choose_regional_rail = yes
+			if = {
+				limit = {
+					any_scope_building = {
+						is_building_type = building_railway
+						has_active_production_method = pm_no_rail_network
+					}
+				}
+				aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_passenger_trains }
+			}
+			else = { aor1776_ai_choose_regional_wagons = yes }
+			if = {
+				limit = { has_variable = aor1776_ai_top_gdp_canal_state }
+				aor1776_ai_choose_regional_canals = yes
+			}
+			else = {
+				aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_canal_network }
+			}
+		}
+	}
+}

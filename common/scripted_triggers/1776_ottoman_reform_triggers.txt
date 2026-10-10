@@ -12,13 +12,8 @@ ottoman_1776_goal_reserve = {
 	approaching_bureaucracy_shortage = no
 }
 
-ottoman_1776_goal_supply = {
-	any_scope_building = { is_building_type = building_government_administration }
-	any_scope_building = {
-		filter = { is_building_type = building_government_administration }
-		building_has_goods_shortage = no
-		percent >= 0.9
-	}
+ottoman_1776_goal_home_affairs = {
+	institution_investment_level = { institution = institution_home_affairs value >= 3 }
 }
 
 ottoman_1776_goal_land_tax = {
@@ -49,7 +44,7 @@ ottoman_1776_goal_tax_capacity = {
 }
 
 ottoman_1776_goal_staff = {
-	# Staffing is distinct from goods supply and requires no 19th-century law.
+	# Staffing is distinct from institutional reform and requires no 19th-century law.
 	any_scope_building = { is_building_type = building_government_administration }
 	any_scope_building = {
 		filter = { is_building_type = building_government_administration }
@@ -59,11 +54,10 @@ ottoman_1776_goal_staff = {
 }
 
 ottoman_1776_all_admin_goals = {
-	ottoman_1776_completion_reforms = yes
 	ottoman_1776_goal_offices = yes
 	ottoman_1776_goal_balance = yes
 	ottoman_1776_goal_reserve = yes
-	ottoman_1776_goal_supply = yes
+	ottoman_1776_goal_home_affairs = yes
 	ottoman_1776_goal_land_tax = yes
 	ottoman_1776_goal_consumption_tax = yes
 	ottoman_1776_goal_police = yes
@@ -72,15 +66,18 @@ ottoman_1776_all_admin_goals = {
 	ottoman_1776_goal_staff = yes
 }
 
-# Mandatory in both journals, including the compromise and restoration paths.
-ottoman_1776_institutions_reformed = {
-	ottoman_1776_goal_police = yes
-	ottoman_1776_goal_schools = yes
+# This is ONLY the pre-existing institutional alternative of the political JE.
+# Compromise and restoration do not require these institutions.
+ottoman_1776_centralisation_institutions = {
+	OR = {
+		institution_investment_level = { institution = institution_police value >= 2 }
+		institution_investment_level = { institution = institution_schools value >= 2 }
+	}
 }
 
-# Completion gates do not add new points to the ten-objective fiscal modifier.
+# Political-only completion gates; never required by the administrative JE.
 # Ending slave TRADE does not require abolishing all forms of slavery.
-ottoman_1776_completion_reforms = {
+ottoman_1776_political_completion_reforms = {
 	has_technology_researched = rifling
 	has_technology_researched = abolitionist_mobilization
 	NOT = { has_law_or_variant = law_type:law_slave_trade }
@@ -106,8 +103,7 @@ ottoman_1776_subjects_loyal = {
 }
 
 ottoman_1776_politically_stable = {
-	ottoman_1776_completion_reforms = yes
-	ottoman_1776_institutions_reformed = yes
+	ottoman_1776_political_completion_reforms = yes
 	ottoman_1776_territory_secure = yes
 	custom_tooltip = { text = ottoman_1776_subjects_50_tt ottoman_1776_subjects_loyal = yes }
 	highest_secession_progress < 0.25
@@ -120,7 +116,7 @@ ottoman_1776_politically_stable = {
 		custom_tooltip = {
 			text = ottoman_1776_path_institutions_tt
 			government_legitimacy >= 60
-			ottoman_1776_institutions_reformed = yes
+			ottoman_1776_centralisation_institutions = yes
 		}
 		custom_tooltip = {
 			text = ottoman_1776_path_compromise_tt

@@ -1,0 +1,18 @@
+# Extend native hooks through child actions; do not replace vanilla actions.
+on_game_started_after_lobby = {
+	on_actions = { aor1776_ai_regional_infrastructure_initialize }
+}
+on_monthly_pulse_country = {
+	on_actions = { aor1776_ai_regional_infrastructure_monthly }
+}
+aor1776_ai_regional_infrastructure_initialize = {
+	effect = {
+		every_country = {
+			limit = { is_ai = yes }
+			aor1776_ai_refresh_regional_infrastructure = yes
+		}
+	}
+}
+aor1776_ai_regional_infrastructure_monthly = {
+	effect = { aor1776_ai_refresh_regional_infrastructure = yes }
+}

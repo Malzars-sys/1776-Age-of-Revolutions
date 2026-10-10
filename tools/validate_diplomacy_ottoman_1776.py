@@ -307,10 +307,11 @@ class ScriptModel:
         self.effects = effective('common/scripted_effects')
         self.triggers = effective('common/scripted_triggers')
         self.entries = effective('common/journal_entries')
+        self.law_parents = {key: node.one('parent') for key, node in effective('common/laws').items()}
         self.facts = {'game_date': '1776.1.1', 'bureaucracy': 300, 'approaching_bureaucracy_shortage': False,
                       'government_legitimacy': 40, 'is_at_war': False, 'in_default': False, 'has_revolution': False,
                       'highest_secession_progress': 0.1, 'territory': True, 'egypt_subject': True,
-                      'subjects': [20, 20], 'institutions': {'institution_police': 0, 'institution_schools': 0},
+                      'subjects': [20, 20], 'institutions': {'institution_police': 0, 'institution_schools': 0, 'institution_home_affairs': 0},
                       'laws': {'law_hereditary_bureaucrats', 'law_land_based_taxation'},
                       'technologies': set(),
                       'administrations': [{'is_building_type': 'building_government_administration',
@@ -377,7 +378,15 @@ class ScriptModel:
         if k == 'has_modifier':
             return v in self.modifiers
         if k == 'has_law_or_variant':
-            return scalar(v).removeprefix('law_type:') in self.facts['laws']
+            requested = scalar(v).removeprefix('law_type:')
+            for law in self.facts['laws']:
+                seen = set()
+                while law and law not in seen:
+                    if law == requested:
+                        return True
+                    seen.add(law)
+                    law = self.law_parents.get(law)
+            return False
         if k == 'has_technology_researched':
             return scalar(v) in self.facts['technologies']
         if k == 'owns_entire_state_region':
@@ -390,7 +399,7 @@ class ScriptModel:
             return any(self.compare(x, t.op, t.value) for x in self.facts['subjects'] for t in n.children())
         if k == 'institution_investment_level':
             t = n.children('value')[0]
-            return self.compare(self.facts['institutions'][n.one('institution')], t.op, t.value)
+            return self.compare(self.facts['institutions'].get(n.one('institution'), 0), t.op, t.value)
         if k == 'any_scope_building':
             return self.iterator(self.facts['administrations'], n)
         if k == 'any_scope_state':
@@ -563,17 +572,17 @@ def model_tests():
     assert prior_version.modifiers == previous_modifiers
 
     def set_goals(model, bits):
-        offices, balance, reserve, supply, land, consumption, police, schools, capacity, staff = bits
+        offices, balance, reserve, home_affairs, land, consumption, police, schools, capacity, staff = bits
         model.facts.update(bureaucracy=0 if balance else -1, approaching_bureaucracy_shortage=not reserve)
         model.facts['laws'] = set()
         for ok, law in ((offices, 'law_hereditary_bureaucrats'), (land, 'law_land_based_taxation'),
                         (consumption, 'law_consumption_based_taxation')):
             if not ok:
                 model.facts['laws'].add(law)
-        model.facts['institutions'] = {'institution_police': 3 if police else 2, 'institution_schools': 3 if schools else 2}
-        model.facts['technologies'] = {'rifling', 'abolitionist_mobilization'}
+        model.facts['institutions'] = {'institution_police': 3 if police else 2, 'institution_schools': 3 if schools else 2,
+                                       'institution_home_affairs': 3 if home_affairs else 2}
         model.facts['administrations'] = [{'is_building_type': 'building_government_administration',
-                                           'building_has_goods_shortage': not supply, 'occupancy': 0.8 if staff else 0.79}]
+                                           'building_has_goods_shortage': True, 'occupancy': 0.8 if staff else 0.79}]
         model.facts['states'] = [{'is_incorporated': True, 'tax_capacity': 100 if capacity else 99, 'tax_capacity_usage': 100}]
 
     # Exercise the actual ten triggers and score effect for every input combination.
@@ -592,46 +601,92 @@ def model_tests():
         assert updates == model.modifier_updates, 'Unchanged weekly score recreated its modifier'
         assert 0 <= 1 - 0.1*score + 1e-12 <= 1.000000000001
 
+    # Each of the ten actual objectives offsets exactly one unit of both penalties.
+    goals = [n.key for n in base.triggers['ottoman_1776_all_admin_goals'].children()]
+    assert len(goals) == 10 and len(set(goals)) == 10
+    all_true = clone(base)
+    set_goals(all_true, (True,)*10)
+    all_true.week()
+    assert all_true.variables['ottoman_1776_admin_score'] == 10
+    for goal in goals:
+        isolated = clone(all_true)
+        # Override only this condition to isolate its numerical contribution,
+        # including the balance/reserve dependency in real game fixtures.
+        isolated.triggers = dict(isolated.triggers)
+        isolated.triggers[goal] = parse(f'{goal} = {{ bureaucracy < 0 }}')[0]
+        isolated.week()
+        assert isolated.variables['ottoman_1776_admin_score'] == 9, goal
+        assert isolated.modifier_scales['ottoman_1776_admin_relief'] == 9, goal
+
     # Native iterator semantics: nonempty guards, exact percentages and inclusive thresholds.
     boundary = clone(base)
     boundary.facts['administrations'] = []
-    for goal in ('supply', 'staff'):
+    for goal in ('staff',):
         assert not boundary.condition(boundary.triggers['ottoman_1776_goal_'+goal].children())
     # A non-approaching shortage is not sufficient when the balance is negative.
     for bureaucracy, approaching, expected in ((-1, False, False), (0, False, True),
                                                (1, False, True), (0, True, False), (-1, True, False)):
         boundary.facts.update(bureaucracy=bureaucracy, approaching_bureaucracy_shortage=approaching)
         assert boundary.condition(boundary.triggers['ottoman_1776_goal_reserve'].children()) == expected
-    # Every political path must respect BOTH institutions and both research gates.
+    # Political technologies/law must not affect any administrative objective.
     eligibility = clone(base)
     set_goals(eligibility, (True,)*10)
     eligibility.facts['government_legitimacy'] = 75
     for techs in (set(), {'rifling'}, {'abolitionist_mobilization'}):
         eligibility.facts['technologies'] = techs
-        assert not eligibility.condition(eligibility.triggers['ottoman_1776_all_admin_goals'].children())
+        assert eligibility.condition(eligibility.triggers['ottoman_1776_all_admin_goals'].children())
         assert not eligibility.condition(eligibility.triggers['ottoman_1776_politically_stable'].children())
     eligibility.facts['technologies'] = {'rifling', 'abolitionist_mobilization'}
     eligibility.facts['laws'].add('law_slave_trade')
-    assert not eligibility.condition(eligibility.triggers['ottoman_1776_all_admin_goals'].children())
+    assert eligibility.condition(eligibility.triggers['ottoman_1776_all_admin_goals'].children())
     assert not eligibility.condition(eligibility.triggers['ottoman_1776_politically_stable'].children())
     eligibility.facts['laws'] = {'law_hereditary_slavery'}
     assert eligibility.condition(eligibility.triggers['ottoman_1776_all_admin_goals'].children()), 'Ending trade need not abolish all slavery'
-    for police, schools in ((2, 3), (3, 2), (2, 2), (3, 3)):
-        eligibility.facts['institutions'] = {'institution_police': police, 'institution_schools': schools}
-        expected = police >= 3 and schools >= 3
+    assert eligibility.condition(eligibility.triggers['ottoman_1776_politically_stable'].children())
+    # Synthetic inherited law exercises the native has_law_or_variant contract.
+    variant = clone(eligibility)
+    variant.law_parents = dict(variant.law_parents, test_slave_trade_variant='law_slave_trade')
+    variant.facts['laws'] = {'test_slave_trade_variant'}
+    assert not variant.condition(variant.triggers['ottoman_1776_politically_stable'].children())
+    assert variant.condition(variant.triggers['ottoman_1776_all_admin_goals'].children())
+    for police, schools, home_affairs in itertools.product((2, 3), repeat=3):
+        eligibility.facts['institutions'] = {'institution_police': police, 'institution_schools': schools,
+                                            'institution_home_affairs': home_affairs}
+        expected = police >= 3 and schools >= 3 and home_affairs >= 3
         assert eligibility.condition(eligibility.triggers['ottoman_1776_all_admin_goals'].children()) == expected
-        assert eligibility.condition(eligibility.triggers['ottoman_1776_politically_stable'].children()) == expected
-    # All three political paths: no compromise/restoration bypass of shared gates.
+        assert eligibility.condition(eligibility.triggers['ottoman_1776_politically_stable'].children())
+    # All political paths require research/law, but only centralisation has its
+    # original police OR schools >=2 requirement; Home Affairs is never global.
     for path in ('institutions', 'compromise', 'administration'):
         gated = clone(base)
         gated.facts['government_legitimacy'] = {'institutions': 60, 'compromise': 75, 'administration': 50}[path]
         if path == 'administration':
             gated.variables['ottoman_1776_admin_complete'] = 1
-        for rifling, abolition, trade_ended, police, schools in itertools.product((False, True), repeat=5):
+        elif path == 'institutions':
+            gated.facts['subjects'] = [30, 30]  # Prevent the compromise alternative.
+        for rifling, abolition, trade_ended, police, schools, home_affairs in itertools.product((False, True), repeat=6):
             gated.facts['technologies'] = {t for t, ok in (('rifling', rifling), ('abolitionist_mobilization', abolition)) if ok}
             gated.facts['laws'] = set() if trade_ended else {'law_slave_trade'}
-            gated.facts['institutions'] = {'institution_police': 3 if police else 2, 'institution_schools': 3 if schools else 2}
-            assert gated.condition(gated.triggers['ottoman_1776_politically_stable'].children()) == all((rifling, abolition, trade_ended, police, schools)), path
+            gated.facts['institutions'] = {'institution_police': 2 if police else 0, 'institution_schools': 2 if schools else 0,
+                                           'institution_home_affairs': 3 if home_affairs else 0}
+            expected = rifling and abolition and trade_ended and (path != 'institutions' or police or schools)
+            assert gated.condition(gated.triggers['ottoman_1776_politically_stable'].children()) == expected, path
+    # Original legitimacy thresholds and strict compromise-subject threshold.
+    for path, threshold in (('institutions', 60), ('compromise', 75), ('administration', 50)):
+        gated = clone(base)
+        gated.facts['technologies'] = {'rifling', 'abolitionist_mobilization'}
+        gated.facts['laws'] = set()
+        if path == 'institutions':
+            gated.facts['institutions']['institution_police'] = 2
+            gated.facts['subjects'] = [30]
+        if path == 'administration':
+            gated.variables['ottoman_1776_admin_complete'] = 1
+        for legitimacy in (threshold-1, threshold):
+            gated.facts['government_legitimacy'] = legitimacy
+            assert gated.condition(gated.triggers['ottoman_1776_politically_stable'].children()) == (legitimacy == threshold)
+        if path == 'compromise':
+            gated.facts['subjects'] = [25]
+            assert not gated.condition(gated.triggers['ottoman_1776_politically_stable'].children())
     boundary.facts['states'] = []
     assert not boundary.condition(boundary.triggers['ottoman_1776_goal_tax_capacity'].children())
     boundary.facts['states'] = [{'is_incorporated': True, 'tax_capacity': 100, 'tax_capacity_usage': 100} for _ in range(4)]
@@ -641,15 +696,16 @@ def model_tests():
     assert not boundary.condition(boundary.triggers['ottoman_1776_goal_tax_capacity'].children())
     boundary.facts['administrations'] = [{'is_building_type': 'building_government_administration',
         'building_has_goods_shortage': i == 0, 'occupancy': 0.79 if i == 0 else 0.8} for i in range(10)]
-    for goal in ('supply', 'staff'):
+    for goal in ('staff',):
         assert boundary.condition(boundary.triggers['ottoman_1776_goal_'+goal].children())
     boundary.facts['administrations'][1].update(building_has_goods_shortage=True, occupancy=0.79)
-    for goal in ('supply', 'staff'):
+    for goal in ('staff',):
         assert not boundary.condition(boundary.triggers['ottoman_1776_goal_'+goal].children())
     # Political resolution does not imply administrative reform.
     political = clone(base)
     political.facts['technologies'] = {'rifling', 'abolitionist_mobilization'}
-    political.facts['institutions'] = {'institution_police': 3, 'institution_schools': 3}
+    # Compromise completes with all three institutions at zero.
+    political.facts['institutions'] = {'institution_police': 0, 'institution_schools': 0, 'institution_home_affairs': 0}
     political.facts['government_legitimacy'] = 75
     for _ in range(36):
         political.month()
@@ -658,10 +714,15 @@ def model_tests():
     # Administrative resolution does not imply political resolution.
     admin = clone(base)
     set_goals(admin, (True,)*10)
+    admin.facts['laws'].add('law_slave_trade')
     for _ in range(12):
         admin.month()
     assert 'ottoman_1776_admin_complete' in admin.variables
     assert 'je_1776_many_masters' in admin.journals and admin.modifiers == {'ottoman_1776_many_masters_pressure'}
+    admin.facts['technologies'] = {'rifling', 'abolitionist_mobilization'}
+    admin.facts['laws'].remove('law_slave_trade')
+    # Completed administrative reform is remembered even if institutions regress.
+    admin.facts['institutions'] = {'institution_police': 0, 'institution_schools': 0, 'institution_home_affairs': 0}
     admin.facts['government_legitimacy'] = 50
     for _ in range(18):
         admin.month()
@@ -680,14 +741,18 @@ def model_tests():
     rollback.facts['institutions']['institution_schools'] = 3
     rollback.month()
     assert rollback.variables['ottoman_1776_admin_months'] == 1
-    # Losing a completion gate resets consolidation WITHOUT changing the ten-point relief.
-    rollback.facts['technologies'].remove('rifling')
+    # Missing political research and slave trade do NOT reset admin consolidation.
+    rollback.facts['technologies'].clear()
+    rollback.facts['laws'].add('law_slave_trade')
+    rollback.week()
+    assert rollback.variables['ottoman_1776_admin_months'] == 1
+    assert rollback.modifier_scales['ottoman_1776_admin_relief'] == 10
+    rollback.month()
+    assert rollback.variables['ottoman_1776_admin_months'] == 2
+    rollback.facts['institutions']['institution_home_affairs'] = 2
     rollback.week()
     assert rollback.variables['ottoman_1776_admin_months'] == 0
-    assert rollback.modifier_scales['ottoman_1776_admin_relief'] == 10
-    rollback.facts['technologies'].add('rifling')
-    rollback.month()
-    assert rollback.variables['ottoman_1776_admin_months'] == 1
+    assert rollback.modifier_scales['ottoman_1776_admin_relief'] == 9
     set_goals(rollback, (False,)*10)
     rollback.week()
     assert 'ottoman_1776_admin_relief' not in rollback.modifiers
@@ -720,7 +785,7 @@ def model_tests():
     # Deadline is unconditional even when crisis is zero and the country is stable.
     deadline = clone(base)
     set_goals(deadline, (True,)*10)
-    deadline.facts.update(game_date='1836.1.1', government_legitimacy=75)
+    deadline.facts.update(game_date='1836.1.1', government_legitimacy=75, technologies={'rifling', 'abolitionist_mobilization'})
     deadline.variables.update(ottoman_1776_crisis_months=0, ottoman_1776_stability_months=35)
     deadline.month()
     assert 'ottoman_1776_political_failed' in deadline.variables
@@ -734,7 +799,7 @@ def model_tests():
     inherited.activate_pending()
     assert 'je_1776_many_masters' not in inherited.journals, 'Failed political JE reactivated'
     print('PASS: 1024 objective combinations, iterator boundaries, weekly idempotence, migration, independent resolutions, 12-month reset, early failure, firm 1836 deadline and delayed-transition recovery')
-    print('PASS: bureaucracy deficit/reserve boundaries, institution levels 2/3, research and slave-trade gates, 96 political path combinations; extra gates reset consolidation without adding modifier points')
+    print('PASS: ten individual relief contributions, three administrative institutions >=3, no administrative research/trade gates; 192 political path combinations with original police OR schools >=2, legitimacy boundaries and independent completion')
     print('PASS: two startup events once, journal activation only by their respective choices, either choice order, idempotent opening effects and old-save progress preservation')
 
 
@@ -786,7 +851,37 @@ def implementation_checks():
     admin = entries['je_1776_porte_burden']
     goals = [n for n in admin.children('complete')[0].children() if n.key == 'custom_tooltip']
     assert len(goals) == 10 and len({n.one('text') for n in goals}) == 10
-    assert any(n.key == 'ottoman_1776_completion_reforms' for n in admin.children('complete')[0].children())
+    triggers = effective('common/scripted_triggers')
+    def expanded(nodes, seen=frozenset()):
+        result = list(walk(nodes))
+        for node in list(result):
+            if node.key in triggers and node.key not in seen:
+                result.extend(expanded(triggers[node.key].children(), seen | {node.key}))
+        return result
+    # Audit activation, completion AND score/consolidation transitively.
+    admin_nodes = expanded(admin.children()) + expanded(triggers['ottoman_1776_all_admin_goals'].children())
+    assert not any(n.key == 'has_technology_researched' for n in admin_nodes)
+    assert not any(n.key == 'has_law_or_variant' and n.value == 'law_type:law_slave_trade' for n in admin_nodes)
+    assert not any(n.key == 'building_has_goods_shortage' for n in admin_nodes)
+    assert 'ottoman_1776_goal_supply' not in triggers
+    admin_goals = triggers['ottoman_1776_all_admin_goals'].children()
+    assert len(admin_goals) == 10 and all(n.key.startswith('ottoman_1776_goal_') for n in admin_goals)
+    for goal, institution in (('home_affairs', 'institution_home_affairs'), ('police', 'institution_police'), ('schools', 'institution_schools')):
+        requirement = triggers['ottoman_1776_goal_'+goal].children('institution_investment_level')[0]
+        assert requirement.one('institution') == institution
+        threshold = requirement.children('value')[0]
+        assert threshold.op == '>=' and threshold.value == '3'
+        assert institution in effective('common/institutions')
+    political_gates = triggers['ottoman_1776_political_completion_reforms']
+    assert {n.value for n in political_gates.children('has_technology_researched')} == {'rifling', 'abolitionist_mobilization'}
+    for technology in ('rifling', 'abolitionist_mobilization'):
+        assert technology in effective('common/technology/technologies'), technology
+    assert 'law_slave_trade' in effective('common/laws')
+    assert political_gates.children('NOT')[0].one('has_law_or_variant') == 'law_type:law_slave_trade'
+    stable = triggers['ottoman_1776_politically_stable']
+    assert stable.one('ottoman_1776_political_completion_reforms') == 'yes'
+    assert not stable.children('institution_investment_level')
+    assert not any(n.key.startswith('ottoman_1776_goal_') for n in expanded(stable.children()))
     assert admin.children('on_complete')[0].children('hidden_effect')
     assert admin.children('on_complete')[0].one('custom_tooltip') == 'ottoman_1776_admin_completion_tt'
     assert admin.children('on_weekly_pulse') and admin.one('goal_add_value')[0].value == '12'
@@ -896,6 +991,16 @@ def implementation_checks():
         assert '[Country.MakeScope.Var(' not in loc, 'Status uses absent Country data context'
         for var in ('admin_score', 'admin_months', 'stability_months'):
             assert f"[ROOT.GetCountry.MakeScope.Var('ottoman_1776_{var}').GetValue|v0]" in loc
+        localized = dict(re.findall(r'^ ([\w.]+): "(.*)"$', loc, re.M))
+        assert 'ottoman_1776_goal_supply_tt' not in localized
+        for goal in goals:
+            assert goal.one('text') in localized
+        assert 'ottoman_1776_goal_home_affairs_tt' in localized
+        admin_status = localized['je_1776_porte_burden_status']
+        for word in ('Rainurage', 'Abolitionnisme', 'Rifling', 'Abolitionism', 'slave trade', 'commerce d’esclaves'):
+            assert word not in admin_status
+        path = localized['ottoman_1776_path_institutions_tt']
+        assert ('OU' in path or 'OR' in path) and '≥ 2' in path
     # The diesel request only changes the two previously-70 outputs.
     rel = 'common/production_methods/03_mines.txt'
     a, b = read(rel, True), read(rel)

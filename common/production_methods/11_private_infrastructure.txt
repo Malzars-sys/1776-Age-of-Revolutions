@@ -96,11 +96,13 @@ pm_modern_port = {
 
 pm_no_rail_network = {
 	texture = "gfx/interface/icons/production_method_icons/no_rail_transport.dds"
+	ai_weight = 1
 	is_default = yes
 }
 
 pm_early_trains = {
 	texture = "gfx/interface/icons/production_method_icons/1776_experimental_locomotive_green.dds"
+	ai_weight = 100
 
 	unlocking_technologies = {
 		railways
@@ -129,6 +131,7 @@ pm_early_trains = {
 
 pm_steam_trains = {
 	texture = "gfx/interface/icons/production_method_icons/1776_steam_locomotive_green.dds"
+	ai_weight = 1000
 	replacement_if_valid = pm_steam_trains_principle_transport_3
 
 	unlocking_technologies = {
@@ -158,6 +161,7 @@ pm_steam_trains = {
 
 pm_steam_trains_principle_transport_3 = {
 	texture = "gfx/interface/icons/production_method_icons/1776_steam_locomotive_green.dds"
+	ai_weight = 2000
 	is_hidden_when_unavailable = yes
 
 	unlocking_principles = {
@@ -191,6 +195,7 @@ pm_steam_trains_principle_transport_3 = {
 
 pm_electric_trains = {
 	texture = "gfx/interface/icons/production_method_icons/1776_electric_locomotive_green.dds"
+	ai_weight = 10000
 	replacement_if_valid = pm_electric_trains_principle_transport_3
 
 	unlocking_technologies = {
@@ -222,6 +227,7 @@ pm_electric_trains = {
 
 pm_electric_trains_principle_transport_3 = {
 	texture = "gfx/interface/icons/production_method_icons/1776_electric_locomotive_green.dds"
+	ai_weight = 20000
 	is_hidden_when_unavailable = yes
 
 	unlocking_principles = {
@@ -257,6 +263,7 @@ pm_electric_trains_principle_transport_3 = {
 
 pm_diesel_trains = {
 	texture = "gfx/interface/icons/production_method_icons/1776_diesel_locomotive_green.dds"
+	ai_weight = 100000
 	replacement_if_valid = pm_diesel_trains_principle_transport_3
 
 	unlocking_technologies = {
@@ -287,6 +294,7 @@ pm_diesel_trains = {
 
 pm_diesel_trains_principle_transport_3 = {
 	texture = "gfx/interface/icons/production_method_icons/1776_diesel_locomotive_green.dds"
+	ai_weight = 200000
 	is_hidden_when_unavailable = yes
 
 	unlocking_principles = {
@@ -321,10 +329,12 @@ pm_diesel_trains_principle_transport_3 = {
 
 pm_no_passenger_trains = {
 	texture = "gfx/interface/icons/production_method_icons/no_passenger_trains.dds"
+	ai_weight = 1
 }
 
 pm_wooden_passenger_carriages = {
 	texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
+	ai_weight = 100
 
 	unlocking_technologies = {
 		railways
@@ -343,6 +353,7 @@ pm_wooden_passenger_carriages = {
 
 pm_steel_passenger_carriages = {
 	texture = "gfx/interface/icons/production_method_icons/passenger_carriages.dds"
+	ai_weight = 1000
 
 	unlocking_technologies = {
 		steel_railway_cars
