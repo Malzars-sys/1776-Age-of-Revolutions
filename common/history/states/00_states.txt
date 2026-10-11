@@ -105,11 +105,9 @@ STATES = {
 		add_homeland = cu:dutch
 	}
 	s:STATE_BALUCHISTAN = {
-		create_state = {
-			country = c:OMA
-			state_type = unincorporated
-			owned_provinces = { xB7B2BD }
-		}
+		
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:MAK owned_provinces = { xB7B2BD } state_type = incorporated }
 		create_state = {
 			country = c:DUR
 			owned_provinces = { xE712E1 xF1414C x17D8AB x3EFD1E x109CC0 x4070E0 x9EED5C xA55509 xD575B0 x978421 x4E09C5 xF9577D x45F2DD x113E0B x7FE584 xC070E0 xC6E602 xB0F79E x407060 x951063 x8ED831 x2E7961 xE87BBF x968562 x675BCE x2FF46D x0279A0 x0BAF8C x1161D9 x1D0224 x2B7441 x35754E x3C9B5F x43F4B8 x4529BD x4B2EAD x4DC3FF x4F800F x556C63 x56CF62 x5CBA3C x61D696 x626396 x62BEAA  x6D6D6B x782112 x7D60E7 x8DC922 x954C12 x97C017 xA3655B xB2AAA7 xBAE3D2 xBB836E xC6D9E8 xCD77FD xD4EC50  xD6DD8A xDEE571 xDF30A0  xE7A309 xE92A58 xEC696F xF78D0D  x1EF53E }
@@ -1731,10 +1729,9 @@ STATES = {
 		add_homeland = cu:javan
 	}
 	s:STATE_CEYLON = {
-		create_state = {
-			country = c:DEI
-			owned_provinces = { xA0EFCC xA0A0D0 x23CE5A x8D6FA8 xDF2050 xDAB923 x1DA090 xC18817 x8A707A x967CCE x602050 xC23350 x47B038 }
-		}
+		create_state = { country = c:DEI owned_provinces = { xA0EFCC xA0A0D0 x23CE5A x8D6FA8 xDF2050 x1DA090 xC18817 x602050 xC23350 } }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:KND owned_provinces = { x967CCE xDAB923 x47B038 x8A707A } state_type = incorporated }
 
 		create_state = {
 			country = c:MLD
@@ -4037,7 +4034,7 @@ STATES = {
 	s:STATE_ORISSA = {
 		create_state = {
 			country = c:NAG
-			owned_provinces = { xBB9552 x597E99 xFFBC41 x38A6E6 xD031A0 xA2EF24 xA0A8E0 xA15F01 x30C2D5 xA0A8E0 xA15F01 x30C2D5 xB6E5C1 x1504AD x5031A0 x1622F2 x404EEA xFBF096 x5BC5C8 xB07FDD x0CE6EA xCCE5B7 x323B8A x11D169 x22B96B xBAE4B3 }
+			owned_provinces = { xBB9552 x597E99 xFFBC41 x38A6E6 xD031A0 xA2EF24 xA0A8E0 xA15F01 x30C2D5 xB6E5C1 x1504AD x5031A0 x1622F2 x404EEA xFBF096 x5BC5C8 xB07FDD x0CE6EA xCCE5B7 x323B8A x11D169 x22B96B xBAE4B3 }
 		}
 		add_claim = c:BIC
 		add_claim = c:MARATH
@@ -4055,18 +4052,28 @@ STATES = {
 		add_homeland = cu:sindi
 	}
 	s:STATE_RAJPUTANA = { #looklater maybe make it all Maratha
-		create_state = {
-			country = c:GWA
-			owned_provinces = { x37D8C4 xE0F021 xA9F108 xE95A9E xE27278 xBC1373 x82B440 x0A43D0 x0710F5 xBA06BC x604D2F xC7EF85 x0170B1 x67EA54 xA2025E x4EA8C5 xFFFB3C x5A410D xB9580C x61F021 xBD1F80 x9A6A95 x7B1C30 x22627C xDD12D2 xD77479 xCA50D5 x4CEAC0 xCBE6C4 x0C11FE x425430 xD76ACC xA389C9 xBAD851 xC28B1B x4922B9 xE0B020 x2A57A1 x25467F x3FF532 x166BD9 x5C95B5 x3C6F90 x77810B xD0F7A0 x6E8BCD xBD0984 x6031A0 x1031A8 x599EC5 x006D72 xF3C5EA x9601FD x84F1F8 xA99FB3 xC40894 xF591B3 x53A30A x01F0E0 xEBA05F x214E7A x6A103F xEB0422 x5DACF4 x40881F xF051DF xCC8FF3 x0A34C2 xF671B7 x6E01FB xA614CA xDCFF99 }
-		}
+		create_state = { country = c:GWA owned_provinces = { xE0F021 } }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:JAS owned_provinces = { x006D72 x77810B xBD0984 x6E8BCD x1031A8 x599EC5 x6031A0 x25467F x4CEAC0 x0C11FE } state_type = incorporated }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:BIK owned_provinces = { x3C6F90 xD0F7A0 xA99FB3 x53A30A x5DACF4 xEB0422 x9601FD x01F0E0 xEBA05F xF591B3 xF3C5EA x84F1F8 x6A103F x214E7A xC40894 x0170B1 } state_type = incorporated }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:JOD owned_provinces = { x3FF532 x7B1C30 xDD12D2 x166BD9 x4922B9 xBD1F80 xC28B1B xCA50D5 x5C95B5 x22627C xD76ACC xD77479 xCBE6C4 x9A6A95 x425430 xA389C9 xE0B020 } state_type = incorporated }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:MEW owned_provinces = { x40881F xCC8FF3 xDCFF99 xF671B7 xF051DF x0A34C2 x6E01FB xA614CA } state_type = incorporated }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:JAI owned_provinces = { x0710F5 x0A43D0 x4EA8C5 x5A410D x604D2F x61F021 x67EA54 x82B440 xA2025E xB9580C xBAD851 xBA06BC xC7EF85 xFFFB3C x2A57A1 } state_type = incorporated }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:KOT owned_provinces = { x37D8C4 xA9F108 xBC1373 xE27278 xE95A9E } state_type = incorporated }
 
 		add_homeland = cu:rajput
 	}
 	s:STATE_CIRCARS = {
-		create_state = {
-			country = c:BIC
-			owned_provinces = { x0AC82E x11F0A0 x180640 x207C4F x365CC3 x42F4F2 x477063 x8B1F32 x9070A0 x9193B1 xCDFBE6 xCFF020 xE2CF64 xE9BCE7 xEBBB7A xF8BB81 x73B187 }
-		}
+		create_state = { country = c:BIC owned_provinces = { x365CC3 x477063 x8B1F32 x9070A0 x9193B1 xCDFBE6 xE2CF64 xEBBB7A xF8BB81 x73B187 } }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:HYD owned_provinces = { x11F0A0 x207C4F x42F4F2 } state_type = incorporated }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:CAR owned_provinces = { x0AC82E x180640 xCFF020 xE9BCE7 } state_type = incorporated }
 		create_state = {
 			country = c:JEY
 			owned_provinces = { x6B15F1 x7166FA xC744F9 x3EC5D1 xB3DED5 xD19AD8 xB00B6B }
@@ -4154,10 +4161,13 @@ STATES = {
 			owned_provinces = { x10B060 }
 			state_type = unincorporated
 		}
-		create_state = {
-			country = c:PUD
-			owned_provinces = { xA02050 x0559B3 x07104C x0E2990 x1FF7C6 x20A050 x2D75FD x2EAD15 x486310 x56456B x5AF5BE x61FE06 x620762 x6A381C x7CCE50 x99B424 x9A2EF3 x9E4F00 xA021D0 xA3158E xA63901 xAEAE4C xB278DD xEC1945 }
-		}
+		create_state = { country = c:PUD owned_provinces = { xA02050 } }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:BIC owned_provinces = { x07104C } state_type = unincorporated }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:MYS owned_provinces = { x9E4F00 xB278DD x2D75FD x6A381C x20A050 } state_type = incorporated }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:CAR owned_provinces = { x0559B3 x0E2990 x1FF7C6 x2EAD15 x486310 x56456B x5AF5BE x61FE06 x620762 x7CCE50 x99B424 x9A2EF3 xA021D0 xA3158E xA63901 xAEAE4C xEC1945 } state_type = incorporated }
 		add_claim = c:BIC
 		add_claim = c:MARATH
 		add_claim = c:MUG
@@ -4196,10 +4206,9 @@ STATES = {
 			owned_provinces = { xF01160 x0C6CB1 }
 			state_type = unincorporated
 		}
-		create_state = {
-			country = c:BHV
-			owned_provinces = { x30D060 x075A8E xB3D1CD x31D0E0 x9C8D06 xCC1D23 xF87E91 xC7C3FD xB0D060 xD31590 xFC0FC1 x164DBB xD77765 xB9D851 x49DDB8 x0A4C7A x3FFA53 x128888 x90052D x4133D4 xADD2A3 x4EB354 x7E0401 xC0310F xF64FA2 xB05060 xEB6009 x5B6745 x8F568D xB89EF0 x3151E0 x73656F xEB1229 xD8CEF7 xECB4F5 x90B589 x03C674 x30E365 x697511 xB11F7B xBBB2BD }
-		}
+		create_state = { country = c:BHV owned_provinces = { x30D060 x075A8E xB3D1CD x31D0E0 xC7C3FD xB0D060 xD31590 xFC0FC1 x164DBB xD77765 xB9D851 x49DDB8 x0A4C7A x3FFA53 x7E0401 xC0310F xF64FA2 xB05060 xEB6009 x5B6745 x8F568D xB89EF0 x73656F xEB1229 xD8CEF7 x30E365 x697511 xB11F7B xBBB2BD } }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:BER owned_provinces = { xF87E91 x9C8D06 xCC1D23 x90B589 xADD2A3 x03C674 xECB4F5 x4EB354 x90052D x128888 x3151E0 x4133D4 } state_type = incorporated }
 		add_claim = c:BIC
 		add_claim = c:MARATH
 		add_claim = c:MUG
@@ -4225,10 +4234,9 @@ STATES = {
 			owned_provinces = { x51F0A0 }
 			state_type = unincorporated
 		}
-		create_state = {
-			country = c:MARATH
-			owned_provinces = { xB0D0E0 xEBE18C x5B30D1 xF8B0CF xEBD7BE x90B021 x195332 x2D4B90 x6CC5CE xDDFDE6 x53A379 x1B071A xD4CACE x1C8B97 x9031A0 xB863FE xC9CD8E x11B0A0 x7629BF x4D118A x052B29 xD04F5D x405FB4 xD070A0 xED0654 }
-		}
+		create_state = { country = c:MARATH owned_provinces = { x5B30D1 xF8B0CF xEBD7BE x90B021 x195332 x2D4B90 x6CC5CE xDDFDE6 x53A379 x1B071A xD4CACE x1C8B97 x9031A0 xB863FE xC9CD8E x11B0A0 x7629BF x4D118A x052B29 xD04F5D x405FB4 xD070A0 xED0654 } }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:BIC owned_provinces = { xB0D0E0 xEBE18C } state_type = unincorporated }
 		create_state = {
 			country = c:SAT
 			owned_provinces = { x3E5505 x33E560 xE73C3C x47EE55 x4F5C91 xCC722D xE01853 x187C37 xCF3817 xD6660F }
@@ -4267,14 +4275,10 @@ STATES = {
 		add_homeland = cu:bengali
 	}
 	s:STATE_ASSAM = {
-		create_state = {
-			country = c:NGA
-			owned_provinces = { x12647B x17E33F x4803C7 x70069E x86D527 x8C6C79 x954C46 xA458FC xFB1561 xEE6A3D x673438 x7DC31D xDF30DF x1B997A xE101DA xF9B21B x8F90F5 x30B15A x3D8CD6 x4CCA97 }
-		}
-		create_state = {
-			country = c:TIP
-			owned_provinces = { x344BF5 xF71958 x3FD07D x9700B9 xCC2DA0 x6030DF x9419F5 x408BEB xC6301B }
-		}
+		create_state = { country = c:NGA owned_provinces = { x17E33F x86D527 x8C6C79 x954C46 x1B997A xE101DA xF9B21B x8F90F5 x30B15A x3D8CD6 x4CCA97 } }
+		# MAP-2F: documented existing-province approximation.
+		create_state = { country = c:ASM owned_provinces = { x12647B x70069E x4803C7 xA458FC xFB1561 xDF30DF x7DC31D xEE6A3D x673438  xCC2DA0 x9700B9 x3FD07D xF71958 x344BF5 } state_type = incorporated }
+		create_state = { country = c:TIP owned_provinces = { x6030DF x9419F5 x408BEB xC6301B } }
 		create_state = {
 			country = c:KKI
 			owned_provinces = { x8C53B3 xCB0893 xB03121 xA17DC4 xB238B2 x337820 xF3B09A x5D1160 xD9940E }
@@ -8720,12 +8724,9 @@ STATES = {
 	s:STATE_BUNDELKHAND = {
 	    create_state = {
 	    	country = c:MARATH
-	    	owned_provinces = { x5272B3 xE81D4F xEB50A4 x907021 x52F672 x277419 x9E6DB9 x6170A0 x355332 xFE11FD xBC06E9 x0E5FEA x114EAE x618D5B x845EA7 xD0B021 xD0F986 }
+	    	owned_provinces = { x5272B3 xE81D4F xEB50A4 x907021 x52F672 x277419 x9E6DB9 x6170A0 x355332 xFE11FD xBC06E9 x0E5FEA x114EAE x618D5B x845EA7 xD0B021 xD0F986  x4605A8 x52001D x5CBFF7 x66337F x6B7184 x7884D6 xD64336 }
 		}
-	    create_state = {
-	    	country = c:BIC
-	    	owned_provinces = { x66337F x6B7184 x7884D6 x52001D x4605A8 xD64336 x5CBFF7 }
-		}
+	    
 		add_claim = c:BIC
 		add_claim = c:MARATH
 		add_claim = c:MUG

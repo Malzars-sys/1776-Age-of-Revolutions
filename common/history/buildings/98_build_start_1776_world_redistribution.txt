@@ -1597,15 +1597,17 @@ add_ownership = {
 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 		}
-		region_state:OMA = {
-						create_building={
+		
+	
+		region_state:MAK = {
+			create_building={
 							building="building_fishing_wharf"
 							add_ownership={
 								building={
 									type="building_fishing_wharf"
 									country="c:OMA"
-									levels=1
-									region="STATE_BALUCHISTAN"
+									levels = 1
+									region = "STATE_OMAN"
 								}
 							}
 							reserves=1
@@ -2053,69 +2055,7 @@ add_ownership = {
 		}
 	}
 	s:STATE_BOMBAY = {
-		region_state:MARATH = {
-						create_building={
-							building="building_cotton_plantation"
-							add_ownership={
-								building={
-									type="building_manor_house"
-									country="c:MARATH"
-									levels=2
-									region="STATE_BOMBAY"
-								}
-							}
-							reserves=1
-							activate_production_methods = { "default_building_cotton_plantation" "default_labour" "pm_road_carts" }
-						}
-						create_building={
-							building="building_railway"
-							add_ownership={
-								building={
-									type="building_financial_district"
-									country="c:MARATH"
-									levels=12
-									region="STATE_BOMBAY"
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
-						}
-						create_building = {
-							building = "building_salt_pan"
-							add_ownership = {
-								country = {
-									country = "c:MARATH"
-									levels = 1
-								}
-							}
-							reserves = 1
-							activate_production_methods = { "default_building_salt_pan" }
-						}
-						create_building={
-							building="building_textile_mill"
-							add_ownership={
-								building={
-									type="building_textile_mill"
-									country="c:MARATH"
-									levels=2
-									region="STATE_BOMBAY"
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
-						}
-						create_building={
-							building="building_trade_center"
-							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
-							add_ownership={
-								country={
-									country="c:MARATH"
-									levels=2
-								}
-							}
-							reserves=1
-						}
-		}
+		
 		region_state:POR = {
 						create_building={
 							building="building_shipyard"
@@ -2129,6 +2069,90 @@ add_ownership = {
 							}
 							reserves=1
 							activate_production_methods = { "pm_basic_shipbuilding" "pm_no_copper_sheathing_building_shipyard" }
+						}
+		}
+	
+		region_state:MARATH = {
+			create_building={
+							building="building_cotton_plantation"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:MARATH"
+									levels = 2
+									region="STATE_BOMBAY"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "default_building_cotton_plantation" "default_labour" "pm_road_carts" }
+						}
+		
+			create_building={
+							building="building_railway"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:MARATH"
+									levels = 11
+									region="STATE_BOMBAY"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+						}
+		
+			create_building = {
+							building = "building_salt_pan"
+							add_ownership = {
+								country = {
+									country = "c:MARATH"
+									levels = 1
+								}
+							}
+							reserves = 1
+							activate_production_methods = { "default_building_salt_pan" }
+						}
+		
+			create_building={
+							building="building_textile_mill"
+							add_ownership={
+								building={
+									type="building_textile_mill"
+									country="c:MARATH"
+									levels = 2
+									region="STATE_BOMBAY"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+						}
+		
+			create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:MARATH"
+									levels = 2
+								}
+							}
+							reserves=1
+						}
+		}
+	
+		region_state:BIC = {
+			create_building={
+							building="building_railway"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:MARATH"
+									levels = 1
+									region="STATE_BOMBAY"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 		}
 	}
@@ -2873,39 +2897,84 @@ add_ownership = {
 		}
 	}
 	s:STATE_CEYLON = {
+		
+	
 		region_state:DEI = {
-						create_building = {
+			create_building = {
 							building = "building_spice_plantation"
 							add_ownership = {
 								company = {
 									type = company_dutch_east_india_company
 									country = "c:NET"
-									levels = 4
+									levels = 3
 								}
 							}
 							reserves = 1
 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
 						}
-						create_building={
+		
+			create_building={
 							building="building_railway"
 							add_ownership={
 								building={
 									type="building_financial_district"
 									country="c:DEI"
-									levels=3
+									levels = 2
 									region="STATE_CEYLON"
 								}
 							}
 							reserves=1
 							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
-						create_building={
+		
+			create_building={
 							building="building_trade_center"
 							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
 							add_ownership={
 								country={
 									country="c:DEI"
-									levels=2
+									levels = 1
+								}
+							}
+							reserves=1
+						}
+		}
+	
+		region_state:KND = {
+			create_building = {
+							building = "building_spice_plantation"
+							add_ownership = {
+								company = {
+									type = company_dutch_east_india_company
+									country = "c:NET"
+									levels = 1
+								}
+							}
+							reserves = 1
+							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
+						}
+		
+			create_building={
+							building="building_railway"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:DEI"
+									levels = 1
+									region="STATE_CEYLON"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
+						}
+		
+			create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:DEI"
+									levels = 1
 								}
 							}
 							reserves=1
@@ -3206,21 +3275,40 @@ add_ownership = {
 		}
 	}
 	s:STATE_CIRCARS = {
-		region_state:BIC = {
-						create_building={
+		
+	
+		region_state:CAR = {
+			create_building={
 							building="building_rice_farm"
 add_ownership = {
 					building = {
 						type = "building_manor_house"
 						country = "c:GBR"
 						region = "STATE_HOME_COUNTIES"
-						levels = 2
+						levels = 1
 					}
 				}
 							reserves=1
 							activate_production_methods = { "pm_simple_farming_building_rice_farm" "pm_no_secondary" "pm_tools_disabled" }
 						}
-						create_building={
+		}
+	
+		region_state:BIC = {
+			create_building={
+							building="building_rice_farm"
+add_ownership = {
+					building = {
+						type = "building_manor_house"
+						country = "c:GBR"
+						region = "STATE_HOME_COUNTIES"
+						levels = 1
+					}
+				}
+							reserves=1
+							activate_production_methods = { "pm_simple_farming_building_rice_farm" "pm_no_secondary" "pm_tools_disabled" }
+						}
+		
+			create_building={
 							building="building_shipyard"
 add_ownership = {
 					building = {
@@ -6008,34 +6096,51 @@ region_state:IMR = {
 		}
 	}
 	s:STATE_GUJARAT = {
-		region_state:BHV = {
+		
+		region_state:POR = {
 						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:POR"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+		}
+	
+		region_state:BHV = {
+			create_building={
 							building="building_dye_plantation"
 							add_ownership={
 								building={
 									type="building_manor_house"
 									country="c:BHV"
-									levels=1
+									levels = 1
 									region="STATE_GUJARAT"
 								}
 							}
 							reserves=1
 							activate_production_methods = { "default_building_dye_plantation" "default_labour" "pm_road_carts" }
 						}
-						create_building={
+		
+			create_building={
 							building="building_railway"
 							add_ownership={
 								building={
 									type="building_financial_district"
 									country="c:BHV"
-									levels=7
+									levels = 5
 									region="STATE_GUJARAT"
 								}
 							}
 							reserves=1
 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
-						create_building = {
+		
+			create_building = {
 							building = "building_salt_pan"
 							add_ownership = {
 								country = {
@@ -6046,52 +6151,84 @@ region_state:IMR = {
 							reserves = 1
 							activate_production_methods = { "default_building_salt_pan" }
 						}
-						create_building={
+		
+			create_building={
 							building="building_shipyard"
 							add_ownership={
 								building={
 									type="building_shipyard"
 									country="c:BHV"
-									levels=1
+									levels = 1
 									region="STATE_GUJARAT"
 								}
 							}
 							reserves=1
 							activate_production_methods = { "pm_basic_shipbuilding" "pm_no_copper_sheathing_building_shipyard" }
 						}
-						create_building={
+		
+			create_building={
 							building="building_textile_mill"
 							add_ownership={
 								building={
 									type="building_textile_mill"
 									country="c:BHV"
-									levels=3
+									levels = 2
 									region="STATE_GUJARAT"
 								}
 							}
 							reserves=1
 							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
 						}
-						create_building={
+		
+			create_building={
 							building="building_trade_center"
 							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
 							add_ownership={
 								country={
 									country="c:BHV"
-									levels=3
+									levels = 2
 								}
 							}
 							reserves=1
 						}
 		}
-		region_state:POR = {
-						create_building={
+	
+		region_state:BER = {
+			create_building={
+							building="building_railway"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:BHV"
+									levels = 2
+									region="STATE_GUJARAT"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+						}
+		
+			create_building={
+							building="building_textile_mill"
+							add_ownership={
+								building={
+									type="building_textile_mill"
+									country="c:BHV"
+									levels = 1
+									region="STATE_GUJARAT"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+						}
+		
+			create_building={
 							building="building_trade_center"
 							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
 							add_ownership={
 								country={
-									country="c:POR"
-									levels=1
+									country="c:BHV"
+									levels = 1
 								}
 							}
 							reserves=1
@@ -9529,40 +9666,60 @@ region_state:IMR = {
 							reserves=1
 						}
 		}
-		region_state:PUD = {
-						create_building={
+		
+	
+		region_state:CAR = {
+			create_building={
 							building="building_cotton_plantation"
 							add_ownership={
 								building={
 									type="building_manor_house"
 									country="c:PUD"
-									levels=1
+									levels = 1
 									region="STATE_MADRAS"
 								}
 							}
 							reserves=1
 							activate_production_methods = { "default_building_cotton_plantation" "default_labour" "pm_road_carts" }
 						}
-						create_building={
+		
+			create_building={
 							building="building_rice_farm"
 							add_ownership={
 								building={
 									type="building_manor_house"
 									country="c:PUD"
-									levels=2
+									levels = 2
 									region="STATE_MADRAS"
 								}
 							}
 							reserves=1
 							activate_production_methods = { "pm_simple_farming_building_rice_farm" "pm_no_secondary" "pm_tools_disabled" }
 						}
-						create_building={
+		
+			create_building={
 							building="building_textile_mill"
 							add_ownership={
 								building={
 									type="building_textile_mill"
 									country="c:PUD"
-									levels=3
+									levels = 2
+									region="STATE_MADRAS"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+						}
+		}
+	
+		region_state:MYS = {
+			create_building={
+							building="building_textile_mill"
+							add_ownership={
+								building={
+									type="building_textile_mill"
+									country="c:PUD"
+									levels = 1
 									region="STATE_MADRAS"
 								}
 							}
@@ -13203,30 +13360,65 @@ region_state:IMR = {
 		}
 	}
 	s:STATE_RAJPUTANA = {
-		region_state:GWA = {
-						create_building={
+		
+	
+		region_state:JAI = {
+			create_building={
 							building="building_railway"
 							add_ownership={
 								building={
 									type="building_financial_district"
 									country="c:GWA"
-									levels=3
+									levels = 1
 									region="STATE_RAJPUTANA"
 								}
 							}
 							reserves=1
 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
-						create_building={
+		}
+	
+		region_state:BIK = {
+			create_building={
+							building="building_railway"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:GWA"
+									levels = 1
+									region="STATE_RAJPUTANA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+						}
+		
+			create_building={
 							building="building_trade_center"
 							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
 							add_ownership={
 								country={
 									country="c:GWA"
-									levels=1
+									levels = 1
 								}
 							}
 							reserves=1
+						}
+		}
+	
+		region_state:JOD = {
+			create_building={
+							building="building_railway"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:GWA"
+									levels = 1
+									region="STATE_RAJPUTANA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 		}
 	}
