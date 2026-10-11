@@ -1,0 +1,954 @@
+{
+  "validation_kind": "STATIC_AND_ACTUAL_SCRIPT_AST_FIXTURES_NOT_ENGINE",
+  "static": {
+    "changed_existing_runtime_files": [
+      "common/buildings/01_industry.txt",
+      "common/buildings/03_mines.txt",
+      "common/buildings/06_urban_center.txt",
+      "common/buildings/09_misc_resource.txt",
+      "common/buildings/10_tech6c1_limestone_quarry.txt",
+      "common/buildings/11_private_infrastructure.txt",
+      "common/buildings/11_tech6c1b_cement_works.txt",
+      "common/buildings/12_tech6c4_oil_refinery.txt",
+      "common/buildings/14_tech6c5c_non_ferrous_metallurgy_works.txt",
+      "common/production_methods/11_private_infrastructure.txt",
+      "common/production_methods/14_tech6c5c_aluminium_production_and_consumers.txt",
+      "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+      "common/scripted_effects/1776_ai_regional_infrastructure_effects.txt"
+    ],
+    "new_runtime_files": [
+      "common/scripted_triggers/1776_ai_regional_infrastructure_shortage.txt",
+      "common/script_values/1776_ai_regional_infrastructure_shortage.txt"
+    ],
+    "protected_files_verified": 3247,
+    "unchanged_MAP1C_files": 31,
+    "history_map_population_recipes_and_unlocks": "UNCHANGED",
+    "journal_construction_boosts": "PRESERVED"
+  },
+  "scenarios": [
+    {
+      "scenario": "infrastructure_deficit_without_shortage",
+      "result": "PASS",
+      "construction_permission": true,
+      "observed_script_changes": {
+        "variables": {
+          "aor1776_ai_reserved_aluminium": {
+            "value": 120.0,
+            "expires": 1000000
+          },
+          "aor1776_ai_reserved_cement": {
+            "value": 120.0,
+            "expires": 1000000
+          },
+          "aor1776_ai_reserved_coal": {
+            "value": 0.0,
+            "expires": 1000000.0
+          },
+          "aor1776_ai_reserved_electricity": {
+            "value": 0.0,
+            "expires": 1000000.0
+          },
+          "aor1776_ai_reserved_engines": {
+            "value": 144.0,
+            "expires": 1000000
+          },
+          "aor1776_ai_reserved_heavy_petroleum_products": {
+            "value": 48.0,
+            "expires": 1000000
+          },
+          "aor1776_ai_reserved_iron": {
+            "value": 54.0,
+            "expires": 1000000
+          },
+          "aor1776_ai_reserved_limestone": {
+            "value": 210.0,
+            "expires": 1000000
+          },
+          "aor1776_ai_reserved_refined_fuels": {
+            "value": 96.0,
+            "expires": 1000000
+          },
+          "aor1776_ai_reserved_steel": {
+            "value": 0.0,
+            "expires": 1000000.0
+          },
+          "aor1776_ai_reserved_tools": {
+            "value": 150.0,
+            "expires": 1000000
+          },
+          "aor1776_ai_reserved_wood": {
+            "value": 0.0,
+            "expires": 1000000.0
+          }
+        },
+        "states": [
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              }
+            },
+            "changes": [],
+            "active": null,
+            "levels": null
+          },
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              },
+              {
+                "day": 0,
+                "pm": "pm_engineered_canals"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_engineered_canals"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              },
+              {
+                "day": 0,
+                "pm": "pm_engineered_canals"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_engineered_canals"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              },
+              {
+                "day": 0,
+                "pm": "pm_engineered_canals"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_engineered_canals"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              },
+              {
+                "day": 0,
+                "pm": "pm_engineered_canals"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_engineered_canals"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              },
+              {
+                "day": 0,
+                "pm": "pm_engineered_canals"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_engineered_canals"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              },
+              {
+                "day": 0,
+                "pm": "pm_engineered_canals"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_engineered_canals"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              },
+              {
+                "day": 0,
+                "pm": "pm_engineered_canals"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_engineered_canals"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              },
+              {
+                "day": 0,
+                "pm": "pm_engineered_canals"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_engineered_canals"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_top_gdp_canal_state": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              },
+              {
+                "day": 0,
+                "pm": "pm_engineered_canals"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_engineered_canals"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_no_canal_network"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_no_canal_network"
+            },
+            "levels": 2
+          },
+          {
+            "variables": {
+              "aor1776_ai_regional_levels": {
+                "value": 2,
+                "expires": 1000000.0
+              },
+              "aor1776_ai_regional_changed_this_pulse": {
+                "value": 1,
+                "expires": 1000000
+              },
+              "aor1776_ai_regional_cooldown": {
+                "value": 1.0,
+                "expires": 180.0
+              }
+            },
+            "changes": [
+              {
+                "day": 0,
+                "pm": "pm_paved_road_network"
+              },
+              {
+                "day": 0,
+                "pm": "pm_diesel_trains_principle_transport_3"
+              },
+              {
+                "day": 0,
+                "pm": "pm_aluminium_passenger_carriages"
+              }
+            ],
+            "active": {
+              "pmg_base_building_land_transport_network": "pm_paved_road_network",
+              "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+              "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+              "pmg_land_transport_canals": "pm_no_canal_network"
+            },
+            "levels": 2
+          }
+        ]
+      }
+    },
+    {
+      "scenario": "severe_tools_shortage",
+      "result": "PASS",
+      "timeline": [
+        {
+          "day": 30,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        },
+        {
+          "day": 60,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_traditional_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_no_canal_network"
+          }
+        },
+        {
+          "day": 90,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_traditional_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_no_canal_network"
+          }
+        },
+        {
+          "day": 120,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_traditional_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_no_canal_network"
+          }
+        },
+        {
+          "day": 150,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_traditional_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_no_canal_network"
+          }
+        },
+        {
+          "day": 180,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_traditional_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_no_canal_network"
+          }
+        },
+        {
+          "day": 210,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_traditional_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_no_canal_network"
+          }
+        },
+        {
+          "day": 240,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_traditional_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_no_canal_network"
+          }
+        }
+      ],
+      "construction_permission_during_shortage": false
+    },
+    {
+      "scenario": "cement_limestone_shortage",
+      "result": "PASS",
+      "timeline": [
+        {
+          "day": 30,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        },
+        {
+          "day": 60,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_turnpike_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_industrial_canals"
+          }
+        },
+        {
+          "day": 90,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_turnpike_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_industrial_canals"
+          }
+        },
+        {
+          "day": 120,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_turnpike_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_industrial_canals"
+          }
+        },
+        {
+          "day": 150,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_turnpike_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_industrial_canals"
+          }
+        },
+        {
+          "day": 180,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_turnpike_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_industrial_canals"
+          }
+        },
+        {
+          "day": 210,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_turnpike_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_industrial_canals"
+          }
+        },
+        {
+          "day": 240,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_turnpike_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_industrial_canals"
+          }
+        }
+      ],
+      "construction_permission_during_shortage": false
+    },
+    {
+      "scenario": "rail_input_shortage",
+      "result": "PASS",
+      "timeline": [
+        {
+          "day": 30,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_diesel_trains_principle_transport_3",
+            "pmg_passenger_trains": "pm_aluminium_passenger_carriages",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        },
+        {
+          "day": 60,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_no_rail_network",
+            "pmg_passenger_trains": "pm_no_passenger_trains",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        },
+        {
+          "day": 90,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_no_rail_network",
+            "pmg_passenger_trains": "pm_no_passenger_trains",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        },
+        {
+          "day": 120,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_no_rail_network",
+            "pmg_passenger_trains": "pm_no_passenger_trains",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        },
+        {
+          "day": 150,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_no_rail_network",
+            "pmg_passenger_trains": "pm_no_passenger_trains",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        },
+        {
+          "day": 180,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_no_rail_network",
+            "pmg_passenger_trains": "pm_no_passenger_trains",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        },
+        {
+          "day": 210,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_no_rail_network",
+            "pmg_passenger_trains": "pm_no_passenger_trains",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        },
+        {
+          "day": 240,
+          "active": {
+            "pmg_base_building_land_transport_network": "pm_paved_road_network",
+            "pmg_base_building_railway": "pm_no_rail_network",
+            "pmg_passenger_trains": "pm_no_passenger_trains",
+            "pmg_land_transport_canals": "pm_engineered_canals"
+          }
+        }
+      ],
+      "construction_permission_during_shortage": false
+    },
+    {
+      "scenario": "market_with_no_required_production",
+      "result": "PASS"
+    },
+    {
+      "scenario": "supply_recovery_with_180_day_cooldown",
+      "result": "PASS",
+      "changes": [
+        {
+          "day": 0,
+          "pm": "pm_paved_road_network"
+        },
+        {
+          "day": 0,
+          "pm": "pm_diesel_trains_principle_transport_3"
+        },
+        {
+          "day": 0,
+          "pm": "pm_aluminium_passenger_carriages"
+        },
+        {
+          "day": 0,
+          "pm": "pm_engineered_canals"
+        },
+        {
+          "day": 60,
+          "pm": "pm_traditional_road_network"
+        },
+        {
+          "day": 60,
+          "pm": "pm_no_canal_network"
+        },
+        {
+          "day": 240,
+          "pm": "pm_paved_road_network"
+        },
+        {
+          "day": 240,
+          "pm": "pm_engineered_canals"
+        }
+      ]
+    },
+    {
+      "scenario": "human_country_exclusion",
+      "result": "PASS"
+    },
+    {
+      "scenario": "multiple_states_connected_and_isolated",
+      "result": "PASS"
+    },
+    {
+      "scenario": "bounded_country_market_reserve",
+      "result": "PASS",
+      "paved_states_in_first_pulse": 1
+    },
+    {
+      "scenario": "supplier_queue_shortage_and_expiration_guards",
+      "result": "PASS"
+    }
+  ],
+  "engine_evidence": {
+    "exe_sha256": "7f53e3260cf46b6247f6906837464944038c4f74e860274ad3d394e0c04f811f",
+    "verified_symbols": {
+      "building_has_goods_shortage": [
+        73426038,
+        73426080
+      ],
+      "state_goods_has_local_goods_shortage": [
+        73372332,
+        73372384
+      ],
+      "market_goods_has_goods_shortage": [
+        73371267,
+        73371312
+      ],
+      "state_goods_production": [
+        73368659,
+        73368712
+      ],
+      "state_goods_consumption": [
+        73368804,
+        73368856
+      ],
+      "market_goods_sell_orders": [
+        73367039,
+        73367096
+      ],
+      "market_goods_buy_orders": [
+        73366894,
+        73366944
+      ],
+      "can_build_government": [
+        74225832
+      ],
+      "can_build_private": [
+        74226280
+      ]
+    },
+    "game_version": "1.13.11 (VersionInfo and system.log checked)",
+    "runtime_validation": "NOT_RUN",
+    "economic_measurements": "NOT_AVAILABLE"
+  }
+}

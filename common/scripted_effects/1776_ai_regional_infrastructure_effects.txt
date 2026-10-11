@@ -1,348 +1,431 @@
-# AI-only regional infrastructure maintenance. No buildings, goods, technologies
-# or subsidies are created. Players retain complete control of their PMs.
-
-# State scope; idempotent to avoid unnecessary production-method changes.
+# AI-only sustainable maintenance. No construction, resources or subsidies.
+# Generated from recipes by tools/regional_infrastructure_shortage_patch.py.
 aor1776_ai_apply_regional_infrastructure_pm = {
 	if = {
-		limit = {
-			NOT = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = $PM$
-				}
-			}
-		}
-		activate_production_method = {
-			building_type = building_railway
-			production_method = $PM$
-		}
+		limit = { NOT = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = $PM$
+		} } }
+		activate_production_method = { building_type = building_railway production_method = $PM$ }
+		set_variable = aor1776_ai_regional_changed_this_pulse
+		set_variable = { name = aor1776_ai_regional_cooldown days = 180 }
 	}
 }
 
-# Country scope. Explicit zero-based positions avoid ambiguous min/max semantics.
-# Rank ALL owned states, not only states with a regional infrastructure building.
+# Rank all states, avoiding out-of-range positions in small countries.
 aor1776_ai_mark_canal_gdp_position = {
-	ordered_scope_state = {
-		order_by = gdp
-		position = $POSITION$
-		check_range_bounds = no
-		set_variable = aor1776_ai_top_gdp_canal_state
+	if = {
+		limit = { num_states > $POSITION$ }
+		ordered_scope_state = {
+			order_by = gdp
+			position = $POSITION$
+			check_range_bounds = no
+			set_variable = aor1776_ai_top_gdp_canal_state
+		}
 	}
 }
 
-# State scope. Test eligibility before checking whether the PM is already active:
-# an already active best PM must not cause fall-through to a lower tier.
 aor1776_ai_choose_regional_roads = {
 	if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_paved_road_network
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_paved_road_network
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_paved_road_network = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_paved_road_network }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_engineered_road_network
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_engineered_road_network
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_engineered_road_network = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_engineered_road_network }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_turnpike_road_network
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_turnpike_road_network
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_turnpike_road_network = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_turnpike_road_network }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_traditional_road_network
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_traditional_road_network
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_traditional_road_network = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_traditional_road_network }
 	}
 }
 
-# State scope. Test eligibility before checking whether the PM is already active:
-# an already active best PM must not cause fall-through to a lower tier.
 aor1776_ai_choose_regional_rail = {
 	if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_diesel_trains_principle_transport_3
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_diesel_trains_principle_transport_3
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_diesel_trains_principle_transport_3 = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_diesel_trains_principle_transport_3 }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_diesel_trains
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_diesel_trains
-				}
-			}
-		}
-		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_diesel_trains }
-	}
-	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_electric_trains_principle_transport_3
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_electric_trains_principle_transport_3
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_electric_trains_principle_transport_3 = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_electric_trains_principle_transport_3 }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_electric_trains
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_electric_trains
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_diesel_trains = yes }
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_diesel_trains }
+	}
+	else_if = {
+		limit = { aor1776_ai_sustainable_pm_electric_trains = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_electric_trains }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_steam_trains_principle_transport_3
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_steam_trains_principle_transport_3
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_steam_trains_principle_transport_3 = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_steam_trains_principle_transport_3 }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_steam_trains
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_steam_trains
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_steam_trains = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_steam_trains }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_early_trains
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_early_trains
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_early_trains = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_early_trains }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_no_rail_network
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_no_rail_network
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_no_rail_network = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_rail_network }
 	}
 }
 
-# State scope. Test eligibility before checking whether the PM is already active:
-# an already active best PM must not cause fall-through to a lower tier.
 aor1776_ai_choose_regional_wagons = {
 	if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_aluminium_passenger_carriages
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_aluminium_passenger_carriages
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_aluminium_passenger_carriages = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_aluminium_passenger_carriages }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_steel_passenger_carriages
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_steel_passenger_carriages
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_steel_passenger_carriages = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_steel_passenger_carriages }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_wooden_passenger_carriages
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_wooden_passenger_carriages
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_wooden_passenger_carriages = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_wooden_passenger_carriages }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_no_passenger_trains
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_no_passenger_trains
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_no_passenger_trains = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_passenger_trains }
 	}
 }
 
-# State scope. Test eligibility before checking whether the PM is already active:
-# an already active best PM must not cause fall-through to a lower tier.
 aor1776_ai_choose_regional_canals = {
 	if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_engineered_canals
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_engineered_canals
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_engineered_canals = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_engineered_canals }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_industrial_canals
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_industrial_canals
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_industrial_canals = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_industrial_canals }
 	}
 	else_if = {
-		limit = {
-			OR = {
-				any_scope_building = {
-					is_building_type = building_railway
-					has_active_production_method = pm_no_canal_network
-				}
-				can_activate_production_method = {
-					building_type = building_railway
-					production_method = pm_no_canal_network
-				}
-			}
-		}
+		limit = { aor1776_ai_sustainable_pm_no_canal_network = yes }
 		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_canal_network }
 	}
 }
 
-# Country scope. Runs at start and monthly, including when loading an existing
-# campaign. Never touches player countries or creates/expands infrastructure.
-aor1776_ai_refresh_regional_infrastructure = {
+aor1776_ai_record_regional_supply_needs = {
 	if = {
 		limit = {
-			is_ai = yes
-			any_scope_building = { is_building_type = building_railway }
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_aluminium_passenger_carriages
+				}
+			}
+			NOT = { aor1776_ai_supply_aluminium = yes }
 		}
+		set_variable = { name = aor1776_ai_need_aluminium days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:aluminium = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_aluminium days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_paved_road_network
+				}
+			}
+			NOT = { aor1776_ai_supply_cement = yes }
+		}
+		set_variable = { name = aor1776_ai_need_cement days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:cement = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_cement days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_early_trains
+					has_active_production_method = pm_steam_trains
+					has_active_production_method = pm_steam_trains_principle_transport_3
+				}
+			}
+			NOT = { aor1776_ai_supply_coal = yes }
+		}
+		set_variable = { name = aor1776_ai_need_coal days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:coal = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_coal days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_electric_trains
+					has_active_production_method = pm_electric_trains_principle_transport_3
+				}
+			}
+			NOT = { aor1776_ai_supply_electricity = yes }
+		}
+		set_variable = { name = aor1776_ai_need_electricity days = 180 }
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_diesel_trains
+					has_active_production_method = pm_diesel_trains_principle_transport_3
+					has_active_production_method = pm_early_trains
+					has_active_production_method = pm_electric_trains
+					has_active_production_method = pm_electric_trains_principle_transport_3
+					has_active_production_method = pm_steam_trains
+					has_active_production_method = pm_steam_trains_principle_transport_3
+				}
+			}
+			NOT = { aor1776_ai_supply_engines = yes }
+		}
+		set_variable = { name = aor1776_ai_need_engines days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:engines = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_engines days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_paved_road_network
+				}
+			}
+			NOT = { aor1776_ai_supply_heavy_petroleum_products = yes }
+		}
+		set_variable = { name = aor1776_ai_need_heavy_petroleum_products days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:heavy_petroleum_products = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_heavy_petroleum_products days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_engineered_canals
+					has_active_production_method = pm_industrial_canals
+				}
+			}
+			NOT = { aor1776_ai_supply_iron = yes }
+		}
+		set_variable = { name = aor1776_ai_need_iron days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:iron = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_iron days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_engineered_canals
+					has_active_production_method = pm_engineered_road_network
+					has_active_production_method = pm_paved_road_network
+				}
+			}
+			NOT = { aor1776_ai_supply_limestone = yes }
+		}
+		set_variable = { name = aor1776_ai_need_limestone days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:limestone = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_limestone days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_diesel_trains
+					has_active_production_method = pm_diesel_trains_principle_transport_3
+				}
+			}
+			NOT = { aor1776_ai_supply_refined_fuels = yes }
+		}
+		set_variable = { name = aor1776_ai_need_refined_fuels days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:refined_fuels = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_refined_fuels days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_steel_passenger_carriages
+				}
+			}
+			NOT = { aor1776_ai_supply_steel = yes }
+		}
+		set_variable = { name = aor1776_ai_need_steel days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:steel = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_steel days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_engineered_canals
+					has_active_production_method = pm_engineered_road_network
+					has_active_production_method = pm_industrial_canals
+					has_active_production_method = pm_paved_road_network
+					has_active_production_method = pm_turnpike_road_network
+				}
+			}
+			NOT = { aor1776_ai_supply_tools = yes }
+		}
+		set_variable = { name = aor1776_ai_need_tools days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:tools = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_tools days = 180 } }
+		}
+	}
+
+	if = {
+		limit = {
+			aor1776_ai_regional_infrastructure_shortage = yes
+			any_scope_building = {
+				is_building_type = building_railway
+				OR = {
+					has_active_production_method = pm_industrial_canals
+					has_active_production_method = pm_turnpike_road_network
+					has_active_production_method = pm_wooden_passenger_carriages
+				}
+			}
+			NOT = { aor1776_ai_supply_wood = yes }
+		}
+		set_variable = { name = aor1776_ai_need_wood days = 180 }
+		if = {
+			limit = {
+				market_access >= 0.95
+				is_isolated_from_market = no
+				sg:wood = { state_goods_has_local_goods_shortage = no }
+			}
+			owner = { set_variable = { name = aor1776_ai_connected_need_wood days = 180 } }
+		}
+	}
+
+}
+
+aor1776_ai_select_sustainable_regional_infrastructure = {
+	aor1776_ai_choose_regional_roads = yes
+	aor1776_ai_choose_regional_rail = yes
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_no_rail_network
+		} }
+		aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_passenger_trains }
+	}
+	else = { aor1776_ai_choose_regional_wagons = yes }
+	if = {
+		limit = { has_variable = aor1776_ai_top_gdp_canal_state }
+		aor1776_ai_choose_regional_canals = yes
+	}
+	else = { aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_canal_network } }
+}
+
+# Two consecutive observed shortages; not an estimate of engine penalty.
+# Healthy upgrades wait 180 days after any actual PM change.
+aor1776_ai_refresh_regional_infrastructure = {
+	if = {
+		limit = { is_ai = yes any_scope_building = { is_building_type = building_railway } }
+		set_variable = { name = aor1776_ai_reserved_aluminium value = 0 }
+		set_variable = { name = aor1776_ai_reserved_cement value = 0 }
+		set_variable = { name = aor1776_ai_reserved_coal value = 0 }
+		set_variable = { name = aor1776_ai_reserved_electricity value = 0 }
+		set_variable = { name = aor1776_ai_reserved_engines value = 0 }
+		set_variable = { name = aor1776_ai_reserved_heavy_petroleum_products value = 0 }
+		set_variable = { name = aor1776_ai_reserved_iron value = 0 }
+		set_variable = { name = aor1776_ai_reserved_limestone value = 0 }
+		set_variable = { name = aor1776_ai_reserved_refined_fuels value = 0 }
+		set_variable = { name = aor1776_ai_reserved_steel value = 0 }
+		set_variable = { name = aor1776_ai_reserved_tools value = 0 }
+		set_variable = { name = aor1776_ai_reserved_wood value = 0 }
 		every_scope_state = {
 			limit = { has_variable = aor1776_ai_top_gdp_canal_state }
 			remove_variable = aor1776_ai_top_gdp_canal_state
@@ -359,25 +442,392 @@ aor1776_ai_refresh_regional_infrastructure = {
 		aor1776_ai_mark_canal_gdp_position = { POSITION = 9 }
 		every_scope_state = {
 			limit = { has_building = building_railway }
-			aor1776_ai_choose_regional_roads = yes
-			aor1776_ai_choose_regional_rail = yes
+			remove_variable = aor1776_ai_regional_changed_this_pulse
+			save_scope_as = aor1776_ai_regional_state
+			set_variable = { name = aor1776_ai_regional_levels value = b:building_railway.level }
+			aor1776_ai_record_regional_supply_needs = yes
+			# Removing canals outside the top ten is safe and must not wait
+			# for an upgrade cooldown; it cannot increase input demand.
 			if = {
-				limit = {
-					any_scope_building = {
-						is_building_type = building_railway
-						has_active_production_method = pm_no_rail_network
-					}
-				}
-				aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_passenger_trains }
+				limit = { NOT = { has_variable = aor1776_ai_top_gdp_canal_state } }
+				aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_canal_network }
 			}
-			else = { aor1776_ai_choose_regional_wagons = yes }
 			if = {
-				limit = { has_variable = aor1776_ai_top_gdp_canal_state }
-				aor1776_ai_choose_regional_canals = yes
+				limit = { aor1776_ai_regional_infrastructure_shortage = yes }
+				if = {
+					limit = { has_variable = aor1776_ai_regional_shortage_previous }
+					aor1776_ai_select_sustainable_regional_infrastructure = yes
+				}
+				set_variable = { name = aor1776_ai_regional_shortage_previous days = 45 }
 			}
 			else = {
-				aor1776_ai_apply_regional_infrastructure_pm = { PM = pm_no_canal_network }
+				remove_variable = aor1776_ai_regional_shortage_previous
+				if = {
+					limit = { NOT = { has_variable = aor1776_ai_regional_cooldown } }
+					aor1776_ai_select_sustainable_regional_infrastructure = yes
+				}
+			}
+			if = {
+				limit = { has_variable = aor1776_ai_regional_changed_this_pulse }
+				aor1776_ai_reserve_regional_demand = yes
 			}
 		}
 	}
+}
+
+# Country reserve counts full demand of every changed state in this pulse.
+# Unchanged states are already included in native current buy orders.
+aor1776_ai_reserve_regional_demand = {
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_aluminium_passenger_carriages
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_aluminium
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_diesel_trains
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_engines
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_refined_fuels
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 4
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_diesel_trains_principle_transport_3
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_engines
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 6
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_refined_fuels
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 4
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_early_trains
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_coal
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 2
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_engines
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_electric_trains
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_electricity
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 8
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_engines
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_electric_trains_principle_transport_3
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_electricity
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 10
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_engines
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 6
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_engineered_canals
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_iron
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 3
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_limestone
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_tools
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 3
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_engineered_road_network
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_limestone
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_tools
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 3
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_industrial_canals
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_iron
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 2
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_tools
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 2
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_wood
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_paved_road_network
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_cement
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_heavy_petroleum_products
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 2
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_limestone
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_tools
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 4
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_steam_trains
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_coal
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_engines
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_steam_trains_principle_transport_3
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_coal
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 6
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_engines
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 6
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_steel_passenger_carriages
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_steel
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 5
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_turnpike_road_network
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_tools
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 2
+				}
+			}
+			change_variable = {
+				name = aor1776_ai_reserved_wood
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 4
+				}
+			}
+		}
+	}
+
+	if = {
+		limit = { any_scope_building = {
+			is_building_type = building_railway
+			has_active_production_method = pm_wooden_passenger_carriages
+		} }
+		owner = {
+			change_variable = {
+				name = aor1776_ai_reserved_wood
+				add = {
+					value = scope:aor1776_ai_regional_state.var:aor1776_ai_regional_levels
+					multiply = 8
+				}
+			}
+		}
+	}
+
 }

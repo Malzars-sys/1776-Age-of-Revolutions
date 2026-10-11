@@ -71,11 +71,14 @@ STATES = {
 
 		create_state = {
 			country = c:FRA
-			owned_provinces = { x3040E0 x31C0DF x6D5E3F xB040E0 xB0C060 xB0C0E0 xC03918 xCB9C34 }
+			owned_provinces = { x3040E0 x31C0DF x6D5E3F xB040E0 xB0C060 xC03918 xCB9C34 }
 		}
 
 		add_homeland = cu:french
 		add_homeland = cu:occitan
+	
+		# MAP-2B: existing-province approximation; see report.
+		create_state = { country = c:PAP owned_provinces = { xB0C0E0 } }
 	}
 	s:STATE_NORMANDY = {
 		create_state = {
@@ -3867,12 +3870,8 @@ STATES = {
 	}
 	s:STATE_WALLONIA = {
 		create_state = {
-			country = c:LUX
-			owned_provinces = { xD001A0 }
-		}
-		create_state = {
 			country = c:BEO
-			owned_provinces = { xB0A0C0 x916574 x2D32D7 x8080A0 xEF2040 x3A5FB9 x5180A0 }
+			owned_provinces = { xB0A0C0 x916574 x2D32D7 x8080A0 xEF2040 x3A5FB9 x5180A0 xD001A0 }
 		}
 
 		add_homeland = cu:wallonian
@@ -7638,12 +7637,15 @@ STATES = {
 	s:STATE_CRIMEA = {
 		create_state = {
 			country = c:CRI
-			owned_provinces = { x9426E7 x61F467 x87516C x6B9AB7 x1C2E4D x31E0E0 x706060 xF56D13 xB0DFDF }
+			owned_provinces = { x9426E7 x61F467 x87516C x6B9AB7 x1C2E4D x31E0E0 xF56D13 xB0DFDF }
 		}
 		add_claim = c:RUS
 		add_homeland = cu:russian
 		add_homeland = cu:tatar
 		add_homeland = cu:ukrainian
+	
+		# MAP-2D: 1774 treaty exceptions; see the territorial manifest for RGB compromises.
+		create_state = { country = c:RUS owned_provinces = { x706060 } }
 	}
 	s:STATE_KHARKOV = {
 		create_state = {
@@ -7674,20 +7676,28 @@ STATES = {
 	s:STATE_CHERSON = {
 		create_state = {
 			country = c:CRI
-			owned_provinces = { x0E1864 x13997A x29EE58 x305004 x3DA304 x3E5AF0 x3E66A1 x421B54 x4ABD60 x5BE6ED x652CE8 x716121 x71E021 x71E061 x726291 x73216A x7FC1CF x89CE7C x924D7E x925815 x9E24DE xA669E7 xA81C77 xB02161 xB285AE xB5123B xCC0D93 xD7E3C1 xDCE378 xE315A3 xE4AA78 xF0E0A0 xF60A93 xFD6659 xFDD2CF }
+			owned_provinces = { x0E1864 x305004 x3E66A1 x421B54 x4ABD60 x71E021 x7FC1CF x9E24DE xA669E7 xA81C77 xB5123B xD7E3C1 xDCE378 xE4AA78 }
 		}
 		add_claim = c:RUS
 		add_homeland = cu:ukrainian
+	
+		# MAP-2D: 1774 treaty exceptions; see the territorial manifest for RGB compromises.
+		create_state = { country = c:RUS owned_provinces = { x13997A x29EE58 x3DA304 x3E5AF0 x5BE6ED x652CE8 x71E061 x726291 x73216A x89CE7C x924D7E x925815 xB285AE xCC0D93 xE315A3 xF0E0A0 xF60A93 xFD6659 xFDD2CF } }
+		create_state = { country = c:TUR owned_provinces = { x716121 xB02161 } }
 	}
 	s:STATE_BESSARABIA = {
 		create_state = {
 			country = c:MOL
-			owned_provinces = { x622837 x1E1DEF x712161 xFC9EFE x8955DF xFDE796 x79D62E x8ACA9B x53D7E0 xE7274A xB0E0A0 x23621B x5F2259 x6BF7B8 }
+			owned_provinces = { x622837 x712161 xFC9EFE x8955DF xFDE796 x79D62E x8ACA9B x53D7E0 xE7274A }
 		}
 		add_claim = c:RUS
 		add_homeland = cu:romanian
 		add_homeland = cu:ukrainian
 
+	
+		# MAP-2D: 1774 treaty exceptions; see the territorial manifest for RGB compromises.
+		create_state = { country = c:TUR owned_provinces = { x1E1DEF x23621B x6BF7B8 xB0E0A0 } }
+		create_state = { country = c:CRI owned_provinces = { x5F2259 } }
 	}
 	s:STATE_ORYOL = {
 		create_state = {
@@ -7753,6 +7763,12 @@ STATES = {
 		}
 		add_claim = c:PLC
 		add_homeland = cu:polish
+
+		# MAP-2A: Teschen retained by Austria; game geometry is West Galicia.
+		create_state = {
+			country = c:AUS
+			owned_provinces = { x9061E0 }
+		}
 	}
 	s:STATE_EAST_GALICIA = {
 		create_state = {
@@ -7829,11 +7845,11 @@ STATES = {
 	s:STATE_ISTRIA = {
 		create_state = {
 			country = c:VEN
-			owned_provinces = { x108021 x3060BF xB061C0 x36B2E3 xF0A040 }
+			owned_provinces = { x108021 xB061C0 x36B2E3 }
 		}
 		create_state = {
 			country = c:AUS
-			owned_provinces = { x56C78A }
+			owned_provinces = { x56C78A x3060BF xF0A040 }
 		}
 		
 
@@ -7844,15 +7860,21 @@ STATES = {
 	s:STATE_LOMBARDY = {
 		create_state = {
 			country = c:AUS
-			owned_provinces = { x3F1E38 xD04060 xA40CE9 x50C060 x70B8A9 x4713EE }
+			owned_provinces = { x3F1E38 xD04060 xA40CE9 x50C060 x70B8A9 }
 		}
 		create_state = {
 			country = c:VEN
-			owned_provinces = { x867A90 x9AC196 }
+			owned_provinces = { x867A90 x4713EE }
 		}
 
 
 		add_homeland = cu:north_italian
+
+		# MAP-2A: SWI abstracts the associated Three Leagues, not a modern canton.
+		create_state = {
+			country = c:SWI
+			owned_provinces = { x9AC196 }
+		}
 	}
 	s:STATE_BOHEMIA = {
 		create_state = {
@@ -7866,7 +7888,7 @@ STATES = {
 	s:STATE_MORAVIA = {
 		create_state = {
 			country = c:AUS
-			owned_provinces = { x08AA4B xD9A784 x49C8F7 xEF6080 x12778D x4B3444 x1D088E x10DFDF }
+			owned_provinces = { x08AA4B xD9A784 x49C8F7 xEF6080 x12778D x4B3444 x1D088E x10DFDF x71E080 xF0E080 }
 		}
 
 		add_homeland = cu:czech
@@ -7905,14 +7927,11 @@ STATES = {
 		add_homeland = cu:south_german
 	}
 	s:STATE_SOUTH_TYROL = {
-		create_state = {
-			country = c:VEN
-			owned_provinces = { xD0BF60 x1120FF }
-		}
+		
 
 		create_state = {
 			country = c:AUS
-			owned_provinces = { xD040E0 x039D0F }
+			owned_provinces = { xD040E0 x039D0F xD0BF60 x1120FF }
 		}
 
 		add_homeland = cu:south_german
@@ -8038,12 +8057,9 @@ STATES = {
 	s:STATE_UPPER_SILESIA = {
 		create_state = {
 			country = c:PRU
-			owned_provinces = { x5E9091 x7B2F62 x821F52 x90B12B xAF9F20 x71E080 xF0E080 x88194B }
+			owned_provinces = { x5E9091 x7B2F62 x821F52 x90B12B xAF9F20 x88194B }
 		}
-		create_state = {
-			country = c:AUS
-			owned_provinces = { x9061E0 x71E080 xF0E080 }
-		}
+
 
 		add_homeland = cu:north_german
 		add_homeland = cu:polish
@@ -8516,11 +8532,14 @@ STATES = {
 	s:STATE_TAURIDA = {
 	    create_state = {
 	    	country = c:CRI
-	    	owned_provinces = { x055C67 x0EBC1D x19213B x5AB195 x637D8D x7020DF x7141E0 x71E0E0 x76E2A3 x87109C xAD4F1C xB06935 xC262E0 xCFBD13 xF0E061 x000AE0 x135B1E x35FCF1 x4202ED x580D2A x58331B x8A09FD xA1BAF7 xB69E4B xE6C06A xF06161  }
+		owned_provinces = { x055C67 x0EBC1D x19213B x5AB195 x637D8D x7020DF x7141E0 x71E0E0 x76E2A3 x87109C xAD4F1C xB06935 xC262E0 xCFBD13 xF0E061 x000AE0 x135B1E x35FCF1 x4202ED x580D2A x58331B xA1BAF7 xB69E4B xE6C06A xF06161 }
 	    }
 		add_claim = c:RUS
 	    add_homeland = cu:russian
 	    add_homeland = cu:ukrainian
+	
+		# MAP-2D: 1774 treaty exceptions; see the territorial manifest for RGB compromises.
+		create_state = { country = c:RUS owned_provinces = { x8A09FD } }
 	}
 
 	s:STATE_CHERNIHIV = {

@@ -575,7 +575,7 @@
 		region_state:FRA = {
 			create_pop = {
 				culture = occitan
-				size = 828871
+				size = 732871
 			}
 			create_pop = {
 				culture = occitan
@@ -584,11 +584,26 @@
 			}
 			create_pop = {
 				culture = french
-				size = 30016
+				size = 28016
 			}
 			create_pop = {
 				culture = sephardic # Avignonese Jews, closer to Sephardi than Ashkenazi
-				size = 1948
+				size = 448
+			}
+		}
+	
+		region_state:PAP = {
+			create_pop = {
+				culture = occitan
+				size = 96000
+			}
+			create_pop = {
+				culture = french
+				size = 2000
+			}
+			create_pop = {
+				culture = sephardic # Avignonese Jews, closer to Sephardi than Ashkenazi
+				size = 1500
 			}
 		}
 	}
@@ -1073,7 +1088,9 @@
 		}
 	}
 	s:STATE_WALLONIA = {
-		region_state:LUX = {
+		# Luxembourg's 137,881 inhabitants remain in their original demographic groups.
+		# Hainaut, Liège, Luxembourg, and Namur now share the BEO state.
+		region_state:BEO = {
 			create_pop = {
 				culture = wallonian
 				size = 81113
@@ -1091,9 +1108,6 @@
 				culture = ashkenazi
 				size = 165
 			}
-		}
-		# Hainaut, Liège, Luxembourg, and Namur
-		region_state:BEO = { #
 			create_pop = {
 				culture = wallonian # 'Walloon & French' in census data.
 				size = 899450
@@ -1291,6 +1305,41 @@
 				culture = polish
 				size = 45542
 			}
+
+			# MAP-2A: Austrian Opava/Krnov districts; totals conserved with Teschen.
+			create_pop = {
+		        culture = north_german
+		        religion = catholic
+		        size = 85728
+		    }
+			create_pop = {
+		        culture = north_german
+		        size = 36301
+		    }
+			create_pop = {
+		        culture = polish
+		        size = 20440
+		    }
+			create_pop = {
+		        culture = polish
+		        religion = protestant
+		        size = 290
+		    }
+			create_pop = {
+		        culture = czech
+		        religion = catholic
+		        size = 42693
+		    }
+			create_pop = {
+		        culture = czech
+		        religion = protestant
+		        size = 2882
+		    }
+			create_pop = {
+		        culture = ashkenazi
+		        religion = jewish
+		        size = 2805
+		    }
 		}
 	}
 	s:STATE_STYRIA = {
@@ -1320,8 +1369,9 @@
 		}
 	}
 	s:STATE_SOUTH_TYROL = {
-		# Temporary split by owned provinces (AUS 2/4); regional totals unchanged.
-		region_state:VEN = {
+		# MAP-2B: retained regional population; AUS is also the gameplay proxy for the imperial bishoprics.
+		
+		region_state:AUS = {
 			create_pop = {
 				culture = south_german
 				size = 91500
@@ -1330,8 +1380,7 @@
 				culture = north_italian
 				size = 154000
 			}
-		}
-		region_state:AUS = {
+		
 			create_pop = {
 				culture = south_german
 				size = 91500

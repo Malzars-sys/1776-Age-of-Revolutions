@@ -82,9 +82,17 @@
 	ai = {
 		evaluation_chance = {
 			value = 0.025 # AI shouldn't use this very often
+			if = {
+				limit = { c:RUS ?= this scope:target_country = { c:CRI ?= this } game_date < 1783.1.1 }
+				value = 1
+			}
 		}
 
 		will_propose = {
+			OR = {
+				# Targeted early Russian policy, not a scripted annexation or automatic subject.
+				AND = { c:RUS ?= this scope:target_country = { c:CRI ?= this } game_date < 1783.1.1 }
+				AND = {
 			power_bloc ?= { current_cohesion_percentage >= 0.6 }
 			OR = {
 				has_attitude = {
@@ -105,10 +113,16 @@
 					is_country_type = unrecognized
 				}
 			}
+				}
+			}
 		}
 
 		propose_score = {
 			value = 10
+			if = {
+				limit = { c:RUS ?= this scope:target_country = { c:CRI ?= this } game_date < 1783.1.1 }
+				add = 990
+			}
 		}
 	}
 }

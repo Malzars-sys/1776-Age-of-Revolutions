@@ -1,27 +1,43 @@
 ﻿POPS = {
 	s:STATE_LOMBARDY = {
-		# Temporary split by owned provinces (VEN 2/8); regional totals unchanged.
+		# MAP-2A: preserve Austrian totals; allocate 5,000 from the former VEN pool to Bormio.
+		# A rounded gameplay allocation informed by 4,832 in the 1807 Bormio aggregate, not a 1776 census.
 		region_state:AUS = {
 			create_pop = {
 				culture = north_italian
-				size = 1449679
+				size = 1099679
 			}
 			create_pop = {
 				culture = north_italian
 				religion = jewish
-				size = 242
+				size = 184
 			}
 		}
 		region_state:VEN = {
 			create_pop = {
 				culture = north_italian
-				size = 483226
+				size = 478227
 			}
 			create_pop = {
 				culture = north_italian
 				religion = jewish
-				size = 81
+				size = 80
 			}
+		
+			create_pop = {
+				culture = north_italian
+				size = 350000
+			}
+			create_pop = {
+				culture = north_italian
+				religion = jewish
+				size = 58
+			}
+		}
+
+		region_state:SWI = {
+			create_pop = { culture = north_italian size = 4999 }
+			create_pop = { culture = north_italian religion = jewish size = 1 }
 		}
 	}
 	s:STATE_PIEDMONT = {
@@ -763,27 +779,27 @@
 		}
 	}
 	s:STATE_ISTRIA = {
-		# Temporary split by owned provinces (AUS 1/6); regional totals unchanged.
+		# MAP-2B: qualitative littoral/interior allocation, not a 1776 census or province-count apportionment.
 		region_state:VEN = {
 			create_pop = {
 				culture = north_italian
-				size = 164833
+				size = 124833
 			}
 			create_pop = {
 				culture = hungarian
-				size = 3333
+				size = 2833
 			}
 			create_pop = {
 				culture = slovene
-				size = 287087
+				size = 147087
 			}
 			create_pop = {
 				culture = south_german
-				size = 8160
+				size = 2160
 			}
 			create_pop = {
 				culture = croat
-				size = 103333
+				size = 63333
 			}
 		}
 		region_state:AUS = {
@@ -806,6 +822,27 @@
 			create_pop = {
 				culture = croat
 				size = 20667
+			}
+		
+			create_pop = {
+				culture = north_italian
+				size = 40000
+			}
+			create_pop = {
+				culture = hungarian
+				size = 500
+			}
+			create_pop = {
+				culture = slovene
+				size = 140000
+			}
+			create_pop = {
+				culture = south_german
+				size = 6000
+			}
+			create_pop = {
+				culture = croat
+				size = 40000
 			}
 		}
 	}

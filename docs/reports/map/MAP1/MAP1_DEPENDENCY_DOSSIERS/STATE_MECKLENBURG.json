@@ -1,0 +1,791 @@
+{
+  "State_ID": "STATE_MECKLENBURG",
+  "Interpretation": "Written effective-file selectors only. No engine, script execution, recruitment, defaults or addition/replace semantics simulated.",
+  "Definition": {
+    "Source": "MOD:map_data/state_regions/00_west_europe.txt",
+    "Line": 1602,
+    "Definition": [
+      [
+        "id",
+        "=",
+        "75"
+      ],
+      [
+        "subsistence_building",
+        "=",
+        "building_subsistence_farm"
+      ],
+      [
+        "provinces",
+        "=",
+        [
+          [
+            "",
+            "",
+            "x12E54F"
+          ],
+          [
+            "",
+            "",
+            "x24CA48"
+          ],
+          [
+            "",
+            "",
+            "x4545BE"
+          ],
+          [
+            "",
+            "",
+            "xD8F441"
+          ],
+          [
+            "",
+            "",
+            "xD9A469"
+          ],
+          [
+            "",
+            "",
+            "xE041A0"
+          ],
+          [
+            "",
+            "",
+            "xE080A0"
+          ]
+        ]
+      ],
+      [
+        "prime_land",
+        "=",
+        [
+          [
+            "",
+            "",
+            "xE080A0"
+          ],
+          [
+            "",
+            "",
+            "x12E54F"
+          ]
+        ]
+      ],
+      [
+        "city",
+        "=",
+        "xE080A0"
+      ],
+      [
+        "port",
+        "=",
+        "xD8F441"
+      ],
+      [
+        "farm",
+        "=",
+        "xD9A469"
+      ],
+      [
+        "mine",
+        "=",
+        "xE041A0"
+      ],
+      [
+        "wood",
+        "=",
+        "x12E54F"
+      ],
+      [
+        "arable_land",
+        "=",
+        "25"
+      ],
+      [
+        "arable_resources",
+        "=",
+        [
+          [
+            "",
+            "",
+            "building_rye_farm"
+          ],
+          [
+            "",
+            "",
+            "building_livestock_ranch"
+          ]
+        ]
+      ],
+      [
+        "capped_resources",
+        "=",
+        [
+          [
+            "building_logging_camp",
+            "=",
+            "8"
+          ],
+          [
+            "building_fishing_wharf",
+            "=",
+            "10"
+          ],
+          [
+            "building_limestone_quarry",
+            "=",
+            "28"
+          ]
+        ]
+      ],
+      [
+        "naval_exit_id",
+        "=",
+        "3074"
+      ]
+    ]
+  },
+  "Current_Province_Attributions": {
+    "MEC": [
+      "xD8F441",
+      "xE080A0",
+      "x4545BE",
+      "x12E54F",
+      "x24CA48"
+    ],
+    "MST": [
+      "xE041A0",
+      "xD9A469"
+    ]
+  },
+  "Inventories": {
+    "pops": [
+      {
+        "State_ID": "STATE_MECKLENBURG",
+        "Owner_TAG": "MEC",
+        "Source": "MOD:common/history/pops/00_west_europe.txt",
+        "Line": 1961,
+        "Selector_Has_Territory": true,
+        "Written_Commands": [
+          [
+            "create_pop",
+            "=",
+            [
+              [
+                "culture",
+                "=",
+                "north_german"
+              ],
+              [
+                "size",
+                "=",
+                "382200"
+              ]
+            ]
+          ],
+          [
+            "create_pop",
+            "=",
+            [
+              [
+                "culture",
+                "=",
+                "ashkenazi"
+              ],
+              [
+                "size",
+                "=",
+                "3118"
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "State_ID": "STATE_MECKLENBURG",
+        "Owner_TAG": "MST",
+        "Source": "MOD:common/history/pops/00_west_europe.txt",
+        "Line": 1971,
+        "Selector_Has_Territory": true,
+        "Written_Commands": [
+          [
+            "create_pop",
+            "=",
+            [
+              [
+                "culture",
+                "=",
+                "north_german"
+              ],
+              [
+                "size",
+                "=",
+                "66302"
+              ]
+            ]
+          ]
+        ]
+      }
+    ],
+    "buildings": [
+      {
+        "State_ID": "STATE_MECKLENBURG",
+        "Owner_TAG": "MEC",
+        "Source": "MOD:common/history/buildings/00_west_europe.txt",
+        "Line": 6546,
+        "Selector_Has_Territory": true,
+        "Written_Commands": [
+          [
+            "create_building",
+            "=",
+            [
+              [
+                "building",
+                "=",
+                "building_rye_farm"
+              ],
+              [
+                "add_ownership",
+                "=",
+                [
+                  [
+                    "building",
+                    "=",
+                    [
+                      [
+                        "type",
+                        "=",
+                        "building_manor_house"
+                      ],
+                      [
+                        "country",
+                        "=",
+                        "c:MEC"
+                      ],
+                      [
+                        "levels",
+                        "=",
+                        "2"
+                      ],
+                      [
+                        "region",
+                        "=",
+                        "STATE_MECKLENBURG"
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "reserves",
+                "=",
+                "1"
+              ],
+              [
+                "activate_production_methods",
+                "=",
+                [
+                  [
+                    "",
+                    "",
+                    "pm_simple_farming"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_tools_disabled"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_potatoes"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "create_building",
+            "=",
+            [
+              [
+                "building",
+                "=",
+                "building_port"
+              ],
+              [
+                "add_ownership",
+                "=",
+                [
+                  [
+                    "country",
+                    "=",
+                    [
+                      [
+                        "country",
+                        "=",
+                        "c:MEC"
+                      ],
+                      [
+                        "levels",
+                        "=",
+                        "1"
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "reserves",
+                "=",
+                "1"
+              ],
+              [
+                "activate_production_methods",
+                "=",
+                [
+                  [
+                    "",
+                    "",
+                    "pm_basic_port"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "create_building",
+            "=",
+            [
+              [
+                "building",
+                "=",
+                "building_railway"
+              ],
+              [
+                "add_ownership",
+                "=",
+                [
+                  [
+                    "building",
+                    "=",
+                    [
+                      [
+                        "type",
+                        "=",
+                        "building_financial_district"
+                      ],
+                      [
+                        "country",
+                        "=",
+                        "c:MEC"
+                      ],
+                      [
+                        "levels",
+                        "=",
+                        "1"
+                      ],
+                      [
+                        "region",
+                        "=",
+                        "STATE_MECKLENBURG"
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "reserves",
+                "=",
+                "1"
+              ],
+              [
+                "activate_production_methods",
+                "=",
+                [
+                  [
+                    "",
+                    "",
+                    "pm_traditional_road_network"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_no_canal_network"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_no_rail_network"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_no_passenger_trains"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "State_ID": "STATE_MECKLENBURG",
+        "Owner_TAG": "MST",
+        "Source": "MOD:common/history/buildings/00_west_europe.txt",
+        "Line": 6587,
+        "Selector_Has_Territory": true,
+        "Written_Commands": [
+          [
+            "create_building",
+            "=",
+            [
+              [
+                "building",
+                "=",
+                "building_rye_farm"
+              ],
+              [
+                "add_ownership",
+                "=",
+                [
+                  [
+                    "building",
+                    "=",
+                    [
+                      [
+                        "type",
+                        "=",
+                        "building_manor_house"
+                      ],
+                      [
+                        "country",
+                        "=",
+                        "c:MST"
+                      ],
+                      [
+                        "levels",
+                        "=",
+                        "1"
+                      ],
+                      [
+                        "region",
+                        "=",
+                        "STATE_MECKLENBURG"
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "reserves",
+                "=",
+                "1"
+              ],
+              [
+                "activate_production_methods",
+                "=",
+                [
+                  [
+                    "",
+                    "",
+                    "pm_simple_farming"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_no_secondary"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_tools_disabled"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "State_ID": "STATE_MECKLENBURG",
+        "Owner_TAG": "MEC",
+        "Source": "MOD:common/history/buildings/98_build_start_1776_world_redistribution.txt",
+        "Line": 10089,
+        "Selector_Has_Territory": true,
+        "Written_Commands": [
+          [
+            "create_building",
+            "=",
+            [
+              [
+                "building",
+                "=",
+                "building_railway"
+              ],
+              [
+                "add_ownership",
+                "=",
+                [
+                  [
+                    "building",
+                    "=",
+                    [
+                      [
+                        "type",
+                        "=",
+                        "building_financial_district"
+                      ],
+                      [
+                        "country",
+                        "=",
+                        "c:MEC"
+                      ],
+                      [
+                        "levels",
+                        "=",
+                        "1"
+                      ],
+                      [
+                        "region",
+                        "=",
+                        "STATE_MECKLENBURG"
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "reserves",
+                "=",
+                "1"
+              ],
+              [
+                "activate_production_methods",
+                "=",
+                [
+                  [
+                    "",
+                    "",
+                    "pm_traditional_road_network"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_no_canal_network"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_no_rail_network"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_no_passenger_trains"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "create_building",
+            "=",
+            [
+              [
+                "building",
+                "=",
+                "building_livestock_ranch"
+              ],
+              [
+                "add_ownership",
+                "=",
+                [
+                  [
+                    "building",
+                    "=",
+                    [
+                      [
+                        "type",
+                        "=",
+                        "building_manor_house"
+                      ],
+                      [
+                        "country",
+                        "=",
+                        "c:MEC"
+                      ],
+                      [
+                        "levels",
+                        "=",
+                        "4"
+                      ],
+                      [
+                        "region",
+                        "=",
+                        "STATE_MECKLENBURG"
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "reserves",
+                "=",
+                "1"
+              ],
+              [
+                "activate_production_methods",
+                "=",
+                [
+                  [
+                    "",
+                    "",
+                    "pm_open_air_stockyards"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_simple_ranch"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_standard_fences"
+                  ],
+                  [
+                    "",
+                    "",
+                    "pm_unrefrigerated"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  "Reference_Pointers": [
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/character_templates/historical_commanders_europe.txt",
+      "Line": 714,
+      "Text": "c:GER ?= { owns_entire_state_region = STATE_MECKLENBURG }",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/country_definitions/00_countries.txt",
+      "Line": 611,
+      "Text": "capital = STATE_MECKLENBURG",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/country_definitions/00_countries.txt",
+      "Line": 3815,
+      "Text": "capital = STATE_MECKLENBURG",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/buildings/00_west_europe.txt",
+      "Line": 6545,
+      "Text": "s:STATE_MECKLENBURG={",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/buildings/00_west_europe.txt",
+      "Line": 6554,
+      "Text": "region=\"STATE_MECKLENBURG\"",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/buildings/00_west_europe.txt",
+      "Line": 6579,
+      "Text": "region=\"STATE_MECKLENBURG\"",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/buildings/00_west_europe.txt",
+      "Line": 6595,
+      "Text": "region=\"STATE_MECKLENBURG\"",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/buildings/98_build_start_1776_world_redistribution.txt",
+      "Line": 10088,
+      "Text": "s:STATE_MECKLENBURG = {",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/buildings/98_build_start_1776_world_redistribution.txt",
+      "Line": 10097,
+      "Text": "region=\"STATE_MECKLENBURG\"",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/buildings/98_build_start_1776_world_redistribution.txt",
+      "Line": 10112,
+      "Text": "region = \"STATE_MECKLENBURG\"",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/military_formations/00_military_formations_europe.txt",
+      "Line": 2689,
+      "Text": "state_region = s:STATE_MECKLENBURG",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/military_formations/00_military_formations_europe.txt",
+      "Line": 2696,
+      "Text": "state_region = s:STATE_MECKLENBURG",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/military_formations/00_military_formations_europe.txt",
+      "Line": 2704,
+      "Text": "state_region = s:STATE_MECKLENBURG",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/military_formations/00_military_formations_europe.txt",
+      "Line": 4903,
+      "Text": "state_region = s:STATE_MECKLENBURG",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/pops/00_west_europe.txt",
+      "Line": 1960,
+      "Text": "s:STATE_MECKLENBURG = {",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "common/history/states/00_states.txt",
+      "Line": 8281,
+      "Text": "s:STATE_MECKLENBURG = {",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    },
+    {
+      "Identifier": "STATE_MECKLENBURG",
+      "File": "map_data/state_regions/00_west_europe.txt",
+      "Line": 1602,
+      "Text": "STATE_MECKLENBURG = {",
+      "Reference_Kind": "LEXICAL_NOT_EXECUTION_PROOF"
+    }
+  ]
+}

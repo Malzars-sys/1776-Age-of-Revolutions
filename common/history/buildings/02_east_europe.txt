@@ -62,7 +62,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:PLC"
-									levels=4
+									levels = 5
 									region="STATE_BREST"
 								}
 							}
@@ -230,35 +230,7 @@ BUILDINGS={
 						}
 
 		}
-		region_state:AUS={
-			create_building={
-				building="building_railway"
-				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:AUS"
-						levels=1
-						region="STATE_UPPER_SILESIA"
-					}
-				}
-				reserves=1
-				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
-			}
-						create_building={
-							building="building_textile_mill"
-							add_ownership={
-								building={
-									type="building_textile_mill"
-									country="c:AUS"
-									levels=2
-									region="STATE_UPPER_SILESIA"
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
-						}
 
-		}
 	}
 	s:STATE_GREATER_POLAND={
 		region_state:PLC={
@@ -436,7 +408,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:PRU"
-						levels=1
+						levels = 4
 						region="STATE_WEST_PRUSSIA"
 					}
 				}
@@ -519,7 +491,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:PRU"
-						levels=1
+						levels = 3
 						region="STATE_EAST_PRUSSIA"
 					}
 				}
@@ -614,6 +586,35 @@ BUILDINGS={
 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 			}
 
+		}
+
+		region_state:AUS = {
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:AUS"
+						levels=1
+						region="STATE_WEST_GALICIA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+			create_building={
+							building="building_textile_mill"
+							add_ownership={
+								building={
+									type="building_textile_mill"
+									country="c:AUS"
+									levels=2
+									region="STATE_WEST_GALICIA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+						}
 		}
 	}
 	s:STATE_EAST_GALICIA={
@@ -857,7 +858,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:AUS"
-						levels=1
+						levels = 2
 						region="STATE_BUKOVINA"
 					}
 				}

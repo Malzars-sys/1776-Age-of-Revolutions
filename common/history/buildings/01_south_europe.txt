@@ -15,20 +15,7 @@ BUILDINGS={
 				}
 				reserves=1
 			}
-			create_building={
-				building="building_vineyard"
-				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:AUS"
-						levels=1
-						region="STATE_LOMBARDY"
-					}
-
-				}
-				reserves=1
-				activate_production_methods={ "default_building_vineyard" "pm_road_carts"  }
-			}
+			
 
 			create_building={
 				building="building_textile_mill"
@@ -81,7 +68,7 @@ BUILDINGS={
 								building={
 									type="building_manor_house"
 									country="c:AUS"
-									levels=2
+									levels = 1
 									region="STATE_LOMBARDY"
 								}
 							}
@@ -89,6 +76,37 @@ BUILDINGS={
 							activate_production_methods = { "default_building_silk_plantation" "pm_road_carts" }
 						}
 
+		}
+	
+		region_state:VEN = {
+			create_building={
+				building="building_vineyard"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:AUS"
+						levels=1
+						region="STATE_LOMBARDY"
+					}
+
+				}
+				reserves=1
+				activate_production_methods={ "default_building_vineyard" "pm_road_carts"  }
+			}
+		
+			create_building={
+							building="building_silk_plantation"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:AUS"
+									levels = 1
+									region="STATE_LOMBARDY"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "default_building_silk_plantation" "pm_road_carts" }
+						}
 		}
 	}
 	s:STATE_PIEDMONT={
@@ -2330,7 +2348,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:SPA"
-						levels=3
+						levels = 5
 						region="STATE_ARAGON"
 					}
 				}
@@ -2781,7 +2799,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:SPA"
-						levels=9
+						levels = 12
 					}
 				}
 				reserves=1
@@ -3448,7 +3466,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:POR"
-									levels=3
+									levels = 5
 									region="STATE_BEIRA"
 								}
 							}
@@ -4404,7 +4422,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:VEN"
-						levels=3
+						levels = 2
 						region="STATE_ISTRIA"
 					}
 				}
@@ -4436,24 +4454,14 @@ BUILDINGS={
 				reserves=1
 				activate_production_methods={ "pm_basic_shipbuilding"  }
 			}
-			create_building={
-				building="building_shipyard"
-				add_ownership={
-					country={
-						country="c:VEN"
-						levels=1
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_basic_shipbuilding"  }
-			}
+			
 			create_building={
 				building="building_fishing_wharf"
 				add_ownership={
 					building={
 						type="building_fishing_wharf"
 						country="c:VEN"
-						levels=4
+						levels = 2
 						region="STATE_ISTRIA"
 					}
 				}
@@ -4465,11 +4473,65 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:VEN"
-						levels=4
+						levels = 2
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_basic_port" }
+			}
+		}
+	
+		region_state:AUS = {
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:VEN"
+						levels = 2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_basic_port" }
+			}
+		
+			create_building={
+				building="building_fishing_wharf"
+				add_ownership={
+					building={
+						type="building_fishing_wharf"
+						country="c:VEN"
+						levels = 2
+						region="STATE_ISTRIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_fishing" "pm_unrefrigerated"  }
+			}
+		
+			create_building={
+				building="building_trade_center"
+				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:VEN"
+						levels = 1
+						region="STATE_ISTRIA"
+					}
+				}
+				reserves=1
+			}
+		
+			create_building={
+				building="building_shipyard"
+				add_ownership={
+					country={
+						country="c:VEN"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_basic_shipbuilding"  }
 			}
 		}
 	}

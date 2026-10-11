@@ -126,7 +126,22 @@ building_tooling_workshop = {
 
 	required_construction = construction_cost_high
 
-	ai_value = 2000 # Tools are very important
+	ai_value = {
+		value = 2000
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_tools = yes aor1776_ai_can_produce_tools = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_tooling_workshop
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
+		}
+	} # Tools are very important
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
@@ -300,6 +315,23 @@ building_steel_mill = {
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+
+	ai_value = {
+		value = 1000
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_steel = yes aor1776_ai_can_produce_steel = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_steel_mill
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
+		}
+	}
 }
 
 building_motor_industry = {
@@ -334,6 +366,23 @@ building_motor_industry = {
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+
+	ai_value = {
+		value = 1000
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_engines = yes aor1776_ai_can_produce_engines = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_motor_industry
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
+		}
+	}
 }
 
 building_shipyard = {
