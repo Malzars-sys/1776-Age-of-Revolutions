@@ -1296,7 +1296,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:DAI"
-						levels=20
+						levels = 28
 					}
 				}
 				reserves=1
@@ -1365,7 +1365,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:DAI"
-						levels=20
+						levels = 27
 					}
 				}
 				reserves=1
@@ -1388,7 +1388,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:DAI"
-						levels=3
+						levels = 2
 						region="STATE_ANNAM"
 					}
 				}
@@ -1445,49 +1445,61 @@ BUILDINGS={
 						}
 
 		}
+	
+		region_state:TSN = {
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:DAI"
+						levels = 1
+						region="STATE_ANNAM"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+		}
 	}
 	s:STATE_MEKONG={
 		region_state:DAI={
 
-			create_building={
+			
+
+			
+			
+
+		}
+	
+		region_state:NGN = {
+create_building={
 				building="building_rice_farm"
 				add_ownership={
 					building={
 						type="building_manor_house"
 						country="c:DAI"
 						levels=1
-						region="STATE_MEKONG"
+						region = "STATE_TONKIN"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_no_secondary" "pm_tools_disabled"  }
 			}
-
-			create_building={
-				building="building_barrack"
-				add_ownership={
-					country={
-						country="c:DAI"
-						levels=15
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_no_organization" }
-			}
-			create_building={
+		
+create_building={
 				building="building_railway"
 				add_ownership={
 					building={
 						type="building_financial_district"
 						country="c:DAI"
 						levels=1
-						region="STATE_MEKONG"
+						region = "STATE_TONKIN"
 					}
 				}
 				reserves=1
 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 			}
-
 		}
 	}
 	s:STATE_LAOS={

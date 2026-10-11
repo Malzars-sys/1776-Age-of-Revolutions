@@ -1,0 +1,1954 @@
+*** Begin Patch
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/buildings/11_east_asia.txt
+@@
+ 				building="building_barrack"
+ 				add_ownership={
+ 					country={
+ 						country="c:DAI"
+-						levels=20
++						levels = 28
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_no_organization" }
+@@
+ 				building="building_barrack"
+ 				add_ownership={
+ 					country={
+ 						country="c:DAI"
+-						levels=20
++						levels = 27
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_no_organization" }
+@@
+ 				add_ownership={
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:DAI"
+-						levels=3
++						levels = 2
+ 						region="STATE_ANNAM"
+ 					}
+ 				}
+ 				reserves=1
+@@
+ 							reserves=1
+ 						}
+ 
+ 		}
++	
++		region_state:TSN = {
++create_building={
++				building="building_railway"
++				add_ownership={
++					building={
++						type="building_financial_district"
++						country="c:DAI"
++						levels = 1
++						region="STATE_ANNAM"
++					}
++				}
++				reserves=1
++				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
++			}
++		}
+ 	}
+ 	s:STATE_MEKONG={
+ 		region_state:DAI={
+ 
+-			create_building={
++			
++
++			
++			
++
++		}
++	
++		region_state:NGN = {
++create_building={
+ 				building="building_rice_farm"
+ 				add_ownership={
+ 					building={
+ 						type="building_manor_house"
+ 						country="c:DAI"
+ 						levels=1
+-						region="STATE_MEKONG"
++						region = "STATE_TONKIN"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_no_secondary" "pm_tools_disabled"  }
+ 			}
+-
+-			create_building={
+-				building="building_barrack"
+-				add_ownership={
+-					country={
+-						country="c:DAI"
+-						levels=15
+-					}
+-				}
+-				reserves=1
+-				activate_production_methods={ "pm_no_organization" }
+-			}
+-			create_building={
++		
++create_building={
+ 				building="building_railway"
+ 				add_ownership={
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:DAI"
+ 						levels=1
+-						region="STATE_MEKONG"
+-					}
+-				}
+-				reserves=1
+-				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+-			}
+-
++						region = "STATE_TONKIN"
++					}
++				}
++				reserves=1
++				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
++			}
+ 		}
+ 	}
+ 	s:STATE_LAOS={
+ 		region_state:LUA={
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/buildings/12_indonesia.txt
+@@
+ 							}
+ 							reserves=1
+ 						}
+ 
++		}
++	
++		region_state:DEI = {
++create_building={
++				building="building_port"
++				add_ownership={
++					country={
++						country="c:DEI"
++						levels = 1
++					}
++				}
++				reserves=1
++				activate_production_methods={ "pm_basic_port" }
++			}
+ 		}
+ 	}
+ 	s:STATE_NORTH_BORNEO={
+ 		region_state:BRU={
+@@
+ 				building="building_port"
+ 				add_ownership={
+ 					country={
+ 						country="c:DEI"
+-						levels=3
++						levels = 2
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_basic_port" }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/countries/lan - lanfang.txt
+@@
+ ﻿COUNTRIES = {
+ 	c:LAN ?= {
+ 
+ 
+-		set_next_election_date = 1838.6.15 # the year Gu Liubo became president
++		# MAP2H: no anticipated 1838 president/election date. # the year Gu Liubo became president
+ 
+ 		effect_starting_politics_traditional = yes
+ 
+ 		activate_law = law_type:law_presidential_republic
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/diplomacy/00_subject_relationships.txt
+@@
+ 		create_diplomatic_pact = {
+ 			country = c:KOR
+ 			type = tributary
+ 		}
+-		create_diplomatic_pact = {
+-			country = c:LAN
+-			type = tributary
+-		}
++		# MAP2H: remove later suzerainty / no pre-Lanfang Qing tribute.
+ 	}
+ 	c:USA ?= {
+ 		if = {
+ 			limit = {
+@@
+ 			type = protectorate
+ 		}
+ 	}
+ 	c:DAI ?= {
+-		create_diplomatic_pact = {
+-			country = c:CAM
+-			type = tributary
+-		}
++		# MAP2H: remove later suzerainty / no pre-Lanfang Qing tribute.
+ 	}
+ 	c:SIA ?= {
+-		create_diplomatic_pact = {
+-			country = c:CHP
+-			type = vassal
+-		}
++		# MAP2H: remove later suzerainty / no pre-Lanfang Qing tribute.
+ 		create_diplomatic_pact = {
+ 			country = c:CMI
+ 			type = vassal
+ 		}
+-		create_diplomatic_pact = {
+-			country = c:LUA
+-			type = tributary
+-		}
++		# MAP2H: remove later suzerainty / no pre-Lanfang Qing tribute.
+ 	}
+ 
+ 	c:TUR ?= {
+ 		# Low-autonomy gameplay approximation of the Ottoman province ruled by Mamluk beys.
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/pops/05_north_america.txt
+@@
+ 			}
+ 		}
+ 	}
+ 	s:STATE_HAWAIIAN_ISLANDS = {
+-		region_state:HAW = {
+-			create_pop = {
++		
++	
++		region_state:HMA = {
++create_pop = {
+ 				pop_type = clergymen
+ 				culture = yankee
+ 				religion = protestant
+-				size = 73
+-			}
+-			create_pop = {
++				size = 11
++			}
++		
++create_pop = {
+ 				pop_type = capitalists
+ 				culture = yankee
+ 				religion = protestant
+-				size = 325
+-			}
+-			create_pop = {
++				size = 49
++			}
++		
++create_pop = {
+ 				pop_type = capitalists
+ 				culture = british
+-				size = 361
+-			}
+-			create_pop = {
++				size = 54
++			}
++		
++create_pop = {
+ 				pop_type = capitalists
+ 				culture = russian
+-				size = 181
+-			}
+-			create_pop = {
++				size = 27
++			}
++		
++create_pop = {
+ 				culture = hawaiian
+ 				religion = protestant
+-				size = 95255
+-			}
+-			create_pop = {
++				size = 14348
++			}
++		
++create_pop = {
+ 				culture = hawaiian
+ 				religion = catholic
+-				size = 6121
+-			}
+-			create_pop = {
++				size = 922
++			}
++		
++create_pop = {
+ 				culture = han
+-				size = 35999
++				size = 5422
++			}
++		}
++	
++		region_state:HWA = {
++create_pop = {
++				pop_type = clergymen
++				culture = yankee
++				religion = protestant
++				size = 27
++			}
++		
++create_pop = {
++				pop_type = capitalists
++				culture = yankee
++				religion = protestant
++				size = 118
++			}
++		
++create_pop = {
++				pop_type = capitalists
++				culture = british
++				size = 131
++			}
++		
++create_pop = {
++				pop_type = capitalists
++				culture = russian
++				size = 66
++			}
++		
++create_pop = {
++				culture = hawaiian
++				religion = protestant
++				size = 34611
++			}
++		
++create_pop = {
++				culture = hawaiian
++				religion = catholic
++				size = 2224
++			}
++		
++create_pop = {
++				culture = han
++				size = 13080
++			}
++		}
++	
++		region_state:HAW = {
++create_pop = {
++				pop_type = clergymen
++				culture = yankee
++				religion = protestant
++				size = 35
++			}
++		
++create_pop = {
++				pop_type = capitalists
++				culture = yankee
++				religion = protestant
++				size = 158
++			}
++		
++create_pop = {
++				pop_type = capitalists
++				culture = british
++				size = 176
++			}
++		
++create_pop = {
++				pop_type = capitalists
++				culture = russian
++				size = 88
++			}
++		
++create_pop = {
++				culture = hawaiian
++				religion = protestant
++				size = 46296
++			}
++		
++create_pop = {
++				culture = hawaiian
++				religion = catholic
++				size = 2975
++			}
++		
++create_pop = {
++				culture = han
++				size = 17497
+ 			}
+ 		}
+ 	}
+ 	s:STATE_ONTARIO = {
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/pops/11_east_asia.txt
+@@
+ 			}
+ 		}
+ 	}
+ 	s:STATE_ANNAM = {
++		
++	
++		region_state:TSN = {
++create_pop = {
++				culture = vietnamese
++				size = 341113
++			}
++		
++create_pop = {
++				culture = vietnamese
++				religion = confucian
++				size = 83251
++			}
++		
++create_pop = {
++				culture = yue
++				size = 6654
++			}
++		
++create_pop = {
++				culture = miao
++				size = 18279
++			}
++		
++create_pop = {
++				culture = vietnamese
++				religion = catholic
++				size = 44918
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = vietnamese
++				size = 6252
++			}
++		}
++	
+ 		region_state:DAI = {
+-			create_pop = {
+-				culture = vietnamese
+-				size = 1640333
+-			}
+-			create_pop = {
++create_pop = {
++				culture = vietnamese
++				size = 1299220
++			}
++		
++create_pop = {
+ 				culture = vietnamese
+ 				religion = confucian
+-				size = 400333
+-			}
+-			create_pop = {
+-				culture = yue
+-				size = 31996
+-			}
+-			create_pop = {
++				size = 317082
++			}
++		
++create_pop = {
++				culture = yue
++				size = 25342
++			}
++		
++create_pop = {
+ 				culture = miao
+-				size = 87900
+-			}
+-			create_pop = {
++				size = 69621
++			}
++		
++create_pop = {
+ 				culture = vietnamese
+ 				religion = catholic
+-				size = 216000
+-			}
+-			create_pop = {
+-				pop_type = slaves
+-				culture = vietnamese
+-				size = 30063
++				size = 171082
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = vietnamese
++				size = 23811
+ 			}
+ 		}
+ 	}
+ 	s:STATE_MEKONG = {
+-		region_state:DAI = {
+-			create_pop = {
+-				culture = vietnamese
+-				size = 1002396
+-			}
+-			create_pop = {
++		
++		region_state:DGR = {
++			create_pop = {
++				culture = champa
++				religion = animist
++				size = 50000
++			}
++			create_pop = {
++				culture = khmer
++				religion = animist
++				size = 5000
++			}
++		}
++	
++		region_state:TSN = {
++create_pop = {
++				culture = vietnamese
++				size = 162987
++			}
++		
++create_pop = {
+ 				culture = vietnamese
+ 				religion = confucian
+-				size = 152396
+-			}
+-			create_pop = {
+-				culture = vietnamese
+-				religion = animist
+-				size = 118000
+-			}
+-			create_pop = {
++				size = 24779
++			}
++		
++create_pop = {
++				culture = vietnamese
++				religion = animist
++				size = 19186
++			}
++		
++create_pop = {
+ 				culture = khmer
+-				size = 180000
+-			}
+-			create_pop = {
++				size = 29268
++			}
++		
++create_pop = {
+ 				culture = vietnamese
+ 				religion = catholic
+-				size = 116400
+-			}
+-			create_pop = {
+-				culture = yue
+-				size = 16000
+-			}
+-			create_pop = {
++				size = 18926
++			}
++		
++create_pop = {
++				culture = yue
++				size = 2602
++			}
++		
++create_pop = {
+ 				culture = min
+-				size = 11996
+-			}
+-			create_pop = {
+-				pop_type = slaves
+-				culture = vietnamese
+-				size = 60000
+-			}
+-			create_pop = {
+-				pop_type = slaves
+-				culture = vietnamese
+-				religion = animist
+-				size = 10000
+-			}
+-			create_pop = {
++				size = 1951
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = vietnamese
++				size = 9756
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = vietnamese
++				religion = animist
++				size = 1626
++			}
++		
++create_pop = {
+ 				culture = champa
+ 				religion = sunni
+-				size = 82000
+-			}
+-			create_pop = {
++				size = 13333
++			}
++		
++create_pop = {
+ 				culture = champa
+ 				religion = hindu
+-				size = 8000
+-			}
+-		}
+-		region_state:DGR = {
+-			create_pop = {
++				size = 1301
++			}
++		}
++	
++		region_state:NGN = {
++create_pop = {
++				culture = vietnamese
++				size = 839409
++			}
++		
++create_pop = {
++				culture = vietnamese
++				religion = confucian
++				size = 127617
++			}
++		
++create_pop = {
++				culture = vietnamese
++				religion = animist
++				size = 98814
++			}
++		
++create_pop = {
++				culture = khmer
++				size = 150732
++			}
++		
++create_pop = {
++				culture = vietnamese
++				religion = catholic
++				size = 97474
++			}
++		
++create_pop = {
++				culture = yue
++				size = 13398
++			}
++		
++create_pop = {
++				culture = min
++				size = 10045
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = vietnamese
++				size = 50244
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = vietnamese
++				religion = animist
++				size = 8374
++			}
++		
++create_pop = {
+ 				culture = champa
+-				religion = animist
+-				size = 50000
+-			}
+-			create_pop = {
+-				culture = khmer
+-				religion = animist
+-				size = 5000
++				religion = sunni
++				size = 68667
++			}
++		
++create_pop = {
++				culture = champa
++				religion = hindu
++				size = 6699
+ 			}
+ 		}
+ 	}
+ 	s:STATE_LAOS = {
+@@
+ 				culture = khmu
+ 				size = 4000
+ 			}
+ 		}
+-		region_state:SIA = {
+-			create_pop = {
++		
++		region_state:CHP = {
++			create_pop = {
++				culture = lao
++				size = 86720
++			}
++			create_pop = {
++				culture = shan
++				size = 14752
++			}
++			create_pop = {
++				culture = miao
++				size = 35744
++			}
++			create_pop = {
++				pop_type = slaves
++				culture = lao
++				size = 5000
++			}
++		}
++		region_state:DAI = {
++			create_pop = {
++				culture = lao
++				size = 64918
++			}
++			create_pop = {
++				culture = khmu
++				size = 6900
++			}
++			create_pop = {
++				culture = thai
++				size = 18334
++			}
++			create_pop = {
++				culture = miao
++				size = 2400
++			}
++		}
++		region_state:SCT = {
++			create_pop = {
++				culture = lao
++				religion = animist
++				size = 11000
++			}
++		}
++	
++		region_state:VIE = {
++create_pop = {
+ 				culture = lao
+ 				size = 81837
+ 			}
+-			create_pop = {
++		
++create_pop = {
+ 				culture = shan
+ 				size = 17248
+ 			}
+-			create_pop = {
++		
++create_pop = {
+ 				culture = thai
+ 				size = 36009
+ 			}
+-			create_pop = {
++		
++create_pop = {
+ 				pop_type = slaves
+ 				culture = lao
+ 				size = 16000
+-			}
+-		}
+-		region_state:CHP = {
+-			create_pop = {
+-				culture = lao
+-				size = 86720
+-			}
+-			create_pop = {
+-				culture = shan
+-				size = 14752
+-			}
+-			create_pop = {
+-				culture = miao
+-				size = 35744
+-			}
+-			create_pop = {
+-				pop_type = slaves
+-				culture = lao
+-				size = 5000
+-			}
+-		}
+-		region_state:DAI = {
+-			create_pop = {
+-				culture = lao
+-				size = 64918
+-			}
+-			create_pop = {
+-				culture = khmu
+-				size = 6900
+-			}
+-			create_pop = {
+-				culture = thai
+-				size = 18334
+-			}
+-			create_pop = {
+-				culture = miao
+-				size = 2400
+-			}
+-		}
+-		region_state:SCT = {
+-			create_pop = {
+-				culture = lao
+-				religion = animist
+-				size = 11000
+ 			}
+ 		}
+ 	}
+ 	s:STATE_CHIANG_MAI = {
+@@
+ 
+ 		}
+ 	}
+ 	s:STATE_ARAKAN = {
+-		region_state:KKI = {
+-			create_pop = {
++		
++	
++		region_state:ARK = {
++create_pop = {
+ 				culture = burmese
+ 				size = 85753
+ 			}
+-			create_pop = {
++		
++create_pop = {
+ 				culture = british
+ 				size = 368
+ 			}
+-			create_pop = {
++		
++create_pop = {
+ 				culture = burmese
+ 				religion = sunni
+ 				size = 50999
+ 			}
+-			create_pop = {
++		
++create_pop = {
+ 				culture = bengali
+ 				size = 6797
+ 			}
+-			create_pop = {
++		
++create_pop = {
+ 				pop_type = slaves
+ 				culture = burmese
+ 				size = 16151
+ 			}
+-			create_pop = {
++		
++create_pop = {
+ 				culture = lushai
+ 				size = 22005
+ 			}
+ 		}
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/pops/12_indonesia.txt
+@@
+ ﻿POPS = {
+ 	s:STATE_MALAYA = {
+-		region_state:JOH = {
+-			create_pop = {
+-				culture = malay
+-				size = 299697
+-			}
+-			create_pop = {
+-				pop_type = slaves
+-				culture = malay
+-				size = 8251
+-			}
+-			create_pop = {
+-				culture = yue
+-				size = 20553
+-			}
+-			create_pop = {
+-				culture = malay
+-				size = 75000
+-			}
+-			create_pop = {
+-				culture = tamil
+-				size = 3301
+-			}
+-			create_pop = {
+-				culture = yue
+-				size = 12751
+-			}
+-		}
++		
+ 		region_state:SEL = {
+ 			create_pop = {
+ 				culture = malay
+ 				size = 156748
+@@
+ 				culture = yue
+ 				size = 3001
+ 			}
+ 		}
++	
++		region_state:DEI = {
++create_pop = {
++				culture = malay
++				size = 16266
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = malay
++				size = 448
++			}
++		
++create_pop = {
++				culture = yue
++				size = 1116
++			}
++		
++create_pop = {
++				culture = malay
++				size = 4071
++			}
++		
++create_pop = {
++				culture = tamil
++				size = 179
++			}
++		
++create_pop = {
++				culture = yue
++				size = 692
++			}
++		}
++	
++		region_state:JOH = {
++create_pop = {
++				culture = malay
++				size = 283431
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = malay
++				size = 7803
++			}
++		
++create_pop = {
++				culture = yue
++				size = 19437
++			}
++		
++create_pop = {
++				culture = malay
++				size = 70929
++			}
++		
++create_pop = {
++				culture = tamil
++				size = 3122
++			}
++		
++create_pop = {
++				culture = yue
++				size = 12059
++			}
++		}
+ 	}
+ 	s:STATE_NORTH_BORNEO = {
+ 		region_state:BRU = {
+ 			create_pop = {
+@@
+ 			}
+ 		}
+ 	}
+ 	s:STATE_CENTRAL_JAVA = {
++		
++		region_state:YOG = {
++			create_pop = {
++				culture = javan
++				size = 32264
++			}
++			create_pop = {
++				culture = yue
++				size = 668
++			}
++			create_pop = {
++				culture = javan
++				religion = animist
++				size = 6750
++			}
++			create_pop = {
++				pop_type = slaves
++				culture = javan
++				religion = animist
++				size = 4051
++			}
++		
++create_pop = {
++				culture = javan
++				size = 108794
++			}
++		
++create_pop = {
++				culture = yue
++				size = 1252
++			}
++		
++create_pop = {
++				culture = javan
++				religion = animist
++				size = 17724
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = javan
++				religion = animist
++				size = 1166
++			}
++		
++create_pop = {
++				culture = dutch
++				size = 117
++			}
++		}
++		region_state:SRK = {
++			create_pop = {
++				culture = javan
++				size = 24665
++			}
++			create_pop = {
++				culture = yue
++				size = 411
++			}
++			create_pop = {
++				culture = javan
++				religion = animist
++				size = 4939
++			}
++			create_pop = {
++				pop_type = slaves
++				culture = javan
++				religion = animist
++				size = 2558
++			}
++		
++create_pop = {
++				culture = javan
++				size = 295296
++			}
++		
++create_pop = {
++				culture = yue
++				size = 3399
++			}
++		
++create_pop = {
++				culture = javan
++				religion = animist
++				size = 48109
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = javan
++				religion = animist
++				size = 3165
++			}
++		
++create_pop = {
++				culture = dutch
++				size = 317
++			}
++		}
++	
+ 		region_state:DEI = {
+-			create_pop = {
+-				culture = javan
+-				size = 1331424
+-			}
+-			create_pop = {
+-				culture = yue
+-				size = 15323
+-			}
+-			create_pop = {
+-				culture = javan
+-				religion = animist
+-				size = 216912
+-			}
+-			create_pop = {
+-				pop_type = slaves
+-				culture = javan
+-				religion = animist
+-				size = 14271
+-			}
+-			create_pop = {
++create_pop = {
++				culture = javan
++				size = 927334
++			}
++		
++create_pop = {
++				culture = yue
++				size = 10672
++			}
++		
++create_pop = {
++				culture = javan
++				religion = animist
++				size = 151079
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = javan
++				religion = animist
++				size = 9940
++			}
++		
++create_pop = {
+ 				culture = dutch
+-				size = 1428
+-			}
+-		}
+-		region_state:YOG = {
+-			create_pop = {
+-				culture = javan
+-				size = 32264
+-			}
+-			create_pop = {
+-				culture = yue
+-				size = 668
+-			}
+-			create_pop = {
+-				culture = javan
+-				religion = animist
+-				size = 6750
+-			}
+-			create_pop = {
+-				pop_type = slaves
+-				culture = javan
+-				religion = animist
+-				size = 4051
+-			}
+-		}
+-		region_state:SRK = {
+-			create_pop = {
+-				culture = javan
+-				size = 24665
+-			}
+-			create_pop = {
+-				culture = yue
+-				size = 411
+-			}
+-			create_pop = {
+-				culture = javan
+-				religion = animist
+-				size = 4939
+-			}
+-			create_pop = {
+-				pop_type = slaves
+-				culture = javan
+-				religion = animist
+-				size = 2558
++				size = 994
+ 			}
+ 		}
+ 	}
+ 	s:STATE_NORTH_SUMATRA = {
+@@
+ 			create_pop = {
+ 				culture = melanesian
+ 				size = 263997
+ 			}
+-		}
++		
++create_pop = {
++				culture = moluccan
++				size = 285
++			}
++		
++create_pop = {
++				culture = melanesian
++				size = 851
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = melanesian
++				size = 28
++			}
++		}
++		
++	
+ 		region_state:TID = {
+-			create_pop = {
+-				culture = moluccan
+-				size = 15303
+-			}
+-			create_pop = {
+-				culture = melanesian
+-				size = 45749
+-			}
+-			create_pop = {
+-				pop_type = slaves
+-				culture = melanesian
+-				size = 1501
++create_pop = {
++				culture = moluccan
++				size = 15018
++			}
++		
++create_pop = {
++				culture = melanesian
++				size = 44898
++			}
++		
++create_pop = {
++				pop_type = slaves
++				culture = melanesian
++				size = 1473
+ 			}
+ 		}
+ 	}
+ 	s:STATE_MOLUCCAS = {
+@@
+ 			create_pop = {
+ 				culture = polynesian
+ 				size = 271
+ 			}
+-		}
+-		region_state:PHI = {
+-			# Guam, based off 1830 census
+-			create_pop = {
++		
++create_pop = {
+ 				culture = micronesian # Natives
+ 				religion = catholic
+-				size = 2030
+-			}
+-			create_pop = {
++				size = 425
++			}
++		
++create_pop = {
+ 				culture = filipino_mestizo # Mixed (Spanish, Filipino, Natives)
+-				size = 783
+-			}
+-			create_pop = {
++				size = 164
++			}
++		
++create_pop = {
+ 				culture = spanish # Spanish / Mestizo
+-				size = 5
+-			}
+-			create_pop = {
++				size = 1
++			}
++		
++create_pop = {
+ 				culture = visayan # Filipinos
+-				size = 2030
+-			}
+-			# Palau, could not find detailed information, likely below 6000 (late 19th century), with some Filipinos
+-			create_pop = {
++				size = 425
++			}
++		
++create_pop = {
+ 				culture = micronesian # Natives
+ 				religion = catholic
+-				size = 718
+-			}
+-			create_pop = {
++				size = 150
++			}
++		
++create_pop = {
+ 				culture = micronesian # Natives
+-				size = 1113
+-			}
+-			create_pop = {
++				size = 233
++			}
++		
++create_pop = {
+ 				culture = filipino_mestizo # Mixed (Spanish, Filipino, Natives)
+-				size = 49
+-			}
+-			create_pop = {
++				size = 10
++			}
++		
++create_pop = {
+ 				culture = visayan # Filipinos
+-				size = 266
++				size = 56
++			}
++		}
++		
++	
++		region_state:PHI = {
++create_pop = {
++				culture = micronesian # Natives
++				religion = catholic
++				size = 1605
++			}
++		
++create_pop = {
++				culture = filipino_mestizo # Mixed (Spanish, Filipino, Natives)
++				size = 619
++			}
++		
++create_pop = {
++				culture = spanish # Spanish / Mestizo
++				size = 4
++			}
++		
++create_pop = {
++				culture = visayan # Filipinos
++				size = 1605
++			}
++		
++create_pop = {
++				culture = micronesian # Natives
++				religion = catholic
++				size = 568
++			}
++		
++create_pop = {
++				culture = micronesian # Natives
++				size = 880
++			}
++		
++create_pop = {
++				culture = filipino_mestizo # Mixed (Spanish, Filipino, Natives)
++				size = 39
++			}
++		
++create_pop = {
++				culture = visayan # Filipinos
++				size = 210
+ 			}
+ 		}
+ 	}
+ 	s:STATE_SOLOMON_ISLANDS = {
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/pops/13_australasia.txt
+@@
+ 		}
+ 	}
+ 
+ 	s:STATE_TASMANIA = {
+-		region_state:WTI = {
+-			create_pop = {
++		
++	
++		region_state:PLW = {
++create_pop = {
+ 				culture = aborigine
+ 				religion = animist
+ 				size = 200
+ 			}
+@@
+ 			create_pop = {
+ 				culture = maori
+ 				size = 25000
+ 			}
+-		}
+-
+-		region_state:NTO = {
+-			create_pop = {
++		
++create_pop = {
+ 				culture = maori
+ 				size = 32000
+ 			}
+ 		}
++
++		
+ 	}
+ 	s:STATE_SOUTH_ISLAND = {
+-		region_state:NTO = {
+-			create_pop = {
++		
++		region_state:NTU = {
++			create_pop = {
++				culture = maori
++				size = 64000
++			}
++		}
++	
++		region_state:TTI = {
++create_pop = {
+ 				culture = australian
+ 				size = 428
+ 			}
+-			create_pop = {
++		
++create_pop = {
+ 				culture = maori
+ 				size = 12000
+ 			}
+ 		}
+-		region_state:NTU = {
+-			create_pop = {
+-				culture = maori
+-				size = 64000
+-			}
+-		}
+ 	}
+ }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/states/00_states.txt
+@@
+ 		add_homeland = cu:greek
+ 		add_homeland = cu:turkish
+ 	}
+ 	s:STATE_MEKONG = {
+-		create_state = {
+-			country = c:DAI
+-			owned_provinces = { x246E58 x474B0B x4080B0 x223DD3 x1D9718 x4923A3 xDF070D xE5A4DA x217F68 x0C662E x7D46C6 xB366DB x00C0B0 x70B060 x3C8C22 }
+-		}
++		
+ 		create_state = {
+ 			country = c:DGR
+ 			owned_provinces = { xA4DBB7 x248BCA xC080B0 x58B174 x841E31 x5E16EB xD8BFF1 x72E436 x47ADCE x1C5BE6 x5F0DAB xFD66E6 }
+ 		}
+@@
+ 		add_homeland = cu:vietnamese
+ 		add_homeland = cu:khmer
+ 		add_homeland = cu:champa
+ 		add_claim = c:DAI
+-	}
++	
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:TSN owned_provinces = { x3C8C22 } }
++
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:NGN owned_provinces = { x246E58 x474B0B x4080B0 x223DD3 x1D9718 x4923A3 xDF070D xE5A4DA x217F68 x0C662E x7D46C6 xB366DB x00C0B0 x70B060 } }
++}
+ 	s:STATE_SHANDONG = {
+ 		create_state = {
+ 			country = c:CHI
+ 			owned_provinces = {
+@@
+ 	}
+ 	s:STATE_HAWAIIAN_ISLANDS = {
+ 		create_state = {
+ 			country = c:HAW
+-			owned_provinces = { x492B26 xB5403E x6090C0 }
++			owned_provinces = { x492B26 }
+ 		}
+ 
+ 		add_homeland = cu:hawaiian
+-	}
++	
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:HMA owned_provinces = { x6090C0 } }
++
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:HWA owned_provinces = { xB5403E } }
++}
+ 	s:STATE_NORTHERN_TRANSYLVANIA = {
+ 		create_state = {
+ 			country = c:TRS
+ 			owned_provinces = { x3161A0 x4884E0 x6E6896 x73F00B x896455 x897F3D xA08763 xA77BCB xAF609F xB06161 xC63C51 xD0E0A0}
+@@
+ 		add_homeland = cu:aborigine
+ 	}
+ 
+ 		s:STATE_TASMANIA = {
+-		create_state = {
+-			country = c:WTI
+-			owned_provinces = {
+-				x114030 x97975E xBA7909 xEBABAC x05B74C x9088C7 x111FE6 xEC439A x3BE014 xBB312B
+-				x5B6491 x21D238 x0E4E0B x63CEB5 x9AD48A x48D6CE xABB52D xCC29B4 x536123 x4BBCDF
+-				x22A709
+-			}
+-		}
++		
+ 		add_homeland = cu:australian
+ 		add_homeland = cu:aborigine
+-	}
++	
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:PLW owned_provinces = { x114030 x97975E xBA7909 xEBABAC x05B74C x9088C7 x111FE6 xEC439A x3BE014 xBB312B x5B6491 x21D238 x0E4E0B x63CEB5 x9AD48A x48D6CE xABB52D xCC29B4 x536123 x4BBCDF x22A709 } }
++}
+ 
+ 		s:STATE_QUEENSLAND = {
+ 		create_state = {
+ 			country = c:WKB
+@@
+ 				xB0BC94 xF3D71B x0AA01A x0A9415 x2C2C24 xB2E71F x08E83A xB48ED2 xFBC4F4 x2C3A6E
+ 				xAFF43A xB6642B x2D6E8E x4D3C57 x29C0BA x8CEFDA xE59D9C x9FCCD9 xC25D9D xC8EC59
+ 				x8659F7 x0FDAD6 x3BCC0A xEBB583 x1080F0 x59DF28 xD0B89C x9000F0 x91D53E x810EEB
+ 				xCCD9EE x9080F0 x160E3F xC4FF1C
+-			}
+-		}
+-		create_state = {
+-			country = c:NTO
+-			owned_provinces = {
+-				x1000F0
+-			}
+-		}
++			 x1000F0 }
++		}
++		
+ 		add_homeland = cu:australian
+ 		add_homeland = cu:maori
+ 		add_claim = c:UNT
+ 	}
+ 	s:STATE_SOUTH_ISLAND = {
+-		create_state = {
+-			country = c:NTO
+-			owned_provinces = { x8749DD x50F19B x232E1F xA18C1B xD040B0 x733DDF }
+-		}
++		
+ 		create_state = {
+ 			country = c:NTU
+ 			owned_provinces = { xE353A8 xDFB440 xE7C924 xA1C4D2 xD51A40 x5A7F48 x396221 x8EE07C x6A5DDE xC5AD14 x92A994 x9CAE58 x96DD26 x60236D x3FE668 x51B446 x3B56F3 x050D8E x21E8F0 x50C0B0 x8385E4 xFF586D x1C59CC x102244 x738A48 x586231 x0C69F3 xA1D52F x2B0CF4 xD0FA16 x0E784F x6F5B60 x86A979 x4122F8 x071CF7 x561832 xE2064F xD8C27E x1D5F99 x998BCA x5040B0 }
+ 		}
+@@
+ 		add_homeland = cu:australian
+ 		add_homeland = cu:maori
+ 
+ 		add_claim = c:UNT
+-	}
++	
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:TTI owned_provinces = { x8749DD x50F19B x232E1F xA18C1B xD040B0 x733DDF } }
++}
+ 	s:STATE_EAST_MICRONESIA = {
+ 		create_state = {
+ 			country = c:MCR
+ 			owned_provinces = { xF5DBBF x80C011 x808090 x808011 xCD1EA0 x527F6C }
+@@
+ 
+ 	s:STATE_WEST_MICRONESIA = {
+ 		create_state = {
+ 			country = c:MCR
+-			owned_provinces = { x414170 x71414d }
++			owned_provinces = { x414170 x71414d  x6E4206 }
+ 		}
+ 		create_state = {
+ 			country = c:PHI
+-			owned_provinces = { xa7f7e3 x6e4206 }
++			owned_provinces = { xA7F7E3 }
+ 		}
+ 
+ 		add_homeland = cu:micronesian
+ 	}
+@@
+ 	}
+ 	s:STATE_CENTRAL_JAVA = {
+ 		create_state = {
+ 			country = c:DEI
+-			owned_provinces = { xEB0621 x20DF70 x14F9F5 xA06070 x62742E x9C517C x01B3D5 xA12ED1 x727A46 }
++			owned_provinces = { xEB0621 x14F9F5 xA06070 x9C517C x01B3D5 xA12ED1 x727A46 }
+ 		}
+ 		create_state = {
+ 			country = c:YOG
+-			owned_provinces = { xD19D2E }
++			owned_provinces = { xD19D2E  x62742E }
+ 		}
+ 		create_state = {
+ 			country = c:SRK
+-			owned_provinces = { x143969 }
++			owned_provinces = { x143969  x20DF70 }
+ 		}
+ 
+ 		add_homeland = cu:javan
+ 	}
+@@
+ 	}
+ 	s:STATE_WESTERN_NEW_GUINEA = {
+ 		create_state = {
+ 			country = c:PPU
+-			owned_provinces = { x1650EE x300043 x43C265 xCC9AB1 x4BE0B0 x35E1AE x97A569 x9CD217 x9D6313 x4013C3 x3F6260 x4FF4F9 xB324A4 x3E2E8C xC0D7B0 xE87A71 xBAE381 xB41206 x9E801B x9B4105 xD34DF4 x8611C3 x17B500 xC28486 x059DEC xDF8B88 x8A6BB0 x51BE37 xB4F5FA x706C6E x5C88B7 x66C85A x30EFC8 x5541DA x459264 x8EFC0A xA8E93D x95939C xDBA9DB x4FDEFE xCD7250 }
++			owned_provinces = { x1650EE x300043 x43C265 xCC9AB1 x4BE0B0 x35E1AE x97A569 x9CD217 x9D6313 x4013C3 x3F6260 x4FF4F9 xB324A4 x3E2E8C xC0D7B0 xE87A71 xBAE381 xB41206 x9E801B x9B4105 xD34DF4 x8611C3 x17B500 xC28486 x059DEC xDF8B88 x8A6BB0 x51BE37 xB4F5FA x706C6E x5C88B7 x66C85A x30EFC8 x5541DA x459264 x8EFC0A xA8E93D x95939C xDBA9DB x4FDEFE xCD7250  x817083 }
+ 		}
+ 		create_state = {
+ 			country = c:TID
+-			owned_provinces = { xD3B54D x0A9EBC x39DD3B x42EB5E x3ECEED x12A1F1 xB40E08 x1C9F62 xAFF001 xC8615D x524F67 xC8A7EB xB4957C x918FAF x0DC0D2 x1EFBC7 x54B094 xA2083C x185D9A xBA1AF0 x51FF7F xB4FAF7 xE8222C xA5F7BC xC7965B x83923F x5A8ABF x817083 x822774 xC153E3 xFC62DC x9769DB xC6416E xD729BB }
++			owned_provinces = { xD3B54D x0A9EBC x39DD3B x42EB5E x3ECEED x12A1F1 xB40E08 x1C9F62 xAFF001 xC8615D x524F67 xC8A7EB xB4957C x918FAF x0DC0D2 x1EFBC7 x54B094 xA2083C x185D9A xBA1AF0 x51FF7F xB4FAF7 xE8222C xA5F7BC xC7965B x83923F x5A8ABF x822774 xC153E3 xFC62DC x9769DB xC6416E xD729BB }
+ 		}
+ 		add_claim = c:DEI
+ 		add_homeland = cu:melanesian
+ 	}
+@@
+ 	s:STATE_MALAYA = {
+ 		# Singapore - xC00130 x8080B0 x08673B
+ 		create_state = {
+ 			country = c:JOH
+-			owned_provinces = { xC00130 x8080B0 x08673B x76546D x0080B0 x374A68 xAF3737 x66170B x660411 xB6B53D x6CFA94 xFCBAFC }
++			owned_provinces = { xC00130 x08673B x76546D x0080B0 x374A68 xAF3737 x66170B x660411 xB6B53D x6CFA94 xFCBAFC }
+ 		}
+ 		create_state = {
+ 			country = c:SIA
+ 			owned_provinces = { xF9F87A x80C0B0 xCAB9F2 }
+@@
+ 			owned_provinces = { x23578B x8E3305 xC84C4C }
+ 		}
+ 
+ 		add_homeland = cu:malay
+-	}
++	
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:DEI owned_provinces = { x8080B0 } }
++}
+ 	s:STATE_NORTH_BORNEO = {
+ 		create_state = {
+ 			country = c:BRU
+ 			owned_provinces = { x800170 xE9FB27 x91B40F x0141B0 x278E1E x6D3CF9 xF61121 x905338 x242519 x26DE63 xEF6FBE xFC8025 x9E0616 x1C6623 x8041B0 xC65120 x0F01DC x762FBA xE66512 x002310 x61FE7A xFB18B8 xDD9CFE xF2BC79 x6FEE71 x763646  x965EF0 xC531AE xB689E6 xD0AC5F }
+@@
+ 			owned_provinces = { x0180F0 x99D030 }
+ 		}
+ 		create_state = {
+ 			country = c:MND
+-			owned_provinces = { x62D16D xAA1CA3 x585200 x2D5E65 x988CCA xC3EC2D xBC5002 x62D16D xAA1CA3 xE90347 x585200 }
++			owned_provinces = { x62D16D xAA1CA3 x585200 x2D5E65 x988CCA xC3EC2D xBC5002 }
+ 		}
+ 		create_state = {
+ 			country = c:MGD
+ 			owned_provinces = { x355FBE x4C67A7 x678557 xE90347 xE804B7 }
+@@
+ 	}
+ 	s:STATE_TAHITI = {
+ 		create_state = {
+ 			country = c:PLY
+-			owned_provinces = {
+-				xF1DBF3 x998293 x9A79DC x0181B0 xA000B0 xcbc996 x998293 x59885e x888659 x98c3c6 x98c69c xc6b798 x5e2464 x643424 xba6e55 xf1dbf3 x887771 xdbae9f x2a4340 x728871 x718885 x42432a x2c2e13 x54bb3d x7d7d62
+-			}
++			owned_provinces = { xF1DBF3 x998293 x9A79DC x0181B0 xA000B0 xCBC996 x59885E x888659 x98C3C6 x98C69C xC6B798 x5E2464 x643424 xBA6E55 x887771 xDBAE9F x2A4340 x728871 x718885 x42432A x2C2E13 x54BB3D x7D7D62 }
+ 		}
+ 
+ 
+ 		add_homeland = cu:polynesian
+@@
+ 	}
+ 	s:STATE_ANNAM = {
+ 		create_state = {
+ 			country = c:DAI
+-			owned_provinces = { x7A5ACC xE63DDE xEEB5DD x307020 x9E5CF8 x0BE805 xF22C8B x2A870A x3070A0 x5109BC xB070A0 xC08B17 xC46194 xEDBFB1 xFAB663 xA01EF1 xEF3060 }
++			owned_provinces = { x7A5ACC xE63DDE xEEB5DD x307020 x9E5CF8 x0BE805 xF22C8B x2A870A x3070A0 x5109BC xB070A0 xC08B17 xA01EF1 }
+ 		}
+ 
+ 		add_homeland = cu:vietnamese
+-	}
++	
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:TSN owned_provinces = { xC46194 xEDBFB1 xFAB663 xEF3060 } }
++}
+ 	s:STATE_LAOS = {
+ 		create_state = {
+ 			country = c:LUA
+ 			owned_provinces = { x3130A0 x89F1F9 xDFCAA8 x70B3CE xED7937 x874BED xCD2D5D x1F8AE4 x8D0FE2 x6BA60C xDA6CAB xE8A817 x8D4D75 x1E6D3C xEAEF3A xDE87E1 x46CCB6 x6C400A }
+ 		}
+-		create_state = {
+-			country = c:SIA
+-			owned_provinces = { x7E2810 x9EFC82 xB9A4C0 xF03D75 x3E70A9 xB0EF20 x9751B6 }
+-			state_type = unincorporated
+-		}
++		
+ 		create_state = {
+ 			country = c:CHP
+ 			owned_provinces = { xB0EFA0 x30EFA0 x3E6297 x036ED6 x32A2B1 x21D9CC xC8AFB5 x94CA13 x899047 }
+ 		}
+@@
+ 		}
+ 
+ 		add_homeland = cu:lao
+ 		add_homeland = cu:khmu
+-	}
++	
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:VIE owned_provinces = { x7E2810 x9EFC82 xB9A4C0 xF03D75 x3E70A9 xB0EF20 x9751B6 } }
++}
+ 	s:STATE_CHIANG_MAI = {
+ 		create_state = {
+ 			country = c:CMI
+ 			owned_provinces = { x4AEF8A x32744C x01087A xBD159F x507060 x94A916 xAB195B x2C97B1 xEE6A10 xFBF0A4 x32B1BD xB17111 xABF7A2 x77FDDB x7BB73F x09C664 x3AAF2B xD6A9D8 x88EF9B xF32BB5 x118CA3 xA93401 xED5FC5 x47E1BB }
+@@
+ 	    add_homeland = cu:pathan
+ 	}
+ 
+ 	s:STATE_ARAKAN = {
+-	    create_state = {
+-	    	country = c:KKI
+-	    	owned_provinces = { x6305C9 xB316F6 x9A018D xD5DB0B xE85BF0 xF691D2 }
+-			state_type = unincorporated
+-		}
++	    
+ 		add_claim = c:BIC
+ 		add_claim = c:MARATH
+ 		add_claim = c:MUG
+ 	    add_homeland = cu:burmese
+ 	    add_homeland = cu:lushai
+-	}
++	
++		# MAP2H: documented coarse 1776 allocation.
++		create_state = { country = c:ARK owned_provinces = { x6305C9 xB316F6 x9A018D xD5DB0B xE85BF0 xF691D2 } }
++}
+ 
+ 	s:STATE_HILL_PUNJAB = {
+ 
+ 	    create_state = {
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/country_definitions/00_countries.txt
+@@
+ 
+ 	religion = confucian
+ 
+ 	cultures = { vietnamese }
+-	capital = STATE_ANNAM
++	capital = STATE_TONKIN
+ }
+ 
+ JAV = {
+ 	color = { 164  217  127 }
+@@
+ 	cultures = { lao }
+ 	capital = STATE_LAOS
+ }
+ 
+-VIE = {
+-	color = { 151 174 28 }
+-
+-	country_type = unrecognized
+-
+-	tier = principality
+-
+-	cultures = { lao }
+-	capital = STATE_LAOS
+-}
++VIE = { color = { 197 166 57 } country_type = unrecognized tier = kingdom cultures = { lao } religion = theravada capital = STATE_LAOS }
+ 
+ JOH = {
+ 	color = { 165  151  80 }
+ 
+@@
+ 	cultures = { bihari }
+ 	capital = STATE_BIHAR
+ }
+ 
+-ARK = {
+-	color = { 212 211 151 }
+-
+-	country_type = unrecognized
+-
+-	tier = principality
+-
+-	cultures = { burmese }
+-	capital = STATE_ARAKAN
+-}
++ARK = { color = { 206 146 78 } country_type = unrecognized tier = kingdom cultures = { burmese } religion = theravada capital = STATE_ARAKAN }
+ 
+ IDS = {
+ 	color = { 45 120 45 }
+ 
+@@
+ 
+ 	tier = principality
+ 
+ 	cultures = { champa }
+-	capital = STATE_ANNAM
++	capital = STATE_MEKONG
+ }
+ 
+ SCT = {
+ 	color = { 50 162 210 }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/dynamic_country_names/00_dynamic_country_names.txt
+@@
+ 				owns_entire_state_region = STATE_NORTH_BORNEO
+ 			}
+ 		}
+ 	}
++
++ dynamic_country_name = { name = aor1776_map2h_lan adjective = LAN_ADJ priority = 100 is_main_tag_only = yes trigger = { exists = scope:actor } }
+ }
+ 
+ LAT = { # Latvia
+ 	dynamic_country_name = {
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/map_data/state_regions/05_north_america.txt
+@@
+     provinces = { "x492B26" "x6090C0" "xB5403E" }
+     traits = { "state_trait_hawaii_sandalwood_forests" "state_trait_volcanic_soil" }
+     city = "xB5403E"
+     port = "x492B26"
+-    farm = "x6090C0"
+-    mine = "x6090C0"
++    farm = "xB5403E"
++    mine = "x492B26"
+     wood = "x6090C0"
+     arable_land = 15
+     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_coffee_plantation" "building_cotton_plantation" "building_tea_plantation" "building_tobacco_plantation" "building_sugar_plantation" "building_banana_plantation" }
+     capped_resources = {
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/map_data/state_regions/11_east_asia.txt
+@@
+     provinces = { "x0BE805" "x2A870A" "x307020" "x3070A0" "x5109BC" "x7A5ACC" "x9E5CF8" "xA01EF1" "xB070A0" "xC08B17" "xC46194" "xE63DDE" "xEDBFB1" "xEEB5DD" "xEF3060" "xF22C8B" "xFAB663" }
+     traits = { "state_trait_indochinese_forest" }
+     city = "xB070A0"
+     port = "xA01EF1"
+-    farm = "x2A870A"
++    farm = "x307020"
+     mine = "xEDBFB1"
+     wood = "x5109BC"
+     arable_land = 60
+     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_coffee_plantation" "building_cotton_plantation" "building_silk_plantation" "building_dye_plantation" "building_tea_plantation" "building_sugar_plantation" "building_banana_plantation" "building_spice_plantation" }
+@@
+     subsistence_building = "building_subsistence_rice_farm"
+     provinces = { "x00C0B0" "x0C662E" "x1C5BE6" "x1D9718" "x217F68" "x223DD3" "x246E58" "x248BCA" "x3C8C22" "x4080B0" "x474B0B" "x47ADCE" "x4923A3" "x58B174" "x5E16EB" "x5F0DAB" "x70B060" "x72E436" "x7D46C6" "x841E31" "xA4DBB7" "xB366DB" "xC080B0" "xD8BFF1" "xDF070D" "xE5A4DA" "xFD66E6" }
+     prime_land = { "x246E58" "x4923A3" "x223DD3" "xDF070D" "x1D9718" "x4080B0" "x474B0B" "xE5A4DA" "x00C0B0" "x7D46C6" }
+     traits = { "state_trait_mekong_delta" "state_trait_indochinese_forest" "state_trait_medium_bauxite_mine" }
+-    city = "xE5A4DA"
++    city = "xDF070D"
+     port = "xE5A4DA"
+-    farm = "x3C8C22"
++    farm = "x4923A3"
+     mine = "x1C5BE6"
+-    wood = "x246E58"
++    wood = "x3C8C22"
+     arable_land = 60
+     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_coffee_plantation" "building_cotton_plantation" "building_silk_plantation" "building_dye_plantation" "building_tea_plantation" "building_sugar_plantation" "building_banana_plantation" }
+     capped_resources = {
+         building_logging_camp = 20
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/map_data/state_regions/12_indonesia.txt
+@@
+     subsistence_building = "building_subsistence_farm"
+     provinces = { "x0180F0" "x2D5E65" "x355FBE" "x4C67A7" "x585200" "x62D16D" "x678557" "x7B364D" "x988CCA" "x99D030" "xAA1CA3" "xBC5002" "xC3EC2D" "xCAFE73" "xE804B7" "xE90347" "xF0014A" }
+     impassable = { "x0180F0" }
+     city = "x2D5E65"
+-    port = "xF0014A"
++    port = "x16C9FB"
+     farm = "xBC5002"
+     mine = "x4C67A7"
+-    wood = "xCAFE73"
++    wood = "xC3EC2D"
+     arable_land = 60
+     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_coffee_plantation" "building_cotton_plantation" "building_dye_plantation" "building_tea_plantation" "building_tobacco_plantation" "building_banana_plantation" }
+     capped_resources = {
+         building_iron_mine = 36
+@@
+     provinces = { "x414170" "x6E4206" "x71414D" "xA7F7E3" "xEF50C0" }
+     traits = { "state_trait_severe_malaria" }
+     center_province = "x71414D"
+     city = "x71414D"
+-    port = "xA7F7E3"
++    port = "x414170"
+     farm = "x71414D"
+     mine = "x414170"
+     wood = "x71414D"
+     arable_land = 5
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/country_definitions/01_pacific_and_australasia.txt
+@@
+ 
+ 	country_type = unrecognized
+ 
+ 	cultures = { hawaiian }
+-	religion = protestant
++	religion = animist
+ 
+ 	capital = STATE_HAWAIIAN_ISLANDS
+-	is_named_from_capital = yes
++	is_named_from_capital = no
+ }
+ 
+ NTU = {
+ 	color = { 62 92 54 }
+@@
+ 
+ UNT = { # United Tribes of New Zealand
+ 	color = { 170 167 151 }
+ 
+-	country_type = unrecognized
++	country_type = decentralized
+ 
+ 	tier = principality
+ 
+ 	capital = STATE_NORTH_ISLAND
+ 	cultures = { maori }
+-	religion = protestant
++	religion = animist
+ }
+ 
+ NNG = { # Noongar
+ 
+@@
+ }
+ 
+ # Surakarta
+ SRK = {
+-	color = { 239 51 64 }
++	color = { 169 127 72 }
+ 
+ 	country_type = unrecognized
+ 
+ 	tier = principality
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/characters/dai - dai nam.txt
+@@
+-CHARACTERS = {
+-	c:DAI ?= {
+-		create_character = {
+-			template = DAI_minh_mang_nguyen_phuoc
+-		}	
+-
+-		create_character = {
+-			template = DAI_thieu_tri_nguyen_phuoc
+-		}
+-	}
+-}
++# MAP2H: nineteenth-century templates excluded for the 1776 polity.
++CHARACTERS = { }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/characters/haw - hawaii.txt
+@@
+-CHARACTERS = {
+-	c:HAW ?= {
+-		create_character = {
+-			template = HAW_kamehameha_iii
+-		}
+-
+-		create_character = {
+-			template = HAW_kamehameha_iv
+-		}
+-
+-		create_character = {
+-			template = HAW_asa_thurston
+-		}
+-	}
+-}
++# MAP2H: nineteenth-century templates excluded for the 1776 polity.
++CHARACTERS = { }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/characters/lan - lanfang.txt
+@@
+-CHARACTERS = {
+-	c:LAN ?= {
+-		create_character = {
+-			template = LAN_taiji_liu
+-		}	
+-	}
+-}
++# MAP2H: nineteenth-century templates excluded for the 1776 polity.
++CHARACTERS = { }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/gfx/map/map_object_data/generated_map_object_locators_wood.txt
+@@
+ 			scale={ 1.000000 1.000000 1.000000 }
+ 		}
+ 		{
+ 			id=309
+-			position={ 495.000000 0.000000 2011.000000 }
++			position={ 529.000000 0.000000 1992.000000 }
+ 			rotation={ -0.000000 -0.754684 -0.000000 0.656088 }
+ 			scale={ 1.000000 1.000000 1.000000 }
+ 		}
+ 		{
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/gfx/map/map_object_data/generated_map_object_locators_mine.txt
+@@
+ 			scale={ 1.000000 1.000000 1.000000 }
+ 		}
+ 		{
+ 			id=309
+-			position={ -1.000000 -1.000000 -1.000000 }
++			position={ 545.000000 0.000000 1962.000000 }
+ 			rotation={ -0.000000 -0.000000 -0.000000 1.000000 }
+ 			scale={ 1.000000 1.000000 1.000000 }
+ 		}
+ 		{
+*** End Patch
