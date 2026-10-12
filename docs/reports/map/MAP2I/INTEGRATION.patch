@@ -1,0 +1,338 @@
+*** Begin Patch
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/buildings/08_middle_east.txt
+@@
+ 
+ 		}
+ 	}
+ 	s:STATE_KHORASAN={
+-		region_state:PER={
++		region_state:AFH={
+ 
+ 
+ 
+ 			create_building={
+@@
+ 					building={
+ 						type="building_manor_house"
+ 						country="c:PER"
+ 						levels=1
+-						region="STATE_KHORASAN"
++						region = "STATE_KERMAN"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated"  }
+@@
+ 					building={
+ 						type="building_wheat_farm"
+ 						country="c:PER"
+ 						levels=1
+-						region="STATE_KHORASAN"
++						region = "STATE_KERMAN"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled"  }
+@@
+ 								building={
+ 									type="building_copper_mine"
+ 									country="c:PER"
+ 									levels=1
+-									region="STATE_KHORASAN"
++									region = "STATE_KERMAN"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_picks_and_shovels_building_copper_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_copper_mine" "pm_no_mine_ventilation" }
+@@
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:PER"
+ 									levels=2
+-									region="STATE_KHORASAN"
++									region = "STATE_KERMAN"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+@@
+ 								building={
+ 									type="building_textile_mill"
+ 									country="c:PER"
+ 									levels=1
+-									region="STATE_KHORASAN"
++									region = "STATE_KERMAN"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/buildings/98_build_start_1776_world_redistribution.txt
+@@
+ 			}
+ 		}
+ 	}
+ 	s:STATE_KHORASAN = {
+-		region_state:PER = {
++		region_state:AFH = {
+ 						create_building={
+ 							building="building_copper_mine"
+ 							add_ownership={
+ 								building={
+ 									type="building_copper_mine"
+ 									country="c:PER"
+ 									levels=1
+-									region="STATE_KHORASAN"
++									region = "STATE_KERMAN"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_picks_and_shovels_building_copper_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_copper_mine" "pm_no_mine_ventilation" }
+@@
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:PER"
+ 									levels=2
+-									region="STATE_KHORASAN"
++									region = "STATE_KERMAN"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+@@
+ 								building={
+ 									type="building_textile_mill"
+ 									country="c:PER"
+ 									levels=1
+-									region="STATE_KHORASAN"
++									region = "STATE_KERMAN"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/diplomatic_plays/00_otto_iraqi_persia_war.txt
+@@
+ 		create_diplomatic_play = {
+ 
+ 			target_state = s:STATE_BASRA.region_state:IR1
+ 
+-			war = no
++			# MAP-2I: ongoing siege since 1775; Basra still belongs to IR1.
++			war = yes
+ 
+ 			type = dp_conquer_state
+ 			
+ 			add_target_backers = { c:OMA }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/military_formations/04_military_formations_middle_east.txt
+@@
+ 				count = 1
+ 			}
+ 			combat_unit = {
+ 				type = unit_type:combat_unit_type_irregular_infantry
+-				state_region = s:STATE_KHORASAN
++				state_region = s:STATE_KERMAN
+ 				count = 1
+ 			}
+ 			combat_unit = {
+ 				type = unit_type:combat_unit_type_irregular_infantry
+@@
+ 			}
+ 			combat_unit = {
+ 				type = unit_type:combat_unit_type_irregular_infantry
+ 				service_type = conscript
+-				state_region = s:STATE_KHORASAN
+-				count = 4
++				state_region = s:STATE_LURISTAN
++				count = 1
++			}
++			combat_unit = {
++				type = unit_type:combat_unit_type_irregular_infantry
++				service_type = conscript
++				state_region = s:STATE_PERSIAN_KURDISTAN
++				count = 1
++			}
++			combat_unit = {
++				type = unit_type:combat_unit_type_irregular_infantry
++				service_type = conscript
++				state_region = s:STATE_URMIA
++				count = 1
++			}
++			combat_unit = {
++				type = unit_type:combat_unit_type_irregular_infantry
++				service_type = conscript
++				state_region = s:STATE_MAZANDARAN
++				count = 1
+ 			}
+ 			combat_unit = {
+ 				type = unit_type:combat_unit_type_irregular_infantry
+ 				service_type = conscript
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/pops/08_middle_east.txt
+@@
+ 			}
+ 		}
+ 	}
+ 	s:STATE_KHORASAN = {
+-		region_state:PER = {
++		region_state:AFH = {
+ 			create_pop = {
+ 				culture = persian
+ 				size = 474255
+ 			}
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/states/00_states.txt
+@@
+ 		add_homeland = cu:baluchi
+ 	}
+ 	s:STATE_KHORASAN = {
+ 		create_state = {
+-			country = c:PER
++			country = c:AFH
+ 			owned_provinces = { x017021 x07C3C1 x09EC79 x16AE6E x235294 x250EA9 x2CC853 x35E580 x39C083 x3DDD90 x4058BB x41B208 x4CD18D x4F3FC9 x53B53B x56E6F2 x57893E x5BAC61 x6208A0 x62D297 x639DDD x6D2203 x6E6FDC x6E99FA x6FE987 x71BA88 x746A7C x84BB30 x868586 x888432 x89332A x8A3C3C x92941B x932884 x9369BF x943855 x95024E x95D808 x964953 x98DCCC x9C5383 x9C8A25 x9CB55A xA26087 xA6D67E xA7818E xA8549E xAA21EB xAC03B8 xAE765F xB0A555 xB7CE9D xB99ECB xBEA6BB xC0B020 xC0E354 xC0F0E0 xC6F164 xC7F975 xCFE904 xD37C65 xD3C02D xD6E8C2 xDEE397 xE10ECF xE3DC87 xE3E233 xE3EF67 xE91143 xEB9FD7 xEBB44F xEF1467 xF394BC xF4E0BD xF559AB }
+ 		}
+ 
+ 		add_homeland = cu:persian
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/country_definitions/00_countries.txt
+@@
+ 
+ 	tier = empire
+ 
+ 	cultures = { persian }
+-	capital = STATE_IRAKAJEMI
++	capital = STATE_FARS
+ }
+ 
+ JAB = {
+ 	color = { 183  62  62 }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/dynamic_country_names/00_dynamic_country_names.txt
+@@
+ 
+ 		is_main_tag_only = yes
+ 		priority = 1
+ 
+-		trigger = {
+-			scope:actor ?= {
+-				has_law = law_type:law_monarchy
+-				NOT = { has_variable = qajar_iran }
+-			}
+-		}
++		trigger = { scope:actor ?= { has_law = law_type:law_monarchy NOT = { has_variable = qajar_iran } ruler ?= { has_template = per_karim_khand_zand_template } } }
+ 	}
+ 	dynamic_country_name = {
+ 		name = dyn_c_qajar_iran
+ 		adjective = dyn_c_iran_adj
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/country_definitions/07_1776_map2i_afsharids.txt
++# MAP-2I: regional Mashhad polity, not restored Nader Shah's empire.
++AFH = {
++ color = { 145 82 130 }
++ country_type = unrecognized
++ tier = kingdom
++ cultures = { persian }
++ religion = shiite
++ capital = STATE_KHORASAN
++}
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/countries/afh - afsharid khorasan.txt
++COUNTRIES = {
++ c:AFH ?= {
++  add_technology_researched = institutionalized_scientific_exchange
++  add_technology_researched = distillation
++  add_technology_researched = improved_husbandry
++  add_technology_researched = international_relations
++  add_technology_researched = light_infantry_tactics
++  add_technology_researched = organized_textile_production
++  add_technology_researched = regulated_small_arms
++  add_technology_researched = shaft_mining
++  add_technology_researched = traditional_food_processing
++  add_technology_researched = organized_workshops
++  add_technology_researched = traditional_papermaking
++  add_technology_researched = organized_military_establishments
++  ig:ig_landowners ?= { add_ruling_interest_group = yes }
++  ig:ig_devout ?= { add_ruling_interest_group = yes }
++  effect_starting_politics_conservative = yes
++  activate_law = law_type:law_monarchy
++  activate_law = law_type:law_autocracy
++  activate_law = law_type:law_people_of_the_book
++  activate_law = law_type:law_subjecthood
++  activate_law = law_type:law_mercantilism
++  activate_law = law_type:law_traditionalism
++  activate_law = law_type:law_serfdom
++  activate_law = law_type:law_hereditary_bureaucrats
++  activate_law = law_type:law_censorship
++  activate_law = law_type:law_land_based_taxation
++  activate_law = law_type:law_slave_trade
++  activate_law = law_type:law_peasant_levies
++  activate_law = law_type:law_no_schools
++  set_tax_level = medium
++ }
++}
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/characters/afh - afsharid khorasan.txt
++CHARACTERS = {
++ c:AFH ?= {
++  create_character = {
++   first_name = aor1776_map2i_shahrokh
++   last_name = aor1776_map2i_afshar
++   historical = yes
++   culture = cu:persian
++   religion = rel:shiite
++   home_region = STATE_KHORASAN
++   age = 41 # Birth year 1734; no invented exact date.
++   ruler = yes
++   interest_group = ig_landowners
++   ideology = ideology_traditionalist
++  }
++ }
++}
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/government_types/00_1776_map2i_afsharids.txt
++gov_1776_afsharid_khorasan = {
++ transfer_of_power = hereditary
++ male_ruler = "RULER_TITLE_SHAH"
++ female_ruler = ""
++ male_heir = "RULER_TITLE_CROWN_PRINCE"
++ female_heir = ""
++ possible = { has_law = law_type:law_monarchy c:AFH ?= ROOT NOT = { is_subject_type = subject_type_crown_land } }
++ on_government_type_change = { change_to_hereditary = yes }
++ on_post_government_type_change = { post_change_to_hereditary = yes }
++}
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/diplomacy/07_1776_map2i_afsharids.txt
++DIPLOMACY = {
++ c:DUR ?= {
++  set_relations = { country = c:AFH value = 20 }
++ }
++ c:AFH ?= { set_relations = { country = c:PER value = -10 } }
++}
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/treaties/07_1776_map2i_afsharids.txt
++TREATIES = {
++ # Revocable gameplay representation of Durrani protection after the 1770 settlement.
++ # The initialization date is mechanical, not a claimed surviving treaty date.
++ create_treaty = {
++  first_country = c:DUR
++  second_country = c:AFH
++  is_draft = no
++  entered_into_force_on = 1776.1.1
++  binding_period = { years = 1 }
++  articles_to_create = {
++   { article = guarantee_independence source_country = c:DUR target_country = c:AFH }
++  }
++ }
++}
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/coat_of_arms/coat_of_arms/07_1776_map2i_identification.txt
++# Provisional native-component identification banner, NOT an authenticated flag.
++AFH = { pattern = "pattern_horizontal_split_01.tga" color1 = "purple" color2 = "yellow" }
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/localization/french/replace/1776_map2i_l_french.yml
++﻿l_french:
++ AFH:0 "Khorassan afsharide"
++ AFH_ADJ:0 "Afsharide"
++ dyn_c_zand_iran:0 "Perse zand"
++ RULER_TITLE_VAKIL:0 "Vakil al-Ra‘aya"
++ aor1776_map2i_shahrokh:0 "Shahrokh"
++ aor1776_map2i_afshar:0 "Afshar"
++ gov_1776_afsharid_khorasan:0 "Monarchie afsharide"
++ gov_1776_afsharid_khorasan_desc:0 "Le shah règne à Machhad avec sa cour et les autorités locales du Khorassan."
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/localization/english/replace/1776_map2i_l_english.yml
++﻿l_english:
++ AFH:0 "Afsharid Khorasan"
++ AFH_ADJ:0 "Afsharid"
++ dyn_c_zand_iran:0 "Zand Persia"
++ RULER_TITLE_VAKIL:0 "Vakil al-Ra‘aya"
++ aor1776_map2i_shahrokh:0 "Shahrokh"
++ aor1776_map2i_afshar:0 "Afshar"
++ gov_1776_afsharid_khorasan:0 "Afsharid Monarchy"
++ gov_1776_afsharid_khorasan_desc:0 "The shah rules in Mashhad alongside his court and the local authorities of Khorasan."
+*** End Patch

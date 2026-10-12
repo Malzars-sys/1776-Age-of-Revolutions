@@ -1,24 +1,24 @@
 DIPLOMATIC_PLAYS = {
-	c:PER = {
+	# Approved native approximation: IR1 initiates its own counter-offensive.
+	# A protectorate may start its own play; do not attack IR1 as the target,
+	# which pulls its overlord into the defender role. Native behavior needs testing.
+	c:IR1 = {
 		create_diplomatic_play = {
 
-			target_state = s:STATE_BASRA.region_state:IR1
+			target_country = c:PER
 
-			war = no
+			# Ongoing regional hostilities. Bassora remains IR1 at initialization.
+			war = yes
 
-			type = dp_conquer_state
+			type = dp_humiliation
 			
-			add_target_backers = { c:OMA }
+			add_initiator_backers = { c:OMA }
 
 			add_war_goal = {
-				holder = c:IR1
+				holder = c:PER
 				type = conquer_state
-				target_state =s:STATE_KHUZESTAN.region_state:ARB
-			}
-			add_war_goal = {
-				holder = c:OMA
-				type = take_treaty_port
-				target_state =s:STATE_FARS.region_state:PER
+				target_state = s:STATE_BASRA.region_state:IR1
+				primary_demand = yes
 			}
 		}
 	}

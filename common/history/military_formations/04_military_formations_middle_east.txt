@@ -65,9 +65,16 @@
 				count = 4
 			}
 			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
+				type = unit_type:combat_unit_type_musket_infantry
 				state_region = s:STATE_BAGHDAD
 				count = 5
+			}
+			# Basra siege follow-up: ten additional defenders; IR1 totals 20 regulars.
+			# Native recruitment initializes their barracks; no duplicate civil history.
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_BASRA
+				count = 10
 			}
 			save_scope_as = mamluk_army
 
@@ -673,7 +680,7 @@
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_KHORASAN
+				state_region = s:STATE_KERMAN
 				count = 1
 			}
 			combat_unit = {
@@ -704,8 +711,26 @@
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
 				service_type = conscript
-				state_region = s:STATE_KHORASAN
-				count = 4
+				state_region = s:STATE_LURISTAN
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_PERSIAN_KURDISTAN
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_URMIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_MAZANDARAN
+				count = 1
 			}
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
