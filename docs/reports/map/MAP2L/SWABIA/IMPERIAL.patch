@@ -1,0 +1,36 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\scripted_triggers\1776_imperial_constitution.txt
+@@
+ 
+ aor1776_hre_external_imperial_overlord = {
+ custom_tooltip = { text = aor1776_hre_external_imperial_overlord_tt
+ 
+ aor1776_hre_member = no
+ any_subject_or_below = { aor1776_hre_member = yes }
+ 
+ }
+ }
+ aor1776_hre_under_imperial_authority = {
+ aor1776_hre_member = yes
+ NOT = { top_overlord ?= { aor1776_hre_member = no } }
+ }
+ aor1776_hre_free_city = {
+ aor1776_hre_member = yes
+-OR = { c:LUB ?= this c:HAM ?= this c:BRE ?= this c:FRM ?= this c:NUR ?= this }
++OR = { c:LUB ?= this c:HAM ?= this c:BRE ?= this c:FRM ?= this c:NUR ?= this c:SUU ?= this }
+ }
+ aor1776_hre_illegal_expulsion = {
+ aor1776_hre_member = yes
+  scope:target_country ?= {
+   aor1776_hre_emperor = yes is_power_bloc_leader = yes
+   power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation }
+  }
+ }
+ aor1776_hre_four_pillars_max = {
+ power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation
+ has_principle = principle:aor1776_hre_diet_3
+ has_principle = principle:aor1776_hre_circles_3
+ has_principle = principle:aor1776_hre_justice_3
+ has_principle = principle:aor1776_hre_administration_3 }
+ }
+*** End Patch

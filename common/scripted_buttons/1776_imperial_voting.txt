@@ -504,3 +504,58 @@ aor1776_hre_vote_WPD = {
  ai_chance = { value = 0 }
 
 }
+aor1776_hre_vote_WPO = {
+
+ name = aor1776_hre.choose_WPO
+ desc = aor1776_hre_choose_vote_desc
+ visible = { aor1776_hre_elector = yes c:WPO ?= { aor1776_hre_ballot_candidate = yes } }
+ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:WPO } }
+ effect = { custom_tooltip = aor1776_hre_choose_vote_result
+  hidden_effect = { c:WPO = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+ ai_chance = { value = 0 }
+
+}
+aor1776_hre_vote_HSG = {
+
+ name = aor1776_hre.choose_HSG
+ desc = aor1776_hre_choose_vote_desc
+ visible = { aor1776_hre_elector = yes c:HSG ?= { aor1776_hre_ballot_candidate = yes } }
+ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:HSG } }
+ effect = { custom_tooltip = aor1776_hre_choose_vote_result
+  hidden_effect = { c:HSG = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+ ai_chance = { value = 0 }
+
+}
+aor1776_hre_vote_SUU = {
+
+ name = aor1776_hre.choose_SUU
+ desc = aor1776_hre_choose_vote_desc
+ visible = { aor1776_hre_elector = yes c:SUU ?= { aor1776_hre_ballot_candidate = yes } }
+ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:SUU } }
+ effect = { custom_tooltip = aor1776_hre_choose_vote_result
+  hidden_effect = { c:SUU = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+ ai_chance = { value = 0 }
+
+}
+aor1776_hre_vote_SAG = {
+
+ name = aor1776_hre.choose_SAG
+ desc = aor1776_hre_choose_vote_desc
+ visible = { aor1776_hre_elector = yes c:SAG ?= { aor1776_hre_ballot_candidate = yes } }
+ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:SAG } }
+ effect = { custom_tooltip = aor1776_hre_choose_vote_result
+  hidden_effect = { c:SAG = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+ ai_chance = { value = 0 }
+
+}
+aor1776_hre_vote_SKE = {
+
+ name = aor1776_hre.choose_SKE
+ desc = aor1776_hre_choose_vote_desc
+ visible = { aor1776_hre_elector = yes c:SKE ?= { aor1776_hre_ballot_candidate = yes } }
+ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:SKE } }
+ effect = { custom_tooltip = aor1776_hre_choose_vote_result
+  hidden_effect = { c:SKE = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+ ai_chance = { value = 0 }
+
+}

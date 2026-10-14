@@ -5,6 +5,8 @@ import validate_map2l_mainz as validation
 import map2l_minden_ravensberg as work
 from map2l_belgium import packed
 from map2l_franconia import inside
+from map2l_registry import approved_lot_dirs,ownership_rows,ancestor_rgb,expected_country_definitions
+from validate_map2a import counter
 
 def source_checks(check,out,current,baseline,alignment,tracing,plan):
     source=tracing['calibrated_sources'][0];matrix=np.array(source['matrix'])
@@ -28,17 +30,31 @@ def source_checks(check,out,current,baseline,alignment,tracing,plan):
         actual=np.array([owners['x'+format(int(after[cy,cx]),'06X')] for cx,cy in cells])
         check('Every cell follows retained source envelope '+parent,np.array_equal(actual,expected))
     check('Only Minden core transferred; zero Ravensberg claim',totals=={1:76,2:0})
-    check('No owner changed outside Hanover',[r for r in current['owners'] if r['key'][1]!='STATE_HANNOVER']==[r for r in baseline['inventory']['owners'] if r['key'][1]!='STATE_HANNOVER'])
-    check('Every cell outside these two parent masks byte-identical',np.array_equal(before[~np.isin(before,[int(r[1:],16) for r in geometry['parents']])],after[~np.isin(before,[int(r[1:],16) for r in geometry['parents']])]))
+    lots=approved_lot_dirs();later=lots[lots.index(out)+1:]
+    expected_outside=counter([r for r in baseline['inventory']['owners'] if r['key'][1]!='STATE_HANNOVER'])
+    allowed_parents={int(r[1:],16) for r in geometry['parents']};oldcolors=set(np.unique(before).tolist())
+    for lot in later:
+        declared=json.loads((lot/'REGISTRY_MIGRATION.json').read_text())
+        for row in ownership_rows(declared,'previous'):
+            if row['state']!='STATE_HANNOVER':expected_outside[(row['rgb'],row['state'],row['beneficiary'])]-=1
+        for row in ownership_rows(declared,'updated'):
+            if row['state']!='STATE_HANNOVER':expected_outside[(row['rgb'],row['state'],row['beneficiary'])]+=1
+        geo=json.loads((lot/'GEOMETRY.json').read_text())
+        allowed_parents.update(ancestor_rgb(r,oldcolors) for r in geo['parents'])
+    check('No owner outside Hanover changed except exact later reviewed migrations',+expected_outside==counter([r for r in current['owners'] if r['key'][1]!='STATE_HANNOVER']))
+    protected=~np.isin(before,list(allowed_parents))
+    check('Every cell outside these parents and exact later parent masks byte-identical',np.array_equal(before[protected],after[protected]))
     preceding=json.loads((out.parent/'RHINE_WESTPHALIA/GEOMETRY.json').read_text())
-    check('Previous twenty RGB and 1081 transferred cells retained',len(preceding['new_provinces'])==20 and sum(r['pixels'] for r in preceding['assignments'] if r['owner']!=r['previous_owner'])==1081 and all(int((after==int(r['rgb'][1:],16)).sum())==r['pixels'] and all(after[y,x]==int(r['rgb'][1:],16) for x,y in r['cells']) for r in preceding['assignments']))
+    preserved={r['rgb'] for r in preceding['new_provinces']}|{r['rgb'] for r in preceding['assignments'] if r['owner']!=r['previous_owner']}
+    check('Previous twenty RGB and 1081 restored cells retained; later unresolved PRU remainder reviewed separately',len(preceding['new_provinces'])==20 and sum(r['pixels'] for r in preceding['assignments'] if r['owner']!=r['previous_owner'])==1081 and all(int((after==int(r['rgb'][1:],16)).sum())==r['pixels'] and all(after[y,x]==int(r['rgb'][1:],16) for x,y in r['cells']) for r in preceding['assignments'] if r['rgb'] in preserved))
     anchors=json.loads((out/tracing['native_anchors']).read_text())
     for row in anchors:
         x,y=int(float(row['Locator_X'])),int(float(row['Locator_Y']))
         check('Physical locator and RGB unchanged '+row['Hub_Name'],before[y,x]==after[y,x])
     check('Minden wood anchor belongs to transferred core',owners['xBBA504']=='PRU')
     check('Bielefeld not used to transfer whole mine province',owners['x165E05']=='HAN')
-    check('No new country or start law, no electoral title',current['countries']==baseline['inventory']['countries'] and plan['new_tags']==[])
+    later_migrations=[json.loads((lot/'REGISTRY_MIGRATION.json').read_text()) for lot in later]
+    check('No country created by Minden; only exact later country additions',current['countries']==expected_country_definitions(baseline['inventory']['countries'],later_migrations) and plan['new_tags']==[])
     check('Both original recruiting subdivisions survive',all(['STATE_HANNOVER',tag] in current['states'] for tag in ['OLD','HAN']) and ['STATE_HANNOVER','PRU'] in current['states'])
     check('All building files unchanged; no added levels',not any('/buildings/' in r for r in plan['files']))
     population=[r for r in plan['allocations'] if r['kind']=='population']

@@ -9,7 +9,7 @@ import validate_diplomacy_ottoman_1776 as cw
 from map_1776_audit import effective,values
 from map2l_franconia import ROOT,OUT,SID,TAGS,baseline,packed,sha,csvout
 from map2l_hre_work import GIT
-from map2l_registry import active_registry_path,apply_territorial_migrations,approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent
+from map2l_registry import active_registry_path,apply_territorial_migrations,approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent,expected_country_definitions
 from validate_map2k_imperial import node,textnode,profiles
 
 
@@ -42,7 +42,8 @@ def validate():
     check('Exact reviewed owners; all other territories unchanged',+expected==qa.counter(a['owners']))
     subsequent_tags={t for fp in later_dirs for t in json.loads((fp/'REGISTRY_MIGRATION.json').read_text())['new_members']}
     check('Exactly five Franconian estate tags plus explicitly approved subsequent estates',set(a['countries'])-set(b['inventory']['countries'])==set(TAGS)|subsequent_tags)
-    check('All previous country definitions preserved',all(a['countries'][t]==s for t,s in b['inventory']['countries'].items()))
+    expected_definitions=expected_country_definitions(b['inventory']['countries'],[json.loads((fp/'REGISTRY_MIGRATION.json').read_text()) for fp in later_dirs])
+    check('Previous country definitions preserved except exact reviewed WUR tier',all(a['countries'][t]==expected_definitions[t] for t in b['inventory']['countries']))
     check('Every new capital state is owned',all([SID,t] in a['states'] for t in TAGS))
     bmp=packed(ROOT/'map_data/provinces.png');oldbmp=packed(ROOT/b['bitmap_backup']);new={int(r['rgb'][1:],16):r for r in g['new_provinces']}
     check('Baseline bitmap still exact',sha(ROOT/b['bitmap_backup'])==b['bitmap_sha256'])

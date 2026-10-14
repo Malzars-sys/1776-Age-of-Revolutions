@@ -33,6 +33,8 @@ def source_checks(check,out,current,baseline,alignment,tracing,plan):
     old={r['key'][0]:r['key'][1:] for r in baseline['inventory']['owners']}
     check('Eight reviewed parents originally Prussian in the three allowed regions',len(geometry['parents'])==8 and all(old[r][0] in work.core.REGIONS and old[r][1]=='PRU' for r in geometry['parents']))
     totals={}
+    lots=approved_lot_dirs();later=lots[lots.index(out)+1:]
+    later_geometries=[json.loads((lot/'GEOMETRY.json').read_text()) for lot in later]
     for parent in geometry['parents']:
         y,x=np.where(before==int(parent[1:],16));cells=np.column_stack((x,y))
         points=(cells+.5-matrix[2])@np.linalg.inv(matrix[:2]);expected=np.full(len(cells),'PRU',dtype='U3')
@@ -41,14 +43,20 @@ def source_checks(check,out,current,baseline,alignment,tracing,plan):
             selected=inside(points,polygon['points'])
             for hole in polygon.get('exclusions',[]):selected&=~inside(points,hole['points'])
             expected[selected]=polygon['owner']
+        lookup={(int(cx),int(cy)):i for i,(cx,cy) in enumerate(cells)}
+        for geo in later_geometries:
+            for row in geo['assignments']:
+                for cx,cy in row['cells']:
+                    index=lookup.get((cx,cy))
+                    if index is not None:expected[index]=row['owner']
         actual=np.array([owners['x'+format(int(after[cy,cx]),'06X')] for cx,cy in cells])
-        check('Every cell follows source boundary/exclusions '+parent,np.array_equal(actual,expected))
+        check('Every cell follows original source boundary and exact later reviewed corrections '+parent,np.array_equal(actual,expected))
         for tag in ['WPM','WPD','KPF']:totals[tag]=totals.get(tag,0)+int((actual==tag).sum())
     check('Exactly 1081 ownership cells restored',totals=={'WPM':427,'WPD':296,'KPF':358})
     expected_outside=counter([r for r in baseline['inventory']['owners'] if r['key'][1] not in work.core.REGIONS])
     lots=approved_lot_dirs()
-    for later in lots[lots.index(out)+1:]:
-        declared=json.loads((later/'REGISTRY_MIGRATION.json').read_text())
+    for later_lot in lots[lots.index(out)+1:]:
+        declared=json.loads((later_lot/'REGISTRY_MIGRATION.json').read_text())
         for row in ownership_rows(declared,'previous'):
             if row['state'] not in work.core.REGIONS:expected_outside[(row['rgb'],row['state'],row['beneficiary'])]-=1
         for row in ownership_rows(declared,'updated'):
@@ -56,8 +64,15 @@ def source_checks(check,out,current,baseline,alignment,tracing,plan):
     check('All owners outside this lot unchanged except exact later reviewed migrations',
           +expected_outside==counter([r for r in current['owners'] if r['key'][1] not in work.core.REGIONS]))
     for tag in ['KCL','LIP','SCM']:
-        check('Existing electorate/county allocation unchanged '+tag,
-              [r for r in current['owners'] if r['key'][2]==tag]==[r for r in baseline['inventory']['owners'] if r['key'][2]==tag])
+        expected_tag=counter([r for r in baseline['inventory']['owners'] if r['key'][2]==tag])
+        for lot in later:
+            declared=json.loads((lot/'REGISTRY_MIGRATION.json').read_text())
+            for row in ownership_rows(declared,'previous'):
+                if row['beneficiary']==tag:expected_tag[(row['rgb'],row['state'],tag)]-=1
+            for row in ownership_rows(declared,'updated'):
+                if row['beneficiary']==tag:expected_tag[(row['rgb'],row['state'],tag)]+=1
+        check('Existing electorate/county allocation unchanged except exact later reviewed corrections '+tag,
+              +expected_tag==counter([r for r in current['owners'] if r['key'][2]==tag]))
     regions={n.key:n for n in parser.parse((work.core.ROOT/'map_data/state_regions/00_west_europe.txt').read_text(encoding='utf-8-sig'))}
     original_regions={n.key:n for n in parser.parse(baseline['originals']['map_data/state_regions/00_west_europe.txt'])}
     for sid in work.core.REGIONS:
@@ -79,7 +94,8 @@ def source_checks(check,out,current,baseline,alignment,tracing,plan):
         row=next(r for r in anchors if r['Hub_Name']==name);x,y=int(float(row['Locator_X'])),int(float(row['Locator_Y']))
         check('Core engine anchor remains represented '+name,owners['x'+format(int(after[y,x]),'06X')]==tag)
     check('Existing Prussian recruiting subdivisions survive',all([sid,'PRU'] in current['states'] for sid in work.core.REGIONS))
-    check('Exactly two declared new countries',set(current['countries'])-set(baseline['inventory']['countries'])=={'WPM','WPD'})
+    declared_new={'WPM','WPD'} | {tag for lot in later for tag in json.loads((lot/'REGISTRY_MIGRATION.json').read_text()).get('country_additions',{})}
+    check('Exactly two original countries and explicit later additions',set(current['countries'])-set(baseline['inventory']['countries'])==declared_new)
     law_nodes={n.key:n for path in effective(work.core.ROOT,work.core.qa.GAME,'common/laws') for n in parser.parse(path.read_text(encoding='utf-8-sig'))}
     template=(work.core.ROOT/'common/history/countries/fbm - franconian estate.txt').read_text(encoding='utf-8-sig')
     template_tech=set(re.findall(r'add_technology_researched\s*=\s*(\w+)',template))

@@ -1,0 +1,318 @@
+*** Begin Patch
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\hoh - hohenzollern.txt
++CHARACTERS = { c:HOH ?= { create_character = { first_name = aor1776_hoh_first last_name = aor1776_hoh_last historical = yes culture = south_german religion = rel:catholic ruler = yes birth_date = 1717.11.12 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\government_types\00_1776_map2l_swabia.txt
+@@
+  new_leader_on_reform_government = no
+  male_ruler = "aor1776_city_councillor_title"
+  female_ruler = "aor1776_city_councillor_title"
+  possible = { c:SUU ?= this has_law = law_type:law_aor1776_ulm_council }
+  on_government_type_change = { change_to_presidential_elective = yes }
+  on_post_government_type_change = { post_change_to_presidential_elective = yes }
+ }
+ gov_aor1776_baden_margraviate = {
+  transfer_of_power = hereditary
+  male_ruler = "aor1776_baden_margrave_title"
+  female_ruler = "aor1776_baden_margravine_title"
+  possible = { c:BAD ?= this has_law = law_type:law_monarchy }
+  on_government_type_change = { change_to_hereditary = yes }
+  on_post_government_type_change = { post_change_to_hereditary = yes }
+ }
++gov_aor1776_swabian_principality = {
++ transfer_of_power = hereditary
++ male_ruler = "RULER_TITLE_PRINCE"
++ female_ruler = "RULER_TITLE_PRINCESS"
++ possible = { OR = { c:HOH ?= this c:HSG ?= this } has_law = law_type:law_monarchy }
++ on_government_type_change = { change_to_hereditary = yes }
++ on_post_government_type_change = { post_change_to_hereditary = yes }
++}
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\english\1776_map2l_swabia_l_english.yml
+@@
+  aor1776_hsg_last:0 "von Hohenzollern-Sigmaringen"
+  aor1776_sag_first:0 "Clemens Wenzeslaus"
+  aor1776_sag_last:0 "von Sachsen"
+  aor1776_ske_first:0 "Honorius"
+  aor1776_ske_last:0 "Roth von Schreckenstein"
+  gov_aor1776_ulm_council:0 "Patrician city council"
+  gov_aor1776_baden_margraviate:0 "Margraviate"
+  aor1776_baden_margrave_title:0 "Margrave"
+  aor1776_baden_margravine_title:0 "Margravine"
+  law_aor1776_swabian_customs:0 "Early-modern imperial customs"
+  law_aor1776_swabian_free_status:0 "Free status in the imperial estates"
+  law_aor1776_ulm_council:0 "Patrician imperial republic"
+  law_aor1776_swabian_customs_desc:0 "Local regulated commerce, without granting later technology."
+  law_aor1776_swabian_free_status_desc:0 "Free legal status at start; serfdom is separate."
+  law_aor1776_ulm_council_desc:0 "Established imperial city council, not a modern national republic."
++ aor1776_hoh_first:0 "Joseph Friedrich Wilhelm"
++ aor1776_hoh_last:0 "von Hohenzollern-Hechingen"
++ gov_aor1776_swabian_principality:0 "Principality"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\1776_map2l_swabia_l_french.yml
+@@
+  aor1776_hsg_last:0 "de Hohenzollern-Sigmaringen"
+  aor1776_sag_first:0 "Clément-Wenceslas"
+  aor1776_sag_last:0 "de Saxe"
+  aor1776_ske_first:0 "Honorius"
+  aor1776_ske_last:0 "Roth von Schreckenstein"
+  gov_aor1776_ulm_council:0 "Conseil urbain patricien"
+  gov_aor1776_baden_margraviate:0 "Margraviat"
+  aor1776_baden_margrave_title:0 "Margrave"
+  aor1776_baden_margravine_title:0 "Margravine"
+  law_aor1776_swabian_customs:0 "Douanes impériales d’Ancien Régime"
+  law_aor1776_swabian_free_status:0 "Statut libre dans les États impériaux"
+  law_aor1776_ulm_council:0 "République impériale patricienne"
+  law_aor1776_swabian_customs_desc:0 "Commerce réglementé local, sans technologie tardive accordée."
+  law_aor1776_swabian_free_status_desc:0 "Statut juridique libre de départ ; servage distinct."
+  law_aor1776_ulm_council_desc:0 "Conseil d’une ville impériale établie, pas une république nationale moderne."
++ aor1776_hoh_first:0 "Joseph-Frédéric-Guillaume"
++ aor1776_hoh_last:0 "de Hohenzollern-Hechingen"
++ gov_aor1776_swabian_principality:0 "Principauté"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ create_state = { country = c:WPM owned_provinces = { xEDAC06 x4101E0 xEDAC0B xEDAC0D xEDAC0E } }
+ create_state = { country = c:WPO owned_provinces = { xEDAC03 xEDAC05 xEDAC0A } }
+ }
+ 	s:STATE_BAVARIA = {
+ 		create_state = {
+ 			country = c:BAV
+ 			owned_provinces = { x68CE1C xE76994 x6EA29B xE75868 xB00121 x18A2E1 x565185 xB08021 xFE59E7 x8C26DD x3101A0 x010AD7 x318021 x82F4B9 xA7094D xEDA805 xEDA806 xC347B1 x704A5F xEDAD0B }
+ 		}
+ 
+ 		add_homeland = cu:south_german
+ 
+ 		create_state = { country = c:ANS owned_provinces = { xEDA800 } }
+ 		create_state = { country = c:EIC owned_provinces = { xEDA801 xEDA802 xEDA803 } }
+ 		create_state = { country = c:FBM owned_provinces = { xEDA804 xEDA807 } }
+ 		create_state = { country = c:NUR owned_provinces = { xEDA808 } }
+-	
++
+ create_state = { country = c:AUS owned_provinces = { xEDAD09 } }
+ create_state = { country = c:SAG owned_provinces = { xEDAD0A xEDAD0C } }
+ create_state = { country = c:SKE owned_provinces = { xEDAD0D } }
+ }
+ 	s:STATE_FRANCONIA = {
+ 		create_state = { country = c:ANS owned_provinces = { xEDA200 xEDA205 xEDA208 xD041A0 xEDA217 xF91154 } }
+ 		create_state = { country = c:BAV owned_provinces = { xEDA201 xEDA202 xEDA209 xEDA20A xEDA20B xEDA210 xEDA212 xEDA213 xEDA218 xEDA219 xEDA21A xEDA21B xEDA21F xEDA220 xEDA504 xEDA505 xEDA506 xEDA507 xEDA206 } }
+ 		create_state = { country = c:COB owned_provinces = { xEDA20C xEDA221 } }
+ 		create_state = { country = c:EIC owned_provinces = { xEDA21C } }
+ 		create_state = { country = c:FBM owned_provinces = { xEDA203 x648AD1 xEDA211 xEDA214 xEDA215 xEDA21D xEDA222 } }
+ 		create_state = { country = c:NUR owned_provinces = { xEDA204 xEDA216 xD0C0A0 } }
+ 		create_state = { country = c:WZB owned_provinces = { x0B0DBA x51C0A0 xEDA207 xEDA20D xEDA20E xEDA20F xA55FB1 xEDA21E } }
+ 
+ 		add_homeland = cu:south_german
+ 	
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 		region_state:KMZ = {
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 5845
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				size = 3811
+ 			}
+ create_pop = {
+ 				culture = alemannic
+ 				size = 1193
+ 			}
+ 		}
+-	
++
+ 		region_state:HSG = {
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 1636
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				size = 853
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 3188
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				size = 2079
+ 			}
+ create_pop = {
+ 				culture = alemannic
+ 				size = 651
+ 			}
+ 		}
+-	
++
+ 		region_state:SUU = {
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 5845
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				size = 3811
+ 			}
+ create_pop = {
+ 				culture = alemannic
+ 				size = 1193
+ 			}
+ 		}
+@@
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 73
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 9163
+ 			}
+ create_pop = {
+ 				culture = alemannic
+ 				size = 5226
+ 			}
+ 		}
+-	
++
+ 		region_state:AUS = {
+ create_pop = {
+ 				culture = south_german
+ 				size = 47367
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 105
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 13133
+ 			}
+ create_pop = {
+ 				culture = alemannic
+ 				size = 7490
+ 			}
+ 		}
+-	
++
+ 		region_state:HSG = {
+ create_pop = {
+ 				culture = south_german
+ 				size = 3855
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 8
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 1069
+ 			}
+ create_pop = {
+@@
+ 		region_state:NUR = {
+ 			create_pop = {
+ 				culture = south_german
+ 				size = 4570
+ 			}
+ 			create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 150
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 14
+ 			}
+ 		}
+-	
++
+ 		region_state:AUS = {
+ create_pop = {
+ 				culture = south_german
+ 				size = 9843
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 322
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 29
+ 			}
+ 		}
+-	
++
+ 		region_state:SAG = {
+ create_pop = {
+ 				culture = south_german
+ 				size = 16523
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 540
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 49
+ 			}
+ 		}
+-	
++
+ 		region_state:SKE = {
+ create_pop = {
+ 				culture = south_german
+ 				size = 5976
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 195
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 18
+ 			}
+ 		}
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\98_build_start_1776_world_redistribution.txt
+@@
+ 		
+ create_building = {
+ 				building = "building_livestock_ranch"
+ 				add_ownership = {
+ 					building = {
+ 						type = "building_manor_house"
+ 						country = "c:BAD"
+ 						levels = 1
+ 						region = "STATE_BADEN"
+ 					}
+ 				}
+ 				reserves = 1
+ 				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+ 			}
+ 		}
+-	
++
+ 		region_state:AUS = {
+ create_building = {
+ 				building = "building_livestock_ranch"
+ 				add_ownership = {
+ 					building = {
+ 						type = "building_manor_house"
+ 						country = "c:BAD"
+ 						levels = 1
+ 						region = "STATE_BADEN"
+ 					}
+ 				}
+ 				reserves = 1
+ 				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+ 			}
+ 		}
+*** End Patch

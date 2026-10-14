@@ -34,7 +34,8 @@ def augment(files,ledger,members,electors):
  files[DA]=edits(files[DA],[(p.end-1,p.end-1,'\n auto_support_type = dp_aor1776_hre_subject_release\n')])
  trig='common/scripted_triggers/1776_imperial_constitution.txt'
  files[trig]+=block('aor1776_hre_under_imperial_authority','aor1776_hre_member = yes\nNOT = { top_overlord ?= { aor1776_hre_member = no } }')
- cities=['LUB','HAM','BRE','FRM']+(['NUR'] if 'NUR' in members else [])
+ from map2l_registry import additional_free_cities
+ cities=list(dict.fromkeys(['LUB','HAM','BRE','FRM']+[t for t in additional_free_cities() if t in members]))
  files[trig]+=block('aor1776_hre_free_city','aor1776_hre_member = yes\nOR = { '+' '.join('c:'+t+' ?= this' for t in cities)+' }')
  L('aor1776_hre_under_imperial_authority_tt','An imperial estate not subject to an external overlord.','Un État impérial non soumis à un suzerain extérieur.')
  L('aor1776_hre_free_city_tt','A recognised imperial free city.','Une ville libre impériale reconnue.')

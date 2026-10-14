@@ -11,6 +11,16 @@ def additional_members():
     if active_registry_path().parent.name=='MAP2L':return ['LGE','STM','SAR']+[t for m in approved_territorial_migrations() for t in m['new_members']]
     return []
 
+def additional_free_cities():
+    """Only explicitly declared city estates, not every republican member."""
+    result=[]
+    for migration in approved_territorial_migrations():
+        cities=migration.get('free_cities',[])
+        assert set(cities)<=set(migration['new_members'])
+        for tag in cities:
+            if tag not in result:result.append(tag)
+    return result
+
 def member_region_overrides():
     # Membership is country-wide, whereas territorial rights are explicit.
     # Do not register Sardinia, Savoy or every other possession of this member.
@@ -26,7 +36,7 @@ def approved_territorial_migrations():
 
 def approved_lot_dirs():
     # Ordered explicit manifests only; no directory discovery or broad allowlist.
-    return [ROOT/'docs/reports/map/MAP2L'/name for name in ['FRANCONIA','RHINE_CENTRAL','MAINZ_PALATINATE','MAINZ_ESTATES','MAINZ_COMPLETION','MILAN_CREMONESE','FRANCONIA_CONTINUATION','RHINE_WESTPHALIA','MINDEN_RAVENSBERG']
+    return [ROOT/'docs/reports/map/MAP2L'/name for name in ['FRANCONIA','RHINE_CENTRAL','MAINZ_PALATINATE','MAINZ_ESTATES','MAINZ_COMPLETION','MILAN_CREMONESE','FRANCONIA_CONTINUATION','RHINE_WESTPHALIA','MINDEN_RAVENSBERG','DUCHY_WESTPHALIA','RHINE_WESTPHALIA_COMPLETION','SWABIA']
             if (ROOT/'docs/reports/map/MAP2L'/name/'REGISTRY_MIGRATION.json').exists()]
 
 def effective_assignments(geometries):
@@ -42,6 +52,18 @@ def expected_country_definitions(before,migrations):
     """Only exact declared additions; never waive preservation of an old tag."""
     expected=dict(before)
     for migration in migrations:
+        # A reviewed Swabian correction, not a permission to rewrite an old
+        # country. Reconstruct the resulting signature by changing tier only.
+        for change in migration.get('country_tier_corrections',[]):
+            tag=change['tag']
+            assert tag=='WUR' and change['before']=='kingdom' and change['after']=='principality'
+            assert expected[tag]==change['before_signature']
+            node=json.loads(expected[tag]);tiers=[v for v in node[2] if v[0]=='tier']
+            assert len(tiers)==1 and tiers[0][2]==change['before']
+            tiers[0][2]=change['after']
+            signature=json.dumps(node,ensure_ascii=False,separators=(',',':'))
+            assert signature==change['after_signature'],'Only WUR tier may change'
+            expected[tag]=signature
         additions=migration.get('country_additions',{})
         assert set(additions)<=set(migration['new_members'])
         for tag,signature in additions.items():

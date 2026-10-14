@@ -1,5 +1,6 @@
 """Negative tests: cumulative approvals must not waive unrelated preservation."""
 import unittest
+import json
 from map2l_registry import expected_country_definitions,rebind_state_definitions
 
 REGION='STATE_WESTPHALIA = { id = 61 provinces = { "x1DD141" "x218061" } wood = "x1DD141" prime_land = { "x1DD141" } arable_land = 60 }'
@@ -23,6 +24,25 @@ class ExplicitMigrationTests(unittest.TestCase):
 
     def test_undeclared_country_rejected(self):
         with self.assertRaises(AssertionError):expected_country_definitions({},[{'new_members':[],'country_additions':{'WPM':'planned'}}])
+
+    def tier_case(self):
+        before=json.dumps(['WUR','=',[['tier','=','kingdom'],['capital','=','STATE_WURTTEMBERG']]],separators=(',',':'))
+        after=before.replace('kingdom','principality')
+        change=dict(tag='WUR',before='kingdom',after='principality',before_signature=before,after_signature=after)
+        return before,after,dict(new_members=[],country_tier_corrections=[change])
+
+    def test_exact_wur_duchy_tier_correction(self):
+        before,after,migration=self.tier_case()
+        self.assertEqual(expected_country_definitions({'WUR':before},[migration]),{'WUR':after})
+
+    def test_tier_correction_cannot_change_capital(self):
+        before,_,migration=self.tier_case()
+        migration['country_tier_corrections'][0]['after_signature']=migration['country_tier_corrections'][0]['after_signature'].replace('STATE_WURTTEMBERG','STATE_BAVARIA')
+        with self.assertRaises(AssertionError):expected_country_definitions({'WUR':before},[migration])
+
+    def test_tier_correction_cannot_target_another_country(self):
+        before,_,migration=self.tier_case();migration['country_tier_corrections'][0]['tag']='PRU'
+        with self.assertRaises(AssertionError):expected_country_definitions({'WUR':before},[migration])
 
     def test_hub_reference_only_changes_declared_field(self):
         result=rebind_state_definitions(REGION,[self.migration()])

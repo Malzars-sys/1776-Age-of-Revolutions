@@ -1,0 +1,25 @@
+gov_aor1776_ulm_council = {
+ transfer_of_power = presidential_elective
+ new_leader_on_reform_government = no
+ male_ruler = "aor1776_city_councillor_title"
+ female_ruler = "aor1776_city_councillor_title"
+ possible = { c:SUU ?= this has_law = law_type:law_aor1776_ulm_council }
+ on_government_type_change = { change_to_presidential_elective = yes }
+ on_post_government_type_change = { post_change_to_presidential_elective = yes }
+}
+gov_aor1776_baden_margraviate = {
+ transfer_of_power = hereditary
+ male_ruler = "aor1776_baden_margrave_title"
+ female_ruler = "aor1776_baden_margravine_title"
+ possible = { c:BAD ?= this has_law = law_type:law_monarchy }
+ on_government_type_change = { change_to_hereditary = yes }
+ on_post_government_type_change = { post_change_to_hereditary = yes }
+}
+gov_aor1776_swabian_principality = {
+ transfer_of_power = hereditary
+ male_ruler = "RULER_TITLE_PRINCE"
+ female_ruler = "RULER_TITLE_PRINCESS"
+ possible = { OR = { c:HOH ?= this c:HSG ?= this } has_law = law_type:law_monarchy }
+ on_government_type_change = { change_to_hereditary = yes }
+ on_post_government_type_change = { post_change_to_hereditary = yes }
+}

@@ -4,25 +4,30 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 RECEIPT=ROOT/'docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION.json'
+LATER_RECEIPTS=[RECEIPT.parent/'RUNTIME_USER_VALIDATION_RHINE_SWABIA.json']
+
+def receipts():
+    return [(path,json.loads(path.read_text(encoding='utf-8'))) for path in [RECEIPT]+LATER_RECEIPTS if path.exists()]
 
 def annotate(report,lot):
-    if not RECEIPT.exists():return report
-    receipt=json.loads(RECEIPT.read_text(encoding='utf-8'))
-    if Path(lot).name not in receipt['lot_reports']:return report
+    matched=[(path,r) for path,r in receipts() if Path(lot).name in r['lot_reports']]
+    if not matched:return report
+    path,receipt=matched[-1]
     report['runtime_status']=receipt['status']
     report['runtime_user_validation']={
-        'receipt':RECEIPT.relative_to(ROOT).as_posix(),
+        'receipt':path.relative_to(ROOT).as_posix(),
         'date':receipt['date'],'method':receipt['method'],
         'coverage':receipt['coverage'],
         'automated_engine_test':False,'historical_boundary_certification':False,
         'new_minden_sublot_included':False,
+        'duration':receipt.get('duration','Not enumerated by user'),
         'static_results_unchanged':True,
         'legacy_engine_tested_field':'Automated assistant engine testing only; manual user testing is separately recorded here.'}
     return report
 
 def apply_existing():
-    receipt=json.loads(RECEIPT.read_text(encoding='utf-8'))
-    for name in receipt['lot_reports']:
+    names=list(dict.fromkeys(name for _,receipt in receipts() for name in receipt['lot_reports']))
+    for name in names:
         path=RECEIPT.parent/name/'VALIDATION.json'
         report=json.loads(path.read_text(encoding='utf-8'))
         annotate(report,name)

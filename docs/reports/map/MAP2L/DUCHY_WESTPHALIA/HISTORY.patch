@@ -1,0 +1,836 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 		add_homeland = cu:serb
+ 		add_claim = c:SER
+ 	}
+ 	s:STATE_POSEN = {
+ 		create_state = {
+ 			country = c:PLC
+ 			owned_provinces = { x1FA1E1 x2141A0 x2E6001 x999CEE xC32D8B xE513C0 x085962 xC02121 xFCC7B7 xF962B2 x41E0A0 x635336 }
+ 		}
+ 		add_claim = c:PRU
+ 		add_homeland = cu:north_german
+ 		add_homeland = cu:polish
+ 	}
+ 	s:STATE_WESTPHALIA = {
+ 		create_state = {
+ 			country = c:PRU
+-			owned_provinces = { xA08061 x418021 xEDA900 xEDA901 xEDA902 xEDA904 xEDA905 xEDA906 xEDA907 xEDA908 xEDA909 xEDA90A x4101A0 }
++			owned_provinces = { xEDA900 xEDA901 xEDA902 xEDA904 xEDA905 xEDA906 xEDA907 xEDA908 xEDA909 xEDA90A x418021 x4101A0 xEDAB01 xEDAB02 xA08061 }
+ 		}
+ 		create_state = {
+ 			country = c:LIP
+ 			owned_provinces = { x9F0060 }
+ 		}
+ 		create_state = {
+ 			country = c:SCM
+ 			owned_provinces = { x1BA4F6 }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+ 
+ create_state = { country = c:WPD owned_provinces = { x218061 xEDA90B } }
+ create_state = { country = c:WPM owned_provinces = { x1DD141 xEDA903 x910095 } }
++
++create_state = { country = c:KCL owned_provinces = { xEDAB00 xEDAB03 xEDAB04 xEDAB05 xEDAB06 xEDAB07 } }
+ }
+ 	s:STATE_ANHALT = {
+ 		create_state = {
+ 			country = c:PRU
+ 			owned_provinces = { xA080E0 x12694A x618061 xCF5D8E x34386E xCBA4A5 xE0C0A0 xA51232 x3C9B93 }
+ 		}
+ 		create_state = {
+ 			country = c:ANH
+ 			owned_provinces = { x8A448C xED8F7B }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+ 	}
+ 	s:STATE_WEST_PRUSSIA = {
+ 		create_state = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     wood = "xA042B5"
+     arable_land = 50
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_vineyard" }
+     capped_resources = {
+         building_coal_mine = 48
+         building_iron_mine = 24
+         building_lead_mine = 24
+         building_logging_camp = 6
+         building_limestone_quarry = 48
+     }
+ }
+ 
+ STATE_WESTPHALIA = {
+     id = 61
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x1BA4F6" "x418021" "x9F0060" "xA08061" "xEDA900" "xEDA901" "xEDA902" "x1DD141" "xEDA903" "xEDA904" "xEDA905" "xEDA906" "x910095" "xEDA907" "xEDA908" "xEDA909" "xEDA90A" "x218061" "x4101A0" "xEDA90B" }
+-    prime_land = { "x418021" "xA08061" "xEDA907" "xEDA908" "xEDA909" "xEDA90A" "x218061" "xEDA900" "xEDA901" "xEDA902" "x1DD141" "xEDA903" }
++    provinces = { "x1BA4F6" "x9F0060" "xEDA900" "xEDA901" "xEDA902" "x1DD141" "xEDA903" "xEDA904" "xEDA905" "xEDA906" "x910095" "xEDA907" "xEDA908" "xEDA909" "xEDA90A" "x218061" "xEDA90B" "x418021" "xEDAB00" "x4101A0" "xEDAB01" "xEDAB02" "xEDAB03" "xEDAB04" "xEDAB05" "xEDAB06" "xA08061" "xEDAB07" }
++    prime_land = { "x418021" "xEDAB00" "xA08061" "xEDAB07" "xEDA907" "xEDA908" "xEDA909" "xEDA90A" "x218061" "xEDA900" "xEDA901" "xEDA902" "x1DD141" "xEDA903" }
+     traits = { "state_trait_ruhr_coalfield" }
+     city = "xA08061"
+     farm = "x1DD141"
+     mine = "x218061"
+     wood = "xEDA900"
+     arable_land = 60
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_coal_mine = 80
+         building_iron_mine = 36
+         building_sulfur_mine = 32
+         building_logging_camp = 24
+         building_limestone_quarry = 28
+         building_copper_mine = 16
+     }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 				culture = alemannic
+ 				size = 352119
+ 			}
+ 			create_pop = {
+ 				culture = alemannic
+ 				religion = catholic
+ 				size = 161175
+ 			}
+ 		}
+ 	}
+ 	s:STATE_WESTPHALIA = {
+ 		region_state:PRU = {
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+-				size = 171367
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 224
+-			}
+-			create_pop = {
+-				culture = north_german
+-				size = 112610
++				size = 154706
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 202
++			}
++			create_pop = {
++				culture = north_german
++				size = 101662
+ 			}
+ 		}
+ 		region_state:LIP = {
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 39164
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 21322
+ 			}
+ 		}
+ 		region_state:SCM = {
+ 			create_pop = {
+@@
+ 		}
+ 
+ 		region_state:WPD = {
+ create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 58709
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 77
+ 			}
+ create_pop = {
+ 				culture = north_german
+ 				size = 38579
++			}
++		}
++	
++		region_state:KCL = {
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 16661
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 22
++			}
++create_pop = {
++				culture = north_german
++				size = 10948
+ 			}
+ 		}
+ 	}
+ 	s:STATE_ANHALT = {
+ 		region_state:PRU = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 488371
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 75108
+ 			}
+ 			create_pop = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "rgb": "x3F1E38",
+     "state": "STATE_LOMBARDY",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x400226",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x4101A0",
+     "state": "STATE_WESTPHALIA",
+     "beneficiary": "PRU",
+-    "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x4101E0",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "OLD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x418021",
+     "state": "STATE_WESTPHALIA",
+     "beneficiary": "PRU",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x418061",
+     "state": "STATE_ELBE",
+     "beneficiary": "HAN",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x43CE26",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SAX",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x43D537",
+@@
+     "rgb": "xA040A0",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA04121",
+     "state": "STATE_POMERANIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA08061",
+     "state": "STATE_WESTPHALIA",
+     "beneficiary": "PRU",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xA080E0",
+     "state": "STATE_ANHALT",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA0C020",
+     "state": "STATE_POMERANIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA40093",
+@@
+     "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDAA02",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "HAN",
+     "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDAA03",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "HAN",
+     "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
++    "rgb": "xEDAB00",
++    "state": "STATE_WESTPHALIA",
++    "beneficiary": "KCL",
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAB01",
++    "state": "STATE_WESTPHALIA",
++    "beneficiary": "PRU",
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAB02",
++    "state": "STATE_WESTPHALIA",
++    "beneficiary": "PRU",
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAB03",
++    "state": "STATE_WESTPHALIA",
++    "beneficiary": "KCL",
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAB04",
++    "state": "STATE_WESTPHALIA",
++    "beneficiary": "KCL",
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAB05",
++    "state": "STATE_WESTPHALIA",
++    "beneficiary": "KCL",
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAB06",
++    "state": "STATE_WESTPHALIA",
++    "beneficiary": "KCL",
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAB07",
++    "state": "STATE_WESTPHALIA",
++    "beneficiary": "KCL",
++    "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\DUCHY_WESTPHALIA\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_RUHR",
++    "STATE_WESTPHALIA"
++  ],
++  "previous": [
++    {
++      "rgb": "x0180E0",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x1BA4F6",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "SCM",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x1DD141",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPM",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x2101E0",
++      "state": "STATE_RUHR",
++      "beneficiary": "KPF",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x218061",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPD",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x4101A0",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x418021",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x5101A0",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x910095",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPM",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x9F0060",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "LIP",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA08061",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD08021",
++      "state": "STATE_RUHR",
++      "beneficiary": "KPF",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA900",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA901",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA902",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA903",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPM",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA904",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA905",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA906",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA907",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA908",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA909",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90A",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90B",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPD",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90C",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90D",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90E",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90F",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA910",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA911",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x0180E0",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x1BA4F6",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "SCM",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x1DD141",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPM",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x2101E0",
++      "state": "STATE_RUHR",
++      "beneficiary": "KPF",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x218061",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPD",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x5101A0",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x910095",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPM",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x9F0060",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "LIP",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD08021",
++      "state": "STATE_RUHR",
++      "beneficiary": "KPF",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA900",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA901",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA902",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA903",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPM",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA904",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA905",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA906",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA907",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA908",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA909",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90A",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90B",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "WPD",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90C",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90D",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90E",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA90F",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA910",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA911",
++      "state": "STATE_RUHR",
++      "beneficiary": "PRU",
++      "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x418021",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAB00",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "KCL",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x4101A0",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAB01",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAB02",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAB03",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "KCL",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAB04",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "KCL",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAB05",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "KCL",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAB06",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "KCL",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xA08061",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "PRU",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAB07",
++      "state": "STATE_WESTPHALIA",
++      "beneficiary": "KCL",
++      "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    }
++  ],
++  "new_members": [],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDAB00",
++      "parent_rgb": "x418021"
++    },
++    {
++      "rgb": "xEDAB01",
++      "parent_rgb": "x4101A0"
++    },
++    {
++      "rgb": "xEDAB02",
++      "parent_rgb": "x4101A0"
++    },
++    {
++      "rgb": "xEDAB03",
++      "parent_rgb": "x4101A0"
++    },
++    {
++      "rgb": "xEDAB04",
++      "parent_rgb": "x4101A0"
++    },
++    {
++      "rgb": "xEDAB05",
++      "parent_rgb": "x4101A0"
++    },
++    {
++      "rgb": "xEDAB06",
++      "parent_rgb": "x4101A0"
++    },
++    {
++      "rgb": "xEDAB07",
++      "parent_rgb": "xA08061"
++    }
++  ],
++  "geometry": "DUCHY_WESTPHALIA/GEOMETRY.json",
++  "region_reference_changes": [
++    {
++      "state": "STATE_WESTPHALIA",
++      "field": "prime_land",
++      "before": [
++        "x418021",
++        "xA08061",
++        "xEDA907",
++        "xEDA908",
++        "xEDA909",
++        "xEDA90A",
++        "x218061",
++        "xEDA900",
++        "xEDA901",
++        "xEDA902",
++        "x1DD141",
++        "xEDA903"
++      ],
++      "after": [
++        "x418021",
++        "xEDAB00",
++        "xA08061",
++        "xEDAB07",
++        "xEDA907",
++        "xEDA908",
++        "xEDA909",
++        "xEDA90A",
++        "x218061",
++        "xEDA900",
++        "xEDA901",
++        "xEDA902",
++        "x1DD141",
++        "xEDA903"
++      ]
++    }
++  ]
++}
+*** End Patch
