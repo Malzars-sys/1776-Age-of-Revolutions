@@ -123,8 +123,21 @@ def restore(repo,label,materialize=True):
     for item in git('ls-tree','-rz',prepared['commit'],repo=repo).split(b'\0'):
         if item:
             meta,name=item.split(b'\t',1);mode,kind,oid=meta.decode().split();assert kind=='blob';entries.append((name.decode(),oid))
+    extras={name:oid for name,oid in entries if name not in expected}
+    assert set(extras)=={'_checkpoint/MAP2L_RHINE_SWABIA_MANIFEST.json','docs/backups/BACKUP_POLICY.md','docs/backups/CURRENT_CHECKPOINT_MANIFEST.json'},'Unexpected or missing snapshot files'
+    assert set(expected)<={name for name,_ in entries},'Missing source files'
+    # The two old backup metadata files are preserved historical records, not
+    # the authoritative new manifest in _checkpoint. Check their full bytes too.
+    reference=SESSION/'snapshot.git'
+    for name,oid in extras.items():
+        expected_oid=git('rev-parse',prepared['commit']+':'+name,repo=reference).decode().strip()
+        assert oid==expected_oid
+        raw=git('cat-file','blob',oid,repo=reference)
+        if name.startswith('_checkpoint/'):
+            assert raw==(SESSION/'MANIFEST.json').read_bytes()
+        expected[name]=dict(bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest(),git_blob=oid)
+        delta.add(name)
     proc=subprocess.Popen([GIT,'--git-dir='+str(repo),'cat-file','--batch'],stdin=subprocess.PIPE,stdout=subprocess.PIPE,env=ENV)
-    assert {name for name,_ in entries}==set(expected)|{'_checkpoint/MAP2L_RHINE_SWABIA_MANIFEST.json'},'Unexpected or missing snapshot files'
     checked=0;written=0;total=0
     for name,oid in entries:
         if name not in expected:continue
@@ -156,7 +169,8 @@ def restore(repo,label,materialize=True):
 
 def publish():
     guard();prepared=json.loads((SESSION/'PREPARED.json').read_text())
-    assert json.loads((SESSION/'RESTORE_local.json').read_text())['status'].startswith('PASS')
+    restored=json.loads((SESSION/'RESTORE_local.json').read_text())
+    assert restored['status'].startswith('PASS') and restored['commit']==prepared['commit'],'Current commit must pass restoration before publication'
     refs=remote_refs();old=json.loads((SESSION/'REMOTE_BEFORE.json').read_text());assert refs==old,'Remote changed; do not overwrite'
     for r in json.loads((SESSION/'MANIFEST.json').read_text())['files']:assert sha(ROOT/r['path'])==r['sha256'],('Source changed since snapshot',r['path'])
     git('push',REMOTE,'refs/heads/'+BRANCH+':refs/heads/'+BRANCH,repo=SESSION/'snapshot.git')

@@ -23,3 +23,7 @@ Cloner la branche `backup/1776-checkpoints` dans un **nouveau dossier vide**, av
 Le manifeste `docs/backups/CURRENT_CHECKPOINT_MANIFEST.json` contient les chemins relatifs, tailles et SHA-256 de tous les fichiers retenus. Comparer chaque fichier restauré à cette liste. Les exclusions sont intentionnelles : le checkpoint restaure l'état du mod, pas les caches ou les parties locales.
 
 Les données historiques de baseline conservées permettent de préparer ultérieurement des points séparés MAP-2A/B/C lorsque leur reconstruction exacte est démontrable. Ne pas inventer de commits historiques à partir d'une baseline seulement partielle.
+
+## MAP-2L Rhine-Westphalia and Swabia user-validated checkpoint
+
+CURRENT_CHECKPOINT_MANIFEST.json now contains the current full source manifest and matches _checkpoint/MAP2L_RHINE_SWABIA_MANIFEST.json. The backup metadata files do not hash themselves. Gameplay is identical to the independently restored 0a66418 snapshot. Only metadata and the checkpoint-helper safety checks changed afterward. The later Swabia continuation is deliberately not included. Restore sources using this manifest; never overwrite the development workspace.
