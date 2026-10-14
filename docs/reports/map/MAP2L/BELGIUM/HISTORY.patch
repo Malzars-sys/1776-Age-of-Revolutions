@@ -1,0 +1,647 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 		add_homeland = cu:portuguese
+ 	}
+ 	s:STATE_WALLONIA = {
+-		create_state = {
+-			country = c:BEO
+-			owned_provinces = { xB0A0C0 x916574 x2D32D7 x8080A0 xEF2040 x3A5FB9 x5180A0 xD001A0 }
+-		}
++		create_state = { country = c:BEO owned_provinces = { xEDA101 x2D32D7 xEDA102 xEDA103 xEDA104 xEDA105 xEDA106 x3A5FB9 x5180A0 x8080A0 x916574 xEDA116 xEDA117 xEDA118 xEDA119 xEDA11A xB0A0C0 xD001A0 xEDA11E xEDA11F xEDA120 xEDA121 xEDA122 } }
++		create_state = { country = c:LGE owned_provinces = { xEDA107 xEDA108 xEDA109 xEDA10A xEDA10B xEDA11B xEDA11C xEDA11D xEF2040 } }
++		create_state = { country = c:STM owned_provinces = { xEDA10C xEDA10D xEDA123 xEDA124 } }
+ 
+ 		add_homeland = cu:wallonian
+ 		add_claim = c:NET
+ 	}
+ 	s:STATE_FLANDERS = {
+-		create_state = {
+-			country = c:BEO
+-			owned_provinces = { x93FB2E x018061 x0141A0 x8041A0 x800060 x808061 }
+-		}
++		create_state = { country = c:BEO owned_provinces = { x0141A0 x018061 x800060 x8041A0 xEDA10F xEDA110 xEDA111 xEDA112 xEDA113 xEDA114 x93FB2E } }
++		create_state = { country = c:LGE owned_provinces = { xEDA100 xEDA10E x808061 xEDA115 } }
+ 
+ 		add_homeland = cu:flemish
+ 		add_claim = c:NET
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+ STATE_WALLONIA = {
+     id = 49
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x2D32D7" "x3A5FB9" "x5180A0" "x8080A0" "x916574" "xB0A0C0" "xD001A0" "xEF2040" }
++    provinces = { "x2D32D7" "x3A5FB9" "x5180A0" "x8080A0" "x916574" "xB0A0C0" "xD001A0" "xEDA101" "xEDA102" "xEDA103" "xEDA104" "xEDA105" "xEDA106" "xEDA107" "xEDA108" "xEDA109" "xEDA10A" "xEDA10B" "xEDA10C" "xEDA10D" "xEDA116" "xEDA117" "xEDA118" "xEDA119" "xEDA11A" "xEDA11B" "xEDA11C" "xEDA11D" "xEDA11E" "xEDA11F" "xEDA120" "xEDA121" "xEDA122" "xEDA123" "xEDA124" "xEF2040" }
+     traits = { "state_trait_borinage_coalfield" }
+     city = "x5180A0"
+     farm = "x916574"
+@@
+ STATE_FLANDERS = {
+     id = 50
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x0141A0" "x018061" "x800060" "x8041A0" "x808061" "x93FB2E" }
++    provinces = { "x0141A0" "x018061" "x800060" "x8041A0" "x808061" "x93FB2E" "xEDA100" "xEDA10E" "xEDA10F" "xEDA110" "xEDA111" "xEDA112" "xEDA113" "xEDA114" "xEDA115" }
+     city = "x018061"
+     port = "x0141A0"
+     farm = "x800060"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\00_west_europe.txt
+@@
+ 	}
+ 	s:STATE_WALLONIA={
+ 		region_state:BEO={
+-						create_building={
+-							building="building_government_administration"
+-							add_ownership={
+-								country={
+-									country="c:BEO"
+-									levels=1
+-								}
+-							}
+-							reserves=1
+-							activate_production_methods = { "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+-						}
++						
+ 
+ 			create_building={
+ 				building="building_tooling_workshop"
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BEO"
+-						levels=3
++						levels = 3
+ 						region="STATE_WALLONIA"
+ 					}
+ 				}
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BEO"
+-						levels=4
++						levels = 3
+ 						region="STATE_WALLONIA"
+ 					}
+ 				}
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BEO"
+-						levels=2
++						levels = 2
+ 						region="STATE_WALLONIA"
+ 					}
+ 				}
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BEO"
+-						levels=5
++						levels = 4
+ 						region="STATE_WALLONIA"
+ 					}
+ 				}
+@@
+ 							add_ownership={
+ 								country={
+ 									country="c:BEO"
+-									levels=2
++									levels = 2
+ 								}
+ 							}
+ 							reserves=1
+@@
+ 							add_ownership={
+ 								country={
+ 									country="c:BEO"
+-									levels=1
++									levels = 1
+ 								}
+ 							}
+ 							reserves=1
+@@
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:BEO"
+-									levels=2
++									levels = 2
+ 									region="STATE_WALLONIA"
+ 								}
+ 							}
+@@
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:BEO"
+-									levels=1
++									levels = 1
+ 									region="STATE_WALLONIA"
+ 								}
+ 
+@@
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:BEO"
+-									levels = 13
++									levels = 11
+ 									region="STATE_WALLONIA"
+ 								}
+ 							}
+@@
+ 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+ 						}
+ 
++		}
++	
++		region_state:LGE = {
++create_building={
++							building="building_government_administration"
++							add_ownership={
++								country={
++									country="c:LGE"
++									levels = 1
++								}
++							}
++							reserves=1
++							activate_production_methods = { "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
++						}
++create_building={
++				building="building_coal_mine"
++				add_ownership={
++					building={
++						type="building_financial_district"
++						country="c:BEO"
++						levels = 1
++						region="STATE_WALLONIA"
++					}
++				}
++				reserves=1
++				activate_production_methods={ "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts"  }
++			}
++create_building={
++				building="building_logging_camp"
++				add_ownership={
++					building={
++						type="building_financial_district"
++						country="c:BEO"
++						levels = 1
++						region="STATE_WALLONIA"
++					}
++				}
++				reserves=1
++				activate_production_methods = { "pm_simple_forestry" "pm_no_equipment" "pm_road_carts" "pm_hardwood" }
++			}
++create_building={
++							building="building_railway"
++							add_ownership={
++								building={
++									type="building_financial_district"
++									country="c:BEO"
++									levels = 2
++									region="STATE_WALLONIA"
++								}
++							}
++							reserves=1
++							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
++						}
+ 		}
+ 	}
+ 	s:STATE_FLANDERS={
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BEO"
+-						levels=2
++						levels = 2
+ 						region="STATE_FLANDERS"
+ 					}
+ 				}
+@@
+ 				add_ownership={
+ 					country={
+ 						country="c:BEO"
+-						levels=3
++						levels = 3
+ 					}
+ 				}
+ 				reserves=1
+@@
+ 				add_ownership={
+ 					country={
+ 						country="c:BEO"
+-						levels=1
++						levels = 1
+ 					}
+ 				}
+ 				reserves=1
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BEO"
+-						levels=1
++						levels = 1
+ 						region="STATE_FLANDERS"
+ 					}
+ 				}
+@@
+ 				add_ownership={
+ 					country={
+ 						country="c:BEO"
+-						levels=1
++						levels = 1
+ 					}
+ 				}
+ 				reserves=1
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BEO"
+-						levels=2
++						levels = 2
+ 						region="STATE_FLANDERS"
+ 					}
+ 					building={
+ 						type="building_textile_mill"
+ 						country="c:BEO"
+-						levels=1
++						levels = 1
+ 						region="STATE_FLANDERS"
+ 					}
+ 				}
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BEO"
+-						levels=2
++						levels = 2
+ 						region="STATE_FLANDERS"
+ 					}
+ 					building={
+ 						type="building_logging_camp"
+ 						country="c:BEO"
+-						levels=2
++						levels = 2
+ 						region="STATE_FLANDERS"
+ 					}
+ 				}
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BEO"
+-						levels=5
++						levels = 5
+ 						region="STATE_FLANDERS"
+ 					}
+ 				}
+@@
+ 				add_ownership={
+ 					country={
+ 						country="c:BEO"
+-						levels=2
++						levels = 2
+ 					}
+ 				}
+ 				reserves=1
+@@
+ 							add_ownership={
+ 								country={
+ 									country="c:BEO"
+-									levels=1
++									levels = 1
+ 								}
+ 							}
+ 							reserves=1
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\98_build_start_1776_world_redistribution.txt
+@@
+ 							add_ownership={
+ 								country={
+ 									country="c:BEO"
+-									levels=1
++									levels = 1
+ 								}
+ 							}
+ 							reserves=1
+@@
+ 							add_ownership={
+ 								country={
+ 									country="c:BEO"
+-									levels=2
++									levels = 2
+ 								}
+ 							}
+ 							reserves=1
+@@
+ 							add_ownership={
+ 								country={
+ 									country="c:BEO"
+-									levels=1
++									levels = 1
+ 								}
+ 							}
+ 							reserves=1
+@@
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:BEO"
+-									levels=2
++									levels = 2
+ 									region="STATE_WALLONIA"
+ 								}
+ 							}
+@@
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:BEO"
+-									levels=1
++									levels = 1
+ 									region="STATE_WALLONIA"
+ 								}
+ 
+@@
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:BEO"
+-									levels = 13
++									levels = 11
+ 									region="STATE_WALLONIA"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+ 						}
+-						create_building={
++						
++		}
++	
++		region_state:LGE = {
++create_building={
++							building="building_railway"
++							add_ownership={
++								building={
++									type="building_financial_district"
++									country="c:BEO"
++									levels = 2
++									region="STATE_WALLONIA"
++								}
++							}
++							reserves=1
++							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
++						}
++create_building={
+ 							building="building_government_administration"
+ 							add_ownership={
+ 								country={
+-									country="c:BEO"
+-									levels=1
++									country="c:LGE"
++									levels = 1
+ 								}
+ 							}
+ 							reserves=1
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 			}
+ 			create_pop = {
+ 				culture = wallonian # 'Walloon & French' in census data.
+-				size = 899450
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 24715
++				size = 772549
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 21228
+ 			}
+ 			create_pop = {
+ 				culture = flemish # 'Flemish & Dutch' in census data.
+-				size = 35684
++				size = 30650
+ 			}
+ 			create_pop = {
+ 				culture = flemish
+ 				religion = protestant
+-				size = 1204
++				size = 1034
+ 			}
+ 			create_pop = {
+ 				culture = british
+-				size = 282
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 183
++				size = 242
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 157
++			}
++		}
++	
++		region_state:LGE = {
++create_pop = {
++				culture = wallonian # 'Walloon & French' in census data.
++				size = 114520
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 3147
++			}
++create_pop = {
++				culture = flemish # 'Flemish & Dutch' in census data.
++				size = 4543
++			}
++create_pop = {
++				culture = flemish
++				religion = protestant
++				size = 153
++			}
++create_pop = {
++				culture = british
++				size = 36
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 23
++			}
++		}
++	
++		region_state:STM = {
++create_pop = {
++				culture = wallonian # 'Walloon & French' in census data.
++				size = 12381
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 340
++			}
++create_pop = {
++				culture = flemish # 'Flemish & Dutch' in census data.
++				size = 491
++			}
++create_pop = {
++				culture = flemish
++				religion = protestant
++				size = 17
++			}
++create_pop = {
++				culture = british
++				size = 4
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 3
+ 			}
+ 		}
+ 	}
+@@
+ 		region_state:BEO = {
+ 			create_pop = {
+ 				culture = flemish # 'Flemish & Dutch' in census data.
+-				size = 1530208
++				size = 1377885
+ 			}
+ 			create_pop = {
+ 				culture = flemish
+ 				religion = protestant
+-				size = 5337
++				size = 4806
+ 			}
+ 			create_pop = {
+ 				culture = wallonian # 'Walloon & French' in census data.
+-				size = 231399
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 2984
++				size = 208365
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 2687
+ 			}
+ 			create_pop = {
+ 				culture = british
+-				size = 2828
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 1005
++				size = 2546
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 905
++			}
++		}
++	
++		region_state:LGE = {
++create_pop = {
++				culture = flemish # 'Flemish & Dutch' in census data.
++				size = 152323
++			}
++create_pop = {
++				culture = flemish
++				religion = protestant
++				size = 531
++			}
++create_pop = {
++				culture = wallonian # 'Walloon & French' in census data.
++				size = 23034
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 297
++			}
++create_pop = {
++				culture = british
++				size = 282
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 100
+ 			}
+ 		}
+ 	}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\lge - imperial estate.txt
++COUNTRIES = {
++ c:LGE ?= {
++  add_technology_researched = distillation
++  add_technology_researched = improved_husbandry
++  add_technology_researched = institutionalized_scientific_exchange
++  add_technology_researched = international_relations
++  add_technology_researched = medical_degrees
++  add_technology_researched = organized_textile_production
++  add_technology_researched = periodical_print_networks
++  add_technology_researched = regulated_small_arms
++  add_technology_researched = traditional_food_processing
++  add_technology_researched = organized_workshops
++  add_technology_researched = traditional_papermaking
++  add_technology_researched = organized_military_establishments
++  effect_starting_politics_reactionary = yes
++  activate_law = law_type:law_theocracy
++  activate_law = law_type:law_state_religion
++ }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\stm - imperial estate.txt
++COUNTRIES = {
++ c:STM ?= {
++  add_technology_researched = distillation
++  add_technology_researched = improved_husbandry
++  add_technology_researched = institutionalized_scientific_exchange
++  add_technology_researched = international_relations
++  add_technology_researched = medical_degrees
++  add_technology_researched = organized_textile_production
++  add_technology_researched = periodical_print_networks
++  add_technology_researched = regulated_small_arms
++  add_technology_researched = traditional_food_processing
++  add_technology_researched = organized_workshops
++  add_technology_researched = traditional_papermaking
++  add_technology_researched = organized_military_establishments
++  effect_starting_politics_reactionary = yes
++  activate_law = law_type:law_theocracy
++  activate_law = law_type:law_state_religion
++ }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\1776_map2l_imperial_estates.txt
++LGE = { color = { 173 55 80 } country_type = recognized tier = principality cultures = { wallonian flemish } religion = catholic capital = STATE_WALLONIA }
++STM = { color = { 99 141 160 } country_type = recognized tier = principality cultures = { wallonian north_german } religion = catholic capital = STATE_WALLONIA }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\1776_map2l_belgian_rulers.txt
++CHARACTERS = {
++ c:LGE ?= { create_character = { first_name = aor1776_lge_francois_charles last_name = aor1776_lge_velbruck historical = yes culture = north_german religion = rel:catholic ruler = yes age = 56 interest_group = ig_devout ideology = ideology_traditionalist } }
++ c:STM ?= { create_character = { first_name = aor1776_stm_jacques last_name = aor1776_stm_hubin historical = yes culture = primary_culture religion = rel:catholic ruler = yes age = 68 interest_group = ig_devout ideology = ideology_traditionalist } }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\coat_of_arms\coat_of_arms\1776_map2l_belgian_flags.txt
++AOR1776_LGE = { pattern = "pattern_solid.tga" color1 = red colored_emblem = { texture = "ce_cross_couped.dds" color1 = yellow instance = { position = { 0.5 0.5 } scale = { 0.65 0.65 } } } }
++AOR1776_STM = { pattern = "pattern_solid.tga" color1 = blue colored_emblem = { texture = "ce_cross_couped.dds" color1 = white instance = { position = { 0.5 0.5 } scale = { 0.65 0.65 } } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\flag_definitions\1776_map2l_belgian_flags.txt
++LGE = { flag_definition = { coa = AOR1776_LGE priority = 100 allow_overlord_canton = no } }
++STM = { flag_definition = { coa = AOR1776_STM priority = 100 allow_overlord_canton = no } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\english\1776_map2l_belgian_estates_l_english.yml
++﻿l_english:
++ LGE:0 "Prince-Bishopric of Liège"
++ LGE_ADJ:0 "Liégeois"
++ STM:0 "Stavelot-Malmedy"
++ STM_ADJ:0 "Stavelotian"
++ aor1776_lge_francois_charles:0 "François-Charles"
++ aor1776_lge_velbruck:0 "de Velbrück"
++ aor1776_stm_jacques:0 "Jacques"
++ aor1776_stm_hubin:0 "de Hubin"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\1776_map2l_belgian_estates_l_french.yml
++﻿l_french:
++ LGE:0 "Principauté de Liège"
++ LGE_ADJ:0 "Liégeois"
++ STM:0 "Stavelot-Malmedy"
++ STM_ADJ:0 "Stavelotain"
++ aor1776_lge_francois_charles:0 "François-Charles"
++ aor1776_lge_velbruck:0 "de Velbrück"
++ aor1776_stm_jacques:0 "Jacques"
++ aor1776_stm_hubin:0 "de Hubin"
+*** End Patch

@@ -1,0 +1,1790 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 			country = c:HAN
+ 			owned_provinces = { x165E05 x694B91 xBBA504 xBF00DF x4D62A0 x8080E0 x784B8E xF9DCA2 }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+ 	}
+ 	s:STATE_BAVARIA = {
+ 		create_state = {
+ 			country = c:BAV
+ 			owned_provinces = { x68CE1C xE76994 x6EA29B xE75868 xB00121 x18A2E1 x565185 x704A5F xC347B1 xB08021 xFE59E7 x8C26DD x010AD7 x318021 x3101A0 x82F4B9 xA7094D }
+ 		}
+ 
+ 		add_homeland = cu:south_german
+ 	}
+ 	s:STATE_FRANCONIA = {
+-		create_state = {
+-			country = c:BAV
+-			owned_provinces = { xD0C0A0 x9040A0 x51C0A0 xA55FB1 x0B0DBA xD041A0 xF91154 x648AD1 }
+-		}
++		create_state = { country = c:ANS owned_provinces = { xEDA200 xEDA205 xEDA208 xD041A0 xEDA217 xF91154 } }
++		create_state = { country = c:BAV owned_provinces = { xEDA201 xEDA202 xEDA206 xEDA209 xEDA20A xEDA20B x9040A0 xEDA210 xEDA212 xEDA213 xEDA218 xEDA219 xEDA21A xEDA21B xEDA21F xEDA220 } }
++		create_state = { country = c:COB owned_provinces = { xEDA20C xEDA221 } }
++		create_state = { country = c:EIC owned_provinces = { xEDA21C } }
++		create_state = { country = c:FBM owned_provinces = { xEDA203 x648AD1 xEDA211 xEDA214 xEDA215 xEDA21D xEDA222 } }
++		create_state = { country = c:NUR owned_provinces = { xEDA204 xEDA216 xD0C0A0 } }
++		create_state = { country = c:WZB owned_provinces = { x0B0DBA x51C0A0 xEDA207 xEDA20D xEDA20E xEDA20F xA55FB1 xEDA21E } }
+ 
+ 		add_homeland = cu:south_german
+ 	}
+ 	s:STATE_SAXONY = {
+ 		create_state = {
+ 			country = c:SAX
+ 			owned_provinces = { x169073 x795368 x917939 xAFDFBF x43CE26 x31E0C0 }
+ 		}
+ 		create_state = {
+ 			country = c:MEI
+ 			owned_provinces = { x5141A0 xD0C021 }
+ 		}
+ 		create_state = {
+ 			country = c:WEI
+ 			owned_provinces = { xC00A37 }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     }
+     resource = {
+         type = "building_salt_mine"
+         discovered_amount = 20
+         undiscovered_amount = 0
+     }
+     resource = {
+         type = "building_bauxite_mine"
+         undiscovered_amount = 25
+     }
+ }
+ 
+ STATE_FRANCONIA = {
+     id = 72
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x0B0DBA" "x51C0A0" "x648AD1" "x9040A0" "xA55FB1" "xD041A0" "xD0C0A0" "xF91154" }
++    provinces = { "xEDA200" "xEDA201" "xEDA202" "xEDA203" "xEDA204" "x0B0DBA" "xEDA205" "xEDA206" "x51C0A0" "xEDA207" "xEDA208" "xEDA209" "xEDA20A" "xEDA20B" "xEDA20C" "x648AD1" "xEDA20D" "xEDA20E" "x9040A0" "xEDA20F" "xEDA210" "xEDA211" "xA55FB1" "xD041A0" "xEDA212" "xEDA213" "xEDA214" "xEDA215" "xEDA216" "xEDA217" "xEDA218" "xEDA219" "xEDA21A" "xEDA21B" "xEDA21C" "xEDA21D" "xD0C0A0" "xEDA21E" "xF91154" "xEDA21F" "xEDA220" "xEDA221" "xEDA222" }
+     city = "xD0C0A0"
+     farm = "x648AD1"
+     mine = "xF91154"
+     wood = "x51C0A0"
+     arable_land = 80
+     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_vineyard" }
+     capped_resources = {
+         building_iron_mine = 30
+         building_logging_camp = 17
+         building_limestone_quarry = 48
+     }
+     resource = {
+         type = "building_bauxite_mine"
+         undiscovered_amount = 10
+     }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\00_west_europe.txt
+@@
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+ 						}
+ 
+ 		}
+ 	}
+ 	s:STATE_FRANCONIA={
+ 		region_state:BAV={
+ 			create_building={
+ 				building="building_government_administration"
+ 				add_ownership={
+ 					country={
+ 						country="c:BAV"
+-						levels=3
++						levels = 1
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods = { "pm_simple_organization" "pm_professional_bureaucrats" "pm_religious_bureaucrats" }
+ 			}
+ 
+ 
+ 			create_building={
+ 				building="building_textile_mill"
+ 				add_ownership={
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BAV"
+-						levels=1
++						levels = 1
+ 						region="STATE_FRANCONIA"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms"  }
+ 			}
+ 
+ 
+ 
+ 			create_building={
+ 				building="building_logging_camp"
+ 				add_ownership={
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BAV"
+-						levels=1
++						levels = 1
+ 						region="STATE_FRANCONIA"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods = { "pm_simple_forestry" "pm_no_equipment" "pm_road_carts" "pm_hardwood" }
+ 			}
+ 			create_building={
+ 				building="building_railway"
+ 				add_ownership={
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:BAV"
+-						levels = 5
++						levels = 2
+ 						region="STATE_FRANCONIA"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+ 			}
+ 						create_building={
+ 							building="building_trade_center"
+ 							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+ 							add_ownership={
+ 								country={
+ 									country="c:BAV"
+-									levels=1
+-								}
+-							}
+-							reserves=1
+-						}
+-
++									levels = 1
++								}
++							}
++							reserves=1
++						}
++
++		}
++	
++		region_state:WZB = {
++create_building={
++				building="building_government_administration"
++				add_ownership={
++					country={
++						country="c:WZB"
++						levels = 1
++					}
++				}
++				reserves=1
++				activate_production_methods = { "pm_simple_organization" "pm_professional_bureaucrats" "pm_religious_bureaucrats" }
++			}
++create_building={
++				building="building_railway"
++				add_ownership={
++					building={
++						type="building_financial_district"
++						country="c:BAV"
++						levels = 1
++						region="STATE_FRANCONIA"
++					}
++				}
++				reserves=1
++				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
++			}
++		}
++	
++		region_state:ANS = {
++create_building={
++				building="building_government_administration"
++				add_ownership={
++					country={
++						country="c:ANS"
++						levels = 1
++					}
++				}
++				reserves=1
++				activate_production_methods = { "pm_simple_organization" "pm_professional_bureaucrats" "pm_religious_bureaucrats" }
++			}
++create_building={
++				building="building_railway"
++				add_ownership={
++					building={
++						type="building_financial_district"
++						country="c:BAV"
++						levels = 1
++						region="STATE_FRANCONIA"
++					}
++				}
++				reserves=1
++				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
++			}
++		}
++	
++		region_state:FBM = {
++create_building={
++				building="building_railway"
++				add_ownership={
++					building={
++						type="building_financial_district"
++						country="c:BAV"
++						levels = 1
++						region="STATE_FRANCONIA"
++					}
++				}
++				reserves=1
++				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
++			}
+ 		}
+ 	}
+ 	s:STATE_SAXONY={
+ 		region_state:SAX={
+ 			create_building={
+ 				building="building_government_administration"
+ 				add_ownership={
+ 					country={
+ 						country="c:SAX"
+ 						levels=1
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods = { "pm_professional_bureaucrats" "pm_religious_bureaucrats" "pm_simple_organization" }
+ 			}
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\98_build_start_1776_world_redistribution.txt
+@@
+ 
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_simple_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" }
+ 						}
+ 		}
+ 	}
+ 	s:STATE_FRANCONIA = {
+ 		region_state:BAV = {
+ 						create_building={
+ 							building="building_trade_center"
+ 							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+ 							add_ownership={
+ 								country={
+ 									country="c:BAV"
+-									levels=1
++									levels = 1
+ 								}
+ 							}
+ 							reserves=1
+ 						}
+ 
+ 			# Fabric balance: additional simple ranching, local manor ownership.
+ 			create_building = {
+ 				building = "building_livestock_ranch"
+ 				add_ownership = {
+ 					building = {
+ 						type = "building_manor_house"
+ 						country = "c:BAV"
+-						levels = 10
++						levels = 3
++						region = "STATE_FRANCONIA"
++					}
++				}
++				reserves = 1
++				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
++			}
++		}
++	
++		region_state:WZB = {
++create_building = {
++				building = "building_livestock_ranch"
++				add_ownership = {
++					building = {
++						type = "building_manor_house"
++						country = "c:BAV"
++						levels = 2
++						region = "STATE_FRANCONIA"
++					}
++				}
++				reserves = 1
++				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
++			}
++		}
++	
++		region_state:ANS = {
++create_building = {
++				building = "building_livestock_ranch"
++				add_ownership = {
++					building = {
++						type = "building_manor_house"
++						country = "c:BAV"
++						levels = 3
++						region = "STATE_FRANCONIA"
++					}
++				}
++				reserves = 1
++				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
++			}
++		}
++	
++		region_state:FBM = {
++create_building = {
++				building = "building_livestock_ranch"
++				add_ownership = {
++					building = {
++						type = "building_manor_house"
++						country = "c:BAV"
++						levels = 1
++						region = "STATE_FRANCONIA"
++					}
++				}
++				reserves = 1
++				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
++			}
++		}
++	
++		region_state:NUR = {
++create_building = {
++				building = "building_livestock_ranch"
++				add_ownership = {
++					building = {
++						type = "building_manor_house"
++						country = "c:BAV"
++						levels = 1
+ 						region = "STATE_FRANCONIA"
+ 					}
+ 				}
+ 				reserves = 1
+ 				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+ 			}
+ 		}
+ 	}
+ 	s:STATE_FRENCH_LOW_COUNTRIES = {
+ 		region_state:FRA = {
+ 						create_building={
+ 							building="building_railway"
+ 							add_ownership={
+ 								building={
+ 									type="building_financial_district"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 			create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 42901
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 3904
+ 			}
+ 		}
+ 	}
+ 	s:STATE_FRANCONIA = {
+ 		region_state:BAV = {
+ 			create_pop = {
+ 				culture = south_german
+-				size = 820397
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 3121
+-			}
+-			create_pop = {
+-				culture = south_german
+-				religion = protestant
+-				size = 639912
++				size = 273741
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 1041
++			}
++			create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 213519
++			}
++		}
++	
++		region_state:WZB = {
++create_pop = {
++				culture = south_german
++				size = 189800
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 722
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 148044
++			}
++		}
++	
++		region_state:COB = {
++create_pop = {
++				culture = south_german
++				size = 18194
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 69
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 14192
++			}
++		}
++	
++		region_state:ANS = {
++create_pop = {
++				culture = south_german
++				size = 200551
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 763
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 156430
++			}
++		}
++	
++		region_state:FBM = {
++create_pop = {
++				culture = south_german
++				size = 74845
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 285
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 58379
++			}
++		}
++	
++		region_state:NUR = {
++create_pop = {
++				culture = south_german
++				size = 45072
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 172
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 35156
++			}
++		}
++	
++		region_state:EIC = {
++create_pop = {
++				culture = south_german
++				size = 18194
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 69
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 14192
+ 			}
+ 		}
+ 	}
+ 	s:STATE_SAXONY = {
+ 		region_state:SAX = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 1133502
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 10144
+ 			}
+ 			create_pop = {
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\1776_map2l_franconian_estates.txt
++ANS = { color = { 229 147 65 } country_type = recognized tier = principality cultures = { south_german } religion = protestant capital = STATE_FRANCONIA }
++FBM = { color = { 87 151 207 } country_type = recognized tier = principality cultures = { south_german } religion = catholic capital = STATE_FRANCONIA }
++WZB = { color = { 179 86 165 } country_type = recognized tier = principality cultures = { south_german } religion = catholic capital = STATE_FRANCONIA }
++NUR = { color = { 194 56 56 } country_type = recognized tier = city_state cultures = { south_german } religion = protestant capital = STATE_FRANCONIA }
++EIC = { color = { 87 175 146 } country_type = recognized tier = principality cultures = { south_german } religion = catholic capital = STATE_FRANCONIA }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\coat_of_arms\coat_of_arms\1776_map2l_franconian_flags.txt
++AOR1776_ANS = { pattern = "pattern_solid.tga" color1 = blue colored_emblem = { texture = "ce_cross_couped.dds" color1 = "yellow" instance = { position = { 0.5 0.5 } scale = { 0.65 0.65 } } } }
++AOR1776_FBM = { pattern = "pattern_solid.tga" color1 = blue colored_emblem = { texture = "ce_cross_couped.dds" color1 = "yellow" instance = { position = { 0.5 0.5 } scale = { 0.65 0.65 } } } }
++AOR1776_WZB = { pattern = "pattern_solid.tga" color1 = blue colored_emblem = { texture = "ce_cross_couped.dds" color1 = "yellow" instance = { position = { 0.5 0.5 } scale = { 0.65 0.65 } } } }
++AOR1776_NUR = { pattern = "pattern_solid.tga" color1 = red colored_emblem = { texture = "ce_cross_couped.dds" color1 = "yellow" instance = { position = { 0.5 0.5 } scale = { 0.65 0.65 } } } }
++AOR1776_EIC = { pattern = "pattern_solid.tga" color1 = blue colored_emblem = { texture = "ce_cross_couped.dds" color1 = "yellow" instance = { position = { 0.5 0.5 } scale = { 0.65 0.65 } } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\flag_definitions\1776_map2l_franconian_flags.txt
++ANS = { flag_definition = { coa = AOR1776_ANS priority = 100 allow_overlord_canton = no } }
++FBM = { flag_definition = { coa = AOR1776_FBM priority = 100 allow_overlord_canton = no } }
++WZB = { flag_definition = { coa = AOR1776_WZB priority = 100 allow_overlord_canton = no } }
++NUR = { flag_definition = { coa = AOR1776_NUR priority = 100 allow_overlord_canton = no } }
++EIC = { flag_definition = { coa = AOR1776_EIC priority = 100 allow_overlord_canton = no } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\laws\1776_map2l_franconian_start_variants.txt
++law_aor1776_imperial_city_republic = { group = lawgroup_governance_principles parent = law_presidential_republic icon = "gfx/interface/icons/law_icons/presidential_republic.dds" progressiveness = 0 is_visible = { c:NUR ?= this } can_enact = { c:NUR ?= this } modifier = {
++		country_legitimacy_headofstate_add = 10
++		country_legitimacy_govt_total_votes_add = 10
++		country_legitimacy_ideological_incoherence_mult = 0.2
++		country_authority_add = 100
++	} }
++law_aor1776_imperial_customs = { group = lawgroup_trade_policy parent = law_mercantilism icon = "gfx/interface/icons/law_icons/mercantilism.dds" progressiveness = 0 is_visible = { OR = { c:ANS ?= this c:FBM ?= this c:WZB ?= this c:NUR ?= this c:EIC ?= this } } can_enact = { OR = { c:ANS ?= this c:FBM ?= this c:WZB ?= this c:NUR ?= this c:EIC ?= this } } modifier = {
++		state_tariff_import_add = 0.50
++		state_tariff_export_add = 0.20
++		state_subvention_export_add = 0.50
++		state_subvention_import_add = 0.20
++		state_import_advantage_mult = -0.25
++		state_export_advantage_mult = 0.25
++	} }
++law_aor1776_imperial_no_slavery = { group = lawgroup_slavery parent = law_slavery_banned icon = "gfx/interface/icons/law_icons/slavery_banned.dds" progressiveness = 0 is_visible = { OR = { c:ANS ?= this c:FBM ?= this c:WZB ?= this c:NUR ?= this c:EIC ?= this } } can_enact = { OR = { c:ANS ?= this c:FBM ?= this c:WZB ?= this c:NUR ?= this c:EIC ?= this } }  }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\government_types\00_1776_map2l_nuremberg.txt
++gov_aor1776_nuremberg_council = {
++ transfer_of_power = presidential_elective
++ new_leader_on_reform_government = no
++ male_ruler = "aor1776_city_councillor_title"
++ female_ruler = "aor1776_city_councillor_title"
++ possible = { c:NUR ?= this has_law = law_type:law_aor1776_imperial_city_republic }
++ on_government_type_change = { change_to_presidential_elective = yes }
++ on_post_government_type_change = { post_change_to_presidential_elective = yes }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\ans - franconian estate.txt
++COUNTRIES = { c:ANS ?= {
++ add_technology_researched = distillation
++ add_technology_researched = improved_husbandry
++ add_technology_researched = industrial_ceramics
++ add_technology_researched = institutionalized_scientific_exchange
++ add_technology_researched = international_relations
++ add_technology_researched = light_infantry_tactics
++ add_technology_researched = medical_degrees
++ add_technology_researched = organized_forestry
++ add_technology_researched = organized_textile_production
++ add_technology_researched = periodical_print_networks
++ add_technology_researched = permanent_engineer_services
++ add_technology_researched = regulated_small_arms
++ add_technology_researched = scientific_fortification_siegecraft
++ add_technology_researched = shaft_mining
++ add_technology_researched = standardized_field_artillery
++ add_technology_researched = systematic_administrative_statistics
++ add_technology_researched = systematic_legal_codification
++ add_technology_researched = traditional_food_processing
++ add_technology_researched = organized_workshops
++ add_technology_researched = traditional_papermaking
++ add_technology_researched = organized_military_establishments
++ activate_law = law_type:law_aor1776_imperial_customs
++ activate_law = law_type:law_aor1776_imperial_no_slavery
++ activate_law = law_type:law_land_based_taxation
++ activate_law = law_type:law_hereditary_bureaucrats
++ activate_law = law_type:law_peasant_levies
++ activate_law = law_type:law_no_police
++ activate_law = law_type:law_guild_system
++ activate_law = law_type:law_tenant_farmers
++ activate_law = law_type:law_no_workers_rights
++ activate_law = law_type:law_autocracy
++ activate_law = law_type:law_state_religion
++ activate_law = law_type:law_monarchy
++} }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\fbm - franconian estate.txt
++COUNTRIES = { c:FBM ?= {
++ add_technology_researched = distillation
++ add_technology_researched = improved_husbandry
++ add_technology_researched = industrial_ceramics
++ add_technology_researched = institutionalized_scientific_exchange
++ add_technology_researched = international_relations
++ add_technology_researched = light_infantry_tactics
++ add_technology_researched = medical_degrees
++ add_technology_researched = organized_forestry
++ add_technology_researched = organized_textile_production
++ add_technology_researched = periodical_print_networks
++ add_technology_researched = permanent_engineer_services
++ add_technology_researched = regulated_small_arms
++ add_technology_researched = scientific_fortification_siegecraft
++ add_technology_researched = shaft_mining
++ add_technology_researched = standardized_field_artillery
++ add_technology_researched = systematic_administrative_statistics
++ add_technology_researched = systematic_legal_codification
++ add_technology_researched = traditional_food_processing
++ add_technology_researched = organized_workshops
++ add_technology_researched = traditional_papermaking
++ add_technology_researched = organized_military_establishments
++ activate_law = law_type:law_aor1776_imperial_customs
++ activate_law = law_type:law_aor1776_imperial_no_slavery
++ activate_law = law_type:law_land_based_taxation
++ activate_law = law_type:law_hereditary_bureaucrats
++ activate_law = law_type:law_peasant_levies
++ activate_law = law_type:law_no_police
++ activate_law = law_type:law_guild_system
++ activate_law = law_type:law_tenant_farmers
++ activate_law = law_type:law_no_workers_rights
++ activate_law = law_type:law_autocracy
++ activate_law = law_type:law_state_religion
++ activate_law = law_type:law_theocracy
++} }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\wzb - franconian estate.txt
++COUNTRIES = { c:WZB ?= {
++ add_technology_researched = distillation
++ add_technology_researched = improved_husbandry
++ add_technology_researched = industrial_ceramics
++ add_technology_researched = institutionalized_scientific_exchange
++ add_technology_researched = international_relations
++ add_technology_researched = light_infantry_tactics
++ add_technology_researched = medical_degrees
++ add_technology_researched = organized_forestry
++ add_technology_researched = organized_textile_production
++ add_technology_researched = periodical_print_networks
++ add_technology_researched = permanent_engineer_services
++ add_technology_researched = regulated_small_arms
++ add_technology_researched = scientific_fortification_siegecraft
++ add_technology_researched = shaft_mining
++ add_technology_researched = standardized_field_artillery
++ add_technology_researched = systematic_administrative_statistics
++ add_technology_researched = systematic_legal_codification
++ add_technology_researched = traditional_food_processing
++ add_technology_researched = organized_workshops
++ add_technology_researched = traditional_papermaking
++ add_technology_researched = organized_military_establishments
++ activate_law = law_type:law_aor1776_imperial_customs
++ activate_law = law_type:law_aor1776_imperial_no_slavery
++ activate_law = law_type:law_land_based_taxation
++ activate_law = law_type:law_hereditary_bureaucrats
++ activate_law = law_type:law_peasant_levies
++ activate_law = law_type:law_no_police
++ activate_law = law_type:law_guild_system
++ activate_law = law_type:law_tenant_farmers
++ activate_law = law_type:law_no_workers_rights
++ activate_law = law_type:law_autocracy
++ activate_law = law_type:law_state_religion
++ activate_law = law_type:law_theocracy
++} }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\nur - franconian estate.txt
++COUNTRIES = { c:NUR ?= {
++ add_technology_researched = distillation
++ add_technology_researched = improved_husbandry
++ add_technology_researched = industrial_ceramics
++ add_technology_researched = institutionalized_scientific_exchange
++ add_technology_researched = international_relations
++ add_technology_researched = light_infantry_tactics
++ add_technology_researched = medical_degrees
++ add_technology_researched = organized_forestry
++ add_technology_researched = organized_textile_production
++ add_technology_researched = periodical_print_networks
++ add_technology_researched = permanent_engineer_services
++ add_technology_researched = regulated_small_arms
++ add_technology_researched = scientific_fortification_siegecraft
++ add_technology_researched = shaft_mining
++ add_technology_researched = standardized_field_artillery
++ add_technology_researched = systematic_administrative_statistics
++ add_technology_researched = systematic_legal_codification
++ add_technology_researched = traditional_food_processing
++ add_technology_researched = organized_workshops
++ add_technology_researched = traditional_papermaking
++ add_technology_researched = organized_military_establishments
++ activate_law = law_type:law_aor1776_imperial_customs
++ activate_law = law_type:law_aor1776_imperial_no_slavery
++ activate_law = law_type:law_land_based_taxation
++ activate_law = law_type:law_hereditary_bureaucrats
++ activate_law = law_type:law_peasant_levies
++ activate_law = law_type:law_no_police
++ activate_law = law_type:law_guild_system
++ activate_law = law_type:law_tenant_farmers
++ activate_law = law_type:law_no_workers_rights
++ activate_law = law_type:law_oligarchy
++ activate_law = law_type:law_state_religion
++ activate_law = law_type:law_aor1776_imperial_city_republic
++} }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\eic - franconian estate.txt
++COUNTRIES = { c:EIC ?= {
++ add_technology_researched = distillation
++ add_technology_researched = improved_husbandry
++ add_technology_researched = industrial_ceramics
++ add_technology_researched = institutionalized_scientific_exchange
++ add_technology_researched = international_relations
++ add_technology_researched = light_infantry_tactics
++ add_technology_researched = medical_degrees
++ add_technology_researched = organized_forestry
++ add_technology_researched = organized_textile_production
++ add_technology_researched = periodical_print_networks
++ add_technology_researched = permanent_engineer_services
++ add_technology_researched = regulated_small_arms
++ add_technology_researched = scientific_fortification_siegecraft
++ add_technology_researched = shaft_mining
++ add_technology_researched = standardized_field_artillery
++ add_technology_researched = systematic_administrative_statistics
++ add_technology_researched = systematic_legal_codification
++ add_technology_researched = traditional_food_processing
++ add_technology_researched = organized_workshops
++ add_technology_researched = traditional_papermaking
++ add_technology_researched = organized_military_establishments
++ activate_law = law_type:law_aor1776_imperial_customs
++ activate_law = law_type:law_aor1776_imperial_no_slavery
++ activate_law = law_type:law_land_based_taxation
++ activate_law = law_type:law_hereditary_bureaucrats
++ activate_law = law_type:law_peasant_levies
++ activate_law = law_type:law_no_police
++ activate_law = law_type:law_guild_system
++ activate_law = law_type:law_tenant_farmers
++ activate_law = law_type:law_no_workers_rights
++ activate_law = law_type:law_autocracy
++ activate_law = law_type:law_state_religion
++ activate_law = law_type:law_theocracy
++} }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\1776_map2l_franconian_rulers.txt
++CHARACTERS = {
++c:ANS ?= { create_character = { first_name = aor1776_ans_first last_name = aor1776_ans_last historical = yes culture = south_german religion = rel:protestant ruler = yes age = 39 interest_group = ig_landowners ideology = ideology_traditionalist } }
++c:FBM ?= { create_character = { first_name = aor1776_fbm_first last_name = aor1776_fbm_last historical = yes culture = south_german religion = rel:catholic ruler = yes age = 67 interest_group = ig_devout ideology = ideology_traditionalist } }
++c:WZB ?= { create_character = { first_name = aor1776_wzb_first last_name = aor1776_wzb_last historical = yes culture = south_german religion = rel:catholic ruler = yes age = 67 interest_group = ig_devout ideology = ideology_traditionalist } }
++c:EIC ?= { create_character = { first_name = aor1776_eic_first last_name = aor1776_eic_last historical = yes culture = south_german religion = rel:catholic ruler = yes age = 57 interest_group = ig_devout ideology = ideology_traditionalist } }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\english\1776_map2l_franconia_l_english.yml
++﻿l_english:
++ ANS:0 "Brandenburg-Ansbach-Bayreuth"
++ ANS_ADJ:0 "Ansbachian"
++ FBM:0 "Prince-Bishopric of Bamberg"
++ FBM_ADJ:0 "Bambergian"
++ WZB:0 "Prince-Bishopric of Würzburg"
++ WZB_ADJ:0 "Würzburgian"
++ NUR:0 "Imperial City of Nuremberg"
++ NUR_ADJ:0 "Nurembergian"
++ EIC:0 "Prince-Bishopric of Eichstätt"
++ EIC_ADJ:0 "Eichstättian"
++ aor1776_ans_first:0 "Alexander"
++ aor1776_ans_last:0 "Hohenzollern"
++ aor1776_fbm_first:0 "Adam Friedrich"
++ aor1776_fbm_last:0 "von Seinsheim"
++ aor1776_wzb_first:0 "Adam Friedrich"
++ aor1776_wzb_last:0 "von Seinsheim"
++ aor1776_eic_first:0 "Raymund Anton"
++ aor1776_eic_last:0 "von Strasoldo"
++ law_aor1776_imperial_city_republic:0 "Patrician imperial republic"
++ law_aor1776_imperial_customs:0 "Early-modern imperial customs"
++ law_aor1776_imperial_no_slavery:0 "Free status in the imperial estates"
++ gov_aor1776_nuremberg_council:0 "Patrician city council"
++ aor1776_city_councillor_title:0 "First Councillor"
++ law_aor1776_imperial_city_republic_desc:0 "An established imperial city governed by its patrician council, not a modern national republic."
++ law_aor1776_imperial_customs_desc:0 "Local tariffs and regulated commerce; no modern commercial-insurance technology is granted."
++ law_aor1776_imperial_no_slavery_desc:0 "The starting population retains free status without granting a later abolitionist-movement technology. Serfdom is a separate land-tenure law."
++ gov_aor1776_nuremberg_council_desc:0 "The city is represented by its oligarchic council."
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\1776_map2l_franconia_l_french.yml
++﻿l_french:
++ ANS:0 "Brandebourg-Ansbach-Bayreuth"
++ ANS_ADJ:0 "Ansbachois"
++ FBM:0 "Principauté épiscopale de Bamberg"
++ FBM_ADJ:0 "Bambergeois"
++ WZB:0 "Principauté épiscopale de Wurtzbourg"
++ WZB_ADJ:0 "Wurtzbourgeois"
++ NUR:0 "Ville impériale de Nuremberg"
++ NUR_ADJ:0 "Nurembergeois"
++ EIC:0 "Principauté épiscopale d’Eichstätt"
++ EIC_ADJ:0 "Eichstättois"
++ aor1776_ans_first:0 "Alexander"
++ aor1776_ans_last:0 "Hohenzollern"
++ aor1776_fbm_first:0 "Adam Friedrich"
++ aor1776_fbm_last:0 "von Seinsheim"
++ aor1776_wzb_first:0 "Adam Friedrich"
++ aor1776_wzb_last:0 "von Seinsheim"
++ aor1776_eic_first:0 "Raymund Anton"
++ aor1776_eic_last:0 "von Strasoldo"
++ law_aor1776_imperial_city_republic:0 "République impériale patricienne"
++ law_aor1776_imperial_customs:0 "Douanes impériales d’Ancien Régime"
++ law_aor1776_imperial_no_slavery:0 "Statut libre des habitants impériaux"
++ gov_aor1776_nuremberg_council:0 "Conseil urbain patricien"
++ aor1776_city_councillor_title:0 "Premier conseiller"
++ law_aor1776_imperial_city_republic_desc:0 "Une ville impériale gouvernée par son conseil patricien, non une république nationale moderne."
++ law_aor1776_imperial_customs_desc:0 "Tarifs locaux et commerce réglementé ; aucune technologie moderne d’assurance commerciale n’est accordée."
++ law_aor1776_imperial_no_slavery_desc:0 "La population initiale conserve son statut libre sans recevoir une technologie tardive de mobilisation abolitionniste. Le servage relève séparément du régime foncier."
++ gov_aor1776_nuremberg_council_desc:0 "La ville est représentée par son conseil oligarchique."
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+   {
+     "rgb": "x069CFB",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x08AA4B",
+     "state": "STATE_MORAVIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x0B0DBA",
+     "state": "STATE_FRANCONIA",
+-    "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "beneficiary": "WZB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "x0B3B43",
+     "state": "STATE_EMILIA",
+     "beneficiary": "PAR",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x0B9B4F",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x0CBB8F",
+@@
+   {
+     "rgb": "x5180A0",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "BEO",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "x51C021",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SCW",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x51C0A0",
+     "state": "STATE_FRANCONIA",
+-    "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "beneficiary": "WZB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "x51C0E0",
+     "state": "STATE_TYROL",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x565185",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x567452",
+@@
+   {
+     "rgb": "x62F70E",
+     "state": "STATE_AUSTRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x64824C",
+     "state": "STATE_SCHLESWIG_HOLSTEIN",
+     "beneficiary": "HOL",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x648AD1",
+     "state": "STATE_FRANCONIA",
+-    "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "beneficiary": "FBM",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "x66FE0A",
+     "state": "STATE_SAXONY",
+     "beneficiary": "COB",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x67FE18",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x68BE66",
+@@
+     "rgb": "x9001A0",
+     "state": "STATE_AUSTRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x904020",
+     "state": "STATE_RHINELAND",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x9040A0",
+     "state": "STATE_FRANCONIA",
+     "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "x908060",
+     "state": "STATE_WURTTEMBERG",
+     "beneficiary": "HOH",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x9080A0",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x90B12B",
+@@
+   {
+     "rgb": "xA40CE9",
+     "state": "STATE_LOMBARDY",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA51232",
+     "state": "STATE_ANHALT",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA55FB1",
+     "state": "STATE_FRANCONIA",
+-    "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "beneficiary": "WZB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "xA5E2E8",
+     "state": "STATE_ELBE",
+     "beneficiary": "HAN",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA61E6E",
+     "state": "STATE_BRUNSWICK",
+     "beneficiary": "BRA",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA65DA6",
+@@
+   {
+     "rgb": "xD040E0",
+     "state": "STATE_SOUTH_TYROL",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD04121",
+     "state": "STATE_HESSE",
+     "beneficiary": "HEK",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD041A0",
+     "state": "STATE_FRANCONIA",
+-    "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "beneficiary": "ANS",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "xD08021",
+     "state": "STATE_RUHR",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD080A0",
+     "state": "STATE_RHINELAND",
+     "beneficiary": "KTR",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD080E0",
+@@
+   {
+     "rgb": "xD0BF60",
+     "state": "STATE_SOUTH_TYROL",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD0C021",
+     "state": "STATE_SAXONY",
+     "beneficiary": "MEI",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD0C0A0",
+     "state": "STATE_FRANCONIA",
+-    "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "beneficiary": "NUR",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "xD0C0E0",
+     "state": "STATE_TYROL",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD286DB",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD4C37D",
+@@
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "xEDA123",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "STM",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "xEDA124",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "STM",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
++    "rgb": "xEDA200",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "ANS",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA201",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA202",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA203",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "FBM",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA204",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "NUR",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA205",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "ANS",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA206",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA207",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "WZB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA208",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "ANS",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA209",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA20A",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA20B",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA20C",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "COB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA20D",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "WZB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA20E",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "WZB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA20F",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "WZB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA210",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA211",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "FBM",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA212",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA213",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA214",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "FBM",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA215",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "FBM",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA216",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "NUR",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA217",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "ANS",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA218",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA219",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA21A",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA21B",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA21C",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "EIC",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA21D",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "FBM",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA21E",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "WZB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA21F",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA220",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA221",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "COB",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
++    "rgb": "xEDA222",
++    "state": "STATE_FRANCONIA",
++    "beneficiary": "FBM",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+@@
+   {
+     "rgb": "xF77289",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xF8D457",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xF91154",
+     "state": "STATE_FRANCONIA",
+-    "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "beneficiary": "ANS",
++    "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "xF9DCA2",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "HAN",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xFA371D",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xFAFCD4",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\FRANCONIA\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_FRANCONIA"
++  ],
++  "previous": [
++    {
++      "rgb": "x0B0DBA",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x51C0A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x648AD1",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x9040A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA55FB1",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD041A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD0C0A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xF91154",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x0B0DBA",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "x51C0A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "x648AD1",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "x9040A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xA55FB1",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xD041A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xD0C0A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA200",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA201",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA202",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA203",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA204",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA205",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA206",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA207",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA208",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA209",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20A",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20B",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20C",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "COB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20D",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20E",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20F",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA210",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA211",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA212",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA213",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA214",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA215",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA216",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA217",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA218",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA219",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21A",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21B",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21C",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21D",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21E",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21F",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA220",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA221",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "COB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA222",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xF91154",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    }
++  ],
++  "new_members": [
++    "ANS",
++    "FBM",
++    "WZB",
++    "NUR",
++    "EIC"
++  ],
++  "free_cities": [
++    "NUR"
++  ],
++  "new_provinces": [
++    {
++      "rgb": "xEDA200",
++      "parent_rgb": "x0B0DBA"
++    },
++    {
++      "rgb": "xEDA201",
++      "parent_rgb": "x0B0DBA"
++    },
++    {
++      "rgb": "xEDA202",
++      "parent_rgb": "x0B0DBA"
++    },
++    {
++      "rgb": "xEDA203",
++      "parent_rgb": "x0B0DBA"
++    },
++    {
++      "rgb": "xEDA204",
++      "parent_rgb": "x0B0DBA"
++    },
++    {
++      "rgb": "xEDA205",
++      "parent_rgb": "x51C0A0"
++    },
++    {
++      "rgb": "xEDA206",
++      "parent_rgb": "x51C0A0"
++    },
++    {
++      "rgb": "xEDA207",
++      "parent_rgb": "x51C0A0"
++    },
++    {
++      "rgb": "xEDA208",
++      "parent_rgb": "x648AD1"
++    },
++    {
++      "rgb": "xEDA209",
++      "parent_rgb": "x648AD1"
++    },
++    {
++      "rgb": "xEDA20A",
++      "parent_rgb": "x648AD1"
++    },
++    {
++      "rgb": "xEDA20B",
++      "parent_rgb": "x648AD1"
++    },
++    {
++      "rgb": "xEDA20C",
++      "parent_rgb": "x648AD1"
++    },
++    {
++      "rgb": "xEDA20D",
++      "parent_rgb": "x648AD1"
++    },
++    {
++      "rgb": "xEDA20E",
++      "parent_rgb": "x648AD1"
++    },
++    {
++      "rgb": "xEDA20F",
++      "parent_rgb": "x9040A0"
++    },
++    {
++      "rgb": "xEDA210",
++      "parent_rgb": "xA55FB1"
++    },
++    {
++      "rgb": "xEDA211",
++      "parent_rgb": "xA55FB1"
++    },
++    {
++      "rgb": "xEDA212",
++      "parent_rgb": "xD041A0"
++    },
++    {
++      "rgb": "xEDA213",
++      "parent_rgb": "xD041A0"
++    },
++    {
++      "rgb": "xEDA214",
++      "parent_rgb": "xD041A0"
++    },
++    {
++      "rgb": "xEDA215",
++      "parent_rgb": "xD041A0"
++    },
++    {
++      "rgb": "xEDA216",
++      "parent_rgb": "xD041A0"
++    },
++    {
++      "rgb": "xEDA217",
++      "parent_rgb": "xD0C0A0"
++    },
++    {
++      "rgb": "xEDA218",
++      "parent_rgb": "xD0C0A0"
++    },
++    {
++      "rgb": "xEDA219",
++      "parent_rgb": "xD0C0A0"
++    },
++    {
++      "rgb": "xEDA21A",
++      "parent_rgb": "xD0C0A0"
++    },
++    {
++      "rgb": "xEDA21B",
++      "parent_rgb": "xD0C0A0"
++    },
++    {
++      "rgb": "xEDA21C",
++      "parent_rgb": "xD0C0A0"
++    },
++    {
++      "rgb": "xEDA21D",
++      "parent_rgb": "xD0C0A0"
++    },
++    {
++      "rgb": "xEDA21E",
++      "parent_rgb": "xD0C0A0"
++    },
++    {
++      "rgb": "xEDA21F",
++      "parent_rgb": "xF91154"
++    },
++    {
++      "rgb": "xEDA220",
++      "parent_rgb": "xF91154"
++    },
++    {
++      "rgb": "xEDA221",
++      "parent_rgb": "xF91154"
++    },
++    {
++      "rgb": "xEDA222",
++      "parent_rgb": "xF91154"
++    }
++  ]
++}
+*** End Patch

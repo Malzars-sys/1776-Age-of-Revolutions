@@ -1,0 +1,97 @@
+flowcontainer = {
+ name = "aor1776_hre_situation_widget"
+ direction = vertical
+ spacing = 8
+ layoutpolicy_horizontal = expanding
+widget = {
+ name = "aor1776_hre_emperor_row"
+ size = { 500 85 }
+ hbox = {
+ layoutpolicy_horizontal = expanding
+ layoutpolicy_vertical = expanding
+ visible = "[JournalEntry.GetCountry.MakeScope.Var('aor1776_hre_ui_person').GetCharacter.IsValid]"
+ spacing = 8
+ widget = { size = { 80 80 } character_portrait_medium = { datacontext = "[JournalEntry.GetCountry.MakeScope.Var('aor1776_hre_ui_person').GetCharacter]" blockoverride "show_hat" {} blockoverride "highlight" {} blockoverride "rank_icon" {} } }
+ textbox = { using = fontsize_medium size = { 410 75 } text = "aor1776_hre_emperor_person" multiline = yes }
+}
+}
+ textbox = { using = fontsize_medium size = { 500 95 } text = "aor1776_hre_reforms_ui" multiline = yes }
+ textbox = { using = fontsize_medium size = { 500 125 } text = "je_aor1776_hre_situation_status" multiline = yes }
+button = {
+ size = { 500 50 }
+ onclick = "[GetVariableSystem.Toggle('aor1776_hre_map_collapsed')]"
+ tooltip = "aor1776_hre_map_legend"
+ icon = { size = { 45 45 } texture = "gfx/interface/icons/map_mode_icons/aor1776_hre_territories.dds" }
+ textbox = { using = fontsize_medium position = { 55 0 } size = { 440 45 } text = "aor1776_hre_map_toggle" }
+}
+ icon = { visible = "[Not(GetVariableSystem.Exists('aor1776_hre_map_collapsed'))]" size = { 500 370 } texture = "gfx/interface/journal_entries/aor1776_hre_registered_map.dds" }
+ textbox = { using = fontsize_medium size = { 500 50 } text = "aor1776_hre_map_legend" multiline = yes }
+ textbox = { using = fontsize_medium size = { 500 40 } text = "aor1776_hre_electors_heading" multiline = yes }
+ fixedgridbox = {
+  datamodel = "[JournalEntry.GetCountry.MakeScope.Var('aor1776_hre_ui_emperor').GetCountry.MakeScope.GetList('aor1776_hre_electors_list')]"
+  addcolumn = 500
+  addrow = 150
+  item = {
+   widget = {
+    name = "aor1776_hre_elector_row"
+    size = { 500 150 }
+   hbox = {
+    layoutpolicy_horizontal = expanding
+    layoutpolicy_vertical = expanding
+    datacontext = "[Scope.GetCountry]"
+    visible = "[Scope.GetCountry.IsValid]"
+    spacing = 8
+    widget = {
+     size = { 80 80 }
+     character_portrait_medium = { datacontext = "[Country.AccessRuler]" blockoverride "show_hat" {} blockoverride "highlight" {} blockoverride "rank_icon" {} }
+    }
+    widget = { size = { 380 140 }
+button = {
+     size = { 380 100 }
+     onclick = "[InformationPanelBar.OpenCountryPanel(Country.AccessSelf)]"
+     tooltip = "aor1776_hre_elector_card_tt"
+     textbox = { using = fontsize_medium size = { 370 95 } text = "[Country.GetName] — [Country.GetRuler.GetFullNameNoFormatting]\n[Country.GetCustom('aor1776_hre_vote_display')]" multiline = yes }
+    }
+
+     button = {
+      name = "aor1776_hre_card_vote"
+      position = { 0 102 } size = { 380 35 }
+      using = default_button_action
+      visible = "[GetScriptedGui('aor1776_hre_choose_vote_gui').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('hre_vote_choice', Country.MakeScope).End)]"
+      enabled = "[GetScriptedGui('aor1776_hre_choose_vote_gui').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('hre_vote_choice', Country.MakeScope).End)]"
+      onclick = "[GetScriptedGui('aor1776_hre_choose_vote_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('hre_vote_choice', Country.MakeScope).End)]"
+      tooltip = "aor1776_hre_choose_vote_desc"
+      textbox = { size = { 375 35 } using = fontsize_medium text = "aor1776_hre_card_vote_label" }
+     }
+
+}
+   }
+   }
+  }
+ }
+textbox = { using = fontsize_medium size = { 500 40 } text = "aor1776_hre_free_cities_heading" }
+ fixedgridbox = {
+  datamodel = "[JournalEntry.GetCountry.MakeScope.Var('aor1776_hre_ui_emperor').GetCountry.MakeScope.GetList('aor1776_hre_free_cities_list')]"
+  addcolumn = 500 addrow = 45
+  item = { button = {
+   datacontext = "[Scope.GetCountry]" size = { 500 42 }
+   onclick = "[InformationPanelBar.OpenCountryPanel(Country.AccessSelf)]"
+   textbox = { using = fontsize_medium size = { 490 40 } text = "[Country.GetName] — [Country.MakeScope.Var('aor1776_hre_relation_to_emperor').GetValue|=0]" }
+  } }
+ }
+ textbox = { using = fontsize_medium size = { 500 75 } text = "aor1776_hre_dashboard_decisions" multiline = yes }
+ textbox = { using = fontsize_medium size = { 500 35 } text = "aor1776_hre_states_heading" }
+ fixedgridbox = {
+  datamodel = "[JournalEntry.GetCountry.MakeScope.Var('aor1776_hre_ui_emperor').GetCountry.MakeScope.GetList('aor1776_hre_states_list')]"
+  addcolumn = 500
+  addrow = 38
+  item = {
+   button = {
+    datacontext = "[Scope.GetState]"
+    size = { 500 35 }
+    onclick = "[InformationPanelBar.OpenStatePanel(State.AccessSelf)]"
+    textbox = { using = fontsize_medium size = { 490 32 } text = "[State.GetName] — [State.GetOwner.GetName] ([State.MakeScope.Var('aor1776_hre_registered_count').GetValue|0])" }
+   }
+  }
+ }
+}

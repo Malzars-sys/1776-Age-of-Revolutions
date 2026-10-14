@@ -1,0 +1,213 @@
+aor1776_imperial_obligation = {
+
+ groups = { power_bloc }
+ requires_approval = no
+ show_in_lens = no
+ potential = { always = no } # Scripted constitutional pact, never a free invite.
+ pact = {
+  cost = 0
+  is_two_sided_pact = no
+  income_transfer = 0
+  actor_can_break = { always = no }
+  target_can_break = { always = no }
+}
+ ai = { will_break = { always = no } will_propose = { always = no } }
+
+
+texture = "gfx/interface/icons/diplomatic_action_icons/aor1776_imperial_obligation.dds"
+
+
+}
+aor1776_hre_request_restitution = {
+
+ groups = { general power_bloc }
+ requires_approval = yes # Forced members transfer immediately; others get an event.
+ state_selection = second_required
+ second_state_list = second_country
+ should_notify_third_parties = yes
+ show_effect_in_tooltip = yes
+ selectable = { aor1776_hre_emperor = yes }
+ potential = {
+ NOT = { this = scope:target_country }
+ OR = { scope:target_country = { aor1776_hre_member = no } owes_obligation_to = scope:target_country }
+ scope:target_country = { any_scope_state = { aor1776_hre_restitution_state = yes } }
+}
+ possible = {
+  is_diplomatic_play_committed_participant = no
+  NOT = { has_war_with = scope:target_country }
+  scope:target_country = { is_diplomatic_play_committed_participant = no }
+  exists = scope:second_state
+  scope:second_state = { aor1776_hre_restitution_state = yes NOT = { aor1776_hre_restitution_cooldown = yes } }
+ }
+ second_state_trigger = {
+  owner = scope:target_country
+  aor1776_hre_restitution_state = yes
+  NOT = { aor1776_hre_restitution_cooldown = yes }
+  is_under_colonization = no
+ }
+ accept_effect = {
+ scope:second_state = { aor1776_hre_preview_provinces = yes }
+ hidden_effect = {
+  save_scope_as = hre_request_emperor scope:target_country = { save_scope_as = hre_holder save_scope_as = hre_reply_holder }
+  scope:second_state = { save_scope_as = hre_request_state aor1776_hre_snapshot_reply_provinces = yes }
+  aor1776_hre_return_requested_provinces = yes
+  trigger_event = { id = aor1776_hre.32 popup = yes }
+ }
+}
+ ai = {
+  evaluation_chance = { value = 0.2 }
+  will_propose = { aor1776_hre_emperor = yes }
+  will_select_as_second_state = { aor1776_hre_restitution_state = yes NOT = { aor1776_hre_restitution_cooldown = yes } }
+  propose_score = { value = 100 }
+ 
+accept_score = { if = { limit = { aor1776_hre_member = yes NOT = { scope:actor = { owes_obligation_to = root } } }
+ value = 0 add = { value = 1000 desc = aor1776_hre_accept_imperial_duty }
+} else = { value = 0
+add = { value = -25 desc = aor1776_hre_accept_base }
+add = { value = "relations(scope:actor)" multiply = 0.5 desc = aor1776_hre_accept_relations }
+add = { value = "scope:actor.ai_army_comparison(root)" multiply = 2 min = -50 max = 50 desc = aor1776_hre_accept_army }
+add = { value = aor1776_hre_foreign_allied_strength divide = { value = scope:actor.aor1776_hre_imperial_available_strength min = 1 } multiply = -40 min = -60 max = 0 desc = aor1776_hre_accept_allies }
+if = { limit = { scope:actor.power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } }
+ add = { value = scope:actor.power_bloc.current_cohesion_number subtract = 50 multiply = 0.75 desc = aor1776_hre_accept_cohesion }
+}
+if = { limit = { owes_obligation_to = scope:actor } add = { value = 60 desc = aor1776_hre_accept_obligation } }
+ } }
+}
+
+
+texture = "gfx/interface/icons/diplomatic_action_icons/aor1776_hre_request_restitution.dds"
+
+decline_effect = {
+ save_scope_as = hre_request_emperor
+ scope:target_country = { save_scope_as = hre_reply_holder
+  scope:second_state = { save_scope_as = hre_request_state aor1776_hre_snapshot_reply_provinces = yes }
+  if = { limit = { aor1776_hre_member = no } aor1776_hre_record_external_refusal = yes }
+ }
+ trigger_event = { id = aor1776_hre.33 popup = yes }
+}
+}
+aor1776_hre_request_subject_release = {
+
+ groups = { general power_bloc }
+ requires_approval = yes
+ should_notify_third_parties = yes
+ show_effect_in_tooltip = yes
+ selectable = { aor1776_hre_emperor = yes }
+ potential = { scope:target_country = { aor1776_hre_external_imperial_overlord = yes } }
+ possible = {
+  is_diplomatic_play_committed_participant = no
+  NOT = { has_war_with = scope:target_country }
+  scope:target_country = { is_diplomatic_play_committed_participant = no NOT = { has_variable = aor1776_hre_release_wait } }
+ }
+ accept_effect = {
+ custom_tooltip = aor1776_hre_release_effect_tt
+ scope:target_country = { aor1776_hre_preview_subjects = yes }
+ hidden_effect = {
+  save_scope_as = hre_request_emperor
+  scope:target_country = { save_scope_as = hre_reply_holder aor1776_hre_snapshot_reply_subjects = yes aor1776_hre_release_imperial_subjects = yes }
+  trigger_event = { id = aor1776_hre.30 popup = yes }
+ }
+}
+ ai = {
+ evaluation_chance = { value = 0.2 }
+ will_propose = { aor1776_hre_emperor = yes }
+ will_propose_even_if_not_accepted = { aor1776_hre_emperor = yes }
+ propose_score = { value = 100 }
+ accept_score = { value = 0
+add = { value = -25 desc = aor1776_hre_accept_base }
+add = { value = "relations(scope:actor)" multiply = 0.5 desc = aor1776_hre_accept_relations }
+add = { value = "scope:actor.ai_army_comparison(root)" multiply = 2 min = -50 max = 50 desc = aor1776_hre_accept_army }
+add = { value = aor1776_hre_foreign_allied_strength divide = { value = scope:actor.aor1776_hre_imperial_available_strength min = 1 } multiply = -40 min = -60 max = 0 desc = aor1776_hre_accept_allies }
+if = { limit = { scope:actor.power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } }
+ add = { value = scope:actor.power_bloc.current_cohesion_number subtract = 50 multiply = 0.75 desc = aor1776_hre_accept_cohesion }
+}
+if = { limit = { owes_obligation_to = scope:actor } add = { value = 60 desc = aor1776_hre_accept_obligation } }
+ }
+}
+
+
+texture = "gfx/interface/icons/diplomatic_action_icons/aor1776_hre_request_subject_release.dds"
+
+decline_effect = {
+ save_scope_as = hre_request_emperor
+ scope:target_country = { save_scope_as = hre_reply_holder aor1776_hre_snapshot_reply_subjects = yes aor1776_hre_record_release_refusal = yes }
+ trigger_event = { id = aor1776_hre.31 popup = yes }
+}
+}
+aor1776_hre_enforce_internal_restitution = {
+
+ groups = { general power_bloc }
+ requires_approval = no # Forced members transfer immediately; others get an event.
+ state_selection = second_required
+ second_state_list = second_country
+ should_notify_third_parties = yes
+ show_effect_in_tooltip = yes
+ selectable = { aor1776_hre_emperor = yes }
+ potential = {
+ NOT = { this = scope:target_country }
+ NOT = { owes_obligation_to = scope:target_country }
+ scope:target_country = { aor1776_hre_member = yes any_scope_state = { aor1776_hre_restitution_state = yes } }
+}
+ possible = {
+  is_diplomatic_play_committed_participant = no
+  NOT = { has_war_with = scope:target_country }
+  scope:target_country = { is_diplomatic_play_committed_participant = no }
+  exists = scope:second_state
+  scope:second_state = { aor1776_hre_restitution_state = yes NOT = { aor1776_hre_restitution_cooldown = yes } }
+ }
+ second_state_trigger = {
+  owner = scope:target_country
+  aor1776_hre_restitution_state = yes
+  NOT = { aor1776_hre_restitution_cooldown = yes }
+  is_under_colonization = no
+ }
+ accept_effect = {
+ scope:second_state = { aor1776_hre_preview_provinces = yes }
+ hidden_effect = {
+  save_scope_as = hre_request_emperor scope:target_country = { save_scope_as = hre_holder save_scope_as = hre_reply_holder }
+  scope:second_state = { save_scope_as = hre_request_state aor1776_hre_snapshot_reply_provinces = yes }
+  aor1776_hre_return_requested_provinces = yes
+  trigger_event = { id = aor1776_hre.32 popup = yes }
+ }
+}
+ ai = {
+  evaluation_chance = { value = 0.2 }
+  will_propose = { aor1776_hre_emperor = yes }
+  will_select_as_second_state = { aor1776_hre_restitution_state = yes NOT = { aor1776_hre_restitution_cooldown = yes } }
+  propose_score = { value = 100 }
+ 
+accept_score = { if = { limit = { aor1776_hre_member = yes NOT = { scope:actor = { owes_obligation_to = root } } }
+ value = 0 add = { value = 1000 desc = aor1776_hre_accept_imperial_duty }
+} else = { value = 0
+add = { value = -25 desc = aor1776_hre_accept_base }
+add = { value = "relations(scope:actor)" multiply = 0.5 desc = aor1776_hre_accept_relations }
+add = { value = "scope:actor.ai_army_comparison(root)" multiply = 2 min = -50 max = 50 desc = aor1776_hre_accept_army }
+add = { value = aor1776_hre_foreign_allied_strength divide = { value = scope:actor.aor1776_hre_imperial_available_strength min = 1 } multiply = -40 min = -60 max = 0 desc = aor1776_hre_accept_allies }
+if = { limit = { scope:actor.power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } }
+ add = { value = scope:actor.power_bloc.current_cohesion_number subtract = 50 multiply = 0.75 desc = aor1776_hre_accept_cohesion }
+}
+if = { limit = { owes_obligation_to = scope:actor } add = { value = 60 desc = aor1776_hre_accept_obligation } }
+ } }
+}
+
+
+texture = "gfx/interface/icons/diplomatic_action_icons/aor1776_hre_request_restitution.dds"
+
+
+}
+aor1776_hre_choose_electoral_candidate = {
+
+ groups = { general power_bloc }
+ requires_approval = no
+ should_notify_third_parties = no
+ show_in_lens = no
+ show_effect_in_tooltip = yes
+ texture = "gfx/interface/icons/diplomatic_action_icons/aor1776_imperial_obligation.dds"
+ selectable = { aor1776_hre_elector = yes }
+ potential = { NOT = { this = scope:target_country } scope:target_country = { aor1776_hre_candidate = yes } }
+ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = scope:target_country } }
+ accept_effect = { custom_tooltip = aor1776_hre_choose_vote_result
+  hidden_effect = { scope:target_country = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+ ai = { will_propose = { always = no } }
+
+}

@@ -1,0 +1,32 @@
+{
+  "method": "Continue retained and previously reviewed Homann major-jurisdiction envelopes across the economic Franconia/Bavaria boundary. No new projection fit, arbitrary dilation or nearest-city partition. Only four still-Bavarian parents are eligible.",
+  "calibrated_sources": [{
+    "key": "HOMANN", "path": "../GEOMETRY/Homann_reading.jpg",
+    "matrix": [[0.029492293710111982,0.005888939080532318],[-0.0016747473712444005,0.027387013519378556],[4318.161171091778,826.2133799005417]],
+    "controls": [
+      {"name":"Wurzburg","source":[209,1245],"game":[4322.24,861.541],"role":"FIT"},
+      {"name":"Nuremberg","source":[1223,1598],"game":[4351.554,877.18],"role":"FIT"},
+      {"name":"Bayreuth","source":[1563,985],"game":[4362.608,862.394],"role":"FIT"},
+      {"name":"Regensburg","source":[2058,2170],"game":[4373.729,892.864],"role":"CHECK","residual_px":5.121133670523465}
+    ]
+  }],
+  "parents": ["x010AD7","x318021","x82F4B9","xA7094D"],
+  "rgb_start": 15575040,
+  "native_anchors": "../FRANCONIA/NATIVE_ANCHORS.json",
+  "polygons": [
+    {"source":"HOMANN","owner":"FBM","parents":["x82F4B9","xA7094D"],"territory":"Hochstift Bamberg eastern/southern districts","points":[[1580,1290],[1710,1240],[1840,1310],[1840,1400],[1780,1450],[1800,1530],[1700,1630],[1640,1660],[1560,1730],[1400,1810],[1290,1880],[1230,1785],[1350,1745],[1470,1690],[1520,1640],[1570,1580],[1570,1510],[1520,1460],[1530,1370]]},
+    {"source":"HOMANN","owner":"ANS","parents":["x010AD7"],"territory":"Brandenburg-Ansbach core; distinct from Bayreuth under the shared margrave","points":[[399,1410],[460,1430],[575,1500],[599,1550],[752,1535],[790,1480],[875,1495],[1030,1450],[1120,1420],[1130,1480],[1120,1550],[1150,1610],[1150,1700],[1165,1765],[1275,1760],[1290,1830],[1210,1910],[1230,2020],[1200,2080],[1030,2090],[920,2120],[880,2100],[870,2030],[800,2000],[769,1970],[766,1990],[610,1920],[607,1848],[574,1885],[520,1840],[584,1845],[584,1810],[545,1805],[528,1645],[592,1645],[625,1580],[550,1570],[470,1590],[438,1575],[374,1620],[377,1530],[352,1545],[363,1470],[383,1500],[399,1450],[434,1440]]},
+    {"source":"HOMANN","owner":"NUR","parents":["xA7094D"],"territory":"Imperial city Nuremberg and its outlined eastern territory","points":[[1130,1378],[1310,1360],[1330,1290],[1417,1275],[1460,1290],[1450,1320],[1495,1325],[1490,1370],[1520,1400],[1525,1480],[1540,1500],[1545,1580],[1490,1610],[1490,1650],[1390,1690],[1310,1710],[1270,1700],[1275,1760],[1165,1765],[1150,1700],[1145,1610],[1140,1550],[1120,1485],[1115,1440],[1140,1410]]},
+    {"source":"HOMANN","owner":"EIC","parents":["x010AD7","x318021"],"territory":"Hochstift Eichstatt northern mainland","points":[[772,1980],[869,2030],[880,2090],[917,2110],[1180,2090],[1370,2100],[1510,2140],[1560,2100],[1610,2120],[1640,2200],[1545,2230],[1480,2180],[1320,2170],[1100,2310],[890,2340],[860,2300],[812,2230],[850,2170],[780,2110]]}
+  ],
+  "preview_box": [4335,852,4378,903],
+  "preview_labels": [],
+  "preview_legend": "Ansbach orange / Bamberg blue / Nuremberg red / Eichstatt green / Bavaria grey",
+  "limitations": [
+    "Existing simplified jurisdiction envelopes, not a cadastral reconstruction. The source edition is undated; retained Le Rouge and institutional evidence corroborate the major estates, not every village boundary.",
+    "The retained Regensburg check differs by 5.121 pixels and is a native game city anchor, not independent surveyed ground truth. This lot accepts explicitly approximate game-scale boundaries; it does not certify sub-3-pixel geographic precision.",
+    "Four Bavaria-region parents only. All prior Franconian allocations, including Wurzburg and Bayreuth, are preserved byte-for-byte geometrically. A one-cell Nuremberg edge intersection in x82F4B9 is deliberately not transferred.",
+    "Southern Eichstatt estates beyond the already reviewed northern-mainland polygon remain pending. Rothenburg, Hohenlohe, smaller enclaves and uncertain franges are not assigned to neighbours by proximity.",
+    "Erfurt-Eichsfeld and the rejected 7.20-pixel translation are wholly excluded. Populations are redistributed by existing subdivision pixel weights, not asserted as historical district censuses; no people are added."
+  ]
+}

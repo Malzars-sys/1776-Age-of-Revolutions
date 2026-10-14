@@ -1,0 +1,52 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\treaty_articles\1776_imperial_electoral_promise.txt
+@@
+  possible = { aor1776_hre_member = yes scope:other_country = { aor1776_hre_member = yes } }
+  can_ratify = {
+   scope:source_country = { aor1776_hre_elector = yes NOT = { has_variable = aor1776_hre_promised_candidate } }
+   scope:target_country = { aor1776_hre_candidate = yes OR = { aor1776_hre_elector = yes aor1776_hre_emperor = yes } }
+   NOT = { has_global_variable = aor1776_hre_election_open }
+  
+  scope:treaty.binding_period > 0 # A pledge must have a real binding duration.
+ }
+  can_withdraw = { scope:source_country = { NOT = { has_variable = aor1776_hre_promised_candidate } } }
+  on_entry_into_force = {
+   scope:article_options.source_country = {
+  set_variable = { name = aor1776_hre_preferred_candidate value = scope:article_options.target_country }
+    set_variable = { name = aor1776_hre_promised_candidate value = scope:article_options.target_country days = { value = scope:treaty_options.binding_period multiply = 365 } }
+   
+  aor1776_hre_update_vote_preview = yes
+ }
+  }
+  on_withdrawal = { scope:article.source_country = { if = { limit = { var:aor1776_hre_promised_candidate ?= scope:article.target_country } remove_variable = aor1776_hre_promised_candidate } } }
+  on_break = {}
+  ai = {
+ 
+  treaty_categories = { power_bloc }
+  article_ai_usage = { request offer }
+  evaluation_chance = { value = 0.1 }
+  inherent_accept_score = { value = 0
+  if = { limit = { scope:source_country ?= this }
+   scope:source_country = { save_temporary_scope_as = hre_voter }
+   add = { desc = aor1776_hre_pledge_accept_base value = -40 }
+   add = { desc = aor1776_hre_pledge_accept_preference value = scope:target_country.aor1776_hre_vote_preference subtract = 20 min = -250 max = 100 }
+   if = { limit = { owes_obligation_to = scope:target_country } add = { desc = aor1776_hre_pledge_accept_obligation value = 40 } }
+-  if = { limit = { exists = scope:treaty_options }
+-   if = { limit = { scope:treaty_options.binding_period >= 5 }
+-    add = { desc = aor1776_hre_pledge_accept_duration value = scope:treaty_options.binding_period multiply = -2 min = -40 max = 0 }
++  if = { limit = { exists = scope:treaty }
++   if = { limit = { scope:treaty.binding_period >= 1825 }
++    add = { desc = aor1776_hre_pledge_accept_duration value = scope:treaty.binding_period divide = 365 multiply = -2 min = -40 max = 0 }
+    }
+   }
+  }
+  else_if = { limit = { scope:target_country ?= this }
+   add = { desc = aor1776_hre_pledge_accept_receiving value = 60 }
+  }
+  }
+ 
+ }
+ 
+ 
+ }
+*** End Patch

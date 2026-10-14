@@ -1,0 +1,1308 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 	s:STATE_HANNOVER = {
+ 		create_state = {
+ 			country = c:OLD
+ 			owned_provinces = { xECC3B4 xC00161 x4101E0 }
+ 		}
+ 		create_state = {
+ 			country = c:HAN
+ 			owned_provinces = { x165E05 x694B91 xBBA504 xBF00DF x4D62A0 x8080E0 x784B8E xF9DCA2 }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+ 	}
+ 	s:STATE_BAVARIA = {
+ 		create_state = {
+ 			country = c:BAV
+-			owned_provinces = { x68CE1C xE76994 x6EA29B xE75868 xB00121 x18A2E1 x565185 x704A5F xC347B1 xB08021 xFE59E7 x8C26DD x010AD7 x318021 x3101A0 x82F4B9 xA7094D }
++			owned_provinces = { x68CE1C xE76994 x6EA29B xE75868 xB00121 x18A2E1 x565185 x704A5F xC347B1 xB08021 xFE59E7 x8C26DD x3101A0 x010AD7 x318021 x82F4B9 xA7094D xEDA805 xEDA806 }
+ 		}
+ 
+ 		add_homeland = cu:south_german
+-	}
++	
++create_state = { country = c:ANS owned_provinces = { xEDA800 } }
++create_state = { country = c:EIC owned_provinces = { xEDA801 xEDA802 xEDA803 } }
++create_state = { country = c:FBM owned_provinces = { xEDA804 xEDA807 } }
++create_state = { country = c:NUR owned_provinces = { xEDA808 } }
++}
+ 	s:STATE_FRANCONIA = {
+ 		create_state = { country = c:ANS owned_provinces = { xEDA200 xEDA205 xEDA208 xD041A0 xEDA217 xF91154 } }
+ 		create_state = { country = c:BAV owned_provinces = { xEDA201 xEDA202 xEDA209 xEDA20A xEDA20B xEDA210 xEDA212 xEDA213 xEDA218 xEDA219 xEDA21A xEDA21B xEDA21F xEDA220 xEDA504 xEDA505 xEDA506 xEDA507 xEDA206 } }
+ 		create_state = { country = c:COB owned_provinces = { xEDA20C xEDA221 } }
+ 		create_state = { country = c:EIC owned_provinces = { xEDA21C } }
+ 		create_state = { country = c:FBM owned_provinces = { xEDA203 x648AD1 xEDA211 xEDA214 xEDA215 xEDA21D xEDA222 } }
+ 		create_state = { country = c:NUR owned_provinces = { xEDA204 xEDA216 xD0C0A0 } }
+ 		create_state = { country = c:WZB owned_provinces = { x0B0DBA x51C0A0 xEDA207 xEDA20D xEDA20E xEDA20F xA55FB1 xEDA21E } }
+ 
+ 		add_homeland = cu:south_german
+ 	
+ create_state = { country = c:KMZ owned_provinces = { x9040A0 xEDA401 xEDA508 } }
+ }
+ 	s:STATE_SAXONY = {
+ 		create_state = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     wood = "xA61E6E"
+     arable_land = 30
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_coal_mine = 40
+         building_iron_mine = 45
+         building_lead_mine = 45
+         building_logging_camp = 6
+         building_limestone_quarry = 28
+     }
+ }
+ 
+ STATE_BAVARIA = {
+     id = 71
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x010AD7" "x18A2E1" "x3101A0" "x318021" "x565185" "x68CE1C" "x6EA29B" "x704A5F" "x82F4B9" "x8C26DD" "xA7094D" "xB00121" "xB08021" "xC347B1" "xE75868" "xE76994" "xFE59E7" }
++    provinces = { "x18A2E1" "x3101A0" "x565185" "x68CE1C" "x6EA29B" "x704A5F" "x8C26DD" "xB00121" "xB08021" "xC347B1" "xE75868" "xE76994" "xFE59E7" "x010AD7" "xEDA800" "xEDA801" "x318021" "xEDA802" "xEDA803" "x82F4B9" "xEDA804" "xA7094D" "xEDA805" "xEDA806" "xEDA807" "xEDA808" }
+     traits = { "state_trait_danube_river" }
+     city = "xE76994"
+     farm = "xFE59E7"
+     mine = "xE75868"
+     wood = "xC347B1"
+     arable_land = 65
+     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_vineyard" }
+     capped_resources = {
+         building_coal_mine = 60
+         building_iron_mine = 30
+         building_lead_mine = 30
+         building_logging_camp = 23
+         building_limestone_quarry = 48
+     }
+     resource = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 				religion = catholic
+ 				size = 3121
+ 			}
+ 		}
+ 		region_state:PRU = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 45719
+ 			}
+ 		}
+ 	}
+ 	s:STATE_BAVARIA = {
+ 		region_state:BAV = {
+ 			create_pop = {
+ 				culture = south_german
+-				size = 1311958
+-			}
+-			create_pop = {
+-				culture = south_german
+-				religion = protestant
+-				size = 42901
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 3904
++				size = 1246922
++			}
++			create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 40774
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 3710
++			}
++		}
++	
++		region_state:ANS = {
++create_pop = {
++				culture = south_german
++				size = 8789
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 287
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 26
++			}
++		}
++	
++		region_state:EIC = {
++create_pop = {
++				culture = south_german
++				size = 20741
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 678
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 62
++			}
++		}
++	
++		region_state:FBM = {
++create_pop = {
++				culture = south_german
++				size = 30936
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 1012
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 92
++			}
++		}
++	
++		region_state:NUR = {
++create_pop = {
++				culture = south_german
++				size = 4570
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 150
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 14
+ 			}
+ 		}
+ 	}
+ 	s:STATE_FRANCONIA = {
+ 		region_state:BAV = {
+ 			create_pop = {
+ 				culture = south_german
+ 				size = 224534
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 854
+ 			}
+ 			create_pop = {
+ 				culture = south_german
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+ [
+   {
+     "rgb": "x0000DF",
+     "state": "STATE_GELRE",
+     "beneficiary": "BEO",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x010AD7",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x0141A0",
+     "state": "STATE_FLANDERS",
+     "beneficiary": "BEO",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "x017E3C",
+     "state": "STATE_STYRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x018061",
+@@
+     "rgb": "x3101A0",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x316141",
+     "state": "STATE_AUSTRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x318021",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x318061",
+     "state": "STATE_BADEN",
+     "beneficiary": "KMZ",
+     "basis": "MAP2L MAINZ_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x31E041",
+     "state": "STATE_SLOVENIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x31E0C0",
+@@
+     "rgb": "x81C142",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x821F52",
+     "state": "STATE_UPPER_SILESIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x82F4B9",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x82F9A8",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x834B66",
+     "state": "STATE_NORTH_RHINE",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x83B1A8",
+@@
+     "rgb": "xA61E6E",
+     "state": "STATE_BRUNSWICK",
+     "beneficiary": "BRA",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA65DA6",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA7094D",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xA9397D",
+     "state": "STATE_PIEDMONT",
+     "beneficiary": "SAR",
+     "basis": "Explicit user-approved Piedmont-only de-jure extension, 1776-01-01; no claim on Sardinia, Savoy, Nice or Genoese provinces."
+   },
+   {
+     "rgb": "xA9793B",
+     "state": "STATE_AUSTRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xA9BD82",
+@@
+     "basis": "MAP2L MAINZ_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDA608",
+     "state": "STATE_WURTTEMBERG",
+     "beneficiary": "KMZ",
+     "basis": "MAP2L MAINZ_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDA701",
+     "state": "STATE_LOMBARDY",
+     "beneficiary": "AUS",
+     "basis": "MAP2L MILAN_CREMONESE: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
++    "rgb": "xEDA800",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "ANS",
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDA801",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "EIC",
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDA802",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "EIC",
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDA803",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "EIC",
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDA804",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "FBM",
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDA805",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDA806",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "BAV",
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDA807",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "FBM",
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDA808",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "NUR",
++    "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\FRANCONIA_CONTINUATION\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_BAVARIA",
++    "STATE_FRANCONIA"
++  ],
++  "previous": [
++    {
++      "rgb": "x010AD7",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x0B0DBA",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "x18A2E1",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x3101A0",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x318021",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x51C0A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "x565185",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x648AD1",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "x68CE1C",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x6EA29B",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x704A5F",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x82F4B9",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x8C26DD",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x9040A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xA55FB1",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xA7094D",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xB00121",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xB08021",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xC347B1",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD041A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xD0C0A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xE75868",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE76994",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xEDA200",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA201",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA202",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA203",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA204",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA205",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA206",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA207",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA208",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA209",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA20A",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA20B",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA20C",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "COB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20D",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20E",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20F",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA210",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA211",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA212",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA213",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA214",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA215",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA216",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA217",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA218",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA219",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA21A",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA21B",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA21C",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21D",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21E",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21F",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA220",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA221",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "COB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA222",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA401",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA504",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA505",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA506",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA507",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA508",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xF91154",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xFE59E7",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x0B0DBA",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "x18A2E1",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x3101A0",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x51C0A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "x565185",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x648AD1",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "x68CE1C",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x6EA29B",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x704A5F",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x8C26DD",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x9040A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xA55FB1",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xB00121",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xB08021",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xC347B1",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD041A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xD0C0A0",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xE75868",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE76994",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xEDA200",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA201",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA202",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA203",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA204",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA205",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA206",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA207",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA208",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA209",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA20A",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA20B",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA20C",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "COB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20D",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20E",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA20F",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA210",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA211",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA212",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA213",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA214",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA215",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA216",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA217",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA218",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA219",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA21A",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA21B",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA21C",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21D",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21E",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "WZB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA21F",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA220",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L Franconia: unchanged unresolved BAV fringe, NOT certified Bavarian sovereignty; see FRANCONIA/UNRESOLVED.csv."
++    },
++    {
++      "rgb": "xEDA221",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "COB",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA222",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xEDA401",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA504",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA505",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA506",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA507",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA508",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xF91154",
++      "state": "STATE_FRANCONIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
++    },
++    {
++      "rgb": "xFE59E7",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x010AD7",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA800",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA801",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x318021",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA802",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA803",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x82F4B9",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA804",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xA7094D",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA805",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA806",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA807",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA808",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    }
++  ],
++  "new_members": [],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDA800",
++      "parent_rgb": "x010AD7"
++    },
++    {
++      "rgb": "xEDA801",
++      "parent_rgb": "x010AD7"
++    },
++    {
++      "rgb": "xEDA802",
++      "parent_rgb": "x318021"
++    },
++    {
++      "rgb": "xEDA803",
++      "parent_rgb": "x318021"
++    },
++    {
++      "rgb": "xEDA804",
++      "parent_rgb": "x82F4B9"
++    },
++    {
++      "rgb": "xEDA805",
++      "parent_rgb": "xA7094D"
++    },
++    {
++      "rgb": "xEDA806",
++      "parent_rgb": "xA7094D"
++    },
++    {
++      "rgb": "xEDA807",
++      "parent_rgb": "xA7094D"
++    },
++    {
++      "rgb": "xEDA808",
++      "parent_rgb": "xA7094D"
++    }
++  ],
++  "geometry": "FRANCONIA_CONTINUATION/GEOMETRY.json"
++}
+*** End Patch

@@ -1,0 +1,607 @@
+namespace = aor1776_hre
+aor1776_hre.1 = {
+
+ type = country_event
+ placement = root
+ title = aor1776_hre.1.t
+ desc = aor1776_hre.1.d
+ flavor = aor1776_hre.1.f
+ event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+ trigger = { has_global_variable = aor1776_hre_election_open has_variable = aor1776_hre_voter_this_round NOT = { has_variable = aor1776_hre_voted } }
+ cancellation_trigger = { OR = { NOT = { has_global_variable = aor1776_hre_election_open } has_variable = aor1776_hre_voted } }
+option = {
+name = aor1776_hre.vote_AUS
+trigger = { c:AUS ?= { aor1776_hre_ballot_candidate = yes } }
+c:AUS = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_KPF
+trigger = { c:KPF ?= { aor1776_hre_ballot_candidate = yes } }
+c:KPF = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_KTR
+trigger = { c:KTR ?= { aor1776_hre_ballot_candidate = yes } }
+c:KTR = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_KMZ
+trigger = { c:KMZ ?= { aor1776_hre_ballot_candidate = yes } }
+c:KMZ = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_KCL
+trigger = { c:KCL ?= { aor1776_hre_ballot_candidate = yes } }
+c:KCL = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_MOD
+trigger = { c:MOD ?= { aor1776_hre_ballot_candidate = yes } }
+c:MOD = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_TUS
+trigger = { c:TUS ?= { aor1776_hre_ballot_candidate = yes } }
+c:TUS = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_PAR
+trigger = { c:PAR ?= { aor1776_hre_ballot_candidate = yes } }
+c:PAR = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_PRU
+trigger = { c:PRU ?= { aor1776_hre_ballot_candidate = yes } }
+c:PRU = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_LUB
+trigger = { c:LUB ?= { aor1776_hre_ballot_candidate = yes } }
+c:LUB = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_HAM
+trigger = { c:HAM ?= { aor1776_hre_ballot_candidate = yes } }
+c:HAM = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_BRE
+trigger = { c:BRE ?= { aor1776_hre_ballot_candidate = yes } }
+c:BRE = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_BRA
+trigger = { c:BRA ?= { aor1776_hre_ballot_candidate = yes } }
+c:BRA = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_SCM
+trigger = { c:SCM ?= { aor1776_hre_ballot_candidate = yes } }
+c:SCM = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_MST
+trigger = { c:MST ?= { aor1776_hre_ballot_candidate = yes } }
+c:MST = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_OLD
+trigger = { c:OLD ?= { aor1776_hre_ballot_candidate = yes } }
+c:OLD = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_HES
+trigger = { c:HES ?= { aor1776_hre_ballot_candidate = yes } }
+c:HES = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_BAV
+trigger = { c:BAV ?= { aor1776_hre_ballot_candidate = yes } }
+c:BAV = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_WUR
+trigger = { c:WUR ?= { aor1776_hre_ballot_candidate = yes } }
+c:WUR = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_BAD
+trigger = { c:BAD ?= { aor1776_hre_ballot_candidate = yes } }
+c:BAD = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_SAX
+trigger = { c:SAX ?= { aor1776_hre_ballot_candidate = yes } }
+c:SAX = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_HEK
+trigger = { c:HEK ?= { aor1776_hre_ballot_candidate = yes } }
+c:HEK = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_MEC
+trigger = { c:MEC ?= { aor1776_hre_ballot_candidate = yes } }
+c:MEC = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_NAS
+trigger = { c:NAS ?= { aor1776_hre_ballot_candidate = yes } }
+c:NAS = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_WEI
+trigger = { c:WEI ?= { aor1776_hre_ballot_candidate = yes } }
+c:WEI = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_SCW
+trigger = { c:SCW ?= { aor1776_hre_ballot_candidate = yes } }
+c:SCW = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_COB
+trigger = { c:COB ?= { aor1776_hre_ballot_candidate = yes } }
+c:COB = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_MEI
+trigger = { c:MEI ?= { aor1776_hre_ballot_candidate = yes } }
+c:MEI = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_ANH
+trigger = { c:ANH ?= { aor1776_hre_ballot_candidate = yes } }
+c:ANH = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_WLD
+trigger = { c:WLD ?= { aor1776_hre_ballot_candidate = yes } }
+c:WLD = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_LIP
+trigger = { c:LIP ?= { aor1776_hre_ballot_candidate = yes } }
+c:LIP = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_FRM
+trigger = { c:FRM ?= { aor1776_hre_ballot_candidate = yes } }
+c:FRM = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_HOL
+trigger = { c:HOL ?= { aor1776_hre_ballot_candidate = yes } }
+c:HOL = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_HOH
+trigger = { c:HOH ?= { aor1776_hre_ballot_candidate = yes } }
+c:HOH = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_BEO
+trigger = { c:BEO ?= { aor1776_hre_ballot_candidate = yes } }
+c:BEO = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_HAN
+trigger = { c:HAN ?= { aor1776_hre_ballot_candidate = yes } }
+c:HAN = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_LGE
+trigger = { c:LGE ?= { aor1776_hre_ballot_candidate = yes } }
+c:LGE = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_STM
+trigger = { c:STM ?= { aor1776_hre_ballot_candidate = yes } }
+c:STM = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_SAR
+trigger = { c:SAR ?= { aor1776_hre_ballot_candidate = yes } }
+c:SAR = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_ANS
+trigger = { c:ANS ?= { aor1776_hre_ballot_candidate = yes } }
+c:ANS = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_FBM
+trigger = { c:FBM ?= { aor1776_hre_ballot_candidate = yes } }
+c:FBM = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_WZB
+trigger = { c:WZB ?= { aor1776_hre_ballot_candidate = yes } }
+c:WZB = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_NUR
+trigger = { c:NUR ?= { aor1776_hre_ballot_candidate = yes } }
+c:NUR = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_EIC
+trigger = { c:EIC ?= { aor1776_hre_ballot_candidate = yes } }
+c:EIC = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_WPM
+trigger = { c:WPM ?= { aor1776_hre_ballot_candidate = yes } }
+c:WPM = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+option = {
+name = aor1776_hre.vote_WPD
+trigger = { c:WPD ?= { aor1776_hre_ballot_candidate = yes } }
+c:WPD = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
+
+
+}
+aor1776_hre.2 = {
+type = country_event
+hidden = yes
+immediate = { aor1776_hre_open_election = yes }
+
+}
+aor1776_hre.20 = {
+
+ type = country_event
+ placement = scope:hre_request_state
+ title = aor1776_hre.20.t
+ desc = aor1776_hre.20.d
+ flavor = aor1776_hre.20.f
+ event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+ trigger = { exists = scope:hre_request_state exists = scope:hre_request_emperor scope:hre_request_emperor = { aor1776_hre_emperor = yes } scope:hre_request_state = { owner = root aor1776_hre_restitution_state = yes } }
+ cancellation_trigger = { OR = { NOT = { exists = scope:hre_request_state } NOT = { scope:hre_request_emperor = { aor1776_hre_emperor = yes } } NOT = { scope:hre_request_state = { owner = root aor1776_hre_restitution_state = yes } } } }
+ option = {
+ hidden_effect = { scope:hre_request_state ?= { aor1776_hre_snapshot_reply_provinces = yes } }
+
+  name = aor1776_hre.20.a default_option = yes
+  save_scope_as = hre_holder
+  custom_tooltip = aor1776_hre_return_effect_tt
+  hidden_effect = { aor1776_hre_return_requested_provinces = yes }
+  ai_chance = { base = 60 modifier = { trigger = { aor1776_hre_member = yes } add = 35 } }
+ 
+ scope:hre_request_state ?= { aor1776_hre_preview_provinces = yes }
+
+ hidden_effect = { save_scope_as = hre_reply_holder scope:hre_request_emperor = { trigger_event = { id = aor1776_hre.32 popup = yes } } }
+
+ scope:hre_request_state ?= { aor1776_hre_preview_provinces = yes }
+}
+ option = {
+ hidden_effect = { scope:hre_request_state ?= { aor1776_hre_snapshot_reply_provinces = yes } }
+
+  name = aor1776_hre.20.b
+  trigger = { OR = { aor1776_hre_member = no scope:hre_request_emperor = { owes_obligation_to = root } } }
+  custom_tooltip = aor1776_hre_refusal_effect_tt
+  if = { limit = { aor1776_hre_member = no }
+   hidden_effect = { aor1776_hre_record_external_refusal = yes }
+  }
+  ai_chance = { base = 40 modifier = { trigger = { aor1776_hre_member = yes } add = -35 } }
+ 
+ hidden_effect = { save_scope_as = hre_reply_holder scope:hre_request_emperor = { trigger_event = { id = aor1776_hre.33 popup = yes } } }
+
+ scope:hre_request_state ?= { aor1776_hre_preview_provinces = yes }
+}
+
+}
+aor1776_hre.21 = {
+
+ type = country_event
+ placement = root
+ title = aor1776_hre.21.t
+ desc = aor1776_hre.21.d
+ flavor = aor1776_hre.21.f
+ event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+ trigger = { aor1776_hre_external_imperial_overlord = yes exists = scope:hre_request_emperor scope:hre_request_emperor = { aor1776_hre_emperor = yes } }
+ cancellation_trigger = { OR = { aor1776_hre_external_imperial_overlord = no NOT = { scope:hre_request_emperor ?= { aor1776_hre_emperor = yes } } } }
+ option = {
+ hidden_effect = { save_scope_as = hre_reply_holder aor1776_hre_snapshot_reply_subjects = yes }
+  name = aor1776_hre.21.a default_option = yes
+  custom_tooltip = aor1776_hre_release_effect_tt
+  hidden_effect = { aor1776_hre_release_imperial_subjects = yes }
+  ai_chance = { base = 60 }
+ 
+ hidden_effect = { scope:hre_request_emperor = { trigger_event = { id = aor1776_hre.30 popup = yes } } }
+
+ aor1776_hre_preview_subjects = yes
+}
+ option = {
+ hidden_effect = { save_scope_as = hre_reply_holder aor1776_hre_snapshot_reply_subjects = yes }
+  name = aor1776_hre.21.b
+  custom_tooltip = aor1776_hre_release_refusal_tt
+  hidden_effect = { aor1776_hre_record_release_refusal = yes }
+  ai_chance = { base = 40 }
+ 
+ hidden_effect = { scope:hre_request_emperor = { trigger_event = { id = aor1776_hre.31 popup = yes } } }
+
+ aor1776_hre_preview_subjects = yes
+}
+
+}
+aor1776_hre.30 = {
+type = country_event
+ placement = root
+ title = aor1776_hre.30.t
+ desc = aor1776_hre.30.d
+ event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+ option = { name = aor1776_hre.ack default_option = yes 
+ custom_tooltip = aor1776_hre.30.result
+ aor1776_hre_reply_details = yes
+}
+
+flavor = aor1776_hre.30.f
+}
+aor1776_hre.31 = {
+type = country_event
+ placement = root
+ title = aor1776_hre.31.t
+ desc = aor1776_hre.31.d
+ event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+ option = { name = aor1776_hre.ack default_option = yes 
+ custom_tooltip = aor1776_hre.31.result
+ aor1776_hre_reply_details = yes
+}
+
+flavor = aor1776_hre.31.f
+}
+aor1776_hre.32 = {
+type = country_event
+ placement = root
+ title = aor1776_hre.32.t
+ desc = aor1776_hre.32.d
+ event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+ option = { name = aor1776_hre.ack default_option = yes 
+ custom_tooltip = aor1776_hre.32.result
+ aor1776_hre_reply_details = yes
+}
+
+flavor = aor1776_hre.32.f
+}
+aor1776_hre.33 = {
+type = country_event
+ placement = root
+ title = aor1776_hre.33.t
+ desc = aor1776_hre.33.d
+ event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+ option = { name = aor1776_hre.ack default_option = yes 
+ custom_tooltip = aor1776_hre.33.result
+ aor1776_hre_reply_details = yes
+}
+
+flavor = aor1776_hre.33.f
+}
+aor1776_hre.34 = {
+type = country_event
+ placement = root
+ title = aor1776_hre.34.t
+ desc = aor1776_hre.34.d
+ event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+ option = { name = aor1776_hre.ack default_option = yes 
+ custom_tooltip = aor1776_hre.34.result
+ aor1776_hre_reply_details = yes
+}
+
+flavor = aor1776_hre.34.f
+}
+aor1776_hre.3 = {
+type = country_event
+ hidden = yes
+ trigger = { has_global_variable = aor1776_hre_election_open NOT = { has_variable = aor1776_hre_deliberation } }
+ immediate = {
+  every_country = { limit = { aor1776_hre_elector = yes has_variable = aor1776_hre_voter_this_round NOT = { has_variable = aor1776_hre_voted } }
+   aor1776_hre_ai_ballot = yes
+  }
+  aor1776_hre_tally_ballot = yes
+ }
+
+}
+aor1776_hre.40 = {
+type = country_event
+ hidden = yes
+ immediate = {
+  remove_variable = aor1776_hre_membership_guard_scheduled
+  if = { limit = { this = global_var:aor1776_hre_emperor_country }
+   aor1776_hre_restore_membership = yes
+   if = { limit = { NOT = { has_variable = aor1776_hre_dashboard_refreshed } } set_variable = { name = aor1776_hre_dashboard_refreshed days = 7 } aor1776_hre_feedback_refresh = yes aor1776_hre_update_unpledged_ballots = yes }
+   aor1776_hre_reform_controller = yes
+   aor1776_hre_schedule_membership_guard = yes
+  }
+ }
+}
+aor1776_hre.41 = {
+type = country_event
+ placement = root
+ title = aor1776_hre.41.t
+ desc = aor1776_hre.41.d
+ event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+ option = { name = aor1776_hre.41.a default_option = yes 
+ custom_tooltip = aor1776_hre.41.d
+}
+
+flavor = aor1776_hre.41.f
+}
+aor1776_hre.60 = {
+type = country_event placement = root
+title = aor1776_hre.60.t desc = aor1776_hre.60.d flavor = aor1776_hre.60.f
+event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+option = { name = aor1776_hre.60.a default_option = yes 
+ custom_tooltip = je_aor1776_hre_centralization_status
+}
+}
+aor1776_hre.61 = {
+type = country_event placement = root
+title = aor1776_hre.61.t desc = aor1776_hre.61.d flavor = aor1776_hre.61.f
+event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+option = { name = aor1776_hre.61.a default_option = yes 
+ custom_tooltip = aor1776_hre_centralize_1_desc
+}
+}
+aor1776_hre.62 = {
+type = country_event placement = root
+title = aor1776_hre.62.t desc = aor1776_hre.62.d flavor = aor1776_hre.62.f
+event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+option = { name = aor1776_hre.62.a default_option = yes 
+ custom_tooltip = aor1776_hre_centralize_2_desc
+}
+}
+aor1776_hre.63 = {
+type = country_event placement = root
+title = aor1776_hre.63.t desc = aor1776_hre.63.d flavor = aor1776_hre.63.f
+event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+option = { name = aor1776_hre.63.a default_option = yes 
+ custom_tooltip = aor1776_hre_centralize_3_desc
+}
+}
+aor1776_hre.35 = {
+type = country_event placement = root
+title = aor1776_hre.35.t desc = aor1776_hre.35.d flavor = aor1776_hre.35.f
+event_image = { video = "gfx/event_pictures/europenorthamerica_art_gallery.bk2" }
+option = { name = aor1776_hre.ack default_option = yes 
+ custom_tooltip = aor1776_hre.35.result
+ aor1776_hre_reply_details = yes
+}
+}

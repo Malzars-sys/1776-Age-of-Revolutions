@@ -1,0 +1,15 @@
+law_aor1776_imperial_city_republic = { group = lawgroup_governance_principles parent = law_presidential_republic icon = "gfx/interface/icons/law_icons/presidential_republic.dds" progressiveness = 0 is_visible = { c:NUR ?= this } can_enact = { c:NUR ?= this } modifier = {
+		country_legitimacy_headofstate_add = 10
+		country_legitimacy_govt_total_votes_add = 10
+		country_legitimacy_ideological_incoherence_mult = 0.2
+		country_authority_add = 100
+	} }
+law_aor1776_imperial_customs = { group = lawgroup_trade_policy parent = law_mercantilism icon = "gfx/interface/icons/law_icons/mercantilism.dds" progressiveness = 0 is_visible = { OR = { c:ANS ?= this c:FBM ?= this c:WZB ?= this c:NUR ?= this c:EIC ?= this } } can_enact = { OR = { c:ANS ?= this c:FBM ?= this c:WZB ?= this c:NUR ?= this c:EIC ?= this } } modifier = {
+		state_tariff_import_add = 0.50
+		state_tariff_export_add = 0.20
+		state_subvention_export_add = 0.50
+		state_subvention_import_add = 0.20
+		state_import_advantage_mult = -0.25
+		state_export_advantage_mult = 0.25
+	} }
+law_aor1776_imperial_no_slavery = { group = lawgroup_slavery parent = law_slavery_banned icon = "gfx/interface/icons/law_icons/slavery_banned.dds" progressiveness = 0 is_visible = { OR = { c:ANS ?= this c:FBM ?= this c:WZB ?= this c:NUR ?= this c:EIC ?= this } } can_enact = { OR = { c:ANS ?= this c:FBM ?= this c:WZB ?= this c:NUR ?= this c:EIC ?= this } }  }

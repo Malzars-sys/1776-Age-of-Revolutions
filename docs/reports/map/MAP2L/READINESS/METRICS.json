@@ -1,0 +1,53 @@
+{
+  "scope": "Current HRE territorial readiness pass only; previous ColGrep validation runs excluded",
+  "executable": "C:/Users/simeo/.cargo/bin/colgrep.exe",
+  "model": "colgrep-agent-2B-Q8_0.gguf",
+  "runtime": "llama.cpp b11476",
+  "gpu": "AMD Radeon 780M Graphics",
+  "flags_used_before_replacement_AGENTS_instructions": ["--agent", "--no-update", "--color", "never"],
+  "calls": [
+    {
+      "question": "Locate existing Holy Roman Empire territorial research and the implementation dependencies for adding or splitting imperial estates in this Victoria 3 mod: province RGB ownership, shared state regions, population and building transfer tools, country definitions, imperial member roster and de-jure registry. Prefer existing MAP1 and MAP2K/MAP2L work. Return exact file paths and line ranges. Read-only research; do not modify anything.",
+      "reported_seconds": 62.6,
+      "turns": 8,
+      "semantic_searches": 4,
+      "terminal_commands": 3,
+      "valid_final_locations": 4,
+      "exit_code": 0
+    },
+    {
+      "question": "Find the existing reports or tools for ready-to-apply territorial changes inside the Holy Roman Empire at 1776-01-01, excluding the already-applied Belgian Liège/Stavelot lot and already-applied MAP2K electorates. In particular find Franconia Ansbach Bayreuth Bamberg Würzburg imperial cities, Rhineland Westphalia and Swabia decisions. Return exact paths and line ranges stating approved RGB/polygon assignments or unresolved mapping blockers. Do not infer approval from country or town names. Read-only, no file edits.",
+      "reported_seconds": 78.7,
+      "turns": 8,
+      "semantic_searches": 4,
+      "terminal_commands": 3,
+      "valid_final_locations": 2,
+      "invalid_finish_candidates": 1,
+      "exit_code": 0
+    },
+    {
+      "question": "Locate why effect_starting_politics_reactionary assigns laws unavailable to the newly added LGE and STM countries in this mod. Find its exact definition and the existing early-game law or technology initialization repair used for the other MAP2K imperial electorates. The engine rejects professional army, mercantilism, per capita taxation, local police and slavery banned for LGE/STM. Return exact file paths and line ranges for the startup effect and relevant 1776 era alternatives or prerequisite initialization. Read-only; do not edit files or decide historical policies.",
+      "reported_seconds": 44.2,
+      "turns": 8,
+      "semantic_searches": 4,
+      "terminal_commands": 3,
+      "valid_final_locations": 3,
+      "failed_terminal_reads": 2,
+      "located_requested_startup_effect": false,
+      "exit_code": 0
+    }
+  ],
+  "totals": {
+    "agent_calls": 3,
+    "cli_reported_seconds": 185.5,
+    "internal_semantic_searches": 12,
+    "internal_terminal_commands": 9,
+    "local_model_turns": 24,
+    "verified_final_locations": 9,
+    "codex_rg_invocations": 8,
+    "codex_token_count": null,
+    "codex_searches_net_avoided": null,
+    "quota_savings": null
+  },
+  "interpretation": "No controlled comparison. Local searches were real, but existing locations and mandatory verification prevent claiming exact avoided searches or quota savings. Direct reads, filename listings and CSV filtering are not counted as rg invocations. Index was not cleared, rebuilt, or reconfigured."
+}

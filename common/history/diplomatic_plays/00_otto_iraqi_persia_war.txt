@@ -20,6 +20,11 @@ DIPLOMATIC_PLAYS = {
 				target_state = s:STATE_BASRA.region_state:IR1
 				primary_demand = yes
 			}
-		}
+		
+   # MAP-2K follow-up: original Iraqi and Omani claims restored by user.
+   add_target_backers = { c:ARB }
+   add_war_goal = { holder = c:IR1 type = conquer_state target_state = s:STATE_KHUZESTAN.region_state:ARB }
+   add_war_goal = { holder = c:OMA type = take_treaty_port target_state = s:STATE_FARS.region_state:PER }
+  }
 	}
 }

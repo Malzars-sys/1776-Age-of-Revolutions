@@ -1,0 +1,27 @@
+aor1776_hre_centralize_1 = {
+name = aor1776_hre_centralize_1
+desc = aor1776_hre_centralize_1_desc
+visible = { global_var:aor1776_hre_reform_stage = 0 }
+possible = { aor1776_hre_reform_safe = yes NOT = { has_variable = aor1776_hre_reform_cooldown }  }
+effect = { custom_tooltip = aor1776_hre_centralize_1_desc hidden_effect = { aor1776_hre_stage_1 = yes } }
+ai_chance = { value = 0 } # Consequential reforms require an explicit ruler/player decision.
+
+}
+aor1776_hre_centralize_2 = {
+name = aor1776_hre_centralize_2
+desc = aor1776_hre_centralize_2_desc
+visible = { global_var:aor1776_hre_reform_stage = 1 }
+possible = { aor1776_hre_reform_safe = yes NOT = { has_variable = aor1776_hre_reform_cooldown }  }
+effect = { custom_tooltip = aor1776_hre_centralize_2_desc hidden_effect = { aor1776_hre_stage_2 = yes } }
+ai_chance = { value = 0 } # Consequential reforms require an explicit ruler/player decision.
+
+}
+aor1776_hre_centralize_3 = {
+name = aor1776_hre_centralize_3
+desc = aor1776_hre_centralize_3_desc
+visible = { global_var:aor1776_hre_reform_stage = 2 }
+possible = { aor1776_hre_reform_safe = yes NOT = { has_variable = aor1776_hre_reform_cooldown } NOT = { any_country = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } NOT = { is_direct_subject_of = root is_subject_type = subject_type_aor1776_hre_crownland } } } }
+effect = { custom_tooltip = aor1776_hre_centralize_3_desc hidden_effect = { aor1776_hre_stage_3 = yes } }
+ai_chance = { value = 0 } # Consequential reforms require an explicit ruler/player decision.
+
+}

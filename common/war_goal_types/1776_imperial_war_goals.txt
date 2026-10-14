@@ -1,0 +1,149 @@
+aor1776_hre_restitution = {
+
+ icon = "gfx/interface/icons/war_goals/aor1776_hre_restitution.dds"
+ kind = custom
+ settings = { require_target_be_part_of_war validate_conflicts_conquer_state }
+ execution_priority = 70
+ contestion_type = control_target_state
+ target_type = state
+ possible = { aor1776_hre_emperor = yes
+ scope:target_country = { aor1776_hre_member = no }
+ scope:target_state = {
+  owner = scope:target_country
+  aor1776_hre_restitution_state = yes
+  custom_tooltip = { text = aor1776_hre_restitution_refusal_valid_tt
+   OR = {
+    AND = { has_variable = aor1776_hre_refusal_holder var:aor1776_hre_refusal_holder ?= scope:target_country }
+    scope:target_country = { has_variable = aor1776_hre_release_refused }
+   }
+  }
+ } }
+ valid = { aor1776_hre_emperor = yes
+ scope:target_country = { aor1776_hre_member = no }
+ scope:target_state = {
+  owner = scope:target_country
+  aor1776_hre_restitution_state = yes
+  custom_tooltip = { text = aor1776_hre_restitution_refusal_valid_tt
+   OR = {
+    AND = { has_variable = aor1776_hre_refusal_holder var:aor1776_hre_refusal_holder ?= scope:target_country }
+    scope:target_country = { has_variable = aor1776_hre_release_refused }
+   }
+  }
+ } }
+ maneuvers = { value = 10 }
+ infamy = { value = 0 }
+ on_enforced = {
+  scope:target_state = { save_scope_as = hre_request_state aor1776_hre_snapshot_reply_provinces = yes }
+  scope:target_country = { save_scope_as = hre_holder }
+  aor1776_hre_return_requested_provinces = yes
+ 
+ scope:target_country = { save_scope_as = hre_reply_holder } trigger_event = { id = aor1776_hre.34 popup = yes }
+}
+ ai = { is_significant_demand = yes }
+
+}
+aor1776_hre_secession = {
+	icon = "gfx/interface/icons/war_goals/leave_power_bloc.dds"
+
+	kind = leave_power_bloc
+
+	settings = {
+		require_target_be_part_of_war
+
+		#Validation
+		validate_conflicts_war_goals_all
+	}
+
+	execution_priority = 98
+
+	contestion_type = control_all_own_states
+
+	target_type = country
+
+	possible = {
+		# trigger to determine if a goal with its target data is listed when selecting a war goal in the diplo play panel
+		# scopes: root = holder, creator_country, diplomatic_play, target_country, target_state, stakeholder, target_region, article_options
+	}
+
+	valid = {
+		# trigger in addition to some basic validation code-side
+		# scopes: root = holder, creator_country, diplomatic_play, target_country, target_state, stakeholder, target_region, article_options
+
+		OR = { is_subject = no is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_crownland }
+		scope:target_country = {
+			is_power_bloc_leader = yes
+			is_in_same_power_bloc = root
+		}
+	}
+
+	maneuvers = {
+		value = 0
+
+		add = {
+			desc = "MANEUVERS_BASE_VALUE"
+			value = 10
+		}
+	}
+
+	infamy = {
+		value = 0
+	}
+
+	on_enforced = {
+ if = { limit = { OR = { is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_crownland } } make_independent = yes }
+ set_variable = aor1776_hre_seceded
+ remove_diplomatic_pact = { country = scope:target_country type = aor1776_imperial_obligation }
+}
+
+	ai = {
+		is_significant_demand = no
+	}
+}
+aor1776_hre_subject_release = {
+
+ icon = "gfx/interface/icons/war_goals/aor1776_hre_subject_release.dds"
+ kind = custom
+ settings = { require_target_be_part_of_war }
+ execution_priority = 70
+ contestion_type = control_half_target_country_states
+ target_type = country
+ possible = { always = no } # Legacy saves only; replaced after new goals are verified.
+ valid = { aor1776_hre_emperor = yes scope:target_country = { aor1776_hre_external_imperial_overlord = yes has_variable = aor1776_hre_release_refused } }
+ maneuvers = { value = 20 }
+ infamy = { value = 0 }
+ on_enforced = { scope:target_country = { aor1776_hre_snapshot_reply_subjects = yes aor1776_hre_release_imperial_subjects = yes } 
+ scope:target_country = { save_scope_as = hre_reply_holder } trigger_event = { id = aor1776_hre.34 popup = yes }
+}
+ ai = { is_significant_demand = yes }
+
+}
+aor1776_hre_liberate_estate = {
+icon = "gfx/interface/icons/war_goals/aor1776_hre_subject_release.dds"
+kind = liberate_subject
+settings = { overlord_is_stakeholder targets_enemy_subject has_other_stakeholder validate_conflicts_war_goals_all validate_conflicts_existing_subject }
+execution_priority = 58
+contestion_type = control_half_target_country_states
+target_type = country
+possible = { aor1776_hre_emperor = yes scope:target_country = { aor1776_hre_member = yes is_subject = yes top_overlord ?= { aor1776_hre_member = no has_variable = aor1776_hre_release_refused } } }
+valid = { aor1776_hre_emperor = yes scope:target_country = { aor1776_hre_member = yes overlord = scope:stakeholder } }
+maneuvers = { value = 20 }
+infamy = { value = 0 }
+on_enforced = {
+ scope:target_country = { save_scope_as = hre_freed_estate save_scope_as = hre_holder aor1776_hre_snapshot_one_subject = yes }
+ if = { limit = { scope:target_country = { exists = var:aor1776_hre_liberation_holder } }
+  scope:target_country.var:aor1776_hre_liberation_holder = { save_scope_as = hre_reply_holder }
+ } else = { scope:stakeholder = { save_scope_as = hre_reply_holder } }
+ scope:target_country = {
+  aor1776_hre_return_released_subject_provinces = yes
+  if = { limit = { is_subject = no NOT = { is_in_same_power_bloc = global_var:aor1776_hre_emperor_country } }
+   join_power_bloc = global_var:aor1776_hre_emperor_country
+  }
+  if = { limit = { is_subject = no NOT = { is_in_same_power_bloc = global_var:aor1776_hre_emperor_country } } set_variable = aor1776_hre_release_bloc_pending }
+  remove_variable = aor1776_hre_liberation_holder
+ }
+ # Only the selected goal is enforced. The separate country-wide diplomatic
+ # request has its own package effect; a single-subject war goal must not.
+ trigger_event = { id = aor1776_hre.35 popup = yes }
+}
+ai = { is_significant_demand = yes }
+}

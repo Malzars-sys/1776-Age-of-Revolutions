@@ -1,0 +1,9 @@
+aor1776_hre_vote_display = {
+type = country
+ text = { trigger = { has_variable = aor1776_hre_ui_vote_cast exists = var:aor1776_hre_ui_vote_choice } localization_key = aor1776_hre_vote_cast }
+ text = { trigger = { has_variable = aor1776_hre_ui_vote_promised exists = var:aor1776_hre_ui_vote_choice } localization_key = aor1776_hre_vote_promised }
+ text = { trigger = { has_variable = aor1776_hre_ui_vote_selected exists = var:aor1776_hre_ui_vote_choice } localization_key = aor1776_hre_vote_selected }
+ text = { trigger = { is_ai = no NOT = { exists = var:aor1776_hre_ui_vote_choice } } localization_key = aor1776_hre_vote_human }
+ text = { trigger = { exists = var:aor1776_hre_ui_vote_choice } localization_key = aor1776_hre_vote_predicted }
+ text = { localization_key = aor1776_hre_vote_none }
+}
