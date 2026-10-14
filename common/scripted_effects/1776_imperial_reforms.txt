@@ -1,0 +1,141 @@
+aor1776_hre_track_principle_order = {
+if = { limit = { has_identity = identity:identity_aor1776_imperial_federation }
+ if = { limit = { NOT = { has_global_variable = aor1776_hre_principle_serial } } set_global_variable = { name = aor1776_hre_principle_serial value = 0 } }
+if = { limit = { has_principle_group = principle_group:aor1776_hre_group_diet NOT = { has_global_variable = aor1776_hre_order_aor1776_hre_group_diet } }
+ change_global_variable = { name = aor1776_hre_principle_serial add = 1 } set_global_variable = { name = aor1776_hre_order_aor1776_hre_group_diet value = global_var:aor1776_hre_principle_serial } }
+else_if = { limit = { NOT = { has_principle_group = principle_group:aor1776_hre_group_diet } } remove_global_variable = aor1776_hre_order_aor1776_hre_group_diet }
+if = { limit = { has_principle_group = principle_group:aor1776_hre_group_circles NOT = { has_global_variable = aor1776_hre_order_aor1776_hre_group_circles } }
+ change_global_variable = { name = aor1776_hre_principle_serial add = 1 } set_global_variable = { name = aor1776_hre_order_aor1776_hre_group_circles value = global_var:aor1776_hre_principle_serial } }
+else_if = { limit = { NOT = { has_principle_group = principle_group:aor1776_hre_group_circles } } remove_global_variable = aor1776_hre_order_aor1776_hre_group_circles }
+if = { limit = { has_principle_group = principle_group:aor1776_hre_group_justice NOT = { has_global_variable = aor1776_hre_order_aor1776_hre_group_justice } }
+ change_global_variable = { name = aor1776_hre_principle_serial add = 1 } set_global_variable = { name = aor1776_hre_order_aor1776_hre_group_justice value = global_var:aor1776_hre_principle_serial } }
+else_if = { limit = { NOT = { has_principle_group = principle_group:aor1776_hre_group_justice } } remove_global_variable = aor1776_hre_order_aor1776_hre_group_justice }
+if = { limit = { has_principle_group = principle_group:aor1776_hre_group_administration NOT = { has_global_variable = aor1776_hre_order_aor1776_hre_group_administration } }
+ change_global_variable = { name = aor1776_hre_principle_serial add = 1 } set_global_variable = { name = aor1776_hre_order_aor1776_hre_group_administration value = global_var:aor1776_hre_principle_serial } }
+else_if = { limit = { NOT = { has_principle_group = principle_group:aor1776_hre_group_administration } } remove_global_variable = aor1776_hre_order_aor1776_hre_group_administration }
+}
+}
+aor1776_hre_apply_succession_loss_to_snapshot = {
+set_variable = { name = aor1776_hre_saved_group_count value = 0 }
+set_variable = { name = aor1776_hre_last_saved_order value = -1 }
+remove_variable = aor1776_hre_loss_group
+if = { limit = { OR = { has_variable = aor1776_hre_saved_aor1776_hre_diet_1 has_variable = aor1776_hre_saved_aor1776_hre_diet_2 has_variable = aor1776_hre_saved_aor1776_hre_diet_3 } } change_variable = { name = aor1776_hre_saved_group_count add = 1 }
+ if = { limit = { has_global_variable = aor1776_hre_order_aor1776_hre_group_diet global_var:aor1776_hre_order_aor1776_hre_group_diet > var:aor1776_hre_last_saved_order }
+ set_variable = { name = aor1776_hre_last_saved_order value = global_var:aor1776_hre_order_aor1776_hre_group_diet } set_variable = { name = aor1776_hre_loss_group value = 1 } } }
+if = { limit = { OR = { has_variable = aor1776_hre_saved_aor1776_hre_circles_1 has_variable = aor1776_hre_saved_aor1776_hre_circles_2 has_variable = aor1776_hre_saved_aor1776_hre_circles_3 } } change_variable = { name = aor1776_hre_saved_group_count add = 1 }
+ if = { limit = { has_global_variable = aor1776_hre_order_aor1776_hre_group_circles global_var:aor1776_hre_order_aor1776_hre_group_circles > var:aor1776_hre_last_saved_order }
+ set_variable = { name = aor1776_hre_last_saved_order value = global_var:aor1776_hre_order_aor1776_hre_group_circles } set_variable = { name = aor1776_hre_loss_group value = 2 } } }
+if = { limit = { OR = { has_variable = aor1776_hre_saved_aor1776_hre_justice_1 has_variable = aor1776_hre_saved_aor1776_hre_justice_2 has_variable = aor1776_hre_saved_aor1776_hre_justice_3 } } change_variable = { name = aor1776_hre_saved_group_count add = 1 }
+ if = { limit = { has_global_variable = aor1776_hre_order_aor1776_hre_group_justice global_var:aor1776_hre_order_aor1776_hre_group_justice > var:aor1776_hre_last_saved_order }
+ set_variable = { name = aor1776_hre_last_saved_order value = global_var:aor1776_hre_order_aor1776_hre_group_justice } set_variable = { name = aor1776_hre_loss_group value = 3 } } }
+if = { limit = { OR = { has_variable = aor1776_hre_saved_aor1776_hre_administration_1 has_variable = aor1776_hre_saved_aor1776_hre_administration_2 has_variable = aor1776_hre_saved_aor1776_hre_administration_3 } } change_variable = { name = aor1776_hre_saved_group_count add = 1 }
+ if = { limit = { has_global_variable = aor1776_hre_order_aor1776_hre_group_administration global_var:aor1776_hre_order_aor1776_hre_group_administration > var:aor1776_hre_last_saved_order }
+ set_variable = { name = aor1776_hre_last_saved_order value = global_var:aor1776_hre_order_aor1776_hre_group_administration } set_variable = { name = aor1776_hre_loss_group value = 4 } } }
+if = { limit = { var:aor1776_hre_loss_group ?= 1 }
+if = { limit = { var:aor1776_hre_saved_group_count > 1 } remove_variable = aor1776_hre_saved_aor1776_hre_diet_1 remove_variable = aor1776_hre_saved_aor1776_hre_diet_2 remove_variable = aor1776_hre_saved_aor1776_hre_diet_3 }
+else_if = { limit = { has_variable = aor1776_hre_saved_aor1776_hre_diet_3 } remove_variable = aor1776_hre_saved_aor1776_hre_diet_3 set_variable = aor1776_hre_saved_aor1776_hre_diet_2 }
+else_if = { limit = { has_variable = aor1776_hre_saved_aor1776_hre_diet_2 } remove_variable = aor1776_hre_saved_aor1776_hre_diet_2 set_variable = aor1776_hre_saved_aor1776_hre_diet_1 }
+}
+if = { limit = { var:aor1776_hre_loss_group ?= 2 }
+if = { limit = { var:aor1776_hre_saved_group_count > 1 } remove_variable = aor1776_hre_saved_aor1776_hre_circles_1 remove_variable = aor1776_hre_saved_aor1776_hre_circles_2 remove_variable = aor1776_hre_saved_aor1776_hre_circles_3 }
+else_if = { limit = { has_variable = aor1776_hre_saved_aor1776_hre_circles_3 } remove_variable = aor1776_hre_saved_aor1776_hre_circles_3 set_variable = aor1776_hre_saved_aor1776_hre_circles_2 }
+else_if = { limit = { has_variable = aor1776_hre_saved_aor1776_hre_circles_2 } remove_variable = aor1776_hre_saved_aor1776_hre_circles_2 set_variable = aor1776_hre_saved_aor1776_hre_circles_1 }
+}
+if = { limit = { var:aor1776_hre_loss_group ?= 3 }
+if = { limit = { var:aor1776_hre_saved_group_count > 1 } remove_variable = aor1776_hre_saved_aor1776_hre_justice_1 remove_variable = aor1776_hre_saved_aor1776_hre_justice_2 remove_variable = aor1776_hre_saved_aor1776_hre_justice_3 }
+else_if = { limit = { has_variable = aor1776_hre_saved_aor1776_hre_justice_3 } remove_variable = aor1776_hre_saved_aor1776_hre_justice_3 set_variable = aor1776_hre_saved_aor1776_hre_justice_2 }
+else_if = { limit = { has_variable = aor1776_hre_saved_aor1776_hre_justice_2 } remove_variable = aor1776_hre_saved_aor1776_hre_justice_2 set_variable = aor1776_hre_saved_aor1776_hre_justice_1 }
+}
+if = { limit = { var:aor1776_hre_loss_group ?= 4 }
+if = { limit = { var:aor1776_hre_saved_group_count > 1 } remove_variable = aor1776_hre_saved_aor1776_hre_administration_1 remove_variable = aor1776_hre_saved_aor1776_hre_administration_2 remove_variable = aor1776_hre_saved_aor1776_hre_administration_3 }
+else_if = { limit = { has_variable = aor1776_hre_saved_aor1776_hre_administration_3 } remove_variable = aor1776_hre_saved_aor1776_hre_administration_3 set_variable = aor1776_hre_saved_aor1776_hre_administration_2 }
+else_if = { limit = { has_variable = aor1776_hre_saved_aor1776_hre_administration_2 } remove_variable = aor1776_hre_saved_aor1776_hre_administration_2 set_variable = aor1776_hre_saved_aor1776_hre_administration_1 }
+}
+
+}
+aor1776_hre_reform_controller = {
+if = { limit = { exists = global_var:aor1776_hre_emperor_country }
+ every_country = { limit = { NOT = { aor1776_hre_emperor = yes } has_modifier = aor1776_hre_estates_authority } remove_modifier = aor1776_hre_estates_authority remove_variable = aor1776_hre_applied_authority }
+ global_var:aor1776_hre_emperor_country = {
+  if = { limit = { is_power_bloc_leader = yes power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } }
+   power_bloc = {
+    if = { limit = { has_principle = principle:principle_internal_trade_3 NOT = { has_global_variable = aor1776_hre_principle_serial } }
+     remove_principle = principle_internal_trade_3 add_principle = aor1776_hre_diet_1
+    }
+    aor1776_hre_track_principle_order = yes
+   }
+   set_variable = { name = aor1776_hre_ui_authority_gain value = power_bloc.aor1776_hre_authority_progress }
+   set_variable = { name = aor1776_hre_ui_estates value = power_bloc.aor1776_hre_estate_count }
+   set_variable = { name = aor1776_hre_diet_authority value = var:aor1776_hre_ui_estates }
+   change_variable = { name = aor1776_hre_diet_authority multiply = modifier:country_aor1776_hre_authority_per_estate_add }
+   if = { limit = { NOT = { var:aor1776_hre_applied_authority ?= var:aor1776_hre_diet_authority } }
+    remove_modifier = aor1776_hre_estates_authority
+    if = { limit = { var:aor1776_hre_diet_authority > 0 } add_modifier = { name = aor1776_hre_estates_authority multiplier = var:aor1776_hre_diet_authority } }
+    set_variable = { name = aor1776_hre_applied_authority value = var:aor1776_hre_diet_authority }
+   }
+   if = { limit = { NOT = { has_global_variable = aor1776_hre_reform_stage } } set_global_variable = { name = aor1776_hre_reform_stage value = 0 } }
+   if = { limit = { aor1776_hre_four_pillars_max = yes NOT = { has_global_variable = aor1776_hre_unified } NOT = { has_journal_entry = je_aor1776_hre_centralization } } add_journal_entry = { type = je_aor1776_hre_centralization } }
+  }
+ }
+}
+}
+aor1776_hre_bind_protectorate = {
+save_scope_as = hre_reform_emperor
+every_country = { limit = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } }
+ save_scope_as = hre_reform_estate
+ if = { limit = { is_direct_subject_of = scope:hre_reform_emperor }
+  change_subject_type = subject_type_aor1776_hre_protectorate
+ }
+ else = {
+  if = { limit = { is_subject = yes top_overlord ?= { aor1776_hre_member = yes } } make_independent = yes }
+  scope:hre_reform_emperor = { create_diplomatic_pact = { country = scope:hre_reform_estate type = aor1776_hre_protectorate } }
+ }
+}
+}
+aor1776_hre_stage_1 = {
+if = { limit = { aor1776_hre_reform_safe = yes global_var:aor1776_hre_reform_stage = 0 NOT = { has_variable = aor1776_hre_reform_cooldown } }
+ aor1776_hre_bind_protectorate = yes
+ if = { limit = { NOT = { any_country = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } NOT = { is_direct_subject_of = root is_subject_type = subject_type_aor1776_hre_protectorate } } } }
+  set_global_variable = { name = aor1776_hre_reform_stage value = 1 }
+  set_variable = { name = aor1776_hre_reform_cooldown days = 730 }
+  trigger_event = { id = aor1776_hre.61 popup = yes }
+ }
+}
+}
+aor1776_hre_bind_crownland = {
+save_scope_as = hre_reform_emperor
+every_country = { limit = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } }
+ save_scope_as = hre_reform_estate
+ if = { limit = { is_direct_subject_of = scope:hre_reform_emperor }
+  change_subject_type = subject_type_aor1776_hre_crownland
+ }
+ else = {
+  if = { limit = { is_subject = yes top_overlord ?= { aor1776_hre_member = yes } } make_independent = yes }
+  scope:hre_reform_emperor = { create_diplomatic_pact = { country = scope:hre_reform_estate type = aor1776_hre_crownland } }
+ }
+}
+}
+aor1776_hre_stage_2 = {
+if = { limit = { aor1776_hre_reform_safe = yes global_var:aor1776_hre_reform_stage = 1 NOT = { has_variable = aor1776_hre_reform_cooldown } }
+ aor1776_hre_bind_crownland = yes
+ if = { limit = { NOT = { any_country = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } NOT = { is_direct_subject_of = root is_subject_type = subject_type_aor1776_hre_crownland } } } }
+  set_global_variable = { name = aor1776_hre_reform_stage value = 2 }
+  set_variable = { name = aor1776_hre_reform_cooldown days = 730 }
+  trigger_event = { id = aor1776_hre.62 popup = yes }
+ }
+}
+}
+aor1776_hre_stage_3 = {
+if = { limit = { aor1776_hre_reform_safe = yes global_var:aor1776_hre_reform_stage = 2 NOT = { has_variable = aor1776_hre_reform_cooldown }
+ NOT = { any_country = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } NOT = { is_direct_subject_of = root is_subject_type = subject_type_aor1776_hre_crownland } } } }
+ save_scope_as = hre_reform_emperor
+ every_country = { limit = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } } set_variable = aor1776_hre_unification_selected }
+ every_country = { limit = { has_variable = aor1776_hre_unification_selected }
+  save_scope_as = hre_reform_estate scope:hre_reform_emperor = { annex = scope:hre_reform_estate }
+ }
+ set_global_variable = { name = aor1776_hre_reform_stage value = 3 }
+ set_global_variable = aor1776_hre_unified
+ remove_modifier = aor1776_hre_estates_authority remove_variable = aor1776_hre_applied_authority
+ trigger_event = { id = aor1776_hre.63 popup = yes }
+}
+}

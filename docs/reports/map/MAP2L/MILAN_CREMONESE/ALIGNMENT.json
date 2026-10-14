@@ -1,0 +1,107 @@
+{
+  "sources": [
+    {
+      "key": "LOM1750",
+      "path": "../../MAP1B/MAP1B_GEOGRAPHIC_EVIDENCE/lombardy_west_1750_1600.png",
+      "matrix": [
+        [
+          0.11552792977415423,
+          0.006146060887752901
+        ],
+        [
+          -0.01727792449242825,
+          0.05554241227050925
+        ],
+        [
+          4191.281298100691,
+          958.8484250522887
+        ]
+      ],
+      "controls": [
+        {
+          "name": "Milan",
+          "source": [
+            1078,
+            498
+          ],
+          "game": [
+            4307.216,
+            993.134
+          ],
+          "role": "FIT"
+        },
+        {
+          "name": "Parma",
+          "source": [
+            1328,
+            757
+          ],
+          "game": [
+            4331.623,
+            1009.056
+          ],
+          "role": "FIT"
+        },
+        {
+          "name": "Verona",
+          "source": [
+            1402,
+            455
+          ],
+          "game": [
+            4345.39,
+            992.737
+          ],
+          "role": "FIT"
+        },
+        {
+          "name": "Piacenza (farm, not city)",
+          "source": [
+            1200,
+            654
+          ],
+          "game": [
+            4319.914,
+            1004.348
+          ],
+          "role": "CHECK",
+          "residual_px": 2.219
+        },
+        {
+          "name": "Como (mine, not city)",
+          "source": [
+            1074,
+            400
+          ],
+          "game": [
+            4305.136,
+            987.61
+          ],
+          "role": "CHECK",
+          "residual_px": 3.312
+        },
+        {
+          "name": "Genoa (port; outside local parent)",
+          "source": [
+            1050,
+            907
+          ],
+          "game": [
+            4300.065,
+            1019.698
+          ],
+          "role": "CHECK",
+          "residual_px": 5.107
+        }
+      ],
+      "sha256": "54f1fb9df0d12f4b90e6def783afdf79a4c358c8eec7300ec15f2addea3e8466"
+    }
+  ],
+  "method": "Bounded game-resolution correction of the Cremonese mixed parent only. Re-read the retained Vaugondy 1750 sovereignty outline; source-to-game affine uses three named city anchors, NOT contested Bergamo/Brescia rural hubs. This is not a cadastral calage or approval of the earlier rejected whole-region models.",
+  "warning": [
+    "Limited correction of the documented mixed Brescia/Cremona province, not certification of every Lombard boundary. Mantua stays under AUS with its distinct historical administration.",
+    "Crema remains Venetian. Tiny separate lands and the road jurisdiction are abstracted at game resolution; x867A90 is untouched, not newly certified.",
+    "Source is 1750, checked against retained institutional history for continuity to January 1776; reforms of 1786 are excluded.",
+    "Fit residuals are not independent validation. Rural/port checks are retained (2.219, 3.312, 5.107 px), not hidden or used as genuine city coordinates. Boundary pixel precision is not asserted."
+  ]
+}

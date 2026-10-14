@@ -205,9 +205,25 @@ building_railway = {
 			}
 			add = 10000
 		}
+		if = {
+			limit = { aor1776_ai_regional_infrastructure_shortage = yes }
+			multiply = 0
+		}
+	}
+
+	can_build_government = {
+		NOT = { aor1776_ai_regional_infrastructure_shortage = yes }
+	}
+	can_build_private = {
+		NOT = { aor1776_ai_regional_infrastructure_shortage = yes }
 	}
 
 	should_auto_expand = {
+		# Player automation is unchanged; guard all three AI construction paths.
+		OR = {
+			owner = { is_ai = no }
+			building_has_goods_shortage = no
+		}
 		occupancy >= 0.8
 		OR = {
 			state = {

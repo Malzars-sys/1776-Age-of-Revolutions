@@ -15,6 +15,23 @@
 	ownership_type = self
 
 	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_farming.dds"
+
+	ai_value = {
+		value = 1000
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_wood = yes aor1776_ai_can_produce_wood = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_logging_camp
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
+		}
+	}
 }
 
 building_rubber_plantation = {

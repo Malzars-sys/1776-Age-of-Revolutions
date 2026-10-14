@@ -1,0 +1,53 @@
+
+ on_game_started_after_lobby = { on_actions = { aor1776_hre_initialize_hook } }
+ on_character_death = { on_actions = { aor1776_hre_death_hook } }
+ on_monthly_pulse = { on_actions = { aor1776_hre_monthly_hook } }
+ on_diplo_play_start = { on_actions = { aor1776_hre_defense_hook } }
+
+ on_diplo_play_war_start = { on_actions = { aor1776_hre_defense_hook } }
+ on_wargoal_enforced = { on_actions = { aor1776_hre_native_exit_hook } }
+ aor1776_hre_initialize_hook = { effect = { aor1776_hre_initialize = yes } }
+ aor1776_hre_death_hook = {
+  effect = { if = { limit = { NOT = { has_global_variable = aor1776_hre_unified } has_variable = aor1776_hre_emperor_character this = global_var:aor1776_hre_emperor_person }
+   set_variable = aor1776_hre_deceased_emperor
+   set_global_variable = aor1776_hre_election_pending
+   global_var:aor1776_hre_emperor_country = { trigger_event = { id = aor1776_hre.2 days = 1 popup = no } }
+  } }
+ }
+ aor1776_hre_monthly_hook = {
+  effect = {
+   aor1776_hre_restore_membership = yes
+   aor1776_hre_schedule_membership_guard = yes
+   aor1776_hre_refresh_pacts = yes
+   aor1776_hre_feedback_refresh = yes
+   aor1776_hre_reform_controller = yes
+   if = { limit = { exists = global_var:aor1776_hre_emperor_country global_var:aor1776_hre_emperor_country = { is_power_bloc_leader = yes power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } } }
+    every_country = { limit = { aor1776_hre_member = yes is_subject = no has_variable = aor1776_hre_release_bloc_pending }
+     if = { limit = { NOT = { is_in_same_power_bloc = global_var:aor1776_hre_emperor_country } } join_power_bloc = global_var:aor1776_hre_emperor_country }
+     if = { limit = { is_in_same_power_bloc = global_var:aor1776_hre_emperor_country } remove_variable = aor1776_hre_release_bloc_pending }
+    }
+   }
+   if = { limit = { has_global_variable = aor1776_hre_election_open NOT = { has_global_variable = aor1776_hre_native_transfer_blocked } NOT = { has_global_variable = aor1776_hre_election_deadlocked } }
+    aor1776_hre_recount_ballot = yes
+    every_country = { limit = { has_variable = aor1776_hre_voter_this_round aor1776_hre_elector = yes NOT = { has_variable = aor1776_hre_voted } NOT = { has_variable = aor1776_hre_vote_deadline } NOT = { global_var:aor1776_hre_emperor_country = { has_variable = aor1776_hre_deliberation } } } aor1776_hre_ai_ballot = yes }
+    aor1776_hre_tally_ballot = yes
+   }
+   if = { limit = { has_global_variable = aor1776_hre_election_deadlocked NOT = { has_global_variable = aor1776_hre_native_transfer_blocked } }
+    remove_global_variable = aor1776_hre_election_deadlocked aor1776_hre_start_ballot = yes
+   }
+   if = { limit = { exists = global_var:aor1776_hre_emperor_country NOT = { has_global_variable = aor1776_hre_election_open } NOT = { has_global_variable = aor1776_hre_election_pending } }
+    global_var:aor1776_hre_emperor_country = {
+     if = { limit = { NOT = { is_power_bloc_leader = yes } } aor1776_hre_install_elected_country = yes }
+    }
+   }
+  }
+ }
+ aor1776_hre_defense_hook = { effect = { initiator = { save_scope_as = initiator } target = { save_scope_as = target } aor1776_hre_prepare_liberation_goals = yes aor1776_hre_defend_external_attack = yes } 
+
+}
+ aor1776_hre_native_exit_hook = { effect = {
+  if = { limit = { aor1776_hre_member = yes scope:target ?= { aor1776_hre_emperor = yes } scope:diplomatic_play ?= { is_diplomatic_play_type = dp_leave_power_bloc } }
+   set_variable = aor1776_hre_seceded
+   remove_diplomatic_pact = { country = scope:target type = aor1776_imperial_obligation }
+  }
+ } }

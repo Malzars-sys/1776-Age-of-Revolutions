@@ -113,7 +113,7 @@ USA = {
 	tier = kingdom
 
 	cultures = { yankee dixie }
-	capital = STATE_DISTRICT_OF_COLUMBIA
+	capital = STATE_PENNSYLVANIA
 
 	primary_unit_color = { 20 20 120 }
 	secondary_unit_color  = { 150 190 210 }
@@ -782,7 +782,7 @@ VEN = {
 
 	cultures = { north_italian }
 	capital = STATE_VENETIA
-	is_named_from_capital = yes
+	is_named_from_capital = no
 }
 
 BOH = {
@@ -1160,13 +1160,13 @@ AFG = {
 ARM = {
 	color = { 128 63 128 }
 
-	country_type = recognized
+	country_type = unrecognized
 
-	tier = kingdom
+	tier = principality
 
-	cultures = { armenian }
+	cultures = { azerbaijani armenian }
 	capital = STATE_ARMENIA
-	is_named_from_capital = yes
+	religion = shiite
 }
 
 DAG = {
@@ -1184,13 +1184,13 @@ DAG = {
 AZB = {
 	color = { 172 56 32 }
 
-	country_type = recognized
+	country_type = unrecognized
 
-	tier = kingdom
+	tier = principality
 
 	cultures = { azerbaijani }
 	capital = STATE_AZERBAIJAN
-	is_named_from_capital = yes
+	religion = shiite
 }
 
 BUK = {
@@ -1318,7 +1318,7 @@ PER = {
 	tier = empire
 
 	cultures = { persian }
-	capital = STATE_IRAKAJEMI
+	capital = STATE_FARS
 }
 
 JAB = {
@@ -1833,7 +1833,7 @@ DAI = {
 	religion = confucian
 
 	cultures = { vietnamese }
-	capital = STATE_ANNAM
+	capital = STATE_TONKIN
 }
 
 JAV = {
@@ -1894,16 +1894,7 @@ CHP = {
 	capital = STATE_LAOS
 }
 
-VIE = {
-	color = { 151 174 28 }
-
-	country_type = unrecognized
-
-	tier = principality
-
-	cultures = { lao }
-	capital = STATE_LAOS
-}
+VIE = { color = { 197 166 57 } country_type = unrecognized tier = kingdom cultures = { lao } religion = theravada capital = STATE_LAOS }
 
 JOH = {
 	color = { 165  151  80 }
@@ -1949,27 +1940,9 @@ TIB = {
 	capital = STATE_LHASA
 }
 
-MGL = {
-	color = { 255  224  124 }
+MGL = { color = { 193 157 111 } country_type = unrecognized tier = principality cultures = { mongol } religion = gelugpa capital = STATE_ULIASTAI }
 
-	country_type = unrecognized
-
-	tier = kingdom
-
-	cultures = { mongol }
-	capital = STATE_URGA
-}
-
-XIN = {
-	color = { 255  234  174 }
-
-	country_type = unrecognized
-
-	tier = kingdom
-
-	cultures = { uighur }
-	capital = STATE_TIANSHAN
-}
+XIN = { color = { 157 135 194 } country_type = unrecognized tier = principality cultures = { manchu uighur mongol } religion = confucian capital = STATE_DZUNGARIA }
 
 PHI = {
 	color = { 92 87 122 }
@@ -2937,28 +2910,12 @@ MNP = { # Manipur
 	capital = STATE_ASSAM
 }
 
-TOB = { # Toba
-	color = { 183 141 1 }
-
-	country_type = unrecognized
-
-	tier = principality
-
-	cultures = { batak }
-
-	capital = STATE_NORTH_SUMATRA
+TOB = { # MAP2H: regional communities, not a unitary kingdom.
+ color = { 135 87 154 } country_type = decentralized tier = principality cultures = { batak } religion = animist capital = STATE_ACEH
 }
 
-KLT = { # Kalimantan
-	color = { 193 164 142 }
-
-	country_type = unrecognized
-
-	tier = principality
-
-	cultures = { bornean dayak }
-
-	capital = STATE_WEST_BORNEO
+KLT = { # MAP2H: regional communities, not a unitary kingdom.
+ color = { 75 149 121 } country_type = decentralized tier = principality cultures = { bornean dayak } religion = animist capital = STATE_WEST_BORNEO
 }
 
 HTH = { # Hanthawaddy
@@ -3057,7 +3014,7 @@ SKH = { # Sakhalin
 }
 
 ULT = { # Ulta
-	color = { 122 229 256 }
+	color = { 122 229 255 }
 
 	country_type = decentralized
 
@@ -3079,30 +3036,9 @@ QIA = { # Qian
 	capital = STATE_GUANGDONG
 }
 
-FRS = { # Formosa
-	color = { 218 234 15 }
+FRS = { color = { 105 157 119 } country_type = decentralized tier = principality cultures = { yuanzhumin } religion = animist capital = STATE_FORMOSA }
 
-	country_type = unrecognized
-
-	tier = principality
-
-	cultures = { min }
-
-	capital = STATE_FORMOSA
-	is_named_from_capital = yes
-}
-
-YUN = { # Yunnan
-	color = { 245 245 220 }
-	country_type = unrecognized
-
-	tier = principality
-
-	cultures = { yi }
-
-	capital = STATE_YUNNAN
-	is_named_from_capital = yes
-}
+YUN = { color = { 139 181 125 } country_type = unrecognized tier = principality cultures = { manchu han yi miao } religion = confucian capital = STATE_YUNNAN }
 
 YUE = { # Yue
 	color = { 89 113 223 }
@@ -4060,16 +3996,7 @@ KMC = {
 	capital = STATE_KAMCHATKA
 }
 
-CKC = {
-	color = { 99 236 240 }
-
-	country_type = recognized
-
-	tier = principality
-
-	cultures = { siberian }
-	capital = STATE_CHUKOTKA
-}
+CKC = { color = { 126 182 201 } country_type = decentralized tier = principality cultures = { siberian inuit } religion = animist capital = STATE_CHUKOTKA }
 
 ALI = {
 	color = { 74 121 198 }
@@ -4680,7 +4607,7 @@ COO = { # Cooch Behar
 	religion = hindu
 
 	cultures = { bengali }
-	capital = STATE_EAST_BENGAL
+	capital = STATE_WEST_BENGAL
 }
 
 SHS = { # Shan
@@ -4858,7 +4785,7 @@ JEY = { # Jeypore
 	social_hierarchy = british_indian_caste_system
 
 	cultures = { oriya }
-	capital = STATE_ORISSA
+	capital = STATE_CIRCARS
 }
 
 MYB = { # Mayurbhanj
@@ -5051,16 +4978,7 @@ BIH = {
 	capital = STATE_BIHAR
 }
 
-ARK = {
-	color = { 212 211 151 }
-
-	country_type = unrecognized
-
-	tier = principality
-
-	cultures = { burmese }
-	capital = STATE_ARAKAN
-}
+ARK = { color = { 206 146 78 } country_type = unrecognized tier = kingdom cultures = { burmese } religion = theravada capital = STATE_ARAKAN }
 
 IDS = {
 	color = { 45 120 45 }
@@ -5109,7 +5027,7 @@ DGR = {
 	tier = principality
 
 	cultures = { champa }
-	capital = STATE_ANNAM
+	capital = STATE_MEKONG
 }
 
 SCT = {

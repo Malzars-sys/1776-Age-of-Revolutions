@@ -35,6 +35,19 @@
 			}
 			add = 2000
 		}
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_coal = yes aor1776_ai_can_produce_coal = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_coal_mine
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
+		}
 	}
 }
 
@@ -75,6 +88,19 @@ building_iron_mine = {
 				is_in_geographic_region = geographic_region_korea
 			}
 			add = 2000
+		}
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_iron = yes aor1776_ai_can_produce_iron = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_iron_mine
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
 		}
 	}
 }

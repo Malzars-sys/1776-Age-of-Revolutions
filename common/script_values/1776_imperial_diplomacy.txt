@@ -1,0 +1,22 @@
+aor1776_hre_foreign_allied_strength = {
+value = 0
+every_scope_ally = { add = army_power_projection }
+min = 0
+}
+aor1776_hre_imperial_available_strength = {
+value = army_power_projection
+power_bloc ?= { every_power_bloc_member = { if = { limit = { aor1776_hre_member = yes is_power_bloc_leader = no NOT = { top_overlord ?= { aor1776_hre_member = no } } } add = army_power_projection } } }
+min = 1
+}
+aor1776_hre_external_acceptance = {
+value = 0
+add = { value = -25 desc = aor1776_hre_accept_base }
+add = { value = "relations(scope:actor)" multiply = 0.5 desc = aor1776_hre_accept_relations }
+add = { value = "scope:actor.ai_army_comparison(root)" multiply = 2 min = -50 max = 50 desc = aor1776_hre_accept_army }
+add = { value = aor1776_hre_foreign_allied_strength divide = { value = scope:actor.aor1776_hre_imperial_available_strength min = 1 } multiply = -40 min = -60 max = 0 desc = aor1776_hre_accept_allies }
+if = { limit = { scope:actor.power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } }
+ add = { value = scope:actor.power_bloc.current_cohesion_number subtract = 50 multiply = 0.75 desc = aor1776_hre_accept_cohesion }
+}
+if = { limit = { owes_obligation_to = scope:actor } add = { value = 60 desc = aor1776_hre_accept_obligation } }
+
+}

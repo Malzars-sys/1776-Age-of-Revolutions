@@ -91,6 +91,19 @@ building_power_plant = {
 			}
 			add = 4000
 		}
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_electricity = yes aor1776_ai_can_produce_electricity = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_power_plant
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
+		}
 	}
 
 	possible = {

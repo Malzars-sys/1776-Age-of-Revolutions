@@ -1,0 +1,99 @@
+{
+  "status": "PASS_OFFLINE_NATIVE_GAME_TEST_PENDING",
+  "checks": [
+    {
+      "name": "Distinct reviewed imperial province RGBs",
+      "passed": true
+    },
+    {
+      "name": "Every imperial pixel fits the lossless 512 tile",
+      "passed": true
+    },
+    {
+      "name": "Every registered province exists in the effective bitmap",
+      "passed": true
+    },
+    {
+      "name": "mask DDS round-trip is pixel-exact",
+      "passed": true
+    },
+    {
+      "name": "sentinel DDS round-trip is pixel-exact",
+      "passed": true
+    },
+    {
+      "name": "Shader-coordinate emulation includes every imperial pixel",
+      "passed": true
+    },
+    {
+      "name": "No added or omitted pixels across the full world",
+      "passed": true
+    },
+    {
+      "name": "No native texture matches the prototype-only double sentinel",
+      "passed": true
+    },
+    {
+      "name": "Non-texture vanilla modes return before any sentinel sample",
+      "passed": true
+    },
+    {
+      "name": "Full native shader is preserved outside one include/entry hook",
+      "passed": true
+    },
+    {
+      "name": "All ten array slots explicitly use same-format 512 textures",
+      "passed": true
+    },
+    {
+      "name": "New visible native mode, no replacement of existing modes",
+      "passed": true
+    },
+    {
+      "name": "User-approved map icon preserved byte-for-byte",
+      "passed": true
+    },
+    {
+      "name": "french localization includes visible map name",
+      "passed": true
+    },
+    {
+      "name": "english localization includes visible map name",
+      "passed": true
+    },
+    {
+      "name": "Custom HLSL helper compiles with Windows D3DCompile",
+      "passed": true
+    }
+  ],
+  "province_RGBs": 394,
+  "imperial_pixels": 62580,
+  "bitmap_dimensions": [
+    8192,
+    3616
+  ],
+  "tile_origin_png": [
+    4152,
+    708
+  ],
+  "tile_size": 512,
+  "native_map_painting_textures_checked": 91,
+  "native_collisions": [],
+  "hlsl_harness": {
+    "passed": true,
+    "hresult": 0,
+    "bytecode_bytes": 2832,
+    "diagnostics": "",
+    "scope": "Custom helper in a D3DCompile ps_5_0 harness; NOT the full game shader"
+  },
+  "registry_sha256": "73525a00b9de15ba9d6227595288abbc630eda97a576020c8f775e1642d9b17e",
+  "native_coloroverlay_sha256": "1733caf085b006ec2fd6c677a5a8f3e95126c54c52472e770a29424ffe6d4bbf",
+  "runtime_verified": false,
+  "active_playset_changed": false,
+  "limitations": [
+    "Actual mode registration/array upload/native shader compilation need an in-game test.",
+    "Static de-jure registry, not a dynamic engine filter for arbitrary state modifiers.",
+    "World UV vertical orientation must be confirmed in game.",
+    "Other mods replacing coloroverlay.fxh conflict; disable them for the test."
+  ]
+}

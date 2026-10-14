@@ -91,7 +91,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:SWE"
-									levels=6
+									levels = 9
 									region="STATE_SVEALAND"
 								}
 							}
@@ -791,7 +791,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:DENNOR"
-									levels=2
+									levels = 3
 									region="STATE_EASTERN_NORWAY"
 								}
 							}
@@ -1183,7 +1183,7 @@ BUILDINGS={
 					building = {
 						type = "building_limestone_quarry"
 						country = "c:GBR"
-						levels = 1
+						levels = 3
 						region = "STATE_LANCASHIRE"
 					}
 				}
@@ -2555,17 +2555,7 @@ BUILDINGS={
 				reserves=1
 				activate_production_methods={ "pm_simple_sailor_recruitment" }
 			}
-						create_building={
-							building="building_food_industry"
-							add_ownership={
-								country={
-									country="c:FRA"
-									levels=1
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_bakery" "pm_disabled_canning" "pm_disabled_distillery" "pm_no_spiced_food" "pm_manual_dough_processing" }
-						}
+						
 						create_building={
 							building="building_railway"
 							add_ownership={
@@ -2580,6 +2570,20 @@ BUILDINGS={
 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 
+		}
+	
+		region_state:PAP = {
+			create_building={
+							building="building_food_industry"
+							add_ownership={
+								country={
+									country="c:FRA"
+									levels=1
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_bakery" "pm_disabled_canning" "pm_disabled_distillery" "pm_no_spiced_food" "pm_manual_dough_processing" }
+						}
 		}
 	}
 	s:STATE_NORMANDY={
@@ -2816,12 +2820,12 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:FRA"
-									levels=2
+									levels = 5
 									region="STATE_LANGUEDOC"
 								}
 							}
 							reserves=1
-							activate_production_methods = { "pm_turnpike_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 						create_building={
 							building="building_textile_mill"
@@ -3366,12 +3370,12 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:FRA"
-						levels=1
+						levels = 4
 						region="STATE_AUVERGNE_LIMOUSIN"
 					}
 				}
 				reserves=1
-				activate_production_methods = { "pm_turnpike_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 			}
 						create_building={
 							building="building_livestock_ranch"
@@ -3898,12 +3902,12 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:FRA"
-									levels=2
+									levels = 4
 									region="STATE_AQUITAINE"
 								}
 							}
 							reserves=1
-							activate_production_methods = { "pm_turnpike_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 
 		}
@@ -4351,22 +4355,8 @@ BUILDINGS={
 		}
 	}
 	s:STATE_WALLONIA={
-		region_state:LUX={
-						create_building={
-							building="building_government_administration"
-							add_ownership={
-								country={
-									country="c:LUX"
-									levels=1
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
-						}
-
-		}
 		region_state:BEO={
-
+						
 
 			create_building={
 				building="building_tooling_workshop"
@@ -4374,7 +4364,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BEO"
-						levels=3
+						levels = 3
 						region="STATE_WALLONIA"
 					}
 				}
@@ -4387,7 +4377,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BEO"
-						levels=4
+						levels = 3
 						region="STATE_WALLONIA"
 					}
 				}
@@ -4400,7 +4390,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BEO"
-						levels=2
+						levels = 2
 						region="STATE_WALLONIA"
 					}
 				}
@@ -4439,7 +4429,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BEO"
-						levels=5
+						levels = 4
 						region="STATE_WALLONIA"
 					}
 				}
@@ -4451,7 +4441,7 @@ BUILDINGS={
 							add_ownership={
 								country={
 									country="c:BEO"
-									levels=2
+									levels = 2
 								}
 							}
 							reserves=1
@@ -4462,7 +4452,7 @@ BUILDINGS={
 							add_ownership={
 								country={
 									country="c:BEO"
-									levels=1
+									levels = 1
 								}
 							}
 							reserves=1
@@ -4474,7 +4464,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:BEO"
-									levels=2
+									levels = 2
 									region="STATE_WALLONIA"
 								}
 							}
@@ -4487,7 +4477,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:BEO"
-									levels=1
+									levels = 1
 									region="STATE_WALLONIA"
 								}
 
@@ -4501,14 +4491,67 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:BEO"
-									levels=6
+									levels = 11
 									region="STATE_WALLONIA"
 								}
 							}
 							reserves=1
-							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 
+		}
+	
+		region_state:LGE = {
+create_building={
+							building="building_government_administration"
+							add_ownership={
+								country={
+									country="c:LGE"
+									levels = 1
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+						}
+create_building={
+				building="building_coal_mine"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BEO"
+						levels = 1
+						region="STATE_WALLONIA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts"  }
+			}
+create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BEO"
+						levels = 1
+						region="STATE_WALLONIA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_simple_forestry" "pm_no_equipment" "pm_road_carts" "pm_hardwood" }
+			}
+create_building={
+							building="building_railway"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:BEO"
+									levels = 2
+									region="STATE_WALLONIA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+						}
 		}
 	}
 	s:STATE_FLANDERS={
@@ -4520,7 +4563,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BEO"
-						levels=2
+						levels = 2
 						region="STATE_FLANDERS"
 					}
 				}
@@ -4531,7 +4574,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:BEO"
-						levels=3
+						levels = 3
 					}
 				}
 				reserves=1
@@ -4543,7 +4586,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:BEO"
-						levels=1
+						levels = 1
 					}
 				}
 				reserves=1
@@ -4555,7 +4598,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BEO"
-						levels=1
+						levels = 1
 						region="STATE_FLANDERS"
 					}
 				}
@@ -4568,7 +4611,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:BEO"
-						levels=1
+						levels = 1
 					}
 				}
 				reserves=1
@@ -4580,13 +4623,13 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BEO"
-						levels=2
+						levels = 2
 						region="STATE_FLANDERS"
 					}
 					building={
 						type="building_textile_mill"
 						country="c:BEO"
-						levels=1
+						levels = 1
 						region="STATE_FLANDERS"
 					}
 				}
@@ -4600,13 +4643,13 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BEO"
-						levels=2
+						levels = 2
 						region="STATE_FLANDERS"
 					}
 					building={
 						type="building_logging_camp"
 						country="c:BEO"
-						levels=2
+						levels = 2
 						region="STATE_FLANDERS"
 					}
 				}
@@ -4622,7 +4665,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BEO"
-						levels=5
+						levels = 5
 						region="STATE_FLANDERS"
 					}
 				}
@@ -4634,7 +4677,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:BEO"
-						levels=2
+						levels = 2
 					}
 				}
 				reserves=1
@@ -4645,7 +4688,7 @@ BUILDINGS={
 							add_ownership={
 								country={
 									country="c:BEO"
-									levels=1
+									levels = 1
 								}
 							}
 							reserves=1
@@ -4952,7 +4995,7 @@ BUILDINGS={
 		}
 	}
 	s:STATE_SOUTH_TYROL={
-		region_state:VEN={
+		region_state:AUS={
 			create_building={
 				building="building_wheat_farm"
 				add_ownership={
@@ -4960,7 +5003,7 @@ BUILDINGS={
 						type="building_manor_house"
 						country="c:VEN"
 						levels=1
-						region="STATE_SOUTH_TYROL"
+						region = "STATE_VENETIA"
 					}
 				}
 				reserves=1
@@ -4973,7 +5016,7 @@ BUILDINGS={
 						type="building_vineyard"
 						country="c:VEN"
 						levels=1
-						region="STATE_SOUTH_TYROL"
+						region = "STATE_VENETIA"
 					}
 				}
 				reserves=1
@@ -5526,21 +5569,25 @@ BUILDINGS={
 						}
 
 		}
-		region_state:BAV={
-
+		
+	
+		region_state:KPF = {
 			create_building={
 				building="building_vineyard"
 				add_ownership={
 					building={
 						type="building_vineyard"
 						country="c:BAV"
-						levels=1
-						region="STATE_RHINELAND"
+						levels = 1
+						region="STATE_BAVARIA"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "default_building_vineyard" "pm_road_carts"  }
 			}
+		}
+	
+		region_state:KTR = {
 
 		}
 	}
@@ -5573,6 +5620,10 @@ BUILDINGS={
 				reserves=1
 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 			}
+
+		}
+	
+		region_state:KCL = {
 
 		}
 	}
@@ -5810,7 +5861,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:WUR"
-									levels=2
+									levels = 8
 									region="STATE_WURTTEMBERG"
 								}
 							}
@@ -5832,7 +5883,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:BAD"
-						levels=1
+						levels = 1
 					}
 				}
 				reserves=1
@@ -5846,7 +5897,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BAD"
-						levels=1
+						levels = 1
 						region="STATE_BADEN"
 					}
 				}
@@ -5859,7 +5910,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BAD"
-						levels=2
+						levels = 2
 						region="STATE_BADEN"
 					}
 				}
@@ -5872,7 +5923,7 @@ BUILDINGS={
 								building={
 									type="building_textile_mill"
 									country="c:BAD"
-									levels=1
+									levels = 1
 									region="STATE_BADEN"
 								}
 							}
@@ -5885,7 +5936,7 @@ BUILDINGS={
 								building={
 									type="building_tooling_workshop"
 									country="c:BAD"
-									levels=1
+									levels = 1
 									region="STATE_BADEN"
 								}
 							}
@@ -6000,7 +6051,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:HAN"
-									levels=1
+									levels = 3
 									region="STATE_BRUNSWICK"
 								}
 							}
@@ -6123,7 +6174,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:BAV"
-						levels=3
+						levels = 1
 					}
 				}
 				reserves=1
@@ -6137,7 +6188,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BAV"
-						levels=1
+						levels = 1
 						region="STATE_FRANCONIA"
 					}
 				}
@@ -6153,7 +6204,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BAV"
-						levels=1
+						levels = 1
 						region="STATE_FRANCONIA"
 					}
 				}
@@ -6166,7 +6217,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BAV"
-						levels=2
+						levels = 2
 						region="STATE_FRANCONIA"
 					}
 				}
@@ -6179,12 +6230,82 @@ BUILDINGS={
 							add_ownership={
 								country={
 									country="c:BAV"
-									levels=1
+									levels = 1
 								}
 							}
 							reserves=1
 						}
 
+		}
+	
+		region_state:WZB = {
+create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:WZB"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_simple_organization" "pm_professional_bureaucrats" "pm_religious_bureaucrats" }
+			}
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BAV"
+						levels = 1
+						region="STATE_FRANCONIA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+		}
+	
+		region_state:ANS = {
+create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:ANS"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_simple_organization" "pm_professional_bureaucrats" "pm_religious_bureaucrats" }
+			}
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BAV"
+						levels = 1
+						region="STATE_FRANCONIA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+		}
+	
+		region_state:FBM = {
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BAV"
+						levels = 1
+						region="STATE_FRANCONIA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
 		}
 	}
 	s:STATE_SAXONY={
@@ -6432,7 +6553,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:HES"
-						levels=1
+						levels = 2
 						region="STATE_HESSE"
 					}
 				}
@@ -6461,7 +6582,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:HEK"
-						levels=1
+						levels = 3
 						region="STATE_HESSE"
 					}
 				}
@@ -6541,6 +6662,22 @@ BUILDINGS={
 						}
 
 		}
+	
+		region_state:KMZ = {
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:HES"
+						levels = 1
+						region="STATE_HESSE"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+		}
 	}
 	s:STATE_MECKLENBURG={
 		region_state:MEC={
@@ -6575,7 +6712,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:MEC"
-									levels=1
+									levels = 3
 									region="STATE_MECKLENBURG"
 								}
 							}

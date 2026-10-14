@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAP · Géoréférencement</title><link rel="stylesheet" href="style.css"></head>
+<body><header><h1>MAP · Géoréférencement</h1><p>Diagnostic indépendant · bitmap en lecture seule · aucune attribution politique</p></header>
+<main>
+<section class="settings" aria-label="Calage">
+<label>Modèle<select id="kind"><option value="miller_affine">Miller ajusté — hypothèse</option><option value="miller_axes">Miller ajusté, axes sans cisaillement</option><option value="geographic_affine">Affine local latitude / longitude</option><option value="native_miller_hypothesis">Miller théorique + équateur natif — non prouvé</option></select></label>
+<label>Espacement (degrés)<input id="spacing" type="number" min="0.05" max="30" step="0.05" value="0.5"></label>
+<label class="check"><input id="extrapolate" type="checkbox">Grille hors du domaine FIT (extrapolation)</label>
+<button id="fit" type="button">Recalculer le calage</button><button id="export" type="button">Exporter le quadrillage PNG</button>
+<button id="save" type="button">Exporter le profil JSON</button><label class="upload">Importer un profil<input id="import" type="file" accept="application/json,.json"></label>
+</section>
+<div id="error" role="alert" hidden></div>
+<section class="map-section" aria-label="Bitmap et quadrillage">
+<div class="toolbar"><button id="local" type="button">Erfurt / Eichsfeld</button><button id="europe" type="button">Europe</button><button id="world" type="button">Monde</button><span id="cursor">Survolez la carte pour lire les coordonnées.</span></div>
+<canvas id="map" width="1100" height="620" role="img" aria-label="Bitmap original avec quadrillage superposé et points de contrôle. Déplacer par glisser ; zoomer à la molette.">Bitmap avec grille géographique.</canvas>
+<p class="small">Rouge : parallèles · bleu : méridiens · cercle : position calculée · carré : pixel observé · trait : écart. Le quadrillage ne modifie jamais le bitmap.</p>
+</section>
+<section class="conversion" aria-label="Conversions">
+<label>Longitude E<input id="lon" type="number" step="0.0001" value="11.0328"></label><label>Latitude N<input id="lat" type="number" step="0.0001" value="50.9787"></label><button id="locate" type="button">Localiser</button>
+<label>Pixel X<input id="px" type="number" step="0.001"></label><label>Pixel Y (depuis le haut)<input id="py" type="number" step="0.001"></label><button id="reverse" type="button">Pixel → géographie</button>
+<output id="result" aria-live="polite"></output>
+</section>
+<section aria-label="Résultats de calibration"><h2>Écarts et limites</h2><div id="metrics" aria-live="polite"></div><p id="accuracy" class="warning"></p><p id="native" class="small"></p></section>
+<details open><summary>Points de contrôle — ajustement et contrôle restent distincts</summary>
+<p class="small">FIT ajuste le modèle. CHECK n’est jamais utilisé pour l’ajuster. TARGET n’a pas de position pixel observée : son emplacement n’est pas validé. Un hub du jeu n’est pas un relevé du centre historique.</p>
+<div class="controls-editor"><label>Point<select id="selected"></select></label><label class="check"><input id="capture" type="checkbox">Enregistrer le prochain clic comme pixel du point sélectionné</label><button id="add" type="button">Ajouter un repère</button></div>
+<div class="table-wrap"><table><thead><tr><th>Point</th><th>Rôle</th><th>Longitude</th><th>Latitude</th><th>X observé</th><th>Y observé</th><th>Écart (px)</th><th>Statut</th></tr></thead><tbody id="points"></tbody></table></div>
+<div class="source-editor"><label>Provenance du point sélectionné<input id="source" type="text"></label><label>Qualité<select id="quality"><option value="native_locator_not_surveyed">Hub du jeu, non relevé</option><option value="no_pixel_observation">Pas d’observation pixel</option><option value="surveyed_landmark">Landmark géographique identifié indépendamment</option><option value="manual_unverified">Placement manuel non vérifié</option></select></label></div>
+</details>
+<p class="small" id="fingerprint"></p>
+</main><script src="app.js"></script></body></html>

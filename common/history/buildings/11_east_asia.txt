@@ -1,12 +1,20 @@
 BUILDINGS={
 	s:STATE_DZUNGARIA={
-		region_state:CHI={
+		
+	
+		region_state:XIN = {
 
+
+		
 		}
 	}
 	s:STATE_TIANSHAN={
-		region_state:CHI={
+		
+	
+		region_state:XIN = {
 
+
+		
 		}
 	}
 	s:STATE_SICHUAN={
@@ -81,7 +89,10 @@ BUILDINGS={
 		}
 	}
 	s:STATE_YUNNAN={
-		region_state:CHI={
+		
+	
+		region_state:YUN = {
+
 
 
 			create_building={
@@ -91,7 +102,7 @@ BUILDINGS={
 						type="building_manor_house"
 						country="c:CHI"
 						levels=2
-						region="STATE_YUNNAN"
+						region = "STATE_HUNAN"
 					}
 				}
 				reserves=1
@@ -104,7 +115,7 @@ BUILDINGS={
 						type="building_financial_district"
 						country="c:CHI"
 						levels=3
-						region="STATE_YUNNAN"
+						region = "STATE_HUNAN"
 					}
 				}
 				reserves=1
@@ -117,17 +128,20 @@ BUILDINGS={
 									type="building_copper_mine"
 									country="c:CHI"
 									levels=4
-									region="STATE_YUNNAN"
+									region = "STATE_HUNAN"
 								}
 							}
 							reserves=1
 							activate_production_methods = { "pm_picks_and_shovels_building_copper_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_copper_mine" "pm_no_mine_ventilation" }
 						}
 
+		
 		}
 	}
 	s:STATE_GUIZHOU={
-		region_state:CHI={
+		
+	
+		region_state:YUN = {
 
 
 
@@ -135,6 +149,8 @@ BUILDINGS={
 
 
 
+
+		
 		}
 	}
 	s:STATE_SHAOZHOU={
@@ -220,12 +236,12 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:CHI"
-									levels=21
+									levels = 32
 									region="STATE_BEIJING"
 								}
 							}
 							reserves=1
-							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 
 		}
@@ -473,7 +489,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:CHI"
-						levels=14
+						levels = 18
 						region="STATE_FUJIAN"
 					}
 				}
@@ -979,7 +995,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:CHI"
-						levels=1
+						levels = 3
 						region="STATE_FORMOSA"
 					}
 				}
@@ -1140,14 +1156,22 @@ BUILDINGS={
 		}
 	}
 	s:STATE_ULIASTAI={
-		region_state:CHI={
+		
+	
+		region_state:MGL = {
 
+
+		
 		}
 	}
 	s:STATE_URGA={
-		region_state:CHI={
+		
+	
+		region_state:MGL = {
 
 
+
+		
 		}
 	}
 	s:STATE_CAMBODIA={
@@ -1217,12 +1241,12 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:SIA"
-									levels=2
+									levels = 5
 									region="STATE_BANGKOK"
 								}
 							}
 							reserves=1
-							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 						create_building={
 							building="building_shipyard"
@@ -1272,7 +1296,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:DAI"
-						levels=20
+						levels = 28
 					}
 				}
 				reserves=1
@@ -1341,7 +1365,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:DAI"
-						levels=20
+						levels = 27
 					}
 				}
 				reserves=1
@@ -1364,7 +1388,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:DAI"
-						levels=3
+						levels = 2
 						region="STATE_ANNAM"
 					}
 				}
@@ -1421,49 +1445,61 @@ BUILDINGS={
 						}
 
 		}
+	
+		region_state:TSN = {
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:DAI"
+						levels = 1
+						region="STATE_ANNAM"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+		}
 	}
 	s:STATE_MEKONG={
 		region_state:DAI={
 
-			create_building={
+			
+
+			
+			
+
+		}
+	
+		region_state:NGN = {
+create_building={
 				building="building_rice_farm"
 				add_ownership={
 					building={
 						type="building_manor_house"
 						country="c:DAI"
 						levels=1
-						region="STATE_MEKONG"
+						region = "STATE_TONKIN"
 					}
 				}
 				reserves=1
 				activate_production_methods={ "pm_simple_farming_building_rice_farm" "pm_no_secondary" "pm_tools_disabled"  }
 			}
-
-			create_building={
-				building="building_barrack"
-				add_ownership={
-					country={
-						country="c:DAI"
-						levels=15
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_no_organization" }
-			}
-			create_building={
+		
+create_building={
 				building="building_railway"
 				add_ownership={
 					building={
 						type="building_financial_district"
 						country="c:DAI"
 						levels=1
-						region="STATE_MEKONG"
+						region = "STATE_TONKIN"
 					}
 				}
 				reserves=1
 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 			}
-
 		}
 	}
 	s:STATE_LAOS={
@@ -1621,7 +1657,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:BUR"
-						levels=2
+						levels = 3
 						region="STATE_PEGU"
 					}
 				}
@@ -1690,19 +1726,29 @@ BUILDINGS={
 		}
 	}
 	s:STATE_SAKHALIN={
-		region_state:EZO={
-		}
-		region_state:ALK={
-		}
+		
+		
 		region_state:SKH={
 		}
 		region_state:AIN={
+		
+
+		
 		}
 		region_state:ULT={
 		}
+	
+		region_state:RUS = {
+
+		
+		}
 	}
 	s:STATE_HOKKAIDO={
-		region_state:EZO={
+		
+		
+	
+		region_state:AIN = {
+
 						create_building={
 							building="building_fishing_wharf"
 							add_ownership={
@@ -1717,10 +1763,14 @@ BUILDINGS={
 							activate_production_methods = { "pm_simple_fishing" "pm_unrefrigerated" }
 						}
 
+		
 		}
-		region_state:JAP={
+	
+		region_state:EZO = {
 
 
+
+		
 		}
 	}
 	s:STATE_TOHOKU={
@@ -1857,7 +1907,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:JAP"
-									levels=2
+									levels = 4
 									region="STATE_HOKUSHINETSU"
 								}
 							}
@@ -2217,7 +2267,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:JAP"
-						levels=2
+						levels = 5
 						region="STATE_CHUGOKU"
 					}
 				}
@@ -2376,7 +2426,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:KOR"
-						levels=1
+						levels = 3
 						region="STATE_BUSAN"
 					}
 				}

@@ -1,0 +1,39 @@
+dp_aor1776_hre_restitution = {
+
+ requires_interest_marker = no
+ war_goal = aor1776_hre_restitution
+ texture = "gfx/interface/icons/war_goals/aor1776_hre_restitution.dds"
+ initiator_can_add_war_goals = yes
+ target_can_add_war_goals = yes
+ selectable_in_lens = { aor1776_hre_emperor = yes }
+ possible = { aor1776_hre_emperor = yes scope:target_country = { aor1776_hre_member = no } diplomatic_play_has_no_relations_blockers = yes }
+
+
+on_weekly_pulse = { initiator = { save_scope_as = initiator } target = { save_scope_as = target } aor1776_hre_prepare_liberation_goals = yes aor1776_hre_defend_external_attack = yes }
+}
+dp_aor1776_hre_secession = {
+
+ requires_interest_marker = no
+ war_goal = aor1776_hre_secession
+ texture = "gfx/interface/icons/war_goals/leave_power_bloc.dds"
+ initiator_can_add_war_goals = no
+ target_can_add_war_goals = no
+ selectable_in_lens = { aor1776_hre_member = yes aor1776_hre_emperor = no OR = { is_subject = no is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_crownland } }
+ possible = { aor1776_hre_member = yes aor1776_hre_emperor = no OR = { is_subject = no is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_crownland } scope:target_country = { aor1776_hre_emperor = yes } diplomatic_play_has_no_relations_blockers = yes }
+
+}
+dp_aor1776_hre_subject_release = {
+
+ requires_interest_marker = no
+ war_goal = aor1776_hre_liberate_estate
+ texture = "gfx/interface/icons/war_goals/aor1776_hre_subject_release.dds"
+ initiator_can_add_war_goals = yes
+ target_can_add_war_goals = yes
+ selectable_in_lens = { aor1776_hre_emperor = yes }
+ possible = { aor1776_hre_emperor = yes aggressive_diplomatic_plays_permitted = yes
+scope:target_country = { aor1776_hre_member = yes is_subject = yes top_overlord ?= { aor1776_hre_member = no has_variable = aor1776_hre_release_refused } }
+diplomatic_play_has_no_relations_blocker_with_overlord = yes }
+
+
+on_weekly_pulse = { initiator = { save_scope_as = initiator } target = { save_scope_as = target } aor1776_hre_prepare_liberation_goals = yes aor1776_hre_defend_external_attack = yes }
+}

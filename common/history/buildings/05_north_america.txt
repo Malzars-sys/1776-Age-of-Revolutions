@@ -1,24 +1,14 @@
 BUILDINGS={
 	s:STATE_DISTRICT_OF_COLUMBIA={
 		region_state:USA={
-			create_building={
-				building="building_government_administration"
-				add_ownership={
-					country={
-						country="c:USA"
-						levels=19
-					}
-				}
-				reserves=1
-				activate_production_methods = { "pm_secular_bureaucrats" "pm_professional_bureaucrats" "pm_simple_organization" }
-			}
+
 			create_building={
 				building="building_railway"
 				add_ownership={
 					building={
 						type="building_financial_district"
 						country="c:USA"
-						levels=6
+						levels = 1
 						region="STATE_DISTRICT_OF_COLUMBIA"
 					}
 				}
@@ -34,10 +24,7 @@ BUILDINGS={
 		}
 		s:STATE_DISTRICT_OF_COLUMBIA={
 			region_state:USA={
-				create_building={
-					building="building_capitol_hill"
-					level=1
-				}
+				# The federal Capitol is not present in the 1776 start.
 			}
 		}
 	}
@@ -101,7 +88,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:USA"
-						levels=9
+						levels = 10
 					}
 				}
 				reserves=1
@@ -222,7 +209,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:USA"
-									levels=6
+									levels = 5
 									region="STATE_NEW_YORK"
 								}
 							}
@@ -508,7 +495,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:GBR"
-						levels=2
+						levels = 2
 						region="STATE_FLORIDA"
 					}
 				}
@@ -539,19 +526,7 @@ BUILDINGS={
 							}
 							reserves=1
 						}
-			create_building = {
-				building = "building_limestone_quarry"
-				add_ownership = {
-					building = {
-						type = "building_limestone_quarry"
-						country = "c:GBR"
-						levels = 2
-						region = "STATE_FLORIDA"
-					}
-				}
-				reserves = 1
-				activate_production_methods = { "pm_picks_and_shovels_building_limestone_quarry" "pm_no_stone_processing_building_limestone_quarry" }
-			}
+
 
 		}
 	}
@@ -562,7 +537,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:USA"
-						levels=6
+						levels = 1
 					}
 				}
 				reserves=1
@@ -603,7 +578,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:USA"
-									levels=3
+									levels = 2
 									region="STATE_GEORGIA"
 								}
 							}
@@ -650,7 +625,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:USA"
-						levels=6
+						levels = 8
 					}
 				}
 				reserves=1
@@ -701,7 +676,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:USA"
-									levels=4
+									levels = 5
 									region="STATE_MARYLAND"
 								}
 							}
@@ -762,7 +737,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:USA"
-						levels=7
+						levels = 14
 					}
 				}
 				reserves=1
@@ -898,7 +873,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:USA"
-									levels=10
+									levels = 7
 									region="STATE_PENNSYLVANIA"
 								}
 							}
@@ -2056,7 +2031,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:GBR"
-						levels=2
+						levels = 3
 						region="STATE_NEWFOUNDLAND"
 					}
 				}
@@ -2212,7 +2187,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:GBR"
-						levels=1
+						levels = 1
 						region="STATE_BERMUDA"
 					}
 				}
@@ -2762,7 +2737,7 @@ BUILDINGS={
 								building={
 									type="building_financial_district"
 									country="c:SC1"
-									levels=19
+									levels = 22
 									region="STATE_MEXICO"
 								}
 							}

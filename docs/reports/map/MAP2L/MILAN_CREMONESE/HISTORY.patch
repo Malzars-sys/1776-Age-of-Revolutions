@@ -1,0 +1,617 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 			owned_provinces = { x108021 xB061C0 x36B2E3 }
+ 		}
+ 		create_state = {
+ 			country = c:AUS
+ 			owned_provinces = { x56C78A x3060BF xF0A040 }
+ 		}
+ 		
+ 
+ 		add_homeland = cu:croat
+ 		add_homeland = cu:slovene
+ 		add_homeland = cu:north_italian
+ 	}
+ 	s:STATE_LOMBARDY = {
+ 		create_state = {
+ 			country = c:AUS
+-			owned_provinces = { x3F1E38 xD04060 xA40CE9 x50C060 x70B8A9 }
++			owned_provinces = { x3F1E38 xD04060 xA40CE9 x50C060 x70B8A9 xEDA701 }
+ 		}
+ 		create_state = {
+ 			country = c:VEN
+-			owned_provinces = { x867A90 x4713EE }
++			owned_provinces = { x867A90 x4713EE xEDA700 }
+ 		}
+ 
+ 
+ 		add_homeland = cu:north_italian
+ 
+ 		# MAP-2A: SWI abstracts the associated Three Leagues, not a modern canton.
+ 		create_state = {
+ 			country = c:SWI
+ 			owned_provinces = { x9AC196 }
+ 		}
+ 	}
+ 	s:STATE_BOHEMIA = {
+ 		create_state = {
+ 			country = c:AUS
+ 			owned_provinces = { x71E041 xCDE96E x0B9B4F x465A13 x81C142 x9080A0 xFA371D x9C175D x61902F xEE1941 x716141 xA40163 x400226 x1D6B94 x67FE18 xF06141 xAFD2D1 xF0E041 xD286DB x2ED2B3 x74C71F }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\01_south_europe.txt
+@@
+ ﻿STATE_LOMBARDY = {
+     id = 76
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x3F1E38" "x4713EE" "x50C060" "x70B8A9" "x867A90" "x9AC196" "xA40CE9" "xD04060" }
++    provinces = { "x3F1E38" "x50C060" "x70B8A9" "x867A90" "x9AC196" "xA40CE9" "xD04060" "x4713EE" "xEDA700" "xEDA701" }
+     traits = { "state_trait_po_river" }
+     city = "xD04060"
+     farm = "x867A90"
+     mine = "x3F1E38"
+     wood = "x4713EE"
+     arable_land = 110
+     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_cotton_plantation" "building_silk_plantation" "building_vineyard" }
+     capped_resources = {
+         building_iron_mine = 27
+         building_lead_mine = 19
+         building_logging_camp = 7
+         building_limestone_quarry = 16
+     }
+     resource = {
+         type = "building_oil_rig"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\01_south_europe.txt
+@@
+ ﻿POPS = {
+ 	s:STATE_LOMBARDY = {
+ 		# MAP-2A: preserve Austrian totals; allocate 5,000 from the former VEN pool to Bormio.
+ 		# A rounded gameplay allocation informed by 4,832 in the 1807 Bormio aggregate, not a 1776 census.
+ 		region_state:AUS = {
+ 			create_pop = {
+ 				culture = north_italian
+ 				size = 1099679
+ 			}
+ 			create_pop = {
+ 				culture = north_italian
+ 				religion = jewish
+ 				size = 184
+ 			}
++		
++create_pop = {
++				culture = north_italian
++				size = 40646
++			}
++create_pop = {
++				culture = north_italian
++				religion = jewish
++				size = 7
++			}
++create_pop = {
++				culture = north_italian
++				size = 29748
++			}
++create_pop = {
++				culture = north_italian
++				religion = jewish
++				size = 5
++			}
+ 		}
+ 		region_state:VEN = {
+ 			create_pop = {
+ 				culture = north_italian
+-				size = 478227
++				size = 437581
+ 			}
+ 			create_pop = {
+ 				culture = north_italian
+ 				religion = jewish
+-				size = 80
++				size = 73
+ 			}
+ 		
+ 			create_pop = {
+ 				culture = north_italian
+-				size = 350000
++				size = 320252
+ 			}
+ 			create_pop = {
+ 				culture = north_italian
+ 				religion = jewish
+-				size = 58
++				size = 53
+ 			}
+ 		}
+ 
+ 		region_state:SWI = {
+ 			create_pop = { culture = north_italian size = 4999 }
+ 			create_pop = { culture = north_italian religion = jewish size = 1 }
+ 		}
+ 	}
+ 	s:STATE_PIEDMONT = {
+ 		region_state:GEN = {
+ 			create_pop = {
+ 				culture = north_italian
+ 				size = 403601
+ 			}
+ 			create_pop = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "basis": "MAP2L MAINZ_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDA607",
+     "state": "STATE_WURTTEMBERG",
+     "beneficiary": "KMZ",
+     "basis": "MAP2L MAINZ_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDA608",
+     "state": "STATE_WURTTEMBERG",
+     "beneficiary": "KMZ",
+     "basis": "MAP2L MAINZ_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
++    "rgb": "xEDA701",
++    "state": "STATE_LOMBARDY",
++    "beneficiary": "AUS",
++    "basis": "MAP2L MILAN_CREMONESE: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\MILAN_CREMONESE\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_LOMBARDY"
++  ],
++  "previous": [
++    {
++      "rgb": "x3F1E38",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x50C060",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x70B8A9",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA40CE9",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD04060",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x3F1E38",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x50C060",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x70B8A9",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA40CE9",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD04060",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xEDA701",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS",
++      "basis": "MAP2L MILAN_CREMONESE: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    }
++  ],
++  "new_members": [],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDA700",
++      "parent_rgb": "x4713EE"
++    },
++    {
++      "rgb": "xEDA701",
++      "parent_rgb": "x4713EE"
++    }
++  ],
++  "geometry": "MILAN_CREMONESE/GEOMETRY.json",
++  "ownership_previous": [
++    {
++      "rgb": "x3F1E38",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    },
++    {
++      "rgb": "x4713EE",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "VEN"
++    },
++    {
++      "rgb": "x50C060",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    },
++    {
++      "rgb": "x70B8A9",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    },
++    {
++      "rgb": "x867A90",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "VEN"
++    },
++    {
++      "rgb": "x9AC196",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "SWI"
++    },
++    {
++      "rgb": "xA40CE9",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    },
++    {
++      "rgb": "xD04060",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    }
++  ],
++  "ownership_updated": [
++    {
++      "rgb": "x3F1E38",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    },
++    {
++      "rgb": "x50C060",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    },
++    {
++      "rgb": "x70B8A9",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    },
++    {
++      "rgb": "x867A90",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "VEN"
++    },
++    {
++      "rgb": "x9AC196",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "SWI"
++    },
++    {
++      "rgb": "xA40CE9",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    },
++    {
++      "rgb": "xD04060",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    },
++    {
++      "rgb": "x4713EE",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "VEN"
++    },
++    {
++      "rgb": "xEDA700",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "VEN"
++    },
++    {
++      "rgb": "xEDA701",
++      "state": "STATE_LOMBARDY",
++      "beneficiary": "AUS"
++    }
++  ],
++  "extent_added_cells": [
++    [
++      4323,
++      993
++    ],
++    [
++      4324,
++      993
++    ],
++    [
++      4325,
++      993
++    ],
++    [
++      4326,
++      993
++    ],
++    [
++      4327,
++      993
++    ],
++    [
++      4328,
++      993
++    ],
++    [
++      4324,
++      994
++    ],
++    [
++      4325,
++      994
++    ],
++    [
++      4326,
++      994
++    ],
++    [
++      4327,
++      994
++    ],
++    [
++      4328,
++      994
++    ],
++    [
++      4325,
++      995
++    ],
++    [
++      4326,
++      995
++    ],
++    [
++      4327,
++      995
++    ],
++    [
++      4328,
++      995
++    ],
++    [
++      4324,
++      996
++    ],
++    [
++      4325,
++      996
++    ],
++    [
++      4326,
++      996
++    ],
++    [
++      4327,
++      996
++    ],
++    [
++      4328,
++      996
++    ],
++    [
++      4322,
++      997
++    ],
++    [
++      4323,
++      997
++    ],
++    [
++      4324,
++      997
++    ],
++    [
++      4325,
++      997
++    ],
++    [
++      4326,
++      997
++    ],
++    [
++      4327,
++      997
++    ],
++    [
++      4328,
++      997
++    ],
++    [
++      4329,
++      997
++    ],
++    [
++      4330,
++      997
++    ],
++    [
++      4318,
++      998
++    ],
++    [
++      4319,
++      998
++    ],
++    [
++      4320,
++      998
++    ],
++    [
++      4321,
++      998
++    ],
++    [
++      4322,
++      998
++    ],
++    [
++      4323,
++      998
++    ],
++    [
++      4324,
++      998
++    ],
++    [
++      4325,
++      998
++    ],
++    [
++      4326,
++      998
++    ],
++    [
++      4327,
++      998
++    ],
++    [
++      4328,
++      998
++    ],
++    [
++      4329,
++      998
++    ],
++    [
++      4330,
++      998
++    ],
++    [
++      4319,
++      999
++    ],
++    [
++      4320,
++      999
++    ],
++    [
++      4321,
++      999
++    ],
++    [
++      4322,
++      999
++    ],
++    [
++      4323,
++      999
++    ],
++    [
++      4324,
++      999
++    ],
++    [
++      4325,
++      999
++    ],
++    [
++      4326,
++      999
++    ],
++    [
++      4327,
++      999
++    ],
++    [
++      4320,
++      1000
++    ],
++    [
++      4321,
++      1000
++    ],
++    [
++      4322,
++      1000
++    ],
++    [
++      4323,
++      1000
++    ],
++    [
++      4324,
++      1000
++    ],
++    [
++      4325,
++      1000
++    ],
++    [
++      4326,
++      1000
++    ],
++    [
++      4324,
++      1001
++    ],
++    [
++      4325,
++      1001
++    ],
++    [
++      4326,
++      1001
++    ],
++    [
++      4325,
++      1002
++    ],
++    [
++      4326,
++      1002
++    ],
++    [
++      4326,
++      1003
++    ]
++  ],
++  "extent_removed_cells": []
++}
+*** End Patch

@@ -1003,6 +1003,8 @@ DEFAULT = {
 			}
 		}
 	}
+
+ dynamic_country_name = { name = dyn_c_aor1776_hre_unified adjective = dyn_c_aor1776_hre_unified_adj priority = 1000 trigger = { has_global_variable = aor1776_hre_unified aor1776_hre_emperor = yes } }
 }
 
 MLT = { # Malta
@@ -1287,6 +1289,8 @@ AZB = { # Azerbaijan
 			coa_def_british_ensign_trigger = yes
 		}
 	}
+
+	dynamic_country_name = { name = aor1776_azb adjective = aor1776_azb_adj is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { current_date < 1828.1.1 } } }
 }
 
 BAV = { # Bavaria
@@ -1669,6 +1673,8 @@ CHC = { # Chechnya
 			coa_def_theocracy_flag_trigger = yes
 		}
 	}
+
+	dynamic_country_name = { name = aor1776_chc adjective = aor1776_chc_adj is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { current_date < 1828.1.1 } } }
 }
 
 CHI = { # China
@@ -2336,6 +2342,8 @@ LAN = { # Lanfang
 			}
 		}
 	}
+
+ dynamic_country_name = { name = aor1776_map2h_lan adjective = LAN_ADJ priority = 100 is_main_tag_only = yes trigger = { exists = scope:actor } }
 }
 
 LAT = { # Latvia
@@ -2429,6 +2437,8 @@ MGL = {
 			coa_def_communist_flag_trigger = yes
 		}
 	}
+
+ dynamic_country_name = { name = aor1776_map2g_mgl adjective = MGL_ADJ is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { is_subject_of = c:CHI } } }
 }
 
 
@@ -2708,6 +2718,8 @@ PAN = { # Punjab
 			}
 		}
 	}
+
+ dynamic_country_name = { name = aor1776_sikh_confederacies adjective = PAN_ADJ is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { current_date < 1801.1.1 } } }
 }
 
 PAP = { # Papal State, but the base name is technically Rome
@@ -4458,12 +4470,7 @@ PER = {
 		is_main_tag_only = yes
 		priority = 1
 
-		trigger = {
-			scope:actor ?= {
-				has_law = law_type:law_monarchy
-				NOT = { has_variable = qajar_iran }
-			}
-		}
+		trigger = { scope:actor ?= { has_law = law_type:law_monarchy NOT = { has_variable = qajar_iran } ruler ?= { has_template = per_karim_khand_zand_template } } }
 	}
 	dynamic_country_name = {
 		name = dyn_c_qajar_iran
@@ -4670,6 +4677,8 @@ XIN = {
 			}
 		}
 	}
+
+ dynamic_country_name = { name = aor1776_map2g_xin adjective = XIN_ADJ is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { is_subject_of = c:CHI } } }
 }
 GUI = {
 	dynamic_country_name = {
@@ -4750,6 +4759,8 @@ YUN = {
 			}
 		}
 	}
+
+ dynamic_country_name = { name = aor1776_map2g_yun adjective = YUN_ADJ is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { is_subject_of = c:CHI } } }
 }
 BEI = {
 	dynamic_country_name = {
@@ -5566,3 +5577,5 @@ ATL = {
 		}
 	}
 }
+
+ARM = { dynamic_country_name = { name = aor1776_arm adjective = aor1776_arm_adj is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { current_date < 1828.1.1 } } } }

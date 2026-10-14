@@ -1,0 +1,20 @@
+aor1776_hre_vote_preference = {
+
+ value = 20
+ add = { value = "relations(scope:hre_voter)" multiply = 0.3 }
+ add = { value = prestige min = 0 max = 200 multiply = 0.05 }
+ if = { limit = { this = global_var:aor1776_hre_emperor_country } add = 20 }
+ if = { limit = { c:AUS ?= this } add = 15 }
+ if = { limit = { this = scope:hre_voter } add = 10 }
+ if = { limit = { has_war_with = scope:hre_voter } add = -200 }
+ if = { limit = { has_diplomatic_pact = { who = scope:hre_voter type = rivalry } } add = -50 }
+ if = { limit = { any_scope_treaty = { binds = scope:hre_voter any_scope_article = { has_type = alliance } } } add = 20 }
+ if = { limit = { any_scope_treaty = { binds = scope:hre_voter any_scope_article = { has_type = defensive_pact } } } add = 10 }
+ if = { limit = { has_variable = aor1776_hre_wittelsbach scope:hre_voter = { has_variable = aor1776_hre_wittelsbach } } add = 25 }
+ if = { limit = { ruler ?= { religion = rel:catholic } scope:hre_voter = { ruler ?= { religion = rel:catholic } } } add = 15 }
+ if = { limit = { NOT = { ruler ?= { religion = rel:catholic } } scope:hre_voter = { has_variable = aor1776_hre_spiritual_elector } } add = -25 }
+ if = { limit = { has_variable = aor1776_hre_guarantees_privileges } add = 10 }
+
+
+if = { limit = { scope:hre_voter = { var:aor1776_hre_promised_candidate ?= root } } add = 1000 }
+}

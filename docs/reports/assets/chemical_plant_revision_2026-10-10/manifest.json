@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-10",
+  "tool": "BUILTIN_IMAGE_GEN",
+  "request": "Refaire uniquement le décor de l'usine chimique selon la vue plongeante vanilla ; supprimer ensuite le support en bois pour faire flotter les biens au premier plan.",
+  "original_master": "assets/icon_sources/chemical_plant_approved.png",
+  "original_dds_sha256": "b12328eb461257db12f1e51732a80cb13759b4aaa4e8da9ba763ab7116c7e78f",
+  "final_master": "assets/icon_sources/chemical_plant_overhead_2026-10-10.png",
+  "final_master_sha256": "7cb639af5810c848d296b1d08db595e558023b0aafc7ff2d2bc32ebc761dbc0c",
+  "final_size": [
+    1254,
+    1254
+  ],
+  "foreground": "Pot avec plante et quatre flacons conservés ; aucun socle, caisse, table ou support.",
+  "background": "Toitures, cour et usine vues depuis le dessus, sans ciel ni horizon.",
+  "references": [
+    "C:/Games/Victoria 3/game/gfx/interface/icons/building_icons/chemicals_industry.dds",
+    "C:/Games/Victoria 3/game/gfx/interface/icons/building_icons/steel_mills.dds"
+  ],
+  "prompts": {
+    "overhead_background": "Use case: precise-object-edit.\nAsset type: Victoria 3 chemical plant square building UI icon.\nInput images: Image 1 is the EDIT TARGET, the mod's existing chemical plant icon. Image 2 is the original vanilla CHEMICALS building icon, a composition and viewpoint reference only. Image 3 is the original vanilla STEEL MILL building icon, also a viewpoint/painting reference only.\nPrimary request: Replace ONLY the background industrial scene in Image 1 to match the vanilla icons' high, downward-looking viewpoint. KEEP the foreground terracotta pot with green plant, all four chemistry bottles/flasks, their arrangement, their colors, detailed shape, size and lower-right placement, the wooden foreground support, and the existing square rounded metallic border EXACTLY UNCHANGED. Do not redesign these foreground identifiers.\nBackground correction: A closely cropped brick chemical factory viewed from HIGH ABOVE at a steep downward angle of about 60 degrees, near bird's eye three-quarter view. Show predominantly large diagonal slate-gray factory roof planes with skylight ridges and glimpses of a cobbled service yard and brick wall edges between roof planes, like image 2. We are looking DOWN onto the factory, not standing at its entrance. Fill the entire space behind the existing foreground objects and inside the frame with this aerial roof/courtyard scene. Remove all sky, clouds, horizon, frontal ground-level facades and low-angle chimney towers from the original background. A brick chimney top can appear only as seen from above, subordinate to the roof geometry. Darkened industrial background, muted slate, charcoal, warm brick, ochre, painterly vanilla building UI finish with coherent shadows. Background must remain subordinate to the colorful foreground objects at thumbnail size.\nComposition: SAME square icon and exact foreground/framing as image 1. Steep diagonal roofs cropped by border, no panoramic wide landscape, no miniature full factory model floating in open space. Preserve the original border and transparent external corner pixels; everything INSIDE the frame remains opaque.\nAvoid: ground-level view, factory entrance viewpoint, horizon, sky, frontal architectural portrait, new foreground props, text, labels, new bottles, missing bottles, logos, watermark. This is a UI building icon, not a photorealistic scene or blueprint. Output one edited square image.",
+    "remove_wooden_support": "Use case: precise-object-edit. Asset: Victoria 3 chemical factory square building UI icon.\nImage 1 is the edit target, the already corrected overhead-view factory icon. Image 2 is the original vanilla chemical factory icon, showing how foreground goods float as a symbolic overlay.\nMake ONE targeted correction ONLY: COMPLETELY REMOVE the large wooden crate/stump/block/table/pedestal currently supporting the pot and bottles at the very bottom right. Remove its top and all vertical sides. Extend the existing distant factory rooftop/courtyard backdrop through all space vacated by that wooden support, maintaining the high aerial perspective and dark background shading.\nKeep the terracotta pot with plant and all four bottles in EXACTLY the same positions, sizes, colors, shapes and arrangement. They now FLOAT unsupported in the foreground as symbolic UI goods, just like the floating potted plant on vanilla image 2. Absolutely NO replacement platform, crate, shelf, floor, stone slab, tray, plinth, table or contact surface beneath them. There must be visible distant factory backdrop below and around their silhouettes. Do NOT move or drop the objects onto a distant roof. The chemistry props are a graphical overlay, not life-size objects physically within the factory.\nDo NOT change the successful high-downward factory roof view, brick factory buildings, the existing rounded square frame or the foreground chemistry goods. Preserve the four distinct bottles: blue standing, brown standing, green standing, clear lying horizontally. Keep bottle corks and the terracotta flowerpot; these are goods, not the unwanted support.\nEverything inside the frame opaque; retain genuine transparent pixels only outside the rounded frame. No sky, horizon, text, watermark, logos. Same square canvas and painted game UI look."
+  },
+  "export": {
+    "dds": "gfx/interface/icons/building_icons/1776_chemical_plant.dds",
+    "size": 256,
+    "mips": 9,
+    "source": "assets/icon_sources/chemical_plant_overhead_2026-10-10.png",
+    "source_sha256": "7cb639af5810c848d296b1d08db595e558023b0aafc7ff2d2bc32ebc761dbc0c",
+    "provenance": "docs/reports/assets/chemical_plant_revision_2026-10-10/manifest.json",
+    "dds_sha256": "3446eb467043e2de5afb5da2737841a5dae11e2de5bbe7a6a7b3eb0b9cea924f"
+  },
+  "alpha": {
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "interior_min": 248,
+    "generated_alpha_preserved": true,
+    "comment": "Intérieur quasi opaque (alpha 248..255), sans trou de détourage ; transparence extérieure préservée sans retouche mécanique."
+  },
+  "validation": {
+    "inspection_sizes": [
+      48,
+      64,
+      96,
+      256
+    ],
+    "native_channel_layout": "BGRA8 A8R8G8B8",
+    "mips": 9,
+    "exact_registered_rebuild": true,
+    "changed_game_files": [
+      "gfx/interface/icons/building_icons/1776_chemical_plant.dds"
+    ],
+    "other_common_and_gfx_files_unchanged": 1411,
+    "game_tested": false
+  }
+}

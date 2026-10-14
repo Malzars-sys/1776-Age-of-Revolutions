@@ -45,6 +45,20 @@ BUILDINGS={
 						}
 
 		}
+	
+		region_state:DEI = {
+create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:DEI"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_basic_port" }
+			}
+		}
 	}
 	s:STATE_NORTH_BORNEO={
 		region_state:BRU={
@@ -152,10 +166,10 @@ BUILDINGS={
 		region_state:STG={
 
 		}
-		region_state:INDOP = {
+		region_state:KLT = {
 						create_building = {
 							building = "building_spice_plantation"
-							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_WEST_BORNEO" } }
+							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_NORTH_SUMATRA" } }
 							reserves = 1
 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
 						}
@@ -211,10 +225,10 @@ BUILDINGS={
 		}
 		region_state:KTI={
 		}
-		region_state:INDOP = {
+		region_state:KLT = {
 						create_building = {
 							building = "building_spice_plantation"
-							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_EAST_BORNEO" } }
+							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_NORTH_SUMATRA" } }
 							reserves = 1
 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
 						}
@@ -287,7 +301,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:DEI"
-						levels=3
+						levels = 2
 					}
 				}
 				reserves=1
@@ -634,7 +648,7 @@ BUILDINGS={
 						}
 
 		}
-		region_state:INDOP = {
+		region_state:TOB = {
 			create_building={
 				building="building_railway"
 				add_ownership={
@@ -642,7 +656,7 @@ BUILDINGS={
 						type="building_financial_district"
 						country="c:INDOP"
 						levels=1
-						region="STATE_ACEH"
+						region = "STATE_NORTH_SUMATRA"
 					}
 				}
 				reserves=1
@@ -650,7 +664,7 @@ BUILDINGS={
 			}
 						create_building = {
 							building = "building_spice_plantation"
-							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_ACEH" } }
+							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_NORTH_SUMATRA" } }
 							reserves = 1
 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
 						}

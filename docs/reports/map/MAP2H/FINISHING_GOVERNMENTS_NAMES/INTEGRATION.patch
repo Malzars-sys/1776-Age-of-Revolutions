@@ -1,0 +1,374 @@
+*** Begin Patch
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/buildings/12_indonesia.txt
+@@
+ 		}
+ 		region_state:STG={
+ 
+ 		}
+-		region_state:INDOP = {
++		region_state:KLT = {
+ 						create_building = {
+ 							building = "building_spice_plantation"
+-							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_WEST_BORNEO" } }
++							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_NORTH_SUMATRA" } }
+ 							reserves = 1
+ 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
+ 						}
+ 		}
+@@
+ 
+ 		}
+ 		region_state:KTI={
+ 		}
+-		region_state:INDOP = {
++		region_state:KLT = {
+ 						create_building = {
+ 							building = "building_spice_plantation"
+-							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_EAST_BORNEO" } }
++							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_NORTH_SUMATRA" } }
+ 							reserves = 1
+ 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
+ 						}
+ 		}
+@@
+ 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
+ 						}
+ 
+ 		}
+-		region_state:INDOP = {
++		region_state:TOB = {
+ 			create_building={
+ 				building="building_railway"
+ 				add_ownership={
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:INDOP"
+ 						levels=1
+-						region="STATE_ACEH"
++						region = "STATE_NORTH_SUMATRA"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+ 			}
+ 						create_building = {
+ 							building = "building_spice_plantation"
+-							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_ACEH" } }
++							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_NORTH_SUMATRA" } }
+ 							reserves = 1
+ 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
+ 						}
+ 						create_building={
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/buildings/98_build_start_1776_world_redistribution.txt
+@@
+ 							}
+ 							reserves=1
+ 						}
+ 		}
+-		region_state:INDOP = {
++		region_state:TOB = {
+ 						create_building = {
+ 							building = "building_spice_plantation"
+-							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_ACEH" } }
++							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_NORTH_SUMATRA" } }
+ 							reserves = 1
+ 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
+ 						}
+ 						create_building={
+@@
+ 							}
+ 							reserves=1
+ 						}
+ 		}
+-		region_state:INDOP = {
++		region_state:KLT = {
+ 						create_building = {
+ 							building = "building_spice_plantation"
+-							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_EAST_BORNEO" } }
++							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_NORTH_SUMATRA" } }
+ 							reserves = 1
+ 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
+ 						}
+ 		}
+@@
+ 						}
+ 		}
+ 	}
+ 	s:STATE_WEST_BORNEO = {
+-		region_state:INDOP = {
++		region_state:KLT = {
+ 						create_building = {
+ 							building = "building_spice_plantation"
+-							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_WEST_BORNEO" } }
++							add_ownership = { building = { type = "building_manor_house" country = "c:INDOP" levels = 1 region = "STATE_NORTH_SUMATRA" } }
+ 							reserves = 1
+ 							activate_production_methods = { "pm_spice_cultivation" "pm_road_carts" }
+ 						}
+ 		}
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/countries/kau - kaurna.txt
+@@
+ 
+ 
+ 
+ 		effect_starting_politics_traditional = yes
+-		activate_law = law_type:law_parliamentary_republic # Tribal but the closest I can get
+-		activate_law = law_type:law_census_voting # Would actually have been more akin to anarchy but gameplay
++		activate_law = law_type:law_chiefdom # Native customary-government abstraction; KAU remains playable.
++		activate_law = law_type:law_elder_council
+ 		activate_law = law_type:law_isolationism
+-		activate_law = law_type:law_elected_bureaucrats
+-		activate_law = law_type:law_racial_segregation
+-		activate_law = law_type:law_women_own_property
+-		activate_law = law_type:law_homesteading
++		# Retain the traditional initializer bureaucracy fallback, not elected officials.
++		activate_law = law_type:law_subjecthood
++		activate_law = law_type:law_no_womens_rights
++		activate_law = law_type:law_serfdom
+ 		activate_law = law_type:law_consumption_based_taxation
++		activate_law = law_type:law_censorship
++		activate_law = law_type:law_debt_slavery
+ 
+ 		ig:ig_landowners ?= { # Chosen for gameplay purposes
+ 			add_ruling_interest_group = yes
+ 		}
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/pops/12_indonesia.txt
+@@
+ 				culture = hakka
+ 				size = 19500
+ 			}
+ 		}
+-		region_state:INDOP = {
++		region_state:KLT = {
+ 			create_pop = {
+ 				culture = bornean
+ 				size = 29742
+ 			}
+@@
+ 				culture = bornean
+ 				size = 52499
+ 			}
+ 		}
+-		region_state:INDOP = {
++		region_state:KLT = {
+ 			create_pop = {
+ 				culture = bornean
+ 				size = 7649
+ 			}
+@@
+ 				religion = sunni
+ 				size = 6302
+ 			}
+ 		}
+-		region_state:INDOP = {
++		region_state:TOB = {
+ 			create_pop = {
+ 				culture = sumatran
+ 				size = 9029
+ 			}
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/states/00_states.txt
+@@
+ 			country = c:SAK
+ 			owned_provinces = { x4544B1 xD5A22C x7E3D68 x4F7793 xD4118B x616150 }
+ 		}
+ 		create_state = {
+-			country = c:INDOP
++			country = c:TOB
+ 			owned_provinces = { x9A7E0B x388ABB x60E050 xE3CB2E }
+ 		}
+ 		add_claim = c:DEI
+ 		add_homeland = cu:sumatran
+@@
+ 			country = c:LAN
+ 			owned_provinces = { x1C7417 x2A3D46 xE02CB6 }
+ 		}
+ 		create_state = {
+-			country = c:INDOP
++			country = c:KLT
+ 			owned_provinces = { xD735DB xE3C4F2 xC29C28 xA67A6E x638173 x76E306 xF9BDCB xFCFD83 x029E85 x8A69A7 xFF8539 xF37396 }
+ 		}
+ 		create_state = {
+ 			country = c:SMB
+@@
+ 		add_homeland = cu:dayak
+ 	}
+ 	s:STATE_EAST_BORNEO = {
+ 		create_state = {
+-			country = c:INDOP
++			country = c:KLT
+ 			owned_provinces = { x018070 x9F4941 x8BD8AF xB8D3B7 x0FFCAE x4F7415 }
+ 		}
+ 		create_state = {
+ 			country = c:BLG
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/country_definitions/00_countries.txt
+@@
+ 
+ 	capital = STATE_ASSAM
+ }
+ 
+-TOB = { # Toba
+-	color = { 183 141 1 }
+-
+-	country_type = unrecognized
+-
+-	tier = principality
+-
+-	cultures = { batak }
+-
+-	capital = STATE_NORTH_SUMATRA
+-}
+-
+-KLT = { # Kalimantan
+-	color = { 193 164 142 }
+-
+-	country_type = unrecognized
+-
+-	tier = principality
+-
+-	cultures = { bornean dayak }
+-
+-	capital = STATE_WEST_BORNEO
++TOB = { # MAP2H: regional communities, not a unitary kingdom.
++ color = { 135 87 154 } country_type = decentralized tier = principality cultures = { batak } religion = animist capital = STATE_ACEH
++}
++
++KLT = { # MAP2H: regional communities, not a unitary kingdom.
++ color = { 75 149 121 } country_type = decentralized tier = principality cultures = { bornean dayak } religion = animist capital = STATE_WEST_BORNEO
+ }
+ 
+ HTH = { # Hanthawaddy
+ 	color = { 140 210 160 }
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/country_definitions/02_modded_countries.txt
+@@
+ 	cultures = { north_caucasian chechen circassian armenian georgian }
+ 	capital = STATE_DAGESTAN
+ }
+ 
+-INDOP = { # Princely Indonesian States
+-	color = { 196 25 10 }
+-
+-	country_type = decentralized
+-
+-	tier = principality
+-
+-	cultures = { sumatran batak bornean dayak dutch }
++INDOP = { # MAP2H: decentralized Sumatran communities; Batak and Borneo groups are separate.
++	color = { 196 25 10 }
++
++	country_type = decentralized
++
++	tier = principality
++
++	cultures = { sumatran batak }
+ 	capital = STATE_NORTH_SUMATRA
+ }
+ 
+ AP7 = { # Amazonians
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/laws/00_governance_principles.txt
+@@
+ 
+ 	progressiveness = -100
+ 
+ 	can_enact = {
+-		is_country_type = decentralized
++		aor1776_customary_laws_country_allowed = yes
+ 	}
+ 
+ 	is_visible = {
+-		is_country_type = decentralized
++		aor1776_customary_laws_country_allowed = yes
+ 	}
+ 
+ 	modifier = {
+ 		country_legitimacy_headofstate_add = 20
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/laws/00_distribution_of_power.txt
+@@
+ 		law_chiefdom
+ 	}
+ 
+ 	is_visible = {
+-		is_country_type = decentralized
++		aor1776_customary_laws_country_allowed = yes
+ 	}
+ 
+ 	on_activate = {
+ 		if = {
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/localization/english/NM_Countries_l_english.yml
+@@
+  dyn_c_austria_republic: "Austrian Republic"
+  dyn_c_austria_republic_adj: "Austrian"
+  dyn_c_gbr_br_commonwealth: "British Commonwealth"
+  dyn_c_gbr_br_commonwealth_adj: "Commonwealth"
+- INDOP: "Indonesian Princley States"
+- INDOP_ADJ: "Indonesian"
++ INDOP: "Sumatran Communities"
++ INDOP_ADJ: "Sumatran"
+ 
+  
+*** Update File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/localization/french/NM_Countries_l_french.yml
+@@
+  dyn_c_austria_republic: "République autrichienne"
+  dyn_c_austria_republic_adj: "Autrichienne"
+  dyn_c_gbr_br_commonwealth: "Commonwealth britannique"
+  dyn_c_gbr_br_commonwealth_adj: "Du Commonwealth"
+- INDOP: "Principautes indonesiennes"
+- INDOP_ADJ: "Indonesienne"
++ INDOP: "Communautés de Sumatra"
++ INDOP_ADJ: "sumatranes"
+ 
+  
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/scripted_triggers/1776_map2h_kaurna_customary_laws.txt
++# Preserve the native rule for every other country. Only playable KAU gains an exception.
++aor1776_customary_laws_country_allowed = {
++ OR = {
++  is_country_type = decentralized
++  AND = { is_country_type = unrecognized exists = c:KAU c:KAU = ROOT }
++ }
++}
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/countries/1776_map2h_indop_communities.txt
++# Native community initialization only; no historical ruler or modern technology invented.
++COUNTRIES = {
++ c:TOB ?= { effect_starting_politics_traditional = yes activate_law = law_type:law_elder_council }
++ c:KLT ?= { effect_starting_politics_traditional = yes activate_law = law_type:law_elder_council }
++}
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/history/diplomacy/1776_map2h_vietnam_rapprochement.txt
++# The rapprochement of 1775 is temporary, not a permanent alliance or subject pact.
++# 24 months is a gameplay duration, not a claimed historical treaty expiration.
++DIPLOMACY = {
++ c:DAI ?= {
++  set_relations = { country = c:TSN value = 20 }
++  create_bidirectional_truce = { country = c:TSN months = 24 }
++ }
++ c:TSN ?= {
++  set_relations = { country = c:NGN value = -60 }
++  create_diplomatic_pact = { country = c:NGN type = rivalry }
++ }
++ c:NGN ?= { create_diplomatic_pact = { country = c:TSN type = rivalry } }
++}
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/localization/english/replace/1776_map2h_communities_l_english.yml
++﻿l_english:
++ TOB:0 "Batak Communities"
++ TOB_ADJ:0 "Batak"
++ KLT:0 "Dayak and Bornean Communities"
++ KLT_ADJ:0 "Bornean"
++ aor1776_map2h_tapanuli:0 "Tapanuli"
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/localization/french/replace/1776_map2h_communities_l_french.yml
++﻿l_french:
++ TOB:0 "Communautés batak"
++ TOB_ADJ:0 "batak"
++ KLT:0 "Communautés dayak et bornéennes"
++ KLT_ADJ:0 "de Bornéo"
++ aor1776_map2h_tapanuli:0 "Tapanuli"
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/scripted_effects/1776_map2h_tapanuli_name.txt
++assign_1776_map2h_tapanuli_name = { if = { limit = { state_region = s:STATE_ACEH is_split_state = yes owner = { c:TOB ?= this } } set_state_name = aor1776_map2h_tapanuli } }
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/on_actions/16_1776_map2h_tapanuli_name.txt
++on_game_started = { on_actions = { aor1776_map2h_tapanuli_initialize } }
++on_game_started_after_lobby = { on_actions = { aor1776_map2h_tapanuli_initialize } }
++on_state_created = { on_actions = { aor1776_map2h_tapanuli_name_changed } }
++on_state_owner_change = { on_actions = { aor1776_map2h_tapanuli_name_changed } }
++aor1776_map2h_tapanuli_initialize = { effect = { every_state = { assign_1776_map2h_tapanuli_name = yes } } }
++aor1776_map2h_tapanuli_name_changed = { effect = { assign_1776_map2h_tapanuli_name = yes } }
+*** Add File: C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/common/coat_of_arms/coat_of_arms/08_1776_map2h_communities.txt
++# Generic native identification banners, not authenticated historical flags.
++TOB = { pattern = "pattern_horizontal_split_01.tga" color1 = "purple" color2 = "white" }
++KLT = { pattern = "pattern_horizontal_split_01.tga" color1 = "green" color2 = "brown" }
+*** End Patch

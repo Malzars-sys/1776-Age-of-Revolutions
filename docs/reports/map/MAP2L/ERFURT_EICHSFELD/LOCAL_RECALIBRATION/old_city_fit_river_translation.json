@@ -1,0 +1,212 @@
+{
+  "model": {
+    "schema_version": 1,
+    "kind": "miller_affine",
+    "dimensions": [
+      8192,
+      3616
+    ],
+    "matrix": [
+      [
+        1255.167041359254,
+        -5.159846201805137
+      ],
+      [
+        -0.9688003245595548,
+        -1274.9110326762366
+      ],
+      [
+        4105.935390944053,
+        2072.4062240130706
+      ]
+    ],
+    "status": "LOCAL_RIVER_DIAGNOSTIC_NOT_APPROVED",
+    "fit_count": 0,
+    "condition_normalized": 1.1338038876436625,
+    "domain": [
+      [
+        8.833398,
+        50.603461
+      ],
+      [
+        10.398926,
+        52.999335
+      ]
+    ],
+    "controls": [
+      {
+        "name": "Erfurt",
+        "geo": [
+          11.0328,
+          50.9787
+        ],
+        "pixel": null,
+        "role": "TARGET",
+        "quality": "no_pixel_observation",
+        "source": "User WGS84 reference, 2026-10-13"
+      },
+      {
+        "name": "Duderstadt",
+        "geo": [
+          10.2597,
+          51.5125
+        ],
+        "pixel": null,
+        "role": "TARGET",
+        "quality": "no_pixel_observation",
+        "source": "User WGS84 reference, 2026-10-13"
+      },
+      {
+        "name": "Heiligenstadt",
+        "geo": [
+          10.1344,
+          51.3775
+        ],
+        "pixel": null,
+        "role": "TARGET",
+        "quality": "no_pixel_observation",
+        "source": "User WGS84 reference, 2026-10-13"
+      }
+    ],
+    "assumptions": [
+      "Emplacements de hubs non assimilés à des relevés GPS",
+      "Domaine FIT rectangulaire indicatif ; extrapolation signalée",
+      "RMS et maximum observés ne sont pas des intervalles de confiance"
+    ],
+    "calibration_method": "2-parameter robust translation, Weser-Werra nearest identified route only; not surveyed control pairs",
+    "independent_check_river": "Elbe, excluded from optimization",
+    "translation_px": [
+      -5.72754985544102,
+      -4.359270124740899
+    ],
+    "parent_profile": "old_city_fit",
+    "robust_objective": 0.11486615474519883,
+    "iterations": 28,
+    "use_for_sovereignty": false,
+    "geographic_error_bound_px": null
+  },
+  "evaluation": {
+    "points": [
+      {
+        "name": "Erfurt",
+        "geo": [
+          11.0328,
+          50.9787
+        ],
+        "pixel": null,
+        "role": "TARGET",
+        "quality": "no_pixel_observation",
+        "source": "User WGS84 reference, 2026-10-13",
+        "predicted_pixel": [
+          4346.683094729401,
+          827.0166642774734
+        ],
+        "residual_px": null,
+        "extrapolated": true
+      },
+      {
+        "name": "Duderstadt",
+        "geo": [
+          10.2597,
+          51.5125
+        ],
+        "pixel": null,
+        "role": "TARGET",
+        "quality": "no_pixel_observation",
+        "source": "User WGS84 reference, 2026-10-13",
+        "predicted_pixel": [
+          4329.734990698438,
+          811.3488033904555
+        ],
+        "residual_px": null,
+        "extrapolated": false
+      },
+      {
+        "name": "Heiligenstadt",
+        "geo": [
+          10.1344,
+          51.3775
+        ],
+        "pixel": null,
+        "role": "TARGET",
+        "quality": "no_pixel_observation",
+        "source": "User WGS84 reference, 2026-10-13",
+        "predicted_pixel": [
+          4326.993100738704,
+          815.3498039938897
+        ],
+        "residual_px": null,
+        "extrapolated": false
+      }
+    ],
+    "fit": {
+      "count": 0,
+      "rms_px": null,
+      "max_px": null,
+      "median_px": null
+    },
+    "check": {
+      "count": 0,
+      "rms_px": null,
+      "max_px": null,
+      "median_px": null
+    },
+    "local_check": {
+      "count": 0,
+      "rms_px": null,
+      "max_px": null,
+      "median_px": null
+    },
+    "local_surveyed_check": {
+      "count": 0,
+      "rms_px": null,
+      "max_px": null,
+      "median_px": null
+    },
+    "leave_one_out": [],
+    "accuracy_status": "NOT_ESTABLISHED",
+    "confidence_interval_px": null,
+    "warning": "Les écarts aux hubs sont des écarts à des emplacements du jeu, pas une mesure certaine de la position historique. Aucun contrôle pixel indépendant pour les TARGET sans observation."
+  },
+  "physical_diagnostics": {
+    "Weser": {
+      "role": "FIT",
+      "before": {
+        "count": 355,
+        "mean_px": 3.456315841394544,
+        "rms_px": 4.180283611193555,
+        "max_px": 7.883362458341271,
+        "p90_px": 6.738040524541538
+      },
+      "after": {
+        "count": 355,
+        "mean_px": 0.8762908347908965,
+        "rms_px": 1.0173861052249795,
+        "max_px": 2.785224920026712,
+        "p90_px": 1.491638334102972
+      }
+    },
+    "Elbe": {
+      "role": "CHECK",
+      "before": {
+        "count": 337,
+        "mean_px": 3.4315287035307227,
+        "rms_px": 3.897597977327736,
+        "max_px": 7.827912067429023,
+        "p90_px": 5.978612640353149
+      },
+      "after": {
+        "count": 337,
+        "mean_px": 2.0565737862757403,
+        "rms_px": 2.2749012875616783,
+        "max_px": 4.757617996159087,
+        "p90_px": 3.3882800780950983
+      }
+    }
+  },
+  "metric_limit": "Distances to an independently selected named river route, NOT residuals of uniquely identified geographic landmark pairs. They may underestimate geographic error.",
+  "sources": {
+    "geographic_sha256": "65dca1bd1729a347dda0837f41b5d152252e33abd2d7ff3370a0539c33bdf89b",
+    "native_rivers_sha256": "ce28f82e19925d8f4cca834ee0bfbcb079b37597f22b23d8f1a9d7393bb41f25"
+  }
+}

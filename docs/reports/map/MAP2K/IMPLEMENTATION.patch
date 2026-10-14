@@ -1,0 +1,543 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\00_west_europe.txt
+@@
+ 						}
+ 
+ 		}
+-		region_state:BAV={
+-
++		
++	
++		region_state:KPF = {
+ 			create_building={
+ 				building="building_vineyard"
+ 				add_ownership={
+ 					building={
+ 						type="building_vineyard"
+ 						country="c:BAV"
+-						levels=1
++						levels = 1
+ 						region="STATE_RHINELAND"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "default_building_vineyard" "pm_road_carts"  }
+ 			}
++		}
++	
++		region_state:KTR = {
+ 
+ 		}
+ 	}
+@@
+ 				reserves=1
+ 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+ 			}
++
++		}
++	
++		region_state:KCL = {
+ 
+ 		}
+ 	}
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:HES"
+-						levels = 3
++						levels = 2
+ 						region="STATE_HESSE"
+ 					}
+ 				}
+@@
+ 						}
+ 
+ 		}
++	
++		region_state:KMZ = {
++			create_building={
++				building="building_railway"
++				add_ownership={
++					building={
++						type="building_financial_district"
++						country="c:HES"
++						levels = 1
++						region="STATE_HESSE"
++					}
++				}
++				reserves=1
++				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
++			}
++		}
+ 	}
+ 	s:STATE_MECKLENBURG={
+ 		region_state:MEC={
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\98_build_start_1776_world_redistribution.txt
+@@
+ 					building = {
+ 						type = "building_manor_house"
+ 						country = "c:HES"
+-						levels = 6
++						levels = 5
+ 						region = "STATE_HESSE"
+ 					}
+ 				}
+@@
+ 							reserves=1
+ 							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+ 						}
++		}
++	
++		region_state:KMZ = {
++			create_building = {
++				building = "building_livestock_ranch"
++				add_ownership = {
++					building = {
++						type = "building_manor_house"
++						country = "c:HES"
++						levels = 1
++						region = "STATE_HESSE"
++					}
++				}
++				reserves = 1
++				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
++			}
+ 		}
+ 	}
+ 	s:STATE_HIGHLANDS = {
+@@
+ 							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+ 						}
+ 		}
++	
++		region_state:KTR = {
++
++		}
+ 	}
+ 	s:STATE_RHODE_ISLAND = {
+ 		region_state:USA = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\aus.txt
+@@
+ 			birth_date = 1741.3.13
+ 			interest_group = ig_landowners
+ 			ideology = ideology_modernizer_leader
+-		}			
++		
++   on_created = { set_variable = aor1776_hre_emperor_character }
++  }			
+ 
+ #			# Khalifa bin Shakhbut Al Nahyan
+ #			first_name = "Khalifa"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\diplomatic_plays\00_otto_iraqi_persia_war.txt
+@@
+ 				target_state = s:STATE_BASRA.region_state:IR1
+ 				primary_demand = yes
+ 			}
+-		}
++		
++   # MAP-2K follow-up: original Iraqi and Omani claims restored by user.
++   add_target_backers = { c:ARB }
++   add_war_goal = { holder = c:IR1 type = conquer_state target_state = s:STATE_KHUZESTAN.region_state:ARB }
++   add_war_goal = { holder = c:OMA type = take_treaty_port target_state = s:STATE_FARS.region_state:PER }
++  }
+ 	}
+ }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+-				size = 173078
+-			}
+-			create_pop = {
+-				culture = french
+-				size = 3430
+-			}
+-			create_pop = {
+-				culture = north_german
+-				size = 132254
+-			}
+-		}
+-		region_state:BAV = {
++				size = 131627
++			}
++			create_pop = {
++				culture = french
++				size = 2609
++			}
++			create_pop = {
++				culture = north_german
++				size = 100580
++			}
++		}
++		
++	
++		region_state:KPF = {
+ 			create_pop = {
+ 				culture = south_german
+ 				size = 196248
+@@
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 237116
++			}
++		}
++	
++		region_state:KTR = {
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 41451
++			}
++			create_pop = {
++				culture = french
++				size = 821
++			}
++			create_pop = {
++				culture = north_german
++				size = 31674
+ 			}
+ 		}
+ 	}
+@@
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+-				size = 338961
+-			}
+-			create_pop = {
+-				culture = north_german
+-				size = 73415
++				size = 281031
++			}
++			create_pop = {
++				culture = north_german
++				size = 60868
+ 			}
+ 			create_pop = {
+ 				culture = wallonian
+-				size = 1634
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 614
++				size = 1355
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 509
++			}
++		}
++	
++		region_state:KCL = {
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 57930
++			}
++			create_pop = {
++				culture = north_german
++				size = 12547
++			}
++			create_pop = {
++				culture = wallonian
++				size = 279
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 105
+ 			}
+ 		}
+ 	}
+@@
+ 		region_state:HES = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 454979
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 109824
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 3901
++				size = 345014
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 83280
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 2958
+ 			}
+ 		}
+ 		region_state:HEK = {
+@@
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 21849
++			}
++		}
++	
++		region_state:KMZ = {
++			create_pop = {
++				culture = north_german
++				size = 109965
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 26544
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 943
+ 			}
+ 		}
+ 	}
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 	s:STATE_RHINELAND = {
+ 		create_state = {
+ 			country = c:PRU
+-			owned_provinces = { xD080A0 x904020 xC1B963 x5D7A68 }
+-		}
+-		create_state = {
+-			country = c:BAV
+-			owned_provinces = { x11C021 x707505 }
+-		}
++			owned_provinces = {  x904020 xC1B963 x5D7A68 }
++		}
++		
+ 
+ 		add_homeland = cu:north_german
++	
++		# MAP-2K: approved coarse electoral-state representation, no new RGB.
++		create_state = { country = c:KPF owned_provinces = { x11C021  x707505 } }
++	
++		# MAP-2K: approved coarse electoral-state representation, no new RGB.
++		create_state = { country = c:KTR owned_provinces = { xD080A0 } }
+ 	}
+ 	s:STATE_NORTH_RHINE = {
+ 		create_state = {
+ 			country = c:PRU
+-			owned_provinces = { x9F4072 x8001E0 x834B66 x518021 x29CCD6 x486F6A }
++			owned_provinces = { x9F4072 x8001E0 x834B66  x29CCD6 x486F6A }
+ 		}
+ 
+ 		add_homeland = cu:north_german
++	
++		# MAP-2K: approved coarse electoral-state representation, no new RGB.
++		create_state = { country = c:KCL owned_provinces = { x518021 } }
+ 	}
+ 	s:STATE_RUHR = {
+ 		create_state = {
+@@
+ 		}
+ 		create_state = {
+ 			country = c:HES
+-			owned_provinces = { x1141A0 x8B7C67 x90C020 }
++			owned_provinces = {  x8B7C67 x90C020 }
+ 		}
+ 		create_state = {
+ 			country = c:HEK
+@@
+ 		}
+ 
+ 		add_homeland = cu:north_german
++	
++		# MAP-2K: approved coarse electoral-state representation, no new RGB.
++		create_state = { country = c:KMZ owned_provinces = { x1141A0 } }
+ 	}
+ 	s:STATE_PIEDMONT = {
+ 		create_state = {
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\1776_imperial_electoral_states.txt
++KPF = {
++ color = { 215 170 50 }
++ country_type = recognized
++ tier = principality
++ cultures = { south_german }
++ religion = catholic
++ capital = STATE_RHINELAND
++}
++KTR = {
++ color = { 160 85 115 }
++ country_type = recognized
++ tier = principality
++ cultures = { north_german }
++ religion = catholic
++ capital = STATE_RHINELAND
++}
++KMZ = {
++ color = { 190 58 48 }
++ country_type = recognized
++ tier = principality
++ cultures = { north_german }
++ religion = catholic
++ capital = STATE_HESSE
++}
++KCL = {
++ color = { 115 125 185 }
++ country_type = recognized
++ tier = principality
++ cultures = { north_german }
++ religion = catholic
++ capital = STATE_NORTH_RHINE
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\kpf - imperial electorate.txt
++COUNTRIES = {
++ c:KPF ?= {
++  add_technology_researched = distillation
++  add_technology_researched = improved_husbandry
++  add_technology_researched = industrial_ceramics
++  add_technology_researched = institutionalized_scientific_exchange
++  add_technology_researched = international_relations
++  add_technology_researched = light_infantry_tactics
++  add_technology_researched = medical_degrees
++  add_technology_researched = organized_forestry
++  add_technology_researched = organized_textile_production
++  add_technology_researched = periodical_print_networks
++  add_technology_researched = permanent_engineer_services
++  add_technology_researched = regulated_small_arms
++  add_technology_researched = scientific_fortification_siegecraft
++  add_technology_researched = shaft_mining
++  add_technology_researched = standardized_field_artillery
++  add_technology_researched = systematic_administrative_statistics
++  add_technology_researched = systematic_legal_codification
++  add_technology_researched = traditional_food_processing
++  add_technology_researched = organized_workshops
++  add_technology_researched = traditional_papermaking
++  add_technology_researched = organized_military_establishments
++  effect_starting_politics_reactionary = yes
++  activate_law = law_type:law_monarchy
++ }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\1776_elector_kpf.txt
++CHARACTERS = {
++ c:KPF ?= {
++  create_character = {
++   first_name = Karl_Theodor
++   last_name = von_Wittelsbach_Pfalz
++   historical = yes
++   culture = primary_culture
++   religion = rel:catholic
++   ruler = yes
++   birth_date = 1724.12.10
++   interest_group = ig_landowners
++   ideology = ideology_traditionalist
++  }
++ }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\ktr - imperial electorate.txt
++COUNTRIES = {
++ c:KTR ?= {
++  add_technology_researched = distillation
++  add_technology_researched = improved_husbandry
++  add_technology_researched = institutionalized_scientific_exchange
++  add_technology_researched = international_relations
++  add_technology_researched = medical_degrees
++  add_technology_researched = organized_textile_production
++  add_technology_researched = periodical_print_networks
++  add_technology_researched = regulated_small_arms
++  add_technology_researched = traditional_food_processing
++  add_technology_researched = organized_workshops
++  add_technology_researched = traditional_papermaking
++  add_technology_researched = organized_military_establishments
++  effect_starting_politics_reactionary = yes
++  activate_law = law_type:law_theocracy
++  activate_law = law_type:law_state_religion
++ }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\1776_elector_ktr.txt
++CHARACTERS = {
++ c:KTR ?= {
++  create_character = {
++   first_name = Clemens_Wenceslaus
++   last_name = von_Sachsen
++   historical = yes
++   culture = primary_culture
++   religion = rel:catholic
++   ruler = yes
++   birth_date = 1739.9.28
++   interest_group = ig_devout
++   ideology = ideology_traditionalist
++  }
++ }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\kmz - imperial electorate.txt
++COUNTRIES = {
++ c:KMZ ?= {
++  add_technology_researched = distillation
++  add_technology_researched = improved_husbandry
++  add_technology_researched = institutionalized_scientific_exchange
++  add_technology_researched = international_relations
++  add_technology_researched = medical_degrees
++  add_technology_researched = organized_textile_production
++  add_technology_researched = periodical_print_networks
++  add_technology_researched = regulated_small_arms
++  add_technology_researched = traditional_food_processing
++  add_technology_researched = organized_workshops
++  add_technology_researched = traditional_papermaking
++  add_technology_researched = organized_military_establishments
++  effect_starting_politics_reactionary = yes
++  activate_law = law_type:law_theocracy
++  activate_law = law_type:law_state_religion
++ }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\1776_elector_kmz.txt
++CHARACTERS = {
++ c:KMZ ?= {
++  create_character = {
++   first_name = Friedrich_Karl_Joseph
++   last_name = von_Erthal
++   historical = yes
++   culture = primary_culture
++   religion = rel:catholic
++   ruler = yes
++   birth_date = 1719.1.3
++   interest_group = ig_devout
++   ideology = ideology_traditionalist
++  }
++ }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\kcl - imperial electorate.txt
++COUNTRIES = {
++ c:KCL ?= {
++  add_technology_researched = distillation
++  add_technology_researched = improved_husbandry
++  add_technology_researched = institutionalized_scientific_exchange
++  add_technology_researched = international_relations
++  add_technology_researched = medical_degrees
++  add_technology_researched = organized_textile_production
++  add_technology_researched = periodical_print_networks
++  add_technology_researched = regulated_small_arms
++  add_technology_researched = traditional_food_processing
++  add_technology_researched = organized_workshops
++  add_technology_researched = traditional_papermaking
++  add_technology_researched = organized_military_establishments
++  effect_starting_politics_reactionary = yes
++  activate_law = law_type:law_theocracy
++  activate_law = law_type:law_state_religion
++ }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\1776_elector_kcl.txt
++CHARACTERS = {
++ c:KCL ?= {
++  create_character = {
++   first_name = Maximilian_Friedrich
++   last_name = von_Koenigsegg_Rothenfels
++   historical = yes
++   culture = primary_culture
++   religion = rel:catholic
++   ruler = yes
++   birth_date = 1708.5.13
++   interest_group = ig_devout
++   ideology = ideology_traditionalist
++  }
++ }
++}
+*** End Patch

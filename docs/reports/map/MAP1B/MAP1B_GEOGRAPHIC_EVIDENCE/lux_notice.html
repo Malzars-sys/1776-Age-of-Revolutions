@@ -1,0 +1,136 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, follow" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Access</title>
+
+    <meta id="recaptcha-config"
+          data-site-key="6LcPVfcqAAAAANz242DEnqJ8_G0jB8s1x5HINuNI"
+          data-validation-url="/luna/servlet/validate"
+          data-redirect-url="https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~3944~490020"/>
+    
+    <script src="https://www.recaptcha.net/recaptcha/api.js?render=6LcPVfcqAAAAANz242DEnqJ8_G0jB8s1x5HINuNI"></script>
+    
+    <script>
+   
+    document.addEventListener("DOMContentLoaded", () => {
+	  const meta = document.getElementById("recaptcha-config");
+	
+	  const siteKey = meta.dataset.siteKey;
+	  const validationUrl = meta.dataset.validationUrl;
+	  const redirectUrl = meta.dataset.redirectUrl;
+	
+	  if (!siteKey || !validationUrl) {
+	    console.error("Missing config values");
+	    return;
+	  }
+	
+	  verifyRecaptcha(siteKey, validationUrl, redirectUrl);
+	});
+	
+	function verifyRecaptcha(siteKey, validationUrl, redirectUrl) {
+	  grecaptcha.ready(() => {
+	    grecaptcha.execute(siteKey, { action: "verify_access" })
+	      .then(token => {
+	        return fetch(validationUrl, {
+	          method: "POST",
+	          headers: { "Content-Type": "application/json" },
+	          body: JSON.stringify({ token, redirectUrl })
+	        });
+	      })
+	      .then(res => res.json())
+	      .then(data => {
+
+              // ##############################
+              // #   REDIRECT SAFETY CHECKS   #
+              // ##############################
+
+              if (!data.redirectUrl) {
+                console.error("Missing redirect URL.");
+                alert("Verification failed. No redirect URL was provided.");
+                return;
+              }
+
+              if (data.redirectUrl.startsWith("http://")) {
+                console.error("Insecure redirect (http://) blocked.");
+                alert(
+                  "The page attempted to redirect using an insecure connection (HTTP).\n\n" +
+                  "For your safety, this redirect has been blocked.\n" +
+                  "Please contact support if this issue continues."
+                );
+                return;
+              }
+
+              if (!data.redirectUrl.startsWith("https://")) {
+                console.error("Unsafe redirect blocked by client-side validation.");
+                alert("Verification failed due to an invalid or unsafe redirect URL.");
+                return;
+              }
+
+              // ##############################
+
+	        if (data.success && data.score >= 0.5) {
+	          window.location.href = data.redirectUrl;
+	        } else {
+	          alert("Verification failed. You cannot access this page.");
+	        }
+	      })
+	      .catch(err => {
+	        console.error("Error verifying reCAPTCHA:", err);
+	      });
+	  });
+	}
+	    
+    </script>
+    
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #121212;
+        color: #ffffff;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        border-top: 4px solid #ffffff;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="spinner"></div>
+      <h1>Verifying your access...</h1>
+    </div>
+  </body>
+</html>

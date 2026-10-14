@@ -1,0 +1,120 @@
+je_aor1776_hre_situation = {
+
+ icon = "gfx/interface/icons/central_identity_pillars_icons/aor1776_imperial_federation_v2.dds"
+ is_shown_when_inactive = { aor1776_hre_member = yes }
+ possible = { has_global_variable = aor1776_hre_initialized }
+ invalid = { aor1776_hre_member = no }
+ complete = { always = no }
+ widget = { gui = "gui/journal_entry_widgets/1776_imperial_widgets.gui" name = "aor1776_hre_situation_widget" container = "custom_widget_container_5" }
+ weight = 20
+
+
+group = je_group_aor1776_imperial_affairs
+
+should_be_pinned_by_default_uninvolved_or_context = yes
+
+is_shown_in_lobby = { aor1776_hre_member = yes }
+
+scripted_button = aor1776_hre_vote_AUS
+scripted_button = aor1776_hre_vote_KPF
+scripted_button = aor1776_hre_vote_KTR
+scripted_button = aor1776_hre_vote_KMZ
+scripted_button = aor1776_hre_vote_KCL
+scripted_button = aor1776_hre_vote_MOD
+scripted_button = aor1776_hre_vote_TUS
+scripted_button = aor1776_hre_vote_PAR
+scripted_button = aor1776_hre_vote_PRU
+scripted_button = aor1776_hre_vote_LUB
+scripted_button = aor1776_hre_vote_HAM
+scripted_button = aor1776_hre_vote_BRE
+scripted_button = aor1776_hre_vote_BRA
+scripted_button = aor1776_hre_vote_SCM
+scripted_button = aor1776_hre_vote_MST
+scripted_button = aor1776_hre_vote_OLD
+scripted_button = aor1776_hre_vote_HES
+scripted_button = aor1776_hre_vote_BAV
+scripted_button = aor1776_hre_vote_WUR
+scripted_button = aor1776_hre_vote_BAD
+scripted_button = aor1776_hre_vote_SAX
+scripted_button = aor1776_hre_vote_HEK
+scripted_button = aor1776_hre_vote_MEC
+scripted_button = aor1776_hre_vote_NAS
+scripted_button = aor1776_hre_vote_WEI
+scripted_button = aor1776_hre_vote_SCW
+scripted_button = aor1776_hre_vote_COB
+scripted_button = aor1776_hre_vote_MEI
+scripted_button = aor1776_hre_vote_ANH
+scripted_button = aor1776_hre_vote_WLD
+scripted_button = aor1776_hre_vote_LIP
+scripted_button = aor1776_hre_vote_FRM
+scripted_button = aor1776_hre_vote_HOL
+scripted_button = aor1776_hre_vote_HOH
+scripted_button = aor1776_hre_vote_BEO
+scripted_button = aor1776_hre_vote_HAN
+scripted_button = aor1776_hre_vote_LGE
+scripted_button = aor1776_hre_vote_STM
+scripted_button = aor1776_hre_vote_SAR
+scripted_button = aor1776_hre_vote_ANS
+scripted_button = aor1776_hre_vote_FBM
+scripted_button = aor1776_hre_vote_WZB
+scripted_button = aor1776_hre_vote_NUR
+scripted_button = aor1776_hre_vote_EIC
+}
+je_aor1776_hre_vote = {
+
+ icon = "gfx/interface/icons/central_identity_pillars_icons/aor1776_imperial_federation_v2.dds"
+ is_shown_when_inactive = { aor1776_hre_elector = yes has_global_variable = aor1776_hre_election_open }
+ possible = { aor1776_hre_elector = yes has_global_variable = aor1776_hre_election_open }
+ complete = { NOT = { has_global_variable = aor1776_hre_election_open } }
+ invalid = { aor1776_hre_elector = no }
+ weight = 100
+scripted_button = aor1776_hre_vote_AUS
+scripted_button = aor1776_hre_vote_KPF
+scripted_button = aor1776_hre_vote_KTR
+scripted_button = aor1776_hre_vote_KMZ
+scripted_button = aor1776_hre_vote_KCL
+scripted_button = aor1776_hre_vote_MOD
+scripted_button = aor1776_hre_vote_TUS
+scripted_button = aor1776_hre_vote_PAR
+scripted_button = aor1776_hre_vote_PRU
+scripted_button = aor1776_hre_vote_LUB
+scripted_button = aor1776_hre_vote_HAM
+scripted_button = aor1776_hre_vote_BRE
+scripted_button = aor1776_hre_vote_BRA
+scripted_button = aor1776_hre_vote_SCM
+scripted_button = aor1776_hre_vote_MST
+scripted_button = aor1776_hre_vote_OLD
+scripted_button = aor1776_hre_vote_HES
+scripted_button = aor1776_hre_vote_BAV
+scripted_button = aor1776_hre_vote_WUR
+scripted_button = aor1776_hre_vote_BAD
+scripted_button = aor1776_hre_vote_SAX
+scripted_button = aor1776_hre_vote_HEK
+scripted_button = aor1776_hre_vote_MEC
+scripted_button = aor1776_hre_vote_NAS
+scripted_button = aor1776_hre_vote_WEI
+scripted_button = aor1776_hre_vote_SCW
+scripted_button = aor1776_hre_vote_COB
+scripted_button = aor1776_hre_vote_MEI
+scripted_button = aor1776_hre_vote_ANH
+scripted_button = aor1776_hre_vote_WLD
+scripted_button = aor1776_hre_vote_LIP
+scripted_button = aor1776_hre_vote_FRM
+scripted_button = aor1776_hre_vote_HOL
+scripted_button = aor1776_hre_vote_HOH
+scripted_button = aor1776_hre_vote_BEO
+scripted_button = aor1776_hre_vote_HAN
+scripted_button = aor1776_hre_vote_LGE
+scripted_button = aor1776_hre_vote_STM
+scripted_button = aor1776_hre_vote_SAR
+scripted_button = aor1776_hre_vote_ANS
+scripted_button = aor1776_hre_vote_FBM
+scripted_button = aor1776_hre_vote_WZB
+scripted_button = aor1776_hre_vote_NUR
+scripted_button = aor1776_hre_vote_EIC
+
+
+group = je_group_aor1776_imperial_affairs
+
+should_be_pinned_by_default_uninvolved_or_context = yes
+}

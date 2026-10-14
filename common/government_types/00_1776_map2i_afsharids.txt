@@ -1,0 +1,10 @@
+gov_1776_afsharid_khorasan = {
+ transfer_of_power = hereditary
+ male_ruler = "RULER_TITLE_SHAH"
+ female_ruler = ""
+ male_heir = "RULER_TITLE_CROWN_PRINCE"
+ female_heir = ""
+ possible = { has_law = law_type:law_monarchy c:AFH ?= ROOT NOT = { is_subject_type = subject_type_crown_land } }
+ on_government_type_change = { change_to_hereditary = yes }
+ on_post_government_type_change = { post_change_to_hereditary = yes }
+}
