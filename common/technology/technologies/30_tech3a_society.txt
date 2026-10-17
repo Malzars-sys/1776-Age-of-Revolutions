@@ -23,6 +23,10 @@ international_relations = {
 	texture = "gfx/interface/icons/invention_icons/international_diplomacy.dds"
 	category = society
 
+	modifier = {
+		country_influence_add = 300
+	}
+
 	ai_weight = {
 		value = 2
 	}
@@ -173,6 +177,10 @@ specialized_technical_academies = {
 	texture = "gfx/interface/icons/invention_icons/empiricism.dds"
 	category = society
 
+	modifier = {
+		state_literacy_growth_add = 0.02
+	}
+
 	unlocking_technologies = {
 		institutionalized_scientific_exchange
 	}
@@ -190,7 +198,7 @@ veterinary_science = {
 
 	# Temporary TECH debt bonus; replace with animal-health and epizootic content.
 	modifier = {
-		building_livestock_ranch_throughput_add = 0.05
+		building_livestock_ranch_throughput_add = 0.25
 	}
 
 	unlocking_technologies = {
@@ -378,7 +386,8 @@ systematic_cadastral_surveying = {
 	}
 
 	modifier = {
-		state_tax_capacity_add = 10
+		state_tax_capacity_add = 25
+		tax_land_add = 0.10
 	}
 
 	ai_weight = {
@@ -394,7 +403,8 @@ systematic_legal_codification = {
 
 	# Temporary TECH debt bonus; replace with courts and legal-administration content.
 	modifier = {
-		country_law_enactment_success_add = 0.02
+		country_law_enactment_success_add = 0.05
+		country_law_enactment_stall_mult = -0.05
 	}
 
 	unlocking_technologies = {
@@ -473,7 +483,9 @@ optical_telegraph_networks = {
 	}
 
 	modifier = {
-		country_influence_add = 10
+		country_influence_add = 200
+		country_authority_add = 100
+		country_authority_mult = 0.10
 	}
 
 	ai_weight = {
