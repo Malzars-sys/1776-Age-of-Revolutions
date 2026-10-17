@@ -485,26 +485,6 @@ central_planning = {
 	}
 }
 
-centralization = {
-	era = era_7
-	texture = "gfx/interface/icons/invention_icons/centralization.dds"
-	category = society
-	can_research = no # TECH3B consumed compatibility alias; retained for external ID references
-
-	unlocking_technologies = {
-		tech_bureaucracy
-		nationalism
-	}
-
-	ai_weight = {
-		value = 1.5 # Important in general
-
-		if = {
-			limit = { has_journal_entry = je_age_of_princes }
-			add = 20
-		}
-	}
-}
 
 chemical_warfare = {
 	# Unlocks Chemical Artillery PM in Barracks

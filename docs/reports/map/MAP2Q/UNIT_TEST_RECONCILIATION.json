@@ -1,0 +1,25 @@
+{
+  "old_suites_tests": 68,
+  "current_passed": 62,
+  "current_failed": 6,
+  "reproduced_on_pre_lot_baseline": [
+    "test_map2m_r8.InstalledBTests.test_exact_b_not_a_plus_b",
+    "test_map2m_r8.InstalledBTests.test_wolgast_and_protected_rows_not_shifted",
+    "test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit"
+  ],
+  "later_stage_snapshot_assumptions": [
+    "test_map2n_completion.CompletionTests.test_exact_mainland_patch_and_negative_out_of_scope_edit",
+    "test_map2n_island.PoelTests.test_exact_scoped_edits_and_negative_guard",
+    "test_map2o_east_frisia.EastFrisiaTests.test_exact_ledger_replay_preserves_every_other_right"
+  ],
+  "explanation": "Three old R8/R9 snapshot assertions already fail on the exact pre-MAP2Q bitmap. Three more compare whole-world bitmap or an old-only ledger after an authorized additive lot. MAP2Q exact cell replay and pre-lot owner/rights preservation are checked separately. Earlier test files and baselines were NOT rewritten or marked PASS.",
+  "map2q_specific_tests": {
+    "command": "python -B -X utf8 -m unittest discover -s tools -p test_map2q_eutin.py",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "seconds_reported": 1.649,
+    "status": "PASS",
+    "scope": "Static and negative scope guards only; no game engine execution"
+  }
+}

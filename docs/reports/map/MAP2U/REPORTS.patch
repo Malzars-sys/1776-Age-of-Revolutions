@@ -1,0 +1,78 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2U\REPORT.md
+@@
+ 
+ ## Portée géographique
+ 
+ Toutes les attributions installées sont des **généralisations B**. Les sources institutionnelles établissent les souverainetés; les cartes comparatives guident les contours intérieurs. Aucune borne indépendante d’erreur locale n’est établie. Le profil diagnostique est conservé, sans nouvelle optimisation ni translation 7,20 pixels. Les ajustements des nouvelles feuilles ne constituent pas un recalage de la projection du jeu.
+ 
+ Le territoire résidentiel d’Ebersdorf est étroit: sa trace intérieure n’occupe qu’environ 12,6 % de la cellule 4365/845. Une seule cellule est retenue pour représenter ce noyau, abstraction explicite de résolution, pas l’attribution de toute la province voisine. Hirschberg est séparé; aucun corridor ne les relie. Le point géographique diagnostique de Hirschberg est proche d’une limite de cellule: son noyau n’est pas une position urbaine certifiée.
+ 
+ Les prolongements Wurzbach/Oßla tombant sur SCW sont laissés inchangés, faute de séparation locale assez sûre pour rouvrir Rudolstadt. Les franges vers Keula/STATE_BRUNSWICK et les prolongements Ebeleben–Clingen sont différés. Ces derniers rencontrent le rectangle de protection d’Erfurt, qui couvre aussi des terrains bien au-delà de la ville. Ce rectangle n’est pas une frontière historique d’Erfurt. Toutes ses cellules restent identiques.
+ 
+ Voir [carte avant/après](THURINGIA_BEFORE_AFTER.png), [repérage moderne et dans le jeu](PLAYER_LOCATION_GUIDE.png), les trois audits et UNRESOLVED.csv. Les résidus inchangés ne sont pas validés comme historiquement corrects. Les petites enclaves ne prolongent pas ce lot.
+ 
+ ## Population et économie
+ 
+ Population mondiale mesurée avant/après: **835 801 255**, delta 0. Ce total n’est pas une obligation historique; il résulte ici d’une redistribution technique provisoire. Les chiffres du tableau ne sont pas des recensements 1776. Des inventaires démographiques sont repérés, mais sans valeurs consultables au périmètre de ces noyaux, aucune estimation historique n’est appliquée. Pas de compensation ailleurs ni d’ajout artificiel.
+ 
+-Tous les profils culture/religion, bâtiments, niveaux, PM écrits, propriétaires économiques, ressources, capacités agraires, unités et recrutements sont conservés. HLB reste à 9206 habitants. Les six pays MAP2T et leurs noyaux sont conservés. Aucun bâtiment ni formation n’est fabriqué pour les nouveaux comtés; leur viabilité en nouvelle partie doit être contrôlée.
++MAP2U conserve les profils culture/religion, bâtiments, niveaux, PM écrits, propriétaires économiques, ressources, capacités agraires, unités et recrutements. Trois fichiers de bâtiments ont toutefois été modifiés en parallèle par un autre travail du workspace: leur différentiel exact est enregistré dans EXTERNAL_BUILDINGS_OBSERVED.json et conservé, sans être attribué à ce lot. HLB reste à 9206 habitants. Les six pays MAP2T et leurs noyaux sont conservés. Aucun bâtiment ni formation n’est fabriqué pour les nouveaux comtés; leur viabilité en nouvelle partie doit être contrôlée.
+ 
+ ## Validation et coexistence
+ 
+-**868/868** contrôles statiques. **22/22** tests ciblés et **60/60** tests de contrats impériaux. Les 73 sorties du compilateur impérial sont vérifiées avant puis après;17 reçoivent seulement les membres et droits supplémentaires. Les 44 doublons RGB et 12 références invalides préexistants restent inchangés. Aucun nouvel électeur ni sujet natif de l’empereur. Les mécanismes HRE-CENTRALIZATION, icônes et prototypes sont préservés.
++**871/871** contrôles statiques. **22/22** tests ciblés et **60/60** tests de contrats impériaux. Les 73 sorties du compilateur impérial sont vérifiées avant puis après;17 reçoivent seulement les membres et droits supplémentaires. Les 44 doublons RGB et 12 références invalides préexistants restent inchangés. Aucun nouvel électeur ni sujet natif de l’empereur. Les mécanismes HRE-CENTRALIZATION, icônes et prototypes sont préservés.
+ 
+-Les 66 tests d’étapes anciennes donnent54 succès et 12 échecs de photographies figées, détaillés dans LEGACY_TEST_TRIAGE.md. Sept étaient déjà signalés lors de MAP2T; quatre attentes globales de MAP2T deviennent dépassées, ainsi que l’ancienne assertion qui exigeait tous les pixels prussiens immuables. Les principautés d’Anhalt et les 121 transferts/16 RGB de MAP2T sont vérifiés directement et restent intacts. Aucune ancienne baseline ou assertion n’est réécrite.
++Les 66 tests d’étapes anciennes donnent52 succès et 14 échecs, détaillés dans LEGACY_TEST_TRIAGE.md. Sept étaient déjà signalés lors de MAP2T; quatre attentes globales de MAP2T deviennent dépassées, ainsi que l’ancienne assertion qui exigeait tous les pixels prussiens immuables. Deux comparaisons économiques anciennes rencontrent aussi les changements de bâtiments parallèles. Les principautés d’Anhalt et les 121 transferts/16 RGB de MAP2T sont vérifiés directement et restent intacts. Aucune ancienne baseline ou assertion n’est réécrite.
+ 
+-Des modifications concurrentes de 141 fichiers ont été observées avant installation, sans chevauchement des cibles territoriales. Elles sont conservées dans un constat additif PREINSTALL_CONCURRENT_SNAPSHOT.json, séparé de la baseline initiale immuable. Leurs contenus ne sont pas réattribués à MAP2U. Après ce constat, le différentiel runtime est strictement limité aux fichiers déclarés.
++Des modifications concurrentes de 141 fichiers ont été observées avant installation, sans chevauchement des cibles territoriales. Elles sont conservées dans un constat additif PREINSTALL_CONCURRENT_SNAPSHOT.json, séparé de la baseline initiale immuable. Trois changements supplémentaires de bâtiments sont apparus après installation: papier, exploitation forestière et élevage, avec un delta global observé de+8/+2/+5 niveaux respectivement. Ces trois fichiers ont été lus et leurs empreintes, contenus et différences canoniques sont conservés dans EXTERNAL_BUILDINGS_OBSERVED.json. Il ne s’agit ni de modifications MAP2U ni d’une validation historique de cet équilibrage. Le contrôle final rejoue exclusivement ces deltas explicitement observés et les modifications territoriales déclarées; les autres données restent strictement protégées.
+ 
+ La validation manuelle MAP2T est enregistrée dans MAP2T/RUNTIME_USER_ATTESTATION_MAP2U.json: six nouveaux États, dignité saxonne, mécanismes, économies et un mois sans erreur signalée. Il s’agit du test du joueur, pas d’un test moteur automatisé ni d’une certification de toutes les frontières. MAP2U reste **NOT_TESTED_MAP2U**.
+ 
+ ## Fichiers fonctionnels modifiés
+ 
+ - `common/country_definitions/1776_map2t_saxony.txt`
+ - `common/country_definitions/1776_map2u_reuss.txt`
+ - `common/customizable_localization/1776_imperial_reply_lists.txt`
+ - `common/flag_definitions/1776_map2u.txt`
+ - `common/government_types/00_1776_map2u.txt`
+ - `common/history/characters/reb - map2u.txt`
+ - `common/history/characters/rlo - map2u.txt`
+ - `common/history/countries/reb - map2u.txt`
+ - `common/history/countries/rlo - map2u.txt`
+ - `common/history/pops/00_west_europe.txt`
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2U\LEGACY_TEST_TRIAGE.md
+@@
+ # Tests figés d’étapes antérieures
+ 
+-22/22 tests MAP2U et 60/60 contrats cumulatifs passent. Les 66 tests antérieurs donnent54 succès,12 échecs,0 erreur. Aucun ancien test ou baseline n’est modifié.
++22/22 tests MAP2U et 60/60 contrats cumulatifs passent. Les 66 tests antérieurs donnent52 succès,14 échecs,0 erreur. Aucun ancien test ou baseline n’est modifié.
+ 
+ Sept échecs étaient déjà consignés par MAP2T. Quatre assertions MAP2T attendaient le monde entier avant MAP2U, exactement six pays supplémentaires depuis leur capture, aucune modification d’une autre région ou les seules définitions de pays de ce stade. Une assertion MAP2R supplémentaire exigeait que toutes les cellules prussiennes mondiales restent inchangées: elle rencontre les 16 cellules PRU→SSO autorisées, sans altération des quatre Anhalt. Ce ne sont pas de nouvelles pertes silencieuses: le bitmap mondial est vérifié exactement contre la transformation MAP2U, et les noyaux antérieurs sont contrôlés séparément.
+ 
+ L’attente ancienne à Wolgast et les anciennes photographies de registre restent signalées, pas réécrites. Les 44 doublons RGB et 12 références invalides hérités ne sont pas corrigés ni augmentés ici.
+ 
++Deux échecs économiques supplémentaires proviennent des trois fichiers de bâtiments modifiés parallèlement dans le workspace. Leurs deltas observés figurent dans EXTERNAL_BUILDINGS_OBSERVED.json: aucune ancienne baseline n’est modifiée pour les masquer. Le nouveau contrôle économique conserve exactement la baseline plus ces seuls deltas attestés par les empreintes des trois fichiers, sans autorisation générale de modifier l’économie.
++
+ ## Échecs effectivement observés
+ 
++- `test_map2t_saxony.SaxonDeltaTests.test_all_economic_and_military_data_unchanged`
+ - `test_map2t_saxony.SaxonDeltaTests.test_country_changes_exact`
+ - `test_map2t_saxony.SaxonDeltaTests.test_exact_declared_bitmap`
+ - `test_map2t_saxony.SaxonDeltaTests.test_no_other_state_touched`
+ - `test_map2t_saxony.SaxonDeltaTests.test_only_six_approved_new_tags`
++- `test_map2r_anhalt.AnhaltDeltaTests.test_all_economy_and_units_preserved`
+ - `test_map2r_anhalt.AnhaltDeltaTests.test_exact_bitmap_and_no_external_change`
+ - `test_map2r_anhalt.AnhaltDeltaTests.test_four_tags_and_only_three_new_countries`
+ - `test_map2r_anhalt.AnhaltDeltaTests.test_jever_and_all_prussian_cells_unchanged`
+ - `test_map2q_r3.Kaltenhof.test_exact_delta_and_negative_guard`
+ - `test_map2m_r8.InstalledBTests.test_exact_b_not_a_plus_b`
+ - `test_map2m_r8.InstalledBTests.test_wolgast_and_protected_rows_not_shifted`
+ - `test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit`
+ - `test_map2o_east_frisia.EastFrisiaTests.test_exact_ledger_replay_preserves_every_other_right`
+ 
+ Traces complètes et durées: UNIT_TESTS.json. Statique différentiel: VALIDATION.json.
+*** End Patch

@@ -1,0 +1,165 @@
+*** Begin Patch
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2T\REPORT.md
++# MAP-2T — Noyaux saxons et thuringiens installés
++
++Date : 17 octobre 2026. Situation historique visée : 1er janvier 1776.
++
++**MAP2T_PARTIAL_INSTALLED_READY_FOR_SCOPED_RUNTIME_TEST**. Ce sous-lot est prêt pour un test ciblé, pas pour une certification de toute la Thuringe. Lobenstein, Ebersdorf, les possessions septentrionales et plusieurs enclaves ne sont pas terminés. Aucune validation moteur de MAP-2T n’est revendiquée.
++
++## Modifications réelles
++
++| Nouveau pays | TAG | Cellules du noyau | Population technique |
++|---|---|---:|---:|
++| Saxe-Gotha-Altenbourg | GOT | 61 | 45931 |
++| Saxe-Hildburghausen | HIL | 19 | 6279 |
++| Schwarzbourg-Sondershausen | SSO | 12 | 6734 |
++| Comté de Reuss-Greiz | RGZ | 8 | 8420 |
++| Comté de Reuss-Gera | RGE | 12 | 8229 |
++| Comté de Reuss-Schleiz | RSL | 9 | 8369 |
++
++121 cellules changent de propriétaire dans STATE_SAXONY, ID numérique73. Seize RGB nouveaux, xEDB400 à xEDB40F, portent les subdivisions nécessaires, y compris des fragments techniques conservant leur ancien propriétaire. Le registre passe de521 à537 RGB, sans changer l’étendue physique impériale.
++
++| Avant | Après | Cellules transférées |
++|---|---|---:|
++| COB | GOT | 27 |
++| COB | HIL | 4 |
++| COB | SSO | 10 |
++| MEI | GOT | 1 |
++| MEI | HIL | 15 |
++| MEI | SSO | 2 |
++| SAX | GOT | 17 |
++| SAX | RGZ | 8 |
++| SAX | RSL | 6 |
++| WEI | GOT | 16 |
++| WEI | RGE | 12 |
++| WEI | RSL | 3 |
++
++Les souverainetés sont distinguées à partir des sources institutionnelles et des trajectoires dynastiques; les contours installés sont des noyaux généralisés B lus sur la reconstruction1789 de Putzger, et non des frontières1776 directement certifiées. Voir [preuves et limites](HISTORICAL_EVIDENCE.md). Les portions non attribuées restent chez leur propriétaire technique antérieur, ce qui n’en fait pas une attribution historique validée.
++
++Gotha–Altenbourg est distinct de Cobourg–Saalfeld. Hildburghausen n’est pas fusionné avec Meiningen. SCW est désormais explicitement Schwarzbourg-Rudolstadt, tandis que SSO représente un noyau méridional de Schwarzbourg-Sondershausen. Greiz, Gera et Schleiz ont trois pays distincts et restent des comtés en1776, sans importer les regroupements ultérieurs. Les noms français/anglais et descriptions de gouvernement sont définis, ainsi que les souverains contemporains. Les modèles législatifs/technologiques des six nouveaux pays sont repris de COB: abstraction de gameplay, pas six audits législatifs historiques.
++
++Les rangs anachroniques de SAX et WEI sont abaissés à principauté au sens technique du jeu. SAX conserve sa dignité et son titre de prince-électeur; WEI reste ducal. Aucun nouvel électeur, aucune nouvelle ville libre, aucune union personnelle ni sujétion impériale native n’est ajouté. Les nouvelles nations rejoignent le bloc et les droits de restitution existants comme membres ordinaires. Les mécanismes HRE-CENTRALIZATION, les deux icônes et les prototypes sont préservés.
++
++## Géométrie et exclusions
++
++Le profil diagnostique natif conservé est réutilisé sans optimisation ni translation7,20px. Le calage effectué concerne uniquement la nouvelle feuille historique. Ses résidus d’ajustement ne prouvent pas l’exactitude géographique du bitmap. Aucune borne indépendante de précision locale n’est revendiquée.
++
++Un rectangle de protection X4342–4358/Y822–836 couvre les hypothèses anciennes et rejetées d’Erfurt avec marge. Tous ses RGB restent identiques. Eichsfeld et tous les pixels hors STATE_SAXONY sont inchangés. Aucun corridor artificiel n’est ajouté entre noyaux détachés. Les RGB franconiens de COB, les quatre Anhalt, Jever, Emden, Eutin, la Peene, la Belgique et la Souabe sont protégés par la comparaison mondiale exacte.
++
++La [carte avant/après](SAXONY_THURINGIA_BEFORE_AFTER.png) représente le découpage réellement installé. Rouge: zone exclue d’Erfurt. La carte du journal est régénérée; le masque physique du mode carte reste identique car l’étendue impériale ne change pas. Les locators ne sont pas déplacés; seuls les RGB de référence nécessaires et les listes prime_land suivent les subdivisions.
++
++## Démographie, économie et armée
++
++Population mondiale directement mesurée avant/après: **835801255**, delta0. Ce total n’est pas imposé comme règle historique; il résulte de la redistribution technique conservatrice retenue ici. Aucun dénombrement proche de1776 avec le périmètre exact des noyaux n’a été établi. Les nombres du tableau ne sont pas des populations historiques certifiées.
++
++Tous les profils culture/religion, bâtiments écrits, niveaux, PM, propriétaires économiques, infrastructures, unités et recrutements sont conservés. Aucun bâtiment ni soldat n’est créé pour les nouveaux pays. Ressources et capacité agraire de la région73 inchangées. Les effets moteur sur la subsistance, les marchés et la viabilité des petits pays restent à tester; leur partage d’une même région économique ne certifie pas les positions de leurs centres historiques. Le noyau SSO n’inclut pas la ville physique de Sondershausen.
++
++## Vérifications
++
++841/841 contrôles statiques passent. Les17 tests ciblés et60 tests de contrats cumulés passent. Les73 sorties impériales ont été vérifiées avant modification puis après installation. Les44 doublons RGB et12 références invalides hérités sont inchangés.
++
++Les49 tests d’anciennes photographies donnent42 succès et7 échecs, détaillés dans [LEGACY_TEST_TRIAGE.md](LEGACY_TEST_TRIAGE.md). Ces échecs ne sont pas masqués: plusieurs attendent le monde exact d’un ancien lot. Deux assertions Anhalt deviennent obsolètes avec MAP-2T; la préservation effective des cellules Anhalt est vérifiée indépendamment. Les autres comparaisons figées ou l’ancienne attente de Wolgast ne sont pas des nouveaux transferts MAP-2T. Aucune ancienne baseline n’est réécrite.
++
++Le détail complet est dans [VALIDATION.json](VALIDATION.json) et [UNIT_TESTS.json](UNIT_TESTS.json). Le [plan de test](RUNTIME_TEST_PLAN.md) ne concerne que les modifications nouvelles. Les anciens PASS_RUNTIME_USER_VALIDATED restent des attestations manuelles limitées aux inspections précédentes.
++
++## Fichiers
++
++Les fichiers runtime modifiés sont énumérés exactement dans VALIDATION.json, champ runtime_files_modified. Ils comprennent les historiques de propriétaires et populations, définitions de six pays, correction de deux rangs, souverains et gouvernements, noms français/anglais, drapeaux abstraits, RGB/terrains, registre, carte du journal et17 sorties impériales adaptées. Aucun fichier de bâtiments, formations, diplomatie native ou types de sujets n’est changé.
++
++Outils: tools/map2t_saxony.py, tools/test_map2t_saxony.py, tools/map2t_tables.mjs; extension explicitement limitée de tools/map2l_registry.py. HEAD et l’index Git sont inchangés. Aucun commit, merge, reset, push ou fichier de l’installation du jeu modifié.
++
++## ColGrep
++
++La tentative de localisation exploratoire de l’étape précédente n’a livré aucune sortie exploitable avant interruption. L’exécution réelle du modèle2B n’est donc pas certifiée pour cette tentative. Aucun nouvel appel redondant n’a été lancé lorsque les chemins étaient connus. Vérifications exactes effectuées par lecture et rg. Compteurs de tokens Codex et temps d’inférence local non disponibles: aucune économie chiffrée revendiquée.
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2T\HISTORICAL_EVIDENCE.md
++# Preuves utilisées et portée
++
++## Sources conservées et réutilisées
++
++R2_NORTHERN_CENTRAL_EASTERN_EUROPE_RECOMMENDATIONS.csv, lignes50–54: cinq propriétaires déjà signalés sans frontière microterritoriale démontrée. MAP2Q/R3/HRE_REGIONS_INVENTORY_UPDATED.csv et MAP2S/NEXT_HRE_REGION_RECOMMENDATION.md: secteur encore non reconstruit. Ces pistes ne sont pas transformées en preuves cartographiques.
++
++## Cartographie comparative, pas preuve directe1776
++
++[Putzger, États thuringiens1789, atlas publié1905](https://commons.wikimedia.org/wiki/File:Th%C3%BCringische_Staaten_1789_%E2%80%93_F._W._Putzgers_Historischer_Schul-Atlas_1905_(135770778).jpg). Fichier conservé dans EVIDENCE/PUTZGER_1789_1905.jpg; empreinte et dimensions dans SOURCE_FILE.json. Les remplissages historiques et indications des branches guident les noyaux. Les limites rouges des États et provinces contemporains de l’atlas ne sont pas utilisées comme frontières1776. Les polygones intérieurs sont conservés dans GEOMETRY.json et visibles sur SOURCE_TRACING_REVIEW.png.
++
++## Souverainetés et dates
++
++- [Landesarchiv, engagements des agents d’Altenbourg envers Ernst II en1772–1773](https://www.archive-in-thueringen.de/de/findbuch/view/bestand/21702/systematik/276244): Gotha–Altenbourg relève bien du même duché avant1776. [Biographie académique d’Ernst II](https://www.deutsche-biographie.de/sfz52922.html): règne1772–1804. Pas de création Cobourg–Gotha de1826.
++- [Landesarchiv, Geheimes Archiv Hildburghausen](https://www.archive-in-thueringen.de/de/bestand/view/id/23365/bestand/23370): pleine souveraineté en1702, offices d’origine et acquisitions distingués. [Notice d’Ernst Friedrich III](https://www.deutsche-digitale-bibliothek.de/person/gnd/118954776): souverain contemporain. Ne pas importer son remplacement par Altenbourg en1826.
++- [Landesarchiv, Amtsarchiv Heldburg](https://www.archive-in-thueringen.de/de/bestand/view/id/23369): filiation Hildburghausen jusqu’au réaménagement1826. [Themar/Römhild](https://www.archive-in-thueringen.de/en/bestand/view/id/23367/bestand/23377): juridictions partagées; elles ne sont pas attribuées unilatéralement dans les noyaux.
++- [Inventaire institutionnel du Staatsarchiv Rudolstadt](https://landesarchiv.thueringen.de/media/landesarchiv/5Standorte/Rudolstadt/Veroeffentlichungen/Bestaendeuebersicht_2019_12_09.pdf): Rudolstadt et Sondershausen séparés, Oberherrschaft et Unterherrschaft distinguées. [Heidecksburg, souverains](https://www.heidecksburg.de/historie/regenten/): Ludwig Günther II règne1767–1790. [Stiftung Thüringer Schlösser, Sondershausen](https://www.thueringerschloesser.de/objekt/schloss-sondershausen-mit-park/): Christian Günther III règne1758–1794.
++- [Ville de Greiz, chronologie](https://www.greiz.de/tourismus-kultur/tourismus/chronik): union des deux Greiz en1768, dignité princière seulement1778. [Deutsche Biographie, famille Reuss](https://www.deutsche-biographie.de/gnd118744674.html): pas d’unification de la jeune ligne avant1848. RGZ est donc un comté en1776, pas une principauté créée rétroactivement.
++- [Heinrich XXX, Reuss-Gera, GND104254211](https://www.deutsche-biographie.de/gnd104254211.html): identité et dates1727–1802; pas d’annexion successorale de Gera en1802 appliquée au départ.
++- [Heinrich XII, Reuss-Schleiz, GND104254254](https://www.deutsche-biographie.de/gnd104254254.html):1716–1784. Le souverain retenu n’est pas Heinrich XLII, qui lui succède en1784. Les archives de la [Landesdirektion Ebersdorf](https://www.archive-in-thueringen.de/en/findbuch/view/phrase/Me%C3%9F/exactphrase/1/limit/10/submit/Suche%2Bstarten/page/3/bestand/21761/systematik/83873) distinguent les maisons de Gera, Schleiz, Lobenstein et Ebersdorf et documentent les affaires des années1774–1779.
++
++Ces sources institutionnelles établissent des souverainetés ou une chronologie. Elles ne valident pas séparément chacun des121 pixels transférés. La lecture du fond rétrospectif, sa correspondance au bitmap et la protection d’Erfurt restent des généralisations B explicites.
++
++## Précision et arbitrage
++
++Le profil MAP2L/GEOREFERENCE_PROTOTYPE/miller_affine.json est conservé sans modification. La feuille nouvelle est ajustée au diagnostic déjà disponible, sans prétendre corriger la projection native. Les écarts de l’ajustement de la feuille ne sont pas des erreurs indépendantes de position des villes. Aucun hub agricole nommé Erfurt, aucune distance à une rivière et aucune translation7,20px ne justifie un transfert.
++
++Les contours conservés sont limités à STATE_SAXONY. Pas de correction du nord prussien de la Saxe en1815, pas d’extension vers Anhalt, pas de nouvelle interprétation du chantier Erfurt. Lobenstein/Ebersdorf restent C: créer deux pays sur une séparation non identifiée serait arbitraire malgré leur existence politique établie. Les franges sont explicitement répertoriées comme incomplètes.
++
++## Population
++
++Aucune valeur de population historique datée au périmètre exact de ces noyaux tronqués n’a été identifiée dans les recherches retenues ou les notices consultées. La redistribution des historiques existants par parts techniques est déterministe, conserve chaque profil écrit et n’est pas présentée comme un recensement. Les surfaces ne produisent aucune nouvelle estimation démographique. Un chiffre territorial total d’une date postérieure ne serait pas applicable automatiquement à un noyau incomplet.
++
++La tentative d’accès au PDF egierendef_rsten.pdf a renvoyé404. Il n’a pas servi à certifier les souverains; les notices accessibles ci-dessus sont utilisées.
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2T\ERNESTINE_DUCHIES_AUDIT.md
++# Duchés ernestins
++
++GOT représente des noyaux de Gotha, Altenbourg et Roda; il est distinct de COB, désormais nommé Cobourg–Saalfeld. HIL a un noyau propre, distinct de MEI. WEI représente provisoirement les duchés de Weimar et Eisenach sous le même prince; cela n’affirme ni leur fusion constitutionnelle en1776 ni une nouvelle union personnelle native. Le rang de grand-duché post1815 est retiré.
++
++Les noyaux sont des généralisations B, pas les duchés entiers. Les prolongements et enclaves, Themar/Römhild partagés, les possessions d’Eisenach et les franges du territoire technique COB ne sont pas tous résolus. La portion protégée d’Erfurt reste inchangée. Les deux RGB de COB en Franconie et leurs historiques ne sont pas réouverts.
++
++Le pays électoral albertin SAX reste distinct des branches ernestines. Il conserve son droit électoral, son souverain déjà défini et ses institutions; son rang technique de royaume post1806 est retiré. Les possessions saxonnes devenues prussiennes en1815 hors périmètre ne sont pas restaurées par ce sous-lot.
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2T\SCHWARZBURG_REUSS_AUDIT.md
++# Schwarzbourg et Reuss
++
++SCW est nommé Schwarzbourg-Rudolstadt et son souverain natif1836 est remplacé par Ludwig Günther II. SSO constitue un nouveau pays pour un noyau méridional Arnstadt/Gehren, sous Christian Günther III. Les Unterherrschaften autour de Sondershausen et Frankenhausen ne sont pas reconstruites. La capitale technique est la région73; le noyau méridional ne contient pas la ville physique de Sondershausen. Pas d’extension vers Anhalt ni Erfurt pour le compléter artificiellement.
++
++RGZ, RGE et RSL distinguent Greiz, Gera et Schleiz sous leurs comtes de1776. Ils ne sont ni une jeune ligne unifiée en1848, ni des principautés auxquelles une élévation postérieure aurait été appliquée d’avance. La dignité princière de Greiz date1778. Heinrich XII, et non son successeur1784, gouverne Schleiz au départ.
++
++Lobenstein et Ebersdorf sont deux souverainetés identifiées mais non installées: leurs contours respectifs ne sont pas encore suffisamment établis sur le bitmap à partir des pièces utilisées. Aucun couloir, aucune enclave d’un pixel forcée et aucun Köstritz souverain indépendant ne sont inventés. Les nouveaux noyaux ne certifient pas les franges, condominiums, droits de Schönburg ou enclaves militaires/fiscales.
++
++Les lois/technologies de COB, les couleurs dynastiques et un lion reussien générique sont des abstractions techniques explicites, pas une certification des institutions ou pavillons de chaque maison.
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2T\LEGACY_TEST_TRIAGE.md
++# Tests de photographies anciennes
++
++Les17 tests ciblés et60 tests de contrats cumulatifs passent. Les49 tests historiques supplémentaires donnent42 succès,7 échecs,0 erreur. Aucun test ni baseline ancien n’est modifié pour obtenir un succès.
++
++Deux assertions MAP2R attendent le monde entier de l’étape Anhalt et exactement trois pays supplémentaires depuis leur ancienne baseline. MAP2T ajoute six pays et change121 cellules en Saxe; ces attentes globales ne sont plus applicables. Tous les pixels hors STATE_SAXONY, y compris Anhalt, sont contrôlés identiques à la baseline immédiatement antérieure.
++
++Les tests Q-R3/R8/R9 comparent aussi des bitmaps mondiaux arrêtés avant les lots postérieurs. L’attente R8 de la couleur E1A03A à Wolgast(4410,735) est déjà différente dans la baseline MAP2T et reste identique pendant ce lot. Le test O de registre attend l’ancien registre avant les migrations ultérieures, tandis que le nouveau contrôle effectue la relecture chronologique complète jusqu’à MAP2T. Les secteurs Q/M/O ne changent pas dans le présent bitmap. Ces échecs sont conservés comme diagnostics, pas convertis silencieusement en PASS.
++
++## Identifiants des sept échecs
++
++- `test_map2r_anhalt.AnhaltDeltaTests.test_exact_bitmap_and_no_external_change`
++- `test_map2r_anhalt.AnhaltDeltaTests.test_four_tags_and_only_three_new_countries`
++- `test_map2q_r3.Kaltenhof.test_exact_delta_and_negative_guard`
++- `test_map2m_r8.InstalledBTests.test_exact_b_not_a_plus_b`
++- `test_map2m_r8.InstalledBTests.test_wolgast_and_protected_rows_not_shifted`
++- `test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit`
++- `test_map2o_east_frisia.EastFrisiaTests.test_exact_ledger_replay_preserves_every_other_right`
++
++Les sorties réelles et traces restent dans UNIT_TESTS.json. Les contrôles différentiels de VALIDATION.json protègent les secteurs antérieurs sans exiger que le monde reste figé à leur date de livraison.
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2T\RUNTIME_TEST_PLAN.md
++# Test manuel ciblé MAP-2T
++
++Statut: NOT_TESTED_MAP2T. Nouvelle partie nécessaire; une ancienne sauvegarde ne suffit pas à tester les historiques.
++
++1. Vérifier l’apparition de GOT, HIL, SSO, RGZ, RGE et RSL avec un territoire non vide dans STATE_SAXONY. Comparer à SAXONY_THURINGIA_BEFORE_AFTER.png et aux cellules exactes du CSV.
++2. Contrôler noms français, infobulles de gouvernement sans clés brutes, souverains1776 et drapeaux visibles. Greiz, Gera et Schleiz doivent être des comtés; SAX reste électoral, COB s’appelle Cobourg–Saalfeld.
++3. Contrôler populations, capitales techniques dans la région73, accès au marché, subsistance, infrastructures, emploi et budget. Les nouveaux pays ne reçoivent ni bâtiments ni unités écrits artificiellement. La capitale physique Sondershausen n’est pas incluse; ne pas confondre capitale de région et centre urbain historique.
++4. Confirmer appartenance impériale et droits de restitution des six membres ordinaires. Pas de nouvel électeur, pas de sujétion native automatique, pas de types centralisés activés. Vérifier les interactions électorales existantes sans modifier les icônes ou prototypes.
++5. Vérifier visuellement qu’Erfurt–Eichsfeld, Anhalt, Eutin, Jever, la Peene et les anciens lots ne bougent pas. La carte du journal doit correspondre au registre; le mode carte conserve la même étendue.
++6. Laisser passer un mois, vérifier absence de crash et diagnostic de chargement; relever les anomalies nouvelles séparément des44 RGB dupliqués/12 références invalides hérités.
++
++Un compte rendu du joueur pourra enregistrer PASS_RUNTIME_USER_VALIDATED uniquement pour les modifications effectivement inspectées. Ni ces contrôles statiques ni l’ancien test MAP2R ne constituent une validation moteur MAP2T ou une certification historique des frontières.
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2T\NEXT_HRE_REGION_RECOMMENDATION.md
++# Suite recommandée, non commencée
++
++Priorité: une continuation MAP2T-R1 dans le même secteur, ciblant la séparation documentée Lobenstein/Ebersdorf puis les Unterherrschaften de Schwarzbourg et les prolongements ernestins majeurs, sans rouvrir Erfurt ou Anhalt. Les six noyaux doivent d’abord être contrôlés en jeu.
++
++Après clôture de cette continuation, une passe de Hesse pourrait être envisagée. Aucune autre région n’est commencée automatiquement. Le sous-lot livré n’est pas présenté comme un achèvement de toutes les juridictions thuringiennes.
+*** End Patch

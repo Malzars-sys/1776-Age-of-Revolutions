@@ -69,7 +69,7 @@ aor1776_hre_secession = {
 		# trigger in addition to some basic validation code-side
 		# scopes: root = holder, creator_country, diplomatic_play, target_country, target_state, stakeholder, target_region, article_options
 
-		OR = { is_subject = no is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_crownland }
+		OR = { is_subject = no is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_protectorate }
 		scope:target_country = {
 			is_power_bloc_leader = yes
 			is_in_same_power_bloc = root
@@ -90,7 +90,7 @@ aor1776_hre_secession = {
 	}
 
 	on_enforced = {
- if = { limit = { OR = { is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_crownland } } make_independent = yes }
+ if = { limit = { aor1776_hre_any_native_bond = yes } make_independent = yes }
  set_variable = aor1776_hre_seceded
  remove_diplomatic_pact = { country = scope:target_country type = aor1776_imperial_obligation }
 }

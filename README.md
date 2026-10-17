@@ -10,6 +10,10 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=3780935876
 
 Tested with **Victoria 3 1.13 / The Great Wave**.
 
+## Historical map workflow
+
+For Holy Roman Empire territorial splits, historical 1776 population takes priority over keeping the previous world total unchanged. Sources, territorial coverage and uncertainty must be documented; unsupported pixel-based allocations are not historical census figures. See [the map population specification](docs/reports/map/MAP_POPULATION_POLICY.md).
+
 ## About this fork
 
 This project ports and maintains the original 1776 total-conversion scenario on modern Victoria 3 versions while preserving its historical 1776 starting point.

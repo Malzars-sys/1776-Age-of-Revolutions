@@ -1,0 +1,48 @@
+{
+  "timing": "Declared after exploratory source and native reading crops, before any new holdout residual calculation. No R6 transform is fitted or selected.",
+  "native_model_file": "../R5/TRANSFORMATIONS.json",
+  "native_model_sha256": "1cc285d666744cc971791d7a17236866c2257cc403fd7bd96be853a628cedac9",
+  "native_model": "selected_native, geographic_axes, frozen",
+  "fit_ids": [],
+  "selection_after_final_checks": false,
+  "final_checks": [
+    {
+      "id": "A_WOLGAST_NARROWS",
+      "role": "FINAL_HOLDOUT",
+      "object": "Opposed mainland/Usedom shores at Wolgast narrows",
+      "rule": "Require distinguishable opposed shores in corrected native water/river masks; otherwise UNMEASURABLE, no fabricated residual.",
+      "native_search_box": [
+        4404,
+        731,
+        4416,
+        740
+      ],
+      "physical_source": "LUNG Peenestrom water polygons kg.52; Mayer Wolgast reading"
+    },
+    {
+      "id": "B_VISTULA_WEST_APEX",
+      "role": "FINAL_HOLDOUT",
+      "object": "Westernmost Vistula elbow south of Fordon, not the urban centre of Fordon",
+      "real_rule": "Minimum longitude among retained Natural Earth Vistula vertices inside fixed geo box. No nearest-point matching.",
+      "real_box": [
+        18.04,
+        53.08,
+        18.26,
+        53.22
+      ],
+      "native_rule": "Minimum X of width pixels 3..15 in fixed native box; midpoint of tied westmost pixel centres.",
+      "native_search_box": [
+        4507,
+        760,
+        4518,
+        770
+      ],
+      "native_reading_radius_px": 1.5,
+      "limitation": "One generalized river bend, not a junction or certified historical bank; keep all tied cells and modern river source limitations."
+    }
+  ],
+  "variant_policy": "Compare frozen R5 geographic_axes with all four already retained native models; do not choose a new model using these final checks.",
+  "political_policy": "A requires dated political line and independently checked source-to-real + real-to-native chain, stable assignment under plausible variants. Same colour is insufficient.",
+  "territories": "Pilot A inherited18 only; pilot B inherited Netze candidates inside [4501,758,4520,775] and locally adjacent to validated core. No automatic import of R5 extra149.",
+  "excluded": "Thorn/Torun; other districts, general historical recalibration; no artificial Peendamm enclave."
+}

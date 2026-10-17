@@ -1,0 +1,27 @@
+# Root STATE. Idempotent boolean probe: one level tests presence, not density.
+# Never creates/deletes/edits building_railway or any economic building.
+aor1776_ilp_sync_state = {
+	if = {
+		limit = { aor1776_ilp_wants_probe = yes }
+		if = {
+			limit = { NOT = { has_building = building_aor1776_visual_rail_probe } }
+			create_building = {
+				building = building_aor1776_visual_rail_probe
+				level = 1
+				activate_production_methods = { pm_aor1776_visual_rail_probe }
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { has_building = building_aor1776_visual_rail_probe }
+			remove_building = building_aor1776_visual_rail_probe
+		}
+	}
+}
+
+aor1776_ilp_sync_world = {
+	every_country = {
+		every_scope_state = { aor1776_ilp_sync_state = yes }
+	}
+}

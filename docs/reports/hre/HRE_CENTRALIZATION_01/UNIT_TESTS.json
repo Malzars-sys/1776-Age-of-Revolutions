@@ -1,0 +1,82 @@
+{
+  "groups": {
+    "centralization_static_and_models": {
+      "modules": [
+        "test_hre_centralization_01"
+      ],
+      "tests": 21,
+      "failures": [],
+      "errors": [],
+      "output": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.867s\n\nOK\n",
+      "seconds": 0.89,
+      "engine_test": false
+    },
+    "MAP2R_historical_delta": {
+      "modules": [
+        "test_map2r_anhalt"
+      ],
+      "tests": 11,
+      "failures": [],
+      "errors": [],
+      "output": "...........\n----------------------------------------------------------------------\nRan 11 tests in 6.666s\n\nOK\n",
+      "seconds": 7.01,
+      "engine_test": false
+    },
+    "previous_Q_stages": {
+      "modules": [
+        "test_map2q_r3",
+        "test_map2q_eutin",
+        "test_map2q_r2"
+      ],
+      "tests": 19,
+      "failures": [
+        "test_map2q_r3.Kaltenhof.test_exact_delta_and_negative_guard",
+        "test_map2q_eutin.EutinGuards.test_exact_bitmap_and_negative_outside_edit",
+        "test_map2q_eutin.EutinGuards.test_no_schwartau_or_oldenburg_corridor"
+      ],
+      "errors": [],
+      "output": "..F.....F..F.......\n======================================================================\nFAIL: test_exact_delta_and_negative_guard (test_map2q_r3.Kaltenhof.test_exact_delta_and_negative_guard)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2q_r3.py\", line 16, in test_exact_delta_and_negative_guard\n    self.assertTrue(np.array_equal(expected,self.after))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_exact_bitmap_and_negative_outside_edit (test_map2q_eutin.EutinGuards.test_exact_bitmap_and_negative_outside_edit)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2q_eutin.py\", line 16, in test_exact_bitmap_and_negative_outside_edit\n    self.assertTrue(np.array_equal(expected,self.after))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_no_schwartau_or_oldenburg_corridor (test_map2q_eutin.EutinGuards.test_no_schwartau_or_oldenburg_corridor)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2q_eutin.py\", line 40, in test_no_schwartau_or_oldenburg_corridor\n    self.assertTrue(np.array_equal(self.before[738:745,4337:4347],self.after[738:745,4337:4347]))\nAssertionError: False is not true\n\n----------------------------------------------------------------------\nRan 19 tests in 5.081s\n\nFAILED (failures=3)\n",
+      "seconds": 5.14,
+      "engine_test": false
+    },
+    "cumulative_legacy": {
+      "modules": [
+        "test_map2l_registry",
+        "test_map2m_r8",
+        "test_map2m_r9",
+        "test_map2n_island",
+        "test_map2n_completion",
+        "test_map2o_east_frisia"
+      ],
+      "tests": 68,
+      "failures": [
+        "test_map2m_r8.InstalledBTests.test_exact_b_not_a_plus_b",
+        "test_map2m_r8.InstalledBTests.test_wolgast_and_protected_rows_not_shifted",
+        "test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit",
+        "test_map2n_island.PoelTests.test_exact_scoped_edits_and_negative_guard",
+        "test_map2n_island.PoelTests.test_no_move_of_hubs_or_old_pomeranian_provinces",
+        "test_map2n_completion.CompletionTests.test_exact_mainland_patch_and_negative_out_of_scope_edit",
+        "test_map2o_east_frisia.EastFrisiaTests.test_exact_ledger_replay_preserves_every_other_right"
+      ],
+      "errors": [],
+      "output": "....................F....F.F......F......F.....F.................F..\n======================================================================\nFAIL: test_exact_b_not_a_plus_b (test_map2m_r8.InstalledBTests.test_exact_b_not_a_plus_b)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2m_r8.py\", line 19, in test_exact_b_not_a_plus_b\n    self.assertTrue(np.array_equal(self.after,w.prior.r2.expected_raster(self.before,changes)))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_wolgast_and_protected_rows_not_shifted (test_map2m_r8.InstalledBTests.test_wolgast_and_protected_rows_not_shifted)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2m_r8.py\", line 42, in test_wolgast_and_protected_rows_not_shifted\n    self.assertEqual(int(self.after[735,4410]),0xE1A03A)\nAssertionError: 5665874 != 14786618\n\n======================================================================\nFAIL: test_exact_two_cells_and_no_elsewhere_edit (test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2m_r9.py\", line 12, in test_exact_two_cells_and_no_elsewhere_edit\n    self.assertTrue(np.array_equal(self.after,w.old.prior.r2.expected_raster(self.before,self.plan['changes'])))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_exact_scoped_edits_and_negative_guard (test_map2n_island.PoelTests.test_exact_scoped_edits_and_negative_guard)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2n_island.py\", line 22, in test_exact_scoped_edits_and_negative_guard\n    self.assertTrue(np.array_equal(expected,self.after))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_no_move_of_hubs_or_old_pomeranian_provinces (test_map2n_island.PoelTests.test_no_move_of_hubs_or_old_pomeranian_provinces)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2n_island.py\", line 53, in test_no_move_of_hubs_or_old_pomeranian_provinces\n    self.assertTrue(all(self.before[int(r['Y']),int(r['X'])]==self.after[int(r['Y']),int(r['X'])] for r in rows))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_exact_mainland_patch_and_negative_out_of_scope_edit (test_map2n_completion.CompletionTests.test_exact_mainland_patch_and_negative_out_of_scope_edit)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2n_completion.py\", line 17, in test_exact_mainland_patch_and_negative_out_of_scope_edit\n    self.assertTrue(np.array_equal(expected,self.after));expected[750,4400]^=1\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_exact_ledger_replay_preserves_every_other_right (test_map2o_east_frisia.EastFrisiaTests.test_exact_ledger_replay_preserves_every_other_right)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2o_east_frisia.py\", line 32, in test_exact_ledger_replay_preserves_every_other_right\n    self.assertEqual(actual,json.loads(m.core.active_registry_path().read_text(encoding='utf-8')))\nAssertionError: Lists differ: [{'rg[16289 chars]s': 'Frozen 1776 gameplay assignment; NOT a ne[73665 chars]im'}] != [{'rg[16289 chars]s': 'MAP2L MAP2Q: source-traced game-scale ter[77338 chars]im'}]\n\nFirst differing element 99:\n{'rgb[78 chars]s': 'Frozen 1776 gameplay assignment; NOT a ne[27 chars]aim'}\n{'rgb[78 chars]s': 'MAP2L MAP2Q: source-traced game-scale ter[63 chars]md.'}\n\nSecond list contains 17 additional elements.\nFirst extra element 504:\n{'rgb': 'xF061C0', 'state': 'STATE_TYROL', 'beneficiary': 'AUS', 'basis': 'Frozen 1776 gameplay assignment; NOT a new historical territorial claim'}\n\nDiff is 111290 characters long. Set self.maxDiff to None to see it.\n\n----------------------------------------------------------------------\nRan 68 tests in 11.643s\n\nFAILED (failures=7)\n",
+      "seconds": 11.91,
+      "engine_test": false
+    }
+  },
+  "previous_failure_ids": [
+    "test_map2m_r8.InstalledBTests.test_exact_b_not_a_plus_b",
+    "test_map2m_r8.InstalledBTests.test_wolgast_and_protected_rows_not_shifted",
+    "test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit",
+    "test_map2n_completion.CompletionTests.test_exact_mainland_patch_and_negative_out_of_scope_edit",
+    "test_map2n_island.PoelTests.test_exact_scoped_edits_and_negative_guard",
+    "test_map2n_island.PoelTests.test_no_move_of_hubs_or_old_pomeranian_provinces",
+    "test_map2o_east_frisia.EastFrisiaTests.test_exact_ledger_replay_preserves_every_other_right",
+    "test_map2q_eutin.EutinGuards.test_exact_bitmap_and_negative_outside_edit",
+    "test_map2q_eutin.EutinGuards.test_no_schwartau_or_oldenburg_corridor",
+    "test_map2q_r3.Kaltenhof.test_exact_delta_and_negative_guard"
+  ],
+  "new_failure_ids": [],
+  "engine_test_executed": false,
+  "model_tests_are_not_engine_proof": true
+}

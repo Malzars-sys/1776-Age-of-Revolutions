@@ -1,0 +1,158 @@
+[
+  {
+    "File": "docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION.json",
+    "status": "PASS_RUNTIME_USER_VALIDATED",
+    "date": "2026-10-14",
+    "method": "User-reported manual inspection in a new Victoria 3 campaign",
+    "source": "User explicitly reports that inspected territories in Belgium, Franconia and Rhine-Westphalia and the relevant imperial principalities function correctly",
+    "lot_reports": [
+      "BELGIUM",
+      "FRANCONIA",
+      "FRANCONIA_CONTINUATION",
+      "RHINE_CENTRAL",
+      "RHINE_WESTPHALIA"
+    ],
+    "coverage": "Inspected territories and principalities only. The user's message does not enumerate every province, every UI mechanism or the duration of simulation.",
+    "automated_engine_test": false,
+    "historical_boundary_certification": false,
+    "reported_test_file_hashes": null,
+    "reference_snapshot_before_new_minden_sublot": {
+      "bitmap_sha256": "0f0062eaafea2eaec57c0dbf70b80adc2716ca93190031f4dd4273db7d7f0502",
+      "registry_sha256": "4d307deac0d2d805620cbe4b631c7cac3d0cabc6e9feb4d95132906d60e677fb",
+      "basis": "Local reference snapshot, not hashes measured by the user during the manual test"
+    },
+    "not_runtime_validated": [
+      "MINDEN_RAVENSBERG new 76-cell Minden sublot",
+      "Uninspected territories or mechanisms",
+      "Unfinished Rhine-Westphalian jurisdictions",
+      "Erfurt-Eichsfeld",
+      "Swabia and remaining principalities"
+    ],
+    "open_anomalies": [
+      "44 inherited duplicate RGB references",
+      "12 inherited reference errors",
+      "Incomplete political frontiers and micro-jurisdictions",
+      "Erfurt, Duderstadt and Heiligenstadt location uncertainty"
+    ],
+    "git_note": "f34a6b8 was explicitly authorized by the user. Old immutable baselines and raw Git-attestation differences are retained, not new gameplay regressions."
+  },
+  {
+    "File": "docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_PRUSSIAN_CORE.json",
+    "status": "PASS_RUNTIME_USER_VALIDATED",
+    "date": "2026-10-15",
+    "method": "Manual player validation reported in the MAP-2M request",
+    "lot_reports": [
+      "PRUSSIAN_BORDERS"
+    ],
+    "coverage": "User reports seven checks in a new campaign and one month of simulation without a problem. The existing 341-cell Swedish coastal core and six arms-industry levels in Brandenburg are accepted as the reference. Individual inspected RGBs beyond the core and measured file hashes were not supplied.",
+    "duration": "One in-game month",
+    "automated_engine_test": false,
+    "historical_boundary_certification": false,
+    "scope_exclusions": [
+      "All new MAP-2M changes",
+      "Uncompleted Peene mainland boundary",
+      "Netze district",
+      "Detailed Thorn enclave correction"
+    ],
+    "reported_test_file_hashes": null,
+    "interpretation": "Manual validation of the prior reference only; does not promote MAP-2M or certify all historical boundaries."
+  },
+  {
+    "File": "docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_RHINE_SWABIA.json",
+    "status": "PASS_RUNTIME_USER_VALIDATED",
+    "date": "2026-10-14",
+    "method": "User-reported manual inspection in a new Victoria 3 campaign",
+    "lot_reports": [
+      "RHINE_WESTPHALIA_COMPLETION",
+      "SWABIA"
+    ],
+    "coverage": "Inspected changes in the two latest Rhine-Westphalia and Swabia sublots: territories, countries, capitals, governments, infrastructure, economies and imperial mechanisms. No exhaustive list of inspected RGBs supplied.",
+    "duration": "One in-game month without reported problems",
+    "automated_engine_test": false,
+    "historical_boundary_certification": false,
+    "reported_test_file_hashes": null,
+    "local_reference_snapshot": {
+      "bitmap_sha256": "bfb2256a10395462e781a754ceea95646325d1e2f86a8788b57b125f4668b911",
+      "registry_sha256": "a9d50d60888b84a26d8925723ca3db8fc68e1ef996d9a225c8c0080a9449fdb9",
+      "basis": "Assistant local reference, not hashes measured or provided by the player"
+    },
+    "reported_ui_anomalies": [
+      "gov_aor1776_baden_margraviate_desc missing in French",
+      "gov_aor1776_ulm_council_desc missing in French"
+    ],
+    "scope_exclusions": [
+      "Uninspected territories or interfaces",
+      "Later Swabian continuation",
+      "Historical border certification",
+      "Erfurt-Eichsfeld"
+    ],
+    "open_anomalies": [
+      "44 inherited duplicate RGBs",
+      "12 inherited invalid references",
+      "Remaining jurisdictions and approximate fringes listed in each UNRESOLVED.csv"
+    ],
+    "interpretation": "Manual runtime validation coexists with reported localization defects. Localization repairs after this receipt require their own UI recheck. Static results are unchanged by this attestation."
+  },
+  {
+    "File": "docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_SWABIA_COMPLETION.json",
+    "status": "PASS_RUNTIME_USER_VALIDATED",
+    "date": "2026-10-14",
+    "method": "Manual player test reported in supplied MAP-2L instructions; not an automated engine test",
+    "lot_reports": [
+      "SWABIA_COMPLETION",
+      "SWABIA_COMPLETION/PRUSSIAN_INDUSTRY_ADDON"
+    ],
+    "coverage": "Inspected SWABIA_COMPLETION jurisdictions and the earlier Prussian industrial addon. No exact RGB list or tested file hashes supplied. Later Prussian economic micro-adjustments and the new PRUSSIAN_BORDERS lot are not promoted by this receipt.",
+    "duration": "New campaign and one in-game month without a reported problem",
+    "automated_engine_test": false,
+    "historical_boundary_certification": false,
+    "reported_test_file_hashes": null,
+    "scope_exclusions": [
+      "PRUSSIAN_BORDERS",
+      "PRUSSIA_MICRO_ADJUSTMENT_2026_10_14",
+      "LOWER_SILESIA_TEXTILE_REMOVAL",
+      "Uninspected jurisdictions",
+      "Erfurt-Eichsfeld"
+    ],
+    "open_anomalies": [
+      "44 inherited duplicate RGB assignments",
+      "12 inherited invalid references",
+      "Historical and cartographic uncertainties remain open"
+    ],
+    "interpretation": "Only the named inspected lots receive this manual receipt; existing static results remain unchanged. The pasted instruction mentions an obsolete arms level; this receipt is not evidence for a later specific arms count."
+  },
+  {
+    "File": "docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_SWABIA_FINISH.json",
+    "status": "PASS_RUNTIME_USER_VALIDATED",
+    "date": "2026-10-14",
+    "method": "User-reported manual inspection in a new Victoria 3 campaign",
+    "lot_reports": [
+      "SWABIA_FINISH"
+    ],
+    "coverage": "Player reports completion of the seven requested SWABIA_FINISH checks for inspected territories and imperial mechanisms. Exact inspected RGBs and individual check results were not supplied.",
+    "duration": "One in-game month without reported problems",
+    "automated_engine_test": false,
+    "historical_boundary_certification": false,
+    "reported_test_file_hashes": null,
+    "local_reference_snapshot": {
+      "bitmap_sha256": "8a9278299c23d9eb7ed4a746a877c293c98ada037d932ba7c8fd25608aba0097",
+      "registry_sha256": "babf7ddec93c29365983bc12c4f2b12fe403bded1e49f1aa9c65879630e5b0ae",
+      "registered_RGBs": 485,
+      "imperial_cells": 62580,
+      "basis": "Assistant verified local baseline; NOT hashes measured or provided by the player"
+    },
+    "scope_exclusions": [
+      "Uninspected territories or interfaces",
+      "SWABIA_COMPLETION and any later modifications",
+      "Automatic validation of SWABIA_CONTINUATION",
+      "Historical border certification",
+      "Erfurt-Eichsfeld"
+    ],
+    "open_anomalies": [
+      "44 inherited duplicate assignments",
+      "12 inherited invalid references",
+      "Approximations and remaining jurisdictions in SWABIA_FINISH/UNRESOLVED.csv"
+    ],
+    "interpretation": "Manual runtime validation of inspected changes only. Static results and historical uncertainties are preserved. No automated engine test claimed."
+  }
+]

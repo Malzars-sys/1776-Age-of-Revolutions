@@ -1,0 +1,44 @@
+﻿# State scope. Framed logs; never change buildings, PMs, money or technologies.
+# Runtime interpolation still requires engine validation after companion reload.
+aor1776_bridge_export_state = {
+	save_scope_as = aor1776_bridge_state
+	owner = { save_scope_as = aor1776_bridge_country }
+	debug_log = "AOR1776_BRIDGE_V1|BEGIN"
+	debug_log = "AOR1776_BRIDGE_V1|exporter=0.2.0"
+	debug_log = "AOR1776_BRIDGE_V1|scope=player_capital"
+	debug_log = "AOR1776_BRIDGE_V1|game_date=[TimeKeeper.GetCurrentDate.GetString]"
+	debug_log = "AOR1776_BRIDGE_V1|country_name=[SCOPE.sCountry('aor1776_bridge_country').GetNameNoFormatting]"
+	debug_log = "AOR1776_BRIDGE_V1|state_name=[SCOPE.sState('aor1776_bridge_state').GetName]"
+	debug_log = "AOR1776_BRIDGE_V1|regional_levels=[SCOPE.sState('aor1776_bridge_state').MakeScope.ScriptValue('aor1776_bridge_regional_levels')|0]"
+	debug_log = "AOR1776_BRIDGE_V1|probe_levels=[SCOPE.sState('aor1776_bridge_state').MakeScope.ScriptValue('aor1776_bridge_probe_levels')|0]"
+	if = {
+		limit = { has_variable = aor1776_ilp_force_off }
+		debug_log = "AOR1776_BRIDGE_V1|override=force_off"
+	}
+	else_if = {
+		limit = { has_variable = aor1776_ilp_force_on }
+		debug_log = "AOR1776_BRIDGE_V1|override=force_on"
+	}
+	else = { debug_log = "AOR1776_BRIDGE_V1|override=auto" }
+	if = {
+		limit = { aor1776_ilp_has_real_rail_pm = yes }
+		debug_log = "AOR1776_BRIDGE_V1|real_rail_pm=yes"
+	}
+	else = { debug_log = "AOR1776_BRIDGE_V1|real_rail_pm=no" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_traditional_road_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_traditional_road_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_turnpike_road_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_turnpike_road_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_engineered_road_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_engineered_road_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_paved_road_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_paved_road_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_no_canal_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_no_canal_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_industrial_canals } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_industrial_canals" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_engineered_canals } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_engineered_canals" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_no_rail_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_no_rail_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_early_trains } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_early_trains" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_steam_trains } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_steam_trains" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_steam_trains_principle_transport_3 } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_steam_trains_principle_transport_3" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_electric_trains } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_electric_trains" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_electric_trains_principle_transport_3 } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_electric_trains_principle_transport_3" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_diesel_trains } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_diesel_trains" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_diesel_trains_principle_transport_3 } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_diesel_trains_principle_transport_3" }
+	debug_log = "AOR1776_BRIDGE_V1|END"
+}

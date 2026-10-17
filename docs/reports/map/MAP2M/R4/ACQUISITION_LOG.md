@@ -1,0 +1,25 @@
+# Journal d'acquisition R4 — 15 octobre 2026
+
+Toutes les acquisitions sont publiques, limitées au dossier R4 et accompagnées d'un fichier `.source.json` contenant URL initiale/finale, taille, empreinte, type et durée. Les fichiers existants sont réutilisés, pas retéléchargés.
+
+1. Référence R3 et changements fonctionnels courants capturés dans `BASELINE.json`. Audit des preuves R0/R1/R2/R3, des rasters, des hypothèses et des masques conservé dans `EXISTING_ASSETS.json`, `PRIOR_TRANSFORMATIONS.json` et `NEEDS_MATRIX.csv`.
+2. Pfau : notice WBC → lecteur public Mirabilia → gestionnaire IIIF explicitement annoncé → manifeste de 35 images. Le lecteur indique accès disponible et téléchargement autorisé. Les champs génériques de captcha de formulaires ne sont pas une barrière imposée à ces images publiques. Aucun contrôle d'accès n'a été contourné.
+3. Acquisition sélective de l'index, du verso et des cinq feuilles utiles, à 4 000 pixels de large. Leurs identifiants de services et dimensions natives sont vérifiables dans le manifeste conservé. Pas de téléchargement de toutes les 35 feuilles par défaut.
+4. AGAD : inventaire officiel du fonds 447 acquis. Unité580, AK103–107A, date1800–1815 relevée. Aucun lien actif vérifié vers les images ; fragment de galerie commenté, non utilisé. Contradiction avec une identification comme manuscrit original1772–1773 conservée.
+5. Grund : page de présentation, notice PPN428487513 et page officielle de reproductions acquises ; extrait déjà présent réutilisé. Recherche généraliste de catalogue « Grund West-Preussen » trop bruyante (64résultats), non présentée comme un dépouillement exhaustif. Aucune commande ni demande externe.
+6. Nouvelle piste bibliographique de carte-frontière1772 : recherche SBB « Neugemachten Grentze » → quatre notices dont une édition en ligne. Le premier accès sans contexte de catalogue n'a pas résolu la notice ; suivi du lien de session public observé → PPN1936716976, Kart.N1146/1, éditionnumérique2025. Résolveur → manifeste IIIF selon la documentation officielle [StabiLab](https://lab.sbb.berlin/dc/?lang=en).
+7. N1146/1 : les variantes personnalisées `4000,` ont reçu HTTP429, conservés dans les journaux d'échec. Pas de boucle rapide ni de changement d'identité/réseau. Lecture de `info.json`, puis acquisition séquentielle de la taille `full` explicitement annoncée. Panneau2 interrompu au délai35s, repris une fois avec délai90s. Les quatre scans complets et la mire sont acquis. 1/2 sont les rectos ; 3/4 les versos ; 5 la mire. Les anciens échecs restent visibles même lorsqu'un autre fichier intégral a réussi.
+8. Anklam : manifeste du livre1773 acquis, 658vues. Vue35 identifiée par ses dimensions exceptionnelles et inspectée : véritable plan replié, pas une page de texte. Plan intégral acquis. Le manifeste indique NoC-NC1.0, non une autorisation générale d'exploitation commerciale.
+9. Repères physiques : deux requêtes publiques Overpass ont échoué (502 puis500). Aucun modèle n'utilise leur résultat absent. Repli vers un extrait public OSM XML strictement local à Anklam, acquis avec succès. Seules les empreintes des cinq édifices identifiés sont exploitées ; aucune information de commerce ou de particulier n'est reproduite dans les rapports.
+10. Cinq fiches NID acquises : Gniewkowo, Inowrocław, Kruszwica, Pakość, Strzelno. Coordonnées extraites des liens de localisation/GPX de chaque fiche, et non des noms du jeu. Les photos ne sont pas acquises. Les correspondances des églises restent signalées comme provisoires ou ambiguës, sans altérer les contrôles après calcul.
+11. Pas de nouvelle acquisition GeoGREIF1694 ni de données LUNG/NaturalEarth déjà conservées. Les recherches institutionnelles sur les éditions postérieures de Poméranie ne sont pas présentées comme preuves contemporaines : fac-similé Schmettau1967, feuille1787, Gilly1789 et ReymannXIXe restent à distinguer d'un levé antérieur à1776. Pas d'image nouvelle acquise de ces éditions.
+12. Calcul de deux familles de transformations source–réel, contrôles réservés et sensibilité reproductible. Exports diagnostiques WGS84 et superpositions natives explicitement non certifiées. Aucun import dans les historiques.
+
+## Éléments encore nécessaires
+
+- Grund intégral : voie officielle SBB, cote/PPN et exigences d'image dans `REPORT.md`. Toute commande ou correspondance nécessite une autorisation distincte.
+- Copie AGAD : images et expertise de datation de l'exemplaire précis, pas une présomption sur le titre.
+- Netze : interprétation des tracés du brouillon1772, contrôle des éventuels ajouts, correspondances topographiques source–réel puis réel–bitmap ; secteur méridional d'Inowrocław encore incomplet.
+- Peene : correspondances physiques natives indépendantes du modèle Miller et de la politique actuelle. Le plan urbain1773 améliore Anklam mais ne peut couvrir toute la frontière.
+
+Les dates de téléchargement ne sont pas les dates historiques des objets. Les copies, versos et planches d'une même famille ne sont pas comptés comme témoignages indépendants.

@@ -1,0 +1,32 @@
+# Assigned only to landowners in countries with customary institutions at start.
+# No global change to European paternalistic or country-specific ideologies.
+ideology_aor1776_customary_landowners = {
+	icon = "gfx/interface/icons/ideology_icons/paternalistic.dds"
+	priority = 100 # Takes precedence over ordinary non-leader IG preferences.
+
+	lawgroup_governance_principles = {
+		law_chiefdom = strongly_approve
+		law_monarchy = approve
+		law_theocracy = approve
+		law_social_monarchy = neutral
+		law_colonial_administration = strongly_disapprove
+		law_presidential_republic = disapprove
+		law_parliamentary_republic = disapprove
+		law_corporate_state = disapprove
+		law_council_republic = strongly_disapprove
+	}
+
+	lawgroup_distribution_of_power = {
+		law_elder_council = strongly_approve
+		law_autocracy = approve
+		law_oligarchy = approve
+		law_landed_voting = neutral
+		law_organic_regulation = neutral
+		law_single_party_state = disapprove
+		law_wealth_voting = disapprove
+		law_census_voting = disapprove
+		law_universal_suffrage = strongly_disapprove
+		law_anarchy = strongly_disapprove
+		law_technocracy = strongly_disapprove
+	}
+}

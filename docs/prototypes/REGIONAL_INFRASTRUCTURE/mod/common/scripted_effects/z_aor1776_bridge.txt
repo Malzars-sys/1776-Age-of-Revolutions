@@ -1,0 +1,328 @@
+﻿# State scope. Framed logs; never change buildings, PMs, money or technologies.
+# debug_log does not resolve saved script scopes in the observed 1.13 session.
+# Even GetPlayer is unavailable in this debug_log text context in the real test.
+# Use identifiers emitted by native scope predicates, not GUI data functions.
+# Wire schema stays 0.2.0; companion build 0.2.2 still needs an identity retest.
+aor1776_bridge_export_state = {
+	if = {
+		limit = { owner = { is_local_player = yes } }
+		aor1776_bridge_export_local_capital = yes
+	}
+}
+aor1776_bridge_export_local_capital = {
+	debug_log = "AOR1776_BRIDGE_V1|BEGIN"
+	debug_log = "AOR1776_BRIDGE_V1|exporter=0.2.0"
+	debug_log = "AOR1776_BRIDGE_V1|scope=player_capital"
+	debug_log = "AOR1776_BRIDGE_V1|game_date=[TimeKeeper.GetCurrentDate.GetString]"
+	aor1776_bridge_export_identity = yes
+	# Read numerical levels through script predicates, not localization data calls.
+	aor1776_bridge_export_levels = yes
+	if = {
+		limit = { has_variable = aor1776_ilp_force_off }
+		debug_log = "AOR1776_BRIDGE_V1|override=force_off"
+	}
+	else_if = {
+		limit = { has_variable = aor1776_ilp_force_on }
+		debug_log = "AOR1776_BRIDGE_V1|override=force_on"
+	}
+	else = { debug_log = "AOR1776_BRIDGE_V1|override=auto" }
+	if = {
+		limit = { aor1776_ilp_has_real_rail_pm = yes }
+		debug_log = "AOR1776_BRIDGE_V1|real_rail_pm=yes"
+	}
+	else = { debug_log = "AOR1776_BRIDGE_V1|real_rail_pm=no" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_traditional_road_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_traditional_road_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_turnpike_road_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_turnpike_road_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_engineered_road_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_engineered_road_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_paved_road_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_paved_road_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_no_canal_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_no_canal_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_industrial_canals } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_industrial_canals" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_engineered_canals } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_engineered_canals" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_no_rail_network } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_no_rail_network" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_early_trains } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_early_trains" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_steam_trains } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_steam_trains" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_steam_trains_principle_transport_3 } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_steam_trains_principle_transport_3" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_electric_trains } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_electric_trains" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_electric_trains_principle_transport_3 } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_electric_trains_principle_transport_3" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_diesel_trains } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_diesel_trains" }
+	if = { limit = { any_scope_building = { is_building_type = building_railway has_active_production_method = pm_diesel_trains_principle_transport_3 } } debug_log = "AOR1776_BRIDGE_V1|pm=pm_diesel_trains_principle_transport_3" }
+	debug_log = "AOR1776_BRIDGE_V1|END"
+}
+
+# State scope: read existing levels with no runtime data-function evaluation.
+aor1776_bridge_export_levels = {
+	if = { limit = { NOT = { has_building = building_railway } } debug_log = "AOR1776_BRIDGE_V1|regional_levels=0" }
+	every_scope_building = { limit = { is_building_type = building_railway } aor1776_bridge_export_regional_level = yes }
+	if = { limit = { NOT = { has_building = building_aor1776_visual_rail_probe } } debug_log = "AOR1776_BRIDGE_V1|probe_levels=0" }
+	every_scope_building = { limit = { is_building_type = building_aor1776_visual_rail_probe } aor1776_bridge_export_probe_level = yes }
+}
+
+# Explicit bounded lookup; unsupported values are rejected by the reader.
+aor1776_bridge_export_regional_level = {
+	if = { limit = { level = 0 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=0" }
+	if = { limit = { level = 1 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=1" }
+	if = { limit = { level = 2 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=2" }
+	if = { limit = { level = 3 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=3" }
+	if = { limit = { level = 4 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=4" }
+	if = { limit = { level = 5 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=5" }
+	if = { limit = { level = 6 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=6" }
+	if = { limit = { level = 7 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=7" }
+	if = { limit = { level = 8 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=8" }
+	if = { limit = { level = 9 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=9" }
+	if = { limit = { level = 10 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=10" }
+	if = { limit = { level = 11 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=11" }
+	if = { limit = { level = 12 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=12" }
+	if = { limit = { level = 13 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=13" }
+	if = { limit = { level = 14 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=14" }
+	if = { limit = { level = 15 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=15" }
+	if = { limit = { level = 16 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=16" }
+	if = { limit = { level = 17 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=17" }
+	if = { limit = { level = 18 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=18" }
+	if = { limit = { level = 19 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=19" }
+	if = { limit = { level = 20 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=20" }
+	if = { limit = { level = 21 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=21" }
+	if = { limit = { level = 22 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=22" }
+	if = { limit = { level = 23 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=23" }
+	if = { limit = { level = 24 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=24" }
+	if = { limit = { level = 25 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=25" }
+	if = { limit = { level = 26 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=26" }
+	if = { limit = { level = 27 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=27" }
+	if = { limit = { level = 28 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=28" }
+	if = { limit = { level = 29 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=29" }
+	if = { limit = { level = 30 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=30" }
+	if = { limit = { level = 31 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=31" }
+	if = { limit = { level = 32 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=32" }
+	if = { limit = { level = 33 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=33" }
+	if = { limit = { level = 34 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=34" }
+	if = { limit = { level = 35 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=35" }
+	if = { limit = { level = 36 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=36" }
+	if = { limit = { level = 37 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=37" }
+	if = { limit = { level = 38 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=38" }
+	if = { limit = { level = 39 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=39" }
+	if = { limit = { level = 40 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=40" }
+	if = { limit = { level = 41 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=41" }
+	if = { limit = { level = 42 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=42" }
+	if = { limit = { level = 43 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=43" }
+	if = { limit = { level = 44 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=44" }
+	if = { limit = { level = 45 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=45" }
+	if = { limit = { level = 46 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=46" }
+	if = { limit = { level = 47 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=47" }
+	if = { limit = { level = 48 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=48" }
+	if = { limit = { level = 49 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=49" }
+	if = { limit = { level = 50 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=50" }
+	if = { limit = { level = 51 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=51" }
+	if = { limit = { level = 52 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=52" }
+	if = { limit = { level = 53 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=53" }
+	if = { limit = { level = 54 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=54" }
+	if = { limit = { level = 55 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=55" }
+	if = { limit = { level = 56 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=56" }
+	if = { limit = { level = 57 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=57" }
+	if = { limit = { level = 58 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=58" }
+	if = { limit = { level = 59 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=59" }
+	if = { limit = { level = 60 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=60" }
+	if = { limit = { level = 61 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=61" }
+	if = { limit = { level = 62 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=62" }
+	if = { limit = { level = 63 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=63" }
+	if = { limit = { level = 64 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=64" }
+	if = { limit = { level = 65 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=65" }
+	if = { limit = { level = 66 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=66" }
+	if = { limit = { level = 67 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=67" }
+	if = { limit = { level = 68 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=68" }
+	if = { limit = { level = 69 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=69" }
+	if = { limit = { level = 70 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=70" }
+	if = { limit = { level = 71 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=71" }
+	if = { limit = { level = 72 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=72" }
+	if = { limit = { level = 73 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=73" }
+	if = { limit = { level = 74 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=74" }
+	if = { limit = { level = 75 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=75" }
+	if = { limit = { level = 76 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=76" }
+	if = { limit = { level = 77 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=77" }
+	if = { limit = { level = 78 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=78" }
+	if = { limit = { level = 79 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=79" }
+	if = { limit = { level = 80 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=80" }
+	if = { limit = { level = 81 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=81" }
+	if = { limit = { level = 82 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=82" }
+	if = { limit = { level = 83 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=83" }
+	if = { limit = { level = 84 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=84" }
+	if = { limit = { level = 85 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=85" }
+	if = { limit = { level = 86 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=86" }
+	if = { limit = { level = 87 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=87" }
+	if = { limit = { level = 88 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=88" }
+	if = { limit = { level = 89 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=89" }
+	if = { limit = { level = 90 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=90" }
+	if = { limit = { level = 91 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=91" }
+	if = { limit = { level = 92 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=92" }
+	if = { limit = { level = 93 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=93" }
+	if = { limit = { level = 94 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=94" }
+	if = { limit = { level = 95 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=95" }
+	if = { limit = { level = 96 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=96" }
+	if = { limit = { level = 97 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=97" }
+	if = { limit = { level = 98 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=98" }
+	if = { limit = { level = 99 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=99" }
+	if = { limit = { level = 100 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=100" }
+	if = { limit = { level = 101 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=101" }
+	if = { limit = { level = 102 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=102" }
+	if = { limit = { level = 103 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=103" }
+	if = { limit = { level = 104 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=104" }
+	if = { limit = { level = 105 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=105" }
+	if = { limit = { level = 106 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=106" }
+	if = { limit = { level = 107 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=107" }
+	if = { limit = { level = 108 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=108" }
+	if = { limit = { level = 109 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=109" }
+	if = { limit = { level = 110 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=110" }
+	if = { limit = { level = 111 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=111" }
+	if = { limit = { level = 112 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=112" }
+	if = { limit = { level = 113 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=113" }
+	if = { limit = { level = 114 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=114" }
+	if = { limit = { level = 115 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=115" }
+	if = { limit = { level = 116 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=116" }
+	if = { limit = { level = 117 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=117" }
+	if = { limit = { level = 118 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=118" }
+	if = { limit = { level = 119 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=119" }
+	if = { limit = { level = 120 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=120" }
+	if = { limit = { level = 121 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=121" }
+	if = { limit = { level = 122 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=122" }
+	if = { limit = { level = 123 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=123" }
+	if = { limit = { level = 124 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=124" }
+	if = { limit = { level = 125 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=125" }
+	if = { limit = { level = 126 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=126" }
+	if = { limit = { level = 127 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=127" }
+	if = { limit = { level = 128 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=128" }
+	if = { limit = { level = 129 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=129" }
+	if = { limit = { level = 130 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=130" }
+	if = { limit = { level = 131 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=131" }
+	if = { limit = { level = 132 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=132" }
+	if = { limit = { level = 133 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=133" }
+	if = { limit = { level = 134 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=134" }
+	if = { limit = { level = 135 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=135" }
+	if = { limit = { level = 136 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=136" }
+	if = { limit = { level = 137 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=137" }
+	if = { limit = { level = 138 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=138" }
+	if = { limit = { level = 139 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=139" }
+	if = { limit = { level = 140 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=140" }
+	if = { limit = { level = 141 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=141" }
+	if = { limit = { level = 142 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=142" }
+	if = { limit = { level = 143 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=143" }
+	if = { limit = { level = 144 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=144" }
+	if = { limit = { level = 145 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=145" }
+	if = { limit = { level = 146 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=146" }
+	if = { limit = { level = 147 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=147" }
+	if = { limit = { level = 148 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=148" }
+	if = { limit = { level = 149 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=149" }
+	if = { limit = { level = 150 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=150" }
+	if = { limit = { level = 151 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=151" }
+	if = { limit = { level = 152 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=152" }
+	if = { limit = { level = 153 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=153" }
+	if = { limit = { level = 154 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=154" }
+	if = { limit = { level = 155 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=155" }
+	if = { limit = { level = 156 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=156" }
+	if = { limit = { level = 157 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=157" }
+	if = { limit = { level = 158 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=158" }
+	if = { limit = { level = 159 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=159" }
+	if = { limit = { level = 160 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=160" }
+	if = { limit = { level = 161 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=161" }
+	if = { limit = { level = 162 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=162" }
+	if = { limit = { level = 163 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=163" }
+	if = { limit = { level = 164 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=164" }
+	if = { limit = { level = 165 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=165" }
+	if = { limit = { level = 166 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=166" }
+	if = { limit = { level = 167 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=167" }
+	if = { limit = { level = 168 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=168" }
+	if = { limit = { level = 169 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=169" }
+	if = { limit = { level = 170 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=170" }
+	if = { limit = { level = 171 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=171" }
+	if = { limit = { level = 172 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=172" }
+	if = { limit = { level = 173 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=173" }
+	if = { limit = { level = 174 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=174" }
+	if = { limit = { level = 175 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=175" }
+	if = { limit = { level = 176 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=176" }
+	if = { limit = { level = 177 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=177" }
+	if = { limit = { level = 178 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=178" }
+	if = { limit = { level = 179 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=179" }
+	if = { limit = { level = 180 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=180" }
+	if = { limit = { level = 181 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=181" }
+	if = { limit = { level = 182 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=182" }
+	if = { limit = { level = 183 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=183" }
+	if = { limit = { level = 184 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=184" }
+	if = { limit = { level = 185 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=185" }
+	if = { limit = { level = 186 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=186" }
+	if = { limit = { level = 187 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=187" }
+	if = { limit = { level = 188 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=188" }
+	if = { limit = { level = 189 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=189" }
+	if = { limit = { level = 190 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=190" }
+	if = { limit = { level = 191 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=191" }
+	if = { limit = { level = 192 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=192" }
+	if = { limit = { level = 193 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=193" }
+	if = { limit = { level = 194 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=194" }
+	if = { limit = { level = 195 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=195" }
+	if = { limit = { level = 196 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=196" }
+	if = { limit = { level = 197 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=197" }
+	if = { limit = { level = 198 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=198" }
+	if = { limit = { level = 199 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=199" }
+	if = { limit = { level = 200 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=200" }
+	if = { limit = { level = 201 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=201" }
+	if = { limit = { level = 202 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=202" }
+	if = { limit = { level = 203 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=203" }
+	if = { limit = { level = 204 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=204" }
+	if = { limit = { level = 205 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=205" }
+	if = { limit = { level = 206 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=206" }
+	if = { limit = { level = 207 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=207" }
+	if = { limit = { level = 208 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=208" }
+	if = { limit = { level = 209 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=209" }
+	if = { limit = { level = 210 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=210" }
+	if = { limit = { level = 211 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=211" }
+	if = { limit = { level = 212 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=212" }
+	if = { limit = { level = 213 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=213" }
+	if = { limit = { level = 214 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=214" }
+	if = { limit = { level = 215 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=215" }
+	if = { limit = { level = 216 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=216" }
+	if = { limit = { level = 217 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=217" }
+	if = { limit = { level = 218 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=218" }
+	if = { limit = { level = 219 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=219" }
+	if = { limit = { level = 220 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=220" }
+	if = { limit = { level = 221 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=221" }
+	if = { limit = { level = 222 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=222" }
+	if = { limit = { level = 223 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=223" }
+	if = { limit = { level = 224 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=224" }
+	if = { limit = { level = 225 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=225" }
+	if = { limit = { level = 226 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=226" }
+	if = { limit = { level = 227 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=227" }
+	if = { limit = { level = 228 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=228" }
+	if = { limit = { level = 229 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=229" }
+	if = { limit = { level = 230 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=230" }
+	if = { limit = { level = 231 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=231" }
+	if = { limit = { level = 232 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=232" }
+	if = { limit = { level = 233 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=233" }
+	if = { limit = { level = 234 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=234" }
+	if = { limit = { level = 235 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=235" }
+	if = { limit = { level = 236 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=236" }
+	if = { limit = { level = 237 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=237" }
+	if = { limit = { level = 238 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=238" }
+	if = { limit = { level = 239 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=239" }
+	if = { limit = { level = 240 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=240" }
+	if = { limit = { level = 241 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=241" }
+	if = { limit = { level = 242 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=242" }
+	if = { limit = { level = 243 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=243" }
+	if = { limit = { level = 244 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=244" }
+	if = { limit = { level = 245 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=245" }
+	if = { limit = { level = 246 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=246" }
+	if = { limit = { level = 247 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=247" }
+	if = { limit = { level = 248 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=248" }
+	if = { limit = { level = 249 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=249" }
+	if = { limit = { level = 250 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=250" }
+	if = { limit = { level = 251 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=251" }
+	if = { limit = { level = 252 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=252" }
+	if = { limit = { level = 253 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=253" }
+	if = { limit = { level = 254 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=254" }
+	if = { limit = { level = 255 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=255" }
+	if = { limit = { level = 256 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=256" }
+	if = { limit = { level > 256 } debug_log = "AOR1776_BRIDGE_V1|regional_levels=UNSUPPORTED_LEVEL" }
+}
+aor1776_bridge_export_probe_level = {
+	if = { limit = { level = 0 } debug_log = "AOR1776_BRIDGE_V1|probe_levels=0" }
+	if = { limit = { level = 1 } debug_log = "AOR1776_BRIDGE_V1|probe_levels=1" }
+	if = { limit = { level = 2 } debug_log = "AOR1776_BRIDGE_V1|probe_levels=2" }
+	if = { limit = { level = 3 } debug_log = "AOR1776_BRIDGE_V1|probe_levels=3" }
+	if = { limit = { level = 4 } debug_log = "AOR1776_BRIDGE_V1|probe_levels=4" }
+	if = { limit = { level > 4 } debug_log = "AOR1776_BRIDGE_V1|probe_levels=UNSUPPORTED_LEVEL" }
+}

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verifying your browser</title>
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      body {
+        align-items: center;
+        background: linear-gradient(145deg, #f4f7fb, #e9eff7);
+        color: #243247;
+        display: flex;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        justify-content: center;
+        margin: 0;
+        min-height: 100vh;
+        padding: 24px;
+      }
+      .verification-card {
+        background: #fff;
+        border: 1px solid #dfe7f1;
+        border-radius: 16px;
+        box-shadow: 0 16px 45px rgba(35, 55, 80, 0.12);
+        max-width: 440px;
+        opacity: 0;
+        padding: 40px;
+        text-align: center;
+        transform: translateY(6px);
+        transition: opacity 0.18s ease, transform 0.18s ease;
+        width: 100%;
+      }
+      .verification-card.visible { opacity: 1; transform: translateY(0); }
+      .spinner {
+        animation: spin 0.9s linear infinite;
+        border: 4px solid #dce7f5;
+        border-radius: 50%;
+        border-top-color: #2468a9;
+        height: 48px;
+        margin: 0 auto 24px;
+        width: 48px;
+      }
+      h1 { font-size: 1.45rem; margin: 0 0 12px; }
+      p { color: #5b6878; line-height: 1.5; margin: 0; }
+      .detail { font-size: 0.88rem; margin-top: 14px; min-height: 1.35em; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 1.8s; } }
+    </style>
+    <script type="text/javascript">
+      const REDIRECT_LOOP_THRESHOLD_MS = 3000; // 3 seconds
+      const orig = "\/bes_1\/content\/titleinfo\/29730681";
+      const nonce = "Hsy7DfaKKW1kJ6HbnUoFCCoT2FiwmuJz";
+      const powDifficulty = 19;
+      const translations = {
+        de: {
+          pageTitle: "Browser wird überprüft",
+          title: "Ihr Browser wird überprüft",
+          intro: "Diese kurze Prüfung hilft uns, Visual Library reaktionsschnell zu halten.",
+          preparing: "Überprüfung wird vorbereitet…",
+          solving: "Eine kurze Sicherheitsaufgabe wird gelöst…",
+          confirming: "Browser-Unterstützung wird bestätigt…",
+          finishing: "Aufgabe gelöst. Überprüfung wird abgeschlossen…",
+          errorTitle: "Browser-Verifizierung fehlgeschlagen",
+          retry: "Bitte laden Sie die Seite neu und versuchen Sie es erneut.",
+          cookies: "Bitte aktivieren Sie Cookies und laden Sie die Seite neu.",
+          noscript: "Bitte aktivieren Sie JavaScript und Cookies, um fortzufahren."
+        },
+        en: {
+          pageTitle: "Verifying your browser",
+          title: "Verifying your browser",
+          intro: "This quick check helps us keep Visual Library responsive.",
+          preparing: "Preparing verification…",
+          solving: "Solving a short security puzzle…",
+          confirming: "Confirming browser support…",
+          finishing: "Proof complete. Finishing verification…",
+          errorTitle: "Browser verification failed",
+          retry: "Please reload the page and try again.",
+          cookies: "Please enable cookies, then reload the page.",
+          noscript: "Please enable JavaScript and cookies to continue."
+        },
+        fr: {
+          pageTitle: "Vérification de votre navigateur",
+          title: "Vérification de votre navigateur",
+          intro: "Ce contrôle rapide nous aide à maintenir la réactivité de Visual Library.",
+          preparing: "Préparation de la vérification…",
+          solving: "Résolution d’un court défi de sécurité…",
+          confirming: "Confirmation de la compatibilité du navigateur…",
+          finishing: "Défi résolu. Finalisation de la vérification…",
+          errorTitle: "Échec de la vérification du navigateur",
+          retry: "Veuillez actualiser la page et réessayer.",
+          cookies: "Veuillez activer les cookies, puis actualiser la page.",
+          noscript: "Veuillez activer JavaScript et les cookies pour continuer."
+        },
+        it: {
+          pageTitle: "Verifica del browser",
+          title: "Verifica del browser in corso",
+          intro: "Questo rapido controllo ci aiuta a mantenere Visual Library reattiva.",
+          preparing: "Preparazione della verifica…",
+          solving: "Risoluzione di una breve verifica di sicurezza…",
+          confirming: "Controllo della compatibilità del browser…",
+          finishing: "Verifica risolta. Completamento in corso…",
+          errorTitle: "Verifica del browser non riuscita",
+          retry: "Ricarica la pagina e riprova.",
+          cookies: "Abilita i cookie, quindi ricarica la pagina.",
+          noscript: "Abilita JavaScript e i cookie per continuare."
+        }
+      };
+      const requestedLanguage = (navigator.language || "en").toLowerCase().split("-")[0];
+      const language = translations[requestedLanguage] ? requestedLanguage : "en";
+      const messages = translations[language];
+      document.documentElement.lang = language;
+      document.title = messages.pageTitle;
+
+      function withChallengeElement(id, callback) {
+          function apply() {
+              const element = document.getElementById(id);
+              if (element) callback(element);
+          }
+          if (document.readyState === "loading") {
+              document.addEventListener("DOMContentLoaded", apply, {once: true});
+          } else {
+              apply();
+          }
+      }
+
+      function setChallengeStatus(message) {
+          withChallengeElement("challenge-status", function(element) {
+              element.textContent = message;
+          });
+      }
+
+      function revealChallenge() {
+          withChallengeElement("challenge-card", function(element) {
+              element.classList.add("visible");
+          });
+      }
+
+      function localizeChallenge() {
+          withChallengeElement("challenge-title", function(element) {
+              element.textContent = messages.title;
+          });
+          withChallengeElement("challenge-intro", function(element) {
+              element.textContent = messages.intro;
+          });
+          withChallengeElement("challenge-noscript", function(element) {
+              element.textContent = messages.noscript;
+          });
+          setChallengeStatus(messages.preparing);
+      }
+
+      function showChallengeError(message) {
+          window.clearTimeout(challengeRevealTimer);
+          revealChallenge();
+          document.title = messages.errorTitle;
+          withChallengeElement("challenge-title", function(element) {
+              element.textContent = messages.errorTitle;
+          });
+          withChallengeElement("challenge-status", function(element) {
+              element.textContent = message;
+          });
+          withChallengeElement("challenge-spinner", function(element) {
+              element.style.display = "none";
+          });
+      }
+
+      localizeChallenge();
+      const challengeRevealTimer = window.setTimeout(revealChallenge, 200);
+
+      function solveProofOfWork(challengeNonce, difficulty) {
+          if (!difficulty) {
+              return Promise.resolve(null);
+          }
+          if (!window.Worker || !window.crypto || !window.crypto.subtle) {
+              return Promise.reject(new Error("proof of work is not supported"));
+          }
+
+          const workerSource = `
+            self.onmessage = async function(event) {
+              const nonce = event.data.nonce;
+              const difficulty = event.data.difficulty;
+              const encoder = new TextEncoder();
+              const fullBytes = Math.floor(difficulty / 8);
+              const remainingBits = difficulty - fullBytes * 8;
+              const mask = remainingBits ? (255 << (8 - remainingBits)) & 255 : 0;
+              const batchSize = 128;
+
+              function isValid(hash) {
+                for (let index = 0; index < fullBytes; index++) {
+                  if (hash[index] !== 0) return false;
+                }
+                return !remainingBits || (hash[fullBytes] & mask) === 0;
+              }
+
+              for (let base = 0; base <= 100000000; base += batchSize) {
+                const pending = [];
+                for (let offset = 0; offset < batchSize; offset++) {
+                  const counter = base + offset;
+                  const input = encoder.encode(nonce + ":" + counter);
+                  pending.push(crypto.subtle.digest("SHA-256", input).then(function(value) {
+                    return {counter: counter, hash: new Uint8Array(value)};
+                  }));
+                }
+                const results = await Promise.all(pending);
+                for (const result of results) {
+                  if (isValid(result.hash)) {
+                    self.postMessage({counter: result.counter});
+                    return;
+                  }
+                }
+              }
+              self.postMessage({error: "proof of work limit exceeded"});
+            };
+          `;
+
+          return new Promise(function(resolve, reject) {
+              const workerUrl = URL.createObjectURL(
+                  new Blob([workerSource], {type: "text/javascript"}));
+              const worker = new Worker(workerUrl);
+              worker.onmessage = function(event) {
+                  worker.terminate();
+                  URL.revokeObjectURL(workerUrl);
+                  if (event.data.error) {
+                      reject(new Error(event.data.error));
+                  } else {
+                      resolve(event.data.counter);
+                  }
+              };
+              worker.onerror = function() {
+                  worker.terminate();
+                  URL.revokeObjectURL(workerUrl);
+                  reject(new Error("proof of work worker failed"));
+              };
+              worker.postMessage({nonce: challengeNonce, difficulty: difficulty});
+          });
+      }
+
+      function reportFailure(reason) {
+          const body = "nonce=" + encodeURIComponent(nonce) +
+              "&reason=" + encodeURIComponent(reason);
+          navigator.sendBeacon("/js_check_beacon", new Blob([body], {
+              type: "application/x-www-form-urlencoded;charset=UTF-8"
+          }));
+      }
+
+      let attemptTimestamp = null;
+      try {
+        attemptTimestamp = localStorage.getItem("vlngx_js_check_attempt");
+      } catch (e) {
+        console.warn("JS Check: localStorage not available or read failed.", e);
+      }
+
+      const now = Date.now();
+      if (attemptTimestamp && (now - parseInt(attemptTimestamp) < REDIRECT_LOOP_THRESHOLD_MS)) {
+          reportFailure("redirect_loop");
+          showChallengeError(messages.cookies);
+      } else {
+          localStorage.setItem("vlngx_js_check_attempt", now.toString());
+          setChallengeStatus(powDifficulty ?
+              messages.solving : messages.confirming);
+          solveProofOfWork(nonce, powDifficulty).then(function(powCounter) {
+            setChallengeStatus(messages.finishing);
+            let verificationBody = "nonce=" + encodeURIComponent(nonce);
+            if (powCounter !== null) {
+                verificationBody += "&pow_counter=" + encodeURIComponent(powCounter);
+            }
+            return fetch("/js_check_verify", {
+              method: "POST",
+              headers: {"Content-Type": "application/x-www-form-urlencoded"},
+              body: verificationBody,
+              credentials: "same-origin"
+            });
+          }).then(function(response) {
+              if (!response.ok) {
+                  throw new Error("verification failed");
+              }
+              window.clearTimeout(challengeRevealTimer);
+              window.location.href = orig;
+          }).catch(function() {
+              reportFailure("verification_failed");
+              showChallengeError(messages.retry);
+          });
+      }
+
+    </script>
+  </head>
+  <body>
+    <main id="challenge-card" class="verification-card" aria-live="polite">
+      <div id="challenge-spinner" class="spinner" aria-hidden="true"></div>
+      <h1 id="challenge-title">Verifying your browser</h1>
+      <p id="challenge-intro">This quick check helps us keep Visual Library responsive.</p>
+      <p id="challenge-status" class="detail">Preparing verification…</p>
+      <noscript id="challenge-noscript">Please enable JavaScript and cookies to continue.</noscript>
+    </main>
+  </body>
+</html>
+        

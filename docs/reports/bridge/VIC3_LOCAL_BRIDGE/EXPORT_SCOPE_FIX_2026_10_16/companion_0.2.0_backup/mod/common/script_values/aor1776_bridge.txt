@@ -1,0 +1,16 @@
+﻿# Diagnostic values only; no economic effects. State scope except building level.
+aor1776_bridge_building_level = { value = 1 multiply = level }
+aor1776_bridge_regional_levels = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_type = building_railway }
+		add = aor1776_bridge_building_level
+	}
+}
+aor1776_bridge_probe_levels = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_type = building_aor1776_visual_rail_probe }
+		add = aor1776_bridge_building_level
+	}
+}

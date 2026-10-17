@@ -1,5 +1,7 @@
 # Lot belge impérial — appliqué le 13 octobre 2026
 
+Mise à jour du 14 octobre : **PASS_RUNTIME_USER_VALIDATED** pour les territoires belges et principautés inspectés par le joueur dans une nouvelle partie. Test manuel déclaré, pas test moteur automatisé ni certification historique exhaustive. Les anomalies héritées et les limites ci-dessous restent ouvertes. Reçu commun : `../RUNTIME_USER_VALIDATION.json`.
+
 ## Résultat et périmètre
 
 Deux États impériaux autonomes sont désormais définis au démarrage : la principauté de Liège (`LGE`) et Stavelot-Malmedy (`STM`). Les Pays-Bas autrichiens (`BEO`) conservent les autres possessions représentées dans le lot. Liège possède aussi sa partie de Looz dans la région économique de Flandre.

@@ -1,0 +1,82 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\subject_types\1776_imperial_reforms.txt
+@@
+ subject_type_aor1776_hre_protectorate = {
+ 	allow_change_country_flag = no
+ 	use_overlord_map_color = no
+ 	use_overlord_ruler = no
+ 	annex_on_country_formation = no
+ 	can_start_own_diplomatic_plays = yes
+ 	breaks_if_subject_not_protected = no
+ 	join_overlord_wars = no
+ 	can_have_subjects = yes
+ 	overlord_must_be_higher_rank = no
+ 	overlord_must_be_same_country_type = no
+ 	use_for_release_country = no
+ 	gives_prestige_to_overlord = yes
+-	can_offer_to_become_in_sway_offers = no
++	can_offer_to_become_in_sway_offers = yes
+ 
+ 	diplomatic_action = aor1776_hre_protectorate
+ 
+     autonomy_level = 2
+     category = same_as_puppet
+ 
+ 	lower_autonomy_subject_type_alternatives = {}
+ 
+ 	same_autonomy_subject_type_alternatives = {}
+ 
+-	valid_overlord_country_types = { recognized }
++	valid_overlord_country_types = { recognized colonial company }
+ 
+-	valid_subject_country_types = { recognized }
++	valid_subject_country_types = { recognized unrecognized colonial }
+ 
+ 	valid_overlord_ranks = { great_power major_power minor_power insignificant_power unrecognized_major_power unrecognized_regional_power unrecognized_power }
+ 
+ 	valid_subject_ranks = { great_power major_power minor_power insignificant_power unrecognized_major_power unrecognized_regional_power unrecognized_power }
+ 
+ 	# Multiplies both subject_value and become_subject_value in AI strategies
+ 	# Higher value means AI is more interested in having this type of subject but less interested in *being* this type of subject
+ 	# Cannot return a value lower than MIN_SUBJECT_TYPE_VALUE
+ 	ai_value = {
+ 		value = 1
+ 	}
+ 
+-can_be_used_in_sway_offers = no
+-
+ higher_autonomy_subject_type_alternatives = {}
+ }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\diplomatic_actions\1776_imperial_subjects.txt
+@@
+ aor1776_hre_protectorate = {
+ groups = { general power_bloc }
+ texture = "gfx/interface/icons/diplomatic_action_icons/aor1776_imperial_obligation.dds"
+ show_in_lens = no
+ potential = { always = no }
+ pact = { cost = 0 has_junior_participant = yes subject_type = subject_type_aor1776_hre_protectorate
+  income_transfer = 0.00
+  second_country_gets_income_transfer = no income_transfer_based_on_second_country = yes
+- actor_can_break = { is_diplomatic_play_committed_participant = no }
++ actor_can_break = { always = no }
+  target_can_break = { always = no }
+ }
+ ai = { will_break = { always = no } will_propose = { always = no } }
+ }
+ 
+ # Hidden deprecated pact alias; not an additional subject type.
+ aor1776_hre_crownland = {
+ groups = { general power_bloc }
+ texture = "gfx/interface/icons/diplomatic_action_icons/aor1776_imperial_obligation.dds"
+ show_in_lens = no
+ potential = { always = no }
+ pact = { cost = 0 has_junior_participant = yes subject_type = subject_type_aor1776_hre_protectorate
+  income_transfer = 0.00
+  second_country_gets_income_transfer = no income_transfer_based_on_second_country = yes
+- actor_can_break = { is_diplomatic_play_committed_participant = no }
++ actor_can_break = { always = no }
+  target_can_break = { always = no }
+ }
+ ai = { will_break = { always = no } will_propose = { always = no } }
+ }
+*** End Patch

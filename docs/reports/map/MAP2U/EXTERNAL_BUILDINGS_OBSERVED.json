@@ -1,0 +1,88 @@
+{
+  "provenance": "Observed concurrent workspace edits after MAP2U installation; not authored or reverted by this lot",
+  "files": {
+    "common/history/buildings/99_1776_econ_paper_forestry_livestock.txt": {
+      "before": null,
+      "observed": "0d8204b7f475f11d3e00b52718d6aeb84627da1ba22addde08c7e0839f1e01e3",
+      "text": "# ECON-PAPER-1776 and player-requested forestry/livestock additions, 2026-10-17.\n# Five relocated logging levels offset 4.5 infrastructure used by Brandenburg paper.\nBUILDINGS = {\n\ts:STATE_AUSTRIA = {\n\t\tregion_state:AUS = {\n\t\t\tcreate_building = {\n\t\t\t\tbuilding = \"building_paper_mill\"\n\t\t\t\tadd_ownership = { building = { type = \"building_financial_district\" country = \"c:AUS\" levels = 4 region = \"STATE_AUSTRIA\" } }\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_pulp_pressing\" \"pm_automation_disabled\" \"pm_1776_no_raw_data_reporting\" }\n\t\t\t}\n\t\t}\n\t}\n\ts:STATE_BRANDENBURG = {\n\t\tregion_state:PRU = {\n\t\t\tcreate_building = {\n\t\t\t\tbuilding = \"building_paper_mill\"\n\t\t\t\tadd_ownership = { building = { type = \"building_financial_district\" country = \"c:PRU\" levels = 3 region = \"STATE_BRANDENBURG\" } }\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_pulp_pressing\" \"pm_automation_disabled\" \"pm_1776_no_raw_data_reporting\" }\n\t\t\t}\n\t\t}\n\t}\n\ts:STATE_SAXONY = {\n\t\tregion_state:SAX = {\n\t\t\tcreate_building = {\n\t\t\t\tbuilding = \"building_paper_mill\"\n\t\t\t\tadd_ownership = { building = { type = \"building_financial_district\" country = \"c:SAX\" levels = 2 region = \"STATE_SAXONY\" } }\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_pulp_pressing\" \"pm_automation_disabled\" \"pm_1776_no_raw_data_reporting\" }\n\t\t\t}\n\t\t}\n\t}\n\ts:STATE_LOWER_SILESIA = {\n\t\tregion_state:PRU = {\n\t\t\tcreate_building = {\n\t\t\t\tbuilding = \"building_paper_mill\"\n\t\t\t\tadd_ownership = { building = { type = \"building_financial_district\" country = \"c:PRU\" levels = 1 region = \"STATE_LOWER_SILESIA\" } }\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_pulp_pressing\" \"pm_automation_disabled\" \"pm_1776_no_raw_data_reporting\" }\n\t\t\t}\n\t\t}\n\t}\n\ts:STATE_SAXONY = {\n\t\tregion_state:SAX = {\n\t\t\tcreate_building = {\n\t\t\t\tbuilding = \"building_logging_camp\"\n\t\t\t\tadd_ownership = { building = { type = \"building_financial_district\" country = \"c:SAX\" levels = 2 region = \"STATE_SAXONY\" } }\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_organized_forestry\" \"pm_no_hardwood\" \"pm_no_equipment\" \"pm_road_carts\" }\n\t\t\t}\n\t\t}\n\t}\n\ts:STATE_LOWER_SILESIA = {\n\t\tregion_state:PRU = {\n\t\t\tcreate_building = {\n\t\t\t\tbuilding = \"building_logging_camp\"\n\t\t\t\tadd_ownership = { country = { country = \"c:PRU\" levels = 3 } }\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_organized_forestry\" \"pm_no_hardwood\" \"pm_no_equipment\" \"pm_road_carts\" }\n\t\t\t}\n\t\t}\n\t}\n\ts:STATE_UPPER_SILESIA = {\n\t\tregion_state:PRU = {\n\t\t\tcreate_building = {\n\t\t\t\tbuilding = \"building_logging_camp\"\n\t\t\t\tadd_ownership = { country = { country = \"c:PRU\" levels = 2 } }\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_organized_forestry\" \"pm_hardwood\" \"pm_no_equipment\" \"pm_road_carts\" }\n\t\t\t}\n\t\t}\n\t}\n\ts:STATE_BAVARIA = {\n\t\tregion_state:BAV = {\n\t\t\tcreate_building = {\n\t\t\t\tbuilding = \"building_livestock_ranch\"\n\t\t\t\tadd_ownership = { building = { type = \"building_manor_house\" country = \"c:BAV\" levels = 5 region = \"STATE_BAVARIA\" } }\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_open_air_stockyards\" \"pm_simple_ranch\" \"pm_standard_fences\" \"pm_unrefrigerated\" }\n\t\t\t}\n\t\t}\n\t}\n}\n"
+    },
+    "common/history/buildings/99_1776_prussian_forestry_addon.txt": {
+      "before": "02b5a8335befb64f3c31ec36688fcf982205d414e7e54c74148202be67a0cc12",
+      "observed": "4c738eaf8a117ca771d28f739dd61b674e8ad3c6b67181e91bdbc7d06c53efde",
+      "text": "BUILDINGS = {\n s:STATE_BRANDENBURG = { region_state:PRU = { create_building = { building = \"building_logging_camp\" add_ownership = { country = { country = \"c:PRU\" levels = 1 } } reserves = 1 activate_production_methods = { \"pm_organized_forestry\" \"pm_no_hardwood\" \"pm_no_equipment\" \"pm_road_carts\" } } } }\n s:STATE_POMERANIA = { region_state:PRU = { create_building = { building = \"building_logging_camp\" add_ownership = { country = { country = \"c:PRU\" levels = 4 } } reserves = 1 activate_production_methods = { \"pm_organized_forestry\" \"pm_no_hardwood\" \"pm_no_equipment\" \"pm_road_carts\" } } } }\n}\n"
+    },
+    "common/history/buildings/99_1776_prussian_start_micro_adjustment.txt": {
+      "before": "d8533e64ea983e2a25af102d844ff8451d7fceb1202d0b740425055a4412fd50",
+      "observed": "9711c9c4a5b9f6e49ffcb15d3225e473d9cd9bf5ce5c1feede5661cdb853d0a0",
+      "text": "BUILDINGS = {\n s:STATE_LOWER_SILESIA = { region_state:PRU = {\ncreate_building = {\n\t\t\t\tbuilding = \"building_livestock_ranch\"\n\t\t\t\tadd_ownership = {\n\t\t\t\t\tbuilding = {\n\t\t\t\t\t\ttype = \"building_manor_house\"\n\t\t\t\t\t\tcountry = \"c:PRU\"\n\t\t\t\t\t\tlevels = 2\n\t\t\t\t\t\tregion = \"STATE_BRANDENBURG\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_open_air_stockyards\" \"pm_simple_ranch\" \"pm_standard_fences\" \"pm_unrefrigerated\" }\n\t\t\t}\n } }\n s:STATE_POMERANIA = { region_state:PRU = {\ncreate_building = {\n\t\t\t\tbuilding = \"building_livestock_ranch\"\n\t\t\t\tadd_ownership = {\n\t\t\t\t\tbuilding = {\n\t\t\t\t\t\ttype = \"building_manor_house\"\n\t\t\t\t\t\tcountry = \"c:PRU\"\n\t\t\t\t\t\tlevels = 2\n\t\t\t\t\t\tregion = \"STATE_BRANDENBURG\"\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\treserves = 1\n\t\t\t\tactivate_production_methods = { \"pm_open_air_stockyards\" \"pm_simple_ranch\" \"pm_standard_fences\" \"pm_unrefrigerated\" }\n\t\t\t}\n } }\n s:STATE_BRUNSWICK = { region_state:PRU = {\ncreate_building = { building = \"building_lead_mine\" add_ownership = { building = { type = \"building_financial_district\" country = \"c:PRU\" levels = 1 region = \"STATE_BRUNSWICK\" } } reserves = 1 activate_production_methods = { \"pm_picks_and_shovels_building_lead_mine\" \"pm_no_explosives\" \"pm_no_steam_automation\" \"pm_road_carts\" \"pm_no_ore_concentration_building_lead_mine\" \"pm_no_mine_ventilation\" } }\n } }\n \n}\n"
+    }
+  },
+  "deltas": {
+    "buildings": [
+      {
+        "key": "[\"STATE_AUSTRIA\", \"AUS\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_paper_mill\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",[[\\\"type\\\",\\\"=\\\",\\\"building_financial_district\\\"],[\\\"country\\\",\\\"=\\\",\\\"c:AUS\\\"],[\\\"levels\\\",\\\"=\\\",\\\"4\\\"],[\\\"region\\\",\\\"=\\\",\\\"STATE_AUSTRIA\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_pulp_pressing\\\"],[\\\"\\\",\\\"\\\",\\\"pm_automation_disabled\\\"],[\\\"\\\",\\\"\\\",\\\"pm_1776_no_raw_data_reporting\\\"]]]]]\"]",
+        "delta": 1
+      },
+      {
+        "key": "[\"STATE_BAVARIA\", \"BAV\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_livestock_ranch\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",[[\\\"type\\\",\\\"=\\\",\\\"building_manor_house\\\"],[\\\"country\\\",\\\"=\\\",\\\"c:BAV\\\"],[\\\"levels\\\",\\\"=\\\",\\\"5\\\"],[\\\"region\\\",\\\"=\\\",\\\"STATE_BAVARIA\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_open_air_stockyards\\\"],[\\\"\\\",\\\"\\\",\\\"pm_simple_ranch\\\"],[\\\"\\\",\\\"\\\",\\\"pm_standard_fences\\\"],[\\\"\\\",\\\"\\\",\\\"pm_unrefrigerated\\\"]]]]]\"]",
+        "delta": 1
+      },
+      {
+        "key": "[\"STATE_BRANDENBURG\", \"PRU\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_logging_camp\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"country\\\",\\\"=\\\",[[\\\"country\\\",\\\"=\\\",\\\"c:PRU\\\"],[\\\"levels\\\",\\\"=\\\",\\\"1\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_organized_forestry\\\"],[\\\"\\\",\\\"\\\",\\\"pm_no_hardwood\\\"],[\\\"\\\",\\\"\\\",\\\"pm_no_equipment\\\"],[\\\"\\\",\\\"\\\",\\\"pm_road_carts\\\"]]]]]\"]",
+        "delta": 1
+      },
+      {
+        "key": "[\"STATE_BRANDENBURG\", \"PRU\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_logging_camp\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"country\\\",\\\"=\\\",[[\\\"country\\\",\\\"=\\\",\\\"c:PRU\\\"],[\\\"levels\\\",\\\"=\\\",\\\"6\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_organized_forestry\\\"],[\\\"\\\",\\\"\\\",\\\"pm_no_hardwood\\\"],[\\\"\\\",\\\"\\\",\\\"pm_no_equipment\\\"],[\\\"\\\",\\\"\\\",\\\"pm_road_carts\\\"]]]]]\"]",
+        "delta": -1
+      },
+      {
+        "key": "[\"STATE_BRANDENBURG\", \"PRU\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_paper_mill\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",[[\\\"type\\\",\\\"=\\\",\\\"building_financial_district\\\"],[\\\"country\\\",\\\"=\\\",\\\"c:PRU\\\"],[\\\"levels\\\",\\\"=\\\",\\\"3\\\"],[\\\"region\\\",\\\"=\\\",\\\"STATE_BRANDENBURG\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_pulp_pressing\\\"],[\\\"\\\",\\\"\\\",\\\"pm_automation_disabled\\\"],[\\\"\\\",\\\"\\\",\\\"pm_1776_no_raw_data_reporting\\\"]]]]]\"]",
+        "delta": 1
+      },
+      {
+        "key": "[\"STATE_LOWER_SILESIA\", \"PRU\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_logging_camp\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"country\\\",\\\"=\\\",[[\\\"country\\\",\\\"=\\\",\\\"c:PRU\\\"],[\\\"levels\\\",\\\"=\\\",\\\"3\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_organized_forestry\\\"],[\\\"\\\",\\\"\\\",\\\"pm_no_hardwood\\\"],[\\\"\\\",\\\"\\\",\\\"pm_no_equipment\\\"],[\\\"\\\",\\\"\\\",\\\"pm_road_carts\\\"]]]]]\"]",
+        "delta": 1
+      },
+      {
+        "key": "[\"STATE_LOWER_SILESIA\", \"PRU\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_paper_mill\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",[[\\\"type\\\",\\\"=\\\",\\\"building_financial_district\\\"],[\\\"country\\\",\\\"=\\\",\\\"c:PRU\\\"],[\\\"levels\\\",\\\"=\\\",\\\"1\\\"],[\\\"region\\\",\\\"=\\\",\\\"STATE_LOWER_SILESIA\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_pulp_pressing\\\"],[\\\"\\\",\\\"\\\",\\\"pm_automation_disabled\\\"],[\\\"\\\",\\\"\\\",\\\"pm_1776_no_raw_data_reporting\\\"]]]]]\"]",
+        "delta": 1
+      },
+      {
+        "key": "[\"STATE_SAXONY\", \"SAX\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_logging_camp\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",[[\\\"type\\\",\\\"=\\\",\\\"building_financial_district\\\"],[\\\"country\\\",\\\"=\\\",\\\"c:SAX\\\"],[\\\"levels\\\",\\\"=\\\",\\\"2\\\"],[\\\"region\\\",\\\"=\\\",\\\"STATE_SAXONY\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_organized_forestry\\\"],[\\\"\\\",\\\"\\\",\\\"pm_no_hardwood\\\"],[\\\"\\\",\\\"\\\",\\\"pm_no_equipment\\\"],[\\\"\\\",\\\"\\\",\\\"pm_road_carts\\\"]]]]]\"]",
+        "delta": 1
+      },
+      {
+        "key": "[\"STATE_SAXONY\", \"SAX\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_paper_mill\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",[[\\\"type\\\",\\\"=\\\",\\\"building_financial_district\\\"],[\\\"country\\\",\\\"=\\\",\\\"c:SAX\\\"],[\\\"levels\\\",\\\"=\\\",\\\"2\\\"],[\\\"region\\\",\\\"=\\\",\\\"STATE_SAXONY\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_pulp_pressing\\\"],[\\\"\\\",\\\"\\\",\\\"pm_automation_disabled\\\"],[\\\"\\\",\\\"\\\",\\\"pm_1776_no_raw_data_reporting\\\"]]]]]\"]",
+        "delta": 1
+      },
+      {
+        "key": "[\"STATE_UPPER_SILESIA\", \"PRU\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_logging_camp\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"country\\\",\\\"=\\\",[[\\\"country\\\",\\\"=\\\",\\\"c:PRU\\\"],[\\\"levels\\\",\\\"=\\\",\\\"2\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_organized_forestry\\\"],[\\\"\\\",\\\"\\\",\\\"pm_hardwood\\\"],[\\\"\\\",\\\"\\\",\\\"pm_no_equipment\\\"],[\\\"\\\",\\\"\\\",\\\"pm_road_carts\\\"]]]]]\"]",
+        "delta": 1
+      },
+      {
+        "key": "[\"STATE_WEST_PRUSSIA\", \"PRU\", \"[\\\"create_building\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",\\\"building_paper_mill\\\"],[\\\"add_ownership\\\",\\\"=\\\",[[\\\"building\\\",\\\"=\\\",[[\\\"type\\\",\\\"=\\\",\\\"building_financial_district\\\"],[\\\"country\\\",\\\"=\\\",\\\"c:PRU\\\"],[\\\"levels\\\",\\\"=\\\",\\\"2\\\"],[\\\"region\\\",\\\"=\\\",\\\"STATE_WEST_PRUSSIA\\\"]]]]],[\\\"reserves\\\",\\\"=\\\",\\\"1\\\"],[\\\"activate_production_methods\\\",\\\"=\\\",[[\\\"\\\",\\\"\\\",\\\"pm_pulp_pressing\\\"],[\\\"\\\",\\\"\\\",\\\"pm_automation_disabled\\\"]]]]]\"]",
+        "delta": -1
+      }
+    ],
+    "building_levels_written": [
+      {
+        "key": "\"building_livestock_ranch\"",
+        "delta": 5
+      },
+      {
+        "key": "\"building_logging_camp\"",
+        "delta": 2
+      },
+      {
+        "key": "\"building_paper_mill\"",
+        "delta": 8
+      }
+    ]
+  },
+  "level_delta": {
+    "building_livestock_ranch": 5,
+    "building_logging_camp": 2,
+    "building_paper_mill": 8
+  },
+  "MAP2U_building_changes": false
+}

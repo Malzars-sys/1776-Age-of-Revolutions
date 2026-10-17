@@ -1,0 +1,19 @@
+# Route-graphics root is a country; the engine supplies the local state as a
+# saved scope. Do not infer a local railway from technology or market supply.
+aor1776_gfx_local_rail_network = {
+	scope:state = {
+		any_scope_building = {
+			is_building_type = building_railway
+			level >= 1
+			OR = {
+				has_active_production_method = pm_early_trains
+				has_active_production_method = pm_steam_trains
+				has_active_production_method = pm_steam_trains_principle_transport_3
+				has_active_production_method = pm_electric_trains
+				has_active_production_method = pm_electric_trains_principle_transport_3
+				has_active_production_method = pm_diesel_trains
+				has_active_production_method = pm_diesel_trains_principle_transport_3
+			}
+		}
+	}
+}

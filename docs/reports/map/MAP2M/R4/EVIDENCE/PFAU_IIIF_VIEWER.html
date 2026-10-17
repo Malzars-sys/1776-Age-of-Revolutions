@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Language" content="en" />
+        <title>Mirabilium Collectio  </title>
+        <meta name="Author" content="PSNC, Poznan Supercomputer and Networking Center" />
+        <meta name="Design" content="PSNC, Poznan Supercomputer and Networking Center" />
+        <meta name="Publisher" content="PSNC, Poznan Supercomputer and Networking Center" />
+        <meta name="Copyright" content="Copyright (C) 2003 - 2006 PSNC, Poznan Supercomputer and Networking Center" />
+        <meta http-equiv="Reply-to" content="dlibra.at.man.poznan.pl" />
+
+        <meta name="Rating" content="general" />
+        <meta name="MSSmartTagsPreventParsing" content="true" />
+        <meta name="Robots" content="index, follow" />
+        <meta http-equiv="Distribution" content="global" />
+        <meta name="Revisit-after" content="3 days" />
+        <meta http-equiv="Pragma" content="NoCache" />
+
+		  <meta name="Description" content="Mirabilium Collectio,  " />
+	
+		<link rel="icon" type="image/png" href="https://mirabilia.amu.edu.pl/style/common/img/icons/favicon.png" sizes="16x16" media="(prefers-color-scheme: light)"> 
+		<link rel="icon" type="image/png" href="https://mirabilia.amu.edu.pl/style/common/img/icons/favicon-dark.png" sizes="16x16" media="(prefers-color-scheme: dark)">
+		
+		<script type="text/javascript" src="https://mirabilia.amu.edu.pl/style/common/js/jquery-3.6.0.js"></script>
+		<script type="text/javascript" src="https://mirabilia.amu.edu.pl/style/dlibra/js/dlibra.js"></script>
+		<script type="text/javascript" src="https://mirabilia.amu.edu.pl/style/common/js/jquery-block-ui-2.70.0.js"></script>
+		<script type="text/javascript" src="https://mirabilia.amu.edu.pl/style/common/js/jquery-tooltip/jquery-tooltip-dlibra-1.3.js"></script>
+</head>
+<body>
+<div id="securedContent"  class="contentIE" >   <link rel="stylesheet" type="text/css" href="https://mirabilia.amu.edu.pl/formats/iiif/uv.css">
+<script type="text/javascript" src="https://mirabilia.amu.edu.pl/formats/iiif/umd/UV.js"></script>
+
+<style>
+	html, body, #securedContent, .uv {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		background: #000;
+	}
+
+	iframe {
+		vertical-align: top
+	}
+
+	.uv .mainPanel {
+		padding-bottom: 0px;
+	}
+
+	.uv .overlay.adjustImage input[type="range"] {
+		width: 300px;
+	}
+
+	.uv-iiif-extension-host.uv-openseadragon-extension .centerPanel .content .annotationRect {
+		background-color: #880;
+	}
+
+	.uv-iiif-extension-host.uv-openseadragon-extension .centerPanel .content .annotationRect.current {
+		background-color: #830;
+	}
+
+	.uv .footerPanel .searchResults {
+		z-index: 20;
+	}
+}
+</style>
+
+
+
+
+
+
+<div id="uv" class="uv"></div>
+
+<script>
+	const data = {
+		root: "https://mirabilia.amu.edu.pl/formats/iiif",
+		manifest: "https://mirabilia.amu.edu.pl/iiif/manifest/588634.json",
+		canvasIndex: 0,
+		locales: [{name: "en-GB"}]
+	};
+
+	uv = UV.init("uv", data);
+
+	uv.on("configure", function ({ config, cb }) {
+		cb({
+			options: {
+				rightPanelEnabled: false,
+				zoomToBoundsEnabled: false
+			},
+			modules: {
+				footerPanel: {
+					options: {
+						downloadEnabled: true
+					}
+				},
+				mobileFooterPanel: {
+					options: {
+						downloadEnabled: true
+					}
+				},
+				searchFooterPanel: {
+					options: {
+						downloadEnabled: true
+					}
+				}
+			}
+		});
+	});
+</script>
+
+</div>
+<div id="info">
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# Bookmark initialization is complete: use actual starting laws, not a global
+# default or a culture whitelist. Child action preserves existing startup effects.
+on_game_started = {
+	on_actions = { aor1776_customary_landowners_initialize }
+}
+
+aor1776_customary_landowners_initialize = {
+	effect = {
+		every_country = {
+			limit = {
+				OR = {
+					has_law = law_type:law_chiefdom
+					has_law = law_type:law_elder_council
+				}
+			}
+			ig:ig_landowners ?= {
+				if = {
+					limit = {
+						NOT = { has_ideology = ideology:ideology_aor1776_customary_landowners }
+					}
+					add_ideology = ideology_aor1776_customary_landowners
+				}
+			}
+		}
+	}
+}

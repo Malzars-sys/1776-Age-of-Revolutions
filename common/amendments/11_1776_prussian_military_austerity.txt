@@ -1,0 +1,17 @@
+# Prussian starting amendment for the professional army.
+amendment_1776_prussian_military_austerity = {
+	parent = law_professional_army
+	allowed_laws = { law_professional_army }
+
+	modifier = {
+		country_military_goods_cost_mult = -0.15
+		country_military_wages_mult = -0.15
+		country_military_tech_research_speed_mult = -0.10
+	}
+
+	possible = { c:PRU ?= this }
+	would_sponsor = { always = no }
+	ai_will_revoke = { always = no }
+	can_repeal = { legitimacy >= legitimacy_to_repeal_amendment }
+	amendment_activism_multiplier = 0.25
+}

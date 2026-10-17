@@ -1,0 +1,149 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\00_west_europe.txt
+@@
+ 
+ 
+ 			create_building={
+ 				building="building_railway"
+ 				add_ownership={
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:FRA"
+ 						levels=5
+ 						region="STATE_RHONE"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+ 			}
+-						create_building={
+-							building="building_arms_industry"
+-							add_ownership={
+-								country={
+-									country="c:FRA"
+-									levels=2
+-								}
+-							}
+-							reserves=1
+-							activate_production_methods = { "pm_muskets" "pm_automation_disabled" "pm_no_scientific_management" }
+-						}
++						
+ 						create_building={
+ 							building="building_coal_mine"
+ 							add_ownership={
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:FRA"
+ 									levels=1
+ 									region="STATE_RHONE"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_coal_mine" "pm_no_mine_ventilation" }
+ 						}
+ 						create_building={
+ 							building="building_food_industry"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\11_east_asia.txt
+@@
+ 
+ 
+ 
+ 		}
+ 	}
+ 	s:STATE_GUANGDONG={
+ 		region_state:CHI={
+ 
+ 			create_building={
+ 				building="building_trade_center"
+ 				activate_production_methods={ "pm_trade_center_trade_quantity_normal" }
+ 				add_ownership={
+ 					building={
+ 						type="building_trade_center"
+ 						country="c:CHI"
+-						levels=5
++						levels=10
+ 						region="STATE_GUANGDONG"
+ 					}
+ 				}
+ 				reserves=1
+ 			}
+ 
+ 
+ 
+ 
+ 
+ 			create_building={
+ 				building="building_shipyard"
+ 				add_ownership={
+ 					country={
+ 						country="c:CHI"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\98_build_start_1776_world_redistribution.txt
+@@
+ 							add_ownership={
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:USA"
+ 									levels=1
+ 									region="STATE_RHODE_ISLAND"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_simple_whaling" "pm_unrefrigerated" }
+ 						}
+ 		}
+ 	}
+ 	s:STATE_RHONE = {
+ 		region_state:FRA = {
+-						create_building={
+-							building="building_arms_industry"
+-							add_ownership={
+-								country={
+-									country="c:FRA"
+-									levels=2
+-								}
+-							}
+-							reserves=1
+-							activate_production_methods = { "pm_muskets" "pm_automation_disabled" "pm_no_scientific_management" }
+-						}
++						
+ 						create_building={
+ 							building="building_coal_mine"
+ 							add_ownership={
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:FRA"
+ 									levels=1
+ 									region="STATE_RHONE"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_coal_mine" "pm_no_mine_ventilation" }
+ 						}
+ 						create_building={
+ 							building="building_food_industry"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\99_1776_player_industry_agriculture_addon.txt
+@@
+ # Player-requested additions, 2026-10-15. Existing histories are additive and untouched.
+ BUILDINGS = {
+ 	s:STATE_RHONE = {
+ 		region_state:FRA = {
+ 			create_building = {
+ 				building = "building_arms_industry"
+-				add_ownership = { country = { country = "c:FRA" levels = 3 } }
++				add_ownership = { country = { country = "c:FRA" levels = 5 } }
+ 				reserves = 1
+ 				activate_production_methods = { "pm_muskets" "pm_automation_disabled" "pm_no_scientific_management" "pm_1776_no_raw_data_reporting" }
+ 			}
+ 		}
+ 	}
+ 	s:STATE_AUSTRIA = {
+ 		region_state:AUS = {
+ 			create_building = {
+ 				building = "building_arms_industry"
+ 				add_ownership = { country = { country = "c:AUS" levels = 3 } }
+ 				reserves = 1
+ 				activate_production_methods = { "pm_muskets" "pm_automation_disabled" "pm_no_scientific_management" "pm_1776_no_raw_data_reporting" }
+ 			}
+ 		}
+ 	}
+*** End Patch

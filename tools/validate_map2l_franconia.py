@@ -9,7 +9,7 @@ import validate_diplomacy_ottoman_1776 as cw
 from map_1776_audit import effective,values
 from map2l_franconia import ROOT,OUT,SID,TAGS,baseline,packed,sha,csvout
 from map2l_hre_work import GIT
-from map2l_registry import active_registry_path,apply_territorial_migrations,approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent
+from map2l_registry import active_registry_path,apply_territorial_migrations,approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent,expected_country_definitions
 from validate_map2k_imperial import node,textnode,profiles
 
 
@@ -40,8 +40,10 @@ def validate():
         for r in ownership_rows(m,'previous'):expected[(r['rgb'],r['state'],r['beneficiary'])]-=1
         for r in ownership_rows(m,'updated'):expected[(r['rgb'],r['state'],r['beneficiary'])]+=1
     check('Exact reviewed owners; all other territories unchanged',+expected==qa.counter(a['owners']))
-    check('Exactly five new estate tags',set(a['countries'])-set(b['inventory']['countries'])==set(TAGS))
-    check('All previous country definitions preserved',all(a['countries'][t]==s for t,s in b['inventory']['countries'].items()))
+    subsequent_tags={t for fp in later_dirs for t in json.loads((fp/'REGISTRY_MIGRATION.json').read_text())['new_members']}
+    check('Exactly five Franconian estate tags plus explicitly approved subsequent estates',set(a['countries'])-set(b['inventory']['countries'])==set(TAGS)|subsequent_tags)
+    expected_definitions=expected_country_definitions(b['inventory']['countries'],[json.loads((fp/'REGISTRY_MIGRATION.json').read_text()) for fp in later_dirs])
+    check('Previous country definitions preserved except exact reviewed WUR tier',all(a['countries'][t]==expected_definitions[t] for t in b['inventory']['countries']))
     check('Every new capital state is owned',all([SID,t] in a['states'] for t in TAGS))
     bmp=packed(ROOT/'map_data/provinces.png');oldbmp=packed(ROOT/b['bitmap_backup']);new={int(r['rgb'][1:],16):r for r in g['new_provinces']}
     check('Baseline bitmap still exact',sha(ROOT/b['bitmap_backup'])==b['bitmap_sha256'])
@@ -129,6 +131,8 @@ def validate():
         population_by_country=dict(population),world_population=835804980,new_countries=TAGS,new_RGBs=len(new),registered_RGBs=len(ledger),
         changed_pixels=int(delta.sum()),runtime_changed_files=changed,engine_tested=False,limitations=g['limitations'],
         inherited_errors=a['errors'],inherited_duplicate_RGBs=a['duplicates'])
+    from map2l_runtime_receipt import annotate
+    annotate(report,OUT)
     (OUT/'VALIDATION.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     print(report['status'],len(checks),'checks;',dict(population))
     for row in checks:

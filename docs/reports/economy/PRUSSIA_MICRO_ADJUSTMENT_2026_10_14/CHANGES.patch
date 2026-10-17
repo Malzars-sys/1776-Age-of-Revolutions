@@ -1,0 +1,167 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\00_west_europe.txt
+@@
+ 				add_ownership={
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:PRU"
+ 						levels=1
+ 						region="STATE_BRANDENBURG"
+ 					}
+ 				}
+ 				reserves=1
+ 			}
+ 			create_building={
+ 				building="building_government_administration"
+ 				add_ownership={
+ 					country={
+ 						country="c:PRU"
+-						levels=13
++						levels = 7
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_horizontal_drawer_cabinets" "pm_professional_bureaucrats" "pm_religious_bureaucrats" }
+ 			}
+ 
+ 			create_building={
+ 				building="building_university"
+ 				add_ownership={
+ 					country={
+ 						country="c:PRU"
+ 						levels=1
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_scholastic_education" "pm_religious_academia" }
+ 			}
+ 			create_building={
+ 				building="building_arms_industry"
+ 				add_ownership={
+ 					country={
+ 						country="c:PRU"
+-						levels=4
++						levels = 6
+ 					}
+ 
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_muskets" "pm_automation_disabled"  }
+ 			}
+ 						create_building={
+ 							building="building_artillery_foundry"
+ 							add_ownership={
+ 								country={
+ 									country="c:PRU"
+ 									levels=1
+ 								}
+ 							}
+ 							reserves=1
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\02_east_europe.txt
+@@
+ 						levels=1
+ 						region="STATE_UPPER_SILESIA"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods = { "pm_picks_and_shovels_building_coal_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
+ 			}
+ 
+ 			create_building={
+ 				building="building_iron_mine"
+ 				add_ownership={
+ 
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:PRU"
+-						levels=1
++						levels = 3
+ 						region="STATE_UPPER_SILESIA"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods = { "pm_picks_and_shovels_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" }
+ 			}
+ 						create_building={
+ 							building="building_railway"
+ 							add_ownership={
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:PRU"
+ 									levels=2
+ 									region="STATE_UPPER_SILESIA"
+ 								}
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\98_build_start_1776_world_redistribution.txt
+@@
+ 									levels=5
+ 									region="STATE_BRANDENBURG"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
+ 						}
+ 
+ 			# Fabric balance: additional simple ranching, local manor ownership.
+ 			create_building = {
+ 				building = "building_livestock_ranch"
+ 				add_ownership = {
+ 					building = {
+ 						type = "building_manor_house"
+ 						country = "c:PRU"
+-						levels = 8
++						levels = 4
+ 						region = "STATE_BRANDENBURG"
+ 					}
+ 				}
+ 				reserves = 1
+ 				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+ 			}
+ 		}
+ 	}
+ 	s:STATE_BREST = {
+ 		region_state:PLC = {
+ 						create_building={
+ 							building="building_furniture_manufactory"
+ 							add_ownership={
+ 								building={
+ 									type="building_financial_district"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\99_1776_prussian_start_micro_adjustment.txt
++BUILDINGS = {
++ s:STATE_LOWER_SILESIA = { region_state:PRU = {
++create_building = {
++				building = "building_livestock_ranch"
++				add_ownership = {
++					building = {
++						type = "building_manor_house"
++						country = "c:PRU"
++						levels = 2
++						region = "STATE_BRANDENBURG"
++					}
++				}
++				reserves = 1
++				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
++			}
++ } }
++ s:STATE_POMERANIA = { region_state:PRU = {
++create_building = {
++				building = "building_livestock_ranch"
++				add_ownership = {
++					building = {
++						type = "building_manor_house"
++						country = "c:PRU"
++						levels = 2
++						region = "STATE_BRANDENBURG"
++					}
++				}
++				reserves = 1
++				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
++			}
++ } }
++ s:STATE_BRUNSWICK = { region_state:PRU = {
++create_building = { building = "building_lead_mine" add_ownership = { building = { type = "building_financial_district" country = "c:PRU" levels = 1 region = "STATE_BRUNSWICK" } } reserves = 1 activate_production_methods = { "pm_picks_and_shovels_building_lead_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_lead_mine" "pm_no_mine_ventilation" } }
++ } }
++ s:STATE_WEST_PRUSSIA = { region_state:PRU = {
++create_building = { building = "building_paper_mill" add_ownership = { building = { type = "building_financial_district" country = "c:PRU" levels = 2 region = "STATE_WEST_PRUSSIA" } } reserves = 1 activate_production_methods = { "pm_pulp_pressing" "pm_automation_disabled" } }
++ } }
++}
+*** End Patch

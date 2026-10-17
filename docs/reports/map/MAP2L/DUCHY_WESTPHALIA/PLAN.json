@@ -1,0 +1,122 @@
+{
+  "files": [
+    "common/history/states/00_states.txt",
+    "map_data/state_regions/00_west_europe.txt",
+    "common/history/pops/00_west_europe.txt",
+    "docs/reports/map/MAP2L/IMPERIAL_DE_JURE_REGISTRY.json",
+    "docs/reports/map/MAP2L/DUCHY_WESTPHALIA/REGISTRY_MIGRATION.json"
+  ],
+  "allocations": [
+    {
+      "kind": "building",
+      "file": "common/history/buildings/00_west_europe.txt",
+      "state": "STATE_WESTPHALIA",
+      "source": "PRU",
+      "profile": "building_railway",
+      "before": 1,
+      "after": {
+        "PRU": 1,
+        "KCL": 0
+      }
+    },
+    {
+      "kind": "building",
+      "file": "common/history/buildings/00_west_europe.txt",
+      "state": "STATE_WESTPHALIA",
+      "source": "PRU",
+      "profile": "building_textile_mill",
+      "before": 1,
+      "after": {
+        "PRU": 1,
+        "KCL": 0
+      }
+    },
+    {
+      "kind": "building",
+      "file": "common/history/buildings/98_build_start_1776_world_redistribution.txt",
+      "state": "STATE_WESTPHALIA",
+      "source": "PRU",
+      "profile": "building_textile_mill",
+      "before": 1,
+      "after": {
+        "PRU": 1,
+        "KCL": 0
+      }
+    },
+    {
+      "kind": "population",
+      "file": "common/history/pops/00_west_europe.txt",
+      "state": "STATE_WESTPHALIA",
+      "source": "PRU",
+      "profile": "north_german/catholic",
+      "before": 171367,
+      "after": {
+        "PRU": 154706,
+        "KCL": 16661
+      }
+    },
+    {
+      "kind": "population",
+      "file": "common/history/pops/00_west_europe.txt",
+      "state": "STATE_WESTPHALIA",
+      "source": "PRU",
+      "profile": "ashkenazi/DEFAULT",
+      "before": 224,
+      "after": {
+        "PRU": 202,
+        "KCL": 22
+      }
+    },
+    {
+      "kind": "population",
+      "file": "common/history/pops/00_west_europe.txt",
+      "state": "STATE_WESTPHALIA",
+      "source": "PRU",
+      "profile": "north_german/DEFAULT",
+      "before": 112610,
+      "after": {
+        "PRU": 101662,
+        "KCL": 10948
+      }
+    }
+  ],
+  "new_tags": [],
+  "registered_RGBs": 435,
+  "region_reference_changes": [
+    {
+      "state": "STATE_WESTPHALIA",
+      "field": "prime_land",
+      "before": [
+        "x418021",
+        "xA08061",
+        "xEDA907",
+        "xEDA908",
+        "xEDA909",
+        "xEDA90A",
+        "x218061",
+        "xEDA900",
+        "xEDA901",
+        "xEDA902",
+        "x1DD141",
+        "xEDA903"
+      ],
+      "after": [
+        "x418021",
+        "xEDAB00",
+        "xA08061",
+        "xEDAB07",
+        "xEDA907",
+        "xEDA908",
+        "xEDA909",
+        "xEDA90A",
+        "x218061",
+        "xEDA900",
+        "xEDA901",
+        "xEDA902",
+        "x1DD141",
+        "xEDA903"
+      ]
+    }
+  ],
+  "method": "Exact integer culture/religion and building profile conservation; weights by complete source state subdivision, not pixels as a census"
+}

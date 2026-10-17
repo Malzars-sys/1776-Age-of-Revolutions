@@ -1,0 +1,76 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\CLOSURE_STATUS.json
+@@
+ {
+   "status": "PARTIAL_NOT_READY_FOR_HISTORICAL_CLOSURE",
+-  "manual_runtime_receipts": ["RUNTIME_USER_VALIDATION.json", "RUNTIME_USER_VALIDATION_RHINE_SWABIA.json"],
+-  "latest_user_validated_scope": ["RHINE_WESTPHALIA_COMPLETION", "SWABIA"],
++  "manual_runtime_receipts": [
++    "RUNTIME_USER_VALIDATION.json",
++    "RUNTIME_USER_VALIDATION_RHINE_SWABIA.json",
++    "RUNTIME_USER_VALIDATION_SWABIA_FINISH.json"
++  ],
++  "latest_user_validated_scope": [
++    "RHINE_WESTPHALIA_COMPLETION",
++    "SWABIA",
++    "SWABIA_FINISH"
++  ],
+   "scope_note": "Inspected modifications only, not an exhaustive per-RGB list and not automated engine testing. Historical approximations remain unresolved despite runtime success.",
+   "verified_checkpoint": "cadb544c7de706707532e26bdf19998cf7601cec",
+   "complete_restoration_base": "0a66418cc3302704f14844d70608d9755d768dc1",
+   "checkpoint_branch": "backup/1776-checkpoints",
+-  "latest_local_territorial_lot": "SWABIA_FINISH",
+-  "latest_local_territorial_changes": {"SLM_cells": 6, "SWW_cells": 8, "SWF_cells": 18, "SWX_cells": 19, "SWY_cells": 8, "SKC_cells": 4, "ownership_cells": 63, "new_RGBs": 9},
++  "latest_local_territorial_lot": "SWABIA_COMPLETION",
++  "latest_local_territorial_changes": {
++    "ownership_cells": 16,
++    "new_RGBs": 13,
++    "registered_RGBs": 498,
++    "imperial_extent_cells": 62580
++  },
+   "earlier_untested_local_lot": "SWABIA_CONTINUATION: SFU 72 cells and SEW 20 cells preserved exactly; still NOT_YET_TESTED",
+   "latest_local_runtime_status": "NOT_YET_TESTED",
+-  "latest_static_validation": {"new_lot_passed":518,"new_lot_checks":518,"cumulative_lots":16,"cumulative_raw_passed":12827,"cumulative_raw_checks":12837,"historical_git_only_differences":10,"all_data_checks_passed":true,"automated_engine_test":false},
++  "latest_static_validation": {
++    "new_lot_passed": 570,
++    "new_lot_checks": 570,
++    "cumulative_lots": 17,
++    "cumulative_raw_passed": 14633,
++    "cumulative_raw_checks": 14643,
++    "historical_git_only_differences": 10,
++    "all_data_checks_passed": true,
++    "automated_engine_test": false,
++    "phase": "Before separately validated player-requested Prussian +13 building levels"
++  },
+   "latest_local_changes_pushed": false,
+-  "localization_ui_rechecks": ["Baden margraviate description", "Ulm city council description", "Hohenzollern principality description", "New Fürstenberg and Ellwangen governments and descriptions", "Salem, four separate Waldburg counties and Constance government descriptions"],
+-  "open_swabian_jurisdictions": ["Montbeliard and separated Wurttemberg dependencies", "Independent cities Augsburg and Kempten, subpixel representation", "Weingarten layered rights", "Salem external holdings", "Waldburg scattered holdings and historical secular rulers", "Austrian Baden Wurttemberg fringes", "Constance temporal bishopric: Meersburg and other offices beyond Markdorf", "Northern Augsburg bishopric and outlying Ellwangen/Furstenberg holdings"],
+-  "open_details": "SWABIA_FINISH/UNRESOLVED.csv",
++  "localization_ui_rechecks": [
++    "Baden margraviate description",
++    "Ulm city council description",
++    "Hohenzollern principality description",
++    "New Fürstenberg and Ellwangen governments and descriptions",
++    "Salem, four separate Waldburg counties and Constance government descriptions"
++  ],
++  "open_swabian_jurisdictions": [
++    "Montbeliard separated Wurttemberg dependencies",
++    "Esslingen Kaufbeuren Isny Lindau residual representation",
++    "Weingarten external/overlapping temporal rights",
++    "Scattered Waldburg Salem Furstenberg Ellwangen holdings",
++    "Constance Meersburg and northern Augsburg bishopric temporal fringes",
++    "Untraced Baden Wurttemberg Austrian fringes"
++  ],
++  "open_details": "SWABIA_COMPLETION/UNRESOLVED.csv",
+   "erfurt_eichsfeld": "FROZEN_NOT_EDITED; no renewed projection optimization",
+-  "inherited_anomalies": {"duplicate_RGBs":44,"invalid_references":12},
++  "inherited_anomalies": {
++    "duplicate_RGBs": 44,
++    "invalid_references": 12
++  },
+   "no_other_region_started": true,
+-  "next_gate": "Manual new-game checks of the added estates and repaired UI descriptions; retain unresolved boundaries until bounded evidence allows defensible additional tracing"
++  "next_gate": "New-game tests of the six additional free cities, Weingarten, map layers and explicit Prussian industry addon; do not automatically start another region",
++  "major_swabian_work_status": "MAJOR_PASSES_APPLIED_WITH_BOUNDED_RESIDUALS_NOT_EXHAUSTIVE_HISTORICAL_CERTIFICATION"
+ }
+*** End Patch

@@ -1,0 +1,8 @@
+{
+  "native_file": "C:\\Games\\Victoria 3\\game\\common\\diplomatic_actions\\22_subject_personal_union.txt",
+  "native_sha256": "4b897197d5c99d4368213d677519b303b0f97cca12bec2900841f20d23b6c677",
+  "old": "scope:target_country = {\n\t\t\t\t\tcountry_has_monarchy_law = yes\n\t\t\t\t\tNOT = { has_law = law_type:law_bakufu }",
+  "new": "scope:target_country = {\n\t\t\t\t\t# MAP2Q: approved episcopal union; every other native condition retained.\n\t\t\t\t\tOR = {\n\t\t\t\t\t\tcountry_has_monarchy_law = yes\n\t\t\t\t\t\tAND = { c:HLB ?= this has_law = law_type:law_theocracy overlord ?= { c:OLD ?= this } }\n\t\t\t\t\t}\n\t\t\t\t\tNOT = { has_law = law_type:law_bakufu }",
+  "approval": "User explicitly chose native personal union under OLD; 2026-10-16",
+  "invariant": "Replacing this exact new block with old reconstructs the entire native file. No global theocratic-union permission."
+}

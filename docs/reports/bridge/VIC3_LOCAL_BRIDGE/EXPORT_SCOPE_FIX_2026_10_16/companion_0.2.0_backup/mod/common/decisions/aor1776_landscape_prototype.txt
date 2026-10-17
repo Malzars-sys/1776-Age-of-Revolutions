@@ -1,0 +1,37 @@
+﻿# Diagnostic overrides affect only the CAPITAL's probe; AI never uses them.
+aor1776_ilp_force_rails = {
+	is_shown = { is_player = yes }
+	possible = { exists = capital }
+	when_taken = {
+		capital = {
+			remove_variable = aor1776_ilp_force_off
+			set_variable = aor1776_ilp_force_on
+			aor1776_ilp_sync_state = yes
+		}
+	}
+	ai_chance = { value = 0 }
+}
+aor1776_ilp_remove_rails = {
+	is_shown = { is_player = yes }
+	possible = { exists = capital }
+	when_taken = {
+		capital = {
+			remove_variable = aor1776_ilp_force_on
+			set_variable = aor1776_ilp_force_off
+			aor1776_ilp_sync_state = yes
+		}
+	}
+	ai_chance = { value = 0 }
+}
+aor1776_ilp_auto_rails = {
+	is_shown = { is_player = yes }
+	possible = { exists = capital }
+	when_taken = {
+		capital = {
+			remove_variable = aor1776_ilp_force_on
+			remove_variable = aor1776_ilp_force_off
+			aor1776_ilp_sync_state = yes
+		}
+	}
+	ai_chance = { value = 0 }
+}

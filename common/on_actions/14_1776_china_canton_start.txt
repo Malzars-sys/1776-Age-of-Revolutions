@@ -1,0 +1,23 @@
+# Country history already specifies the Canton system. Reassert it once after
+# initialization, not on load or on a pulse: later political changes remain free.
+on_game_started_after_lobby = {
+	on_actions = { aor1776_china_canton_initialize }
+}
+
+aor1776_china_canton_initialize = {
+	effect = {
+		c:CHI ?= {
+			if = {
+				limit = {
+					has_law = law_type:law_traditionalism
+					NOT = { has_law = law_type:law_canton_system }
+					any_scope_state = {
+						state_region = s:STATE_GUANGDONG
+						is_largest_state_in_region = yes
+					}
+				}
+				activate_law = law_type:law_canton_system
+			}
+		}
+	}
+}

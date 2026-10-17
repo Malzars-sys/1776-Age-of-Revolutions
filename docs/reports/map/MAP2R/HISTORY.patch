@@ -1,0 +1,764 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 
+ 		add_homeland = cu:north_german
+ 
+ create_state = { country = c:WPD owned_provinces = { x218061 xEDA90B } }
+ create_state = { country = c:WPM owned_provinces = { x1DD141 xEDA903 x910095 } }
+ 
+ create_state = { country = c:KCL owned_provinces = { xEDAB00 xEDAB03 xEDAB04 xEDAB05 xEDAB06 xEDAB07 } }
+ }
+ 	s:STATE_ANHALT = {
+ 		create_state = {
+ 			country = c:PRU
+ 			owned_provinces = { xA080E0 x12694A x618061 xCF5D8E x34386E xCBA4A5 xE0C0A0 xA51232 x3C9B93 }
+ 		}
+ 		create_state = {
+ 			country = c:ANH
+-			owned_provinces = { x8A448C xED8F7B }
++			owned_provinces = { x8A448C xEDB300 xEDB301 xED8F7B xEDB306 }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+-	}
++	
++create_state = { country = c:ABG owned_provinces = { xEDB302 xEDB307 xEDB308 xEDB309 xEDB30A } }
++create_state = { country = c:AKT owned_provinces = { xEDB304 xEDB30B } }
++create_state = { country = c:AZR owned_provinces = { xEDB305 } }
++}
+ 	s:STATE_WEST_PRUSSIA = {
+ 		create_state = {
+ 			country = c:PRU
+ 			owned_provinces = { x611F2F x178C99 x374AC3 x41A021 x55FD02 x7CB839 x945000 xBAF66D }
+ 		}
+ 		create_state = {
+ 			country = c:PLC
+ 			owned_provinces = { x80A0A0 }
+ 		}
+ 		add_claim = c:PRU
+ 		add_homeland = cu:north_german
+ 		add_homeland = cu:polish
+ 	}
+ 	s:STATE_EAST_PRUSSIA = {
+ 		create_state = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     arable_land = 60
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_coal_mine = 80
+         building_iron_mine = 36
+         building_sulfur_mine = 32
+         building_logging_camp = 24
+         building_limestone_quarry = 28
+         building_copper_mine = 16
+     }
+ }
+ 
+ STATE_ANHALT = {
+     id = 62
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x12694A" "x34386E" "x3C9B93" "x618061" "x8A448C" "xA080E0" "xA51232" "xCBA4A5" "xCF5D8E" "xE0C0A0" "xED8F7B" }
++    provinces = { "x12694A" "x34386E" "x3C9B93" "x618061" "x8A448C" "xEDB300" "xEDB301" "xEDB302" "xEDB304" "xEDB305" "xA080E0" "xA51232" "xCBA4A5" "xCF5D8E" "xE0C0A0" "xED8F7B" "xEDB306" "xEDB307" "xEDB308" "xEDB309" "xEDB30A" "xEDB30B" }
+     prime_land = { "xE0C0A0" "xA080E0" "xA51232" }
+     traits = { "state_trait_elbe_river" }
+     city = "xA080E0"
+-    farm = "x8A448C"
++    farm = "xEDB304"
+     mine = "xCF5D8E"
+     wood = "xA51232"
+     arable_land = 75
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_coal_mine = 44
+         building_logging_camp = 20
+         building_limestone_quarry = 28
+         building_copper_mine = 24
+     }
+     resource = {
+         type = "building_salt_mine"
+         discovered_amount = 20
+         undiscovered_amount = 0
+     }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 				size = 488371
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 75108
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 1224
+ 			}
+ 		}
+ 		region_state:ANH = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 140405
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 12481
++				size = 84042
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 7471
++			}
++		}
++	
++		region_state:ABG = {
++create_pop = {
++				culture = north_german
++				size = 11574
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 1029
++			}
++		}
++	
++		region_state:AKT = {
++create_pop = {
++				culture = north_german
++				size = 16607
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 1476
++			}
++		}
++	
++		region_state:AZR = {
++create_pop = {
++				culture = north_german
++				size = 28182
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 2505
+ 			}
+ 		}
+ 	}
+ 	s:STATE_RHINELAND = {
+ 		region_state:PRU = {
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 131627
+ 			}
+ 			create_pop = {
+ 				culture = french
+ 				size = 2609
+ 			}
+ 			create_pop = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\province_terrains.txt
+@@
+ xEDB100="plains"
+ xEDB101="plains"
+ 
+ xEDB102="forest"
+ xEDB103="forest"
+ xEDB104="forest"
+ xEDB105="forest"
+ 
+ xEDB200="plains"
+ xEDB201="plains"
+ xEDB202="plains"
+ xEDB203="plains"
+ 
+ xEDB204="plains"
+ xEDB205="plains"
++
++xEDB300="plains"
++xEDB301="plains"
++xEDB302="plains"
++xEDB304="plains"
++xEDB305="plains"
++xEDB306="forest"
++xEDB307="forest"
++xEDB308="forest"
++xEDB309="forest"
++xEDB30A="forest"
++xEDB30B="forest"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\1776_map2r_anhalt.txt
++ABG = { color = { 114 158 90 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_ANHALT }
++AKT = { color = { 205 122 150 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_ANHALT }
++AZR = { color = { 218 183 83 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_ANHALT }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\00_countries.txt
+@@
+ 
+ 	cultures = { wallonian }
+ 	capital = STATE_WALLONIA
+ 	is_named_from_capital = yes
+ }
+ 
+ ANH = {
+ 	color = { 203  93  124 }
+ 
+ 	country_type = recognized
+ 
+ 	tier = principality
+ 
+ 	cultures = { north_german }
+ 	capital = STATE_ANHALT
+-	is_named_from_capital = yes
++	is_named_from_capital = no
+ }
+ 
+ BAD = {
+ 	color = { 118  229  215 }
+ 
+ 	country_type = recognized
+ 
+ 	tier = grand_principality
+ 
+ 	cultures = { south_german }
+ 	capital = STATE_BADEN
+ 	is_named_from_capital = yes
+ }
+ 
+ BAV = {
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\abg - map2r anhalt.txt
++COUNTRIES = {
++	c:ABG ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		effect_starting_politics_conservative = yes
++		activate_law = law_type:law_freedom_of_conscience
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\akt - map2r anhalt.txt
++COUNTRIES = {
++	c:AKT ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		effect_starting_politics_conservative = yes
++		activate_law = law_type:law_freedom_of_conscience
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\azr - map2r anhalt.txt
++COUNTRIES = {
++	c:AZR ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		effect_starting_politics_conservative = yes
++		activate_law = law_type:law_freedom_of_conscience
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\anh - anhalt.txt
++CHARACTERS = { c:ANH ?= { create_character = { first_name = aor1776_map2r_anh_first last_name = Askanier historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1740.8.10 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\abg - map2r anhalt.txt
++CHARACTERS = { c:ABG ?= { create_character = { first_name = aor1776_map2r_abg_first last_name = Askanier historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1735.8.15 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\akt - map2r anhalt.txt
++CHARACTERS = { c:AKT ?= { create_character = { first_name = aor1776_map2r_akt_first last_name = Askanier historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1730.8.15 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\azr - map2r anhalt.txt
++CHARACTERS = { c:AZR ?= { create_character = { first_name = aor1776_map2r_azr_first last_name = Askanier historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1734.8.8 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\flag_definitions\1776_map2r_anhalt.txt
++# Shared Ascanian arms are an explicit graphical abstraction, not evidence of political union.
++ABG = { flag_definition = { coa = ANH priority = 100 allow_overlord_canton = no } }
++AKT = { flag_definition = { coa = ANH priority = 100 allow_overlord_canton = no } }
++AZR = { flag_definition = { coa = ANH priority = 100 allow_overlord_canton = no } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\english\replace\1776_map2r_anhalt_l_english.yml
++﻿l_english:
++ ANH:0 "Anhalt-Dessau"
++ ANH_ADJ:0 "Anhalt-Dessau"
++ aor1776_map2r_anh_first:0 "Leopold Friedrich Franz"
++ ABG:0 "Anhalt-Bernburg"
++ ABG_ADJ:0 "Anhalt-Bernburg"
++ aor1776_map2r_abg_first:0 "Friedrich Albrecht"
++ AKT:0 "Anhalt-Köthen"
++ AKT_ADJ:0 "Anhalt-Köthen"
++ aor1776_map2r_akt_first:0 "Karl Georg Lebrecht"
++ AZR:0 "Anhalt-Zerbst"
++ AZR_ADJ:0 "Anhalt-Zerbst"
++ aor1776_map2r_azr_first:0 "Friedrich August"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\replace\1776_map2r_anhalt_l_french.yml
++﻿l_french:
++ ANH:0 "Anhalt-Dessau"
++ ANH_ADJ:0 "Anhalt-Dessau"
++ aor1776_map2r_anh_first:0 "Leopold Friedrich Franz"
++ ABG:0 "Anhalt-Bernbourg"
++ ABG_ADJ:0 "Anhalt-Bernbourg"
++ aor1776_map2r_abg_first:0 "Friedrich Albrecht"
++ AKT:0 "Anhalt-Köthen"
++ AKT_ADJ:0 "Anhalt-Köthen"
++ aor1776_map2r_akt_first:0 "Karl Georg Lebrecht"
++ AZR:0 "Anhalt-Zerbst"
++ AZR_ADJ:0 "Anhalt-Zerbst"
++ aor1776_map2r_azr_first:0 "Friedrich August"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "rgb": "x88194B",
+     "state": "STATE_UPPER_SILESIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x89A2A9",
+     "state": "STATE_POMERANIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x8A448C",
+     "state": "STATE_ANHALT",
+     "beneficiary": "ANH",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
+   },
+   {
+     "rgb": "x8B7C67",
+     "state": "STATE_HESSE",
+     "beneficiary": "HES",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x8C26DD",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x8C6982",
+@@
+     "rgb": "xEC6873",
+     "state": "STATE_TYROL",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xECC3B4",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "OLD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xED8F7B",
+     "state": "STATE_ANHALT",
+     "beneficiary": "ANH",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
+   },
+   {
+     "rgb": "xEDA100",
+     "state": "STATE_FLANDERS",
+     "beneficiary": "LGE",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "xEDA101",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "BEO",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "xEDA102",
+@@
+     "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDB204",
+     "state": "STATE_SCHLESWIG_HOLSTEIN",
+     "beneficiary": "HLB",
+     "basis": "MAP2Q R3: modest B envelope of direct Amt Kaltenhof; no post-1803 chapter annexation. See R3/HISTORICAL_EVIDENCE.md."
+   },
+   {
+     "rgb": "xEDB205",
+     "state": "STATE_SCHLESWIG_HOLSTEIN",
+     "beneficiary": "HLB",
+     "basis": "MAP2Q R3: modest B envelope of direct Amt Kaltenhof; no post-1803 chapter annexation. See R3/HISTORICAL_EVIDENCE.md."
+   },
+   {
++    "rgb": "xEDB300",
++    "state": "STATE_ANHALT",
++    "beneficiary": "ANH",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB301",
++    "state": "STATE_ANHALT",
++    "beneficiary": "ANH",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB302",
++    "state": "STATE_ANHALT",
++    "beneficiary": "ABG",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB304",
++    "state": "STATE_ANHALT",
++    "beneficiary": "AKT",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB305",
++    "state": "STATE_ANHALT",
++    "beneficiary": "AZR",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB306",
++    "state": "STATE_ANHALT",
++    "beneficiary": "ANH",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB307",
++    "state": "STATE_ANHALT",
++    "beneficiary": "ABG",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB308",
++    "state": "STATE_ANHALT",
++    "beneficiary": "ABG",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB309",
++    "state": "STATE_ANHALT",
++    "beneficiary": "ABG",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB30A",
++    "state": "STATE_ANHALT",
++    "beneficiary": "ABG",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
++    "rgb": "xEDB30B",
++    "state": "STATE_ANHALT",
++    "beneficiary": "AKT",
++    "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2R\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_ANHALT"
++  ],
++  "previous": [
++    {
++      "rgb": "x12694A",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x34386E",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x3C9B93",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x618061",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x8A448C",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ANH",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA080E0",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA51232",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xCBA4A5",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xCF5D8E",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE0C0A0",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xED8F7B",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ANH",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x12694A",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x34386E",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x3C9B93",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x618061",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA080E0",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA51232",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xCBA4A5",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xCF5D8E",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE0C0A0",
++      "state": "STATE_ANHALT",
++      "beneficiary": "PRU",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x8A448C",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ANH",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB300",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ANH",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB301",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ANH",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB302",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ABG",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB304",
++      "state": "STATE_ANHALT",
++      "beneficiary": "AKT",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB305",
++      "state": "STATE_ANHALT",
++      "beneficiary": "AZR",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xED8F7B",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ANH",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB306",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ANH",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB307",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ABG",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB308",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ABG",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB309",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ABG",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB30A",
++      "state": "STATE_ANHALT",
++      "beneficiary": "ABG",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    },
++    {
++      "rgb": "xEDB30B",
++      "state": "STATE_ANHALT",
++      "beneficiary": "AKT",
++      "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
++    }
++  ],
++  "new_members": [
++    "ABG",
++    "AKT",
++    "AZR"
++  ],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDB300",
++      "parent_rgb": "x8A448C"
++    },
++    {
++      "rgb": "xEDB301",
++      "parent_rgb": "x8A448C"
++    },
++    {
++      "rgb": "xEDB302",
++      "parent_rgb": "x8A448C"
++    },
++    {
++      "rgb": "xEDB304",
++      "parent_rgb": "x8A448C"
++    },
++    {
++      "rgb": "xEDB305",
++      "parent_rgb": "x8A448C"
++    },
++    {
++      "rgb": "xEDB306",
++      "parent_rgb": "xED8F7B"
++    },
++    {
++      "rgb": "xEDB307",
++      "parent_rgb": "xED8F7B"
++    },
++    {
++      "rgb": "xEDB308",
++      "parent_rgb": "xED8F7B"
++    },
++    {
++      "rgb": "xEDB309",
++      "parent_rgb": "xED8F7B"
++    },
++    {
++      "rgb": "xEDB30A",
++      "parent_rgb": "xED8F7B"
++    },
++    {
++      "rgb": "xEDB30B",
++      "parent_rgb": "xED8F7B"
++    }
++  ],
++  "geometry": "MAP2R/GEOMETRY.json",
++  "region_reference_changes": [
++    {
++      "state": "STATE_ANHALT",
++      "field": "farm",
++      "before": "x8A448C",
++      "after": "xEDB304",
++      "pixel": [
++        4371,
++        808
++      ],
++      "bitmap_before": "x8A448C"
++    }
++  ],
++  "extent_added_cells": [],
++  "extent_removed_cells": [],
++  "country_additions": {
++    "ABG": "[\"ABG\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"114\"],[\"\",\"\",\"158\"],[\"\",\"\",\"90\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_ANHALT\"]]]",
++    "AKT": "[\"AKT\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"205\"],[\"\",\"\",\"122\"],[\"\",\"\",\"150\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_ANHALT\"]]]",
++    "AZR": "[\"AZR\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"218\"],[\"\",\"\",\"183\"],[\"\",\"\",\"83\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_ANHALT\"]]]"
++  },
++  "anhalt_name_correction": {
++    "tag": "ANH",
++    "before_signature": "[\"ANH\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"203\"],[\"\",\"\",\"93\"],[\"\",\"\",\"124\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"capital\",\"=\",\"STATE_ANHALT\"],[\"is_named_from_capital\",\"=\",\"yes\"]]]",
++    "after_signature": "[\"ANH\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"203\"],[\"\",\"\",\"93\"],[\"\",\"\",\"124\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"capital\",\"=\",\"STATE_ANHALT\"],[\"is_named_from_capital\",\"=\",\"no\"]]]"
++  }
++}
+*** End Patch

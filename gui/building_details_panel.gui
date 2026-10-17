@@ -2702,10 +2702,10 @@ types building_panels
 		container = {
 			minimumsize = { @panel_width 80 }
 
-			# TECH6R1-UI1: the compact row keeps its vanilla height up to four PMGs,
-			# then reserves one additional 70 px row without building-specific logic.
+			# Trade centres wrap after two PMGs so the data-reporting selector
+			# cannot cover the import/export icons at x=150. Reserve its second row.
 			widget = {
-				visible = "[GreaterThan_int32( GetDataModelSize( Building.AccessProductionMethodGroups ), '(int32)4' )]"
+				visible = "[Or(GreaterThan_int32( GetDataModelSize( Building.AccessProductionMethodGroups ), '(int32)4' ), And(ObjectsEqual(Building.GetBuildingType, GetBuildingType('building_trade_center').Self), GreaterThan_int32( GetDataModelSize( Building.AccessProductionMethodGroups ), '(int32)2' )))]"
 				size = { @panel_width 150 }
 			}
 
@@ -2717,12 +2717,30 @@ types building_panels
 					margin_left = 2
 
 					condensed_building_information_pms = {
+						visible = "[Not(ObjectsEqual(Building.GetBuildingType, GetBuildingType('building_trade_center').Self))]"
 						blockoverride "pms_slot_sizes" {
 							addcolumn = 72
 							addrow = 70
 						}
 						blockoverride "pms_minimumsize" {
 							minimumsize = { 208 -1 }
+						}
+						blockoverride "pms_item_size" {
+							size = { 70 70 }
+						}
+					}
+
+					condensed_building_information_pms = {
+						visible = "[ObjectsEqual(Building.GetBuildingType, GetBuildingType('building_trade_center').Self)]"
+						blockoverride "pms_wrap" {
+							datamodel_wrap = 2
+						}
+						blockoverride "pms_slot_sizes" {
+							addcolumn = 72
+							addrow = 70
+						}
+						blockoverride "pms_minimumsize" {
+							minimumsize = { 144 -1 }
 						}
 						blockoverride "pms_item_size" {
 							size = { 70 70 }

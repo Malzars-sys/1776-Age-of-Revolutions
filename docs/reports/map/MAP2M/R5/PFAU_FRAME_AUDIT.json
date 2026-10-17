@@ -1,0 +1,169 @@
+{
+  "status": "NO_ACCEPTED_REPLACEMENT_CALIBRATION",
+  "new_hypothesis": "Orientation/coordinate-frame error in R4 affine prediction",
+  "conclusion": "Rejected as sole cause: a consistent global rotation/reflection does not alter affine held-out predictions. This does not distinguish wrongly identified church symbols from genuine non-affine local source distortion.",
+  "controls_never_promoted_to_fit": [
+    "N_INO",
+    "N_PAK"
+  ],
+  "variants": [
+    {
+      "frame": "identity",
+      "check_residuals_m": [
+        4250.794853807172,
+        2127.6185464520736
+      ],
+      "max_change_vs_first_frame_m": 0.0
+    },
+    {
+      "frame": "rotate90",
+      "check_residuals_m": [
+        4250.794853807182,
+        2127.6185464520927
+      ],
+      "max_change_vs_first_frame_m": 2.2737367544323206e-11
+    },
+    {
+      "frame": "rotate180",
+      "check_residuals_m": [
+        4250.794853807172,
+        2127.6185464520736
+      ],
+      "max_change_vs_first_frame_m": 0.0
+    },
+    {
+      "frame": "rotate270",
+      "check_residuals_m": [
+        4250.794853807182,
+        2127.6185464520927
+      ],
+      "max_change_vs_first_frame_m": 2.2737367544323206e-11
+    },
+    {
+      "frame": "reflect_y",
+      "check_residuals_m": [
+        4250.794853807172,
+        2127.6185464520736
+      ],
+      "max_change_vs_first_frame_m": 0.0
+    }
+  ],
+  "pairwise_distance_scale": [
+    {
+      "from_id": "N_GNI",
+      "to_id": "N_KRU",
+      "source_distance_px": 1563.9325433022998,
+      "reference_distance_m": 24657.36830179141,
+      "implied_scale_m_per_source_px": 15.766260768336268
+    },
+    {
+      "from_id": "N_GNI",
+      "to_id": "N_STR",
+      "source_distance_px": 2035.3289660396424,
+      "reference_distance_m": 33408.07909502526,
+      "implied_scale_m_per_source_px": 16.414093079032302
+    },
+    {
+      "from_id": "N_GNI",
+      "to_id": "N_INO",
+      "source_distance_px": 813.0098400388522,
+      "reference_distance_m": 15275.087668182114,
+      "implied_scale_m_per_source_px": 18.788318315375058
+    },
+    {
+      "from_id": "N_GNI",
+      "to_id": "N_PAK",
+      "source_distance_px": 1359.9768380380601,
+      "reference_distance_m": 23495.706509669715,
+      "implied_scale_m_per_source_px": 17.2765490209122
+    },
+    {
+      "from_id": "N_KRU",
+      "to_id": "N_STR",
+      "source_distance_px": 713.6672894283442,
+      "reference_distance_m": 11381.232784112459,
+      "implied_scale_m_per_source_px": 15.94753318907044
+    },
+    {
+      "from_id": "N_KRU",
+      "to_id": "N_INO",
+      "source_distance_px": 815.7560909977933,
+      "reference_distance_m": 13495.009118060814,
+      "implied_scale_m_per_source_px": 16.542946190636926
+    },
+    {
+      "from_id": "N_KRU",
+      "to_id": "N_PAK",
+      "source_distance_px": 1527.0474779783372,
+      "reference_distance_m": 21298.180398029574,
+      "implied_scale_m_per_source_px": 13.947294177274895
+    },
+    {
+      "from_id": "N_STR",
+      "to_id": "N_INO",
+      "source_distance_px": 1222.5354800577363,
+      "reference_distance_m": 18993.902700765433,
+      "implied_scale_m_per_source_px": 15.536483816296615
+    },
+    {
+      "from_id": "N_STR",
+      "to_id": "N_PAK",
+      "source_distance_px": 1446.991706956194,
+      "reference_distance_m": 20708.0102338231,
+      "implied_scale_m_per_source_px": 14.31107734361743
+    },
+    {
+      "from_id": "N_INO",
+      "to_id": "N_PAK",
+      "source_distance_px": 990.7895841196555,
+      "reference_distance_m": 11272.293480545086,
+      "implied_scale_m_per_source_px": 11.377081129249897
+    }
+  ],
+  "source_frames": [
+    {
+      "file": "PFAU_39.jpg",
+      "dimensions": [
+        4000,
+        2822
+      ],
+      "sha256": "ffedd462572ff45b6e353f9ce41d2ce7e870a6237abc5e280365104f3dfa66c6"
+    },
+    {
+      "file": "PFAU_45.jpg",
+      "dimensions": [
+        4000,
+        2806
+      ],
+      "sha256": "6e2c8b187fc554afba424cfe13909dff26851cf89a1beeac595cf9b3433ef6e5"
+    },
+    {
+      "file": "PFAU_46.jpg",
+      "dimensions": [
+        4000,
+        2838
+      ],
+      "sha256": "87f4e814478f6e8bbc5b1dc5373d03be938d1175bab88380491245225d94a681"
+    },
+    {
+      "file": "PFAU_47.jpg",
+      "dimensions": [
+        4000,
+        2841
+      ],
+      "sha256": "ddcc1b306b6470dca03d620b1a080008740d3a703d04070e9b96848d386b7342"
+    },
+    {
+      "file": "PFAU_48.jpg",
+      "dimensions": [
+        4000,
+        2856
+      ],
+      "sha256": "0f25d9a0290e976d5beed0a8aa7a3111eb9522f1bc64f84786a7de50f98c02a0"
+    }
+  ],
+  "source_side_issue": "The precise building identities at Inowroclaw/Pakosc and three original church crosses are not established by place-name labels alone.",
+  "intersheet_status": "No physically homologated shared seam controls yet; no geographic mosaic accepted.35-section index is not a graticule.",
+  "grading_marks": "No geodetic graticule identified on acquired detailed39; no historical prime-meridian conversion assumed.",
+  "political_1776_limit": "Engraved1778 vs survey1772-1773 remains separate documentary issue."
+}

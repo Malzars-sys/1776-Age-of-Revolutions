@@ -1,0 +1,353 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 			country = c:HOL
+ 			owned_provinces = { x804160 xE000A0 x64824C }
+ 		}
+ 		create_state = {
+ 			country = c:LUB
+ 			owned_provinces = { x60809F xEDB200 xEDB201 }
+ 		}
+ 		create_state = {
+ 			country = c:SCH
+ 			owned_provinces = { x00C060 x78B203 xE3C876 xBFCC21 }
+ 		}
+ 
+ 		add_homeland = cu:danish
+ 		add_homeland = cu:north_german
+ 
+-create_state = { country = c:HLB owned_provinces = { xEDB202 xEDB203 } }
++create_state = { country = c:HLB owned_provinces = { xEDB202 xEDB203 xEDB204 xEDB205 } }
+ }
+ 	s:STATE_WURTTEMBERG = {
+ 		create_state = {
+ 			country = c:WUR
+ 			owned_provinces = { x100060 xC541D2 x8F0060 x118060 xDBB84C xEDB003 }
+ 		}
+ 		create_state = {
+ 			country = c:HOH
+ 			owned_provinces = { x908060 }
+ 		}
+ 
+ 		add_homeland = cu:south_german
+ 		add_homeland = cu:alemannic
+ 	
+ create_state = { country = c:KMZ owned_provinces = { xEDA607 xEDA608 } }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     farm = "x83B1A8"
+     mine = "xDF4020"
+     wood = "x514C51"
+     arable_land = 50
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_coal_mine = 44
+         building_logging_camp = 6
+         building_limestone_quarry = 28
+     }
+ }
+ 
+ STATE_SCHLESWIG_HOLSTEIN = {
+     id = 66
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x00C060" "x78B203" "x804160" "xBFCC21" "xE000A0" "xE3C876" "x60809F" "xEDB200" "xEDB201" "xEDB202" "x64824C" "xEDB203" }
++    provinces = { "x00C060" "x78B203" "x804160" "xBFCC21" "xE000A0" "xE3C876" "x60809F" "xEDB204" "xEDB205" "xEDB200" "xEDB201" "xEDB202" "x64824C" "xEDB203" }
+     city = "x64824C"
+     port = "x60809F"
+     farm = "x00C060"
+     mine = "x00C060"
+     wood = "x804160"
+     arable_land = 40
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_logging_camp = 6
+         building_fishing_wharf = 6
+         building_limestone_quarry = 16
+     }
+     naval_exit_id = 3074
+ }
+ 
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 				size = 1543
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 6168
+ 			}
+ 			create_pop = {
+ 				culture = danish
+ 				size = 15418
+ 			}
+ 		}
+ 		region_state:LUB = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 56822
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 1380
++				size = 55254
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 1342
+ 			}
+ 		}
+ 		region_state:SCH = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 156000
+ 			}
+ 			create_pop = {
+ 				culture = danish
+ 				size = 106395
+ 			}
+ 		}
+ 
+ 		region_state:HLB = {
+ create_pop = {
+@@
+ 				religion = catholic
+ 				size = 49
+ 			}
+ create_pop = {
+ 				culture = danish
+ 				size = 123
+ 			}
+ create_pop = {
+ 				culture = north_german
+ 				size = 4997
+ 			}
+ create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 121
++			}
++		
++create_pop = {
++				culture = north_german
++				size = 1568
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 38
+ 			}
+ 		}
+ 	}
+ 	s:STATE_WURTTEMBERG = {
+ 		region_state:WUR = {
+ 			create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 674322
+ 			}
+ 			create_pop = {
+ 				culture = south_german
+ 				size = 439646
+ 			}
+ 			create_pop = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\province_terrains.txt
+@@
+ xEDB00C="plains"
+ xEDB010="plains"
+ 
+ xEDB100="plains"
+ xEDB101="plains"
+ 
+ xEDB102="forest"
+ xEDB103="forest"
+ xEDB104="forest"
+ xEDB105="forest"
+ 
+ xEDB200="plains"
+ xEDB201="plains"
+ xEDB202="plains"
+ xEDB203="plains"
++
++xEDB204="plains"
++xEDB205="plains"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDB202",
+     "state": "STATE_SCHLESWIG_HOLSTEIN",
+     "beneficiary": "HLB",
+     "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDB203",
+     "state": "STATE_SCHLESWIG_HOLSTEIN",
+     "beneficiary": "HLB",
+     "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
++    "rgb": "xEDB204",
++    "state": "STATE_SCHLESWIG_HOLSTEIN",
++    "beneficiary": "HLB",
++    "basis": "MAP2Q R3: modest B envelope of direct Amt Kaltenhof; no post-1803 chapter annexation. See R3/HISTORICAL_EVIDENCE.md."
++  },
++  {
++    "rgb": "xEDB205",
++    "state": "STATE_SCHLESWIG_HOLSTEIN",
++    "beneficiary": "HLB",
++    "basis": "MAP2Q R3: modest B envelope of direct Amt Kaltenhof; no post-1803 chapter annexation. See R3/HISTORICAL_EVIDENCE.md."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2Q\R3\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_SCHLESWIG_HOLSTEIN"
++  ],
++  "previous": [
++    {
++      "rgb": "x60809F",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x64824C",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x804160",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE000A0",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xEDB200",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB201",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB202",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HLB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB203",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HLB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x60809F",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x64824C",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x804160",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE000A0",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xEDB200",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB201",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB202",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HLB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB203",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HLB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB204",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HLB",
++      "basis": "MAP2Q R3: modest B envelope of direct Amt Kaltenhof; no post-1803 chapter annexation. See R3/HISTORICAL_EVIDENCE.md."
++    },
++    {
++      "rgb": "xEDB205",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HLB",
++      "basis": "MAP2Q R3: modest B envelope of direct Amt Kaltenhof; no post-1803 chapter annexation. See R3/HISTORICAL_EVIDENCE.md."
++    }
++  ],
++  "new_members": [],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDB204",
++      "parent_rgb": "x60809F"
++    },
++    {
++      "rgb": "xEDB205",
++      "parent_rgb": "x60809F"
++    }
++  ],
++  "geometry": "MAP2Q/R3/GEOMETRY.json",
++  "region_reference_changes": [],
++  "extent_added_cells": [],
++  "extent_removed_cells": []
++}
+*** End Patch

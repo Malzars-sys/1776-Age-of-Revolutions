@@ -1,0 +1,111 @@
+{
+  "status": "PARTIAL_NOT_READY_FOR_HISTORICAL_CLOSURE",
+  "manual_runtime_receipts": [
+    "RUNTIME_USER_VALIDATION.json",
+    "RUNTIME_USER_VALIDATION_RHINE_SWABIA.json",
+    "RUNTIME_USER_VALIDATION_SWABIA_FINISH.json",
+    "RUNTIME_USER_VALIDATION_SWABIA_COMPLETION.json",
+    "RUNTIME_USER_VALIDATION_PRUSSIAN_CORE.json"
+  ],
+  "latest_user_validated_scope": [
+    "RHINE_WESTPHALIA_COMPLETION",
+    "SWABIA",
+    "SWABIA_FINISH",
+    "SWABIA_COMPLETION",
+    "SWABIA_COMPLETION/PRUSSIAN_INDUSTRY_ADDON",
+    "PRUSSIAN_BORDERS"
+  ],
+  "scope_note": "Inspected modifications only, not an exhaustive per-RGB list and not automated engine testing. Historical approximations remain unresolved despite runtime success.",
+  "verified_checkpoint": "cadb544c7de706707532e26bdf19998cf7601cec",
+  "complete_restoration_base": "0a66418cc3302704f14844d70608d9755d768dc1",
+  "checkpoint_branch": "backup/1776-checkpoints",
+  "latest_local_territorial_lot": "PRUSSIAN_BORDERS",
+  "latest_local_territorial_changes": {
+    "ownership_cells": 341,
+    "new_RGBs": 0,
+    "registered_RGBs": 498,
+    "imperial_extent_cells": 62580
+  },
+  "earlier_untested_local_lot": "SWABIA_CONTINUATION: SFU 72 cells and SEW 20 cells preserved exactly; still NOT_YET_TESTED",
+  "latest_local_runtime_status": "PASS_RUNTIME_USER_VALIDATED",
+  "latest_local_runtime_scope": "First Prussian coastal core only: 341 Swedish cells and six Brandenburg arms levels, seven player checks in a new game plus one simulated month. Not an automated engine test, not MAP-2M validation.",
+  "map2m": {
+    "status": "MAP-2M_PARTIAL",
+    "latest_research_pass": "MAP-2M-R1",
+    "latest_research_report": "docs/reports/map/MAP2M/R1/REPORT.md",
+    "latest_research_preservation_checks": "24/24 PASS; exact GUI-only exception, no territorial changes",
+    "trade_center_gui_fix": "Installed; static tests PASS; NOT_YET_TESTED in engine",
+    "report": "docs/reports/map/MAP2M/REPORT.md",
+    "peene_unapproved_candidate_cells": 79,
+    "netze_unapproved_candidate_cells": 162,
+    "applied_cells": 0,
+    "new_RGBs": 0,
+    "preservation_checks_passed": 26,
+    "preservation_checks_total": 26,
+    "geometry_complete": false,
+    "historical_attribution_complete": false,
+    "engine_tested": false,
+    "blockers": "Peene lacks independently verified physical correspondences near the southern boundary; Netze lacks full Grund 1775 coverage and an independently verified western alignment. Thorn remains frozen."
+  },
+  "latest_static_validation": {
+    "new_lot_passed": 377,
+    "new_lot_checks": 377,
+    "cumulative_lots": 17,
+    "cumulative_raw_passed": 14633,
+    "cumulative_raw_checks": 14643,
+    "historical_git_only_differences": 10,
+    "all_data_checks_passed": true,
+    "automated_engine_test": false,
+    "phase": "377 current differential checks after Prussian economic follow-ups and Swedish coastal-core transfer. Historical 17-lot cumulative totals retained above are BEFORE economic follow-ups, not rerun or recertified by this result."
+  },
+  "latest_local_changes_pushed": false,
+  "localization_ui_rechecks": [
+    "Baden margraviate description",
+    "Ulm city council description",
+    "Hohenzollern principality description",
+    "New Fürstenberg and Ellwangen governments and descriptions",
+    "Salem, four separate Waldburg counties and Constance government descriptions"
+  ],
+  "open_swabian_jurisdictions": [
+    "Montbeliard separated Wurttemberg dependencies",
+    "Esslingen Kaufbeuren Isny Lindau residual representation",
+    "Weingarten external/overlapping temporal rights",
+    "Scattered Waldburg Salem Furstenberg Ellwangen holdings",
+    "Constance Meersburg and northern Augsburg bishopric temporal fringes",
+    "Untraced Baden Wurttemberg Austrian fringes"
+  ],
+  "open_details": "SWABIA_COMPLETION/UNRESOLVED.csv",
+  "erfurt_eichsfeld": "FROZEN_NOT_EDITED; no renewed projection optimization",
+  "inherited_anomalies": {
+    "duplicate_RGBs": 44,
+    "invalid_references": 12
+  },
+  "no_other_region_started": false,
+  "next_gate": "Accepted Swedish coastal core manually validated by player. MAP-2M remains partial: obtain full Grund 1775 or equivalent pre-1776 coverage and independent physical correspondences before applying Peene/Netze candidates. Thorn frozen for a later lot. Do not automatically start another imperial region.",
+  "major_swabian_work_status": "MAJOR_PASSES_APPLIED_WITH_BOUNDED_RESIDUALS_NOT_EXHAUSTIVE_HISTORICAL_CERTIFICATION",
+  "prussian_industry_addon": {
+    "status": "PASS_STATIC_ENGINE_DEFERRED",
+    "passed": 1812,
+    "checks": 1812,
+    "arms_brandenburg_before": 1,
+    "arms_brandenburg_after": 4,
+    "logging_brandenburg_added": 6,
+    "logging_pomerania_added": 4,
+    "runtime_status": "PASS_RUNTIME_USER_VALIDATED",
+    "scope_note": "Historical initial addon step, not current arms total or certification of later economic micro-adjustments; see RUNTIME_USER_VALIDATION_SWABIA_COMPLETION.json",
+    "no_resource_capacity_change": true
+  },
+  "latest_tool_tests": {
+    "unit_tests_passed": 31,
+    "unit_tests_total": 31
+  },
+  "latest_checkpoint_read_only_verified": "cadb544c7de706707532e26bdf19998cf7601cec",
+  "latest_prussian_economic_followup": {
+    "report": "docs/reports/economy/PRUSSIA_MICRO_ADJUSTMENT_2026_10_14/REPORT.md",
+    "first_stage_static_checks": 2202,
+    "subsequent_textile_removal_static_checks": 2187,
+    "runtime_status": "NOT_YET_TESTED",
+    "territorial_map_unchanged": true,
+    "prior_receipts_preserved_as_historical": true
+  }
+}

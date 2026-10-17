@@ -210,8 +210,13 @@ def geometry_layers(b,c):
         assert any(r['source_zone'] for r in groups),'No source envelope intersects '+parent
         hubs={(int(float(r['Locator_X'])),int(float(r['Locator_Y']))) for r in anchors if before[int(float(r['Locator_Y'])),int(float(r['Locator_X']))]==value}
         hubgroups=[r for r in groups if hubs&set(r['cells'])]
-        assert len(hubgroups)<=1,'Review multiple hubs in split '+parent
-        keep=hubgroups[0] if hubgroups else max(groups,key=lambda r:r['pixels'])
+        assert len(hubgroups)<=1 or parent in c.get('hub_rebinding_parents',[]),'Review multiple hubs in split '+parent
+        if len(hubgroups)>1:
+            priority={'city':0,'port':1,'farm':2,'mine':3,'wood':4}
+            ordered=sorted([r for r in anchors if (int(float(r['Locator_X'])),int(float(r['Locator_Y']))) in hubs],key=lambda r:priority[r['Hub_Type']])
+            point=(int(float(ordered[0]['Locator_X'])),int(float(ordered[0]['Locator_Y'])))
+            keep=next(r for r in hubgroups if point in set(r['cells']))
+        else:keep=hubgroups[0] if hubgroups else max(groups,key=lambda r:r['pixels'])
         for r in groups:
             rgb=parent
             if r is not keep:
@@ -236,7 +241,16 @@ def geometry_layers(b,c):
     transfers=C.Counter()
     for r in assignments:
         if r['owner']!=r['previous_owner']:transfers[r['state']+'/'+r['previous_owner']+'->'+r['owner']]+=r['pixels']
-    dump('GEOMETRY.json',dict(status='SOURCE_TRACED_MAINZ_ESTATES_GAME_SCALE',parents=c['parents'],assignments=assignments,new_provinces=new,transfers=dict(transfers),
+    rebindings=[]
+    definitions={n.key:n for n in cw.parse((ROOT/globals().get('REGION_FILE','map_data/state_regions/00_west_europe.txt')).read_text(encoding='utf-8-sig'))}
+    for anchor in anchors:
+        x,y=int(float(anchor['Locator_X'])),int(float(anchor['Locator_Y']));old=int(before[y,x]);new_value=int(after[y,x])
+        if old==new_value:continue
+        old_rgb='x'+format(old,'06X');new_rgb='x'+format(new_value,'06X')
+        assert old_rgb in c.get('hub_rebinding_parents',[]),'Undeclared hub reference rebinding'
+        defined=cw.scalar(definitions[anchor['State_ID']].children(anchor['Hub_Type'])[0].value)
+        rebindings.append(dict(state=anchor['State_ID'],field=anchor['Hub_Type'],name=anchor['Hub_Name'],before=defined,bitmap_before=old_rgb,after=new_rgb,pixel=[x,y]))
+    dump('GEOMETRY.json',dict(status='SOURCE_TRACED_MAINZ_ESTATES_GAME_SCALE',parents=c['parents'],assignments=assignments,new_provinces=new,transfers=dict(transfers),hub_rebindings=rebindings,
         candidate_sha256=sha(OUT/'provinces_candidate.png'),tracing_sha256=sha(OUT/'TRACING.json'),changed_pixels=int((before!=after).sum()),limitations=c['limitations']))
     print('Candidate',len(new),'new RGBs;',dict(transfers))
 
@@ -254,6 +268,7 @@ def prepare():
         assert counts[src]>0 or any(r['state']==sid and r['owner']==src for r in g['assignments']),'Do not invalidate private economic holders or recruitment subdivisions'
         weights[sid,src]=counts
     rel='common/history/states/00_states.txt';raw=b['originals'][rel]
+    reference_changes=[]
     for sid in sorted(REGIONS):
         parents={r for r in g['parents'] if oldowners[r][0]==sid}
         if not parents:continue
@@ -272,7 +287,23 @@ def prepare():
         parents={r for r in g['parents'] if oldowners[r][0]==sid}
         if not parents:continue
         s=next(n for n in cw.parse(raw) if n.key==sid);ps=s.children('provinces')[0];rgbs=[r for r in values(s,'provinces') if r not in parents]+[r['rgb'] for r in g['assignments'] if r['state']==sid]
-        raw=edits(raw,[(ps.start,ps.end,'provinces = { '+' '.join('"'+r+'"' for r in rgbs)+' }')])
+        ops=[(ps.start,ps.end,'provinces = { '+' '.join('"'+r+'"' for r in rgbs)+' }')]
+        for binding in g.get('hub_rebindings',[]):
+            if binding['state']!=sid:continue
+            field=s.children(binding['field'])[0]
+            assert cw.scalar(field.value)==binding['before']
+            ops.append((field.start,field.end,binding['field']+' = "'+binding['after']+'"'))
+            reference_changes.append(binding)
+        prime=s.children('prime_land')
+        if prime:
+            old_prime=values(s,'prime_land')
+            new_prime=[]
+            for parent in old_prime:
+                new_prime.extend([r['rgb'] for r in g['assignments'] if r['parent_rgb']==parent] if parent in parents else [parent])
+            if new_prime!=old_prime:
+                field=prime[0];ops.append((field.start,field.end,'prime_land = { '+' '.join('"'+r+'"' for r in new_prime)+' }'))
+                reference_changes.append(dict(state=sid,field='prime_land',before=old_prime,after=new_prime))
+        raw=edits(raw,ops)
     files[rel]=raw
     for rel,original in b['originals'].items():
         if '/pops/' not in rel and '/buildings/' not in rel:continue
@@ -285,24 +316,28 @@ def prepare():
             ops=[];moved=C.defaultdict(list)
             if '/pops/' in rel:
                 for pop in n.children('create_pop'):
-                    size=pop.children('size')[0];amounts=allocate(int(size.value),counts);piece=raw[pop.start:pop.end]
+                    size=pop.children('size')[0]
+                    profile=cw.scalar(pop.one('culture'))+'/'+cw.scalar(pop.one('religion','DEFAULT'))
+                    allocation_counts=globals().get('POPULATION_ALLOCATION_WEIGHTS',{}).get((sid,src,profile),counts)
+                    amounts=allocate(int(size.value),allocation_counts);piece=raw[pop.start:pop.end]
                     ops.append((size.start,size.end,'size = '+str(amounts[src]))) if amounts[src] else ops.append((pop.start,pop.end,''))
                     for tag,amount in amounts.items():
                         if tag!=src and amount:moved[tag].append(edits(piece,[(size.start-pop.start,size.end-pop.start,'size = '+str(amount))]))
                     allocations.append(dict(kind='population',file=rel,state=sid,source=src,profile=cw.scalar(pop.one('culture'))+'/'+cw.scalar(pop.one('religion','DEFAULT')),before=int(size.value),after=amounts))
             else:
                 for building in n.children('create_building'):
+                    allocation_counts=globals().get('BUILDING_ALLOCATION_WEIGHTS',{}).get((rel,sid,src,cw.scalar(building.one('building'))),counts)
                     levels=[v for v in cw.walk(building.children()) if v.key=='levels' and isinstance(v.value,str)]
                     if not levels:continue
                     piece=raw[building.start:building.end];bytag=C.defaultdict(list);totals=C.Counter()
                     for v in levels:
-                        amounts=allocate(int(v.value),counts)
+                        amounts=allocate(int(v.value),allocation_counts)
                         for tag,amount in amounts.items():bytag[tag].append((v.start-building.start,v.end-building.start,'levels = '+str(amount)));totals[tag]+=amount
                     if not any(amount for tag,amount in totals.items() if tag!=src):
                         allocations.append(dict(kind='building',file=rel,state=sid,source=src,profile=cw.scalar(building.one('building')),before=sum(int(v.value) for v in levels),after=dict(totals)))
                         continue
                     fragments={}
-                    for tag in counts:
+                    for tag in allocation_counts:
                         if not totals[tag]:continue
                         fragment=edits(piece,bytag[tag]);zeros=[]
                         for own in cw.parse(fragment)[0].children('add_ownership'):
@@ -337,10 +372,13 @@ def prepare():
         after_mask=np.isin(after,[int(r['rgb'][1:],16) for r in ledger])
         migration['extent_added_cells']=[[int(x),int(y)] for y,x in zip(*np.where(after_mask&~before_mask))]
         migration['extent_removed_cells']=[[int(x),int(y)] for y,x in zip(*np.where(before_mask&~after_mask))]
-    files[(OUT/'REGISTRY_MIGRATION.json').relative_to(ROOT).as_posix()]=json.dumps(migration,ensure_ascii=False,indent=2)
+    migration['region_reference_changes']=reference_changes
+    migration_rel=(OUT/'REGISTRY_MIGRATION.json').relative_to(ROOT).as_posix()
+    files[migration_rel]=json.dumps(migration,ensure_ascii=False,indent=2)
+    if 'PREPARE_EXTRA_FILES' in globals():PREPARE_EXTRA_FILES(files,migration)
     for rel,raw in files.items():
         if rel.endswith('.txt'):cw.parse(raw)
-    changes=emit(files,'HISTORY.patch');dump('PLAN.json',dict(files=changes,allocations=allocations,new_tags=[],registered_RGBs=len(ledger),method='Exact integer culture/religion and building profile conservation; weights by complete source state subdivision, not pixels as a census'))
+    changes=emit(files,'HISTORY.patch');dump('PLAN.json',dict(files=changes,allocations=allocations,new_tags=migration['new_members'],registered_RGBs=len(ledger),region_reference_changes=reference_changes,method='Exact integer culture/religion and building profile conservation; weights by complete source state subdivision, not pixels as a census'))
     with (OUT/'TERRITORIAL_CHANGES.csv').open('w',encoding='utf-8-sig',newline='') as f:
         keys=['rgb','parent_rgb','state','previous_owner','owner','pixels'];w=csv.DictWriter(f,fieldnames=keys,extrasaction='ignore');w.writeheader();w.writerows(g['assignments'])
     print('Prepared',len(changes),'text files;',len(ledger),'registered RGBs;',len(allocations),'allocation profiles')

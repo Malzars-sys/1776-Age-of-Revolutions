@@ -1,0 +1,200 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 			country = c:PLC
+ 			owned_provinces = { x01E0E0 x022620 x1121A0 x11F253 x18E9E1 x1C7F2D x2472F3 x2C6218 x2D80BA x2E05DE x31F90F x33471E x46B48F x4700D0 x4C92CC x4D686A x54B5C4 x6168EB x6AC779 x7161A0 x7DA787 x7DF67D x82AE2F x884128 x8CE323 x905D21 x98E808 x9B1B0B xA8600B xA9FA61 xBD8617 xCD2CE5 xD5E7D2 xD6537D xD8EA8C xDD790F xE2B51B xE6AF95 xE996D1 xEA1E16 xF061A0 xF0E021 xF9066A xFF7D57 }
+ 		}
+ 	}
+ 	s:STATE_MECKLENBURG = {
+ 		create_state = {
+ 			country = c:MEC
+ 			owned_provinces = { xD8F441 xE080A0 x4545BE x12E54F x24CA48 }
+ 		}
+ 		create_state = {
+ 			country = c:MST
+ 			owned_provinces = { xE041A0 xD9A469 }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+-	}
++	
++create_state = { country = c:SWE owned_provinces = { xEDB102 xEDB103 xEDB104 xEDB105 } }
++}
+ 	s:STATE_MALTA = {
+ 		create_state = {
+ 			country = c:MLT
+ 			owned_provinces = { x015121 x3a8b51 }
+ 		}
+ 
+ 		add_homeland = cu:maltese
+ 	}
+ 	s:STATE_UMBRIA = {
+ 		create_state = {
+ 			country = c:PAP
+ 			owned_provinces = { x30C021 x72531E xD3A384 xE782CC x6E8D07 xD8F07B }
+ 		}
+ 
+ 		add_homeland = cu:south_italian
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     arable_land = 80
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_vineyard" }
+     capped_resources = {
+         building_coal_mine = 60
+         building_iron_mine = 30
+         building_sulfur_mine = 40
+         building_logging_camp = 8
+         building_limestone_quarry = 28
+         building_copper_mine = 8
+     }
+ }
+ 
+ STATE_MECKLENBURG = {
+     id = 75
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x12E54F" "x24CA48" "x4545BE" "xD8F441" "xD9A469" "xE041A0" "xE080A0" }
+-    prime_land = { "xE080A0" "x12E54F" }
++    provinces = { "x12E54F" "x24CA48" "x4545BE" "xD8F441" "xD9A469" "xE041A0" "xE080A0"  "xEDB102" "xEDB103" "xEDB104" "xEDB105" }
++    prime_land = { "xE080A0" "x12E54F"  "xEDB102" }
+     city = "xE080A0"
+     port = "xD8F441"
+     farm = "xD9A469"
+     mine = "xE041A0"
+     wood = "x12E54F"
+     arable_land = 25
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_logging_camp = 8
+         building_fishing_wharf = 10
+         building_limestone_quarry = 28
+     }
+     naval_exit_id = 3074
+ }
+ 
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 10350
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 272
+ 			}
+ 		}
+ 	}
+ 	s:STATE_MECKLENBURG = {
+ 		region_state:MEC = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 381018
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 3108
++				size = 377175
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 3077
+ 			}
+ 		}
+ 		region_state:MST = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 66302
+ 			}
+ 		}
++	
++		region_state:SWE = {
++create_pop = {
++				culture = north_german
++				size = 3843
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 31
++			}
++		}
+ 	}
+ }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\province_terrains.txt
+@@
+ xEDB002="forest"
+ xEDB003="forest"
+ xEDB004="forest"
+ xEDB005="forest"
+ xEDB006="forest"
+ xEDB007="forest"
+ xEDB008="mountain"
+ xEDB009="plains"
+ xEDB00A="plains"
+ xEDB00B="plains"
+ xEDB00C="plains"
+ xEDB010="plains"
+ 
+ xEDB100="plains"
+ xEDB101="plains"
++
++xEDB102="forest"
++xEDB103="forest"
++xEDB104="forest"
++xEDB105="forest"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "basis": "MAP2L SWABIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDB100",
+     "state": "STATE_POMERANIA",
+     "beneficiary": "SWE",
+     "basis": "MAP2N Poel: island reconstruction; Pomeranian technical grouping explicitly requested; generalized coast and hospital enclave, see REPORT.md."
+   },
+   {
+     "rgb": "xEDB101",
+     "state": "STATE_POMERANIA",
+     "beneficiary": "LUB",
+     "basis": "MAP2N Poel: island reconstruction; Pomeranian technical grouping explicitly requested; generalized coast and hospital enclave, see REPORT.md."
+   },
+   {
++    "rgb": "xEDB102",
++    "state": "STATE_MECKLENBURG",
++    "beneficiary": "SWE",
++    "basis": "MAP2N completion: Wismar/Benz/Neukloster, source-traced native-scale jurisdiction; historical fringes generalized; see MAP2N/REPORT.md."
++  },
++  {
++    "rgb": "xEDB103",
++    "state": "STATE_MECKLENBURG",
++    "beneficiary": "SWE",
++    "basis": "MAP2N completion: Wismar/Benz/Neukloster, source-traced native-scale jurisdiction; historical fringes generalized; see MAP2N/REPORT.md."
++  },
++  {
++    "rgb": "xEDB104",
++    "state": "STATE_MECKLENBURG",
++    "beneficiary": "SWE",
++    "basis": "MAP2N completion: Wismar/Benz/Neukloster, source-traced native-scale jurisdiction; historical fringes generalized; see MAP2N/REPORT.md."
++  },
++  {
++    "rgb": "xEDB105",
++    "state": "STATE_MECKLENBURG",
++    "beneficiary": "SWE",
++    "basis": "MAP2N completion: Wismar/Benz/Neukloster, source-traced native-scale jurisdiction; historical fringes generalized; see MAP2N/REPORT.md."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** End Patch

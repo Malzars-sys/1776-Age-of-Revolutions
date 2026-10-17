@@ -5,6 +5,8 @@ import validate_map2l_mainz as validation
 from map2l_belgium import packed
 from map2l_franconia import inside
 from map2l_mainz import ROOT
+from map2l_registry import approved_lot_dirs,ownership_rows
+from validate_map2a import counter
 
 OUT=ROOT/'docs/reports/map/MAP2L/MAINZ_COMPLETION'
 
@@ -34,8 +36,16 @@ def validate_southern_controls(check,out,current,baseline,alignment,tracing):
                 if owners.get((rgb,sid,'KMZ'))==1:represented.append(rgb)
         check('Town represented by a Mainz cell within subpixel footprint '+row['name'],bool(represented),str(represented)+'; 0.75 pixel centre-distance, no border enlargement')
     north={'STATE_SAXONY','STATE_HANNOVER','STATE_BRUNSWICK','STATE_ANHALT','STATE_WESTPHALIA','STATE_HESSE'}
-    check('Every northern territorial owner left unchanged',
-        [r for r in current['owners'] if r['key'][1] in north]==[r for r in baseline['inventory']['owners'] if r['key'][1] in north])
+    expected_north=counter([r for r in baseline['inventory']['owners'] if r['key'][1] in north])
+    lots=approved_lot_dirs()
+    for later in lots[lots.index(out)+1:]:
+        migration=json.loads((later/'REGISTRY_MIGRATION.json').read_text())
+        for row in ownership_rows(migration,'previous'):
+            if row['state'] in north:expected_north[(row['rgb'],row['state'],row['beneficiary'])]-=1
+        for row in ownership_rows(migration,'updated'):
+            if row['state'] in north:expected_north[(row['rgb'],row['state'],row['beneficiary'])]+=1
+    check('Northern owners unchanged except exact independently reviewed later migrations',
+          +expected_north==counter([r for r in current['owners'] if r['key'][1] in north]))
     assessment=json.loads((out/'NORTHERN_CALIBRATION_ASSESSMENT.json').read_text())
     check('Rejected northern calage neither silently accepted nor installed',assessment['status']=='REJECTED_NOT_APPLIED' and min(row['error_px'] for row in assessment['first_checks'])>9)
 

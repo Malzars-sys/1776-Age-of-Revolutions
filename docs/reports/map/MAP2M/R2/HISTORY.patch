@@ -1,0 +1,286 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 			owned_provinces = { x77143D x901B70 x9E1AD1 x11E021 x626998 xC347D8 }
+ 		}
+ 
+ 		add_homeland = cu:hungarian
+ 		add_homeland = cu:serb
+ 		add_claim = c:SER
+ 	}
+ 	s:STATE_POSEN = {
+ 		create_state = {
+ 			country = c:PLC
+ 			owned_provinces = { x1FA1E1 x2141A0 x2E6001 x999CEE xC32D8B xE513C0 x085962 xC02121 xFCC7B7 xF962B2 x41E0A0 x635336 }
+ 		}
+ 		add_claim = c:PRU
+ 		add_homeland = cu:north_german
+ 		add_homeland = cu:polish
++	
++		create_state = { country = c:PRU owned_provinces = { xEDB010 } }
+ 	}
+ 	s:STATE_WESTPHALIA = {
+ 		create_state = {
+ 			country = c:PRU
+ 			owned_provinces = { xEDA900 xEDA901 xEDA902 xEDA904 xEDA905 xEDA906 xEDA907 xEDA908 xEDA909 xEDA90A x418021 x4101A0 xEDAB01 xEDAB02 xA08061 }
+ 		}
+ 		create_state = {
+ 			country = c:LIP
+ 			owned_provinces = { x9F0060 }
+ 		}
+ 		create_state = {
+ 			country = c:SCM
+ 			owned_provinces = { x1BA4F6 }
+ 		}
+ 
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\02_east_europe.txt
+@@
+     mine = "xC020A0"
+     wood = "xEEF586"
+     arable_land = 40
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_logging_camp = 17
+         building_fishing_wharf = 10
+         building_limestone_quarry = 8
+     }
+     naval_exit_id = 3074
+ }
+ 
+ STATE_POSEN = {
+     id = 160
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x085962" "x1FA1E1" "x2141A0" "x2E6001" "x41E0A0" "x635336" "x999CEE" "xC02121" "xC32D8B" "xE513C0" "xF962B2" "xFCC7B7" }
++    provinces = { "x085962" "x1FA1E1" "x2141A0" "x2E6001" "x41E0A0" "x635336" "x999CEE" "xC02121" "xC32D8B" "xE513C0" "xF962B2" "xFCC7B7" "xEDB010" }
+     city = "x999CEE"
+-    farm = "xFCC7B7"
++    farm = "xEDB010"
+     mine = "x2141A0"
+     wood = "xE513C0"
+     arable_land = 90
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_iron_mine = 24
+         building_logging_camp = 9
+         building_limestone_quarry = 28
+     }
+     resource = {
+         type = "building_salt_mine"
+         discovered_amount = 18
+         undiscovered_amount = 0
+     }
+ }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\province_terrains.txt
+@@
+ xEDAF08="forest"
+ 
+ xEDB000="forest"
+ xEDB001="forest"
+ xEDB002="forest"
+ xEDB003="forest"
+ xEDB004="forest"
+ xEDB005="forest"
+ xEDB006="forest"
+ xEDB007="forest"
+ xEDB008="mountain"
+ xEDB009="plains"
+ xEDB00A="plains"
+ xEDB00B="plains"
+ xEDB00C="plains"
++xEDB010="plains"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 		
+ 			create_pop = {
+ 				culture = south_german
+ 				size = 91500
+ 			}
+ 			create_pop = {
+ 				culture = north_italian
+ 				size = 154000
+ 			}
+ 		}
+ 	}
+ 	s:STATE_POMERANIA = {
+ 		region_state:PRU = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 380297
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 38822
++				size = 379671
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 38758
+ 			}
+ 			create_pop = {
+ 				culture = polish
+-				size = 7466
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 1867
++				size = 7454
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 1864
+ 			}
+ 		}
+ 
+ 		region_state:SWE = {
+ create_pop = {
+ 				culture = north_german
+ 				size = 35578
+ 			}
+ create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 3632
+ 			}
+ create_pop = {
+ 				culture = polish
+ 				size = 699
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 175
++			}
++		
++create_pop = {
++				culture = north_german
++				size = 626
++			}
++		
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 64
++			}
++		
++create_pop = {
++				culture = polish
++				size = 12
++			}
++		
++create_pop = {
++				culture = ashkenazi
++				size = 3
+ 			}
+ 		}
+ 	}
+ 	s:STATE_ELBE = {
+ 		region_state:BRE = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 79562
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 3121
+ 			}
+ 		}
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\02_east_europe.txt
+@@
+ 				religion = catholic
+ 				size = 33147
+ 			}
+ 			create_pop = {
+ 				culture = polish
+ 				religion = protestant
+ 				size = 10614
+ 			}
+ 		}
+ 	}
+ 	s:STATE_POSEN = {
+ 		region_state:PLC = {
+ 			create_pop = {
+ 				culture = polish
+ 				pop_type = aristocrats
+-				size = 7436
+-			}
+-			create_pop = {
+-				culture = north_german
+-				size = 334826
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 9914
+-			}
+-			create_pop = {
+-				culture = polish
+-				size = 532354
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 87462
++				size = 7190
++			}
++			create_pop = {
++				culture = north_german
++				size = 323765
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 9586
++			}
++			create_pop = {
++				culture = polish
++				size = 514767
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 84573
++			}
++		}
++	
++		region_state:PRU = {
++create_pop = {
++				culture = polish
++				pop_type = aristocrats
++				size = 246
++			}
++		
++create_pop = {
++				culture = north_german
++				size = 11061
++			}
++		
++create_pop = {
++				culture = ashkenazi
++				size = 328
++			}
++		
++create_pop = {
++				culture = polish
++				size = 17587
++			}
++		
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 2889
+ 			}
+ 		}
+ 	}
+ 	s:STATE_WEST_GALICIA = {
+ 		region_state:GAL = {
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				pop_type = shopkeepers
+ 				size = 281
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				pop_type = clerks
+ 				size = 1122
+ 			}
+*** End Patch

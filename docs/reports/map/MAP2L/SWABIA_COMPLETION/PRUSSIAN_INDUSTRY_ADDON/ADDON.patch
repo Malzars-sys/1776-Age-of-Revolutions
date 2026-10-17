@@ -1,0 +1,41 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\00_west_europe.txt
+@@
+ 				building="building_university"
+ 				add_ownership={
+ 					country={
+ 						country="c:PRU"
+ 						levels=1
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_scholastic_education" "pm_religious_academia" }
+ 			}
+ 			create_building={
+ 				building="building_arms_industry"
+ 				add_ownership={
+ 					country={
+ 						country="c:PRU"
+-						levels=1
++						levels=4
+ 					}
+ 
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_muskets" "pm_automation_disabled"  }
+ 			}
+ 						create_building={
+ 							building="building_artillery_foundry"
+ 							add_ownership={
+ 								country={
+ 									country="c:PRU"
+ 									levels=1
+ 								}
+ 							}
+ 							reserves=1
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\99_1776_prussian_forestry_addon.txt
++BUILDINGS = {
++ s:STATE_BRANDENBURG = { region_state:PRU = { create_building = { building = "building_logging_camp" add_ownership = { country = { country = "c:PRU" levels = 6 } } reserves = 1 activate_production_methods = { "pm_organized_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" } } } }
++ s:STATE_POMERANIA = { region_state:PRU = { create_building = { building = "building_logging_camp" add_ownership = { country = { country = "c:PRU" levels = 4 } } reserves = 1 activate_production_methods = { "pm_organized_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" } } } }
++}
+*** End Patch

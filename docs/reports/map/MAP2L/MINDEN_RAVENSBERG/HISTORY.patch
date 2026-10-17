@@ -1,0 +1,466 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 		}
+ 
+ 		add_homeland = cu:south_german
+ 		add_homeland = cu:alemannic
+ 	
+ create_state = { country = c:KPF owned_provinces = { xEDA301 xE0A2B9 } }
+ create_state = { country = c:KMZ owned_provinces = { xEDA300 xEDA50E xEDA50F xEDA510 xEDA511 x318061 } }
+ }
+ 	s:STATE_HANNOVER = {
+ 		create_state = {
+ 			country = c:OLD
+ 			owned_provinces = { xECC3B4 xC00161 x4101E0 }
+ 		}
+ 		create_state = {
+ 			country = c:HAN
+-			owned_provinces = { x165E05 x694B91 xBBA504 xBF00DF x4D62A0 x8080E0 x784B8E xF9DCA2 }
++			owned_provinces = { x694B91 xBF00DF x4D62A0 x8080E0 x784B8E xF9DCA2 x165E05 xEDAA02 xEDAA03 }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+-	}
++	
++create_state = { country = c:PRU owned_provinces = { xEDAA00 xEDAA01 xBBA504 } }
++}
+ 	s:STATE_BAVARIA = {
+ 		create_state = {
+ 			country = c:BAV
+ 			owned_provinces = { x68CE1C xE76994 x6EA29B xE75868 xB00121 x18A2E1 x565185 x704A5F xC347B1 xB08021 xFE59E7 x8C26DD x3101A0 x010AD7 x318021 x82F4B9 xA7094D xEDA805 xEDA806 }
+ 		}
+ 
+ 		add_homeland = cu:south_german
+ 
+ 		create_state = { country = c:ANS owned_provinces = { xEDA800 } }
+ 		create_state = { country = c:EIC owned_provinces = { xEDA801 xEDA802 xEDA803 } }
+ 		create_state = { country = c:FBM owned_provinces = { xEDA804 xEDA807 } }
+ 		create_state = { country = c:NUR owned_provinces = { xEDA808 } }
+ 	}
+ 	s:STATE_FRANCONIA = {
+ 		create_state = { country = c:ANS owned_provinces = { xEDA200 xEDA205 xEDA208 xD041A0 xEDA217 xF91154 } }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     capped_resources = {
+         building_coal_mine = 20
+         building_iron_mine = 15
+         building_logging_camp = 11
+         building_limestone_quarry = 48
+     }
+     resource = {
+         type = "building_bauxite_mine"
+         undiscovered_amount = 25
+     }
+ }
+ 
+ STATE_HANNOVER = {
+     id = 69
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x165E05" "x4101E0" "x4D62A0" "x694B91" "x784B8E" "x8080E0" "xBBA504" "xBF00DF" "xC00161" "xECC3B4" "xF9DCA2" }
++    provinces = { "x4101E0" "x4D62A0" "x694B91" "x784B8E" "x8080E0" "xBF00DF" "xC00161" "xECC3B4" "xF9DCA2" "x165E05" "xEDAA00" "xEDAA01" "xEDAA02" "xEDAA03" "xBBA504" }
+     city = "x694B91"
+     port = "xF9DCA2"
+     farm = "x4D62A0"
+     mine = "x165E05"
+     wood = "xBBA504"
+     arable_land = 60
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_iron_mine = 24
+         building_logging_camp = 9
+         building_fishing_wharf = 4
+         building_limestone_quarry = 28
+     }
+     resource = {
+         type = "building_oil_rig"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 	s:STATE_HANNOVER = {
+ 		region_state:OLD = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 171362
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 29641
+ 			}
+ 		}
+ 		region_state:HAN = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 734920
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 152877
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 6241
++				size = 707104
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 147091
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 6005
+ 			}
+ 			create_pop = {
+ 				culture = dutch
+-				size = 3124
++				size = 3006
++			}
++		}
++	
++		region_state:PRU = {
++create_pop = {
++				culture = north_german
++				size = 27816
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 5786
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 236
++			}
++create_pop = {
++				culture = dutch
++				size = 118
+ 			}
+ 		}
+ 	}
+ 	s:STATE_BRUNSWICK = {
+ 		region_state:HAN = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 140399
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 3121
+ 			}
+ 		}
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "rgb": "x1357DB",
+     "state": "STATE_HESSE",
+     "beneficiary": "NAS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x155A44",
+     "state": "STATE_STYRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x165E05",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "HAN",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x169073",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SAX",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x18A2E1",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x19AE19",
+@@
+   {
+     "rgb": "xB4D292",
+     "state": "STATE_STYRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xB90BFF",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xBBA504",
+     "state": "STATE_HANNOVER",
+-    "beneficiary": "HAN",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "beneficiary": "PRU",
++    "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xBF00DF",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "HAN",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xC00121",
+     "state": "STATE_LOWER_SILESIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xC00161",
+@@
+     "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDA912",
+     "state": "STATE_NORTH_RHINE",
+     "beneficiary": "KPF",
+     "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xEDA913",
+     "state": "STATE_NORTH_RHINE",
+     "beneficiary": "KPF",
+     "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
++    "rgb": "xEDAA00",
++    "state": "STATE_HANNOVER",
++    "beneficiary": "PRU",
++    "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAA01",
++    "state": "STATE_HANNOVER",
++    "beneficiary": "PRU",
++    "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAA02",
++    "state": "STATE_HANNOVER",
++    "beneficiary": "HAN",
++    "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDAA03",
++    "state": "STATE_HANNOVER",
++    "beneficiary": "HAN",
++    "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\MINDEN_RAVENSBERG\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_HANNOVER"
++  ],
++  "previous": [
++    {
++      "rgb": "x165E05",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x4101E0",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "OLD",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x4D62A0",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x694B91",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x784B8E",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x8080E0",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xBBA504",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xBF00DF",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xC00161",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "OLD",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xECC3B4",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "OLD",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xF9DCA2",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x4101E0",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "OLD",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x4D62A0",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x694B91",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x784B8E",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x8080E0",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xBF00DF",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xC00161",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "OLD",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xECC3B4",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "OLD",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xF9DCA2",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x165E05",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAA00",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "PRU",
++      "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAA01",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "PRU",
++      "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAA02",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAA03",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "HAN",
++      "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xBBA504",
++      "state": "STATE_HANNOVER",
++      "beneficiary": "PRU",
++      "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    }
++  ],
++  "new_members": [],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDAA00",
++      "parent_rgb": "x165E05"
++    },
++    {
++      "rgb": "xEDAA01",
++      "parent_rgb": "x165E05"
++    },
++    {
++      "rgb": "xEDAA02",
++      "parent_rgb": "xBBA504"
++    },
++    {
++      "rgb": "xEDAA03",
++      "parent_rgb": "xBBA504"
++    }
++  ],
++  "geometry": "MINDEN_RAVENSBERG/GEOMETRY.json",
++  "region_reference_changes": []
++}
+*** End Patch

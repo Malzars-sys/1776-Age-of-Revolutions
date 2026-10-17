@@ -9,7 +9,7 @@ import validate_map2a as qa
 import validate_diplomacy_ottoman_1776 as cw
 from map_1776_audit import effective,values
 from map2l_belgium import ROOT,OUT,LOT,REGIONS,TAGS,packed,sha
-from map2l_registry import active_registry_path,approved_territorial_extensions,approved_territorial_migrations,apply_territorial_migrations,approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent
+from map2l_registry import active_registry_path,approved_territorial_extensions,approved_territorial_migrations,apply_territorial_migrations,approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent,expected_country_definitions
 from validate_map2k_imperial import node,textnode,profiles
 
 
@@ -45,7 +45,8 @@ def validate():
     approved_tags=set(TAGS)|{t for m in migrations for t in m['new_members']}
     check('Exactly reviewed new countries, including later approved estates',set(inv['countries'])-set(before['countries'])==approved_tags and set(before['countries'])<=set(inv['countries']))
     check('Both capitals lie in an owned state',all(['STATE_WALLONIA',tag] in inv['states'] for tag in TAGS))
-    check('All pre-existing country definitions unchanged',all(inv['countries'][t]==v for t,v in before['countries'].items()))
+    expected_definitions=expected_country_definitions(before['countries'],migrations)
+    check('Pre-existing definitions preserved except exact reviewed WUR tier',all(inv['countries'][t]==expected_definitions[t] for t in before['countries']))
     bmp=packed(ROOT/'map_data/provinces.png');oldbmp=packed(OUT/'SOURCE/provinces_before.png')
     check('Original bitmap backup still exact',sha(OUT/'SOURCE/provinces_before.png')==base['bitmap_sha256'])
     check('Live bitmap is the latest reviewed candidate',sha(ROOT/'map_data/provinces.png')==(later_geo or geo)['candidate_sha256'])
@@ -121,6 +122,8 @@ def validate():
         approved_territorial_extensions=extensions,
         approved_territorial_migrations=migrations,
         changed_protected_files=changed)
+    from map2l_runtime_receipt import annotate
+    annotate(report,LOT)
     (LOT/'VALIDATION.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     print(report['status'],len(checks),'checks;',report['changed_pixels'],'changed pixels')
     for row in checks:

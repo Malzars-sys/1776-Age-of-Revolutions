@@ -80,62 +80,22 @@ if = { limit = { exists = global_var:aor1776_hre_emperor_country }
 }
 }
 aor1776_hre_bind_protectorate = {
-save_scope_as = hre_reform_emperor
-every_country = { limit = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } }
- save_scope_as = hre_reform_estate
- if = { limit = { is_direct_subject_of = scope:hre_reform_emperor }
-  change_subject_type = subject_type_aor1776_hre_protectorate
- }
- else = {
-  if = { limit = { is_subject = yes top_overlord ?= { aor1776_hre_member = yes } } make_independent = yes }
-  scope:hre_reform_emperor = { create_diplomatic_pact = { country = scope:hre_reform_estate type = aor1776_hre_protectorate } }
- }
-}
+# Reserved: no general conversion or annexation before constitutional authorization.
+custom_tooltip = aor1776_hre_centralization_not_authorized_tt
 }
 aor1776_hre_stage_1 = {
-if = { limit = { aor1776_hre_reform_safe = yes global_var:aor1776_hre_reform_stage = 0 NOT = { has_variable = aor1776_hre_reform_cooldown } }
- aor1776_hre_bind_protectorate = yes
- if = { limit = { NOT = { any_country = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } NOT = { is_direct_subject_of = root is_subject_type = subject_type_aor1776_hre_protectorate } } } }
-  set_global_variable = { name = aor1776_hre_reform_stage value = 1 }
-  set_variable = { name = aor1776_hre_reform_cooldown days = 730 }
-  trigger_event = { id = aor1776_hre.61 popup = yes }
- }
-}
+# Reserved: no general conversion or annexation before constitutional authorization.
+custom_tooltip = aor1776_hre_centralization_not_authorized_tt
 }
 aor1776_hre_bind_crownland = {
-save_scope_as = hre_reform_emperor
-every_country = { limit = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } }
- save_scope_as = hre_reform_estate
- if = { limit = { is_direct_subject_of = scope:hre_reform_emperor }
-  change_subject_type = subject_type_aor1776_hre_crownland
- }
- else = {
-  if = { limit = { is_subject = yes top_overlord ?= { aor1776_hre_member = yes } } make_independent = yes }
-  scope:hre_reform_emperor = { create_diplomatic_pact = { country = scope:hre_reform_estate type = aor1776_hre_crownland } }
- }
-}
+# Reserved: no general conversion or annexation before constitutional authorization.
+custom_tooltip = aor1776_hre_centralization_not_authorized_tt
 }
 aor1776_hre_stage_2 = {
-if = { limit = { aor1776_hre_reform_safe = yes global_var:aor1776_hre_reform_stage = 1 NOT = { has_variable = aor1776_hre_reform_cooldown } }
- aor1776_hre_bind_crownland = yes
- if = { limit = { NOT = { any_country = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } NOT = { is_direct_subject_of = root is_subject_type = subject_type_aor1776_hre_crownland } } } }
-  set_global_variable = { name = aor1776_hre_reform_stage value = 2 }
-  set_variable = { name = aor1776_hre_reform_cooldown days = 730 }
-  trigger_event = { id = aor1776_hre.62 popup = yes }
- }
-}
+# Reserved: no general conversion or annexation before constitutional authorization.
+custom_tooltip = aor1776_hre_centralization_not_authorized_tt
 }
 aor1776_hre_stage_3 = {
-if = { limit = { aor1776_hre_reform_safe = yes global_var:aor1776_hre_reform_stage = 2 NOT = { has_variable = aor1776_hre_reform_cooldown }
- NOT = { any_country = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } NOT = { is_direct_subject_of = root is_subject_type = subject_type_aor1776_hre_crownland } } } }
- save_scope_as = hre_reform_emperor
- every_country = { limit = { aor1776_hre_member = yes NOT = { aor1776_hre_emperor = yes } } set_variable = aor1776_hre_unification_selected }
- every_country = { limit = { has_variable = aor1776_hre_unification_selected }
-  save_scope_as = hre_reform_estate scope:hre_reform_emperor = { annex = scope:hre_reform_estate }
- }
- set_global_variable = { name = aor1776_hre_reform_stage value = 3 }
- set_global_variable = aor1776_hre_unified
- remove_modifier = aor1776_hre_estates_authority remove_variable = aor1776_hre_applied_authority
- trigger_event = { id = aor1776_hre.63 popup = yes }
-}
+# Reserved: no general conversion or annexation before constitutional authorization.
+custom_tooltip = aor1776_hre_centralization_not_authorized_tt
 }

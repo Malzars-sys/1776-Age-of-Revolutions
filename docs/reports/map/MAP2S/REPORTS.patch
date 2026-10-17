@@ -1,0 +1,87 @@
+*** Begin Patch
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2S\REPORT.md
++# MAP-2S — Jever et arrêt pratique d’Anhalt
++
++Date historique : 1er janvier 1776. Relevé : 17 octobre 2026.
++
++**Statut : MAP2S_PARTIAL_JEVER_GEOMETRY_UNRESOLVED. Jever n’est pas corrigée.**
++
++## Résultat
++
++La validation manuelle de MAP-2R est enregistrée de façon additive dans `MAP2R_RUNTIME_USER_VALIDATION.json`, à partir de l’acceptation explicite du prompt MAP-2S. Aucune durée de simulation n’est déduite. Aucun ancien rapport ni baseline n’est réécrit et aucun test moteur automatisé n’est revendiqué.
++
++Zéro cellule transférée, zéro nouveau RGB, aucun fichier fonctionnel modifié. Les cinq enveloppes OLD de STATE_HANNOVER restent OLD. Le titre historique de Jever est AZR, pas OLD, PRU ou RUS en1776. Cette anomalie demeure ouverte : la conservation n’est pas une attribution historique validée.
++
++Les nouvelles reproductions du musée (vers1725, frontière1745/46,1798) permettent de distinguer Jever, Kniphausen et les territoires voisins. Elles ne permettent pas encore de placer leurs limites de façon défendable dans le littoral simplifié du jeu. La pièce1798 est postérieure au changement de souverain1793 et n’est pas utilisée seule comme preuve1776. Le catalogue haute définition d’Oldenburg renvoie une vérification de navigateur ; aucune image haute définition n’a été obtenue. Il ne faut ni agrandir les petites images en prétendant gagner du détail, ni attribuer toute xECC3B4 à Zerbst, ni choisir arbitrairement son quart nord-ouest.
++
++L’aperçu avant/après est volontairement identique. `TERRITORIAL_CHANGES.csv` contient son en-tête sans transfert. Les autres CSV séparent les enveloppes d’investigation des modifications installées. Aucun faux contour « prêt à appliquer » n’est livré.
++
++## Anhalt
++
++Les noyaux acceptés ANH167 / ABG23 / AKT33 / AZR56, les112 changements de souveraineté et les11 RGB de MAP2R sont conservés. Hoym, les franges du Harz, Köthen et Zerbst–Coswig–Roßlau n’ont pas de preuve locale nouvelle déterminante. Hoym ne doit pas être fusionnée automatiquement avec Bernbourg ; la partition1797 n’est pas rétroprojetée. Ces limites sont maintenues sans prolonger la recherche générale. Anhalt est arrêté pratiquement, pas déclaré historiquement exhaustif.
++
++## Conservation et contrôles
++
++3762/3762 contrôles de conservation réussis. Tous les fichiers fonctionnels, propriétaires, State_ID, populations/profils, bâtiments, PM, propriétés économiques, ressources, infrastructures, unités et pactes sont identiques au début de MAP-2S. Les fichiers antérieurs protégés sont vérifiés par empreintes. Les futurs sujets impériaux, leurs icônes et leur prototype ne sont pas modifiés.
++
++Population mondiale835801255 ; HLB9206. Aucun chiffre historique de Jever n’est installé sans périmètre comparable, aucune compensation voisine. Les44 doublons RGB et12 références invalides préexistants sont inchangés. Les dix échecs anciens de snapshots sont conservés et distingués des nouvelles régressions dans UNIT_TESTS.json.
++
++Aucun commit, merge, reset, push, changement de branche ou modification d’index. Aucun fichier de l’installation du jeu écrit. Les tests en cours du joueur sur HRE-CENTRALIZATION restent une validation distincte, non présumée acquise ici.
++
++## Suite
++
++Une seule région recommandée : Saxe et principautés thuringiennes hors Erfurt–Eichsfeld, STATE_SAXONY73. Elle n’est pas commencée. Voir NEXT_HRE_REGION_RECOMMENDATION.md et l’arbitrage détaillé de JEVER_HISTORICAL_EVIDENCE.md.
++
++ColGrep : une tentative refusée sur le verrou d’index, puis un appel local abouti ; les trois pistes retournées sont vérifiées. Il confirme les fichiers utiles, sans fournir de géométrie nouvelle. Aucune économie exacte de quota mesurée.
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2S\JEVER_HISTORICAL_EVIDENCE.md
++# Jever — preuves acquises et géométrie manquante
++
++## Corpus ciblé, pas de reprise générale
++
++- [NLA OL Best90](https://www.arcinsys.niedersachsen.de/arcinsys/showFondsDetails?fondsId=2640) : autorité d’Anhalt-Zerbst1667–1793 et fonds de l’administration de Jever. Forte preuve de souveraineté, pas un contour raster.
++- [Archives urbaines Dep25JEV](https://www.arcinsys.niedersachsen.de/arcinsys/showFondsDetails.action?fondsId=2873&request_locale=en) : portée urbaine à distinguer de toute la seigneurie.
++- [Schlossmuseum Jever, cartes et plans](https://www.schlossmuseum.de/sammlungen/virtuelle-sammlungen/regionalgeschichte/landkarten-und-plaene/) : Königshaven vers1725 Ka92 ; limite Wittmund–Jever1745/46 Ka226 ; Kunstenbach1798 Ka94. Six reproductions avec empreintes dans MAP_SOURCES.json. La carte1798 montre une souveraineté russe postérieure, pas celle1776.
++- Coldewey/Homann1730 déjà conservée dans MAP2P/COLDEWEY_1730.png et sa provenance : grandes distinctions Jever/Kniphausen/Oldenburg, pas de transformation locale indépendante validée.
++- MAP2R/JEVER_AUDIT.md, MAP2O/JEVER_VAREL_KNIPHAUSEN_AUDIT.md et MAP2P : exclusions déjà établies, réutilisées sans écraser leurs baselines.
++- [NLA, catalogue Jever](https://www.arcinsys.niedersachsen.de/arcinsys/list.action?nodeid=g182576&page=1) : Siebeck1777 Best298Z31 identifié au catalogue. Notice seule, image non obtenue, aucune frontière extraite.
++
++## Localisation et juridictions
++
++Jever est dans l’ensemble côtier Jeverland, à l’ouest de la Jade et au nord d’Oldenburg. Les cartes distinguent Wangerland, Östringen et les secteurs de Rüstringen ; Kniphausen reste distincte. Les droits Bentinck et Varel ne deviennent pas automatiquement des possessions de Zerbst. Wangerooge est un problème séparé de correspondance insulaire. Ni Wilhelmshaven1853, ni la Russie1793, ni l’intégration à Oldenburg1818 ne sont rétroprojetées.
++
++Le bitmap8192×3616 contient les grandes enveloppes OLD xECC3B4 (184 cellules) et xC00161 (229), STATE_HANNOVER69. Leurs bornes et les trois fragments OLD plus méridionaux sont relevés dans le CSV. Ce sont des transporteurs techniques d’investigation et non des provinces historiques de Jever. Aucun pixel unique de centre urbain de Jever n’est certifié. La position d’un bâtiment ou un profil baltique/thuringien hors domaine n’a pas été employé.
++
++Le seul locator inventorié dans la fenêtre locale est le port de STATE_ELBE58, en RGB BRE x68BE66, X4286.373535/Y742.575195. Ce locator n’est ni un port de Jever ni une preuve de sa frontière. Aucun hub/locator n’est déplacé. OLD conserve146803 habitants de sa subdivision économique69 ; AZR conserve30687 dans son noyau62. Ces chiffres sont techniques, pas la population historique de Jever.
++
++## Pourquoi C et non B
++
++Une généralisation B est autorisée par le prompt, mais doit rester fondée sur une juridiction identifiable dans le raster. Les images obtenues sont petites (420×500,375×528 et813×500 pour les trois vues complètes) ; la limite sud et l’exclusion Kniphausen ne peuvent pas être transposées de manière vérifiable. Le littoral natif schématise la Jade et les terres endiguées. Aucun jeu de repères homologues indépendant n’est présent. Déplacer sept pixels, couper une moitié ou prendre un petit noyau nord-ouest donnerait une règle numérique sans preuve supplémentaire. Cela resterait C, même avec un tracé visuellement propre.
++
++## Arbitrage opérationnel
++
++Conserver les transporteurs OLD pour cette passe. Reprendre seulement avec une image lisible de Ka92 / Siebeck1777 / Ka94, une comparaison de la frontière avec la pièce1745/46, et des repères physiques locaux explicitement identifiés côté source et bitmap. Délimiter alors un noyau généralisé en excluant Varel/Kniphausen, mesurer l’incertitude sans prétention cadastrale, puis créer une possession éloignée directe AZR sans corridor ni pays indépendant.
++
++Il faut ensuite répartir la démographie par un périmètre comparable : donnée historique datée si disponible, sinon redistribution déterministe. Tester marché, capacité portuaire réelle et accès maritime sans créer artificiellement des bâtiments. Aucun correctif géométrique n’est implicitement autorisé par ce rapport.
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2S\NEXT_HRE_REGION_RECOMMENDATION.md
++# Prochain secteur unique : Saxe et principautés thuringiennes, hors Erfurt–Eichsfeld
++
++**STATE_SAXONY, ID73 ; aucun travail commencé.**
++
++Les inventaires MAP2M/R9/HRE_REGIONS_INVENTORY.csv et sa progression indiquent ce secteur RESEARCHED_ONLY. La mise à jour MAP2Q/R3/HRE_REGIONS_INVENTORY_UPDATED.csv conserve cette distinction. Les rapports territoriaux ultérieurs MAP2N–MAP2R concernent d’autres régions : Wismar/Poel/Neukloster, Frise, Eutin/Schwartau, puis Anhalt. Ils ne constituent pas une reconstruction de la Saxe. Les recommandations de R9 sur Wismar et celles ultérieures sur Eutin/Anhalt sont désormais dépassées par les lots acceptés et ne sont pas répétées.
++
++Pays présents à contrôler : SAX, COB, MEI, WEI et SCW. Identifier d’abord la portée exacte de SCW, sans confondre son TAG avec un inventaire complet des Schwarzbourg. Vérifier les principautés ernestines et leurs possessions de1776, l’électorat de Saxe, les petits domaines et enclaves non distincts. Le regroupement de1836 et des partages postérieurs ne constitue pas une frontière1776. L’ajout franconien à Cobourg ne valide pas tout son territoire thuringien.
++
++Sources déjà retenues : R2_NORTHERN_CENTRAL_EASTERN_EUROPE_RECOMMENDATIONS.csv, entrées0049–0053 pour les cinq TAGs et source0016 (Freeman/Bury1780). Leur faible précision pour les propriétaires détaillés reste explicite. Les atlas conservés donnent une première base de localisation ; aucune correction n’est promise à partir du seul TAG. Choisir ensuite un sous-secteur bien documenté plutôt qu’une reconstruction de tous les micro-États à la fois.
++
++Problèmes connus : fragmentation, souverainetés et propriétés non équivalentes, correspondance des centres urbains incertaine, profils démographiques régionaux grossiers. Exclure le dossier gelé Erfurt–Eichsfeld et préserver les noyaux Anhalt, les lots franconiens et les mécanismes impériaux. Rien de cela n’est modifié dans MAP-2S.
++
++Ce choix suit la recommandation MAP2R après l’acceptation manuelle de ses noyaux. Il ne dépend pas de la résolution de chaque frange de Jever ou du Harz et évite de recommander à nouveau un secteur déjà validé.
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2S\RUNTIME_TEST_PLAN.md
++# Contrôle en jeu
++
++Aucun nouveau fichier fonctionnel n’est modifié par MAP-2S. Il n’y a donc pas de nouvelle frontière installée à certifier. Jever reste OLD et doit être signalée comme anomalie, pas comme correction réussie.
++
++La validation MAP-2R fournie par le joueur est conservée dans une attestation additive. Aucune durée n’est inventée. Les essais HRE-CENTRALIZATION en cours constituent un autre lot ; ce rapport ne les déclare pas réussis.
++
++Après une future correction approuvée de Jever seulement : nouvelle partie1776 ; vérifier AZR au noyau et sur la côte sans corridor, limites OLD/PRU/Kniphausen/Varel, capitales, populations/profils, marchés de la possession éloignée, accès à la mer et ports réellement existants. Vérifier OLD–HLB et9206 habitants, armées, PM, bâtiments et registre ; laisser ensuite simuler et noter la durée réellement testée. Ne pas promouvoir le dossier C actuel en READY_FOR_RUNTIME_VALIDATION.
+*** End Patch

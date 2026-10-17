@@ -10,7 +10,7 @@ from map_1776_audit import effective,values
 from map2k_patch import MEMBERS,ELECTORS,NEW
 from map2k_work import ROOT,GAME,OUT
 from map2a_patch import edits
-from map2l_registry import active_registry_path,additional_members,member_region_overrides
+from map2l_registry import active_registry_path,additional_members,member_region_overrides,territorial_holder_overrides,rightful_holder_condition
 MEMBERS=MEMBERS+['HAN']+additional_members()
 REGIONS={'STATE_AUSTRIA','STATE_BOHEMIA','STATE_MORAVIA','STATE_ISTRIA','STATE_SLOVENIA','STATE_SOUTH_TYROL','STATE_STYRIA','STATE_TYROL','STATE_LOMBARDY','STATE_FLANDERS','STATE_GELRE','STATE_WALLONIA','STATE_BAVARIA','STATE_FRANCONIA','STATE_ANHALT','STATE_BRANDENBURG','STATE_BRUNSWICK','STATE_LOWER_SILESIA','STATE_UPPER_SILESIA','STATE_NORTH_RHINE','STATE_POMERANIA','STATE_RHINELAND','STATE_RUHR','STATE_WESTPHALIA','STATE_EMILIA','STATE_WURTTEMBERG','STATE_HESSE','STATE_MECKLENBURG','STATE_ELBE','STATE_HANNOVER','STATE_SAXONY','STATE_BADEN','STATE_TUSCANY','STATE_SCHLESWIG_HOLSTEIN'}
 IDENTITY='identity_aor1776_imperial_federation'
@@ -28,10 +28,10 @@ def emit(files):
  p+=['*** End Patch'];(OUT/'IMPERIAL_SYSTEM.patch').write_text('\n'.join(p)+'\n',encoding='utf-8')
  print('Prepared',len(files),'runtime files; apply IMPERIAL_SYSTEM.patch explicitly')
 def compile_system():
- files={};inv=qa.inventory();ledger=[];overrides=member_region_overrides()
+ files={};inv=qa.inventory();ledger=[];overrides=member_region_overrides();territorial=territorial_holder_overrides()
  for row in inv['owners']:
   rgb,sid,tag=row['key']
-  if tag in MEMBERS and sid in overrides.get(tag,REGIONS):
+  if (tag in MEMBERS and sid in overrides.get(tag,REGIONS)) or sid in territorial.get(tag,set()):
    assert row['count']==1,'Cannot register multiply assigned province '+rgb
    ledger.append(dict(rgb=rgb,state=sid,beneficiary=tag,basis='Frozen 1776 gameplay assignment; NOT a new historical territorial claim'))
  registry=active_registry_path()
@@ -67,9 +67,11 @@ def compile_system():
   opts=[];effects=[]
   for r in rows:
    tag,rgb=r['beneficiary'],r['rgb']
-   valid=f'c:{tag} ?= {{ aor1776_hre_member = yes }} NOT = {{ owner = c:{tag} }} p:{rgb}.state ?= this'
+   rightful=rightful_holder_condition(r)
+   restore_rightful='' if sid in territorial.get(tag,set()) else f'c:{tag} = {{ aor1776_hre_member = yes }}'
+   valid=f'{rightful} NOT = {{ owner = c:{tag} }} p:{rgb}.state ?= this'
    opts.append('AND = { '+valid+' }')
-   effects.append(f'if = {{ limit = {{ exists = c:{tag} c:{tag} = {{ aor1776_hre_member = yes }} p:{rgb}.state = {{ owner = scope:hre_holder }} NOT = {{ c:{tag} = scope:hre_holder }} }} s:{sid} = {{ set_owner_of_provinces = {{ country = c:{tag} provinces = {{ {rgb} }} }} }} }}')
+   effects.append(f'if = {{ limit = {{ exists = c:{tag} {restore_rightful} p:{rgb}.state = {{ owner = scope:hre_holder }} NOT = {{ c:{tag} = scope:hre_holder }} }} s:{sid} = {{ set_owner_of_provinces = {{ country = c:{tag} provinces = {{ {rgb} }} }} }} }}')
   checks.append('AND = { state_region = s:'+sid+' OR = { '+' '.join(opts)+' } }')
   returns.append('if = { limit = { scope:hre_request_state = { state_region = s:'+sid+' } } '+'\n'.join(effects)+' }')
  triggers+=block('aor1776_hre_restitution_state','OR = {\n'+'\n'.join(checks)+'\n}')
@@ -701,5 +703,6 @@ def compile_system():
  from map2k_imperial_atlas_access import augment_atlas_access
  files=augment_atlas_access(files)
  from map2k_imperial_electoral_choices import augment_electoral_choices
- return augment_electoral_choices(files,MEMBERS)
+ from hre_centralization_01 import augment as augment_centralization
+ return augment_centralization(augment_electoral_choices(files,MEMBERS),inv)
 if __name__=='__main__':emit(compile_system())

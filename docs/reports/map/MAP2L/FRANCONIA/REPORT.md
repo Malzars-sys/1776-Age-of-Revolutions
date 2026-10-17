@@ -2,7 +2,7 @@
 
 Date de finalisation : 13 octobre 2026. Démarrage visé : 1er janvier 1776.
 
-Statut : **implémenté, validations statiques réussies, chargement dans Victoria 3 encore à tester**. Ce rapport ne certifie ni une reconstruction cadastrale exhaustive ni la résolution de toutes les juridictions franconiennes.
+Mise à jour du 14 octobre : **PASS_RUNTIME_USER_VALIDATED** pour les territoires franconiens et principautés inspectés par le joueur dans une nouvelle partie. Test manuel déclaré, pas test moteur automatisé. Les contrôles statiques et leurs alertes Git historiques sont conservés séparément ; ni les frontières non inspectées ni toutes les juridictions ne sont certifiées. Reçu : `../RUNTIME_USER_VALIDATION.json`.
 
 ## Territoires implémentés
 

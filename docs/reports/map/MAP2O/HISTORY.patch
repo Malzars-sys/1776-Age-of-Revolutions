@@ -1,0 +1,354 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ create_state = { country = c:SFU owned_provinces = { xEDAE00 xEDAE02 xEDAE03 xEDAE04 xEDAE06 xEDAE07 xEDAE08 xEDAE09 } }
+ 
+ create_state = { country = c:SKC owned_provinces = { xEDAF04 } }
+ create_state = { country = c:SLM owned_provinces = { xAEBA2A } }
+ 
+ create_state = { country = c:SRQ owned_provinces = { xEDB00B } }
+ create_state = { country = c:SWG owned_provinces = { xEDB00C } }
+ }
+ 	s:STATE_HANNOVER = {
+ 		create_state = {
+ 			country = c:OLD
+ 			owned_provinces = { xECC3B4 xEDAC07 xEDAC08 xEDAC09 xC00161 }
+ 		}
+ 		create_state = {
+ 			country = c:HAN
+-			owned_provinces = { x694B91 xF9DCA2 x165E05 xEDAA02 xEDAA03 xEDAC00 xEDAC01 xEDAC02 xBF00DF x8080E0 x784B8E }
++			owned_provinces = { x694B91 x165E05 xEDAA02 xEDAA03 xEDAC00 xEDAC01 xEDAC02 xBF00DF x8080E0 x784B8E }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+ 	
+-create_state = { country = c:PRU owned_provinces = { xEDAA00 xEDAA01 xBBA504 xEDAC04 x4D62A0 xEDAC0C } }
++create_state = { country = c:PRU owned_provinces = { xEDAA00 xEDAA01 xBBA504 xEDAC04 x4D62A0 xEDAC0C xF9DCA2 } }
+ 
+ create_state = { country = c:WPM owned_provinces = { xEDAC06 x4101E0 xEDAC0B xEDAC0D xEDAC0E } }
+ create_state = { country = c:WPO owned_provinces = { xEDAC03 xEDAC05 xEDAC0A } }
+ }
+ 	s:STATE_BAVARIA = {
+ 		create_state = {
+ 			country = c:BAV
+ 			owned_provinces = { x68CE1C xE76994 x6EA29B xE75868 xB00121 x18A2E1 x565185 xB08021 xFE59E7 x8C26DD x3101A0 x010AD7 x318021 x82F4B9 xA7094D xEDA805 xEDA806 xEDAD0B x704A5F xC347B1 }
+ 		}
+ 
+ 		add_homeland = cu:south_german
+ 
+ 		create_state = { country = c:ANS owned_provinces = { xEDA800 } }
+ 		create_state = { country = c:EIC owned_provinces = { xEDA801 xEDA802 xEDA803 } }
+ 		create_state = { country = c:FBM owned_provinces = { xEDA804 xEDA807 } }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 	s:STATE_HANNOVER = {
+ 		region_state:OLD = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 125155
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 21648
+ 			}
+ 		}
+ 		region_state:HAN = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 592181
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 123185
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 5029
++				size = 475428
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 98898
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 4037
+ 			}
+ 			create_pop = {
+ 				culture = dutch
+-				size = 2518
++				size = 2022
+ 			}
+ 		}
+ 	
+ 		region_state:PRU = {
+ create_pop = {
+ 				culture = north_german
+ 				size = 27816
+ 			}
+ create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 5786
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+@@
+ 				culture = north_german
+ 				size = 23790
+ 			}
+ create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 4949
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 202
+ 			}
+ create_pop = {
+ 				culture = dutch
+ 				size = 101
++			}
++		
++create_pop = {
++				culture = north_german
++				size = 116753
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 24287
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 992
++			}
++create_pop = {
++				culture = dutch
++				size = 496
+ 			}
+ 		}
+ 
+ 		region_state:WPO = {
+ create_pop = {
+ 				culture = north_german
+ 				size = 49409
+ 			}
+ create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 10278
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+   {
+     "rgb": "xF8D457",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xF91154",
+     "state": "STATE_FRANCONIA",
+     "beneficiary": "ANS",
+     "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "xF9DCA2",
+     "state": "STATE_HANNOVER",
+-    "beneficiary": "HAN",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "beneficiary": "PRU",
++    "basis": "MAP2O: Prussian East Frisian coastal core since 1744; existing-province generalization B; southern fringe unresolved, see MAP2O/REPORT.md."
+   },
+   {
+     "rgb": "xFA371D",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xFAFCD4",
+     "state": "STATE_TUSCANY",
+     "beneficiary": "TUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xFDA6CB",
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\scripted_triggers\1776_imperial_constitution.txt
+@@
+ custom_tooltip = { text = aor1776_hre_restitution_state_tt
+ 
+ OR = {
+ AND = { state_region = s:STATE_ANHALT OR = { AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x12694A.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x34386E.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x3C9B93.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x618061.state ?= this } AND = { c:ANH ?= { aor1776_hre_member = yes } NOT = { owner = c:ANH } p:x8A448C.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xA080E0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xA51232.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xCBA4A5.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xCF5D8E.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xE0C0A0.state ?= this } AND = { c:ANH ?= { aor1776_hre_member = yes } NOT = { owner = c:ANH } p:xED8F7B.state ?= this } } }
+ AND = { state_region = s:STATE_AUSTRIA OR = { AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x0CBB8F.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x1180A0.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x20CF50.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x316141.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x62F70E.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x7F2E4E.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x84C7C3.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x9001A0.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xA40093.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xA9793B.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xFDA6CB.state ?= this } } }
+ AND = { state_region = s:STATE_BADEN OR = { AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:x318061.state ?= this } AND = { c:SLM ?= { aor1776_hre_member = yes } NOT = { owner = c:SLM } p:xAEBA2A.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xB00160.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xB08061.state ?= this } AND = { c:KPF ?= { aor1776_hre_member = yes } NOT = { owner = c:KPF } p:xE0A2B9.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA300.state ?= this } AND = { c:KPF ?= { aor1776_hre_member = yes } NOT = { owner = c:KPF } p:xEDA301.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA302.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA303.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA509.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA50A.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA50B.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA50C.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA50D.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA50E.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA50F.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA510.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA511.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA600.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA601.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA602.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA603.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA604.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA605.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDA606.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDAD00.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xEDAD01.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xEDAD02.state ?= this } AND = { c:HSG ?= { aor1776_hre_member = yes } NOT = { owner = c:HSG } p:xEDAD03.state ?= this } AND = { c:SFU ?= { aor1776_hre_member = yes } NOT = { owner = c:SFU } p:xEDAE00.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDAE01.state ?= this } AND = { c:SFU ?= { aor1776_hre_member = yes } NOT = { owner = c:SFU } p:xEDAE02.state ?= this } AND = { c:SFU ?= { aor1776_hre_member = yes } NOT = { owner = c:SFU } p:xEDAE03.state ?= this } AND = { c:SFU ?= { aor1776_hre_member = yes } NOT = { owner = c:SFU } p:xEDAE04.state ?= this } AND = { c:SFU ?= { aor1776_hre_member = yes } NOT = { owner = c:SFU } p:xEDAE06.state ?= this } AND = { c:SFU ?= { aor1776_hre_member = yes } NOT = { owner = c:SFU } p:xEDAE07.state ?= this } AND = { c:SFU ?= { aor1776_hre_member = yes } NOT = { owner = c:SFU } p:xEDAE08.state ?= this } AND = { c:SFU ?= { aor1776_hre_member = yes } NOT = { owner = c:SFU } p:xEDAE09.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDAF02.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDAF03.state ?= this } AND = { c:SKC ?= { aor1776_hre_member = yes } NOT = { owner = c:SKC } p:xEDAF04.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDB009.state ?= this } AND = { c:BAD ?= { aor1776_hre_member = yes } NOT = { owner = c:BAD } p:xEDB00A.state ?= this } AND = { c:SRQ ?= { aor1776_hre_member = yes } NOT = { owner = c:SRQ } p:xEDB00B.state ?= this } AND = { c:SWG ?= { aor1776_hre_member = yes } NOT = { owner = c:SWG } p:xEDB00C.state ?= this } } }
+ AND = { state_region = s:STATE_BAVARIA OR = { AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x010AD7.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x18A2E1.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x3101A0.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x318021.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x565185.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x68CE1C.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x6EA29B.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x704A5F.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x82F4B9.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:x8C26DD.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xA7094D.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xB00121.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xB08021.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xC347B1.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xE75868.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xE76994.state ?= this } AND = { c:ANS ?= { aor1776_hre_member = yes } NOT = { owner = c:ANS } p:xEDA800.state ?= this } AND = { c:EIC ?= { aor1776_hre_member = yes } NOT = { owner = c:EIC } p:xEDA801.state ?= this } AND = { c:EIC ?= { aor1776_hre_member = yes } NOT = { owner = c:EIC } p:xEDA802.state ?= this } AND = { c:EIC ?= { aor1776_hre_member = yes } NOT = { owner = c:EIC } p:xEDA803.state ?= this } AND = { c:FBM ?= { aor1776_hre_member = yes } NOT = { owner = c:FBM } p:xEDA804.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA805.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA806.state ?= this } AND = { c:FBM ?= { aor1776_hre_member = yes } NOT = { owner = c:FBM } p:xEDA807.state ?= this } AND = { c:NUR ?= { aor1776_hre_member = yes } NOT = { owner = c:NUR } p:xEDA808.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xEDAD09.state ?= this } AND = { c:SAG ?= { aor1776_hre_member = yes } NOT = { owner = c:SAG } p:xEDAD0A.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDAD0B.state ?= this } AND = { c:SAG ?= { aor1776_hre_member = yes } NOT = { owner = c:SAG } p:xEDAD0C.state ?= this } AND = { c:SKE ?= { aor1776_hre_member = yes } NOT = { owner = c:SKE } p:xEDAD0D.state ?= this } AND = { c:SWY ?= { aor1776_hre_member = yes } NOT = { owner = c:SWY } p:xEDAF00.state ?= this } AND = { c:SWY ?= { aor1776_hre_member = yes } NOT = { owner = c:SWY } p:xEDAF01.state ?= this } AND = { c:SAC ?= { aor1776_hre_member = yes } NOT = { owner = c:SAC } p:xEDB002.state ?= this } AND = { c:SKI ?= { aor1776_hre_member = yes } NOT = { owner = c:SKI } p:xEDB008.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xFE59E7.state ?= this } } }
+ AND = { state_region = s:STATE_BOHEMIA OR = { AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x0B9B4F.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x1D6B94.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x2ED2B3.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x400226.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x465A13.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x61902F.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x67FE18.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x716141.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x71E041.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x74C71F.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x81C142.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x9080A0.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x9C175D.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xA40163.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xAFD2D1.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xCDE96E.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xD286DB.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xEE1941.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xF06141.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xF0E041.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xFA371D.state ?= this } } }
+ AND = { state_region = s:STATE_BRANDENBURG OR = { AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x069CFB.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x28CEC2.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x514C51.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x60BF20.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x61C0A0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x76EF4E.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x82F9A8.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x83B1A8.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x9B9076.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x9E7304.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xA040A0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xA65DA6.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xB90BFF.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xDF4020.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xF77289.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xF8D457.state ?= this } } }
+ AND = { state_region = s:STATE_BRUNSWICK OR = { AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x2180E0.state ?= this } AND = { c:BRA ?= { aor1776_hre_member = yes } NOT = { owner = c:BRA } p:x43D537.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x4C16EA.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xA001E0.state ?= this } AND = { c:BRA ?= { aor1776_hre_member = yes } NOT = { owner = c:BRA } p:xA61E6E.state ?= this } } }
+ AND = { state_region = s:STATE_ELBE OR = { AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x392FDA.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x418061.state ?= this } AND = { c:HAM ?= { aor1776_hre_member = yes } NOT = { owner = c:HAM } p:x587297.state ?= this } AND = { c:BRE ?= { aor1776_hre_member = yes } NOT = { owner = c:BRE } p:x68BE66.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x7C8FD3.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xA5E2E8.state ?= this } AND = { c:BRE ?= { aor1776_hre_member = yes } NOT = { owner = c:BRE } p:xC08061.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xC080E0.state ?= this } AND = { c:HAM ?= { aor1776_hre_member = yes } NOT = { owner = c:HAM } p:xF54C13.state ?= this } } }
+ AND = { state_region = s:STATE_EMILIA OR = { AND = { c:PAR ?= { aor1776_hre_member = yes } NOT = { owner = c:PAR } p:x0B3B43.state ?= this } AND = { c:PAR ?= { aor1776_hre_member = yes } NOT = { owner = c:PAR } p:x700120.state ?= this } AND = { c:MOD ?= { aor1776_hre_member = yes } NOT = { owner = c:MOD } p:xEF0021.state ?= this } AND = { c:MOD ?= { aor1776_hre_member = yes } NOT = { owner = c:MOD } p:xF08021.state ?= this } } }
+ AND = { state_region = s:STATE_FLANDERS OR = { AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:x0141A0.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:x018061.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:x800060.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:x8041A0.state ?= this } AND = { c:LGE ?= { aor1776_hre_member = yes } NOT = { owner = c:LGE } p:x808061.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:x93FB2E.state ?= this } AND = { c:LGE ?= { aor1776_hre_member = yes } NOT = { owner = c:LGE } p:xEDA100.state ?= this } AND = { c:LGE ?= { aor1776_hre_member = yes } NOT = { owner = c:LGE } p:xEDA10E.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:xEDA10F.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:xEDA110.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:xEDA111.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:xEDA112.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:xEDA113.state ?= this } AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:xEDA114.state ?= this } AND = { c:LGE ?= { aor1776_hre_member = yes } NOT = { owner = c:LGE } p:xEDA115.state ?= this } } }
+ AND = { state_region = s:STATE_FRANCONIA OR = { AND = { c:WZB ?= { aor1776_hre_member = yes } NOT = { owner = c:WZB } p:x0B0DBA.state ?= this } AND = { c:WZB ?= { aor1776_hre_member = yes } NOT = { owner = c:WZB } p:x51C0A0.state ?= this } AND = { c:FBM ?= { aor1776_hre_member = yes } NOT = { owner = c:FBM } p:x648AD1.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:x9040A0.state ?= this } AND = { c:WZB ?= { aor1776_hre_member = yes } NOT = { owner = c:WZB } p:xA55FB1.state ?= this } AND = { c:ANS ?= { aor1776_hre_member = yes } NOT = { owner = c:ANS } p:xD041A0.state ?= this } AND = { c:NUR ?= { aor1776_hre_member = yes } NOT = { owner = c:NUR } p:xD0C0A0.state ?= this } AND = { c:ANS ?= { aor1776_hre_member = yes } NOT = { owner = c:ANS } p:xEDA200.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA201.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA202.state ?= this } AND = { c:FBM ?= { aor1776_hre_member = yes } NOT = { owner = c:FBM } p:xEDA203.state ?= this } AND = { c:NUR ?= { aor1776_hre_member = yes } NOT = { owner = c:NUR } p:xEDA204.state ?= this } AND = { c:ANS ?= { aor1776_hre_member = yes } NOT = { owner = c:ANS } p:xEDA205.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA206.state ?= this } AND = { c:WZB ?= { aor1776_hre_member = yes } NOT = { owner = c:WZB } p:xEDA207.state ?= this } AND = { c:ANS ?= { aor1776_hre_member = yes } NOT = { owner = c:ANS } p:xEDA208.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA209.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA20A.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA20B.state ?= this } AND = { c:COB ?= { aor1776_hre_member = yes } NOT = { owner = c:COB } p:xEDA20C.state ?= this } AND = { c:WZB ?= { aor1776_hre_member = yes } NOT = { owner = c:WZB } p:xEDA20D.state ?= this } AND = { c:WZB ?= { aor1776_hre_member = yes } NOT = { owner = c:WZB } p:xEDA20E.state ?= this } AND = { c:WZB ?= { aor1776_hre_member = yes } NOT = { owner = c:WZB } p:xEDA20F.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA210.state ?= this } AND = { c:FBM ?= { aor1776_hre_member = yes } NOT = { owner = c:FBM } p:xEDA211.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA212.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA213.state ?= this } AND = { c:FBM ?= { aor1776_hre_member = yes } NOT = { owner = c:FBM } p:xEDA214.state ?= this } AND = { c:FBM ?= { aor1776_hre_member = yes } NOT = { owner = c:FBM } p:xEDA215.state ?= this } AND = { c:NUR ?= { aor1776_hre_member = yes } NOT = { owner = c:NUR } p:xEDA216.state ?= this } AND = { c:ANS ?= { aor1776_hre_member = yes } NOT = { owner = c:ANS } p:xEDA217.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA218.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA219.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA21A.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA21B.state ?= this } AND = { c:EIC ?= { aor1776_hre_member = yes } NOT = { owner = c:EIC } p:xEDA21C.state ?= this } AND = { c:FBM ?= { aor1776_hre_member = yes } NOT = { owner = c:FBM } p:xEDA21D.state ?= this } AND = { c:WZB ?= { aor1776_hre_member = yes } NOT = { owner = c:WZB } p:xEDA21E.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA21F.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA220.state ?= this } AND = { c:COB ?= { aor1776_hre_member = yes } NOT = { owner = c:COB } p:xEDA221.state ?= this } AND = { c:FBM ?= { aor1776_hre_member = yes } NOT = { owner = c:FBM } p:xEDA222.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA401.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA504.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA505.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA506.state ?= this } AND = { c:BAV ?= { aor1776_hre_member = yes } NOT = { owner = c:BAV } p:xEDA507.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA508.state ?= this } AND = { c:SEW ?= { aor1776_hre_member = yes } NOT = { owner = c:SEW } p:xEDAE0B.state ?= this } AND = { c:ANS ?= { aor1776_hre_member = yes } NOT = { owner = c:ANS } p:xF91154.state ?= this } } }
+ AND = { state_region = s:STATE_GELRE OR = { AND = { c:BEO ?= { aor1776_hre_member = yes } NOT = { owner = c:BEO } p:x0000DF.state ?= this } } }
+-AND = { state_region = s:STATE_HANNOVER OR = { AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x165E05.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:x4101E0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x4D62A0.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x694B91.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x784B8E.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x8080E0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xBBA504.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xBF00DF.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xC00161.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xECC3B4.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDAA00.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDAA01.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAA02.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAA03.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAC00.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAC01.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAC02.state ?= this } AND = { c:WPO ?= { aor1776_hre_member = yes } NOT = { owner = c:WPO } p:xEDAC03.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDAC04.state ?= this } AND = { c:WPO ?= { aor1776_hre_member = yes } NOT = { owner = c:WPO } p:xEDAC05.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:xEDAC06.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xEDAC07.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xEDAC08.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xEDAC09.state ?= this } AND = { c:WPO ?= { aor1776_hre_member = yes } NOT = { owner = c:WPO } p:xEDAC0A.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:xEDAC0B.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDAC0C.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:xEDAC0D.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:xEDAC0E.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xF9DCA2.state ?= this } } }
++AND = { state_region = s:STATE_HANNOVER OR = { AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x165E05.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:x4101E0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x4D62A0.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x694B91.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x784B8E.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:x8080E0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xBBA504.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xBF00DF.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xC00161.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xECC3B4.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDAA00.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDAA01.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAA02.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAA03.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAC00.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAC01.state ?= this } AND = { c:HAN ?= { aor1776_hre_member = yes } NOT = { owner = c:HAN } p:xEDAC02.state ?= this } AND = { c:WPO ?= { aor1776_hre_member = yes } NOT = { owner = c:WPO } p:xEDAC03.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDAC04.state ?= this } AND = { c:WPO ?= { aor1776_hre_member = yes } NOT = { owner = c:WPO } p:xEDAC05.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:xEDAC06.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xEDAC07.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xEDAC08.state ?= this } AND = { c:OLD ?= { aor1776_hre_member = yes } NOT = { owner = c:OLD } p:xEDAC09.state ?= this } AND = { c:WPO ?= { aor1776_hre_member = yes } NOT = { owner = c:WPO } p:xEDAC0A.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:xEDAC0B.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDAC0C.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:xEDAC0D.state ?= this } AND = { c:WPM ?= { aor1776_hre_member = yes } NOT = { owner = c:WPM } p:xEDAC0E.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xF9DCA2.state ?= this } } }
+ AND = { state_region = s:STATE_HESSE OR = { AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:x1141A0.state ?= this } AND = { c:FRM ?= { aor1776_hre_member = yes } NOT = { owner = c:FRM } p:x11C0A0.state ?= this } AND = { c:NAS ?= { aor1776_hre_member = yes } NOT = { owner = c:NAS } p:x1357DB.state ?= this } AND = { c:HEK ?= { aor1776_hre_member = yes } NOT = { owner = c:HEK } p:x2248E2.state ?= this } AND = { c:WLD ?= { aor1776_hre_member = yes } NOT = { owner = c:WLD } p:x3E794B.state ?= this } AND = { c:HES ?= { aor1776_hre_member = yes } NOT = { owner = c:HES } p:x8B7C67.state ?= this } AND = { c:HES ?= { aor1776_hre_member = yes } NOT = { owner = c:HES } p:x90C020.state ?= this } AND = { c:NAS ?= { aor1776_hre_member = yes } NOT = { owner = c:NAS } p:x90C0A0.state ?= this } AND = { c:HEK ?= { aor1776_hre_member = yes } NOT = { owner = c:HEK } p:xC08020.state ?= this } AND = { c:HEK ?= { aor1776_hre_member = yes } NOT = { owner = c:HEK } p:xD04121.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA400.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA500.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA501.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA502.state ?= this } AND = { c:KMZ ?= { aor1776_hre_member = yes } NOT = { owner = c:KMZ } p:xEDA503.state ?= this } AND = { c:HEK ?= { aor1776_hre_member = yes } NOT = { owner = c:HEK } p:xFF1DBB.state ?= this } } }
+ AND = { state_region = s:STATE_ISTRIA OR = { AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x3060BF.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x56C78A.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xF0A040.state ?= this } } }
+ AND = { state_region = s:STATE_LOMBARDY OR = { AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x3F1E38.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x50C060.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x70B8A9.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xA40CE9.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xD04060.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xEDA701.state ?= this } } }
+ AND = { state_region = s:STATE_LOWER_SILESIA OR = { AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x1B72C9.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x272E48.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x614121.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x6E617F.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x732DC0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x94D624.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xC00121.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xC108EA.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xCE74AB.state ?= this } } }
+ AND = { state_region = s:STATE_MECKLENBURG OR = { AND = { c:MEC ?= { aor1776_hre_member = yes } NOT = { owner = c:MEC } p:x12E54F.state ?= this } AND = { c:MEC ?= { aor1776_hre_member = yes } NOT = { owner = c:MEC } p:x24CA48.state ?= this } AND = { c:MEC ?= { aor1776_hre_member = yes } NOT = { owner = c:MEC } p:x4545BE.state ?= this } AND = { c:MEC ?= { aor1776_hre_member = yes } NOT = { owner = c:MEC } p:xD8F441.state ?= this } AND = { c:MST ?= { aor1776_hre_member = yes } NOT = { owner = c:MST } p:xD9A469.state ?= this } AND = { c:MST ?= { aor1776_hre_member = yes } NOT = { owner = c:MST } p:xE041A0.state ?= this } AND = { c:MEC ?= { aor1776_hre_member = yes } NOT = { owner = c:MEC } p:xE080A0.state ?= this } AND = { exists = c:SWE NOT = { owner = c:SWE } p:xEDB102.state ?= this } AND = { exists = c:SWE NOT = { owner = c:SWE } p:xEDB103.state ?= this } AND = { exists = c:SWE NOT = { owner = c:SWE } p:xEDB104.state ?= this } AND = { exists = c:SWE NOT = { owner = c:SWE } p:xEDB105.state ?= this } } }
+ AND = { state_region = s:STATE_MORAVIA OR = { AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x08AA4B.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x10DFDF.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x12778D.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x1D088E.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x49C8F7.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x4B3444.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x71E080.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xD9A784.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xEF6080.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xF0E080.state ?= this } } }
+ AND = { state_region = s:STATE_NORTH_RHINE OR = { AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x29CCD6.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x486F6A.state ?= this } AND = { c:KCL ?= { aor1776_hre_member = yes } NOT = { owner = c:KCL } p:x518021.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x8001E0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x834B66.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x9F4072.state ?= this } AND = { c:KPF ?= { aor1776_hre_member = yes } NOT = { owner = c:KPF } p:xEDA912.state ?= this } AND = { c:KPF ?= { aor1776_hre_member = yes } NOT = { owner = c:KPF } p:xEDA913.state ?= this } } }
+ AND = { state_region = s:STATE_PIEDMONT OR = { AND = { c:SAR ?= { aor1776_hre_member = yes } NOT = { owner = c:SAR } p:x1140E0.state ?= this } AND = { c:SAR ?= { aor1776_hre_member = yes } NOT = { owner = c:SAR } p:x11C061.state ?= this } AND = { c:SAR ?= { aor1776_hre_member = yes } NOT = { owner = c:SAR } p:x90C060.state ?= this } AND = { c:SAR ?= { aor1776_hre_member = yes } NOT = { owner = c:SAR } p:xA9397D.state ?= this } AND = { c:SAR ?= { aor1776_hre_member = yes } NOT = { owner = c:SAR } p:xAA6958.state ?= this } AND = { c:SAR ?= { aor1776_hre_member = yes } NOT = { owner = c:SAR } p:xACB500.state ?= this } AND = { c:SAR ?= { aor1776_hre_member = yes } NOT = { owner = c:SAR } p:xD080E0.state ?= this } AND = { c:SAR ?= { aor1776_hre_member = yes } NOT = { owner = c:SAR } p:xDA86EA.state ?= this } AND = { c:SAR ?= { aor1776_hre_member = yes } NOT = { owner = c:SAR } p:xF00544.state ?= this } } }
+ AND = { state_region = s:STATE_POMERANIA OR = { AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x0180A0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x19AE19.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x3C26DD.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x3E3572.state ?= this } AND = { exists = c:SWE NOT = { owner = c:SWE } p:x567452.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x6A53CF.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x8001A0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x86E6F2.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x89A2A9.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x8C6982.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x8D1E12.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xA04121.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xA0C020.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xA9BD82.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xCDEAE4.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xD4C37D.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xE1A03A.state ?= this } AND = { exists = c:SWE NOT = { owner = c:SWE } p:xEDB100.state ?= this } AND = { c:LUB ?= { aor1776_hre_member = yes } NOT = { owner = c:LUB } p:xEDB101.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEF5730.state ?= this } } }
+ AND = { state_region = s:STATE_RHINELAND OR = { AND = { c:KPF ?= { aor1776_hre_member = yes } NOT = { owner = c:KPF } p:x11C021.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x5D7A68.state ?= this } AND = { c:KPF ?= { aor1776_hre_member = yes } NOT = { owner = c:KPF } p:x707505.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x904020.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xC1B963.state ?= this } AND = { c:KTR ?= { aor1776_hre_member = yes } NOT = { owner = c:KTR } p:xD080A0.state ?= this } AND = { c:KPF ?= { aor1776_hre_member = yes } NOT = { owner = c:KPF } p:xEDA402.state ?= this } } }
+ AND = { state_region = s:STATE_RUHR OR = { AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x0180E0.state ?= this } AND = { c:KPF ?= { aor1776_hre_member = yes } NOT = { owner = c:KPF } p:x2101E0.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:x5101A0.state ?= this } AND = { c:KPF ?= { aor1776_hre_member = yes } NOT = { owner = c:KPF } p:xD08021.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDA90C.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDA90D.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDA90E.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDA90F.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDA910.state ?= this } AND = { c:PRU ?= { aor1776_hre_member = yes } NOT = { owner = c:PRU } p:xEDA911.state ?= this } } }
+ AND = { state_region = s:STATE_SAXONY OR = { AND = { c:SAX ?= { aor1776_hre_member = yes } NOT = { owner = c:SAX } p:x169073.state ?= this } AND = { c:SAX ?= { aor1776_hre_member = yes } NOT = { owner = c:SAX } p:x31E0C0.state ?= this } AND = { c:SAX ?= { aor1776_hre_member = yes } NOT = { owner = c:SAX } p:x43CE26.state ?= this } AND = { c:MEI ?= { aor1776_hre_member = yes } NOT = { owner = c:MEI } p:x5141A0.state ?= this } AND = { c:SCW ?= { aor1776_hre_member = yes } NOT = { owner = c:SCW } p:x51C021.state ?= this } AND = { c:COB ?= { aor1776_hre_member = yes } NOT = { owner = c:COB } p:x66FE0A.state ?= this } AND = { c:SAX ?= { aor1776_hre_member = yes } NOT = { owner = c:SAX } p:x795368.state ?= this } AND = { c:SAX ?= { aor1776_hre_member = yes } NOT = { owner = c:SAX } p:x917939.state ?= this } AND = { c:SAX ?= { aor1776_hre_member = yes } NOT = { owner = c:SAX } p:xAFDFBF.state ?= this } AND = { c:WEI ?= { aor1776_hre_member = yes } NOT = { owner = c:WEI } p:xC00A37.state ?= this } AND = { c:MEI ?= { aor1776_hre_member = yes } NOT = { owner = c:MEI } p:xD0C021.state ?= this } } }
+ AND = { state_region = s:STATE_SCHLESWIG_HOLSTEIN OR = { AND = { c:LUB ?= { aor1776_hre_member = yes } NOT = { owner = c:LUB } p:x60809F.state ?= this } AND = { c:HOL ?= { aor1776_hre_member = yes } NOT = { owner = c:HOL } p:x64824C.state ?= this } AND = { c:HOL ?= { aor1776_hre_member = yes } NOT = { owner = c:HOL } p:x804160.state ?= this } AND = { c:HOL ?= { aor1776_hre_member = yes } NOT = { owner = c:HOL } p:xE000A0.state ?= this } } }
+ AND = { state_region = s:STATE_SLOVENIA OR = { AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x31E041.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x44F127.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x792B8A.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xB0E040.state ?= this } } }
+ AND = { state_region = s:STATE_SOUTH_TYROL OR = { AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x039D0F.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:x1120FF.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xD040E0.state ?= this } AND = { c:AUS ?= { aor1776_hre_member = yes } NOT = { owner = c:AUS } p:xD0BF60.state ?= this } } }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\scripted_effects\1776_imperial_constitution.txt
+@@
+ if = { limit = { exists = c:HAN c:HAN = { aor1776_hre_member = yes } p:xEDAC00.state = { owner = scope:hre_holder } NOT = { c:HAN = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:HAN provinces = { xEDAC00 } } } }
+ if = { limit = { exists = c:HAN c:HAN = { aor1776_hre_member = yes } p:xEDAC01.state = { owner = scope:hre_holder } NOT = { c:HAN = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:HAN provinces = { xEDAC01 } } } }
+ if = { limit = { exists = c:HAN c:HAN = { aor1776_hre_member = yes } p:xEDAC02.state = { owner = scope:hre_holder } NOT = { c:HAN = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:HAN provinces = { xEDAC02 } } } }
+ if = { limit = { exists = c:WPO c:WPO = { aor1776_hre_member = yes } p:xEDAC03.state = { owner = scope:hre_holder } NOT = { c:WPO = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:WPO provinces = { xEDAC03 } } } }
+ if = { limit = { exists = c:PRU c:PRU = { aor1776_hre_member = yes } p:xEDAC04.state = { owner = scope:hre_holder } NOT = { c:PRU = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:PRU provinces = { xEDAC04 } } } }
+ if = { limit = { exists = c:WPO c:WPO = { aor1776_hre_member = yes } p:xEDAC05.state = { owner = scope:hre_holder } NOT = { c:WPO = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:WPO provinces = { xEDAC05 } } } }
+ if = { limit = { exists = c:WPM c:WPM = { aor1776_hre_member = yes } p:xEDAC06.state = { owner = scope:hre_holder } NOT = { c:WPM = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:WPM provinces = { xEDAC06 } } } }
+ if = { limit = { exists = c:OLD c:OLD = { aor1776_hre_member = yes } p:xEDAC07.state = { owner = scope:hre_holder } NOT = { c:OLD = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:OLD provinces = { xEDAC07 } } } }
+ if = { limit = { exists = c:OLD c:OLD = { aor1776_hre_member = yes } p:xEDAC08.state = { owner = scope:hre_holder } NOT = { c:OLD = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:OLD provinces = { xEDAC08 } } } }
+ if = { limit = { exists = c:OLD c:OLD = { aor1776_hre_member = yes } p:xEDAC09.state = { owner = scope:hre_holder } NOT = { c:OLD = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:OLD provinces = { xEDAC09 } } } }
+ if = { limit = { exists = c:WPO c:WPO = { aor1776_hre_member = yes } p:xEDAC0A.state = { owner = scope:hre_holder } NOT = { c:WPO = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:WPO provinces = { xEDAC0A } } } }
+ if = { limit = { exists = c:WPM c:WPM = { aor1776_hre_member = yes } p:xEDAC0B.state = { owner = scope:hre_holder } NOT = { c:WPM = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:WPM provinces = { xEDAC0B } } } }
+ if = { limit = { exists = c:PRU c:PRU = { aor1776_hre_member = yes } p:xEDAC0C.state = { owner = scope:hre_holder } NOT = { c:PRU = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:PRU provinces = { xEDAC0C } } } }
+ if = { limit = { exists = c:WPM c:WPM = { aor1776_hre_member = yes } p:xEDAC0D.state = { owner = scope:hre_holder } NOT = { c:WPM = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:WPM provinces = { xEDAC0D } } } }
+ if = { limit = { exists = c:WPM c:WPM = { aor1776_hre_member = yes } p:xEDAC0E.state = { owner = scope:hre_holder } NOT = { c:WPM = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:WPM provinces = { xEDAC0E } } } }
+-if = { limit = { exists = c:HAN c:HAN = { aor1776_hre_member = yes } p:xF9DCA2.state = { owner = scope:hre_holder } NOT = { c:HAN = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:HAN provinces = { xF9DCA2 } } } } }
++if = { limit = { exists = c:PRU c:PRU = { aor1776_hre_member = yes } p:xF9DCA2.state = { owner = scope:hre_holder } NOT = { c:PRU = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:PRU provinces = { xF9DCA2 } } } } }
+ if = { limit = { scope:hre_request_region = s:STATE_HESSE } if = { limit = { exists = c:KMZ c:KMZ = { aor1776_hre_member = yes } p:x1141A0.state = { owner = scope:hre_holder } NOT = { c:KMZ = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:KMZ provinces = { x1141A0 } } } }
+ if = { limit = { exists = c:FRM c:FRM = { aor1776_hre_member = yes } p:x11C0A0.state = { owner = scope:hre_holder } NOT = { c:FRM = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:FRM provinces = { x11C0A0 } } } }
+ if = { limit = { exists = c:NAS c:NAS = { aor1776_hre_member = yes } p:x1357DB.state = { owner = scope:hre_holder } NOT = { c:NAS = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:NAS provinces = { x1357DB } } } }
+ if = { limit = { exists = c:HEK c:HEK = { aor1776_hre_member = yes } p:x2248E2.state = { owner = scope:hre_holder } NOT = { c:HEK = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:HEK provinces = { x2248E2 } } } }
+ if = { limit = { exists = c:WLD c:WLD = { aor1776_hre_member = yes } p:x3E794B.state = { owner = scope:hre_holder } NOT = { c:WLD = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:WLD provinces = { x3E794B } } } }
+ if = { limit = { exists = c:HES c:HES = { aor1776_hre_member = yes } p:x8B7C67.state = { owner = scope:hre_holder } NOT = { c:HES = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:HES provinces = { x8B7C67 } } } }
+ if = { limit = { exists = c:HES c:HES = { aor1776_hre_member = yes } p:x90C020.state = { owner = scope:hre_holder } NOT = { c:HES = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:HES provinces = { x90C020 } } } }
+ if = { limit = { exists = c:NAS c:NAS = { aor1776_hre_member = yes } p:x90C0A0.state = { owner = scope:hre_holder } NOT = { c:NAS = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:NAS provinces = { x90C0A0 } } } }
+ if = { limit = { exists = c:HEK c:HEK = { aor1776_hre_member = yes } p:xC08020.state = { owner = scope:hre_holder } NOT = { c:HEK = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:HEK provinces = { xC08020 } } } }
+ if = { limit = { exists = c:HEK c:HEK = { aor1776_hre_member = yes } p:xD04121.state = { owner = scope:hre_holder } NOT = { c:HEK = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:HEK provinces = { xD04121 } } } }
+ if = { limit = { exists = c:KMZ c:KMZ = { aor1776_hre_member = yes } p:xEDA400.state = { owner = scope:hre_holder } NOT = { c:KMZ = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:KMZ provinces = { xEDA400 } } } }
+ if = { limit = { exists = c:KMZ c:KMZ = { aor1776_hre_member = yes } p:xEDA500.state = { owner = scope:hre_holder } NOT = { c:KMZ = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:KMZ provinces = { xEDA500 } } } }
+ if = { limit = { exists = c:KMZ c:KMZ = { aor1776_hre_member = yes } p:xEDA501.state = { owner = scope:hre_holder } NOT = { c:KMZ = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:KMZ provinces = { xEDA501 } } } }
+ if = { limit = { exists = c:KMZ c:KMZ = { aor1776_hre_member = yes } p:xEDA502.state = { owner = scope:hre_holder } NOT = { c:KMZ = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:KMZ provinces = { xEDA502 } } } }
+ if = { limit = { exists = c:KMZ c:KMZ = { aor1776_hre_member = yes } p:xEDA503.state = { owner = scope:hre_holder } NOT = { c:KMZ = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:KMZ provinces = { xEDA503 } } } }
+@@
+ if = { limit = { exists = c:PRU c:PRU = { aor1776_hre_member = yes } p:xEF5730.state = { owner = scope:hre_holder } NOT = { c:PRU = scope:hre_holder } } s:STATE_POMERANIA = { set_owner_of_provinces = { country = c:PRU provinces = { xEF5730 } } } }
+ if = { limit = { exists = c:AUS c:AUS = { aor1776_hre_member = yes } p:xEF6080.state = { owner = scope:hre_holder } NOT = { c:AUS = scope:hre_holder } } s:STATE_MORAVIA = { set_owner_of_provinces = { country = c:AUS provinces = { xEF6080 } } } }
+ if = { limit = { exists = c:SAR c:SAR = { aor1776_hre_member = yes } p:xF00544.state = { owner = scope:hre_holder } NOT = { c:SAR = scope:hre_holder } } s:STATE_PIEDMONT = { set_owner_of_provinces = { country = c:SAR provinces = { xF00544 } } } }
+ if = { limit = { exists = c:AUS c:AUS = { aor1776_hre_member = yes } p:xF06141.state = { owner = scope:hre_holder } NOT = { c:AUS = scope:hre_holder } } s:STATE_BOHEMIA = { set_owner_of_provinces = { country = c:AUS provinces = { xF06141 } } } }
+ if = { limit = { exists = c:AUS c:AUS = { aor1776_hre_member = yes } p:xF061C0.state = { owner = scope:hre_holder } NOT = { c:AUS = scope:hre_holder } } s:STATE_TYROL = { set_owner_of_provinces = { country = c:AUS provinces = { xF061C0 } } } }
+ if = { limit = { exists = c:MOD c:MOD = { aor1776_hre_member = yes } p:xF08021.state = { owner = scope:hre_holder } NOT = { c:MOD = scope:hre_holder } } s:STATE_EMILIA = { set_owner_of_provinces = { country = c:MOD provinces = { xF08021 } } } }
+ if = { limit = { exists = c:AUS c:AUS = { aor1776_hre_member = yes } p:xF0A040.state = { owner = scope:hre_holder } NOT = { c:AUS = scope:hre_holder } } s:STATE_ISTRIA = { set_owner_of_provinces = { country = c:AUS provinces = { xF0A040 } } } }
+ if = { limit = { exists = c:AUS c:AUS = { aor1776_hre_member = yes } p:xF0E041.state = { owner = scope:hre_holder } NOT = { c:AUS = scope:hre_holder } } s:STATE_BOHEMIA = { set_owner_of_provinces = { country = c:AUS provinces = { xF0E041 } } } }
+ if = { limit = { exists = c:AUS c:AUS = { aor1776_hre_member = yes } p:xF0E080.state = { owner = scope:hre_holder } NOT = { c:AUS = scope:hre_holder } } s:STATE_MORAVIA = { set_owner_of_provinces = { country = c:AUS provinces = { xF0E080 } } } }
+ if = { limit = { exists = c:AUS c:AUS = { aor1776_hre_member = yes } p:xF0E0C0.state = { owner = scope:hre_holder } NOT = { c:AUS = scope:hre_holder } } s:STATE_TYROL = { set_owner_of_provinces = { country = c:AUS provinces = { xF0E0C0 } } } }
+ if = { limit = { exists = c:TUS c:TUS = { aor1776_hre_member = yes } p:xF12431.state = { owner = scope:hre_holder } NOT = { c:TUS = scope:hre_holder } } s:STATE_TUSCANY = { set_owner_of_provinces = { country = c:TUS provinces = { xF12431 } } } }
+ if = { limit = { exists = c:HAM c:HAM = { aor1776_hre_member = yes } p:xF54C13.state = { owner = scope:hre_holder } NOT = { c:HAM = scope:hre_holder } } s:STATE_ELBE = { set_owner_of_provinces = { country = c:HAM provinces = { xF54C13 } } } }
+ if = { limit = { exists = c:PRU c:PRU = { aor1776_hre_member = yes } p:xF77289.state = { owner = scope:hre_holder } NOT = { c:PRU = scope:hre_holder } } s:STATE_BRANDENBURG = { set_owner_of_provinces = { country = c:PRU provinces = { xF77289 } } } }
+ if = { limit = { exists = c:PRU c:PRU = { aor1776_hre_member = yes } p:xF8D457.state = { owner = scope:hre_holder } NOT = { c:PRU = scope:hre_holder } } s:STATE_BRANDENBURG = { set_owner_of_provinces = { country = c:PRU provinces = { xF8D457 } } } }
+ if = { limit = { exists = c:ANS c:ANS = { aor1776_hre_member = yes } p:xF91154.state = { owner = scope:hre_holder } NOT = { c:ANS = scope:hre_holder } } s:STATE_FRANCONIA = { set_owner_of_provinces = { country = c:ANS provinces = { xF91154 } } } }
+-if = { limit = { exists = c:HAN c:HAN = { aor1776_hre_member = yes } p:xF9DCA2.state = { owner = scope:hre_holder } NOT = { c:HAN = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:HAN provinces = { xF9DCA2 } } } }
++if = { limit = { exists = c:PRU c:PRU = { aor1776_hre_member = yes } p:xF9DCA2.state = { owner = scope:hre_holder } NOT = { c:PRU = scope:hre_holder } } s:STATE_HANNOVER = { set_owner_of_provinces = { country = c:PRU provinces = { xF9DCA2 } } } }
+ if = { limit = { exists = c:AUS c:AUS = { aor1776_hre_member = yes } p:xFA371D.state = { owner = scope:hre_holder } NOT = { c:AUS = scope:hre_holder } } s:STATE_BOHEMIA = { set_owner_of_provinces = { country = c:AUS provinces = { xFA371D } } } }
+ if = { limit = { exists = c:TUS c:TUS = { aor1776_hre_member = yes } p:xFAFCD4.state = { owner = scope:hre_holder } NOT = { c:TUS = scope:hre_holder } } s:STATE_TUSCANY = { set_owner_of_provinces = { country = c:TUS provinces = { xFAFCD4 } } } }
+ if = { limit = { exists = c:AUS c:AUS = { aor1776_hre_member = yes } p:xFDA6CB.state = { owner = scope:hre_holder } NOT = { c:AUS = scope:hre_holder } } s:STATE_AUSTRIA = { set_owner_of_provinces = { country = c:AUS provinces = { xFDA6CB } } } }
+ if = { limit = { exists = c:BAV c:BAV = { aor1776_hre_member = yes } p:xFE59E7.state = { owner = scope:hre_holder } NOT = { c:BAV = scope:hre_holder } } s:STATE_BAVARIA = { set_owner_of_provinces = { country = c:BAV provinces = { xFE59E7 } } } }
+ if = { limit = { exists = c:HEK c:HEK = { aor1776_hre_member = yes } p:xFF1DBB.state = { owner = scope:hre_holder } NOT = { c:HEK = scope:hre_holder } } s:STATE_HESSE = { set_owner_of_provinces = { country = c:HEK provinces = { xFF1DBB } } } }
+ }
+ aor1776_hre_record_release_refusal = {
+ 
+  if = { limit = { NOT = { has_variable = aor1776_hre_release_penalty } }
+   change_infamy = 5 save_scope_as = hre_reply_new_infamy_holder
+   set_variable = { name = aor1776_hre_release_penalty days = 3650 }
+  }
+  set_variable = { name = aor1776_hre_release_refused days = 3650 }
+  set_variable = { name = aor1776_hre_release_wait days = 3650 }
+ 
+@@
+ if = { limit = { c:PRU ?= { aor1776_hre_member = yes } p:xEF5730.state ?= this NOT = { owner = c:PRU } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xEF5730 }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xEF6080.state ?= this NOT = { owner = c:AUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xEF6080 }
+ if = { limit = { c:SAR ?= { aor1776_hre_member = yes } p:xF00544.state ?= this NOT = { owner = c:SAR } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF00544 }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xF06141.state ?= this NOT = { owner = c:AUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF06141 }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xF061C0.state ?= this NOT = { owner = c:AUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF061C0 }
+ if = { limit = { c:MOD ?= { aor1776_hre_member = yes } p:xF08021.state ?= this NOT = { owner = c:MOD } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF08021 }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xF0A040.state ?= this NOT = { owner = c:AUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF0A040 }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xF0E041.state ?= this NOT = { owner = c:AUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF0E041 }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xF0E080.state ?= this NOT = { owner = c:AUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF0E080 }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xF0E0C0.state ?= this NOT = { owner = c:AUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF0E0C0 }
+ if = { limit = { c:TUS ?= { aor1776_hre_member = yes } p:xF12431.state ?= this NOT = { owner = c:TUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF12431 }
+ if = { limit = { c:HAM ?= { aor1776_hre_member = yes } p:xF54C13.state ?= this NOT = { owner = c:HAM } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF54C13 }
+ if = { limit = { c:PRU ?= { aor1776_hre_member = yes } p:xF77289.state ?= this NOT = { owner = c:PRU } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF77289 }
+ if = { limit = { c:PRU ?= { aor1776_hre_member = yes } p:xF8D457.state ?= this NOT = { owner = c:PRU } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF8D457 }
+ if = { limit = { c:ANS ?= { aor1776_hre_member = yes } p:xF91154.state ?= this NOT = { owner = c:ANS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF91154 }
+-if = { limit = { c:HAN ?= { aor1776_hre_member = yes } p:xF9DCA2.state ?= this NOT = { owner = c:HAN } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF9DCA2 }
++if = { limit = { c:PRU ?= { aor1776_hre_member = yes } p:xF9DCA2.state ?= this NOT = { owner = c:PRU } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xF9DCA2 }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xFA371D.state ?= this NOT = { owner = c:AUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xFA371D }
+ if = { limit = { c:TUS ?= { aor1776_hre_member = yes } p:xFAFCD4.state ?= this NOT = { owner = c:TUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xFAFCD4 }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xFDA6CB.state ?= this NOT = { owner = c:AUS } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xFDA6CB }
+ if = { limit = { c:BAV ?= { aor1776_hre_member = yes } p:xFE59E7.state ?= this NOT = { owner = c:BAV } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xFE59E7 }
+ if = { limit = { c:HEK ?= { aor1776_hre_member = yes } p:xFF1DBB.state ?= this NOT = { owner = c:HEK } } save_temporary_scope_as = hre_preview_state custom_tooltip = aor1776_hre_province_xFF1DBB }
+ }
+ aor1776_hre_preview_subjects = {
+ every_subject_or_below = { limit = { aor1776_hre_member = yes } save_temporary_scope_as = hre_preview_subject custom_tooltip = aor1776_hre_subject_line }
+ }
+ aor1776_hre_snapshot_reply_subjects = {
+ every_subject_or_below = { limit = { aor1776_hre_member = yes }
+ if = { limit = { c:AUS ?= this } save_scope_as = hre_reply_subject_AUS }
+ if = { limit = { c:KPF ?= this } save_scope_as = hre_reply_subject_KPF }
+ if = { limit = { c:KTR ?= this } save_scope_as = hre_reply_subject_KTR }
+ if = { limit = { c:KMZ ?= this } save_scope_as = hre_reply_subject_KMZ }
+@@
+    save_scope_as = hre_reply_province_xF54C13
+    c:HAM = { save_scope_as = hre_reply_owner_xF54C13 }
+   }
+ if = { limit = { c:PRU ?= { aor1776_hre_member = yes } p:xF77289.state ?= this NOT = { owner = c:PRU } }
+    save_scope_as = hre_reply_province_xF77289
+    c:PRU = { save_scope_as = hre_reply_owner_xF77289 }
+   }
+ if = { limit = { c:PRU ?= { aor1776_hre_member = yes } p:xF8D457.state ?= this NOT = { owner = c:PRU } }
+    save_scope_as = hre_reply_province_xF8D457
+    c:PRU = { save_scope_as = hre_reply_owner_xF8D457 }
+   }
+ if = { limit = { c:ANS ?= { aor1776_hre_member = yes } p:xF91154.state ?= this NOT = { owner = c:ANS } }
+    save_scope_as = hre_reply_province_xF91154
+    c:ANS = { save_scope_as = hre_reply_owner_xF91154 }
+   }
+-if = { limit = { c:HAN ?= { aor1776_hre_member = yes } p:xF9DCA2.state ?= this NOT = { owner = c:HAN } }
++if = { limit = { c:PRU ?= { aor1776_hre_member = yes } p:xF9DCA2.state ?= this NOT = { owner = c:PRU } }
+    save_scope_as = hre_reply_province_xF9DCA2
+-   c:HAN = { save_scope_as = hre_reply_owner_xF9DCA2 }
++   c:PRU = { save_scope_as = hre_reply_owner_xF9DCA2 }
+   }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xFA371D.state ?= this NOT = { owner = c:AUS } }
+    save_scope_as = hre_reply_province_xFA371D
+    c:AUS = { save_scope_as = hre_reply_owner_xFA371D }
+   }
+ if = { limit = { c:TUS ?= { aor1776_hre_member = yes } p:xFAFCD4.state ?= this NOT = { owner = c:TUS } }
+    save_scope_as = hre_reply_province_xFAFCD4
+    c:TUS = { save_scope_as = hre_reply_owner_xFAFCD4 }
+   }
+ if = { limit = { c:AUS ?= { aor1776_hre_member = yes } p:xFDA6CB.state ?= this NOT = { owner = c:AUS } }
+    save_scope_as = hre_reply_province_xFDA6CB
+    c:AUS = { save_scope_as = hre_reply_owner_xFDA6CB }
+   }
+ if = { limit = { c:BAV ?= { aor1776_hre_member = yes } p:xFE59E7.state ?= this NOT = { owner = c:BAV } }
+    save_scope_as = hre_reply_province_xFE59E7
+*** End Patch

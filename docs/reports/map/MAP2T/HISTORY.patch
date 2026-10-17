@@ -1,0 +1,1687 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 		create_state = { country = c:COB owned_provinces = { xEDA20C xEDA221 } }
+ 		create_state = { country = c:EIC owned_provinces = { xEDA21C } }
+ 		create_state = { country = c:FBM owned_provinces = { xEDA203 x648AD1 xEDA211 xEDA214 xEDA215 xEDA21D xEDA222 } }
+ 		create_state = { country = c:NUR owned_provinces = { xEDA204 xEDA216 xD0C0A0 } }
+ 		create_state = { country = c:WZB owned_provinces = { x0B0DBA x51C0A0 xEDA207 xEDA20D xEDA20E xEDA20F xA55FB1 xEDA21E } }
+ 
+ 		add_homeland = cu:south_german
+ 	
+ create_state = { country = c:KMZ owned_provinces = { x9040A0 xEDA401 xEDA508 } }
+ 
+ create_state = { country = c:SEW owned_provinces = { xEDAE0B } }
+ }
+ 	s:STATE_SAXONY = {
+ 		create_state = {
+ 			country = c:SAX
+-			owned_provinces = { x169073 x795368 x917939 xAFDFBF x43CE26 x31E0C0 }
++			owned_provinces = { x169073 x31E0C0 x43CE26 x795368 x917939 xEDB40B xAFDFBF }
+ 		}
+ 		create_state = {
+ 			country = c:MEI
+ 			owned_provinces = { x5141A0 xD0C021 }
+ 		}
+ 		create_state = {
+ 			country = c:WEI
+ 			owned_provinces = { xC00A37 }
+ 		}
+ 		create_state = {
+ 			country = c:COB
+ 			owned_provinces = { x66FE0A }
+ 		}
+ 		create_state = {
+ 			country = c:SCW
+ 			owned_provinces = { x51C021 }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+ 		add_homeland = cu:sorb
+-	}
++	
++create_state = { country = c:GOT owned_provinces = { xEDB400 xEDB407 xEDB40A xEDB40C xEDB40F } }
++create_state = { country = c:HIL owned_provinces = { xEDB404 xEDB408 } }
++create_state = { country = c:SSO owned_provinces = { xEDB405 xEDB406 xEDB409 } }
++create_state = { country = c:RGZ owned_provinces = { xEDB401 } }
++create_state = { country = c:RGE owned_provinces = { xEDB40D } }
++create_state = { country = c:RSL owned_provinces = { xEDB402 xEDB403 xEDB40E } }
++}
+ 	s:STATE_BRUNSWICK = {
+ 		create_state = {
+ 			country = c:HAN
+ 			owned_provinces = { x2180E0 }
+ 		}
+ 		create_state = {
+ 			country = c:BRA
+ 			owned_provinces = { xA61E6E x43D537 }
+ 		}
+ 		create_state = {
+ 			country = c:PRU
+ 			owned_provinces = { x4C16EA xA001E0 }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_vineyard" }
+     capped_resources = {
+         building_iron_mine = 30
+         building_logging_camp = 17
+         building_limestone_quarry = 48
+     }
+     resource = {
+         type = "building_bauxite_mine"
+         undiscovered_amount = 10
+     }
+ }
+ 
+ STATE_SAXONY = {
+     id = 73
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x169073" "x31E0C0" "x43CE26" "x5141A0" "x51C021" "x66FE0A" "x795368" "x917939" "xAFDFBF" "xC00A37" "xD0C021" }
+-    prime_land = { "x31E0C0" "xC00A37" "xD0C021" "x66FE0A" "x169073" "xAFDFBF" "x917939" "x43CE26" }
++    provinces = { "x169073" "xEDB400" "xEDB401" "xEDB402" "xEDB403" "x31E0C0" "x43CE26" "xEDB404" "x5141A0" "xEDB405" "xEDB406" "x51C021" "x66FE0A" "xEDB407" "xEDB408" "xEDB409" "x795368" "xEDB40A" "x917939" "xEDB40B" "xAFDFBF" "xEDB40C" "xEDB40D" "xEDB40E" "xC00A37" "xEDB40F" "xD0C021" }
++    prime_land = { "xEDB400" "xEDB401" "xEDB402" "xEDB403" "x31E0C0" "xEDB40C" "xEDB40D" "xEDB40E" "xC00A37" "xEDB40F" "xD0C021" "x66FE0A" "xEDB407" "xEDB408" "xEDB409" "x169073" "xAFDFBF" "xEDB40A" "x917939" "xEDB40B" "x43CE26" }
+     traits = { "state_trait_elbe_river" }
+     city = "x169073"
+     farm = "xD0C021"
+     mine = "x917939"
+-    wood = "x31E0C0"
++    wood = "xEDB401"
+     arable_land = 100
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_vineyard" }
+     capped_resources = {
+         building_coal_mine = 80
+         building_iron_mine = 30
+         building_sulfur_mine = 80
+         building_logging_camp = 6
+         building_limestone_quarry = 28
+         building_copper_mine = 16
+     }
+ }
+ 
+ STATE_HESSE = {
+     id = 74
+     subsistence_building = "building_subsistence_farm"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ create_pop = {
+ 				culture = south_german
+ 				size = 121
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 95
+ 			}
+ 		}
+ 	}
+ 	s:STATE_SAXONY = {
+ 		region_state:SAX = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 1133502
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 10144
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 3957
++				size = 1105142
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 9890
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 3858
+ 			}
+ 			create_pop = { # rough estimate of 200k Sorbs in 1836
+ 				culture = sorb
+-				size = 117083
++				size = 114154
+ 			}
+ 			create_pop = {
+ 				culture = sorb
+ 				religion = protestant
+-				size = 39084
++				size = 38106
+ 			}
+ 		}
+ 		region_state:MEI = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 103738
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 1561
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 244
++				size = 99271
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 1494
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 233
+ 			}
+ 		}
+ 		region_state:WEI = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 179398
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 2341
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 656
++				size = 158491
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 2068
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 580
+ 			}
+ 		}
+ 		region_state:COB = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 120118
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 1588
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 393
++				size = 94991
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 1256
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 311
+ 			}
+ 		}
+ 		region_state:SCW = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 85798
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 1201
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 230
++			}
++		}
++	
++		region_state:GOT = {
++create_pop = {
++				culture = north_german
++				size = 15552
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 139
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 54
++			}
++create_pop = { # rough estimate of 200k Sorbs in 1836
++				culture = sorb
++				size = 1606
++			}
++create_pop = {
++				culture = sorb
++				religion = protestant
++				size = 536
++			}
++create_pop = {
++				culture = north_german
++				size = 248
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 4
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 1
++			}
++create_pop = {
++				culture = north_german
++				size = 10791
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 141
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 39
++			}
++create_pop = {
++				culture = north_german
++				size = 16547
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 219
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 54
++			}
++		}
++	
++		region_state:RGZ = {
++create_pop = {
++				culture = north_german
++				size = 7319
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 66
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 26
++			}
++create_pop = { # rough estimate of 200k Sorbs in 1836
++				culture = sorb
++				size = 756
++			}
++create_pop = {
++				culture = sorb
++				religion = protestant
++				size = 253
++			}
++		}
++	
++		region_state:RSL = {
++create_pop = {
++				culture = north_german
++				size = 5489
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 49
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 19
++			}
++create_pop = { # rough estimate of 200k Sorbs in 1836
++				culture = sorb
++				size = 567
++			}
++create_pop = {
++				culture = sorb
++				religion = protestant
++				size = 189
++			}
++create_pop = {
++				culture = north_german
++				size = 2023
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 26
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 7
++			}
++		}
++	
++		region_state:HIL = {
++create_pop = {
++				culture = north_german
++				size = 3723
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 56
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 9
++			}
++create_pop = {
++				culture = north_german
++				size = 2451
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 32
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 8
++			}
++		}
++	
++		region_state:SSO = {
++create_pop = {
++				culture = north_german
++				size = 496
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 7
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 1
++			}
++create_pop = {
++				culture = north_german
++				size = 6129
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 81
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 20
++			}
++		}
++	
++		region_state:RGE = {
++create_pop = {
++				culture = north_german
++				size = 8093
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 106
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 30
+ 			}
+ 		}
+ 	}
+ 	s:STATE_HESSE = {
+ 		region_state:FRM = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 78678
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 3121
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\province_terrains.txt
+@@
+ 
+ xEDB204="plains"
+ xEDB205="plains"
+ 
+ xEDB300="plains"
+ xEDB301="plains"
+ xEDB302="plains"
+ xEDB304="plains"
+ xEDB305="plains"
+ xEDB306="forest"
+ xEDB307="forest"
+ xEDB308="forest"
+ xEDB309="forest"
+ xEDB30A="forest"
+ xEDB30B="forest"
++
++xEDB400="plains"
++xEDB401="plains"
++xEDB402="plains"
++xEDB403="plains"
++xEDB404="plains"
++xEDB405="plains"
++xEDB406="plains"
++xEDB407="plains"
++xEDB408="plains"
++xEDB409="plains"
++xEDB40A="plains"
++xEDB40B="plains"
++xEDB40C="mountain"
++xEDB40D="mountain"
++xEDB40E="mountain"
++xEDB40F="forest"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\1776_map2t_saxony.txt
++GOT = { color = { 221 196 111 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_SAXONY }
++HIL = { color = { 100 177 133 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_SAXONY }
++SSO = { color = { 150 124 177 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_SAXONY }
++RGZ = { color = { 81 171 187 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_SAXONY }
++RGE = { color = { 218 148 85 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_SAXONY }
++RSL = { color = { 129 132 142 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_SAXONY }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\00_countries.txt
+@@
+ 	color = { 147  130  118 }
+ 
+ 	country_type = recognized
+ 
+ 	tier = grand_principality
+ 
+ 	cultures = { north_german }
+ 	capital = STATE_HANNOVER
+ }
+ 
+ SAX = {
+ 	color = { 155  147  180 }
+ 
+ 	country_type = recognized
+ 
+-	tier = kingdom
++	tier = principality
+ 
+ 	cultures = { north_german }
+ 	capital = STATE_SAXONY
+ 	is_named_from_capital = yes
+ }
+ 
+ WUR = {
+ 	color = { 111  162  128 }
+ 
+ 	country_type = recognized
+ 
+ 	tier = principality
+ 
+ 	cultures = { south_german }
+ 	religion = protestant
+@@
+ 
+ 	country_type = recognized
+ 
+ 	tier = principality
+ 
+ 	cultures = { north_german }
+ 	capital = STATE_SAXONY
+ }
+ 
+ # Saxe-Weimar
+ WEI = {
+ 	color = { 69 188 45 }
+ 
+ 	country_type = recognized
+ 
+-	tier = grand_principality
++	tier = principality
+ 
+ 	cultures = { north_german }
+ 	capital = STATE_SAXONY
+ }
+ 
+ # Schwarzburg
+ SCW = {
+ 	color = { 98 92 94 }
+ 
+ 	country_type = recognized
+ 
+ 	tier = principality
+ 
+ 	cultures = { north_german }
+ 	capital = STATE_SAXONY
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\got - map2t.txt
++COUNTRIES = {
++	c:GOT ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		
++		effect_starting_politics_conservative = yes
++		activate_law = law_type:law_freedom_of_conscience
++		
++		set_institution_investment_level = {
++			institution = institution_schools
++			level = 2
++		}
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\hil - map2t.txt
++COUNTRIES = {
++	c:HIL ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		
++		effect_starting_politics_conservative = yes
++		activate_law = law_type:law_freedom_of_conscience
++		
++		set_institution_investment_level = {
++			institution = institution_schools
++			level = 2
++		}
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\sso - map2t.txt
++COUNTRIES = {
++	c:SSO ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		
++		effect_starting_politics_conservative = yes
++		activate_law = law_type:law_freedom_of_conscience
++		
++		set_institution_investment_level = {
++			institution = institution_schools
++			level = 2
++		}
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\rgz - map2t.txt
++COUNTRIES = {
++	c:RGZ ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		
++		effect_starting_politics_conservative = yes
++		activate_law = law_type:law_freedom_of_conscience
++		
++		set_institution_investment_level = {
++			institution = institution_schools
++			level = 2
++		}
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\rge - map2t.txt
++COUNTRIES = {
++	c:RGE ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		
++		effect_starting_politics_conservative = yes
++		activate_law = law_type:law_freedom_of_conscience
++		
++		set_institution_investment_level = {
++			institution = institution_schools
++			level = 2
++		}
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\rsl - map2t.txt
++COUNTRIES = {
++	c:RSL ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		
++		effect_starting_politics_conservative = yes
++		activate_law = law_type:law_freedom_of_conscience
++		
++		set_institution_investment_level = {
++			institution = institution_schools
++			level = 2
++		}
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\got - map2t.txt
++CHARACTERS = { c:GOT ?= { create_character = { first_name = aor1776_map2t_got_first last_name = aor1776_map2t_got_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1745.1.30 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\hil - map2t.txt
++CHARACTERS = { c:HIL ?= { create_character = { first_name = aor1776_map2t_hil_first last_name = aor1776_map2t_hil_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1727.6.10 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\sso - map2t.txt
++CHARACTERS = { c:SSO ?= { create_character = { first_name = aor1776_map2t_sso_first last_name = aor1776_map2t_sso_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1736.6.24 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\scw - schwarzburg.txt
++CHARACTERS = { c:SCW ?= { create_character = { first_name = aor1776_map2t_scw_first last_name = aor1776_map2t_scw_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1708.10.22 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\rgz - map2t.txt
++CHARACTERS = { c:RGZ ?= { create_character = { first_name = aor1776_map2t_rgz_first last_name = aor1776_map2t_rgz_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1722.3.18 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\rge - map2t.txt
++CHARACTERS = { c:RGE ?= { create_character = { first_name = aor1776_map2t_rge_first last_name = aor1776_map2t_rge_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1727.4.24 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\rsl - map2t.txt
++CHARACTERS = { c:RSL ?= { create_character = { first_name = aor1776_map2t_rsl_first last_name = aor1776_map2t_rsl_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1716.5.15 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\flag_definitions\1776_map2t.txt
++# Shared dynastic arms/colours are a graphical simplification, not a political union.
++GOT = { flag_definition = { coa = COB priority = 100 allow_overlord_canton = no } }
++HIL = { flag_definition = { coa = COB priority = 100 allow_overlord_canton = no } }
++SSO = { flag_definition = { coa = SCW priority = 100 allow_overlord_canton = no } }
++RGZ = { flag_definition = { coa = aor1776_map2t_reuss priority = 100 allow_overlord_canton = no } }
++RGE = { flag_definition = { coa = aor1776_map2t_reuss priority = 100 allow_overlord_canton = no } }
++RSL = { flag_definition = { coa = aor1776_map2t_reuss priority = 100 allow_overlord_canton = no } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\coat_of_arms\coat_of_arms\1776_map2t.txt
++aor1776_map2t_reuss = { pattern = "pattern_solid.tga" color1 = "black" colored_emblem = { texture = "ce_lion_rampant.dds" color1 = "yellow" color2 = "red" } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\government_types\00_1776_map2t.txt
++gov_aor1776_map2t_electorate = { transfer_of_power = hereditary male_ruler = "aor1776_map2t_elector_title" female_ruler = "aor1776_map2t_electress_title" possible = { OR = { c:SAX ?= this } has_law = law_type:law_monarchy } on_government_type_change = { change_to_hereditary = yes } on_post_government_type_change = { post_change_to_hereditary = yes } }
++gov_aor1776_map2t_duchy = { transfer_of_power = hereditary male_ruler = "RULER_TITLE_DUKE" female_ruler = "RULER_TITLE_DUCHESS" possible = { OR = { c:GOT ?= this c:HIL ?= this c:WEI ?= this c:COB ?= this } has_law = law_type:law_monarchy } on_government_type_change = { change_to_hereditary = yes } on_post_government_type_change = { post_change_to_hereditary = yes } }
++gov_aor1776_map2t_principality = { transfer_of_power = hereditary male_ruler = "RULER_TITLE_PRINCE" female_ruler = "RULER_TITLE_PRINCESS" possible = { OR = { c:SCW ?= this c:SSO ?= this } has_law = law_type:law_monarchy } on_government_type_change = { change_to_hereditary = yes } on_post_government_type_change = { post_change_to_hereditary = yes } }
++gov_aor1776_map2t_county = { transfer_of_power = hereditary male_ruler = "RULER_TITLE_COUNT" female_ruler = "RULER_TITLE_COUNTESS" possible = { OR = { c:RGZ ?= this c:RGE ?= this c:RSL ?= this } has_law = law_type:law_monarchy } on_government_type_change = { change_to_hereditary = yes } on_post_government_type_change = { post_change_to_hereditary = yes } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\english\replace\1776_map2t_l_english.yml
++﻿l_english:
++ SAX:0 "Electorate of Saxony"
++ SAX_ADJ:0 "Electorate of Saxony"
++ WEI:0 "Saxe-Weimar-Eisenach"
++ WEI_ADJ:0 "Saxe-Weimar-Eisenach"
++ MEI:0 "Saxe-Meiningen"
++ MEI_ADJ:0 "Saxe-Meiningen"
++ COB:0 "Saxe-Coburg-Saalfeld"
++ COB_ADJ:0 "Saxe-Coburg-Saalfeld"
++ SCW:0 "Schwarzburg-Rudolstadt"
++ SCW_ADJ:0 "Schwarzburg-Rudolstadt"
++ GOT:0 "Saxe-Gotha-Altenburg"
++ GOT_ADJ:0 "Saxe-Gotha-Altenburg"
++ HIL:0 "Saxe-Hildburghausen"
++ HIL_ADJ:0 "Saxe-Hildburghausen"
++ SSO:0 "Schwarzburg-Sondershausen"
++ SSO_ADJ:0 "Schwarzburg-Sondershausen"
++ RGZ:0 "County of Reuss-Greiz"
++ RGZ_ADJ:0 "County of Reuss-Greiz"
++ RGE:0 "County of Reuss-Gera"
++ RGE_ADJ:0 "County of Reuss-Gera"
++ RSL:0 "County of Reuss-Schleiz"
++ RSL_ADJ:0 "County of Reuss-Schleiz"
++ aor1776_map2t_got_first:0 "Ernst II. Ludwig"
++ aor1776_map2t_got_last:0 "von Saxe-Gotha-Altenburg"
++ aor1776_map2t_hil_first:0 "Ernst Friedrich III. Carl"
++ aor1776_map2t_hil_last:0 "von Saxe-Hildburghausen"
++ aor1776_map2t_sso_first:0 "Christian Günther III."
++ aor1776_map2t_sso_last:0 "von Schwarzburg-Sondershausen"
++ aor1776_map2t_scw_first:0 "Ludwig Günther II."
++ aor1776_map2t_scw_last:0 "von Schwarzburg-Rudolstadt"
++ aor1776_map2t_rgz_first:0 "Heinrich XI."
++ aor1776_map2t_rgz_last:0 "Reuss-Greiz"
++ aor1776_map2t_rge_first:0 "Heinrich XXX."
++ aor1776_map2t_rge_last:0 "Reuss-Gera"
++ aor1776_map2t_rsl_first:0 "Heinrich XII."
++ aor1776_map2t_rsl_last:0 "Reuss-Schleiz"
++ aor1776_map2t_elector_title:0 "Elector"
++ aor1776_map2t_electress_title:0 "Electress"
++ gov_aor1776_map2t_electorate:0 "Electorate"
++ gov_aor1776_map2t_electorate_desc:0 "A hereditary imperial government whose ruler maintains the institutions and succession of the ruling house.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
++ gov_aor1776_map2t_duchy:0 "Duchy"
++ gov_aor1776_map2t_duchy_desc:0 "A hereditary imperial government whose ruler maintains the institutions and succession of the ruling house.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
++ gov_aor1776_map2t_principality:0 "Principality"
++ gov_aor1776_map2t_principality_desc:0 "A hereditary imperial government whose ruler maintains the institutions and succession of the ruling house.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
++ gov_aor1776_map2t_county:0 "Imperial county"
++ gov_aor1776_map2t_county_desc:0 "A hereditary imperial government whose ruler maintains the institutions and succession of the ruling house.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\replace\1776_map2t_l_french.yml
++﻿l_french:
++ SAX:0 "Électorat de Saxe"
++ SAX_ADJ:0 "Électorat de Saxe"
++ WEI:0 "Saxe-Weimar-Eisenach"
++ WEI_ADJ:0 "Saxe-Weimar-Eisenach"
++ MEI:0 "Saxe-Meiningen"
++ MEI_ADJ:0 "Saxe-Meiningen"
++ COB:0 "Saxe-Cobourg-Saalfeld"
++ COB_ADJ:0 "Saxe-Cobourg-Saalfeld"
++ SCW:0 "Schwarzbourg-Rudolstadt"
++ SCW_ADJ:0 "Schwarzbourg-Rudolstadt"
++ GOT:0 "Saxe-Gotha-Altenbourg"
++ GOT_ADJ:0 "Saxe-Gotha-Altenbourg"
++ HIL:0 "Saxe-Hildburghausen"
++ HIL_ADJ:0 "Saxe-Hildburghausen"
++ SSO:0 "Schwarzbourg-Sondershausen"
++ SSO_ADJ:0 "Schwarzbourg-Sondershausen"
++ RGZ:0 "Comté de Reuss-Greiz"
++ RGZ_ADJ:0 "Comté de Reuss-Greiz"
++ RGE:0 "Comté de Reuss-Gera"
++ RGE_ADJ:0 "Comté de Reuss-Gera"
++ RSL:0 "Comté de Reuss-Schleiz"
++ RSL_ADJ:0 "Comté de Reuss-Schleiz"
++ aor1776_map2t_got_first:0 "Ernst II. Ludwig"
++ aor1776_map2t_got_last:0 "von Saxe-Gotha-Altenburg"
++ aor1776_map2t_hil_first:0 "Ernst Friedrich III. Carl"
++ aor1776_map2t_hil_last:0 "von Saxe-Hildburghausen"
++ aor1776_map2t_sso_first:0 "Christian Günther III."
++ aor1776_map2t_sso_last:0 "von Schwarzburg-Sondershausen"
++ aor1776_map2t_scw_first:0 "Ludwig Günther II."
++ aor1776_map2t_scw_last:0 "von Schwarzburg-Rudolstadt"
++ aor1776_map2t_rgz_first:0 "Heinrich XI."
++ aor1776_map2t_rgz_last:0 "Reuss-Greiz"
++ aor1776_map2t_rge_first:0 "Heinrich XXX."
++ aor1776_map2t_rge_last:0 "Reuss-Gera"
++ aor1776_map2t_rsl_first:0 "Heinrich XII."
++ aor1776_map2t_rsl_last:0 "Reuss-Schleiz"
++ aor1776_map2t_elector_title:0 "Prince-électeur"
++ aor1776_map2t_electress_title:0 "Princesse-électrice"
++ gov_aor1776_map2t_electorate:0 "Électorat"
++ gov_aor1776_map2t_electorate_desc:0 "Un gouvernement héréditaire de l’Empire dont le souverain maintient les institutions et la succession de sa maison.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
++ gov_aor1776_map2t_duchy:0 "Duché"
++ gov_aor1776_map2t_duchy_desc:0 "Un gouvernement héréditaire de l’Empire dont le souverain maintient les institutions et la succession de sa maison.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
++ gov_aor1776_map2t_principality:0 "Principauté"
++ gov_aor1776_map2t_principality_desc:0 "Un gouvernement héréditaire de l’Empire dont le souverain maintient les institutions et la succession de sa maison.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
++ gov_aor1776_map2t_county:0 "Comté impérial"
++ gov_aor1776_map2t_county_desc:0 "Un gouvernement héréditaire de l’Empire dont le souverain maintient les institutions et la succession de sa maison.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "rgb": "x155A44",
+     "state": "STATE_STYRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x165E05",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "HAN",
+     "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x169073",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SAX",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "x18A2E1",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x19AE19",
+     "state": "STATE_POMERANIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x1B72C9",
+@@
+     "rgb": "x318061",
+     "state": "STATE_BADEN",
+     "beneficiary": "KMZ",
+     "basis": "MAP2L MAINZ_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x31E041",
+     "state": "STATE_SLOVENIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x31E0C0",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SAX",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "x32BA1A",
+     "state": "STATE_TUSCANY",
+     "beneficiary": "TUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x34386E",
+     "state": "STATE_ANHALT",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x392FDA",
+@@
+     "rgb": "x418021",
+     "state": "STATE_WESTPHALIA",
+     "beneficiary": "PRU",
+     "basis": "MAP2L DUCHY_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x418061",
+     "state": "STATE_ELBE",
+     "beneficiary": "HAN",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x43CE26",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SAX",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "x43D537",
+     "state": "STATE_BRUNSWICK",
+     "beneficiary": "BRA",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x44F127",
+     "state": "STATE_SLOVENIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x4545BE",
+@@
+     "rgb": "x50C060",
+     "state": "STATE_LOMBARDY",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x5101A0",
+     "state": "STATE_RUHR",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x5141A0",
+     "state": "STATE_SAXONY",
+     "beneficiary": "MEI",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "x514C51",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x518021",
+     "state": "STATE_NORTH_RHINE",
+     "beneficiary": "KCL",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x5180A0",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "BEO",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "x51C021",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SCW",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "x51C0A0",
+     "state": "STATE_FRANCONIA",
+     "beneficiary": "WZB",
+     "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "x51C0E0",
+     "state": "STATE_TYROL",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x565185",
+@@
+     "rgb": "x64824C",
+     "state": "STATE_SCHLESWIG_HOLSTEIN",
+     "beneficiary": "HOL",
+     "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x648AD1",
+     "state": "STATE_FRANCONIA",
+     "beneficiary": "FBM",
+     "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "x66FE0A",
+     "state": "STATE_SAXONY",
+     "beneficiary": "COB",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "x67FE18",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x68BE66",
+     "state": "STATE_ELBE",
+     "beneficiary": "BRE",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x68CE1C",
+@@
+     "rgb": "x784B8E",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "HAN",
+     "basis": "MAP2L RHINE_WESTPHALIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x792B8A",
+     "state": "STATE_SLOVENIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x795368",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SAX",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "x7B2F62",
+     "state": "STATE_UPPER_SILESIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x7C8FD3",
+     "state": "STATE_ELBE",
+     "beneficiary": "HAN",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x7F2E4E",
+@@
+     "rgb": "x910095",
+     "state": "STATE_WESTPHALIA",
+     "beneficiary": "WPM",
+     "basis": "MAP2L RHINE_WESTPHALIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x916574",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "BEO",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "x917939",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SAX",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "x93FB2E",
+     "state": "STATE_FLANDERS",
+     "beneficiary": "BEO",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "x94D624",
+     "state": "STATE_LOWER_SILESIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x9B9076",
+@@
+     "rgb": "xAF9F20",
+     "state": "STATE_UPPER_SILESIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xAFD2D1",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xAFDFBF",
+     "state": "STATE_SAXONY",
+     "beneficiary": "SAX",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "xB00121",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xB00160",
+     "state": "STATE_BADEN",
+     "beneficiary": "BAD",
+     "basis": "MAP2L SWABIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xB04020",
+@@
+     "rgb": "xC00121",
+     "state": "STATE_LOWER_SILESIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xC00161",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "OLD",
+     "basis": "MAP2L RHINE_WESTPHALIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xC00A37",
+     "state": "STATE_SAXONY",
+     "beneficiary": "WEI",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "xC08020",
+     "state": "STATE_HESSE",
+     "beneficiary": "HEK",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xC08061",
+     "state": "STATE_ELBE",
+     "beneficiary": "BRE",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xC080E0",
+@@
+     "rgb": "xD080E0",
+     "state": "STATE_PIEDMONT",
+     "beneficiary": "SAR",
+     "basis": "Explicit user-approved Piedmont-only de-jure extension, 1776-01-01; no claim on Sardinia, Savoy, Nice or Genoese provinces."
+   },
+   {
+     "rgb": "xD0BF60",
+     "state": "STATE_SOUTH_TYROL",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD0C021",
+     "state": "STATE_SAXONY",
+     "beneficiary": "MEI",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
+   },
+   {
+     "rgb": "xD0C0A0",
+     "state": "STATE_FRANCONIA",
+     "beneficiary": "NUR",
+     "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "xD0C0E0",
+     "state": "STATE_TYROL",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xD286DB",
+@@
+     "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
+   },
+   {
+     "rgb": "xEDB30A",
+     "state": "STATE_ANHALT",
+     "beneficiary": "ABG",
+     "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
+   },
+   {
+     "rgb": "xEDB30B",
+     "state": "STATE_ANHALT",
+     "beneficiary": "AKT",
+     "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
+   },
+   {
++    "rgb": "xEDB400",
++    "state": "STATE_SAXONY",
++    "beneficiary": "GOT",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB401",
++    "state": "STATE_SAXONY",
++    "beneficiary": "RGZ",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB402",
++    "state": "STATE_SAXONY",
++    "beneficiary": "RSL",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB403",
++    "state": "STATE_SAXONY",
++    "beneficiary": "RSL",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB404",
++    "state": "STATE_SAXONY",
++    "beneficiary": "HIL",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB405",
++    "state": "STATE_SAXONY",
++    "beneficiary": "SSO",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB406",
++    "state": "STATE_SAXONY",
++    "beneficiary": "SSO",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB407",
++    "state": "STATE_SAXONY",
++    "beneficiary": "GOT",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB408",
++    "state": "STATE_SAXONY",
++    "beneficiary": "HIL",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB409",
++    "state": "STATE_SAXONY",
++    "beneficiary": "SSO",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB40A",
++    "state": "STATE_SAXONY",
++    "beneficiary": "GOT",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB40B",
++    "state": "STATE_SAXONY",
++    "beneficiary": "SAX",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB40C",
++    "state": "STATE_SAXONY",
++    "beneficiary": "GOT",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB40D",
++    "state": "STATE_SAXONY",
++    "beneficiary": "RGE",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB40E",
++    "state": "STATE_SAXONY",
++    "beneficiary": "RSL",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
++    "rgb": "xEDB40F",
++    "state": "STATE_SAXONY",
++    "beneficiary": "GOT",
++    "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2T\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_SAXONY"
++  ],
++  "previous": [
++    {
++      "rgb": "x169073",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x31E0C0",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x43CE26",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x5141A0",
++      "state": "STATE_SAXONY",
++      "beneficiary": "MEI",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x51C021",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SCW",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x66FE0A",
++      "state": "STATE_SAXONY",
++      "beneficiary": "COB",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x795368",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x917939",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xAFDFBF",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xC00A37",
++      "state": "STATE_SAXONY",
++      "beneficiary": "WEI",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD0C021",
++      "state": "STATE_SAXONY",
++      "beneficiary": "MEI",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x169073",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB400",
++      "state": "STATE_SAXONY",
++      "beneficiary": "GOT",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB401",
++      "state": "STATE_SAXONY",
++      "beneficiary": "RGZ",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB402",
++      "state": "STATE_SAXONY",
++      "beneficiary": "RSL",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB403",
++      "state": "STATE_SAXONY",
++      "beneficiary": "RSL",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "x31E0C0",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "x43CE26",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB404",
++      "state": "STATE_SAXONY",
++      "beneficiary": "HIL",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "x5141A0",
++      "state": "STATE_SAXONY",
++      "beneficiary": "MEI",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB405",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SSO",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB406",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SSO",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "x51C021",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SCW",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "x66FE0A",
++      "state": "STATE_SAXONY",
++      "beneficiary": "COB",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB407",
++      "state": "STATE_SAXONY",
++      "beneficiary": "GOT",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB408",
++      "state": "STATE_SAXONY",
++      "beneficiary": "HIL",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB409",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SSO",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "x795368",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB40A",
++      "state": "STATE_SAXONY",
++      "beneficiary": "GOT",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "x917939",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB40B",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xAFDFBF",
++      "state": "STATE_SAXONY",
++      "beneficiary": "SAX",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB40C",
++      "state": "STATE_SAXONY",
++      "beneficiary": "GOT",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB40D",
++      "state": "STATE_SAXONY",
++      "beneficiary": "RGE",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB40E",
++      "state": "STATE_SAXONY",
++      "beneficiary": "RSL",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xC00A37",
++      "state": "STATE_SAXONY",
++      "beneficiary": "WEI",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xEDB40F",
++      "state": "STATE_SAXONY",
++      "beneficiary": "GOT",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    },
++    {
++      "rgb": "xD0C021",
++      "state": "STATE_SAXONY",
++      "beneficiary": "MEI",
++      "basis": "MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md."
++    }
++  ],
++  "new_members": [
++    "GOT",
++    "HIL",
++    "SSO",
++    "RGZ",
++    "RGE",
++    "RSL"
++  ],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDB400",
++      "parent_rgb": "x31E0C0"
++    },
++    {
++      "rgb": "xEDB401",
++      "parent_rgb": "x31E0C0"
++    },
++    {
++      "rgb": "xEDB402",
++      "parent_rgb": "x31E0C0"
++    },
++    {
++      "rgb": "xEDB403",
++      "parent_rgb": "x31E0C0"
++    },
++    {
++      "rgb": "xEDB404",
++      "parent_rgb": "x5141A0"
++    },
++    {
++      "rgb": "xEDB405",
++      "parent_rgb": "x5141A0"
++    },
++    {
++      "rgb": "xEDB406",
++      "parent_rgb": "x5141A0"
++    },
++    {
++      "rgb": "xEDB407",
++      "parent_rgb": "x66FE0A"
++    },
++    {
++      "rgb": "xEDB408",
++      "parent_rgb": "x66FE0A"
++    },
++    {
++      "rgb": "xEDB409",
++      "parent_rgb": "x66FE0A"
++    },
++    {
++      "rgb": "xEDB40A",
++      "parent_rgb": "x917939"
++    },
++    {
++      "rgb": "xEDB40B",
++      "parent_rgb": "x917939"
++    },
++    {
++      "rgb": "xEDB40C",
++      "parent_rgb": "xC00A37"
++    },
++    {
++      "rgb": "xEDB40D",
++      "parent_rgb": "xC00A37"
++    },
++    {
++      "rgb": "xEDB40E",
++      "parent_rgb": "xC00A37"
++    },
++    {
++      "rgb": "xEDB40F",
++      "parent_rgb": "xD0C021"
++    }
++  ],
++  "geometry": "MAP2T/GEOMETRY.json",
++  "region_reference_changes": [
++    {
++      "state": "STATE_SAXONY",
++      "field": "prime_land",
++      "before": [
++        "x31E0C0",
++        "xC00A37",
++        "xD0C021",
++        "x66FE0A",
++        "x169073",
++        "xAFDFBF",
++        "x917939",
++        "x43CE26"
++      ],
++      "after": [
++        "xEDB400",
++        "xEDB401",
++        "xEDB402",
++        "xEDB403",
++        "x31E0C0",
++        "xEDB40C",
++        "xEDB40D",
++        "xEDB40E",
++        "xC00A37",
++        "xEDB40F",
++        "xD0C021",
++        "x66FE0A",
++        "xEDB407",
++        "xEDB408",
++        "xEDB409",
++        "x169073",
++        "xAFDFBF",
++        "xEDB40A",
++        "x917939",
++        "xEDB40B",
++        "x43CE26"
++      ]
++    },
++    {
++      "state": "STATE_SAXONY",
++      "field": "wood",
++      "before": "x31E0C0",
++      "after": "xEDB401",
++      "pixel": [
++        4379,
++        840
++      ],
++      "bitmap_before": "x31E0C0"
++    }
++  ],
++  "extent_added_cells": [],
++  "extent_removed_cells": [],
++  "country_additions": {
++    "GOT": "[\"GOT\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"221\"],[\"\",\"\",\"196\"],[\"\",\"\",\"111\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_SAXONY\"]]]",
++    "HIL": "[\"HIL\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"100\"],[\"\",\"\",\"177\"],[\"\",\"\",\"133\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_SAXONY\"]]]",
++    "SSO": "[\"SSO\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"150\"],[\"\",\"\",\"124\"],[\"\",\"\",\"177\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_SAXONY\"]]]",
++    "RGZ": "[\"RGZ\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"81\"],[\"\",\"\",\"171\"],[\"\",\"\",\"187\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_SAXONY\"]]]",
++    "RGE": "[\"RGE\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"218\"],[\"\",\"\",\"148\"],[\"\",\"\",\"85\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_SAXONY\"]]]",
++    "RSL": "[\"RSL\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"129\"],[\"\",\"\",\"132\"],[\"\",\"\",\"142\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_SAXONY\"]]]"
++  },
++  "country_tier_corrections": [
++    {
++      "tag": "SAX",
++      "before": "kingdom",
++      "after": "principality",
++      "before_signature": "[\"SAX\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"155\"],[\"\",\"\",\"147\"],[\"\",\"\",\"180\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"kingdom\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"capital\",\"=\",\"STATE_SAXONY\"],[\"is_named_from_capital\",\"=\",\"yes\"]]]",
++      "after_signature": "[\"SAX\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"155\"],[\"\",\"\",\"147\"],[\"\",\"\",\"180\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"capital\",\"=\",\"STATE_SAXONY\"],[\"is_named_from_capital\",\"=\",\"yes\"]]]"
++    },
++    {
++      "tag": "WEI",
++      "before": "grand_principality",
++      "after": "principality",
++      "before_signature": "[\"WEI\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"69\"],[\"\",\"\",\"188\"],[\"\",\"\",\"45\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"grand_principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"capital\",\"=\",\"STATE_SAXONY\"]]]",
++      "after_signature": "[\"WEI\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"69\"],[\"\",\"\",\"188\"],[\"\",\"\",\"45\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"capital\",\"=\",\"STATE_SAXONY\"]]]"
++    }
++  ]
++}
+*** End Patch

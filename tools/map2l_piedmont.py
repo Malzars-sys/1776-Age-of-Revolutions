@@ -90,13 +90,15 @@ def validate():
     def check(name,passed,detail=''):
         checks.append(dict(name=name,passed=bool(passed),detail=detail))
     migrations=approved_territorial_migrations();regions={s for m in migrations for s in m['replaced_regions']}
+    from map2l_registry import expected_country_definitions
+    expected_definitions=expected_country_definitions(base['inventory']['countries'],migrations)
     def outside_inventory(obj):
         result={k:v for k,v in obj.items() if k not in {'owners','states','state_types','geometry','countries','regional_pop','buildings'}}
         for key,at in [('owners',1),('regional_pop',0),('buildings',0)]:result[key]=[r for r in obj[key] if r['key'][at] not in regions]
         result['states']=[r for r in obj['states'] if r[0] not in regions]
         result['state_types']={k:v for k,v in obj['state_types'].items() if k.split('|')[0] not in regions}
         result['geometry']={k:v for k,v in obj['geometry'].items() if v not in regions}
-        result['countries']={k:v for k,v in obj['countries'].items() if k in base['inventory']['countries']}
+        result['countries']={k:(expected_definitions[k] if obj is base['inventory'] else v) for k,v in obj['countries'].items() if k in base['inventory']['countries']}
         return result
     check('Gameplay inventory outside explicit Franconia migration unchanged',outside_inventory(inv)==outside_inventory(base['inventory']))
     previous_bmp=packed(ROOT/'docs/reports/map/MAP2L/BELGIUM/provinces_candidate.png')

@@ -10,7 +10,7 @@ import validate_diplomacy_ottoman_1776 as cw
 from map2l_mainz import ROOT,OUT,REGIONS,dump
 from map2l_belgium import packed,sha,components
 from map2l_hre_work import GIT
-from map2l_registry import active_registry_path,approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent
+from map2l_registry import active_registry_path,approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent,expected_country_definitions,rebind_state_definitions
 from validate_map2k_imperial import node,textnode,profiles
 
 def validate():
@@ -31,7 +31,7 @@ def validate():
     edited_buildings={rel for plan in plans for rel in plan['files'] if rel.startswith('common/history/buildings/')}
     check('All buildings outside explicit allocation files byte-identical',all(sha(ROOT/rel)==digest for rel,digest in b['hashes'].items() if rel.startswith('common/history/buildings/') and rel not in edited_buildings))
     check('Units formations and recruitment unchanged',a['units']==b['inventory']['units'])
-    check('Country definitions capitals governments unchanged',a['countries']==b['inventory']['countries'] and all(sha(ROOT/rel)==digest for rel,digest in b['hashes'].items() if rel.startswith(('common/history/countries/','common/government_types/','common/laws/'))))
+    check('Existing country definitions capitals governments unchanged; exact declared additions only',a['countries']==expected_country_definitions(b['inventory']['countries'],migrations) and all(sha(ROOT/rel)==digest for rel,digest in b['hashes'].items() if rel.startswith(('common/history/countries/','common/government_types/','common/laws/'))))
     check('No new duplicate owners',a['duplicates']==b['inventory']['duplicates'])
     check('No new state holder or province reference error',a['errors']==b['inventory']['errors'])
     expected=qa.counter(b['inventory']['owners'])
@@ -73,9 +73,9 @@ def validate():
         check('Native locator raster unchanged '+r['Hub_Name'],bmp[y,x]==old[y,x])
     # Province lists are the only state-region definition changes permitted.
     region_file=globals().get('REGION_FILE','map_data/state_regions/00_west_europe.txt')
-    oldnodes=cw.parse(b['originals'][region_file]);newnodes=cw.parse((ROOT/region_file).read_text(encoding='utf-8-sig'))
+    oldnodes=cw.parse(rebind_state_definitions(b['originals'][region_file],migrations));newnodes=cw.parse((ROOT/region_file).read_text(encoding='utf-8-sig'))
     def protected(ns):return {n.key:[qa.norm(v) for v in n.children() if n.key not in regions or v.key!='provinces'] for n in ns}
-    check('State IDs hubs resources and all unrelated definitions unchanged',protected(oldnodes)==protected(newnodes))
+    check('State IDs resources and unrelated definitions unchanged; only exact hub/prime references rebound',protected(oldnodes)==protected(newnodes))
     terrain=(ROOT/'map_data/province_terrains.txt').read_text(encoding='utf-8-sig');tmap={k.upper():v for k,v in re.findall(r'(?im)^\s*(x[0-9a-f]{6})\s*=\s*"([^"\n]+)"',terrain)}
     check('Terrain equals latest reviewed candidate',(ROOT/'map_data/province_terrains.txt').read_bytes()==(latest/'province_terrains_candidate.txt').read_bytes())
     check('Children inherit exact parent terrains',all(tmap[r['rgb'].upper()]==tmap[r['parent_rgb'].upper()] for r in new.values()))
@@ -126,6 +126,8 @@ def validate():
         engine_tested=False,engine_test_policy='After all HRE lots, per user',new_RGBs=len(g['new_provinces']),cumulative_new_RGBs=len(new),registered_RGBs=len(rights),
         transferred_population=dict(moved),territorial_transfers=g['transfers'],changed_pixels=int(delta.sum()),runtime_changed_files=changed,
         inherited_reference_errors=a['errors'],inherited_duplicate_RGBs=a['duplicates'],limitations=g['limitations'])
+    from map2l_runtime_receipt import annotate
+    annotate(report,OUT)
     dump('VALIDATION.json',report)
     print(report['status'],sum(r['passed'] for r in checks),'/',len(checks),'checks;',dict(moved))
     for r in checks:

@@ -1,0 +1,24 @@
+# Root STATE, including one owner's share in a split region.
+aor1776_ilp_has_real_rail_pm = {
+	any_scope_building = {
+		is_building_type = building_railway
+		level >= 1
+		OR = {
+			has_active_production_method = pm_early_trains
+			has_active_production_method = pm_steam_trains
+			has_active_production_method = pm_steam_trains_principle_transport_3
+			has_active_production_method = pm_electric_trains
+			has_active_production_method = pm_electric_trains_principle_transport_3
+			has_active_production_method = pm_diesel_trains
+			has_active_production_method = pm_diesel_trains_principle_transport_3
+		}
+	}
+}
+
+aor1776_ilp_wants_probe = {
+	NOT = { has_variable = aor1776_ilp_force_off }
+	OR = {
+		has_variable = aor1776_ilp_force_on
+		aor1776_ilp_has_real_rail_pm = yes
+	}
+}

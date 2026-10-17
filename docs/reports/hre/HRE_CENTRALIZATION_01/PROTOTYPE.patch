@@ -1,0 +1,36 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\prototypes\HRE_CENTRALIZATION_01\mod\common\scripted_effects\1776_imperial_constitution.txt
+@@
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_diet_1 } } add_principle = aor1776_hre_diet_1 }
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_circles_3 } } add_principle = aor1776_hre_circles_3 }
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_circles_2 } } add_principle = aor1776_hre_circles_2 }
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_circles_1 } } add_principle = aor1776_hre_circles_1 }
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_justice_3 } } add_principle = aor1776_hre_justice_3 }
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_justice_2 } } add_principle = aor1776_hre_justice_2 }
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_justice_1 } } add_principle = aor1776_hre_justice_1 }
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_administration_3 } } add_principle = aor1776_hre_administration_3 }
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_administration_2 } } add_principle = aor1776_hre_administration_2 }
+ if = { limit = { scope:hre_elected_country = { has_variable = aor1776_hre_saved_aor1776_hre_administration_1 } } add_principle = aor1776_hre_administration_1 }
+ }
+ aor1776_hre_install_elected_country = {
+ if = { limit = { has_global_variable = aor1776_hre_c01_dev_armed any_country = { aor1776_hre_centralized_subject = yes } }
+  aor1776_hre_c01_transfer_test = yes
+ }
+-else_if = { limit = { NOT = { any_country = { aor1776_hre_centralized_subject = yes } } } aor1776_hre_install_elected_country_legacy = yes }
++else_if = { limit = { NOT = { any_country = { aor1776_hre_any_native_bond = yes } } } aor1776_hre_install_elected_country_legacy = yes }
+ else = { set_global_variable = aor1776_hre_centralized_transfer_pending }
+ }
+ aor1776_hre_finish_investiture = {
+ 
+  if = { limit = { ruler ?= { is_character_alive = yes is_female = no age >= 18 NOT = { has_variable = aor1776_hre_deceased_emperor } } }
+   ruler = { set_variable = aor1776_hre_emperor_character set_global_variable = { name = aor1776_hre_emperor_person value = this } }
+  }
+  else = { heir ?= { set_variable = aor1776_hre_emperor_character set_global_variable = { name = aor1776_hre_emperor_person value = this } } }
+  if = { limit = { NOT = { this = global_var:aor1776_hre_emperor_country } }
+   every_country = { limit = { has_diplomatic_pact = { who = global_var:aor1776_hre_emperor_country type = aor1776_imperial_obligation } } remove_diplomatic_pact = { country = global_var:aor1776_hre_emperor_country type = aor1776_imperial_obligation } }
+  }
+  set_global_variable = { name = aor1776_hre_emperor_country value = this }
+  remove_global_variable = aor1776_hre_election_open
+  remove_global_variable = aor1776_hre_election_deadlocked
+  remove_global_variable = aor1776_hre_native_transfer_blocked
+*** End Patch

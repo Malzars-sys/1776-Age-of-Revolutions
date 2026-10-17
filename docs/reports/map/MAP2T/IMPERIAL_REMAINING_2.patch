@@ -1,0 +1,56 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\1776_imperial_electoral_choices_l_french.yml
+@@
+  aor1776_hre.choose_SWF:0 "Choisir $SWF$ pour le vote impérial"
+  aor1776_hre.choose_SWX:0 "Choisir $SWX$ pour le vote impérial"
+  aor1776_hre.choose_SWY:0 "Choisir $SWY$ pour le vote impérial"
+  aor1776_hre.choose_SKC:0 "Choisir $SKC$ pour le vote impérial"
+  aor1776_hre.choose_SAC:0 "Choisir $SAC$ pour le vote impérial"
+  aor1776_hre.choose_SKI:0 "Choisir $SKI$ pour le vote impérial"
+  aor1776_hre.choose_SRT:0 "Choisir $SRT$ pour le vote impérial"
+  aor1776_hre.choose_SBI:0 "Choisir $SBI$ pour le vote impérial"
+  aor1776_hre.choose_SMM:0 "Choisir $SMM$ pour le vote impérial"
+  aor1776_hre.choose_SRQ:0 "Choisir $SRQ$ pour le vote impérial"
+  aor1776_hre.choose_SWG:0 "Choisir $SWG$ pour le vote impérial"
+  aor1776_hre.choose_HLB:0 "Choisir $HLB$ pour le vote impérial"
+  aor1776_hre.choose_ABG:0 "Choisir $ABG$ pour le vote impérial"
+  aor1776_hre.choose_AKT:0 "Choisir $AKT$ pour le vote impérial"
+  aor1776_hre.choose_AZR:0 "Choisir $AZR$ pour le vote impérial"
++ aor1776_hre.choose_GOT:0 "Choisir $GOT$ pour le vote impérial"
++ aor1776_hre.choose_HIL:0 "Choisir $HIL$ pour le vote impérial"
++ aor1776_hre.choose_SSO:0 "Choisir $SSO$ pour le vote impérial"
++ aor1776_hre.choose_RGZ:0 "Choisir $RGZ$ pour le vote impérial"
++ aor1776_hre.choose_RGE:0 "Choisir $RGE$ pour le vote impérial"
++ aor1776_hre.choose_RSL:0 "Choisir $RSL$ pour le vote impérial"
+  aor1776_hre_choose_vote_desc:0 "Choisir un pays pour la prochaine élection impériale, y compris soi-même si éligible. Pendant les trente jours du scrutin, vous pouvez modifier votre vote. Un joueur qui rompt une promesse valide subit une fois 10 d’infamie ; un électeur IA doit respecter sa promesse."
+  aor1776_hre_choose_vote_result:0 "Enregistrer ce pays comme notre choix électoral ; si le scrutin est ouvert, remplacer notre unique bulletin. Un joueur qui quitte le candidat d’une promesse valide reçoit une fois 10 d’infamie."
+  aor1776_hre_card_vote_label:0 "Choisir pour mon vote impérial"
+  aor1776_hre_choose_electoral_candidate:0 "Choisir comme candidat impérial"
+  aor1776_hre_choose_electoral_candidate_desc:0 "Définir notre choix pour la prochaine élection impériale. Ce n’est pas une promesse par traité et le candidat n’a pas à l’approuver."
+  aor1776_hre_vote_selected:0 "Choix pour la prochaine élection : [SCOPE.GetRootScope.GetCountry.MakeScope.Var('aor1776_hre_ui_vote_choice').GetCountry.GetName]"
+  je_aor1776_hre_vote_reason:0 "Votre choix anticipé est enregistré au décès de l’empereur. Choisissez ou changez de candidat ci-dessous pendant les trente jours du scrutin, y compris vous-même si éligible. Rompre une promesse valide coûte une fois 10 d’infamie à un joueur. Les électeurs IA respectent leurs promesses."
+  aor1776_hre_electors_heading:0 "Les électeurs — bulletins et choix anticipés"
+  aor1776_hre_dashboard_decisions:0 "Les électeurs peuvent choisir un candidat dès maintenant depuis les fiches ci-dessous ou les actions diplomatiques du pays ; les boutons de candidats du journal permettent aussi de choisir son propre pays s’il est éligible. Le choix devient un bulletin au décès de l’empereur et peut être modifié pendant trente jours. Les décisions de centralisation s’ouvrent après les quatre principes III."
+  aor1776_hre.1.d:0 "Le trône impérial est vacant. Notre promesse valide ou notre choix anticipé a déjà été enregistré comme bulletin. Nous pouvons choisir ou changer de candidat dans le journal impérial pendant les trente jours de délibération. Rompre une promesse valide nous coûte 10 d’infamie ; un choix libre peut être modifié sans cette pénalité. À l’issue de la délibération, le dépouillement recherche une majorité absolue, avec un second tour si nécessaire."
+  aor1776_hre_pledge_accept_base:0 "Réticence à engager notre liberté électorale"
+  aor1776_hre_pledge_accept_preference:0 "Préférence électorale historique : relations, dynastie, religion, alliances et continuité impériale"
+  aor1776_hre_pledge_accept_obligation:0 "Obligation due au candidat"
+  aor1776_hre_pledge_accept_duration:0 "Longue durée d’engagement"
+  aor1776_hre_pledge_accept_receiving:0 "Obtention d’une promesse de voix impériale"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\scripted_triggers\1776_imperial_centralization.txt
+@@
+ aor1776_hre_centralized_subject = {
+ OR = { is_subject_type = subject_type_imperial_estate is_subject_type = subject_type_imperial_elector }
+ }
+ aor1776_hre_any_native_bond = {
+ OR = { is_subject_type = subject_type_aor1776_hre_protectorate aor1776_hre_centralized_subject = yes }
+ }
+ aor1776_hre_centralization_native_eligible = {
+ aor1776_hre_member = yes
+-OR = { c:ABG ?= this c:AKT ?= this c:ANH ?= this c:ANS ?= this c:AZR ?= this c:BAD ?= this c:BAV ?= this c:BEO ?= this c:BRA ?= this c:BRE ?= this c:COB ?= this c:EIC ?= this c:FBM ?= this c:FRM ?= this c:HAM ?= this c:HAN ?= this c:HEK ?= this c:HES ?= this c:HLB ?= this c:HOH ?= this c:HOL ?= this c:HSG ?= this c:KCL ?= this c:KMZ ?= this c:KPF ?= this c:KTR ?= this c:LGE ?= this c:LIP ?= this c:LUB ?= this c:MEC ?= this c:MEI ?= this c:MOD ?= this c:MST ?= this c:NAS ?= this c:NUR ?= this c:OLD ?= this c:PAR ?= this c:SAC ?= this c:SAG ?= this c:SAX ?= this c:SBI ?= this c:SCM ?= this c:SCW ?= this c:SEW ?= this c:SFU ?= this c:SKC ?= this c:SKE ?= this c:SKI ?= this c:SLM ?= this c:SMM ?= this c:SRQ ?= this c:SRT ?= this c:STM ?= this c:SUU ?= this c:SWF ?= this c:SWG ?= this c:SWW ?= this c:SWX ?= this c:SWY ?= this c:TUS ?= this c:WEI ?= this c:WLD ?= this c:WPD ?= this c:WPM ?= this c:WPO ?= this c:WUR ?= this c:WZB ?= this }
++OR = { c:ABG ?= this c:AKT ?= this c:ANH ?= this c:ANS ?= this c:AZR ?= this c:BAD ?= this c:BAV ?= this c:BEO ?= this c:BRA ?= this c:BRE ?= this c:COB ?= this c:EIC ?= this c:FBM ?= this c:FRM ?= this c:GOT ?= this c:HAM ?= this c:HAN ?= this c:HEK ?= this c:HES ?= this c:HIL ?= this c:HLB ?= this c:HOH ?= this c:HOL ?= this c:HSG ?= this c:KCL ?= this c:KMZ ?= this c:KPF ?= this c:KTR ?= this c:LGE ?= this c:LIP ?= this c:LUB ?= this c:MEC ?= this c:MEI ?= this c:MOD ?= this c:MST ?= this c:NAS ?= this c:NUR ?= this c:OLD ?= this c:PAR ?= this c:RGE ?= this c:RGZ ?= this c:RSL ?= this c:SAC ?= this c:SAG ?= this c:SAX ?= this c:SBI ?= this c:SCM ?= this c:SCW ?= this c:SEW ?= this c:SFU ?= this c:SKC ?= this c:SKE ?= this c:SKI ?= this c:SLM ?= this c:SMM ?= this c:SRQ ?= this c:SRT ?= this c:SSO ?= this c:STM ?= this c:SUU ?= this c:SWF ?= this c:SWG ?= this c:SWW ?= this c:SWX ?= this c:SWY ?= this c:TUS ?= this c:WEI ?= this c:WLD ?= this c:WPD ?= this c:WPM ?= this c:WPO ?= this c:WUR ?= this c:WZB ?= this }
+ OR = { is_subject = no aor1776_hre_any_native_bond = yes }
+ NOT = { any_direct_subject = { aor1776_hre_any_native_bond = no } }
+ is_at_war = no is_diplomatic_play_committed_participant = no
+ }
+*** End Patch

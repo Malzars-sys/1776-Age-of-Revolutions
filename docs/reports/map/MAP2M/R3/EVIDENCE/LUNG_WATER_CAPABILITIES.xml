@@ -1,0 +1,1043 @@
+<WFS_Capabilities xmlns:ows="http://www.opengis.net/ows" xmlns:ogc="http://www.opengis.net/ogc" version="1.1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.opengis.net/wfs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd" updateSequence="0" xmlns:gml="http://www.opengis.net/gml">
+ <ows:ServiceIdentification>
+  <ows:Title>Gewässer MV</ows:Title>
+  <ows:Abstract><![CDATA[Darstellung von Themen zu Fließgewässern, Standgewässern und Küstengewässern in MV.]]></ows:Abstract>
+  <ows:Keywords>
+   <ows:Keyword>FG</ows:Keyword>
+   <ows:Keyword>SG</ows:Keyword>
+   <ows:Keyword>KG</ows:Keyword>
+  </ows:Keywords>
+  <ows:ServiceType>WFS</ows:ServiceType>
+  <ows:ServiceTypeVersion>1.1.0</ows:ServiceTypeVersion>
+  <ows:Fees>no conditions apply</ows:Fees>
+  <ows:AccessConstraints>Lizenz CC BY-SA</ows:AccessConstraints>
+ </ows:ServiceIdentification>
+ <ows:ServiceProvider>
+  <ows:ProviderName>Landesamt für Umwelt, Naturschutz und Geologie Mecklenburg-Vorpommern (LUNG MV)</ows:ProviderName>
+  <ows:ServiceContact>
+   <ows:IndividualName>Martin Neumann</ows:IndividualName>
+   <ows:PositionName>pointOfContact</ows:PositionName>
+   <ows:Role>PointOfContact</ows:Role>
+  </ows:ServiceContact>
+ </ows:ServiceProvider>
+ <ows:OperationsMetadata>
+  <ows:Operation name="GetCapabilities">
+   <ows:DCP>
+    <ows:HTTP>
+     <ows:Get xlink:href="https://umweltkarten.lung-mv.de/dienste/wg_gewaesser"/>
+     <ows:Post xlink:href="https://umweltkarten.lung-mv.de/dienste/wg_gewaesser"/>
+    </ows:HTTP>
+   </ows:DCP>
+   <ows:Parameter name="service">
+    <ows:Value>WFS</ows:Value>
+   </ows:Parameter>
+   <ows:Parameter name="AcceptVersions">
+    <ows:Value>1.1.0</ows:Value>
+    <ows:Value>1.0.0</ows:Value>
+   </ows:Parameter>
+   <ows:Parameter name="AcceptFormats">
+    <ows:Value>text/xml</ows:Value>
+   </ows:Parameter>
+  </ows:Operation>
+  <ows:Operation name="DescribeFeatureType">
+   <ows:DCP>
+    <ows:HTTP>
+     <ows:Get xlink:href="https://umweltkarten.lung-mv.de/dienste/wg_gewaesser"/>
+     <ows:Post xlink:href="https://umweltkarten.lung-mv.de/dienste/wg_gewaesser"/>
+    </ows:HTTP>
+   </ows:DCP>
+   <ows:Parameter name="outputFormat">
+    <ows:Value>XMLSCHEMA</ows:Value>
+    <ows:Value>text/xml; subtype=gml/2.1.2</ows:Value>
+    <ows:Value>text/xml; subtype=gml/3.1.1</ows:Value>
+   </ows:Parameter>
+  </ows:Operation>
+  <ows:Operation name="GetFeature">
+   <ows:DCP>
+    <ows:HTTP>
+     <ows:Get xlink:href="https://umweltkarten.lung-mv.de/dienste/wg_gewaesser"/>
+     <ows:Post xlink:href="https://umweltkarten.lung-mv.de/dienste/wg_gewaesser"/>
+    </ows:HTTP>
+   </ows:DCP>
+   <ows:Parameter name="outputFormat">
+    <ows:Value>text/xml; subtype=gml/2.1.2</ows:Value>
+    <ows:Value>text/xml; subtype=gml/3.1.1</ows:Value>
+    <ows:Value>application/vnd.geo+json</ows:Value>
+   </ows:Parameter>
+   <ows:Parameter name="resultType">
+    <ows:Value>results</ows:Value>
+    <ows:Value>hits</ows:Value>
+   </ows:Parameter>
+  </ows:Operation>
+  <ows:Operation name="Transaction">
+   <ows:DCP>
+    <ows:HTTP>
+     <ows:Get xlink:href="https://umweltkarten.lung-mv.de/dienste/wg_gewaesser"/>
+     <ows:Post xlink:href="https://umweltkarten.lung-mv.de/dienste/wg_gewaesser"/>
+    </ows:HTTP>
+   </ows:DCP>
+   <ows:Parameter name="inputFormat">
+    <ows:Value>text/xml; subtype=gml/2.1.2</ows:Value>
+    <ows:Value>text/xml; subtype=gml/3.1.1</ows:Value>
+    <ows:Value>application/vnd.geo+json</ows:Value>
+   </ows:Parameter>
+  </ows:Operation>
+ </ows:OperationsMetadata>
+ <FeatureTypeList>
+  <Operations>
+   <Operation>Query</Operation>
+  </Operations>
+  <FeatureType>
+   <Name>dl</Name>
+   <Title>fg_bauw > Durchlässe</Title>
+   <Abstract>Gewässerunterhalter (GU) unterscheiden zur Gewässerführung in nichtoffenen Gerinnen Rohrleitungen, Durchlässe und Düker. Rohrleitungen und Durchlässe sind Elemente, die sich in Länge und Funktion unterscheiden: Durchlässe dienen i.d.R. zur Unterführung und haben selten eine Länge über 20 m; Rohrleitungen dagegen sind i.d.R. wesentlich länger und dienen zur „oberirdischen Flurbereinigung“ oder z.B. zum Anschluss von Binnen-EZG an Vorfluter. Rohrleitungen werden i.d.R. mit einem Kreisprofil ausgeführt, während Durchlässe auch z.B. als Rechteck-, Ei (Ellipsen)- oder Trapezprofil ausgeführt werden. Düker sind „Druckleitungen“ mit Absturz- und Aufstiegshöhe in unterschiedlichen Profilformen. Brücken werden je nach Bauweise als Durchlässe oder Kreuzungsbauwerke gehalten. Brücken werden nicht als gesondertes Thema erfasst, sondern entweder als Durchlässe oder als Kreuzungsbauwerke abgebildet. Die Unterscheidung erfolgt nach der Bauweise wie folgt:
+- Brücke als Durchlass: Einbau in das Gewässerprofil; im Bereich der Brücke ist der lichte Raum durch das Durchlassprofil beschrieben
+- Brücke als Kreuzung: Brückenbauwerk oberhalb Gewässer (z.B. A20 Talbrücke über Warnow); im Bereich der Brücke ist der lichte Raum (oberhalb des Gewässerbetts) nur mit erweiterten Profilangaben beschreibbar -> offenes Gerinne mit Gewässerausbaudaten.
+</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Durchlässe</ows:Keyword>
+    <ows:Keyword>Durchlass</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.466103 53.086239</ows:LowerCorner>
+    <ows:UpperCorner>14.38985 54.680978</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=1dc5ca7c-38b0-474e-b44e-3a5ff409fc73</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>due</Name>
+   <Title>fg_bauw > Düker</Title>
+   <Abstract>Gewässerunterhalter (GU) unterscheiden zur Gewässerführung in nichtoffenen Gerinnen Rohrleitungen, Durchlässe und Düker. Rohrleitungen und Durchlässe sind Elemente, die sich in Länge und Funktion unterscheiden: Durchlässe dienen i.d.R. zur Unterführung und haben selten eine Länge über 20 m; Rohrleitungen dagegen sind i.d.R. wesentlich länger und dienen zur „oberirdischen Flurbereinigung“ oder z.B. zum Anschluss von Binnen-EZG an Vorfluter. Rohrleitungen werden i.d.R. mit einem Kreisprofil ausgeführt, während Durchlässe auch z.B. als Rechteck-, Ei (Ellipsen)- oder Trapezprofil ausgeführt werden. Düker sind „Druckleitungen“ mit Absturz- und Aufstiegshöhe in unterschiedlichen Profilformen. Brücken werden je nach Bauweise als Durchlässe oder Kreuzungsbauwerke gehalten. Brücken werden nicht als gesondertes Thema erfasst, sondern entweder als Durchlässe oder als Kreuzungsbauwerke abgebildet. Die Unterscheidung erfolgt nach der Bauweise wie folgt:
+- Brücke als Durchlass: Einbau in das Gewässerprofil; im Bereich der Brücke ist der lichte Raum durch das Durchlassprofil beschrieben
+- Brücke als Kreuzung: Brückenbauwerk oberhalb Gewässer (z.B. A20 Talbrücke über Warnow); im Bereich der Brücke ist der lichte Raum (oberhalb des Gewässerbetts) nur mit erweiterten Profilangaben beschreibbar -> offenes Gerinne mit Gewässerausbaudaten.
+</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Düker</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.65078 53.126593</ows:LowerCorner>
+    <ows:UpperCorner>14.225871 54.355995</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=513cd5a4-51b4-4ffb-a3e2-8d88e09e3376</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>ezg_mv</Name>
+   <Title>ezg > Einzugsgebiete</Title>
+   <Abstract>Methodische Grundlage ist die LAWA-Richtlinie zur Bestimmung und Verschlüsselung oberirdischer Einzugsgebiete (EZG).
+Die EZG sind mit den benachbarten Bundesländern sowie mit Polen abgestimmt.
+Grenzübergreifende Gebiete sind geschnitten, d.h. die Flächenangabe gilt für das anteilige Gebiet in MV.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Einzugsgebiete</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.422986 53.084446</ows:LowerCorner>
+    <ows:UpperCorner>14.755836 55.026548</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=0CF2949B-2621-4F12-8451-75E799BBDE68</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>fg___ba_cd</Name>
+   <Title>Fließgewässer MV - Gewässerbezeichnung</Title>
+   <Abstract>Ausgewiesen werden alle Fließgewässer 1. und 2. Ordnung nach § 2 Wasserhaushaltsgesetz (WHG) i. V. m. § 2 Landeswasser- und Küstenschutzgesetz Mecklenburg-Vorpommern (LWaKüG). 
+Zuständig für die Pflege der Daten sind die Träger der Unterhaltungslast nach § 40 WHG i. V. m. § 25 LWaKüG. 
+Dies sind für Gewässer 1. Ordnung bei Bundeswasserstraßen der Bund (Wasserstraßen- und Schiff-fahrtsämter) und bei allen anderen Gewässern 1. Ordnung, die in der Anlage 1 zum LWaKüG ge-nannt sind, das Land (Staatliche Ämter für Landwirtschaft und Umwelt). 
+Für Gewässer 2. Ordnung sind dies die Wasser- und Bodenverbände im jeweiligen Verbandsgebiet. 
+Alle Daten der WBV sind nichtamtliche Daten, deren Richtigkeit, Vollständigkeit und Aktualität nicht gewährleistet ist. Auf ca. 40% der Landesfläche sind die Daten tagesaktuell, da sie direkt im FIS Ge-wässer gepflegt werden. Auf den weiteren ca. 60% nutzen die dortigen Wasser- und Verbände andere Verfahren zur Pflege der Gewässerkataster. 
+Letztmalig wurden die Daten in diesen Gebieten im Oktober 2024 mit den Daten aus dem FIS-Gewässer abgeglichen und zusammengeführt.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Fließgewässer MV</ows:Keyword>
+    <ows:Keyword>FG</ows:Keyword>
+    <ows:Keyword>Fließgewässer</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>8.603387 50.722442</ows:LowerCorner>
+    <ows:UpperCorner>15.045352 54.693551</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=23E2A562-27F3-42D2-BC90-E56BAB0CA590</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>fg</Name>
+   <Title>fg > Fließgewässer MV</Title>
+   <Abstract>Ausgewiesen werden alle Fließgewässer 1. und 2. Ordnung nach § 2 Wasserhaushaltsgesetz (WHG) i. V. m. § 2 Landeswasser- und Küstenschutzgesetz Mecklenburg-Vorpommern (LWaKüG). 
+Zuständig für die Pflege der Daten sind die Träger der Unterhaltungslast nach § 40 WHG i. V. m. § 25 LWaKüG. 
+Dies sind für Gewässer 1. Ordnung bei Bundeswasserstraßen der Bund (Wasserstraßen- und Schiff-fahrtsämter) und bei allen anderen Gewässern 1. Ordnung, die in der Anlage 1 zum LWaKüG ge-nannt sind, das Land (Staatliche Ämter für Landwirtschaft und Umwelt). 
+Für Gewässer 2. Ordnung sind dies die Wasser- und Bodenverbände im jeweiligen Verbandsgebiet. 
+Alle Daten der WBV sind nichtamtliche Daten, deren Richtigkeit, Vollständigkeit und Aktualität nicht gewährleistet ist. Auf ca. 40% der Landesfläche sind die Daten tagesaktuell, da sie direkt im FIS Ge-wässer gepflegt werden. Auf den weiteren ca. 60% nutzen die dortigen Wasser- und Verbände andere Verfahren zur Pflege der Gewässerkataster. 
+Letztmalig wurden die Daten in diesen Gebieten im Oktober 2024 mit den Daten aus dem FIS-Gewässer abgeglichen und zusammengeführt.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Fließgewässer MV</ows:Keyword>
+    <ows:Keyword>FG</ows:Keyword>
+    <ows:Keyword>Fließgewässer</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>8.603387 50.722442</ows:LowerCorner>
+    <ows:UpperCorner>15.045352 54.693551</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=23E2A562-27F3-42D2-BC90-E56BAB0CA590</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>fg_fl</Name>
+   <Title>fg > Fließgewässer Flächen</Title>
+   <Abstract>Die Ermittlung von Fliessgewässerflächen ist möglich durch DOP-genaue Umringserfassung bzw. durch Parametrisierung der Gewässerlinien. In diesem Thema werden die DOP-erfassten FG-Flächen gehalten (v.a. für Gewässer 1. Ordnung; für Gewässer 2. Ordnung nur, sofern eine Parametrisierung unbrauchbare Ergebnisse liefert).</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Fließgewässer</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.493923 53.086225</ows:LowerCorner>
+    <ows:UpperCorner>14.220039 54.392738</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=69b0e12b-b08a-4fbc-859d-1e524b9b1e01</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>fg_stat</Name>
+   <Title>fg > Fließgewässer MV - Stationen (100m)</Title>
+   <Abstract>Dieses Thema enthält Stationen im 100m-Raster für das landesweit einheitliche Gewässernetz. Die Stationswerte werden sowohl in der numerischen (Auflösung: km) als auch in der klassischen Form erzeugt, z.B. für 3100m: 3,1 bzw. 3+100 und beginnen an der Mündung bei 0 bzw. 0+000.
+
+Ausgewiesen werden alle Fließgewässer 1. und 2. Ordnung nach § 2 Wasserhaushaltsgesetz (WHG) i. V. m. § 2 Landeswasser- und Küstenschutzgesetz Mecklenburg-Vorpommern (LWaKüG). 
+Zuständig für die Pflege der Daten sind die Träger der Unterhaltungslast nach § 40 WHG i. V. m. § 25 LWaKüG. 
+Dies sind für Gewässer 1. Ordnung bei Bundeswasserstraßen der Bund (Wasserstraßen- und Schiff-fahrtsämter) und bei allen anderen Gewässern 1. Ordnung, die in der Anlage 1 zum LWaKüG ge-nannt sind, das Land (Staatliche Ämter für Landwirtschaft und Umwelt). 
+Für Gewässer 2. Ordnung sind dies die Wasser- und Bodenverbände im jeweiligen Verbandsgebiet. 
+Alle Daten der WBV sind nichtamtliche Daten, deren Richtigkeit, Vollständigkeit und Aktualität nicht gewährleistet ist. Auf ca. 40% der Landesfläche sind die Daten tagesaktuell, da sie direkt im FIS Ge-wässer gepflegt werden. Auf den weiteren ca. 60% nutzen die dortigen Wasser- und Verbände andere Verfahren zur Pflege der Gewässerkataster. 
+Letztmalig wurden die Daten in diesen Gebieten im Oktober 2024 mit den Daten aus dem FIS-Gewässer abgeglichen und zusammengeführt.
+</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>FG</ows:Keyword>
+    <ows:Keyword>Fließgewässer</ows:Keyword>
+    <ows:Keyword>Fließgewässer-Stationen</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>8.603387 50.722731</ows:LowerCorner>
+    <ows:UpperCorner>15.045327 54.693551</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=48ba29e5-b580-46f7-ab5a-ab2214ddc258</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>kg</Name>
+   <Title>kg > Küstengewässer</Title>
+   <Abstract>Ausgehend von der Küstenlinie (gleich Grenze der Binnen-EZG) sowie der
+Basislinie gliedern sich die Küstengewässer nach fachlichen und rechtlichen
+Vorgaben in Seegebiete, Küstenseen, Zuständigkeitsgebiete (u.a. Küstenmeer,
+AWZ).</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Küstengewässer</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.802615 53.537329</ows:LowerCorner>
+    <ows:UpperCorner>14.753299 55.026548</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=BB28FEEA-C8A3-4CB5-9197-6682B1C8E0BE</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>kg_stat</Name>
+   <Title>kg > Küstengewässer Kilometrierung</Title>
+   <Abstract>Küstengewässer Kilometrierung</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Küstengewässer</ows:Keyword>
+    <ows:Keyword>Kilometrierung</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.836978 53.626732</ows:LowerCorner>
+    <ows:UpperCorner>14.271646 54.692097</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=81527A31-4977-44B4-97B2-5459A0A0E257</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>kg_zonen</Name>
+   <Title>kg > Küstengewässer Zonen</Title>
+   <Abstract>Küstengewässer MV</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Küstengewässer</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.802615 53.626942</ows:LowerCorner>
+    <ows:UpperCorner>14.752774 55.026548</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=584dd663-6461-4173-a18d-280fbde17aeb</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>kul_fg__1o-bund</Name>
+   <Title>fg_kul > Fließgewässer - Kulisse (2025) - Gewässer 1.Ordnung (WSA)</Title>
+   <Abstract>Ausgewiesen werden die Fließgewässer, welche sich in öffentlicher Unterhaltung durch die WSA, StÄLU, oder WBV befinden. Auf ca. 40% der Landesfläche sind die Daten tagesaktuell, da die Unterhaltungsverbände ihre Daten im FIS Gewässer pflegen. Auf den weiteren ca. 60% nutzen die dortigen Verbände andere Verfahren zur Pflege der Gewässerkataster - die Daten aus diesen Katastern werden 1x jährlich (3.Quartal) ins FIS Gewässer übernommen und über Kartenportale und Geo-Dienste veröffentlicht.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Fließgewässer</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>8.690017 51.91277</ows:LowerCorner>
+    <ows:UpperCorner>14.758814 54.128309</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=d5fd3c95-dda2-4cbf-8af8-c42b086f15e9</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>kul_fg__1o-land</Name>
+   <Title>fg_kul > Fließgewässer - Kulisse (2025) - Gewässer 1.Ordnung (Land MV)</Title>
+   <Abstract>Ausgewiesen werden die Fließgewässer, welche sich in öffentlicher Unterhaltung durch die WSA, StÄLU, oder WBV befinden. Auf ca. 40% der Landesfläche sind die Daten tagesaktuell, da die Unterhaltungsverbände ihre Daten im FIS Gewässer pflegen. Auf den weiteren ca. 60% nutzen die dortigen Verbände andere Verfahren zur Pflege der Gewässerkataster - die Daten aus diesen Katastern werden 1x jährlich (3.Quartal) ins FIS Gewässer übernommen und über Kartenportale und Geo-Dienste veröffentlicht.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Fließgewässer</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.593905 50.799104</ows:LowerCorner>
+    <ows:UpperCorner>15.045018 54.391533</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=d5fd3c95-dda2-4cbf-8af8-c42b086f15e9</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>kul_fg__2o-wbv</Name>
+   <Title>fg_kul > Fließgewässer - Kulisse (2025) - Gewässer 2.Ordnung (WBV)</Title>
+   <Abstract>Ausgewiesen werden die Fließgewässer, welche sich in öffentlicher Unterhaltung durch die WSA, StÄLU, oder WBV befinden. Auf ca. 40% der Landesfläche sind die Daten tagesaktuell, da die Wasser- und Bodenverbände ihre Daten im FIS Gewässer pflegen. Auf den weiteren ca. 60% nutzen die dortigen Verbände andere Verfahren zur Pflege der Gewässerkataster - die Daten aus diesen Katastern werden 1x jährlich (3.Quartal) ins FIS Gewässer übernommen und über Kartenportale und Geo-Dienste veröffentlicht.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>FG</ows:Keyword>
+    <ows:Keyword>Fließgewässer</ows:Keyword>
+    <ows:Keyword>Kulisse</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.451272 52.397107</ows:LowerCorner>
+    <ows:UpperCorner>14.63875 54.69276</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=d5fd3c95-dda2-4cbf-8af8-c42b086f15e9</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>kul_fg_rl_d_due</Name>
+   <Title>fg_kul > Fließgewässer Kulisse (2025) - Lage zur Oberfläche</Title>
+   <Abstract>Ausgewiesen werden die Fließgewässer-Segmente mit ihrer Lage zur Oberfläche, welche sich in öffentlicher Unterhaltung durch die WSA, StÄLU, oder WBV befinden. Dazu werden die Fließgewässer mit den linienhaften Bauwerkstypen verschnitten und in ihre einzelnen Segmente Rohrleitung, Durchlass, Düker und offene Gewässerabschnitte zerlegt.
+Auf ca. 40% der Landesfläche sind die Daten tagesaktuell, da die Wasser- und Bodenverbände ihre Daten im FIS Gewässer pflegen. Auf den weiteren ca. 60% nutzen die dortigen Verbände andere Verfahren zur Pflege der Gewässerkataster - die Daten aus diesen Katastern werden 1x jährlich (3.Quartal) ins FIS Gewässer übernommen und über Kartenportale und Geo-Dienste veröffentlicht.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>FG</ows:Keyword>
+    <ows:Keyword>Fließgewässer</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>8.603418 50.722442</ows:LowerCorner>
+    <ows:UpperCorner>15.045352 54.693349</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=e2549489-5b3d-4f14-8ff5-49e53c587420</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>kul_rl_d_due</Name>
+   <Title>fg_kul > Fließgewässer - Kulisse (2025) -  Rohrleitung / Durchlass / Düker </Title>
+   <Abstract>Ausgewiesen werden die linienhaften Bauwerkstypen Rohrleitung, Durchlass und Düker, welche sich in öffentlicher Unterhaltung durch die WSA, StÄLU, oder WBV befinden.
+Auf ca. 40% der Landesfläche sind die Daten tagesaktuell, da die Wasser- und Bodenverbände ihre Daten im FIS Gewässer pflegen. Auf den weiteren ca. 60% nutzen die dortigen Verbände andere Verfahren zur Pflege der Gewässerkataster - die Daten aus diesen Katastern werden 1x jährlich (3.Quartal) ins FIS Gewässer übernommen und über Kartenportale und Geo-Dienste veröffentlicht.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>FG</ows:Keyword>
+    <ows:Keyword>Fließgewässer</ows:Keyword>
+    <ows:Keyword>Rohrleitung</ows:Keyword>
+    <ows:Keyword>Durchlass</ows:Keyword>
+    <ows:Keyword>Düker</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.461591 53.086117</ows:LowerCorner>
+    <ows:UpperCorner>14.582783 54.691521</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=9ac3a9fc-1a07-4f27-bd7c-bebec4b860b6</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>lawa</Name>
+   <Title>fg > Fließgewässer - LAWA Route</Title>
+   <Abstract>Die methodische Grundlage zur Ausbildung von LAWA-Routen ist die LAWA Richtlinie zur Bestimmung und Verschlüsselung oberirdischer Einzugsgebiete.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>LAWA-Route</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>8.60525 50.722442</ows:LowerCorner>
+    <ows:UpperCorner>15.045338 54.681603</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=06EDC8DB-1875-44C1-AB8A-986891B147F6</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>lawa_stat</Name>
+   <Title>fg > Fließgewässer - LAWA-Routen: Stationen (100m)</Title>
+   <Abstract>Die methodische Grundlage zur Ausbildung von LAWA-Routen ist die LAWA Richtlinie zur Bestimmung und Verschlüsselung oberirdischer Einzugsgebiete.
+Dieses Thema enthält Stationen im 100m-Raster für die LAWA-Routen. Die Stationswerte werden sowohl in der numerischen (Auflösung: km) als auch in der klassischen Form erzeugt, z.B. für 3100m: 3,1 bzw. 3+100 und beginnen an der Mündung bei 0 bzw. 0+000.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Stationen</ows:Keyword>
+    <ows:Keyword>LAWA-Route</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>8.605261 50.72282</ows:LowerCorner>
+    <ows:UpperCorner>15.04533 54.681529</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=fa0d2e2a-e395-458c-b14f-d7db44407898</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>rl</Name>
+   <Title>fg_bauw > Rohrleitungen</Title>
+   <Abstract>Gewässerunterhalter (GU) unterscheiden zur Gewässerführung in nichtoffenen Gerinnen Rohrleitungen, Durchlässe und Düker. Rohrleitungen und Durchlässe sind Elemente, die sich in Länge und Funktion unterscheiden: Durchlässe dienen i.d.R. zur Unterführung und haben selten eine Länge über 20 m; Rohrleitungen dagegen sind i.d.R. wesentlich länger und dienen zur „oberirdischen Flurbereinigung“ oder z.B. zum Anschluss von Binnen-EZG an Vorfluter. Rohrleitungen werden i.d.R. mit einem Kreisprofil ausgeführt, während Durchlässe auch z.B. als Rechteck-, Ei (Ellipsen)- oder Trapezprofil ausgeführt werden. Düker sind „Druckleitungen“ mit Absturz- und Aufstiegshöhe in unterschiedlichen Profilformen. Brücken werden je nach Bauweise als Durchlässe oder Kreuzungsbauwerke gehalten. Brücken werden nicht als gesondertes Thema erfasst, sondern entweder als Durchlässe oder als Kreuzungsbauwerke abgebildet. Die Unterscheidung erfolgt nach der Bauweise wie folgt:
+- Brücke als Durchlass: Einbau in das Gewässerprofil; im Bereich der Brücke ist der lichte Raum durch das Durchlassprofil beschrieben
+- Brücke als Kreuzung: Brückenbauwerk oberhalb Gewässer (z.B. A20 Talbrücke über Warnow); im Bereich der Brücke ist der lichte Raum (oberhalb des Gewässerbetts) nur mit erweiterten Profilangaben beschreibbar -> offenes Gerinne mit Gewässerausbaudaten.
+</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Rohrleitung</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.461591 53.089811</ows:LowerCorner>
+    <ows:UpperCorner>14.582747 54.691521</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=ed466c08-8170-4c22-b8f1-8f5290af51ea</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>scha</Name>
+   <Title>fg_bauw > Schächte</Title>
+   <Abstract>Schächte in MV</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Schacht</ows:Keyword>
+    <ows:Keyword>Schächte</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.535502 53.112824</ows:LowerCorner>
+    <ows:UpperCorner>14.396795 54.292467</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=40075fd1-2599-453b-9d45-9b540d0f605e</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>schw</Name>
+   <Title>fg_bauw > Schöpfwerke</Title>
+   <Abstract>Schöpfwerke in MV</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Schöpfwerk</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.495913 53.122723</ows:LowerCorner>
+    <ows:UpperCorner>14.290753 54.648936</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=bc52e17a-fdfc-464d-971b-aee2b0d305b8</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>sg</Name>
+   <Title>sg > Standgewässer (Seen)</Title>
+   <Abstract>Seen haben eine Fläche ab ca 1ha und bilden als Gesamtheit das Seekataster MV. Die
+Seegeometrien, der Name des Sees sowie die beiden Seeschlüssel werden zentral durch
+das LUNG gepflegt.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Standgewässer</ows:Keyword>
+    <ows:Keyword>Seen</ows:Keyword>
+    <ows:Keyword>MV</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.520428 53.102552</ows:LowerCorner>
+    <ows:UpperCorner>14.411236 54.601634</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=2F37E74D-A252-4FD3-BCB9-BBF6668B875B</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>sg_kl</Name>
+   <Title>sg > Kleinseen</Title>
+   <Abstract>Standgewässer MV: Seen und Kleinseen
+
+Seen: ca. > 1 ha; Kleinseen ca. > 0,1 ha
+
+Zusätzlich werden ausgewiesen: Tiefenlinien, Tiefenflächen
+
+Kleinseen haben eine Fläche zwischen ca 0.1ha und 1ha und sind nicht Bestandteil des
+Seekatasters. Die Pflege von Kleinseen erfolgt durch das LUNG bzw. durch die
+Wasser- und Bodenverbände</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Seen</ows:Keyword>
+    <ows:Keyword>Standgewässer</ows:Keyword>
+    <ows:Keyword>Kleinseen</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.494937 53.094566</ows:LowerCorner>
+    <ows:UpperCorner>14.400357 54.680215</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=28dc0b62-3d9a-4375-a9f4-f18d0a59360d</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>sg_stat</Name>
+   <Title>sg > Standgewässer (Seen) - Stationen (100m)</Title>
+   <Abstract>Standgewässer: Uferumringsrouten für Seen - Stationen (Abschnittslänge: 100 m)</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Standgewässer</ows:Keyword>
+    <ows:Keyword>Uferumringsrouten</ows:Keyword>
+    <ows:Keyword>Seen</ows:Keyword>
+    <ows:Keyword>Stationen</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.511678 53.102579</ows:LowerCorner>
+    <ows:UpperCorner>14.41101 54.683402</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=b0b3a018-1e79-4d20-8502-9b3780d31dd5</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>sg_tf</Name>
+   <Title>sg_tiefe > Standgewässer: Seen: Tiefenflächen</Title>
+   <Abstract>Gewässernetz M-V: Standgewässer: Tiefenflächen Version 01 (geometrisch mit Auflösung 1m; Beschriftung im Raster 1 m)</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Standgewässer</ows:Keyword>
+    <ows:Keyword>Tiefenflächen</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.73458 53.117978</ows:LowerCorner>
+    <ows:UpperCorner>14.388936 54.506106</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=9297986c-07e3-427d-9165-5dd830ed8ebf</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>sg_tl</Name>
+   <Title>sg_tiefe > Standgewässer: Seen: Tiefenlinien</Title>
+   <Abstract>Gewässernetz M-V: Standgewässer: Tiefenlinien (geometrisch volle Auflösung; Beschriftung im Raster 1 m)</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Standgewässer</ows:Keyword>
+    <ows:Keyword>Tiefenlinien</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.73458 53.117978</ows:LowerCorner>
+    <ows:UpperCorner>14.388936 54.506106</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=da942d5e-3f4f-4446-8e79-7f5afc1e6ccb</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>sg_tmax</Name>
+   <Title>sg > Maximale Tiefe See</Title>
+   <Abstract>Das Tiefenmaximum ist nur für Seen mit einer Tiefenvermessungen ermittelt worden.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Standgewässer</ows:Keyword>
+    <ows:Keyword>Tiefe</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.745896 53.130669</ows:LowerCorner>
+    <ows:UpperCorner>14.387581 54.500187</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=39dadc5b-ff9a-492c-a4ee-253029b03d6a</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>sg_usg</Name>
+   <Title>sg > Standgewässer (Seen) - Uferstrukturgütekartierung</Title>
+   <Abstract>Seen haben eine Fläche ab ca 1ha und bilden als Gesamtheit das Seekataster MV. Die
+Seegeometrien, der Name des Sees sowie die beiden Seeschlüssel werden zentral durch
+das LUNG gepflegt.</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Standgewässer</ows:Keyword>
+    <ows:Keyword>Uferstrukturgütekartierung</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.73458 53.117978</ows:LowerCorner>
+    <ows:UpperCorner>14.343935 54.505855</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=efef8947-75fd-466d-9a8c-2e1a91f885c0</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>wbv</Name>
+   <Title>ezg > Verbandsgebiete der Wasser- und Bodenverbände (WBV)</Title>
+   <Abstract>Die Gebiete der Wasser- und Bodenverbände in M-V sind über die Anlage 1 des Gesetzes über die Bildung von Gewässerunterhaltungsverbänden (GUVG) in der jeweils gültigen Fassung festgelegt. Sie basieren auf den oberirdischen Einzugsgebieten. Die EZG werden fortlaufend aktualisiert. Einmal jährlich zum 30. 06. wird diese Gebietskulisse „eingefroren“ und bildet in dieser Form dann die rechtsgültige Verbandskulisse für ein Jahr = Grundlage für verbandsinterne Aufgaben (z.B. Hebung).</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>WBV</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.460276 53.084487</ows:LowerCorner>
+    <ows:UpperCorner>14.414452 54.693191</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=27E91F3C-A4F9-4CEE-B67E-386BB0D1C268</MetadataURL>
+  </FeatureType>
+  <FeatureType>
+   <Name>wehr</Name>
+   <Title>fg_bauw > Stauanlagen</Title>
+   <Abstract>Stauanlagen an Fließgewässern in MV</Abstract>
+   <ows:Keywords>
+    <ows:Keyword>Stauanlage</ows:Keyword>
+   </ows:Keywords>
+   <DefaultSRS>EPSG:5650</DefaultSRS>
+   <OtherSRS>EPSG:25832</OtherSRS>
+   <OtherSRS>EPSG:25833</OtherSRS>
+   <OtherSRS>EPSG:4258</OtherSRS>
+   <OtherSRS>EPSG:3034</OtherSRS>
+   <OtherSRS>EPSG:3035</OtherSRS>
+   <OtherSRS>EPSG:3044</OtherSRS>
+   <OtherSRS>EPSG:3045</OtherSRS>
+   <OtherSRS>EPSG:31468</OtherSRS>
+   <OtherSRS>EPSG:31469</OtherSRS>
+   <OtherSRS>EPSG:3857</OtherSRS>
+   <OtherSRS>EPSG:4326</OtherSRS>
+   <OtherSRS>EPSG:4647</OtherSRS>
+   <Operations>
+    <Operation>Query</Operation>
+   </Operations>
+   <ows:WGS84BoundingBox dimensions="2">
+    <ows:LowerCorner>10.526588 53.086412</ows:LowerCorner>
+    <ows:UpperCorner>14.38996 54.289734</ows:UpperCorner>
+   </ows:WGS84BoundingBox>
+   <MetadataURL format="text/xml" type="TC211">https://metaver.de/csw?REQUEST=GetRecordById&amp;SERVICE=CSW&amp;VERSION=2.0.2&amp;id=982d8a65-68ec-4b88-8faa-6b28934ac6c8</MetadataURL>
+  </FeatureType>
+ </FeatureTypeList>
+ <ogc:Filter_Capabilities>
+  <ogc:Spatial_Capabilities>
+   <ogc:GeometryOperands>
+    <ogc:GeometryOperand>gml:Point</ogc:GeometryOperand>
+    <ogc:GeometryOperand>gml:LineString</ogc:GeometryOperand>
+    <ogc:GeometryOperand>gml:Polygon</ogc:GeometryOperand>
+    <ogc:GeometryOperand>gml:Envelope</ogc:GeometryOperand>
+   </ogc:GeometryOperands>
+   <ogc:SpatialOperators>
+    <ogc:SpatialOperator name="Equals"/>
+    <ogc:SpatialOperator name="Disjoint"/>
+    <ogc:SpatialOperator name="Touches"/>
+    <ogc:SpatialOperator name="Within"/>
+    <ogc:SpatialOperator name="Overlaps"/>
+    <ogc:SpatialOperator name="Crosses"/>
+    <ogc:SpatialOperator name="Intersects"/>
+    <ogc:SpatialOperator name="Contains"/>
+    <ogc:SpatialOperator name="BBOX"/>
+   </ogc:SpatialOperators>
+  </ogc:Spatial_Capabilities>
+  <ogc:Scalar_Capabilities>
+   <ogc:LogicalOperators/>
+   <ogc:ComparisonOperators>
+    <ogc:ComparisonOperator>LessThan</ogc:ComparisonOperator>
+    <ogc:ComparisonOperator>GreaterThan</ogc:ComparisonOperator>
+    <ogc:ComparisonOperator>LessThanEqualTo</ogc:ComparisonOperator>
+    <ogc:ComparisonOperator>GreaterThanEqualTo</ogc:ComparisonOperator>
+    <ogc:ComparisonOperator>EqualTo</ogc:ComparisonOperator>
+    <ogc:ComparisonOperator>Like</ogc:ComparisonOperator>
+    <ogc:ComparisonOperator>Between</ogc:ComparisonOperator>
+   </ogc:ComparisonOperators>
+  </ogc:Scalar_Capabilities>
+  <ogc:Id_Capabilities>
+   <ogc:FID/>
+  </ogc:Id_Capabilities>
+ </ogc:Filter_Capabilities>
+</WFS_Capabilities>

@@ -1,0 +1,22 @@
+﻿# Add child actions; do not replace the base game's hooks.
+on_game_started_after_lobby = { on_actions = { aor1776_ilp_initialize } }
+on_building_built = { on_actions = { aor1776_ilp_building_changed } }
+on_building_expanded = { on_actions = { aor1776_ilp_building_changed } }
+on_production_method_changed = { on_actions = { aor1776_ilp_building_changed } }
+on_state_owner_change = { on_actions = { aor1776_ilp_state_changed } }
+on_monthly_pulse_state = { on_actions = { aor1776_ilp_state_changed } }
+
+aor1776_ilp_initialize = {
+	effect = { aor1776_ilp_sync_world = yes }
+}
+aor1776_ilp_state_changed = {
+	effect = { aor1776_ilp_sync_state = yes }
+}
+aor1776_ilp_building_changed = {
+	effect = {
+		if = {
+			limit = { is_building_type = building_railway }
+			state = { aor1776_ilp_sync_state = yes }
+		}
+	}
+}

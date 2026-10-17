@@ -1,0 +1,61 @@
+aor1776_hre_c01_dev_setup = {
+if = { limit = { has_global_variable = aor1776_hre_c01_dev_armed exists = global_var:aor1776_hre_emperor_country }
+ global_var:aor1776_hre_emperor_country = { save_scope_as = c01_test_emperor }
+ c:ANH ?= { if = { limit = { aor1776_hre_centralization_native_eligible = yes is_subject = no aor1776_hre_elector = no NOT = { this = scope:c01_test_emperor } }
+  scope:c01_test_emperor = { create_diplomatic_pact = { country = c:ANH type = aor1776_imperial_estate } }
+ } }
+ c:KPF ?= { if = { limit = { aor1776_hre_centralization_native_eligible = yes is_subject = no aor1776_hre_elector = yes NOT = { this = scope:c01_test_emperor } }
+  scope:c01_test_emperor = { create_diplomatic_pact = { country = c:KPF type = aor1776_imperial_elector } }
+ } }
+}
+}
+aor1776_hre_c01_restore_marked_subject = {
+if = { limit = { NOT = { this = scope:c01_new_emperor } has_variable = c01_transfer_selected }
+ if = { limit = { is_subject = yes } make_independent = yes }
+ save_scope_as = c01_transfer_estate
+ if = { limit = { has_variable = c01_was_elector } scope:c01_new_emperor = { create_diplomatic_pact = { country = scope:c01_transfer_estate type = aor1776_imperial_elector } } }
+ else = { scope:c01_new_emperor = { create_diplomatic_pact = { country = scope:c01_transfer_estate type = aor1776_imperial_estate } } }
+ add_liberty_desire = { value = var:c01_previous_liberty subtract = liberty_desire }
+ aor1776_hre_sync_imperial_subject_status = yes
+ join_power_bloc = scope:c01_new_emperor
+}
+}
+aor1776_hre_c01_transfer_test = {
+if = { limit = { has_global_variable = aor1776_hre_c01_dev_armed exists = global_var:aor1776_hre_emperor_country
+ aor1776_hre_candidate = yes NOT = { this = global_var:aor1776_hre_emperor_country }
+ OR = { is_subject = no AND = { is_direct_subject_of = global_var:aor1776_hre_emperor_country aor1776_hre_centralized_subject = yes } }
+ is_at_war = no is_diplomatic_play_committed_participant = no
+ global_var:aor1776_hre_emperor_country = { is_subject = no is_at_war = no is_diplomatic_play_committed_participant = no
+  NOT = { any_direct_subject = { aor1776_hre_centralized_subject = yes aor1776_hre_centralization_native_eligible = no } }
+ } }
+ save_scope_as = c01_new_emperor
+ global_var:aor1776_hre_emperor_country = { save_scope_as = c01_old_emperor
+  every_direct_subject = { limit = { aor1776_hre_centralized_subject = yes }
+   set_variable = c01_transfer_selected
+   set_variable = { name = c01_previous_liberty value = liberty_desire }
+   if = { limit = { is_subject_type = subject_type_imperial_elector } set_variable = c01_was_elector }
+  }
+ }
+ if = { limit = { has_variable = c01_transfer_selected } make_independent = yes }
+ aor1776_hre_install_elected_country_legacy = yes
+ if = { limit = { this = global_var:aor1776_hre_emperor_country is_power_bloc_leader = yes power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } }
+  every_country = { limit = { has_variable = c01_transfer_selected } aor1776_hre_c01_restore_marked_subject = yes }
+  scope:c01_old_emperor = { if = { limit = { aor1776_hre_centralization_native_eligible = yes is_subject = no }
+   save_scope_as = c01_old_estate
+   if = { limit = { aor1776_hre_elector = yes } scope:c01_new_emperor = { create_diplomatic_pact = { country = scope:c01_old_estate type = aor1776_imperial_elector } } }
+   else = { scope:c01_new_emperor = { create_diplomatic_pact = { country = scope:c01_old_estate type = aor1776_imperial_estate } } }
+  } }
+  remove_global_variable = aor1776_hre_centralized_transfer_pending
+  set_global_variable = aor1776_hre_c01_transfer_test_completed
+ }
+ else = {
+  if = { limit = { has_variable = c01_transfer_selected is_subject = no }
+   if = { limit = { has_variable = c01_was_elector } scope:c01_old_emperor = { create_diplomatic_pact = { country = scope:c01_new_emperor type = aor1776_imperial_elector } } }
+   else = { scope:c01_old_emperor = { create_diplomatic_pact = { country = scope:c01_new_emperor type = aor1776_imperial_estate } } }
+   add_liberty_desire = { value = var:c01_previous_liberty subtract = liberty_desire }
+  }
+  set_global_variable = aor1776_hre_c01_transfer_test_failed
+ }
+ every_country = { remove_variable = c01_transfer_selected remove_variable = c01_was_elector remove_variable = c01_previous_liberty }
+}
+}

@@ -2,7 +2,7 @@
 
 Date : 13 octobre 2026. Situation recherchée : 1er janvier 1776.
 
-**Statut : implémenté et contrôlé statiquement ; ensemble Mayence–Palatinat encore partiel.** Le jeu n'a pas été lancé : le test moteur reste reporté par l'utilisateur à la fin de tous les lots impériaux.
+**Mise à jour du 14 octobre : PASS_RUNTIME_USER_VALIDATED** pour les territoires Rhin–Westphalie et principautés inspectés par le joueur dans une nouvelle partie. Déclaration manuelle, sans test moteur automatisé ni liste exhaustive de provinces. L'ensemble Mayence–Palatinat reste partiel, les frontières non inspectées ne sont pas certifiées. Reçu : `../RUNTIME_USER_VALIDATION.json`.
 
 ## Changements réels
 

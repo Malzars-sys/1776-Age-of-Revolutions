@@ -1,0 +1,44 @@
+{
+  "status": "PASS_RUNTIME_USER_VALIDATED",
+  "date_local": "2026-10-16",
+  "timezone": "Europe/Paris",
+  "method": "User explicitly confirms rail creation visually, then supplies an after-marker-removal screenshot; assistant compares the attached views of the same junction.",
+  "scope": "Ground-rail appearance and removal on the inspected segments only",
+  "automated_engine_test": false,
+  "manual_user_validation": true,
+  "ground_rail_appearance_validated": true,
+  "ground_rail_removal_validated": true,
+  "ground_rail_toggle_validated": true,
+  "real_rail_pm_transition_validated": false,
+  "full_prototype_runtime_validated": false,
+  "all_states_or_shared_state_boundaries_validated": false,
+  "all_economic_or_military_side_effects_validated": false,
+  "roads_or_canals_dynamic_growth_validated": false,
+  "diagnostic_scope_from_logs": {"country_tag": "FRA", "state_region": "STATE_ILE_DE_FRANCE"},
+  "geographic_limit": "The context screenshot tooltip reads Orleans-Berry; the after-removal tooltip reads Ile-de-France. These views show a nearby junction but do not establish exact state-boundary alignment or isolation of rail effects at the boundary.",
+  "visual_observation": "Dark parallel rail tracks visible on the central bridge and upper-right connection in the earlier views are absent after marker removal; roads, bridge surfaces and buildings remain visible.",
+  "screenshot_game_dates_and_exact_action_timestamps": "Not independently established from the attached images",
+  "evidence": [
+    {
+      "path": "evidence/2026-10-16/01_rails_visible.png",
+      "source_attachment": "codex-clipboard-93ce19b6-02b5-4b54-b5cc-88cec2d3c094.png",
+      "role": "User-confirmed rails visible",
+      "sha256": "52171675eb1a7fb58fe95eb6f372799a2e40dd74fad5d90e7d1c547267eb6558"
+    },
+    {
+      "path": "evidence/2026-10-16/02_rails_visible_context.png",
+      "source_attachment": "codex-clipboard-46aab638-c54b-4286-95cb-ce8996982c90.png",
+      "role": "Rails visible, Orleans-Berry tooltip context",
+      "sha256": "53fc1e2e2ea2dddb55aec859a78488b235a576ad72ba9271fd7aba6e82dae7c4"
+    },
+    {
+      "path": "evidence/2026-10-16/03_after_marker_removal.png",
+      "source_attachment": "codex-clipboard-4243bf79-fe60-4134-9ed0-0b8ca39d90d5.png",
+      "role": "User explicitly identifies this view as after marker removal; Ile-de-France tooltip context",
+      "sha256": "43f2d737cfb5618eb38283a1c2ef7e2910f63b7f5e1defc2e7e478315edce54e"
+    }
+  ],
+  "related_diagnostic_receipt": "docs/reports/bridge/VIC3_LOCAL_BRIDGE/RUNTIME_AUTO_RETURN_2026_10_16.json",
+  "prior_inconclusive_test_retained": "RUNTIME_TEST_2026_10_15.json",
+  "integration_into_main_authorized_or_done": false
+}

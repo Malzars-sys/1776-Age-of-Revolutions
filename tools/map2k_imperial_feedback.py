@@ -34,7 +34,8 @@ def augment(files,ledger,members,electors):
  files[DA]=edits(files[DA],[(p.end-1,p.end-1,'\n auto_support_type = dp_aor1776_hre_subject_release\n')])
  trig='common/scripted_triggers/1776_imperial_constitution.txt'
  files[trig]+=block('aor1776_hre_under_imperial_authority','aor1776_hre_member = yes\nNOT = { top_overlord ?= { aor1776_hre_member = no } }')
- cities=['LUB','HAM','BRE','FRM']+(['NUR'] if 'NUR' in members else [])
+ from map2l_registry import additional_free_cities
+ cities=list(dict.fromkeys(['LUB','HAM','BRE','FRM']+[t for t in additional_free_cities() if t in members]))
  files[trig]+=block('aor1776_hre_free_city','aor1776_hre_member = yes\nOR = { '+' '.join('c:'+t+' ?= this' for t in cities)+' }')
  L('aor1776_hre_under_imperial_authority_tt','An imperial estate not subject to an external overlord.','Un État impérial non soumis à un suzerain extérieur.')
  L('aor1776_hre_free_city_tt','A recognised imperial free city.','Une ville libre impériale reconnue.')
@@ -79,7 +80,8 @@ def augment(files,ledger,members,electors):
  for r in ledger:
   rgb,tag,sid=r['rgb'],r['beneficiary'],r['state'];key='aor1776_hre_province_'+rgb
   L(key,f"{rgb} — [SCOPE.sState('hre_preview_state').GetName] → [GetCountry('{tag}').GetName]",f"{rgb} — [SCOPE.sState('hre_preview_state').GetName] → [GetCountry('{tag}').GetName]")
-  state_lines.append(f'if = {{ limit = {{ c:{tag} ?= {{ aor1776_hre_member = yes }} p:{rgb}.state ?= this NOT = {{ owner = c:{tag} }} }} save_temporary_scope_as = hre_preview_state custom_tooltip = {key} }}')
+  from map2l_registry import rightful_holder_condition
+  state_lines.append(f'if = {{ limit = {{ {rightful_holder_condition(r)} p:{rgb}.state ?= this NOT = {{ owner = c:{tag} }} }} save_temporary_scope_as = hre_preview_state custom_tooltip = {key} }}')
  files[EF]+=block('aor1776_hre_preview_provinces','\n'.join(state_lines))
  files[EF]+=block('aor1776_hre_preview_subjects','every_subject_or_below = { limit = { aor1776_hre_member = yes } save_temporary_scope_as = hre_preview_subject custom_tooltip = aor1776_hre_subject_line }')
  # Event-local saved scopes survive emancipation; do not reread the subject

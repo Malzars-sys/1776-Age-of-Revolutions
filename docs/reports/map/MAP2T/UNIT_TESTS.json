@@ -1,0 +1,48 @@
+{
+  "MAP2T_targeted": {
+    "modules": [
+      "test_map2t_saxony"
+    ],
+    "tests": 17,
+    "failures": [],
+    "errors": [],
+    "output": ".................\n----------------------------------------------------------------------\nRan 17 tests in 7.823s\n\nOK\n",
+    "seconds": 7.86
+  },
+  "cumulative_contracts": {
+    "modules": [
+      "test_map2l_registry",
+      "test_hre_centralization_01",
+      "test_hre_subject_feedback_01",
+      "test_hre_secession_lens_01"
+    ],
+    "tests": 60,
+    "failures": [],
+    "errors": [],
+    "output": "............................................................\n----------------------------------------------------------------------\nRan 60 tests in 1.287s\n\nOK\n",
+    "seconds": 2.23
+  },
+  "prior_stage_snapshots": {
+    "modules": [
+      "test_map2r_anhalt",
+      "test_map2q_r3",
+      "test_map2q_r2",
+      "test_map2m_r8",
+      "test_map2m_r9",
+      "test_map2o_east_frisia"
+    ],
+    "tests": 49,
+    "failures": [
+      "test_map2r_anhalt.AnhaltDeltaTests.test_exact_bitmap_and_no_external_change",
+      "test_map2r_anhalt.AnhaltDeltaTests.test_four_tags_and_only_three_new_countries",
+      "test_map2q_r3.Kaltenhof.test_exact_delta_and_negative_guard",
+      "test_map2m_r8.InstalledBTests.test_exact_b_not_a_plus_b",
+      "test_map2m_r8.InstalledBTests.test_wolgast_and_protected_rows_not_shifted",
+      "test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit",
+      "test_map2o_east_frisia.EastFrisiaTests.test_exact_ledger_replay_preserves_every_other_right"
+    ],
+    "errors": [],
+    "output": "..FF.........F.............F....F.F...........F..\n======================================================================\nFAIL: test_exact_bitmap_and_no_external_change (test_map2r_anhalt.AnhaltDeltaTests.test_exact_bitmap_and_no_external_change)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2r_anhalt.py\", line 18, in test_exact_bitmap_and_no_external_change\n    self.assertTrue(np.array_equal(expected,self.after))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_four_tags_and_only_three_new_countries (test_map2r_anhalt.AnhaltDeltaTests.test_four_tags_and_only_three_new_countries)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2r_anhalt.py\", line 20, in test_four_tags_and_only_three_new_countries\n    self.assertEqual(set(self.inv['countries'])-set(self.b['inventory']['countries']),{'ABG','AKT','AZR'})\nAssertionError: Items in the first set but not the second:\n'RSL'\n'SSO'\n'GOT'\n'RGE'\n'HIL'\n'RGZ'\n\n======================================================================\nFAIL: test_exact_delta_and_negative_guard (test_map2q_r3.Kaltenhof.test_exact_delta_and_negative_guard)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2q_r3.py\", line 16, in test_exact_delta_and_negative_guard\n    self.assertTrue(np.array_equal(expected,self.after))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_exact_b_not_a_plus_b (test_map2m_r8.InstalledBTests.test_exact_b_not_a_plus_b)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2m_r8.py\", line 19, in test_exact_b_not_a_plus_b\n    self.assertTrue(np.array_equal(self.after,w.prior.r2.expected_raster(self.before,changes)))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_wolgast_and_protected_rows_not_shifted (test_map2m_r8.InstalledBTests.test_wolgast_and_protected_rows_not_shifted)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2m_r8.py\", line 42, in test_wolgast_and_protected_rows_not_shifted\n    self.assertEqual(int(self.after[735,4410]),0xE1A03A)\nAssertionError: 5665874 != 14786618\n\n======================================================================\nFAIL: test_exact_two_cells_and_no_elsewhere_edit (test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2m_r9.py\", line 12, in test_exact_two_cells_and_no_elsewhere_edit\n    self.assertTrue(np.array_equal(self.after,w.old.prior.r2.expected_raster(self.before,self.plan['changes'])))\nAssertionError: False is not true\n\n======================================================================\nFAIL: test_exact_ledger_replay_preserves_every_other_right (test_map2o_east_frisia.EastFrisiaTests.test_exact_ledger_replay_preserves_every_other_right)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2o_east_frisia.py\", line 32, in test_exact_ledger_replay_preserves_every_other_right\n    self.assertEqual(actual,json.loads(m.core.active_registry_path().read_text(encoding='utf-8')))\nAssertionError: Lists differ: [{'rg[5245 chars]s': 'Frozen 1776 gameplay assignment; NOT a ne[84709 chars]im'}] != [{'rg[5245 chars]s': 'MAP2T B historical-sheet core; C residual[91446 chars]im'}]\n\nFirst differing element 31:\n{'rgb[66 chars]s': 'Frozen 1776 gameplay assignment; NOT a ne[27 chars]aim'}\n{'rgb[66 chars]s': 'MAP2T B historical-sheet core; C residual[51 chars]md.'}\n\nSecond list contains 33 additional elements.\nFirst extra element 504:\n{'rgb': 'xEDB407', 'state': 'STATE_SAXONY', 'beneficiary': 'GOT', 'basis': 'MAP2T B historical-sheet core; C residual retained, not a certified 1776 border. See REPORT.md.'}\n\nDiff is 115994 characters long. Set self.maxDiff to None to see it.\n\n----------------------------------------------------------------------\nRan 49 tests in 21.019s\n\nFAILED (failures=7)\n",
+    "seconds": 21.09
+  }
+}

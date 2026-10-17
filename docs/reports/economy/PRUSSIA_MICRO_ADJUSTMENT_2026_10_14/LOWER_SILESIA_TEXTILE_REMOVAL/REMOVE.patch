@@ -1,0 +1,54 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\buildings\02_east_europe.txt
+@@
+ 					building={
+ 						type="building_financial_district"
+ 						country="c:RUS"
+ 						levels=8
+ 						region="STATE_INGRIA"
+ 					}
+ 				}
+ 				reserves=1
+ 				activate_production_methods={ "pm_saw_mills"  "pm_no_equipment" "pm_road_carts" "pm_increased_hardwood" }
+ 			}
+ 		}
+ 	}
+ 	s:STATE_LOWER_SILESIA={
+ 		region_state:PRU={
+ 
+-			create_building={
+-				building="building_textile_mill"
+-				add_ownership={
+-					building={
+-						type="building_textile_mill"
+-						country="c:PRU"
+-						levels=1
+-						region="STATE_LOWER_SILESIA"
+-					}
+-					building={
+-						type="building_financial_district"
+-						country="c:PRU"
+-						levels=2
+-						region="STATE_LOWER_SILESIA"
+-					}
+-				}
+-				reserves=1
+-				activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
+-			}
++			
+ 						create_building={
+ 							building="building_railway"
+ 							add_ownership={
+ 								building={
+ 									type="building_financial_district"
+ 									country="c:PRU"
+ 									levels=2
+ 									region="STATE_LOWER_SILESIA"
+ 								}
+ 							}
+ 							reserves=1
+ 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+ 						}
+ 
+ 		}
+*** End Patch

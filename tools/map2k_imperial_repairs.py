@@ -222,7 +222,8 @@ if = { limit = { owes_obligation_to = scope:target } add = { value = 60 desc = a
  # disappear during transfers, so save each beneficiary and RGB flag instead.
  snap=''
  for r in ledger:
-  snap+=f'''if = {{ limit = {{ c:{r['beneficiary']} ?= {{ aor1776_hre_member = yes }} p:{r['rgb']}.state ?= this NOT = {{ owner = c:{r['beneficiary']} }} }}
+  from map2l_registry import rightful_holder_condition
+  snap+=f'''if = {{ limit = {{ {rightful_holder_condition(r)} p:{r['rgb']}.state ?= this NOT = {{ owner = c:{r['beneficiary']} }} }}
    set_variable = aor1776_hre_reply_dummy # Country/state variables are NOT used for the message.
    save_scope_as = hre_reply_province_{r['rgb']}
    c:{r['beneficiary']} = {{ save_scope_as = hre_reply_owner_{r['rgb']} }}

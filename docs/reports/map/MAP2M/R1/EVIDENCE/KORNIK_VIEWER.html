@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Language" content="en" />
+        <title>Wielkopolska Digital Library  </title>
+        <meta name="Author" content="PSNC, Poznan Supercomputer and Networking Center" />
+        <meta name="Design" content="PSNC, Poznan Supercomputer and Networking Center" />
+        <meta name="Publisher" content="PSNC, Poznan Supercomputer and Networking Center" />
+        <meta name="Copyright" content="Copyright (C) 2003 - 2006 PSNC, Poznan Supercomputer and Networking Center" />
+        <meta http-equiv="Reply-to" content="dlibra.at.man.poznan.pl" />
+
+        <meta name="Rating" content="general" />
+        <meta name="MSSmartTagsPreventParsing" content="true" />
+        <meta name="Robots" content="index, follow" />
+        <meta http-equiv="Distribution" content="global" />
+        <meta name="Revisit-after" content="3 days" />
+        <meta http-equiv="Pragma" content="NoCache" />
+
+		  <meta name="Description" content="Wielkopolska Digital Library,  " />
+	
+		<link rel="shortcut icon" href="https://www.wbc.poznan.pl/style/favicon.ico" type="image/ico" />
+		
+		<script type="text/javascript"><!--
+		   var DLAppVars = {};
+		   DLAppVars.loginLink = 'https://www.wbc.poznan.pl/dlibra/login';
+		   var homePageUrl = 'https://www.wbc.poznan.pl/';
+		   var homePageServletUrl = 'https://www.wbc.poznan.pl/dlibra';
+		   var mainServletName = '/dlibra';
+		   var userLanguage = 'en';
+		   var userStyleVariant = 'default';
+		//--></script>
+
+		<script type="text/javascript" src="https://www.wbc.poznan.pl/style/common/js/jquery-3.6.0.js"></script>
+		<script type="text/javascript" src="https://www.wbc.poznan.pl/style/dlibra/js/dlibra.js"></script>
+		<script type="text/javascript" src="https://www.wbc.poznan.pl/style/common/js/jquery-block-ui-2.70.0.js"></script>
+		<script type="text/javascript" src="https://www.wbc.poznan.pl/style/common/js/jquery-tooltip/jquery-tooltip-dlibra-1.3.js"></script>
+</head>
+<body>
+<div id="securedContent"  class="contentIE" >   
+<link type="text/css" rel="stylesheet" href="https://www.wbc.poznan.pl/formats/djvu_html5/Djvu_html5.css">
+
+<script type="text/javascript" language="javascript"
+	src="https://www.wbc.poznan.pl/formats/djvu_html5/djvu_html5/djvu_html5.nocache.js"></script>
+
+<noscript>
+	<div
+		style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+		Your web browser must have JavaScript enabled in order for this
+		application to display correctly.</div>
+</noscript>
+<div id="djvuContainer" file="https://www.wbc.poznan.pl/Content/470664/DjVu/directory.djvu"></div>
+<script type="text/javascript">
+var DJVU_CONTEXT = {
+	parallelDownloads: 1,
+};
+if (window.parent !== window) {
+	const parentPage = new URLSearchParams(window.parent.location.search).get('p');
+	const childParams = new URLSearchParams(window.location.search);
+	if (/^\d+$/.test(parentPage) && !childParams.has('p')) {
+		childParams.set('p', parentPage);
+		window.history.replaceState({}, "", '?' + childParams.toString());
+
+		window.history.replaceState = new Proxy(window.history.replaceState, {
+			apply: (target, thisArg, argArray) => {
+				const parentParams = new URLSearchParams(window.parent.location.search);
+				const childPage = new URLSearchParams(argArray[2]).get('p');
+				if (parentParams.get('p') !== childPage) {
+					if (/^\d+$/.test(childPage)) {
+						parentParams.set('p', childPage);
+					} else {
+						parentParams.delete('p');
+					}
+					window.parent.history.replaceState({}, "", '?' + parentParams.toString());
+				}
+				return target.apply(thisArg, argArray);
+			},
+		});
+	}
+}
+</script>
+
+
+</div>
+<div id="info">
+</div>
+</body>
+</html>

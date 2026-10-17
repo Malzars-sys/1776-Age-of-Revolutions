@@ -1,0 +1,37 @@
+﻿# Additive telemetry, independent of the landscape synchronizer's order.
+on_game_started_after_lobby = { on_actions = { aor1776_bridge_start } }
+on_monthly_pulse_country = { on_actions = { aor1776_bridge_country } }
+on_production_method_changed = { on_actions = { aor1776_bridge_building } }
+on_building_built = { on_actions = { aor1776_bridge_building } }
+on_building_expanded = { on_actions = { aor1776_bridge_building } }
+aor1776_bridge_start = {
+	effect = {
+		every_country = {
+			limit = { is_player = yes }
+			capital = { aor1776_bridge_export_state = yes }
+		}
+	}
+}
+aor1776_bridge_country = {
+	effect = {
+		if = {
+			limit = { is_player = yes exists = capital }
+			capital = { aor1776_bridge_export_state = yes }
+		}
+	}
+}
+aor1776_bridge_building = {
+	effect = {
+		if = {
+			limit = { is_building_type = building_railway }
+			state = {
+				owner = {
+					if = {
+						limit = { is_player = yes exists = capital }
+						capital = { aor1776_bridge_export_state = yes }
+					}
+				}
+			}
+		}
+	}
+}

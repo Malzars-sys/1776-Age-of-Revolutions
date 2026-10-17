@@ -18,8 +18,14 @@ dp_aor1776_hre_secession = {
  texture = "gfx/interface/icons/war_goals/leave_power_bloc.dds"
  initiator_can_add_war_goals = no
  target_can_add_war_goals = no
- selectable_in_lens = { aor1776_hre_member = yes aor1776_hre_emperor = no OR = { is_subject = no is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_crownland } }
- possible = { aor1776_hre_member = yes aor1776_hre_emperor = no OR = { is_subject = no is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_crownland } scope:target_country = { aor1776_hre_emperor = yes } diplomatic_play_has_no_relations_blockers = yes }
+ selectable_in_lens = {
+ aor1776_hre_member = yes aor1776_hre_emperor = no OR = { is_subject = no is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_protectorate } 
+aor1776_hre_imperial_bloc_member = yes
+}
+ possible = {
+ aor1776_hre_member = yes aor1776_hre_emperor = no OR = { is_subject = no is_subject_type = subject_type_aor1776_hre_protectorate is_subject_type = subject_type_aor1776_hre_protectorate } scope:target_country = { aor1776_hre_emperor = yes } diplomatic_play_has_no_relations_blockers = yes 
+custom_tooltip = { text = aor1776_hre_secession_in_imperial_bloc_tt aor1776_hre_imperial_bloc_member = yes }
+}
 
 }
 dp_aor1776_hre_subject_release = {

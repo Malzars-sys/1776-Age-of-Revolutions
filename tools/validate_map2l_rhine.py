@@ -9,7 +9,7 @@ import validate_diplomacy_ottoman_1776 as cw
 from map2l_rhine import ROOT, OUT
 from map2l_belgium import packed, sha, components
 from map2l_hre_work import GIT
-from map2l_registry import active_registry_path, apply_territorial_migrations, approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent
+from map2l_registry import active_registry_path, apply_territorial_migrations, approved_lot_dirs,effective_assignments,ancestor_rgb,ownership_rows,migrate_extent,expected_country_definitions
 from validate_map2k_imperial import node, textnode, profiles
 
 
@@ -26,7 +26,7 @@ def validate():
     check('Building levels preserved',a['building_levels_written']==b['inventory']['building_levels_written'])
     check('Building PMs and weighted attributes preserved',profiles(None,'buildings')==profiles(b,'buildings'))
     check('Armies navies formations recruitment unchanged',a['units']==b['inventory']['units'])
-    check('Every country definition and capital unchanged',a['countries']==b['inventory']['countries'])
+    check('Every existing country definition/capital unchanged; exact later additions only',a['countries']==expected_country_definitions(b['inventory']['countries'],later_migrations))
     check('No new reference errors',a['errors']==b['inventory']['errors'],str(a['errors']))
     check('No new duplicate ownership',a['duplicates']==b['inventory']['duplicates'])
     expected=qa.counter(b['inventory']['owners'])
@@ -98,6 +98,8 @@ def validate():
                 province_pixels_by_controller=g['pixels_by_owner'],population_by_country=dict(pop),world_population=835804980,
                 runtime_changed_files=changed,changed_pixels=int(delta.sum()),limitations=g['limitations'],
                 inherited_duplicate_RGBs=a['duplicates'],inherited_reference_errors=a['errors'])
+    from map2l_runtime_receipt import annotate
+    annotate(report,OUT)
     dump=OUT/'VALIDATION.json';dump.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     print(report['status'],sum(c['passed'] for c in checks),'/',len(checks),'checks;',dict(pop))
     for c in checks:

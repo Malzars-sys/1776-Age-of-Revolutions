@@ -9,6 +9,8 @@ import validate_map2l_mainz as validation
 import map2l_franconia_continuation as work
 from map2l_belgium import packed
 from map2l_franconia import inside
+from map2l_registry import approved_lot_dirs,ownership_rows
+from validate_map2a import counter
 
 
 def source_checks(check,out,current,baseline,alignment,tracing,plan):
@@ -48,13 +50,21 @@ def source_checks(check,out,current,baseline,alignment,tracing,plan):
     check('Exactly 185 territorial cells reassigned, no broad provincial handover',
           totals=={'ANS':25,'EIC':59,'FBM':88,'NUR':13})
     # 25+59+88+13 = 185 cells; recolouring also splits untouched BAV pieces.
-    check('Every owner outside Bavaria exactly unchanged',
-          [r for r in current['owners'] if r['key'][1]!='STATE_BAVARIA']==
-          [r for r in baseline['inventory']['owners'] if r['key'][1]!='STATE_BAVARIA'])
+    expected_outside=counter([r for r in baseline['inventory']['owners'] if r['key'][1]!='STATE_BAVARIA'])
+    lots=approved_lot_dirs()
+    for later in lots[lots.index(out)+1:]:
+        declared=json.loads((later/'REGISTRY_MIGRATION.json').read_text())
+        for row in ownership_rows(declared,'previous'):
+            if row['state']!='STATE_BAVARIA':expected_outside[(row['rgb'],row['state'],row['beneficiary'])]-=1
+        for row in ownership_rows(declared,'updated'):
+            if row['state']!='STATE_BAVARIA':expected_outside[(row['rgb'],row['state'],row['beneficiary'])]+=1
+    check('Every owner outside Bavaria unchanged except exact later reviewed migrations',
+          +expected_outside==counter([r for r in current['owners'] if r['key'][1]!='STATE_BAVARIA']))
     anchors=json.loads((out/tracing['native_anchors']).read_text())
+    from map2l_registry import expected_locator_rgb
     for anchor in anchors:
         x,y=int(float(anchor['Locator_X'])),int(float(anchor['Locator_Y']))
-        check('Retained local locator RGB unchanged '+anchor['Hub_Name'],after[y,x]==before[y,x])
+        check('Retained locator except exact later reviewed RGB binding '+anchor['Hub_Name'],after[y,x]==expected_locator_rgb(int(before[y,x]),(x,y),lots[lots.index(out)+1:]))
     check('New subdivisions valid under existing countries',
           all(['STATE_BAVARIA',tag] in current['states'] for tag in totals))
     check('Conservation allocation uses nonnegative integers',

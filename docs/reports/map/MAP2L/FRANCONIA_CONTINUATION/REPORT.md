@@ -2,6 +2,8 @@
 
 14 octobre 2026. Démarrage visé : 1er janvier 1776.
 
+Mise à jour : **PASS_RUNTIME_USER_VALIDATED**, dans la mesure des territoires franconiens effectivement inspectés par le joueur dans une nouvelle partie. Aucun relevé province par province ou test moteur automatisé n'est fourni ; les approximations et anomalies restent ouvertes. Reçu : `../RUNTIME_USER_VALIDATION.json`. Cette note remplace seulement les mentions antérieures d'absence de test pour ce périmètre inspecté.
+
 **Appliqué au mod : quatre provinces mixtes subdivisées, neuf nouveaux RGB, 185 cellules transférées.** Ce sous-lot fait avancer la carte ; il ne prétend pas achever toutes les principautés du Saint-Empire. Erfurt–Eichsfeld reste gelé, sans nouvelle optimisation ni translation.
 
 ## Corrections réellement appliquées

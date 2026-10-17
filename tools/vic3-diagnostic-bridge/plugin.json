@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "vic3-diagnostic-bridge",
+  "version": "0.1.0",
+  "description": "Local read-only Victoria 3 runtime logs and infrastructure companion diagnostics. No game commands.",
+  "author": {"name": "1776 Age of Revolutions"},
+  "extensions": {"com.openai": {
+    "requires_local_executor": true,
+    "interface": {
+      "displayName": "Victoria 3 — Pont local",
+      "shortDescription": "Diagnostic local du jeu",
+      "longDescription": "Lit les journaux du jeu et les relevés du compagnon isolé. Signale les données anciennes, absentes et incomplètes. Ne pilote pas le jeu et ne voit pas le rendu graphique.",
+      "developerName": "1776 Age of Revolutions",
+      "category": "Developer Tools",
+      "capabilities": [],
+      "defaultPrompt": "Vérifie le diagnostic local de Victoria 3 sans modifier la partie."
+    }
+  }}
+}

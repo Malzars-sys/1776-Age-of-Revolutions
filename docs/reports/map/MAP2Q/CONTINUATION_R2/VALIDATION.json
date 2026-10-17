@@ -1,0 +1,200 @@
+{
+  "status": "MAP2Q_R2_ESTIMATE_INSTALLED_STATIC_PASS",
+  "passed": 31,
+  "total": 31,
+  "checks": [
+    {
+      "name": "Only HLB population file changed at runtime",
+      "passed": true,
+      "detail": [
+        "common/history/pops/00_west_europe.txt"
+      ]
+    },
+    {
+      "name": "Only the six declared size tokens changed, including all text outside HLB",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Approved profiles reconstructed independently of installed text",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "All regional demographic differences equal declared HLB delta",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved owners",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved states",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved state_types",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved geometry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved countries",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved buildings",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved building_levels_written",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved units",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved errors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Preserved duplicates",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Every cultural and religious category preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Each profile differs from proportional target by less than one person",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Exact 7600 HLB inhabitants",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Recomputed world delta, not a fixed global total",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Imperial ledger byte-identical",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Git HEAD preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Git index preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Every earlier baseline and evidence preserved",
+      "passed": true,
+      "detail": [
+        "docs/reports/map/MAP2Q/HISTORICAL_EVIDENCE.md",
+        "docs/reports/map/MAP2Q/INSTALLED_MANIFEST.json",
+        "docs/reports/map/MAP2Q/NEXT_STEPS.md",
+        "docs/reports/map/MAP2Q/REPORT.md",
+        "docs/reports/map/MAP2Q/TABLE_DATA.json",
+        "docs/reports/map/MAP2Q/VALIDATION.json"
+      ]
+    },
+    {
+      "name": "Pre-R2 attestation archived VALIDATION.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Pre-R2 attestation archived INSTALLED_MANIFEST.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Pre-R2 attestation archived TABLE_DATA.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Previous validator archived",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Cumulative Q checks pass with nonzero historical delta",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "CSV before/after independently reconciles",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "AGGSH district sum and discrepancies explicit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Original Hennings PDF is genuine PDF, not the failed HTML response",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Targeted replay and negative demographic tests",
+      "passed": true,
+      "detail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 2.013s\n\nOK\n"
+    }
+  ],
+  "runtime_test": "NOT_RUN; fresh game user validation pending",
+  "historical_accuracy": "Approximation accepted by user; no claim of a census or village-exact territorial coverage",
+  "world_population": {
+    "before_people": 835804980,
+    "after_people": 835801255,
+    "actual_delta_people": -3725,
+    "justified_expected_delta_people": -3725,
+    "local_before_people": 11325,
+    "local_after_people": 7600,
+    "changed_countries": [
+      "HLB"
+    ],
+    "compensation_elsewhere": false,
+    "world_total_is_fixed": false,
+    "observed_1776_census": false,
+    "target_is_user_accepted_estimate": true
+  },
+  "unit_command": [
+    "C:\\Users\\simeo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "test_map2q_eutin",
+    "test_map2q_r2"
+  ],
+  "preexisting_duplicate_RGBs": 44,
+  "preexisting_reference_errors": 12
+}

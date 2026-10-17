@@ -1,0 +1,594 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 		add_homeland = cu:polish
+ 		add_homeland = cu:czech
+ 	}
+ 
+ 	s:STATE_BRANDENBURG = {
+ 		create_state = {
+ 			country = c:PRU
+ 			owned_provinces = { x069CFB x28CEC2 x514C51 x60BF20 x61C0A0 x76EF4E x82F9A8 x83B1A8 x9B9076 x9E7304 xA040A0 xA65DA6 xB90BFF xDF4020 xF77289 xF8D457 }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+ 	}
+ 	s:STATE_SCHLESWIG_HOLSTEIN = {
+ 		create_state = {
+ 			country = c:HOL
+-			owned_provinces = { x804160 x64824C xE000A0 }
++			owned_provinces = { x804160 xE000A0 x64824C }
+ 		}
+ 		create_state = {
+ 			country = c:LUB
+-			owned_provinces = { x60809F }
++			owned_provinces = { x60809F xEDB200 xEDB201 }
+ 		}
+ 		create_state = {
+ 			country = c:SCH
+ 			owned_provinces = { x00C060 x78B203 xE3C876 xBFCC21 }
+ 		}
+ 
+ 		add_homeland = cu:danish
+ 		add_homeland = cu:north_german
+-	}
++	
++create_state = { country = c:HLB owned_provinces = { xEDB202 xEDB203 } }
++}
+ 	s:STATE_WURTTEMBERG = {
+ 		create_state = {
+ 			country = c:WUR
+ 			owned_provinces = { x100060 xC541D2 x8F0060 x118060 xDBB84C xEDB003 }
+ 		}
+ 		create_state = {
+ 			country = c:HOH
+ 			owned_provinces = { x908060 }
+ 		}
+ 
+ 		add_homeland = cu:south_german
+ 		add_homeland = cu:alemannic
+ 	
+ create_state = { country = c:KMZ owned_provinces = { xEDA607 xEDA608 } }
+ 
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     farm = "x83B1A8"
+     mine = "xDF4020"
+     wood = "x514C51"
+     arable_land = 50
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_coal_mine = 44
+         building_logging_camp = 6
+         building_limestone_quarry = 28
+     }
+ }
+ 
+ STATE_SCHLESWIG_HOLSTEIN = {
+     id = 66
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x00C060" "x60809F" "x64824C" "x78B203" "x804160" "xBFCC21" "xE000A0" "xE3C876" }
++    provinces = { "x00C060" "x78B203" "x804160" "xBFCC21" "xE000A0" "xE3C876" "x60809F" "xEDB200" "xEDB201" "xEDB202" "x64824C" "xEDB203" }
+     city = "x64824C"
+     port = "x60809F"
+     farm = "x00C060"
+     mine = "x00C060"
+     wood = "x804160"
+     arable_land = 40
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_logging_camp = 6
+         building_fishing_wharf = 6
+         building_limestone_quarry = 16
+     }
+     naval_exit_id = 3074
+ }
+ 
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 17962
+ 			}
+ 			create_pop = {
+ 				culture = polish
+ 				size = 8165
+ 			}
+ 		}
+ 	}
+ 	s:STATE_SCHLESWIG_HOLSTEIN = {
+ 		region_state:HOL = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 292188
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 1561
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 6241
++				size = 288764
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 1543
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 6168
+ 			}
+ 			create_pop = {
+ 				culture = danish
+-				size = 15601
++				size = 15418
+ 			}
+ 		}
+ 		region_state:LUB = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 64268
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 1561
++				size = 56822
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 1380
+ 			}
+ 		}
+ 		region_state:SCH = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 156000
+ 			}
+ 			create_pop = {
+ 				culture = danish
+ 				size = 106395
++			}
++		}
++	
++		region_state:HLB = {
++create_pop = {
++				culture = north_german
++				size = 3424
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 18
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 73
++			}
++create_pop = {
++				culture = danish
++				size = 183
++			}
++create_pop = {
++				culture = north_german
++				size = 7446
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 181
+ 			}
+ 		}
+ 	}
+ 	s:STATE_WURTTEMBERG = {
+ 		region_state:WUR = {
+ 			create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 674322
+ 			}
+ 			create_pop = {
+ 				culture = south_german
+ 				size = 439646
+ 			}
+ 			create_pop = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "rgb": "x5D7A68",
+     "state": "STATE_RHINELAND",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x5E9091",
+     "state": "STATE_UPPER_SILESIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x60809F",
+     "state": "STATE_SCHLESWIG_HOLSTEIN",
+     "beneficiary": "LUB",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x60BF20",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x614121",
+     "state": "STATE_LOWER_SILESIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x618061",
+@@
+     "rgb": "x61C0A0",
+     "state": "STATE_BRANDENBURG",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x62F70E",
+     "state": "STATE_AUSTRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x64824C",
+     "state": "STATE_SCHLESWIG_HOLSTEIN",
+     "beneficiary": "HOL",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x648AD1",
+     "state": "STATE_FRANCONIA",
+     "beneficiary": "FBM",
+     "basis": "MAP2L Franconia: explicitly reviewed source-traced game-scale envelope; see FRANCONIA/GEOGRAPHIC_EVIDENCE.md, dating/outer-fringe limitations retained."
+   },
+   {
+     "rgb": "x66FE0A",
+     "state": "STATE_SAXONY",
+     "beneficiary": "COB",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x67FE18",
+@@
+     "basis": "MAP2N completion: Wismar/Benz/Neukloster, source-traced native-scale jurisdiction; historical fringes generalized; see MAP2N/REPORT.md."
+   },
+   {
+     "rgb": "xEDB104",
+     "state": "STATE_MECKLENBURG",
+     "beneficiary": "SWE",
+     "basis": "MAP2N completion: Wismar/Benz/Neukloster, source-traced native-scale jurisdiction; historical fringes generalized; see MAP2N/REPORT.md."
+   },
+   {
+     "rgb": "xEDB105",
+     "state": "STATE_MECKLENBURG",
+     "beneficiary": "SWE",
+     "basis": "MAP2N completion: Wismar/Benz/Neukloster, source-traced native-scale jurisdiction; historical fringes generalized; see MAP2N/REPORT.md."
+   },
+   {
++    "rgb": "xEDB200",
++    "state": "STATE_SCHLESWIG_HOLSTEIN",
++    "beneficiary": "LUB",
++    "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDB201",
++    "state": "STATE_SCHLESWIG_HOLSTEIN",
++    "beneficiary": "LUB",
++    "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDB202",
++    "state": "STATE_SCHLESWIG_HOLSTEIN",
++    "beneficiary": "HLB",
++    "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
++    "rgb": "xEDB203",
++    "state": "STATE_SCHLESWIG_HOLSTEIN",
++    "beneficiary": "HLB",
++    "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2Q\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_SCHLESWIG_HOLSTEIN"
++  ],
++  "previous": [
++    {
++      "rgb": "x60809F",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x64824C",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x804160",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE000A0",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x804160",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE000A0",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x60809F",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB200",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB201",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "LUB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB202",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HLB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x64824C",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HOL",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB203",
++      "state": "STATE_SCHLESWIG_HOLSTEIN",
++      "beneficiary": "HLB",
++      "basis": "MAP2L MAP2Q: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    }
++  ],
++  "new_members": [
++    "HLB"
++  ],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDB200",
++      "parent_rgb": "x60809F"
++    },
++    {
++      "rgb": "xEDB201",
++      "parent_rgb": "x60809F"
++    },
++    {
++      "rgb": "xEDB202",
++      "parent_rgb": "x60809F"
++    },
++    {
++      "rgb": "xEDB203",
++      "parent_rgb": "x64824C"
++    }
++  ],
++  "geometry": "MAP2Q/GEOMETRY.json",
++  "region_reference_changes": [],
++  "country_additions": {
++    "HLB": "[\"HLB\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"186\"],[\"\",\"\",\"113\"],[\"\",\"\",\"95\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_SCHLESWIG_HOLSTEIN\"]]]"
++  }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\1776_map2q_eutin.txt
++HLB = { color = { 186 113 95 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_SCHLESWIG_HOLSTEIN }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\hlb - eutin.txt
++COUNTRIES = {
++	c:HLB ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		
++		activate_law = law_type:law_land_based_taxation
++        activate_law = law_type:law_hereditary_bureaucrats
++        activate_law = law_type:law_peasant_levies
++        activate_law = law_type:law_no_police
++        activate_law = law_type:law_guild_system
++        activate_law = law_type:law_tenant_farmers
++        activate_law = law_type:law_no_workers_rights
++        activate_law = law_type:law_autocracy
++        activate_law = law_type:law_theocracy
++        activate_law = law_type:law_aor1776_eutin_customs
++        activate_law = law_type:law_aor1776_eutin_free_status
++		activate_law = law_type:law_freedom_of_conscience
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\laws\1776_map2q_eutin_start_variants.txt
++law_aor1776_eutin_customs = { group = lawgroup_trade_policy parent = law_mercantilism icon = "gfx/interface/icons/law_icons/mercantilism.dds" progressiveness = 0 is_visible = { c:HLB ?= this } can_enact = { c:HLB ?= this } modifier = {
++		state_tariff_import_add = 0.50
++		state_tariff_export_add = 0.20
++		state_subvention_export_add = 0.50
++		state_subvention_import_add = 0.20
++		state_import_advantage_mult = -0.25
++		state_export_advantage_mult = 0.25
++	} }
++law_aor1776_eutin_free_status = { group = lawgroup_slavery parent = law_slavery_banned icon = "gfx/interface/icons/law_icons/slavery_banned.dds" progressiveness = 0 is_visible = { c:HLB ?= this } can_enact = { c:HLB ?= this }  }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\government_types\00_1776_map2q_eutin.txt
++gov_aor1776_eutin = {
++ transfer_of_power = dictatorial
++ male_ruler = "RULER_TITLE_PRINCE_BISHOP"
++ female_ruler = "RULER_TITLE_PRINCE_BISHOP"
++ possible = { c:HLB ?= this has_law = law_type:law_theocracy }
++ on_government_type_change = { change_to_dictatorial = yes }
++ on_post_government_type_change = { post_change_to_dictatorial = yes }
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\coat_of_arms\coat_of_arms\1776_map2q_eutin.txt
++# Simplified historical episcopal gold cross on blue; not a reconstructed quartered dynastic achievement.
++AOR1776_HLB = { pattern = "pattern_solid.tga" color1 = blue colored_emblem = { texture = "ce_cross_couped.dds" color1 = yellow instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\flag_definitions\1776_map2q_eutin.txt
++HLB = { flag_definition = { coa = AOR1776_HLB priority = 100 allow_overlord_canton = no } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\diplomacy\99_1776_map2q_eutin_union.txt
++DIPLOMACY = { c:OLD ?= { create_diplomatic_pact = { country = c:HLB type = personal_union } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\diplomatic_actions\22_subject_personal_union.txt
++personal_union = {
++	groups= {
++		general # for breaking only
++	}
++	show_in_lens = no
++
++	potential = { # Only created through diplomatic plays
++		always = no
++	}
++
++	pact = {
++		cost = 10
++		has_junior_participant = yes
++		maintenance_paid_by = first_country
++
++		relations_progress_per_day = 1
++		relations_improvement_max = 50
++
++		max_target_involvement = 5000
++		target_involvement_applies_to = source_country
++
++		subject_type = subject_type_personal_union
++
++		second_modifier = {
++		}
++
++		actor_can_break = {
++			is_diplomatic_play_committed_participant = no
++		}
++
++		target_can_break = { # Has to use diplomatic play to break
++			always = no
++		}
++
++		requirement_to_maintain = {
++			trigger = {
++				country_has_monarchy_law = yes
++				NOT = { has_law = law_type:law_bakufu } # I have seen things
++			}
++		}
++
++		requirement_to_maintain = {
++			trigger = {
++				scope:target_country = {
++					# MAP2Q: approved episcopal union; every other native condition retained.
++					OR = {
++						country_has_monarchy_law = yes
++						AND = { c:HLB ?= this has_law = law_type:law_theocracy overlord ?= { c:OLD ?= this } }
++					}
++					NOT = { has_law = law_type:law_bakufu }
++				}
++			}
++		}
++
++		manual_break_effect = {
++			if = {
++				limit = {
++					NOT = {
++						c:POR ?= THIS
++						scope:target_country ?= {
++							has_variable = pedro_republican_coup
++						}
++					}
++				}
++				create_bidirectional_truce = { country = scope:target_country months = 60 }
++			}
++		}
++
++		auto_break_effect = {
++			if = {
++				limit = {
++					NOT = {
++						c:POR ?= THIS
++						scope:target_country ?= {
++							has_variable = pedro_republican_coup
++						}
++					}
++				}
++				create_bidirectional_truce = { country = scope:target_country months = 60 }
++			}
++		}
++	}
++
++	ai = {
++		will_break = {
++			always = no
++		}
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\english\1776_map2q_eutin_l_english.yml
++﻿l_english:
++ HLB:0 "Prince-Bishopric of Lübeck"
++ HLB_ADJ:0 "Eutinian"
++ gov_aor1776_eutin:0 "Prince-bishopric"
++ gov_aor1776_eutin_desc:0 "The Protestant prince-bishop rules the temporal lands from Eutin. Friedrich August also rules Oldenburg through a personal union; the two imperial estates remain distinct. The Free City of Lübeck is a separate state."
++ law_aor1776_eutin_customs:0 "Episcopal customs"
++ law_aor1776_eutin_customs_desc:0 "Regulated early-modern commerce without granting later technology."
++ law_aor1776_eutin_free_status:0 "Free legal status"
++ law_aor1776_eutin_free_status_desc:0 "1776 legal status; tenancy and serfdom remain separate laws."
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\1776_map2q_eutin_l_french.yml
++﻿l_french:
++ HLB:0 "Principauté épiscopale de Lübeck"
++ HLB_ADJ:0 "Eutinois"
++ gov_aor1776_eutin:0 "Principauté épiscopale"
++ gov_aor1776_eutin_desc:0 "Le prince-évêque protestant gouverne ses terres temporelles depuis Eutin. Frédéric-Auguste règne aussi sur Oldenburg par une union personnelle ; les deux États impériaux restent distincts. La ville de Lübeck constitue un autre État."
++ law_aor1776_eutin_customs:0 "Douanes épiscopales"
++ law_aor1776_eutin_customs_desc:0 "Commerce réglementé d’Ancien Régime, sans accorder de technologie tardive."
++ law_aor1776_eutin_free_status:0 "Statut juridique libre"
++ law_aor1776_eutin_free_status_desc:0 "Statut juridique de 1776 ; le régime foncier et le servage relèvent de lois distinctes."
+*** End Patch

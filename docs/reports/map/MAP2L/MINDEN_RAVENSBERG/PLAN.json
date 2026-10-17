@@ -1,0 +1,111 @@
+{
+  "files": [
+    "common/history/states/00_states.txt",
+    "map_data/state_regions/00_west_europe.txt",
+    "common/history/pops/00_west_europe.txt",
+    "docs/reports/map/MAP2L/IMPERIAL_DE_JURE_REGISTRY.json",
+    "docs/reports/map/MAP2L/MINDEN_RAVENSBERG/REGISTRY_MIGRATION.json"
+  ],
+  "allocations": [
+    {
+      "kind": "building",
+      "file": "common/history/buildings/00_west_europe.txt",
+      "state": "STATE_HANNOVER",
+      "source": "HAN",
+      "profile": "building_government_administration",
+      "before": 1,
+      "after": {
+        "HAN": 1,
+        "PRU": 0
+      }
+    },
+    {
+      "kind": "building",
+      "file": "common/history/buildings/00_west_europe.txt",
+      "state": "STATE_HANNOVER",
+      "source": "HAN",
+      "profile": "building_university",
+      "before": 1,
+      "after": {
+        "HAN": 1,
+        "PRU": 0
+      }
+    },
+    {
+      "kind": "building",
+      "file": "common/history/buildings/00_west_europe.txt",
+      "state": "STATE_HANNOVER",
+      "source": "HAN",
+      "profile": "building_railway",
+      "before": 2,
+      "after": {
+        "HAN": 2,
+        "PRU": 0
+      }
+    },
+    {
+      "kind": "building",
+      "file": "common/history/buildings/98_build_start_1776_world_redistribution.txt",
+      "state": "STATE_HANNOVER",
+      "source": "HAN",
+      "profile": "building_railway",
+      "before": 2,
+      "after": {
+        "HAN": 2,
+        "PRU": 0
+      }
+    },
+    {
+      "kind": "population",
+      "file": "common/history/pops/00_west_europe.txt",
+      "state": "STATE_HANNOVER",
+      "source": "HAN",
+      "profile": "north_german/DEFAULT",
+      "before": 734920,
+      "after": {
+        "HAN": 707104,
+        "PRU": 27816
+      }
+    },
+    {
+      "kind": "population",
+      "file": "common/history/pops/00_west_europe.txt",
+      "state": "STATE_HANNOVER",
+      "source": "HAN",
+      "profile": "north_german/catholic",
+      "before": 152877,
+      "after": {
+        "HAN": 147091,
+        "PRU": 5786
+      }
+    },
+    {
+      "kind": "population",
+      "file": "common/history/pops/00_west_europe.txt",
+      "state": "STATE_HANNOVER",
+      "source": "HAN",
+      "profile": "ashkenazi/DEFAULT",
+      "before": 6241,
+      "after": {
+        "HAN": 6005,
+        "PRU": 236
+      }
+    },
+    {
+      "kind": "population",
+      "file": "common/history/pops/00_west_europe.txt",
+      "state": "STATE_HANNOVER",
+      "source": "HAN",
+      "profile": "dutch/DEFAULT",
+      "before": 3124,
+      "after": {
+        "HAN": 3006,
+        "PRU": 118
+      }
+    }
+  ],
+  "new_tags": [],
+  "registered_RGBs": 427,
+  "region_reference_changes": [],
+  "method": "Exact integer culture/religion and building profile conservation; weights by complete source state subdivision, not pixels as a census"
+}
