@@ -13,6 +13,7 @@
 		add_technology_researched = industrial_canals
 		add_technology_researched = industrial_ceramics
 		add_technology_researched = institutionalized_scientific_exchange
+		add_technology_researched = institutionalized_public_credit
 		add_technology_researched = marine_chronometry
 		add_technology_researched = medical_degrees
 		add_technology_researched = military_topographic_surveying
@@ -87,6 +88,21 @@
 				type = amendment_second_estate
 				sponsor = PREV.ig:ig_landowners
 			}
+		}
+
+		# Historic French companies already operating at the 1776 start.
+		add_company = company_type:company_mines_anzin
+		company:company_mines_anzin = {
+			set_company_establishment_date = 1757.11.19
+			set_company_state_region = s:STATE_FRENCH_LOW_COUNTRIES
+		}
+
+		# The Royal Mirror Manufactory was chartered in October 1665.
+		# October 1 is a gameplay placeholder because the exact day is not established.
+		add_company = company_type:company_saint_gobain
+		company:company_saint_gobain = {
+			set_company_establishment_date = 1665.10.1
+			set_company_state_region = s:STATE_PICARDY
 		}
 
 		set_institution_investment_level = {

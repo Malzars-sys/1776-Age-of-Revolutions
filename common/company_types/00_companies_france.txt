@@ -497,3 +497,80 @@ company_mines_anzin = {
 		value = 3 # Higher base value for flavored companies
 	}
 }
+
+# Manufacture royale des glaces de Saint-Gobain (1665; Saint-Gobain site 1692)
+company_saint_gobain = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/france_saint_gobain.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+	preferred_headquarters = { STATE_PICARDY }
+
+	# Mirrors, fuelwood and frames: no coal overlap with the Anzin mines.
+	building_types = {
+		building_glassworks
+		building_logging_camp
+		building_furniture_manufactory
+	}
+
+	# Glassmaking feedstock and later industrial diversification.
+	# Cement and mortar businesses were acquired centuries later, not a 1776 core.
+	extension_building_types = {
+		building_limestone_quarry
+		building_chemical_plant
+		building_tooling_workshop
+	}
+
+	possible_prestige_goods = {
+		prestige_good_saint_gobain_mirrors
+	}
+
+	# The surviving manufacture must be based in Picardy.
+	potential = {
+		any_scope_state = {
+			state_region = s:STATE_PICARDY
+		}
+	}
+
+	# If dissolved, founding it again requires Public Credit, incorporated
+	# Picardy and a sizeable local glassmaking industry.
+	possible = {
+		has_technology_researched = institutionalized_public_credit
+		any_scope_state = {
+			state_region = s:STATE_PICARDY
+			is_incorporated = yes
+			any_scope_building = {
+				is_building_type = building_glassworks
+				level >= 5
+			}
+		}
+	}
+
+	# Royal commissions, monumental mirrors, and courtly interiors.
+	prosperity_modifier = {
+		country_prestige_mult = 0.10
+		building_glassworks_throughput_add = 0.15
+		building_limestone_quarry_throughput_add = 0.15
+	}
+
+	ai_will_do = {
+		has_technology_researched = institutionalized_public_credit
+		any_scope_state = {
+			state_region = s:STATE_PICARDY
+			is_incorporated = yes
+		}
+	}
+
+	ai_construction_targets = {
+		building_glassworks = {
+			level = 5
+			state_trigger = {
+				state_region = s:STATE_PICARDY
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3
+	}
+}
