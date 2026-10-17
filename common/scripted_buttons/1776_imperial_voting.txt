@@ -856,3 +856,14 @@ aor1776_hre_vote_REB = {
  ai_chance = { value = 0 }
 
 }
+aor1776_hre_vote_FUL = {
+
+ name = aor1776_hre.choose_FUL
+ desc = aor1776_hre_choose_vote_desc
+ visible = { aor1776_hre_elector = yes c:FUL ?= { aor1776_hre_ballot_candidate = yes } }
+ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:FUL } }
+ effect = { custom_tooltip = aor1776_hre_choose_vote_result
+  hidden_effect = { c:FUL = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+ ai_chance = { value = 0 }
+
+}

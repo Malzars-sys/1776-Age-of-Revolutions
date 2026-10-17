@@ -1,0 +1,32 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const {Workbook}=await import(pathToFileURL('C:/Users/simeo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/@oai/artifact-tool/dist/artifact_tool.mjs'));
+const out=path.resolve('docs/reports/map/MAP2W');
+const datasets=JSON.parse(await fs.readFile(path.join(out,'CSV_TABLES.json'),'utf8'));
+const wb=Workbook.create(),tables=[];
+for(const [filename,{fields,rows}] of Object.entries(datasets)){
+ const matrix=[fields,...rows.map(row=>fields.map(k=>row[k]??null))];
+ const sh=wb.worksheets.add(['Inventaire','Ecarts','Restant','Transferts','Population'][tables.length]);
+ const used=sh.getRangeByIndexes(0,0,matrix.length,fields.length);used.values=matrix;
+ used.format.font={name:'Arial',size:10};used.format.columnWidthPx=240;used.format.rowHeight=70;used.format.wrapText=true;used.format.verticalAlignment='center';
+ fields.forEach((field,col)=>{if(['Source','Probleme','Approximation','Methode'].includes(field))sh.getRangeByIndexes(0,col,matrix.length,1).format.columnWidthPx=400;});
+ const header=sh.getRangeByIndexes(0,0,1,fields.length);header.format.fill='#25374B';header.format.font={name:'Arial',size:10,bold:true,color:'#FFFFFF'};header.format.rowHeight=45;header.format.horizontalAlignment='center';
+ for(let col=0;col<fields.length;col++)if(rows.some(r=>typeof r[fields[col]]==='number'))sh.getRangeByIndexes(1,col,rows.length,1).setNumberFormat('#,##0');
+ sh.showGridLines=false;sh.freezePanes.freezeRows(1);tables.push({filename,sheet:sh.name,matrix,rows,fields});
+}
+wb.recalculate();
+const quote=v=>{const s=v==null?'':String(v);return /[",\r\n]/.test(s)?'"'+s.replaceAll('"','""')+'"':s;};
+const results=[];
+for(const t of tables){
+ const sh=wb.worksheets.getItem(t.sheet),actual=sh.getRangeByIndexes(0,0,t.matrix.length,t.fields.length).values;
+ if(JSON.stringify(actual)!==JSON.stringify(t.matrix))throw Error('Typed round trip changed '+t.filename);
+ await fs.writeFile(path.join(out,t.filename),'\ufeff'+actual.map(row=>row.map(quote).join(',')).join('\r\n')+'\r\n');
+ const inspection=await wb.inspect({kind:'table',range:`${t.sheet}!A1:F5`,include:'values,formulas',maxChars:1000,tableMaxRows:5});
+ const png=await wb.render({sheetName:t.sheet,range:'A1:F5',scale:1,format:'png'});
+ await fs.writeFile(path.join(out,t.filename+'.preview.png'),new Uint8Array(await png.arrayBuffer()));
+ results.push({filename:t.filename,records:t.rows.length,typed_roundtrip:'PASS',inspection});
+}
+const errors=await wb.inspect({kind:'match',searchTerm:'#REF!|#DIV/0!|#VALUE!|#NAME\\?|#N/A|#NUM!|#NULL!|#SPILL!|#CALC!',options:{useRegex:true,maxResults:20},maxChars:1000});
+await fs.writeFile(path.join(out,'CSV_VALIDATION.json'),JSON.stringify({status:'PASS_TYPED_TABLE_ROUND_TRIP',tool:'@oai/artifact-tool',tables:results,error_scan:errors,workbook_exported:false},null,2)+'\n');
+console.log(tables.length+' requested CSV tables verified and exported.');

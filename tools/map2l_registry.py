@@ -140,7 +140,20 @@ def approved_lot_dirs():
             if row['owner']!=row['previous_owner']:
                 assert all(4341<=x<=4370 and 818<=y<=849 and not (4342<=x<=4358 and 822<=y<=836) for x,y in row['cells'])
         assert all(r['parent_rgb'] in geo['parents'] for r in m['new_provinces'])
-    return earlier+([poel] if (poel/'REGISTRY_MIGRATION.json').exists() else [])+([completion] if (completion/'REGISTRY_MIGRATION.json').exists() else [])+([east_frisia] if (east_frisia/'REGISTRY_MIGRATION.json').exists() else [])+([eutin] if (eutin/'REGISTRY_MIGRATION.json').exists() else [])+([kaltenhof] if (kaltenhof/'REGISTRY_MIGRATION.json').exists() else [])+([anhalt] if (anhalt/'REGISTRY_MIGRATION.json').exists() else [])+([saxony] if (saxony/'REGISTRY_MIGRATION.json').exists() else [])+([thuringia] if (thuringia/'REGISTRY_MIGRATION.json').exists() else [])
+    fulda=ROOT/'docs/reports/map/MAP2W'
+    if (fulda/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((fulda/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        assert m['replaced_regions']==['STATE_HESSE','STATE_SAXONY'] and m['new_members']==['FUL']
+        assert not m['free_cities'] and not m['extent_added_cells'] and not m['extent_removed_cells']
+        geo=json.loads((fulda/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert geo['parents']==['xD04121','xD0C021'] and m['new_provinces']==geo['new_provinces']
+        assert sum(r['pixels'] for r in geo['assignments'])==345
+        assert sum(r['pixels'] for r in geo['assignments'] if r['owner']=='FUL')==39
+        assert all((r['state'],r['previous_owner']) in {('STATE_HESSE','HEK'),('STATE_SAXONY','MEI')} and r['owner'] in {r['previous_owner'],'FUL'} for r in geo['assignments'])
+        assert all(4319<=x<=4325 and 840<=y<=847 for r in geo['assignments'] if r['owner']=='FUL' for x,y in r['cells'])
+        assert geo['protected_saxon_new_RGB']=='xEDB40F'
+        assert set(m['country_additions'])=={'FUL'}
+    return earlier+([poel] if (poel/'REGISTRY_MIGRATION.json').exists() else [])+([completion] if (completion/'REGISTRY_MIGRATION.json').exists() else [])+([east_frisia] if (east_frisia/'REGISTRY_MIGRATION.json').exists() else [])+([eutin] if (eutin/'REGISTRY_MIGRATION.json').exists() else [])+([kaltenhof] if (kaltenhof/'REGISTRY_MIGRATION.json').exists() else [])+([anhalt] if (anhalt/'REGISTRY_MIGRATION.json').exists() else [])+([saxony] if (saxony/'REGISTRY_MIGRATION.json').exists() else [])+([thuringia] if (thuringia/'REGISTRY_MIGRATION.json').exists() else [])+([fulda] if (fulda/'REGISTRY_MIGRATION.json').exists() else [])
 
 def reviewed_core_exception_owner(point,previous_owner,later_dirs):
     """Only the human-approved Kempten municipal cell, never a broad waiver."""
