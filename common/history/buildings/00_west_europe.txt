@@ -2980,7 +2980,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:FRA"
-						levels=2
+						levels=4
 						region="STATE_FRENCH_LOW_COUNTRIES"
 					}
 					building={
@@ -3031,12 +3031,27 @@ BUILDINGS={
 					building = {
 						type = "building_financial_district"
 						country = "c:FRA"
-						levels = 1
+						levels = 5
 						region = "STATE_PICARDY"
 					}
 				}
 				reserves = 1
 				activate_production_methods = { "pm_forest_glass" "pm_disabled_ceramics" "pm_manual_glassblowing" }
+			}
+
+			# Forest camps supplying the royal Saint-Gobain glassworks.
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:FRA"
+						levels = 5
+						region = "STATE_PICARDY"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_simple_forestry" "pm_hardwood" "pm_no_equipment" "pm_road_carts" }
 			}
 
 			create_building={
