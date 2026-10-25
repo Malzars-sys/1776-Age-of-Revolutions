@@ -1,0 +1,10 @@
+je_aor1776_french_support = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_internal_affairs
+	is_shown_when_inactive = { c:USA ?= this NOT = { has_variable = us_revolt } }
+	possible = { c:USA ?= this aor1776_usa_independence_war_active = yes }
+	complete = { has_variable = us_revolt }
+	on_complete = { aor1776_support_stop_effect = yes }
+	weight = 1000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

@@ -1,0 +1,52 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\scripted_buttons\1776_imperial_voting.txt
+@@
+   hidden_effect = { c:NSB = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+  ai_chance = { value = 0 }
+ 
+ }
+ aor1776_hre_vote_PAS = {
+ 
+  name = aor1776_hre.choose_PAS
+  desc = aor1776_hre_choose_vote_desc
+  visible = { aor1776_hre_elector = yes c:PAS ?= { aor1776_hre_ballot_candidate = yes } }
+  possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:PAS } }
+  effect = { custom_tooltip = aor1776_hre_choose_vote_result
+   hidden_effect = { c:PAS = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+  ai_chance = { value = 0 }
+ 
+ }
++aor1776_hre_vote_FSI = {
++
++ name = aor1776_hre.choose_FSI
++ desc = aor1776_hre_choose_vote_desc
++ visible = { aor1776_hre_elector = yes c:FSI ?= { aor1776_hre_ballot_candidate = yes } }
++ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:FSI } }
++ effect = { custom_tooltip = aor1776_hre_choose_vote_result
++  hidden_effect = { c:FSI = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
++ ai_chance = { value = 0 }
++
++}
++aor1776_hre_vote_RBI = {
++
++ name = aor1776_hre.choose_RBI
++ desc = aor1776_hre_choose_vote_desc
++ visible = { aor1776_hre_elector = yes c:RBI ?= { aor1776_hre_ballot_candidate = yes } }
++ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:RBI } }
++ effect = { custom_tooltip = aor1776_hre_choose_vote_result
++  hidden_effect = { c:RBI = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
++ ai_chance = { value = 0 }
++
++}
++aor1776_hre_vote_RCI = {
++
++ name = aor1776_hre.choose_RCI
++ desc = aor1776_hre_choose_vote_desc
++ visible = { aor1776_hre_elector = yes c:RCI ?= { aor1776_hre_ballot_candidate = yes } }
++ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:RCI } }
++ effect = { custom_tooltip = aor1776_hre_choose_vote_result
++  hidden_effect = { c:RCI = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
++ ai_chance = { value = 0 }
++
++}
+*** End Patch

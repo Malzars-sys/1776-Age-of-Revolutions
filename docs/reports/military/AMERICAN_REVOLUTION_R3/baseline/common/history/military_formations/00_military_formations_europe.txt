@@ -1,0 +1,5183 @@
+MILITARY_FORMATIONS = {
+	c:CRI ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_eastern_europe
+			name = cleanup2d3e_r1_cri_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CHERSON
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CHERSON
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CHERSON
+				count = 4
+			}
+			save_scope_as = crimea_army
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_TAURIDA
+				count = 9
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_CHERSON
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_CRIMEA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_KUBAN
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-001 — cleanup2d3e_r1_cri_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_001
+		}
+		scope:cleanup2d4_general_001 = {
+			transfer_to_formation = scope:crimea_army
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:PLC ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_eastern_europe
+			name = cleanup2d3e_r1_plc_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_BREST
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_BREST
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_BREST
+				count = 10
+			}
+			save_scope_as = polish_Armeee
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_GREATER_POLAND
+				count = 18
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-002 — Franciszek Ksawery Branicki — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_002
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:polish
+			religion = rel:catholic
+			home_region = STATE_WEST_GALICIA
+			age = 45 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_002
+		}
+		scope:cleanup2d4_general_002 = {
+			transfer_to_formation = scope:polish_Armeee
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:PRU ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_pru_land_4
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_mobile_artillery
+
+				state_region = s:STATE_ANHALT
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_ANHALT
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ANHALT
+				count = 19
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BRANDENBURG
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_BRANDENBURG
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_LOWER_SILESIA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_WESTPHALIA
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_ANHALT
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_EAST_PRUSSIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_NORTH_RHINE
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_POMERANIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_RUHR
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_RHINELAND
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_UPPER_SILESIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_WEST_PRUSSIA
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_003
+}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_pru_land_1
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_mobile_artillery
+
+				state_region = s:STATE_ANHALT
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_ANHALT
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ANHALT
+				count = 20
+			}
+			save_scope_as = 2_Armee
+		}
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_pru_land_2
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_mobile_artillery
+
+				state_region = s:STATE_ANHALT
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_ANHALT
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ANHALT
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LOWER_SILESIA
+				count = 13
+			}
+			save_scope_as = main_Armee
+		}
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_pru_land_3
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_mobile_artillery
+
+				state_region = s:STATE_LOWER_SILESIA
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_LOWER_SILESIA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LOWER_SILESIA
+				count = 17
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BRANDENBURG
+				count = 3
+			}
+			save_scope_as = Elbe_Armee
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-003 — Friedrich Ehrenreich von Ramin — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_003
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_german
+			religion = rel:protestant
+			home_region = STATE_BRANDENBURG
+			birth_date = 1709.4.10
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_003
+		}
+		scope:cleanup2d4_general_003 = {
+			transfer_to_formation = scope:cleanup2d4_formation_003
+		}
+		# GEN1776-004 — Friedrich Christoph von Saldern — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_004
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_german
+			religion = rel:protestant
+			home_region = STATE_POMERANIA
+			birth_date = 1719.6.2
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_004
+		}
+		scope:cleanup2d4_general_004 = {
+			transfer_to_formation = scope:2_Armee
+		}
+		# GEN1776-005 — Wichard Joachim Heinrich von Möllendorff — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_005
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_german
+			religion = rel:protestant
+			home_region = STATE_BRANDENBURG
+			birth_date = 1724.1.7
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_005
+		}
+		scope:cleanup2d4_general_005 = {
+			transfer_to_formation = scope:main_Armee
+		}
+		# GEN1776-006 — Friedrich Bogislaw von Tauentzien — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_006
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_german
+			home_region = STATE_POMERANIA
+			birth_date = 1710.4.18
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_006
+		}
+		scope:cleanup2d4_general_006 = {
+			transfer_to_formation = scope:Elbe_Armee
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:GEN ?= {
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = merchant_venice_fleet
+
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 3
+			}
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3e_r1_gen_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PIEDMONT
+				count = 2
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_PIEDMONT
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_007
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-007 — cleanup2d3e_r1_gen_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_007
+		}
+		scope:cleanup2d4_general_007 = {
+			transfer_to_formation = scope:cleanup2d4_formation_007
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:VEN ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = merchant_venice_fleet
+
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 7
+			}
+
+
+
+
+
+
+			save_scope_as = cleanup2d6_fleet_002
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-002 — Antonio Renier
+		create_character = {
+			first_name = cleanup2d6_name_002
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:north_italian
+			religion = rel:catholic
+			# Birth evidence: 1708; precision: YEAR_ONLY
+			age = 67 # YEAR_ONLY / supported technical approximation; no fabricated month/day
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_002
+		}
+		scope:cleanup2d6_admiral_002 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_002
+		}
+		# END CLEANUP-2D-6L NAV1776-002
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3e_r1_ven_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_ISTRIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_ISTRIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ISTRIA
+				count = 8
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_VENETIA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_ISTRIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_LOMBARDY
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_008
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-008 — cleanup2d3e_r1_ven_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_008
+		}
+		scope:cleanup2d4_general_008 = {
+			transfer_to_formation = scope:cleanup2d4_formation_008
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:AUS ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_balkans
+			name = cleanup2d3e_r1_aus_naval_1
+
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 3
+			}
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_balkans
+			name = cleanup2d3b_aus_land_3
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_BUKOVINA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_BUKOVINA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BUKOVINA
+				count = 26
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_BOHEMIA
+				count = 12
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_LOMBARDY
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_AUSTRIA
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_MORAVIA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_CROATIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_STYRIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_BUKOVINA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_SLAVONIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_SLOVENIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_TYROL
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_WEST_GALICIA
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_009
+}
+		# Due to their size, each IR and Art-reg consists of two in-game regiments
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_aus_land_4
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_AUSTRIA
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_AUSTRIA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_AUSTRIA
+				count = 26
+			}
+			save_scope_as = generalkommando_lemberg
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_aus_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_AUSTRIA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_AUSTRIA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_AUSTRIA
+				count = 27
+			}
+
+			save_scope_as = cleanup2d4_formation_011
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3b_aus_land_2
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_LOMBARDY
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_LOMBARDY
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LOMBARDY
+				count = 26
+			}
+			save_scope_as = armee_in_italien_scope
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-009 — Gabriel Splényi von Miháldy — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_009
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:hungarian
+			religion = rel:catholic
+			home_region = STATE_SLOVAKIA
+			birth_date = 1734.10.2
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_009
+		}
+		scope:cleanup2d4_general_009 = {
+			transfer_to_formation = scope:cleanup2d4_formation_009
+		}
+		# GEN1776-010 — Joseph Šišković — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_010
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:croat
+			religion = rel:catholic
+			home_region = STATE_CENTRAL_HUNGARY
+			birth_date = 1719.7.2
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_010
+		}
+		scope:cleanup2d4_general_010 = {
+			transfer_to_formation = scope:generalkommando_lemberg
+		}
+		# GEN1776-011 — Andreas Hadik von Futak — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_011
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:hungarian
+			religion = rel:catholic
+			home_region = STATE_SLOVAKIA
+			birth_date = 1710.10.16
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_011
+		}
+		scope:cleanup2d4_general_011 = {
+			transfer_to_formation = scope:cleanup2d4_formation_011
+		}
+		# GEN1776-012 — Giovanni Battista Serbelloni — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_012
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_italian
+			religion = rel:catholic
+			home_region = STATE_LOMBARDY
+			age = 79 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_012
+		}
+		scope:cleanup2d4_general_012 = {
+			transfer_to_formation = scope:armee_in_italien_scope
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:HUN ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_balkans
+			name = generalkommando_ofen
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_BANAT
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_BANAT
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BANAT
+				count = 20
+			}
+
+			save_scope_as = cleanup2d4_formation_013
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-013 — generalkommando_ofen — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_013
+		}
+		scope:cleanup2d4_general_013 = {
+			transfer_to_formation = scope:cleanup2d4_formation_013
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:TRS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_balkans
+			name = generalkommando_hermannstadt
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_NORTHERN_TRANSYLVANIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NORTHERN_TRANSYLVANIA
+				count = 7
+			}
+
+			save_scope_as = cleanup2d4_formation_014
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-014 — generalkommando_hermannstadt — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_014
+		}
+		scope:cleanup2d4_general_014 = {
+			transfer_to_formation = scope:cleanup2d4_formation_014
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:FRA ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_western_europe
+			name = cleanup2d3b_fra_land_1
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+
+				state_region = s:STATE_ALSACE_LORRAINE
+
+				count = 4
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_ALSACE_LORRAINE
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ALSACE_LORRAINE
+				count = 35
+			}
+			save_scope_as = frencharmy1
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_BRITTANY
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_NORMANDY
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_RHONE
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_AUVERGNE_LIMOUSIN
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_LANGUEDOC
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_AQUITAINE
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_FRENCH_LOW_COUNTRIES
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_GUYENNE
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_ILE_DE_FRANCE
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_MAINE_ANJOU
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_POITOU
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_ALSACE_LORRAINE
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_BURGUNDY
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_ORLEANS
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_PICARDY
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_CHAMPAGNE
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_FRANCHE_COMTE
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_LORRAINE
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_PROVENCE
+				count = 2
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
+
+
+
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_western_europe
+			name = cleanup2d3b_fra_land_2
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+
+				state_region = s:STATE_ALSACE_LORRAINE
+
+				count = 4
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_ALSACE_LORRAINE
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ALSACE_LORRAINE
+				count = 35
+			}
+			save_scope_as = secondcorpfra
+		}
+
+
+
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3b_fra_land_3
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+
+				state_region = s:STATE_AQUITAINE
+
+				count = 4
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_AQUITAINE
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_AQUITAINE
+				count = 34
+			}
+			save_scope_as = thirdcorpfra
+		}
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_america
+			name = cleanup2d3b_fra_land_4
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+
+				state_region = s:STATE_WEST_INDIES
+
+				count = 4
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_WEST_INDIES
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WEST_INDIES
+				count = 33
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ALSACE_LORRAINE
+				count = 1
+			}
+			save_scope_as = africacorpfra
+		}
+
+
+
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3b_fra_naval_2
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 4
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 7
+			}
+
+
+
+
+			save_scope_as = cleanup2d6_fleet_004
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-004 — Paul-Hippolyte de Beauvilliers, marquis de La Ferté-Saint-Aignan
+		create_character = {
+			first_name = cleanup2d6_name_004
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			# Birth evidence: 1712-12-26; precision: DAY
+			birth_date = 1712.12.26
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_004
+		}
+		scope:cleanup2d6_admiral_004 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_004
+		}
+		# END CLEANUP-2D-6L NAV1776-004
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = cleanup2d3b_fra_naval_1
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 8
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 12
+			}
+
+
+
+
+			save_scope_as = cleanup2d6_fleet_005
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-005 — Louis Guillouet, comte d'Orvilliers
+		create_character = {
+			first_name = cleanup2d6_name_005
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			# Birth evidence: 1710-03-26; precision: DAY
+			birth_date = 1710.3.26
+			is_admiral = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d6_admiral_005
+		}
+		scope:cleanup2d6_admiral_005 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_005
+		}
+		# END CLEANUP-2D-6L NAV1776-005
+
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_central_america
+			name = cleanup2d3b_fra_naval_3
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 4
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 2
+			}
+
+
+
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-015 — Claude-Louis-Robert de Saint-Germain — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_015
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			home_region = STATE_FRANCHE_COMTE
+			birth_date = 1707.4.15
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_015
+		}
+		scope:cleanup2d4_general_015 = {
+			transfer_to_formation = scope:frencharmy1
+		}
+		# GEN1776-016 — Louis-Georges-Érasme de Contades — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_016
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			birth_date = 1704.10.11
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_016
+		}
+		scope:cleanup2d4_general_016 = {
+			transfer_to_formation = scope:secondcorpfra
+		}
+		# GEN1776-017 — Louis-François-Armand de Vignerot du Plessis — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_017
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			home_region = STATE_ILE_DE_FRANCE
+			birth_date = 1696.3.13
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_017
+		}
+		scope:cleanup2d4_general_017 = {
+			transfer_to_formation = scope:thirdcorpfra
+		}
+		# GEN1776-018 — Vital-Auguste de Grégoire de Nozières — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_018
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_018
+		}
+		scope:cleanup2d4_general_018 = {
+			transfer_to_formation = scope:africacorpfra
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:GBR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_canada
+			supply_hub = s:STATE_NEWFOUNDLAND
+			name = cleanup2d3b_gbr_land_2
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_HOME_COUNTIES
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_HOME_COUNTIES
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HOME_COUNTIES
+				count = 9
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+
+
+
+
+
+
+
+
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_HOME_COUNTIES
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_LANCASHIRE
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_HOME_COUNTIES
+				count = 2
+			}
+			save_scope_as = cleanup2d4_formation_019
+}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_western_europe
+			name = Home_Army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_EAST_ANGLIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EAST_ANGLIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EAST_ANGLIA
+				count = 9
+			}
+			save_scope_as = home_army_army
+		}
+
+
+
+
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			supply_hub = s:STATE_BALEARIC_ISLANDS
+			name = cleanup2d3b_gbr_land_4
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EAST_ANGLIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EAST_ANGLIA
+				count = 8
+			}
+			save_scope_as = army_med_army
+		}
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_canada
+			supply_hub = s:STATE_NEWFOUNDLAND
+			name = cleanup2d3b_gbr_land_3
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_BAHAMAS
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BAHAMAS
+				count = 8
+			}
+			save_scope_as = west_indies_army
+		}
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = cleanup2d3b_gbr_land_5
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EAST_ANGLIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EAST_ANGLIA
+				count = 8
+			}
+			save_scope_as = army_india_army
+		}
+
+
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = Mediterranean_Station
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 2
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 6
+			}
+
+
+
+			save_scope_as = med_fleet_gbr
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-007 — Robert Man (elder)
+		create_character = {
+			first_name = cleanup2d6_name_007
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			# Birth evidence: UNKNOWN; precision: UNKNOWN
+			# No exact birth_date or derived age encoded.
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_007
+		}
+		scope:cleanup2d6_admiral_007 = {
+			transfer_to_formation = scope:med_fleet_gbr
+		}
+		# END CLEANUP-2D-6L NAV1776-007
+
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_atlantic_coast
+			name = North_America_and_West_Indies_Station
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 6
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 2
+			}
+
+
+
+			save_scope_as = cleanup2d6_fleet_008
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-008 — Samuel Graves
+		create_character = {
+			first_name = cleanup2d6_name_008
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			# Birth evidence: 1713-04-17; precision: DAY
+			birth_date = 1713.4.17
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_008
+		}
+		scope:cleanup2d6_admiral_008 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_008
+		}
+		# END CLEANUP-2D-6L NAV1776-008
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_east_africa
+			name = cleanup2d3b_gbr_naval_6
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 2
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 2
+			}
+
+
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_south_india
+			name = cleanup2d3b_gbr_naval_5
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 3
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 3
+			}
+
+
+			save_scope_as = cleanup2d6_fleet_010
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-010 — Edward Hughes
+		create_character = {
+			first_name = cleanup2d6_name_010
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			# Birth evidence: c.1716; precision: APPROXIMATE_YEAR
+			age = 59 # APPROXIMATE_YEAR / supported technical approximation; no fabricated month/day
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_010
+		}
+		scope:cleanup2d6_admiral_010 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_010
+		}
+		# END CLEANUP-2D-6L NAV1776-010
+
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = cleanup2d3b_gbr_naval_1
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 9
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 3
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 27
+			}
+
+
+
+
+			save_scope_as = cleanup2d6_fleet_011
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-011 — Sir James Douglas
+		create_character = {
+			first_name = cleanup2d6_name_011
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			# Birth evidence: 1703; precision: YEAR
+			age = 72 # YEAR / supported technical approximation; no fabricated month/day
+			is_admiral = yes
+			commander_rank = commander_rank_3
+			save_scope_as = cleanup2d6_admiral_011
+		}
+		scope:cleanup2d6_admiral_011 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_011
+		}
+		# END CLEANUP-2D-6L NAV1776-011
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_atlantic_coast
+			supply_hub = s:STATE_BERMUDA
+			name = cleanup2d3b_gbr_naval_2
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 6
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 5
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 2
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 9
+			}
+
+
+
+
+
+
+
+			save_scope_as = cleanup2d6_fleet_012
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-012 — John Amherst
+		create_character = {
+			first_name = cleanup2d6_name_012
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			# Birth evidence: c.1718; precision: APPROXIMATE_YEAR
+			age = 57 # APPROXIMATE_YEAR / supported technical approximation; no fabricated month/day
+			is_admiral = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d6_admiral_012
+		}
+		scope:cleanup2d6_admiral_012 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_012
+		}
+		# END CLEANUP-2D-6L NAV1776-012
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = cleanup2d3b_gbr_naval_7
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 3
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 2
+			}
+
+
+			save_scope_as = cleanup2d6_fleet_013
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-013 — George Mackenzie
+		create_character = {
+			first_name = cleanup2d6_name_013
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			# Birth evidence: UNKNOWN; precision: UNKNOWN
+			# No exact birth_date or derived age encoded.
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_013
+		}
+		scope:cleanup2d6_admiral_013 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_013
+		}
+		# END CLEANUP-2D-6L NAV1776-013
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-019 — William Howe — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_019
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			birth_date = 1729.8.10
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_019
+		}
+		scope:cleanup2d4_general_019 = {
+			transfer_to_formation = scope:cleanup2d4_formation_019
+		}
+		# GEN1776-020 — Jeffery Amherst — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_020
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			home_region = STATE_HOME_COUNTIES
+			birth_date = 1717.1.29
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_020
+		}
+		scope:cleanup2d4_general_020 = {
+			transfer_to_formation = scope:home_army_army
+		}
+		# GEN1776-021 — George Augustus Eliott — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_021
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:scottish
+			religion = rel:protestant
+			home_region = STATE_LOWLANDS
+			birth_date = 1717.12.25
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_021
+		}
+		scope:cleanup2d4_general_021 = {
+			transfer_to_formation = scope:army_med_army
+		}
+		# GEN1776-022 — cleanup2d3b_gbr_land_3 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_022
+		}
+		scope:cleanup2d4_general_022 = {
+			transfer_to_formation = scope:west_indies_army
+		}
+		# GEN1776-023 — cleanup2d3b_gbr_land_5 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_023
+		}
+		scope:cleanup2d4_general_023 = {
+			transfer_to_formation = scope:army_india_army
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:RUS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_russia
+			name = cleanup2d3b_rus_land_1
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_ARKHANGELSK
+
+				count = 3
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_ARKHANGELSK
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ARKHANGELSK
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ORYOL
+				count = 16
+			}
+			save_scope_as = gvardeyskiy_korpus_army
+			save_scope_as = grenaderskiy_korpus
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_KHARKOV
+				count = 25
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_ORYOL
+				count = 25
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_TAMBOV
+				count = 25
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_YAROSLAVL
+				count = 25
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_KURSK
+				count = 20
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
+
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_russia
+			name = cleanup2d3b_rus_land_2
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_ORYOL
+
+				count = 3
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_ORYOL
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_YAROSLAVL
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_YAROSLAVL
+				count = 15
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KHARKOV
+				count = 10
+			}
+			save_scope_as = ii_pekhotniy_korpus
+		}
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_russia
+			name = cleanup2d3b_rus_land_3
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_KHARKOV
+
+				count = 3
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_KHARKOV
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TAMBOV
+				count = 20
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KURSK
+				count = 5
+			}
+			save_scope_as = iii_pekhotniy_korpus
+		}
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_russia
+			name = cleanup2d3b_rus_land_4
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_MOSCOW
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_MOSCOW
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MOSCOW
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NIZHNY_NOVGOROD
+				count = 8
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KURSK
+				count = 14
+			}
+			save_scope_as = iiii_pekhotniy_korpus
+		}
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_siberia
+			name = cleanup2d3b_rus_land_5
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_BURYATIA
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_BURYATIA
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BURYATIA
+				count = 11
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KURSK
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NIZHNY_NOVGOROD
+				count = 12
+			}
+			save_scope_as = v_pekhotniy_korpus
+		}
+
+
+
+
+
+#		create_military_formation = { # Irregular Forces, Cossack Hosts
+#			type = army
+#			hq_region = sr:region_dniepr
+#			name = Donskoe_Voisko
+#
+#			# Don Cossacks
+#			combat_unit = {
+#				type = unit_type:combat_unit_type_hussars
+#				state_region = s:STATE_KHARKOV
+#				count = 5
+#			}
+#			# Don Cossacks
+#			combat_unit = {
+#				type = unit_type:combat_unit_type_hussars
+#				state_region = s:STATE_TARTARIA
+#				count = 10
+#			}
+#			# Don Cossacks
+#			combat_unit = {
+#				type = unit_type:combat_unit_type_hussars
+#				state_region = s:STATE_ROSTOV
+#				count = 8
+#			}
+#			# Siberian Cossack Line
+#			combat_unit = { # Regiments 1-10
+#				type = unit_type:combat_unit_type_hussars
+#				state_region = s:STATE_URAL
+#				count = 10
+#			}
+#			# Don Cossacks
+#			combat_unit = {
+#				type = unit_type:combat_unit_type_hussars
+#				state_region = s:STATE_KUBAN
+#				count = 6
+#			}
+#			# Don Cossacks
+#			combat_unit = {
+#				type = unit_type:combat_unit_type_hussars
+#				state_region = s:STATE_KUBAN
+#				count = 12
+#			}
+#			# Don Cossacks
+#			combat_unit = {
+#				type = unit_type:combat_unit_type_hussars
+#				state_region = s:STATE_ROSTOV
+#				count = 13
+#			}
+#		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_russia
+			name = cleanup2d3b_rus_naval_1
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 9
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 14
+			}
+
+
+
+
+			save_scope_as = rus_baltic_fleet
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-014 — Samuil Karlovich Greig
+		create_character = {
+			first_name = cleanup2d6_name_014
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:scottish
+			religion = rel:protestant
+			# Birth evidence: 1735-11-30 (British Old Style traditional date); precision: DAY_EXACT; CALENDAR_CONFLICT
+			birth_date = 1735.11.30
+			is_admiral = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d6_admiral_014
+		}
+		scope:cleanup2d6_admiral_014 = {
+			transfer_to_formation = scope:rus_baltic_fleet
+		}
+		# END CLEANUP-2D-6L NAV1776-014
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_russia
+			name = cleanup2d3b_rus_naval_2
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 4
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 2
+			}
+
+
+
+			save_scope_as = rus_black_sea_fleet
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-015 — Alexei Naumovich Senyavin
+		create_character = {
+			first_name = cleanup2d6_name_015
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:russian
+			religion = rel:orthodox
+			# Birth evidence: 1722-10-05 OS / 1722-10-16 NS; precision: DAY_EXACT
+			birth_date = 1722.10.5
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_015
+		}
+		scope:cleanup2d6_admiral_015 = {
+			transfer_to_formation = scope:rus_black_sea_fleet
+		}
+		# END CLEANUP-2D-6L NAV1776-015
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-024 — Grigory Potemkin — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_024
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:russian
+			religion = rel:orthodox
+			home_region = STATE_SMOLENSK
+			birth_date = 1739.10.11
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_024
+		}
+		scope:cleanup2d4_general_024 = {
+			transfer_to_formation = scope:gvardeyskiy_korpus_army
+		}
+		# GEN1776-025 — cleanup2d3b_rus_land_2 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_025
+		}
+		scope:cleanup2d4_general_025 = {
+			transfer_to_formation = scope:ii_pekhotniy_korpus
+		}
+		# GEN1776-026 — cleanup2d3b_rus_land_3 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_026
+		}
+		scope:cleanup2d4_general_026 = {
+			transfer_to_formation = scope:iii_pekhotniy_korpus
+		}
+		# GEN1776-027 — Pyotr Rumyantsev — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_027
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:russian
+			religion = rel:orthodox
+			home_region = STATE_MOSCOW
+			birth_date = 1725.1.15
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_027
+		}
+		scope:cleanup2d4_general_027 = {
+			transfer_to_formation = scope:iiii_pekhotniy_korpus
+		}
+		# GEN1776-028 — Johann Clapier de Colongue — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_028
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_028
+		}
+		scope:cleanup2d4_general_028 = {
+			transfer_to_formation = scope:v_pekhotniy_korpus
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:CIR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_russia
+			name = cleanup2d3e_r1_cir_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_KUBAN
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_KUBAN
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KUBAN
+				count = 6
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_KUBAN
+				count = 3
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_029
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-029 — cleanup2d3e_r1_cir_land_1 — PROCEDURAL_REQUIRED_COLLECTIVE_STRUCTURE
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_029
+		}
+		scope:cleanup2d4_general_029 = {
+			transfer_to_formation = scope:cleanup2d4_formation_029
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:CHC ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_russia
+			name = Murtazeki
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_hussars
+
+				state_region = s:STATE_DAGESTAN
+
+				count = 4
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_DAGESTAN
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_NORTH_CAUCASUS
+				count = 3
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_DAGESTAN
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_030
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-030 — Murtazeki — PROCEDURAL_REQUIRED_COLLECTIVE_STRUCTURE
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_030
+		}
+		scope:cleanup2d4_general_030 = {
+			transfer_to_formation = scope:cleanup2d4_formation_030
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:BAD ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Groherzoglich_Badische_Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_BADEN
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_BADEN
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BADEN
+				count = 7
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_BADEN
+				count = 3
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_031
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-031 — Groherzoglich_Badische_Armee — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_031
+		}
+		scope:cleanup2d4_general_031 = {
+			transfer_to_formation = scope:cleanup2d4_formation_031
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:WUR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Kniglich_Wrttembergische_Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_WURTTEMBERG
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_WURTTEMBERG
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WURTTEMBERG
+				count = 10
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_WURTTEMBERG
+				count = 4
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_032
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-032 — Kniglich_Wrttembergische_Armee — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_032
+		}
+		scope:cleanup2d4_general_032 = {
+			transfer_to_formation = scope:cleanup2d4_formation_032
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SAX ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Kniglich_Schsische_Armee
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_SAXONY
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_SAXONY
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SAXONY
+				count = 17
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_SAXONY
+				count = 4
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_033
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-033 — Heinrich Christoph von Baudissin — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_033
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_german
+			religion = rel:protestant
+			home_region = STATE_SCHLESWIG_HOLSTEIN
+			birth_date = 1709.7.9
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_033
+		}
+		scope:cleanup2d4_general_033 = {
+			transfer_to_formation = scope:cleanup2d4_formation_033
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:BAV ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = I_ArmeeKorps
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_BAVARIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_BAVARIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BAVARIA
+				count = 6
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_BAVARIA
+				count = 4
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_034
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-034 — I_ArmeeKorps — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_034
+		}
+		scope:cleanup2d4_general_034 = {
+			transfer_to_formation = scope:cleanup2d4_formation_034
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:HEK ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Kurfrstlich_Hessische_Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_HESSE
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HESSE
+				count = 4
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_HESSE
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_035
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-035 — Kurfrstlich_Hessische_Armee — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_035
+		}
+		scope:cleanup2d4_general_035 = {
+			transfer_to_formation = scope:cleanup2d4_formation_035
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:HES ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Groherzoglich_Hessische_Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_HESSE
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HESSE
+				count = 3
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_HESSE
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_036
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-036 — Groherzoglich_Hessische_Armee — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_036
+		}
+		scope:cleanup2d4_general_036 = {
+			transfer_to_formation = scope:cleanup2d4_formation_036
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:NAS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Herzoglich_Nassauische_Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_HESSE
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HESSE
+				count = 2
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_HESSE
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_037
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-037 — Herzoglich_Nassauische_Armee — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_037
+		}
+		scope:cleanup2d4_general_037 = {
+			transfer_to_formation = scope:cleanup2d4_formation_037
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:HAN ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Kniglich_Hannoversche_Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_BRUNSWICK
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_BRUNSWICK
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BRUNSWICK
+				count = 16
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_HANNOVER
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_ELBE
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_038
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-038 — August Friedrich von Spörcken — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_038
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_german
+			religion = rel:protestant
+			birth_date = 1698.8.28
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_038
+		}
+		scope:cleanup2d4_general_038 = {
+			transfer_to_formation = scope:cleanup2d4_formation_038
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:MEC ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Groherzoglich_MecklenburgischSchwerinsche_Armee
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_dragoons
+
+				state_region = s:STATE_MECKLENBURG
+
+				count = 1
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MECKLENBURG
+				count = 4
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_MECKLENBURG
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_039
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-039 — Groherzoglich_MecklenburgischSchwerinsche_Armee — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_039
+		}
+		scope:cleanup2d4_general_039 = {
+			transfer_to_formation = scope:cleanup2d4_formation_039
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:OLD ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Groherzoglich_Oldenburgische_Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_HANNOVER
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HANNOVER
+				count = 2
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_040
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-040 — Groherzoglich_Oldenburgische_Armee — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_040
+		}
+		scope:cleanup2d4_general_040 = {
+			transfer_to_formation = scope:cleanup2d4_formation_040
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:HAM ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Hamburger_Burgermilitar
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ELBE
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_041
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-041 — Hamburger_Burgermilitar — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_041
+		}
+		scope:cleanup2d4_general_041 = {
+			transfer_to_formation = scope:cleanup2d4_formation_041
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:BRE ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Bremer_Stadtmilitar
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ELBE
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_042
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-042 — Bremer_Stadtmilitar — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_042
+		}
+		scope:cleanup2d4_general_042 = {
+			transfer_to_formation = scope:cleanup2d4_formation_042
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:LUB ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Lubecker_Militar
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_043
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-043 — Lubecker_Militar — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_043
+		}
+		scope:cleanup2d4_general_043 = {
+			transfer_to_formation = scope:cleanup2d4_formation_043
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:FRM ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Linienbataillon_Frankfurt
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HESSE
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_044
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-044 — Linienbataillon_Frankfurt — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_044
+		}
+		scope:cleanup2d4_general_044 = {
+			transfer_to_formation = scope:cleanup2d4_formation_044
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:WLD ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Waldecksches_Bataillon
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HESSE
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_045
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-045 — Waldecksches_Bataillon — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_045
+		}
+		scope:cleanup2d4_general_045 = {
+			transfer_to_formation = scope:cleanup2d4_formation_045
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SWE ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_northern_europe
+			name = cleanup2d3b_swe_naval_2
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 3
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 1
+			}
+
+
+
+			save_scope_as = cleanup2d6_fleet_016
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-016 — Henrik af Trolle
+		create_character = {
+			first_name = cleanup2d6_name_016
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:swedish
+			religion = rel:protestant
+			# Birth evidence: 1730-11-24; precision: DAY_EXACT
+			birth_date = 1730.11.24
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_016
+		}
+		scope:cleanup2d6_admiral_016 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_016
+		}
+		# END CLEANUP-2D-6L NAV1776-016
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_northern_europe
+			name = Kungliga_Svenska_Armn
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_SVEALAND
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_SVEALAND
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SVEALAND
+				count = 13
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GOTALAND
+				count = 10
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_SVEALAND
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_GOTALAND
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_SCANIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_UUSIMAA
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_047
+}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_northern_europe
+			name = cleanup2d3b_swe_naval_1
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 2
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 13
+			}
+
+
+
+			save_scope_as = cleanup2d6_fleet_017
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-017 — Carl Tersmeden
+		create_character = {
+			first_name = cleanup2d6_name_017
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:swedish
+			religion = rel:protestant
+			# Birth evidence: 1715-04-23; precision: DAY_EXACT
+			birth_date = 1715.4.23
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_017
+		}
+		scope:cleanup2d6_admiral_017 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_017
+		}
+		# END CLEANUP-2D-6L NAV1776-017
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-047 — Georg Magnus Sprengtporten — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_047
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:swedish
+			religion = rel:protestant
+			home_region = STATE_UUSIMAA
+			birth_date = 1740.8.16
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_047
+		}
+		scope:cleanup2d4_general_047 = {
+			transfer_to_formation = scope:cleanup2d4_formation_047
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:DENNOR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_northern_europe
+			name = Hren
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_EASTERN_NORWAY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EASTERN_NORWAY
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EASTERN_NORWAY
+				count = 14
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_JUTLAND
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_WESTERN_NORWAY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_ZEALAND
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_048
+}
+
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_northern_europe
+			name = Kongelige_Danske_Marine
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 7
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 5
+			}
+
+
+
+
+			save_scope_as = cleanup2d6_fleet_018
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-018 — Frederik Christian Kaas
+		create_character = {
+			first_name = cleanup2d6_name_018
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:danish
+			religion = rel:protestant
+			# Birth evidence: 1725-12-01; precision: DAY_EXACT
+			birth_date = 1725.12.1
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_018
+		}
+		scope:cleanup2d6_admiral_018 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_018
+		}
+		# END CLEANUP-2D-6L NAV1776-018
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-048 — Hren — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_048
+		}
+		scope:cleanup2d4_general_048 = {
+			transfer_to_formation = scope:cleanup2d4_formation_048
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SCH ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Schleswigsche_Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				count = 2
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_049
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-049 — Schleswigsche_Armee — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_049
+		}
+		scope:cleanup2d4_general_049 = {
+			transfer_to_formation = scope:cleanup2d4_formation_049
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:HOL ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = Holsteinische_Armee
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				count = 3
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_SCHLESWIG_HOLSTEIN
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_050
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-050 — Holsteinische_Armee — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_050
+		}
+		scope:cleanup2d4_general_050 = {
+			transfer_to_formation = scope:cleanup2d4_formation_050
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:WAL ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_balkans
+			name = Armata_rii_Romneti
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_WALLACHIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WALLACHIA
+				count = 3
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_WALLACHIA
+				count = 2
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_051
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-051 — Armata_rii_Romneti — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_051
+		}
+		scope:cleanup2d4_general_051 = {
+			transfer_to_formation = scope:cleanup2d4_formation_051
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:MON ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_balkans
+			name = Montengrin_Raiders
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_hussars
+
+				state_region = s:STATE_MONTENEGRO
+
+				count = 1
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MONTENEGRO
+				count = 5
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_MONTENEGRO
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_052
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-052 — Montengrin_Raiders — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_052
+		}
+		scope:cleanup2d4_general_052 = {
+			transfer_to_formation = scope:cleanup2d4_formation_052
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:MOL ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_balkans
+			name = Armata_Principatului_Moldovei
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_MOLDAVIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MOLDAVIA
+				count = 2
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_MOLDAVIA
+				count = 2
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_053
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-053 — Armata_Principatului_Moldovei — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_053
+		}
+		scope:cleanup2d4_general_053 = {
+			transfer_to_formation = scope:cleanup2d4_formation_053
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SIC ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = Reale_Esercito_di_SM_il_Re_del_Regno_delle_Due_Sicilie
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CAMPANIA
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ABRUZZO
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_APULIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CALABRIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CALABRIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_CAMPANIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_CALABRIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CAMPANIA
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_054
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = Guardia_Reale
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CAMPANIA
+				count = 8
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_CAMPANIA
+				count = 2
+			}
+
+			save_scope_as = cleanup2d4_formation_055
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = Armata_di_Mare_di_SM_il_Re_del_Regno_delle_Due_Sicilie
+
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 8
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-054 — Reale_Esercito_di_SM_il_Re_del_Regno_delle_Due_Sicilie — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_054
+		}
+		scope:cleanup2d4_general_054 = {
+			transfer_to_formation = scope:cleanup2d4_formation_054
+		}
+		# GEN1776-055 — Guardia_Reale — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_055
+		}
+		scope:cleanup2d4_general_055 = {
+			transfer_to_formation = scope:cleanup2d4_formation_055
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SAR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = I_Corpo_dArmata
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_PIEDMONT
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_PIEDMONT
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_PIEDMONT
+				count = 14
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_PIEDMONT
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_SARDINIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_SAVOY
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_056
+}
+
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = Marina_del_Regno_di_Sardegna
+
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 5
+			}
+
+
+			save_scope_as = cleanup2d6_fleet_020
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-020 — Francesco Maria De Nobili
+		create_character = {
+			first_name = cleanup2d6_name_020
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:north_italian
+			religion = rel:catholic
+			# Birth evidence: UNKNOWN; precision: UNKNOWN
+			# No exact birth_date or derived age encoded.
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_020
+		}
+		scope:cleanup2d6_admiral_020 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_020
+		}
+		# END CLEANUP-2D-6L NAV1776-020
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-056 — I_Corpo_dArmata — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_056
+		}
+		scope:cleanup2d4_general_056 = {
+			transfer_to_formation = scope:cleanup2d4_formation_056
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:PAP ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = Esercito_dello_Stato_della_Chiesa
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_LAZIO
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_LAZIO
+				count = 5
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_LAZIO
+				count = 3
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_057
+}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = Marina_Pontificia
+
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 1
+			}
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-057 — Esercito_dello_Stato_della_Chiesa — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_057
+		}
+		scope:cleanup2d4_general_057 = {
+			transfer_to_formation = scope:cleanup2d4_formation_057
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:TUS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = Esercito_del_Granducato_di_Toscana
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_TUSCANY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_TUSCANY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TUSCANY
+				count = 5
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_TUSCANY
+				count = 4
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_058
+}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = Marina_del_Granducato_di_Toscana
+
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 1
+			}
+			save_scope_as = cleanup2d6_fleet_022
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-022 — John Francis Edward Acton
+		create_character = {
+			first_name = cleanup2d6_name_022
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:catholic
+			# Birth evidence: 1736-06; precision: MONTH_ONLY
+			age = 39 # MONTH_ONLY / supported technical approximation; no fabricated month/day
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_022
+		}
+		scope:cleanup2d6_admiral_022 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_022
+		}
+		# END CLEANUP-2D-6L NAV1776-022
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-058 — Esercito_del_Granducato_di_Toscana — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_058
+		}
+		scope:cleanup2d4_general_058 = {
+			transfer_to_formation = scope:cleanup2d4_formation_058
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:LUC ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = Esercito_Ducale
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_EMILIA
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_059
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-059 — Esercito_Ducale — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_059
+		}
+		scope:cleanup2d4_general_059 = {
+			transfer_to_formation = scope:cleanup2d4_formation_059
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:MOD ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = Esercito_del_Ducato_di_Modena_e_Reggio
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EMILIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EMILIA
+				count = 3
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_EMILIA
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_060
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-060 — Esercito_del_Ducato_di_Modena_e_Reggio — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_060
+		}
+		scope:cleanup2d4_general_060 = {
+			transfer_to_formation = scope:cleanup2d4_formation_060
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:PAR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = Truppe_Reali_Parmensi
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EMILIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EMILIA
+				count = 2
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_EMILIA
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_061
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-061 — Truppe_Reali_Parmensi — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_061
+		}
+		scope:cleanup2d4_general_061 = {
+			transfer_to_formation = scope:cleanup2d4_formation_061
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:NET ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = cleanup2d3b_net_naval_2
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 3
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 2
+			}
+
+
+			save_scope_as = cleanup2d6_fleet_023
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-023 — Andries Hartsinck
+		create_character = {
+			first_name = cleanup2d6_name_023
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:dutch
+			religion = rel:protestant
+			# Birth evidence: 1720-04-25; precision: EXACT_DAY
+			birth_date = 1720.4.25
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_023
+		}
+		scope:cleanup2d6_admiral_023 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_023
+		}
+		# END CLEANUP-2D-6L NAV1776-023
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_western_europe
+			name = Koninklijk_Nederlands_Leger
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_FRIESLAND
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_FRIESLAND
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_FRIESLAND
+				count = 18
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_HOLLAND
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_FRIESLAND
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_GELRE
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_TRAVANCORE
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_062
+}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = cleanup2d3b_net_naval_1
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 4
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 3
+			}
+
+
+
+
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-062 — Lodewijk Ernst van Brunswijk-Wolfenbüttel — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_062
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_german
+			religion = rel:protestant
+			home_region = STATE_BRUNSWICK
+			birth_date = 1718.9.25
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_062
+		}
+		scope:cleanup2d4_general_062 = {
+			transfer_to_formation = scope:cleanup2d4_formation_062
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:BEO ?= {
+		# Luxembourg's existing formation and commander are retained under BEO.
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_western_europe
+			name = Luxemburger_Miliz
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_WALLONIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WALLONIA
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_046
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-046 — Luxemburger_Miliz — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_046
+		}
+		scope:cleanup2d4_general_046 = {
+			transfer_to_formation = scope:cleanup2d4_formation_046
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_western_europe
+			name = Armee_Belge
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_FLANDERS
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_FLANDERS
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_FLANDERS
+				count = 9
+			}
+
+			save_scope_as = cleanup2d4_formation_063
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-063 — Joseph-Jean-François de Ferraris — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_063
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:french
+			religion = rel:catholic
+			home_region = STATE_ALSACE_LORRAINE
+			birth_date = 1726.4.20
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_063
+		}
+		scope:cleanup2d4_general_063 = {
+			transfer_to_formation = scope:cleanup2d4_formation_063
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:POR ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3b_por_naval_2
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 3
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 1
+			}
+
+
+			save_scope_as = cleanup2d6_fleet_025
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-025 — Roberto Macdouall
+		create_character = {
+			first_name = cleanup2d6_name_025
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = primary_culture # TECHNICAL_GAMEPLAY_FALLBACK_NOT_HISTORICAL_CLAIM
+			# Birth evidence: UNKNOWN; precision: UNKNOWN
+			# No exact birth_date or derived age encoded.
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_025
+		}
+		scope:cleanup2d6_admiral_025 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_025
+		}
+		# END CLEANUP-2D-6L NAV1776-025
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = Exercito_Portugues
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+				state_region = s:STATE_ALENTEJO
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_ALENTEJO
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_ALENTEJO
+				count = 18
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				service_type = conscript
+				state_region = s:STATE_ENTRE_DOURO_E_MINHO
+				count = 9
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				service_type = conscript
+				state_region = s:STATE_BEIRA
+				count = 8
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				service_type = conscript
+				state_region = s:STATE_ESTREMADURA
+				count = 6
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_064
+}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3b_por_naval_1
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 4
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 2
+			}
+
+
+
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-064 — Duarte António da Câmara — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_064
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:portuguese
+			religion = rel:catholic
+			home_region = STATE_AZORES
+			age = 82 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_064
+		}
+		scope:cleanup2d4_general_064 = {
+			transfer_to_formation = scope:cleanup2d4_formation_064
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SPA ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_central_america
+			name = cleanup2d3b_spa_naval_3
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 6
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 5
+			}
+
+
+
+
+			save_scope_as = cleanup2d6_fleet_027
+		}
+
+		# BEGIN CLEANUP-2D-6L NAV1776-027 — Juan Bautista Bonet Arniaud
+		create_character = {
+			first_name = cleanup2d6_name_027
+			last_name = cleanup2d6_empty_name
+			historical = yes
+			culture = cu:spanish
+			religion = rel:catholic
+			# Birth evidence: 1707; precision: YEAR
+			age = 68 # YEAR / supported technical approximation; no fabricated month/day
+			is_admiral = yes
+			commander_rank = commander_rank_1
+			save_scope_as = cleanup2d6_admiral_027
+		}
+		scope:cleanup2d6_admiral_027 = {
+			transfer_to_formation = scope:cleanup2d6_fleet_027
+		}
+		# END CLEANUP-2D-6L NAV1776-027
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3b_spa_land_2
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+
+				state_region = s:STATE_ARAGON
+
+				count = 3
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_ARAGON
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_ARAGON
+				count = 17
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NEW_CASTILE
+				count = 7
+			}
+			save_scope_as = spanisharmy3
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_NEW_CASTILE
+				count = 15
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_GALICIA
+				count = 14
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_LOWER_ANDALUSIA
+				count = 12
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_OLD_CASTILE
+				count = 12
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_UPPER_ANDALUSIA
+				count = 11
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_CATALONIA
+				count = 6
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+}
+
+
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3b_spa_land_1
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+
+				state_region = s:STATE_NEW_CASTILE
+
+				count = 3
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_NEW_CASTILE
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_NEW_CASTILE
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GALICIA
+				count = 15
+			}
+			save_scope_as = spanisharmy2
+		}
+
+
+
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_america
+			name = cleanup2d3b_spa_land_3
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_improved_cannon_artillery
+
+				state_region = s:STATE_WEST_INDIES
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_WEST_INDIES
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WEST_INDIES
+				count = 19
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_GALICIA
+				count = 5
+			}
+			save_scope_as = spanisharmy1
+		}
+
+
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3b_spa_naval_1
+
+			ship = {
+				type = ship_type:ship_type_frigate
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 6
+			}
+			ship = {
+				type = ship_type:ship_type_ship_of_the_line
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 9
+			}
+
+
+
+
+}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_southern_europe
+			name = cleanup2d3b_spa_naval_2
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 4
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 6
+			}
+
+
+
+
+}
+
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-065 — Antonio Ricardos — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_065
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:spanish
+			religion = rel:catholic
+			home_region = STATE_ARAGON
+			birth_date = 1727.9.12
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_065
+		}
+		scope:cleanup2d4_general_065 = {
+			transfer_to_formation = scope:spanisharmy3
+		}
+		# GEN1776-066 — Félix O'Neille y O'Neille — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_066
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:irish
+			religion = rel:catholic
+			home_region = STATE_ULSTER
+			birth_date = 1720.11.1
+			interest_group = ig_armed_forces
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_066
+		}
+		scope:cleanup2d4_general_066 = {
+			transfer_to_formation = scope:spanisharmy2
+		}
+		# GEN1776-067 — José Francisco Antonio Solano y Bote — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_067
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:spanish
+			religion = rel:catholic
+			home_region = STATE_EXTREMADURA
+			birth_date = 1726.3.6
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_067
+		}
+		scope:cleanup2d4_general_067 = {
+			transfer_to_formation = scope:spanisharmy1
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:UBD ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_eastern_europe
+			name = cleanup2d3e_r1_ubd_land_1
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_line_infantry
+
+				state_region = s:STATE_TALINN
+
+				count = 2
+
+			}
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_line_infantry
+
+				state_region = s:STATE_RIGA
+
+				count = 2
+
+			}
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_lancers
+
+				state_region = s:STATE_RIGA
+
+				count = 1
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TALINN
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_068
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-068 — George Browne — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_068 = {
+			transfer_to_formation = scope:cleanup2d4_formation_068
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:BHU ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_himalayas
+			name = cleanup2d3b_bhu_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_EASTERN_HIMALAYAS
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_EASTERN_HIMALAYAS
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_069
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-069 — cleanup2d3b_bhu_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_069
+		}
+		scope:cleanup2d4_general_069 = {
+			transfer_to_formation = scope:cleanup2d4_formation_069
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:BUK ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = cleanup2d3b_buk_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_MERZ
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MERZ
+				count = 4
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_UZBEKIA
+				count = 6
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_TAJIKISTAN
+				count = 2
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_070
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-070 — Daniyal Biy — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_070 = {
+			transfer_to_formation = scope:cleanup2d4_formation_070
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:COB ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_cob_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SAXONY
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_071
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-071 — cleanup2d3b_cob_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_071
+		}
+		scope:cleanup2d4_general_071 = {
+			transfer_to_formation = scope:cleanup2d4_formation_071
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:GAL ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_eastern_europe
+			name = cleanup2d3b_gal_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_EAST_GALICIA
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_EAST_GALICIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_EAST_GALICIA
+				count = 9
+			}
+
+			save_scope_as = cleanup2d4_formation_072
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-072 — cleanup2d3b_gal_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_072
+		}
+		scope:cleanup2d4_general_072 = {
+			transfer_to_formation = scope:cleanup2d4_formation_072
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:HOH ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_hoh_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_WURTTEMBERG
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_073
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-073 — cleanup2d3b_hoh_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_073
+		}
+		scope:cleanup2d4_general_073 = {
+			transfer_to_formation = scope:cleanup2d4_formation_073
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:KHI ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = cleanup2d3b_khi_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_KHIVA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KHIVA
+				count = 4
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_KHIVA
+				count = 7
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_074
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-074 — Muhammad Amin Inaq — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_074 = {
+			transfer_to_formation = scope:cleanup2d4_formation_074
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:KOK ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = cleanup2d3b_kok_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_FERGANA
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_FERGANA
+				count = 4
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_FERGANA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_KIRGHIZIA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_TAJIKISTAN
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_075
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-075 — cleanup2d3b_kok_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_075
+		}
+		scope:cleanup2d4_general_075 = {
+			transfer_to_formation = scope:cleanup2d4_formation_075
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:KOR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_northeast_asia
+			name = cleanup2d3b_kor_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_BUSAN
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_BUSAN
+				count = 16
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_BUSAN
+				count = 25
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_PYONGYANG
+				count = 5
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_076
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-076 — Gu Seon-bok — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_076
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:korean
+			age = 57 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			# 2D5M recommends experienced_commander, but that is not a Victoria 3 1.13 trait token; intentionally unset.
+			is_general = yes
+			save_scope_as = cleanup2d4_general_076
+		}
+		scope:cleanup2d4_general_076 = {
+			transfer_to_formation = scope:cleanup2d4_formation_076
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:KZH ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = cleanup2d3b_kzh_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_AKTOBE
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_SAMARA
+				count = 3
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_077
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-077 — cleanup2d3b_kzh_land_1 — PROCEDURAL_REQUIRED_COLLECTIVE_STRUCTURE
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_077
+		}
+		scope:cleanup2d4_general_077 = {
+			transfer_to_formation = scope:cleanup2d4_formation_077
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:MEI ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_mei_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SAXONY
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_078
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-078 — cleanup2d3b_mei_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_078
+		}
+		scope:cleanup2d4_general_078 = {
+			transfer_to_formation = scope:cleanup2d4_formation_078
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:MST ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_mst_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MECKLENBURG
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_079
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-079 — cleanup2d3b_mst_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_079
+		}
+		scope:cleanup2d4_general_079 = {
+			transfer_to_formation = scope:cleanup2d4_formation_079
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:NEP ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_himalayas
+			name = cleanup2d3b_nep_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_HIMALAYAS
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_HIMALAYAS
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_HIMALAYAS
+				count = 9
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_HIMALAYAS
+				count = 10
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_080
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-080 — Abhiman Singh Basnyat — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_080
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:nepali
+			home_region = STATE_HIMALAYAS
+			age = 31 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			# 2D5M recommends experienced_commander, but that is not a Victoria 3 1.13 trait token; intentionally unset.
+			is_general = yes
+			save_scope_as = cleanup2d4_general_080
+		}
+		scope:cleanup2d4_general_080 = {
+			transfer_to_formation = scope:cleanup2d4_formation_080
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:OZH ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_asia
+			name = cleanup2d3b_ozh_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_AKMOLINSK
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_SEMIRECHE
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_081
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-081 — Ablai Khan — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_081 = {
+			transfer_to_formation = scope:cleanup2d4_formation_081
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SCW ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_scw_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SAXONY
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_082
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-082 — cleanup2d3b_scw_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_082
+		}
+		scope:cleanup2d4_general_082 = {
+			transfer_to_formation = scope:cleanup2d4_formation_082
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SIK ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_himalayas
+			name = cleanup2d3b_sik_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_EASTERN_HIMALAYAS
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_083
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-083 — cleanup2d3b_sik_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_083
+		}
+		scope:cleanup2d4_general_083 = {
+			transfer_to_formation = scope:cleanup2d4_formation_083
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SWI ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_swi_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_EAST_SWITZERLAND
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_EAST_SWITZERLAND
+				count = 3
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_WEST_SWITZERLAND
+				count = 2
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_084
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-084 — cleanup2d3b_swi_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_084
+		}
+		scope:cleanup2d4_general_084 = {
+			transfer_to_formation = scope:cleanup2d4_formation_084
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:TIB ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_himalayas
+			name = cleanup2d3b_tib_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_EASTERN_HIMALAYAS
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_EASTERN_HIMALAYAS
+				count = 6
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_LHASA
+				count = 10
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_085
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-085 — cleanup2d3b_tib_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_085
+		}
+		scope:cleanup2d4_general_085 = {
+			transfer_to_formation = scope:cleanup2d4_formation_085
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:WEI ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_central_europe
+			name = cleanup2d3b_wei_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_SAXONY
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_086
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-086 — cleanup2d3b_wei_land_1 — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_086
+		}
+		scope:cleanup2d4_general_086 = {
+			transfer_to_formation = scope:cleanup2d4_formation_086
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+}

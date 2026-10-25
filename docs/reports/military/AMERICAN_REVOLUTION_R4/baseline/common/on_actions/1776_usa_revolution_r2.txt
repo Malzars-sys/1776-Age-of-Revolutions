@@ -1,0 +1,30 @@
+on_game_started_after_lobby = { on_actions = { aor1776_usa_support_startup } }
+
+aor1776_usa_support_startup = {
+ effect = {
+  c:USA ?= {
+   aor1776_support_initialize_effect = yes
+   if = {
+    limit = { NOT = { has_variable = aor1776_r3_startup_scheduled } }
+    set_variable = aor1776_r3_startup_scheduled
+    trigger_event = { id = aor1776_american_diplomacy.1 days = 3 popup = yes }
+    if = {
+     limit = { game_date = 1776.1.1 }
+     # Calendar differences from 1776-01-01, including leap years.
+     c:FRA ?= { trigger_event = { id = aor1776_intervention.1 days = 806 } }
+     c:SPA ?= { trigger_event = { id = aor1776_intervention.2 days = 1267 } }
+    }
+   }
+  }
+ }
+}
+
+on_monthly_pulse_country = { on_actions = { aor1776_usa_support_monthly } }
+aor1776_usa_support_monthly = {
+ trigger = { c:USA ?= this }
+ effect = {
+  aor1776_support_monthly_effect = yes
+  aor1776_content_monthly_effect = yes
+  aor1776_founders_maintenance_effect = yes
+ }
+}

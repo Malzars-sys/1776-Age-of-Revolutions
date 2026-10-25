@@ -1,0 +1,16 @@
+# Essais en jeu — corps du génie
+
+**Statut : NOT_RUN.** Ce protocole ne vaut pas preuve de fonctionnement moteur.
+
+1. Relever version du jeu, mods et sauvegarde de départ. Contrôler les nouvelles erreurs du lot, notamment le nouveau groupe d’unités, la liste de bataille et les références culturelles.
+2. Avant **Corps du génie**, vérifier le verrouillage de l’unité. Après recherche, vérifier son apparition dans une rubrique de génie distincte de l’infanterie, son nom et son icône, ainsi que le maintien des autres types. Contrôler recrutement, garnison, effectifs, salaires et achats d’armes légères, d’outils et de bois.
+3. À cinq niveaux simples, opposer 0, 1, 10, 24, 25 puis 26 bataillons complets du génie réellement sélectionnés pour la bataille. Relever respectivement 25, 24, 15, 1, 0 puis 0 points de supplément du fort. Ne pas confondre les bataillons de la formation avec ceux du combat.
+4. Refaire l’essai sur cinq niveaux renforcés : 25 bataillons laissent 25 points et 50 annulent le supplément. Sur cinq niveaux avancés : 25 laissent 50 points, 50 laissent 25, 75 annulent le supplément et 100 ne créent aucune pénalité.
+5. Contrôler les trois champs : réduction des provinces perdues, réduction des pertes subies, défense terrestre. Les autres bonus du pays et les effets ordinaires des conditions tactiques doivent subsister. Comparer des résultats sur plusieurs batailles équivalentes ; les pertes d’une bataille unique ne mesurent pas un pourcentage exact.
+6. Tester 24 bataillons de 500 hommes contre cinq niveaux simples : 13 points doivent rester. Tester des bataillons vides, des unités ordinaires, des sapeurs du défenseur, d’un allié du défenseur et d’un allié attaquant. Déplacer des sapeurs dans une autre bataille : ils ne doivent pas contribuer ici.
+7. Observer poursuite, déroute et retraite contrôlée, puis annulation complète du fort en cours de combat. Contrôler la transition au prochain contrôle natif, le maintien des pénalités natives et l’absence de boucle. Retirer le génie, modifier le PM et démolir le fort pour tester la reprise ou la fin de la protection.
+8. Vérifier un combat à plusieurs pays et l’affectation des unités aux deux côtés, avec et sans général. Vérifier aussi attaque du propriétaire, territoire occupé, province alliée et État côtier : les restrictions antérieures des forts terrestres doivent rester actives. Aucun contre des forts navals n’est attendu.
+9. Vérifier les images sur les cultures française, britannique, allemande, espagnole et portugaise : variante européenne bleue. Cultures yankee, canadiennes, mexicaine, caribéenne, brésilienne et afro-américaine : scène Amériques/Caraïbes. Contrôler les quatre autres variantes et le générique kaki sur une culture sans variante dédiée, y compris les survols sans culture explicite.
+10. Sauvegarder et recharger une armée du génie, puis une bataille fortifiée. Observer l’IA, la composition de ses armées après la recherche et son budget. Éprouver plusieurs batailles simultanées avec beaucoup d’unités pour mesurer le coût des valeurs scriptées.
+
+Conserver captures, sauvegardes et erreurs avec le résultat. Ne passer au statut **ENGINEER_CORPS_RUNTIME_VALIDATED** qu’après réussite des essais pertinents.

@@ -1,0 +1,28 @@
+namespace = aor1776_usa_content
+
+aor1776_usa_content.1 = {
+	type = country_event
+	placement = root
+	title = aor1776_usa_content.1.t
+	desc = aor1776_usa_content.1.d
+	flavor = aor1776_usa_content.1.f
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	duration = 20
+	trigger = { c:USA ?= this aor1776_usa_independence_war_active = yes }
+	option = {
+		name = aor1776_usa_content.1.a
+		default_option = yes
+		trigger = { gold_reserves >= 7500 aor1776_usa_independence_war_active = yes }
+		ai_chance = { base = 80 }
+		add_treasury = -7500
+		aor1776_content_initialize_effect = yes
+		change_variable = { name = aor1776_fervour add = 10 }
+		aor1776_fervour_refresh_effect = yes
+	}
+	option = {
+		name = aor1776_usa_content.1.b
+		ai_chance = { base = 20 }
+		aor1776_content_initialize_effect = yes
+		if = { limit = { aor1776_usa_independence_war_active = yes } change_variable = { name = aor1776_fervour add = -5 } aor1776_fervour_refresh_effect = yes }
+	}
+}

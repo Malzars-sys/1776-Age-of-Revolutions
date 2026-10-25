@@ -1,0 +1,955 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ČHA</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="../img/favicon.jpg" rel="icon">
+    <link href="img/atlas3.jpg" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="css/styleAPP.css" rel="stylesheet">
+
+    <style>
+        body {
+            padding: 0;
+            margin: -50px 0 0 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .texthide {
+            display: none;
+        }
+        
+        .esri-widget {
+            background-color: grey;
+        }
+
+/* Roll nav menu */
+
+.roll-navmenu {
+    position: fixed;
+    background: #18d26e;
+    color: #fff;
+    width: 33px;
+    height: 33px;
+    text-align: center;
+    line-height: 1;
+    font-size: 14px;
+    border-radius: 50%;
+    right: 4px;
+    top: 6px;
+    transition: background 0.5s;
+    z-index: 998;
+    cursor: pointer;
+}
+
+.roll-navmenu i {
+    padding-top: 12px;
+    color: #fff;
+}
+
+
+
+
+        #legDiv{
+         position: absolute;
+         top: 97px;
+         right: 0px;
+         z-index: 948;
+         border: solid 2px black;
+//         margin-left: -7px;
+         overflow-y: scroll;
+         height:auto;
+        }
+        
+
+        #legON{
+         position: absolute;
+         top: 98px;
+         right: 0px;
+         z-index: 949;
+         border: solid 2px black;
+//         margin-left: -7px;
+//         overflow-y: scroll;
+//         height: calc(100% - 95px);
+         max-height: calc(100% - 95px);
+         display:block;
+         background-color:#F2F2F2;
+         font-size: 16px;
+overflow-y: auto;
+         padding-top: 66px;
+        }
+        
+
+#legON .scrollbar {
+    width: 5px;
+}
+
+.cross{
+//position: relative;
+//         top: 110 px;
+//         right: 13px;
+//         z-index: 999;
+//         margin-right: 9px;
+//         margin-top: 16px;
+         top: 110 px;
+         right: 13px;
+         z-index: 949;
+         margin: -53px 9px 0px 0px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    padding-top:4px;
+    background: #303030;
+    color: #adadad;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    border-radius: 3px;
+    transition: background 0.5s;
+        }
+
+  #legOFF{
+         position: absolute;
+//         top: 110px;
+//         right: 13px;
+         top: 110px;
+         right: 22px;
+         z-index: 948;
+         display :none;
+    position: fixed;
+    padding-top:4px;
+    background: #303030;
+    color: #adadad;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    vertical-align:middle;
+    font-size: 16px;
+//    border-radius: 50%;
+    border-radius: 3px;
+    transition: background 0.5s;
+    cursor: pointer;    
+        }
+        
+
+        .legenda{
+         position: absolute;
+         top: 0px;
+         right: 0px;
+         z-index: 949;
+         border: solid 2px black;
+         margin-top: -2px;
+        }
+        
+/*
+        .legenda1{
+         position: absolute;
+         bottom: 0px;
+         left: 0px;
+         z-index: 949;
+         border: solid 2px black;
+         margin-left: -7px;
+        }
+        
+*/
+        .img-leg{
+         width: 100%;
+         height:auto;
+        }
+        
+.ban {
+display: none;
+ }
+
+@media only screen and (max-width: 1200px) {
+
+  .ban {
+  display: block;
+    position: absolute;
+//    padding-right: 160px;
+//    padding-left: 20px;
+min-height: 40px;
+    padding: 10px 160px 10px 20px;
+    margin-top: 26px;
+    margin-left: 0px;
+    z-index: 1001;
+    background: red;
+    width: 100%;
+    color: black;
+    text font-family: "Montserrat", 'open_sanssemibold', sans-serif;
+//    font-weight: 550;
+    font-weight: 550;
+    letter-spacing: 1px;
+    /*padding: 20x 10px;
+    margin-left: 20x;*/
+//    font-size: 24px;
+    font-size: 16px;
+    text-align: left;
+    overflow: auto;
+   }
+
+        #legON{
+        display:none;
+  }
+
+        #legON{
+        display:none;
+  }
+
+        .img-leg{
+         display:none;
+        }
+
+        #legDiv{
+         display:none;
+        }
+
+        .legenda{
+         display:none;
+        }
+
+        .legenda1{
+         display:none;
+        }
+
+.cross{
+         display:none;
+        }
+
+/*
+.map-text{
+         display:none;
+        }
+}
+
+.view-div{
+         width:100%;
+         left:0px;
+         top:97px;
+        }
+*/
+}
+
+/*--------------------------------------------------------------
+# scrollbar
+--------------------------------------------------------------*/
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+/* Track   rgb(49, 49, 49);*/
+
+ ::-webkit-scrollbar-track {
+    background: black;
+}
+
+
+/* Handle  #666666; rgb(49, 49, 49)*/
+
+ ::-webkit-scrollbar-thumb {
+    background: #666666;
+}
+
+
+/* Handle on hover #B8B8B8; */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+}
+
+
+
+.esri-popup__content{color:yellow;display:flex;flex-flow:column nowrap;flex:1 1 auto;font-size:12px;font-weight:400;margin:0 15px 12px;overflow:auto;line-height:normal}
+
+.esri-popup__header-title{color:yellow;border-radius:2px;font-size:14px;padding:6px 7px;margin:6px auto 6px 7px;display:block;transition:background-color 125ms ease-in-out;white-space:pre-wrap;word-break:break-all;word-wrap:break-word;word-break:break-word}
+
+.esri-popup__header-title:hover{background-color:#303030}
+
+    </style>
+    
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H1GXHWZKJY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H1GXHWZKJY');
+</script>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/dark/main.css" />
+    <!-- <link rel="stylesheet" href="css/CHAdarkESRI.css" />-->
+
+
+    <script>
+        var widthSCR = window.innerWidth ||
+            document.documentElement.clientWidth ||
+            document.body.clientWidth;
+
+        var heightSCR = window.innerHeight ||
+            document.documentElement.clientHeight ||
+            document.body.clientHeight;
+
+        var heightIFRAME = heightSCR - 91;
+        var heightIFRAMEtree = heightSCR - 100;
+        var heightMAP = heightSCR - 96;
+
+        var widhtPART3 = widthSCR / 4;
+        var widthPART9 = widthSCR - widhtPART3;
+        var widthMAP = widthPART9 + 8;
+        var widhtIFRAME = widthSCR - widhtPART3 + 5;
+
+        function rollNAVMENU() {
+            var navzap = document.getElementById('headerON');
+            var navvyp = document.getElementById('headerOFF');
+            if (navzap.style.display === 'block') {
+                navzap.style.display = 'none';
+                navvyp.style.display = 'block';
+            } else {
+                navzap.style.display = 'block';
+                navvyp.style.display = 'none';
+            }
+        }
+
+        function treeNAVMENU() {
+            var tmzap = document.getElementById('treemenuON');
+            var tmvyp = document.getElementById('treemenuOFF');
+            if (tmzap.style.display === 'block') {
+                tmzap.style.display = 'none';
+                tmvyp.style.display = 'block';
+            } else {
+                tmzap.style.display = 'block';
+                tmvyp.style.display = 'none';
+            }
+        }
+
+        function blockTIR() {
+            var tizap = document.getElementById('blocktirON');
+            var tivyp = document.getElementById('blocktirOFF');
+            if (tizap.style.display === 'block') {
+                tizap.style.display = 'none';
+                tivyp.style.display = 'block';
+            } else {
+                tizap.style.display = 'block';
+                tivyp.style.display = 'none';
+            }
+        }
+
+        function blockLEG() {
+            var legzap = document.getElementById('legON');
+            var legvyp = document.getElementById('legOFF');
+            if (legzap.style.display === 'block') {
+                legzap.style.display = 'none';
+                legvyp.style.display = 'block';
+            } else {
+                legzap.style.display = 'block';
+                legvyp.style.display = 'none';
+            }
+        }
+
+
+    </script>
+<script>
+/* alert('SYSTEM MAINTENANCE IN PROGRESS!\n\nApplications may not work.\nSorry for the inconvenience.'); */
+</script>
+
+
+    <script src="https://js.arcgis.com/4.26/"></script>
+
+																								
+
+<!--    problem margin v kap 7 - VYRESIT    -->
+
+<!-- ============= MAPP TEXTY STARTS ============= -->
+
+﻿
+<!-- ============= MAPP TEXTY   ENDS ============= -->
+
+<!-- ============= APP  CSS   STARTS ============= -->
+
+
+<!-- ============= APP  CSS     ENDS ============= -->
+
+<!-- ============= APP CONF   STARTS ============= -->
+
+
+    <script>
+  //cast #2 - konfigurace obsahu aplikace BEGIN ****************************************************************************************
+        
+     //kongigurace obsahu mapova aplikace *****************
+     
+     //identifikatory vypublikovanych webovych map (portalItem)
+
+    </script>     
+<script> 
+   var webMapIDs= ["7cb7f46aa2274ab2b9c2dfc94ea3aec6","140838bb1d564508be7ed5b805a324ff","0d3d184a6a38468aae4e7b04b1e164fe","deb275f17bad4b5391e34322e3cf63de","3c08c69b8b144c5ea7ce2c954f9423c5","f308473639c44e24b4a0f3cb2019cfad","79eaf640ea304362b05a5696491834ca","b1e24c9c718046eebb234a546a9263dc","0e8f059f08c3461499cf4f5c2d2e907f","3186da6fa00c4522927e935539946e00","c34f98bd8af74fe79b9db3b54d4ad2ff","88a9e4bd6c604d95a63ee68698a6486f","cdd8a3a662cf42109be7e5c6fc6c216d","11771552ab0f4a9c9b06b2f600b46261",];
+
+
+   var webMapSliderLabels= ["Medieval Times until 12th c. - Samo's Empire","Medieval Times until 12th c. - Great Moravia","Medieval Times until 12th c. - Bohemia in early 10th c.","Medieval Times until 12th c. - Czech state in 2nd half of 10th c.","Medieval Times until 12th c. - Czech state in 11th and 12th c.","Medieval Times 13th - 15th c. - Přemyslid Ottokar II","Medieval Times 13th - 15th c. - Wenceslas II and Wenceslas III","Medieval Times 13th - 15th c. - Luxembourg period","Medieval Times 13th - 15th c. - George of Poděbrady","Medieval Times 13th - 15th c. - Jagiellonian period","Early Modern Period - Habsburg Monarchy in 16th c.","Early Modern Period - Habsburg Monarchy in 17th and 18th c.","Modern Period until 1918 - Habsburg Monarchy 1792–1918","Modern Period until 1918 - Disintegration of Austria-Hungary",];
+
+
+   var iniZoomLevels= ["2","2","2","2","2","2","2","2","2","2","2","2","2","2",];
+
+ 
+   var minZoomLevels= ["2","2","3","2","3","2","1","2","2","2","1","0","0","1",];
+ 
+ 
+   var maxZoomLevels= ["3","3","4","3","4","3","3","4","4","4","2","2","2","2",];
+ 
+ 
+   var mapIDs= ["1Aa","1Ab","1Ac","1Ad","1Ae","1Ba","1Bb","1Bc","1Bd","1Be","1Ca","1Cb","1Da","1Db",];
+</script> 
+     
+    <script>     
+     //identifikator uvodni mapy                                                                                                    
+     var initialWebMapID1=webMapIDs[1];                                                              
+
+     var initialWebMapID2=webMapIDs[10];      
+     
+    
+     //cast #2 - konfigurace obsahu aplikace END ****************************************************************************************
+    </script>  
+
+<!-- ============= APP CONF     ENDS ============= -->
+
+<!-- ============= APP   JS   STARTS ============= -->
+
+
+<!-- ============= APP   JS     ENDS ============= -->
+
+<!-- ============= APP JS OPERABLE STARTS ============= -->
+
+    <script>
+        function showDivIntro() {
+            if (document.getElementById) {
+                var apview = document.getElementById("appview");
+                var pageview = document.getElementById("pageview");
+                var mapintro = document.getElementById("mapintro");
+                apview.style.display = "none";
+                pageview.style.display = "block";
+                mapintro.style.display = "block";
+                contentview.style.display = "none";
+            }
+            return false;
+        }
+
+        function showDivContent() {
+            if (document.getElementById) {
+                var apview = document.getElementById("appview");
+                var pageview = document.getElementById("pageview");
+                var mapintro = document.getElementById("mapintro");
+                var contentview = document.getElementById("contentview");
+                apview.style.display = "none";
+                pageview.style.display = "block";
+                mapintro.style.display = "none";
+                contentview.style.display = "block";
+            }
+            return false;
+        }
+    </script>
+<!-- ============= APP JS OPERABLE   ENDS ============= -->
+
+</head> ﻿  
+<!--==========================
+    Header      
+  ============================-->
+
+
+<body>
+ <script>
+ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ alert("The map portal is not yet fully optimized for use on mobile devices. Please use another device.");
+  window.location.href = 'https://cha.fsv.cvut.cz/en';
+} 
+ </script>
+<!-- -------------------  HEADER STARTS  ------------------ -->
+    <header id="headerOFF">
+        <div class="container-fluid">
+            <div id="logo" class="pull-left">
+                <h1><a href="index.php">CHA</a></h1>
+            </div>
+        </div>
+        <div href="#" class="roll-navmenu" onclick="rollNAVMENU()"><i class="fa fa-chevron-left">     </i></div>
+    </header>
+
+    <header id="headerON">
+    <div class="container-fluid">
+        <div id="logo" class="pull-left">
+            <h1><a href="#intro" class="scrollto">Czech Historical Atlas</a></h1>
+        </div>
+
+﻿
+<style>
+
+@media only screen and (max-width: 900px) {
+#header2 {
+    background: black;
+    padding: 10px 0;
+    height: 60px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 997;
+}
+
+#header2 #logo {
+    float: left;
+}
+
+#header2 #logo h1 {
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 550;
+    letter-spacing: 1px;
+}
+
+#header2 #logo h1 a,
+#header2 #logo h1 a:hover {
+    color: #fff;
+    padding-left: 10px;
+    border-left: 4px solid #18d26e;
+}
+
+#header2 #logo img {
+    padding: 0;
+    margin: 0;
+}
+
+#portfolio {
+    padding: 0px 10px;
+}
+
+}
+</style>
+<header id="header">
+    <div class="container-fluid">
+
+
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header2">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="index.php" class="scrollto">Czech Historical Atlas</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+<!--          <li class="menu-active"><a href="index.html#intro">Intro</a></li>-->
+          <li class="menu-has-children"><a href="atlas.php">Atlas</a>
+            <ul>
+              <li><a href="atlas.php#hranice">Borders and Territories</a></li>
+              <li><a href="atlas.php#regiony">Borders and Regions</a></li>
+              <li><a href="atlas.php#cechy">Czech State and Europe in the 20th Century</a></li>  
+              <li><a href="atlas.php#obyvatelstvo">Populations</a></li>
+              <li><a href="atlas.php#vira">Religion and Faith</a></li>
+              <li><a href="atlas.php#mezniky">Historical Milestones, Periods and Consequences</a></li>
+              <li><a href="atlas.php#konflikty">War Conflicts and Their Consequences</a></li>              
+              <li><a href="atlas.php#krajina">Landscape and Humans</a></li>         
+              <li><a href="atlas.php#srovnani">Map Compare</a></li>
+            </ul>
+          </li>
+          <li class="menu-has-children"><a href="histkartografie.php">Historical Cartography</a>
+            <ul>
+              <li><a href="histkartografie.php#charakteristika">Characteristics</a></li>
+              <li><a href="histkartografie.php#atlasy">Historical Maps and Atlases in the Czech Lands</a></li>              
+              <li><a href="dbatlasu.php">Database of Historical Atlases</a></li>
+               <li><a href="dalsiatlasy.php">Foreign Electronic Historical Atlases</a></li> 
+            </ul>          
+          </li>
+              <li class="menu-has-children"><a href="index.php">Intro</a>
+                <ul>
+                  <li><a href="index.php#about">About project</a></li>
+                  <li><a href="tiraz.php">Colophon</a></li>              
+                </ul>                           
+              </li>
+<!--          
+          <li><a href="../index.php#about">CZ&nbsp&nbsp<img src="../img/cz.png" height="15" alt="Česky"></a></li>
+-->
+    <script>
+    var url = window.location.href;
+    if (url.includes("/en/") == true){
+    var urlnew = url.replace("cha.fsv.cvut.cz/en/", "cha.fsv.cvut.cz/");
+    }
+    if (url.includes("czechhistoricalatlas") == true){
+    var urlnew = url.replace("https://czechhistoricalatlas.cz/", "https://ceskyhistorickyatlas.cz/");
+    } 
+    
+    document.write(" <li><a href='" + urlnew + "'>CZ&nbsp&nbsp<img src='../img/cz.png' height='15' alt='Česky'></a></li>");
+    </script>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header>
+  
+  <!-- #header -->
+    </div>
+</header>
+
+        </div>   
+        <div href="#" class="roll-navmenu" onclick="rollNAVMENU()"><i class="fa fa-chevron-right">     </i></div>
+    </header>
+<!-- -------------------  HEADER ENDS  ------------------ -->
+
+
+
+<!-- ------- TLACITKA KAP, TIR, FAQ  STARTS -------------- -->
+    <tree id="blocktirON">
+        <a href="tiraz.php" class="roll-tir" target="tiraz"><i class="fa fa-copyright">  </i></a>
+    </tree> 
+<!--
+    <tree id="faqmenu">
+        <a href="manual.php" class="roll-faqmenu" target="tiraz"><i class="fa fa-question">  </i></a>
+    </tree>
+-->
+<!--
+ <tree id="treemenuON">
+    <div class="">
+      <div id="logo" class="pull-left">
+        <h1>LEGENDA</h1>
+
+<!--        "<iframe src='kapitoly.php' width="330px" height="600px" frameBorder='0'></iframe>    -->
+<!--   <script>  document.write("<iframe src='kapitoly.php' width='330px' height="+heightIFRAMEtree+" frameBorder='0'></iframe>");    </script>   
+<!--
+       </div>
+    </div>
+<div href="#" class="roll-treemenu" onclick="blockLEG()"><i class="fa fa-times">     </i></div>
+  </tree>
+
+ <tree id="treemenuOFF">
+<div href="#" class="roll-treemenu" onclick="blockLEG()"><i class="fa fa-book">  </i></div>
+  </tree>
+
+
+<!-- ------- TLACITKA KAP, TIR, FAQ  ENDS -------------- -->
+ <div class="ban"><big> Not optimized for mobile devices. </big> <br> Please use another device. </div>
+    <main id="main" class="bg-white">  
+
+
+﻿<!-- --------     ROW STARTS     ---------  -->
+            <div class="row bg-grey">
+                <div class="map-title">
+
+                     <span style='text-transform: uppercase;'>Borders and Territories</span><span> &ndash; Early Modern Period</span><!--<span style='color: red;'>&nbsp;&nbsp;&nbsp;&nbsp;!SERVER IS OVERLOADED!</span>-->  
+
+<!--  ###########################  buttons - TABS  ################################# -->
+                </div>
+                <div class="col-lg-12 underlined">
+                    <div id="switchDiv" class="underlined" style="float: left; height: 44px; max-width: 90/; margin-left: 10px; ">
+                        <!--margin-left: 25%; -->
+                        <section class="esri-widget ">
+                            <div class="btns ">
+<!--                                <div class="btn-switch" data-id="back" onClick='showBack()'>◄</div>    -->
+<!--                                <div class="btn-switch" data-id="0" onClick='showDivIntro()'>Úvod</div>    -->
+
+                                <a href='mapp.php?map=1B'><div class='btn-switch'>◄</div></a>
+            
+                                <a href='mapp.php?map=1C'><div class='btn-switch active-tab' id='introPage' data-id='0'>Intro</div></a>
+            
+                                <a href='mapp.php?map=1Ca'><div id='btn1' class='btn-switch' data-id='1'>Habsburg Monarchy in 16th c.</div></a>
+            
+                                <a href='mapp.php?map=1Cb'><div id='btn2' class='btn-switch' data-id='2'>Habsburg Monarchy in 17th and 18th c.</div></a>
+            
+                                <a href='mapp.php?map=1Cs'><div id='btn3' class='btn-switch' data-id='3'>Compare</div></a>
+            
+                                <div class='btn-switch' id='contentPage' data-id='99' onClick='showDivContent()'>Content</div>
+            
+                                <a href='mapp.php?map=1D'><div class='btn-switch'>►</div></a>
+            <!--
+<div id='btn".$maptextpole[$q][2]."' class='btn-switch' data-id='".$maptextpole[$q][2]."' onClick='showDivText(id)'>".$maptextpole[$q][3]."</div>
+-->
+<!--
+                                <div class="btn-switch" data-id="99" onClick='showDivContent()'>Content</div>
+-->
+<!--
+                                <div class="btn-switch" data-id="next" onClick='showNext()'>►</div>
+-->
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+<!-- --------      ROW ENDS      ---------  -->
+
+<!-- --------     ROW STARTS     ---------  -->
+<!-- ----------------- APP VIEW   MAPTEXT  STARTS ----------------- -->
+
+<!--  ###########################  maptext  ################################# -->
+
+                <div class='row' id='appview' style='display:none'>
+            <!--
+                <div class="row" id="appview" style="display:none">
+-->
+
+
+
+<script>
+        document.write("<div class='map-text'  style='height:" + heightIFRAME + "px; display:none'>");
+</script>
+            
+                    <div id='maptext1' class='texthide'>
+          
+                        <p class='nadpisvelky'>Establishment of the Habsburg Monarchy in the 16th century</p> 
+                        <p>From the early 16th century until the early 20th century, the history of the Czech lands is connected with the existence of the Habsburg Monarchy. This large Danubian monarchy came into existence in 1526 when, following the sudden death of Louis II of Hungary in the Battle of Mohács in the same year, Ferdinand I started to strive for the Bohemian and Hungarian thrones on the basis of the First Congress of Vienna (1515). He was elected the king in both cases. Ever since its creation, the Habsburg Monarchy thus represented a large territory populated by many nations with great economic and cultural differences.</p>
+                                                               
+                        <img src='../visual/1Ca-1.jpg' class='imgtext' ></img>
+                        <p class='imgtit'>Map of Central Europe ("Romweg" map), Erhard Etzlaub, 1500, "South-up" display. Wikimedia Commons. Available <a href='https://en.wikipedia.org/wiki/Erhard_Etzlaub#/media/File:Rompilger-Karte_(Erhard_Etzlaub).jpg' target='_blank'>here<a>, [09/03/2021].  <a href='#detailZoomify' onClick="window.open('../zoomify/display.php?zmapa=1Ca-1','zoomify','status=0,directories=0,location=0,resizable=0,menubar=0,scrollbar=0,toolbar=0,titlebar=1,top=50,left=50,height=620,width=820'); return false;">Display map</a>
+                                  </p>
+                        <p class='nadpismaly'>References</p>
+                        <p class='lit'>Janáček, J.: <i>České dějiny. Doba předbělohorská 1526‒1547 I/1‒2</i>. Praha 1968‒1984; <br>Bůžek, V. a kol.: <i>Společnost českých zemí v raném novověku, </i> Praha 2010; <br>Semotanová, E. ‒ Cajthaml, J. a kol.: <i>Akademický atlas českých dějin</i>. Praha 2014, 2.&nbsp;akt. vydání 2016</p>
+                        <br>
+                        <p class='lit'>
+                            <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/4.0/'><img alt='Creative Commons License' style='border-width:0' src='https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png' /></a> <br>This work is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/4.0/'>Creative Commons BY-NC-ND 4.0<!-- Attribution-NonCommercial-NoDerivatives 4.0 International License--></a>
+                        </p>
+                    </div>
+
+                    <div id='maptext2' class='texthide'>
+          
+                        <p class='nadpisvelky'>The Czech Lands in the Habsburg Monarchy in the 17th and 18th centuries</p> 
+                        <p>In the 17th and 18th centuries, the internal development of the Habsburg Monarchy was aimed at centralisation of the state administration and enlightened absolutism. In the 18th century, the composite state of the Lands of the Bohemian Crown and Hungary became the so-called real union. However, the Lands of the Bohemian Crown lost significant territories. In 1635, Upper Lusatia and Lower Lusatia were ceded to Saxony and in 1742, following the defeat in the Silesian wars, the entire Lower Silesia and part of Upper Silesia were ceded to Prussia (definitively from 1763).The remaining part of Silesia (Cieszyn Silesia, part of the Opava, Krnov and Nysa regions) were later referred to as Bohemian or Austrian Silesia.</p>
+    
+                        <img src='../visual/1Cb-1.jpg' class='imgtext' ></img>
+                        <p class='imgtit'>Map of the Czech Lands from 1695. Map Collection of the Institute of History, CAS.  <a href='#detailZoomify' onClick="window.open('../zoomify/display.php?zmapa=1Cb-1','zoomify','status=0,directories=0,location=0,resizable=0,menubar=0,scrollbar=0,toolbar=0,titlebar=1,top=50,left=50,height=620,width=820'); return false;">Display map</a>
+                                        </p>
+                        <img src='../visual/1Cb-2.jpg' class='imgtext' ></img>
+                        <p class='imgtit'>Map of the Habsburg Monarchy from 1747. Map Collection of the Institute of History, CAS.  </p>
+                        <p class='nadpismaly'>References</p>
+                        <p class='lit'>Hrbek, J.: <i>Evropa a absolutismus v 17. a 18.&nbsp;století (1648 ‒ 1789) </i>. Praha 2012; <br>Semotanová, E. ‒ Cajthaml, J. a kol.: <i>Akademický atlas českých dějin. </i> Praha 2014, 2.&nbsp;akt. vydání 2016; <br>Mikulec, J.: <i>České země v letech 1620–1705: od velké války k dlouhému míru</i>. Praha 2016.</p>
+                        <br>
+                        <p class='lit'>
+                            <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/4.0/'><img alt='Creative Commons License' style='border-width:0' src='https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png' /></a> <br>This work is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/4.0/'>Creative Commons BY-NC-ND 4.0<!-- Attribution-NonCommercial-NoDerivatives 4.0 International License--></a>
+                        </p>
+                    </div>
+
+                    <div id='maptext3' class='texthide'>
+          
+                        <p class='nadpisvelky'></p> 
+                        <p></p>
+                    
+                        <p class='imgtit'></p>
+            
+                        <p class='nadpismaly'>References</p>
+                        <p class='lit'></p>
+                        <br>
+                        <p class='lit'>
+                            <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/4.0/'><img alt='Creative Commons License' style='border-width:0' src='https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png' /></a> <br>This work is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-nd/4.0/'>Creative Commons BY-NC-ND 4.0<!-- Attribution-NonCommercial-NoDerivatives 4.0 International License--></a>
+                        </p>
+                    </div>
+                </div>
+
+<!-- ----------------- APP VIEW   MAPTEXT  ENDS ----------------- -->
+
+
+<!-- -----------------   LEGENDA - pracovni  STARTS ----------------- -->
+<!-- -----------------   LEGENDA - pracovni  ENDS ----------------- -->
+
+<!-- -----------------   APP VIEW   MAP-VIEW  STARTS ----------------- -->
+            <script>
+//                document.write(" <div class='map-view'  >  ");
+//                document.write(" <div id='viewDiv' class='esri-widget'  style='height:" + heightMAP + "px; width:" + widthMAP + "px;'></div>  ");                              
+//                document.write(" </div>  ");
+            </script>
+<!--
+                <div class='map-view' style='display:block;' >
+                    <div id='viewDiv' class=''  style='height:70%; width:70&;'></div>
+                </div> 
+-->
+<!--  ###########################  viewDiv  ################################# -->
+
+<!-- ============= APP  HTML  STARTS ============= -->
+
+
+<!-- ============= APP  HTML    ENDS ============= -->
+
+            </div> <!--   ???   chybi par ???  -->
+
+<!-- -----------------   APP VIEW   MAP-VIEW  ENDS ----------------- -->
+            
+<!-- --------      ROW ENDS      ---------  -->
+
+<!-- --------     ROW STARTS     ---------  -->
+
+        <div class='row' id='pageview' style='display:block; overflow: scroll;'>
+            
+<!--
+            <div class="row" id="pageview" style="display:block; overflow: scroll;">
+-->
+<script>
+                    document.write(" <div class='map-page'  style='height:" + heightIFRAME + "px;'>");
+</script>
+                <!--
+                <div class="map-page">
+-->
+
+<!-- -----------------  MAPINTRO - UVOD BEGIN  ---------------------->
+
+                <div id="mapintro" style="display:block;  ">
+                    <p class="nadpisvelky ">Borders and Territories</p>
+                    <p>In historical cartography and historical geography, the territories and state borders represent one of the fundamental issues. Historical maps and atlases depict borders and their delineations also in relation to the development of regions and regional identities. In the societies, there have always been conflicts between the communities; new borders emerge continuously only to vanish again or change after time. The borders have been accompanying the man since his first steps on the Earth. Historical and present borders cover the entire surface of the Earth in imaginary layers. Whether real or imaginary, they are omnipresent. They can be found in the space, in documents, maps, illustrations, but also in the human minds. They form barriers by which the societies defined (and still define) themselves, based on various ideas, ideologies and special-interest or controlled landscapes.  For centuries, the man has modelled the size and face of “his” space. The fight for survival was replaced with a desire to penetrate into unknown landscapes, take them, settle in them and cultivate them by means of utmost exploitation. If the man succeeded, he delimited the acquired territory with real as well as mental borders. From where to where? This was the common question that the people asked in their homes but also in more distant places that they knew well or were just getting to know. From where to where did the land perceived by the mythical Grandfather Čech extend? From here over to there, his descendants used to answer, decided to penetrate into the new territories, own them and use them.  The borders have always been an inseparable part of the life of the society. A glimpse into their mingling and overlapping across the centuries opens philosophical reflections on the permanence of human interests, goals and desires, justification of annexing foreign territories, relativity of the words “permanent” and “stable”, “definitive” or “forever” mainly as regards ideologies of totalitarianism. Yet it is clear that the borders have always expressed express a respected and socially significant civilizational, historical and geographical value connected with the awareness of protection and safety of the delimited territory..
+                    </p>
+                    <p class="right">Eva Semotanová
+                    </p>
+                    <p>Subchapters:
+                        <ul>
+                            <li><a href='mapp.php?map=1A' target='main' class='txt-switch'>Medieval Times until 12th c.</a></li>
+                            <li><a href='mapp.php?map=1B' target='main' class='txt-switch'>Medieval Times 13th - 15th c.</a></li>
+                            <li><a href='mapp.php?map=1C' target='main' class='txt-switch'>Early Modern Period</a></li>
+                            <li><a href='mapp.php?map=1D' target='main' class='txt-switch'>Modern Period until 1918</a></li>
+                            <li><a href='mapp.php?map=1E' target='main' class='txt-switch'>Modern Period since 1918</a></li>
+                        </ul>
+                    </p>
+                    <img src="../visual/1A-1.jpg" class="imgtext">
+                    <p class="imgtit">Map fo the Lands of the Bohemian Crown, La Boheme</b>, issued in Amsterdam at Covense and Mortier after 1721. The boundaries are only schematical. The map shows the situation before 1635, when both Upper and Lower Lusatia were part of the Bohemian Crown, and at the same time before 1742, before most of Silesia and Kladsko region were lost in the Silesian Wars. Map Collection of the Institute of History, CAS.  <a href="#" onClick="window.open('../zoomify/display.php?zmapa=1A-1','zoomify','status=0,directories=0,location=0,resizable=0,menubar=0,scrollbar=0,toolbar=0,titlebar=1,top=50,left=50,height=620,width=820'); return false;">Map display</a>
+<!--                        <a href="https://cha.fsv.cvut.cz/mapapp/zoomify/1A.htm" target="_blank">Prohlédnout</a>-->
+                    </p>
+
+                    <div class=" ">
+                        <p class="nadpismaly">Authors</p>
+                        <p class="">historians: Tomáš Burda, Zdeněk Měřínský, Jan Němeček, Eva Semotanová, Aleš Vyskočil, Josef Žemlička<br>
+                                    cartographers: Tomáš Janata, Jiří Cajthaml, Petra Jílková, Pavel Seemann<br> 
+                                    digital atlas: Petra Jílková, Jiří Krejčí, Jitka Močičková, Eva Semotanová<br>
+                                    <a href="tiraz.php" target="tiraz">team of authors</a></p>
+                        <p class="nadpismaly ">References</p>
+                        <p class="lit ">Semotanová, E.: Historická geografie českých zemí. Praha 2002, 2006;</p>
+                        <p class="lit ">Semotanová, E. (ed.): Hranice v krajinách. Praha 2020.</p>
+                        <p class="lit "><span class="mezera"></p>
+                        <p >Related chapters:</p>
+                        <p ><span class=""><b>BORDERS and REGIONS</b></span>
+                          <ul>
+                              <li><a href='mapp.php?map=2A' target='main' class='txt-switch'>Medieval Times 11th - 13th c.</a></li>
+                              <li><a href='mapp.php?map=2B' target='main' class='txt-switch'>Regional System until 1850</a></li>
+                              <li><a href='mapp.php?map=2C' target='main' class='txt-switch'>Regional System since 1850</a></li>
+                              <li><a href='mapp.php?map=2D' target='main' class='txt-switch'>Administration 1918-1938</a></li>
+                              <li><a href='mapp.php?map=2E' target='main' class='txt-switch'>Administration of Protectorate</a></li>
+                              <li><a href='mapp.php?map=2F' target='main' class='txt-switch'>Administration since 1945</a></li>
+                          </ul>
+                       </p>
+                        <p class="lit "><span class="mezera"></p>
+                    </div>
+                </div>
+<!-- ------------------  MAPINTRO - UVOD END  ----------------------->
+
+﻿
+<!-- -----------------  CONTENTVIEW - OBSAH BEGIN  ---------------------->
+                <div id="contentview" style="display:none;  ">
+																								
+
+                    <div id='1'>
+                        <div class='centercontent'>
+                            <b style='text-transform: uppercase;'>Borders and Territories</b>                                             
+                          <ul><li><a href='mapp.php?map=1A' target='main' class='txt-switch'>Medieval Times until 12th c.</a></li><li><a href='mapp.php?map=1B' target='main' class='txt-switch'>Medieval Times 13th - 15th c.</a></li><li><a href='mapp.php?map=1C' target='main' class='txt-switch'>Early Modern Period</a></li><li><a href='mapp.php?map=1D' target='main' class='txt-switch'>Modern Period until 1918</a></li><li><a href='mapp.php?map=1E' target='main' class='txt-switch'>Modern Period since 1918</a></li></ul>
+                        </div>
+                    </div>
+                    <br>
+    
+                    <div id='2'>
+                        <div class='centercontent'>
+                            <b style='text-transform: uppercase;'>Borders and Regions</b>                                             
+                          <ul><li><a href='mapp.php?map=2A' target='main' class='txt-switch'>Medieval Times 11th - 13th c.</a></li><li><a href='mapp.php?map=2B' target='main' class='txt-switch'>Regional System until 1850</a></li><li><a href='mapp.php?map=2C' target='main' class='txt-switch'>Regional System since 1850</a></li><li><a href='mapp.php?map=2D' target='main' class='txt-switch'>Administration 1918-1938</a></li><li><a href='mapp.php?map=2E' target='main' class='txt-switch'>Administration of Protectorate</a></li><li><a href='mapp.php?map=2F' target='main' class='txt-switch'>Administration since 1945</a></li></ul>
+                        </div>
+                    </div>
+                    <br>
+    
+                    <div id='3'>
+                        <div class='centercontent'>
+                            <b style='text-transform: uppercase;'>Czech State and Europe in the 20th Century</b>                                             
+                          <ul><li><a href='mapp.php?map=3A' target='main' class='txt-switch'>Definition of Central Europe</a></li><li><a href='mapp.php?map=3B' target='main' class='txt-switch'>International Structures</a></li></ul>
+                        </div>
+                    </div>
+                    <br>
+    
+                    <div id='4'>
+                        <div class='centercontent'>
+                            <b style='text-transform: uppercase;'>Population</b>                                             
+                          <ul><li><a href='mapp.php?map=4A' target='main' class='txt-switch'>National Development until 1900</a></li><li><a href='mapp.php?map=4B' target='main' class='txt-switch'>National Development since 1900</a></li><li><a href='mapp.php?map=4C' target='main' class='txt-switch'>Migrations, Transfers and Exile until 1945</a></li><li><a href='mapp.php?map=4D' target='main' class='txt-switch'>Migrations, Transfers and Exile since 1945</a></li><li><a href='mapp.php?map=4H' target='main' class='txt-switch'>Czech Traces in the World</a></li><li><a href='mapp.php?map=4I' target='main' class='txt-switch'>Education</a></li><li><a href='mapp.php?map=4J' target='main' class='txt-switch'>Elections</a></li></ul>
+                        </div>
+                    </div>
+                    <br>
+    
+                    <div id='5'>
+                        <div class='centercontent'>
+                            <b style='text-transform: uppercase;'>Religion and Faith</b>                                             
+                          <ul><li><a href='mapp.php?map=5A' target='main' class='txt-switch'>Religious Situation until 1918</a></li><li><a href='mapp.php?map=5B' target='main' class='txt-switch'>Religious Situation since 1918</a></li><li><a href='mapp.php?map=5C' target='main' class='txt-switch'>Ecclesiastical Authorities until 1918</a></li><li><a href='mapp.php?map=5D' target='main' class='txt-switch'>Ecclesiastical Authorities since 1918</a></li><li><a href='mapp.php?map=5E' target='main' class='txt-switch'>Pilgrimages</a></li></ul>
+                        </div>
+                    </div>
+                    <br>
+    
+                    <div id='6'>
+                        <div class='centercontent'>
+                            <b style='text-transform: uppercase;'>Historical Milestones, Periods and Consequences</b>                                             
+                          <ul><li><a href='mapp.php?map=6A' target='main' class='txt-switch'>Until 1918</a></li><li><a href='mapp.php?map=6B' target='main' class='txt-switch'>1938-1948</a></li><li><a href='mapp.php?map=6C' target='main' class='txt-switch'>1948-1989</a></li></ul>
+                        </div>
+                    </div>
+                    <br>
+    
+                    <div id='7'>
+                        <div class='centercontent'>
+                            <b style='text-transform: uppercase;'>War conflicts</b>                                             
+                          <ul><li><a href='mapp.php?map=7A' target='main' class='txt-switch'>Hussite Wars</a></li><li><a href='mapp.php?map=7B' target='main' class='txt-switch'>Thirty Years' War</a></li><li><a href='mapp.php?map=7C' target='main' class='txt-switch'>18th c.</a></li><li><a href='mapp.php?map=7D' target='main' class='txt-switch'>19th c.</a></li><li><a href='mapp.php?map=7E' target='main' class='txt-switch'>WW I</a></li><li><a href='mapp.php?map=7F' target='main' class='txt-switch'>POW camps  in WW I</a></li><li><a href='mapp.php?map=7G' target='main' class='txt-switch'>WW II</a></li></ul>
+                        </div>
+                    </div>
+                    <br>
+    
+                    <div id='8'>
+                        <div class='centercontent'>
+                            <b style='text-transform: uppercase;'>Landscape and Humans</b>                                             
+                          <ul><li><a href='mapp.php?map=8A' target='main' class='txt-switch'>Towns - Medieval Times</a></li><li><a href='mapp.php?map=8B' target='main' class='txt-switch'>Towns - Modern Period</a></li><li><a href='mapp.php?map=8C' target='main' class='txt-switch'>Industry</a></li><li><a href='mapp.php?map=8D' target='main' class='txt-switch'>Railways</a></li><li><a href='mapp.php?map=8E' target='main' class='txt-switch'>Agriculture</a></li><li><a href='mapp.php?map=8F' target='main' class='txt-switch'>Landscape and Leisure</a></li><li><a href='mapp.php?map=8G' target='main' class='txt-switch'>Landscape Protection</a></li></ul>
+                        </div>
+                    </div>
+                    <br>
+    
+                    <div id='9'>
+                        <div class='centercontent'>
+                            <b style='text-transform: uppercase;'>MAP COMAPARE</b>                                             
+                          <ul><li><a href='mapp.php?map=9A' target='main' class='txt-switch'>Compare two maps</a></li></ul>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+<!-- ------------------  CONTENTVIEW - OBSAH END  ----------------------->
+        </div>
+<!-- --------     ROW ENDS     ---------  -->
+
+    </main>  
+
+</body>
+
+</html>

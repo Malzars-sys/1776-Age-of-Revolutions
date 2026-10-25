@@ -1,0 +1,72 @@
+# Native bilateral accounting and shipping. These commercial articles confer
+# neither recognition nor alliance, military access, sovereignty or war support.
+aor1776_support_money = {
+	kind = directed
+	cost = 0
+	icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/bankroll_treaties.dds"
+	flags = { is_money_transfer }
+	maintenance_paid_by = target_country
+	usage_limit = once_per_treaty
+	required_inputs = { quantity }
+	visible = { OR = { c:FRA ?= this c:USA ?= this } }
+	possible = { OR = { c:FRA ?= this c:USA ?= this } }
+	can_ratify = { scope:source_country = { c:FRA ?= this } scope:target_country = { c:USA ?= this } }
+	requirement_to_maintain = {
+		trigger = {
+			aor1776_french_support_relationship_valid = yes
+			c:USA = { has_variable = aor1776_support_active }
+		}
+	}
+	non_fulfillment = {
+		consequences = freeze
+		conditions = { weekly = { scope:article.source_country = { in_default = yes } } }
+	}
+	quantity_min_value = { value = 1 }
+	quantity_max_value = { value = 21000 }
+	on_entry_into_force = { }
+	on_withdrawal = { }
+	on_break = { }
+}
+
+aor1776_support_supplies = {
+	kind = directed
+	cost = 0
+	icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/goods_transfer_treaties.dds"
+	flags = { is_goods_transfer }
+	maintenance_paid_by = source_country
+	required_inputs = { quantity goods }
+	visible = { OR = { c:FRA ?= this c:USA ?= this } }
+	possible = {
+		OR = { c:FRA ?= this c:USA ?= this }
+		is_market_reachable_for_trade = scope:other_country.market
+	}
+	can_ratify = { scope:source_country = { c:FRA ?= this } scope:target_country = { c:USA ?= this } }
+	requirement_to_maintain = {
+		trigger = {
+			aor1776_french_support_relationship_valid = yes
+			c:USA = { has_variable = aor1776_support_active }
+		}
+	}
+	non_fulfillment = {
+		consequences = freeze
+		conditions = {
+			weekly = {
+				scope:article = {
+					OR = {
+						source_country = { supply_network_strength < 0.5 }
+						NOT = { source_country = { is_market_reachable_for_trade = scope:article.target_country.market } }
+						"scope:article.input_market_goods(scope:article.source_country)" = { treaty_exports > market_export_cap }
+					}
+				}
+			}
+		}
+	}
+	goods_valid_trigger = {
+		scope:input = { OR = { this = g:small_arms this = g:artillery } }
+	}
+	quantity_min_value = { value = 1 }
+	quantity_max_value = { value = 12 }
+	on_entry_into_force = { }
+	on_withdrawal = { }
+	on_break = { }
+}

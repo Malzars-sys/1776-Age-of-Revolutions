@@ -1,0 +1,383 @@
+# MISSION CODEX — VICTORIA 3 : 1776 AGE OF REVOLUTIONS
+## Audit transversal des technologies de départ des micro-États
+### Priorité fonctionnelle haute — indépendante du suivi territorial SERG
+
+## 1. Problème constaté par le joueur
+
+J'ai découvert en jeu que plusieurs micro-États créés pour la restitution historique de 1776 semblent commencer sans les technologies qu'ils devraient posséder.
+
+**Exemple confirmé : Berchtesgaden (`BGT`).**
+
+Son arbre technologique de production est anormalement peu développé et l'accès aux mines semble insuffisant pour exploiter correctement son industrie historique du sel.
+
+Je soupçonne un problème systémique : lors de la création de nouveaux TAGs, les scripts ont peut-être défini le gouvernement, le souverain, la population et le territoire, sans initialiser les technologies de départ.
+
+**Mission : diagnostiquer ce problème, inventorier tous les pays affectés et corriger leurs technologies initiales de façon historiquement et techniquement cohérente.**
+
+Ce n'est pas une mission visant à offrir artificiellement davantage de technologies aux petits pays.
+
+Il s'agit de leur restituer les connaissances et capacités techniques qu'ils possédaient réellement au 1er janvier 1776.
+
+## 2. Priorité de cette intervention
+
+Cette anomalie est potentiellement transversale à toute la carte.
+
+Traite-la comme une correction fonctionnelle prioritaire, sans modifier arbitrairement la priorité, le nombre de tâches ou les poids du suivi SERG.
+
+Progression de référence :
+
+- SERG 1.0 : 82/235 points, 34,89 %.
+- 81 tâches.
+- 24 tâches qualifiées.
+- Plusieurs noyaux territoriaux validés, avec couverture régionale encore bloquée.
+
+Ne clôture aucune tâche territoriale simplement parce que ses technologies sont corrigées.
+
+Ne commence pas simultanément `SC1-ORTENBURG` ou une autre tâche territoriale.
+
+## 3. Diagnostic technique obligatoire
+
+Examiner le système réel de démarrage technologique du mod et de la version actuellement installée de Victoria 3.
+
+Contrôler notamment :
+
+- `common/history/countries/`
+- Les définitions nationales.
+- Les effets scriptés de technologies de départ.
+- Les éventuels profils ou tiers technologiques personnalisés du mod.
+- Les historiques de pays créés par les agents.
+- L'ordre et les conditions d'exécution de l'initialisation.
+- Les dépendances entre technologies.
+- Les technologies introduites par le mod 1776.
+- Les conditions techniques de construction des bâtiments.
+- Les conditions d'accès aux méthodes de production.
+- Les incompatibilités possibles entre scripts anciens et version actuelle du jeu.
+
+Vérifier la syntaxe réellement utilisée par le mod et la version actuelle du moteur.
+
+Ne pas supposer que les effets de départ de Victoria 3 vanilla en 1836 correspondent automatiquement aux besoins du scénario 1776.
+
+Déterminer précisément pourquoi BGT commence avec les technologies observées.
+
+Distinguer :
+
+1. Absence totale d'effet d'initialisation.
+2. Historique national absent.
+3. Effet existant mais non exécuté.
+4. Profil de départ incorrect.
+5. Technologie non débloquée malgré un prérequis disponible.
+6. Problème propre à un bâtiment ou à une ressource, sans lien avec les technologies.
+
+## 4. Audit exhaustif des TAGs
+
+Ne limite pas l'audit aux nouveaux micro-États germaniques.
+
+Énumère automatiquement les pays présents au début de la partie 1776 et établis par le mod.
+
+Compare pour chaque pays :
+
+- TAG.
+- Nom.
+- Région.
+- Statut : nouveau TAG, TAG vanilla réutilisé ou pays préexistant modifié.
+- Origine du script d'historique.
+- Effet de technologies initiales.
+- Technologies réellement attribuées au démarrage.
+- Profil historique attendu.
+- Technologies absentes.
+- Technologies excessivement avancées.
+- Bâtiments rendus impossibles à utiliser.
+- Méthodes de production bloquées.
+- Présence de dépendances technologiques incohérentes.
+- Correctif requis ou absence de problème.
+
+Produis un tableau ou CSV complet :
+
+`STARTING_TECH_AUDIT_1776.csv`
+
+Classer les résultats :
+
+- `PASS` : profil cohérent.
+- `MISSING_HISTORY` : historique absent.
+- `MISSING_TECH_INITIALIZATION` : technologies non attribuées.
+- `INCORRECT_TECH_PROFILE` : ensemble historiquement ou techniquement incorrect.
+- `BUILDING_TECH_CONFLICT` : bâtiment et technologies incompatibles.
+- `RESOURCE_OR_PM_CONFLICT` : problème lié à la ressource ou à la méthode de production.
+- `REQUIRES_HISTORICAL_REVIEW` : preuve insuffisante pour conclure.
+
+Ne confonds pas le nombre de technologies d'un pays avec leur pertinence historique.
+
+## 5. Micro-États prioritaires
+
+Contrôler immédiatement, sans limiter l'inventaire à cette liste :
+
+- `BGT` — Berchtesgaden.
+- `BRX` — Brixen.
+- `TRT` — Trente.
+- `MCA` — Massa-Carrare.
+- `SLZ` — Salzbourg.
+- `PAS` — Passau.
+- La principauté épiscopale de Ratisbonne.
+- La ville impériale libre de Ratisbonne.
+- Freising.
+- Les autres principautés épiscopales.
+- Les villes libres.
+- Anhalt et les nouveaux États allemands.
+- Eutin et les autres petits États restaurés.
+- Les États italiens nouvellement représentés.
+- Tous les nouveaux TAGs créés depuis le début de la refonte 1776.
+
+Contrôler également les pays existants dont les scripts d'initialisation technologique ont été remplacés ou adaptés.
+
+Ne considère pas qu'un pays possède les bonnes technologies simplement parce qu'il a conservé un TAG vanilla.
+
+## 6. Restitution historique des technologies
+
+Date stricte : **1er janvier 1776**.
+
+Établir des profils technologiques cohérents à partir :
+
+- Des technologies réellement définies dans le mod.
+- Des connaissances techniques du XVIIIe siècle.
+- Des secteurs économiques réellement actifs.
+- Des équipements militaires historiques.
+- Des capacités administratives.
+- Du niveau industriel des différentes régions.
+- Des profils déjà attribués à des pays comparables.
+
+Exemples de cohérence recherchée :
+
+**Berchtesgaden**
+
+Une petite prévôté disposant d'une activité salinière historique doit pouvoir exploiter cette activité avec les technologies correspondant au mode d'extraction et de transformation du sel en 1776.
+
+Elle n'a pas pour autant besoin des technologies de mine industrielle avancée du XIXe siècle.
+
+**Brixen et Trente**
+
+Ces principautés doivent disposer des techniques agricoles, artisanales et administratives compatibles avec leur contexte historique.
+
+Ne pas leur attribuer les capacités industrielles complètes de l'Autriche uniquement parce que leurs territoires proviennent du TAG AUS.
+
+**Massa-Carrare**
+
+Vérifier les capacités minières et artisanales historiquement pertinentes, notamment dans le cadre des carrières de marbre, en distinguant les activités réelles du noyau installé et celles des territoires restant à restituer.
+
+**Villes libres et petits États allemands**
+
+Leur petite taille politique ne signifie pas qu'ils ignoraient les techniques agricoles, commerciales, artisanales ou militaires courantes du XVIIIe siècle.
+
+**États extra-européens**
+
+Ne pas appliquer automatiquement à chaque pays un même profil occidental. Évaluer les technologies pertinentes selon les pratiques et capacités historiques attestées.
+
+### Règles de calibration
+
+- Pas de copie aveugle des technologies de l'ancien propriétaire territorial.
+- Pas de copie aveugle des technologies vanilla de 1836.
+- Pas de nivellement artificiel de tous les pays vers le même niveau.
+- Pas d'attribution gratuite des technologies industrielles avancées.
+- Pas de pénalisation automatique d'un État parce qu'il est petit.
+- Respect des prérequis technologiques ou documentation d'une exception volontaire.
+- Réutiliser autant que possible les effets communs déjà présents dans le mod.
+- Préférer des profils cohérents et maintenables aux longues listes copiées indépendamment dans chaque pays.
+
+## 7. Correction prioritaire de Berchtesgaden
+
+Examiner la situation réelle de `BGT`.
+
+Le territoire précédemment installé est :
+
+- RGB `xEDBF00`.
+- Quatre cellules.
+- Population initiale de 1 000 habitants.
+- Capitale Berchtesgaden.
+- Prince-prévôt Franz Anton Josef von Hausen-Gleichenstorff.
+
+La petite saline initiale de 100 postes a ensuite fait l'objet d'une révision technique vers une mine native dont la capacité ordinaire est de 5 000 postes.
+
+**Important : le joueur a déjà validé le noyau historique initial, mais cette révision technique de la mine n'est pas automatiquement couverte par l'ancienne attestation.**
+
+Vérifier :
+
+1. Les technologies attribuées à BGT au démarrage.
+2. Les technologies nécessaires à la mine actuellement installée.
+3. Les éventuelles technologies nécessaires aux méthodes de production.
+4. Les ressources en sel réellement disponibles pour la portion BGT.
+5. La construction et l'exploitation du bâtiment.
+6. Le nombre de postes réellement recrutables.
+7. Les intrants et produits.
+8. L'accès au marché.
+9. L'équilibre économique et les subventions.
+10. La compatibilité avec les installations concurrentes relatives aux mines et au sel.
+
+Ne pas supposer qu'une capacité de 5 000 postes correspond à 5 000 travailleurs effectivement employés.
+
+Ne pas réintroduire l'ancienne saline spécifique sans diagnostic ni accord.
+
+La correction doit d'abord permettre le fonctionnement historique crédible de la production de sel, sans enrichissement artificiel ni bâtiment industriel disproportionné.
+
+## 8. Méthode d'implémentation
+
+Après l'audit :
+
+1. Identifier les profils technologiques déjà définis.
+2. Vérifier leur fonctionnement réel.
+3. Définir ou corriger les profils nécessaires.
+4. Rattacher les TAGs concernés à ces profils.
+5. Éviter les duplications de scripts.
+6. Préserver les lois, souverains, cultures, populations et diplomaties.
+7. Vérifier que les technologies sont acquises dès le chargement initial, sans exiger une recherche manuelle.
+8. Vérifier que les pays ne reçoivent pas de technologies supplémentaires au premier tick de manière imprévue.
+9. Contrôler les dépendances et la disponibilité des bâtiments.
+10. Documenter les attributions particulières.
+
+Installer les correctifs justifiés dans cette mission.
+
+Ne pas se limiter à produire un rapport qui renverrait systématiquement leur implémentation à une passe future.
+
+Si certains pays nécessitent des recherches historiques supplémentaires, corriger dès maintenant ceux dont le profil est suffisamment établi et conserver une liste précise des cas encore ouverts.
+
+## 9. Validation automatique
+
+Créer des tests couvrant au minimum :
+
+- Tous les nouveaux TAGs de départ.
+- Présence d'une initialisation technologique valide.
+- Absence de pays involontairement sans technologies.
+- Respect des prérequis.
+- Absence de technologies inconnues ou obsolètes.
+- Cohérence des profils partagés.
+- Compatibilité technologies/bâtiments.
+- Compatibilité technologies/méthodes de production.
+- Conservation des historiques politiques et territoriaux.
+- Absence de régression chez les pays préexistants.
+
+Un pays volontairement peu développé technologiquement ne doit pas être considéré comme une erreur uniquement parce qu'il possède peu de technologies.
+
+Documenter explicitement les exceptions historiques.
+
+Ne pas inventer des résultats d'exécution du moteur.
+
+## 10. Conservation du suivi SERG
+
+Cette mission est transversale et fonctionnelle.
+
+Ne modifie pas les 81 tâches territoriales ni le total de 235 points.
+
+Ne transforme pas les noyaux validés en tâches régionales terminées.
+
+Conserver notamment les reçus humains :
+
+- `MC-I-CORE`.
+- `TR-I-CORE`.
+- `BR-I-CORE`.
+- `BG-I-CORE`.
+- `PS-OB-CORE`.
+
+Conserver leurs limites exactes.
+
+Les corrections technologiques postérieures à ces reçus doivent être identifiées comme des modifications nouvelles à tester, sans prétendre qu'elles étaient déjà approuvées.
+
+La correction démographique de Ratisbonne `RG-D-CITY` reste distincte et ne doit pas être automatiquement certifiée au titre de cette mission.
+
+Maintenir les blocages territoriaux P0/P1 existants.
+
+## 11. Protection des travaux concurrents
+
+Plusieurs agents peuvent modifier simultanément le mod.
+
+Préserver impérativement :
+
+- Les fortifications modernes.
+- Le Corps du génie.
+- Les bâtiments et méthodes de production.
+- Le chantier mines et sel.
+- Anzin et la houille de prestige.
+- Les infrastructures régionales.
+- Le drainage.
+- Saint-Gobain.
+- Les États-Unis et les Minutemen.
+- Les corrections démographiques de Ratisbonne.
+- Tous les autres travaux territoriaux.
+
+Avant toute écriture dans un fichier partagé, vérifier sa version courante.
+
+Ne jamais restaurer un fichier depuis une baseline obsolète.
+
+En cas de modification concurrente pendant la passe, réévaluer le diff et préserver les deux chantiers.
+
+Aucune opération Git d'écriture :
+
+- Pas de staging.
+- Pas de commit.
+- Pas de push.
+- Pas de merge.
+- Pas de reset.
+- Pas de rebase.
+- Pas de checkout.
+
+Ne pas modifier l'installation vanilla.
+
+## 12. Validation joueur
+
+Préparer un protocole spécifique après installation.
+
+Je souhaite pouvoir contrôler en jeu :
+
+1. Une nouvelle partie au 1er janvier 1776.
+2. L'arbre de production de Berchtesgaden.
+3. Ses technologies agricoles, artisanales et minières pertinentes.
+4. La disponibilité et le fonctionnement de sa mine de sel.
+5. Les méthodes de production.
+6. Son recrutement et ses finances.
+7. Les technologies de Brixen, Trente, Salzbourg et Massa.
+8. Quelques micro-États allemands déjà validés.
+9. Quelques États italiens déjà installés.
+10. Un échantillon de pays extra-européens, selon les corrections réalisées.
+11. Le maintien des souverains, lois et frontières.
+12. Un mois complet de simulation.
+13. Sauvegarde et rechargement.
+
+Prévoir également un tableau comparatif **technologies avant/après** pour chaque TAG corrigé.
+
+Toute correction fonctionnelle nouvelle reste en attente de validation humaine jusqu'à mon retour.
+
+## 13. Rapport final obligatoire
+
+Présenter :
+
+**AUDIT TECHNOLOGIQUE 1776 — MICRO-ÉTATS ET PAYS RESTAURÉS**
+
+Puis :
+
+1. Cause racine identifiée.
+2. Nombre total de pays audités.
+3. Nombre de pays correctement initialisés.
+4. Nombre de pays affectés.
+5. Répartition des anomalies par catégorie.
+6. Technologies manquantes ou inappropriées.
+7. Liste des TAGs corrigés.
+8. Profils technologiques utilisés.
+9. Correction précise de Berchtesgaden.
+10. État de sa mine de sel.
+11. Impact sur les bâtiments et méthodes de production.
+12. Tests statiques et cumulatifs.
+13. Modifications concurrentes conservées.
+14. Pays nécessitant des recherches supplémentaires.
+15. Protocole de validation en jeu.
+16. Progression SERG inchangée, sauf changement indépendant dûment justifié.
+
+Fournir :
+
+- `STARTING_TECH_AUDIT_1776.csv`
+- `STARTING_TECH_BEFORE_AFTER.csv`
+- `BUILDING_TECH_CONFLICTS.csv`
+- `TECH_VALIDATION.json`
+- Un protocole joueur.
+
+Ne pas prétendre avoir lancé le jeu si seule une validation statique a été effectuée.
+
+### Instruction finale
+
+**Commence immédiatement par analyser les technologies de départ de BGT et les scripts ayant créé les nouveaux micro-États. Vérifie si le défaut est systémique, audite tous les pays du scénario 1776, corrige les profils historiquement justifiés, puis prépare la validation humaine. Préserve intégralement le suivi territorial SERG et les travaux concurrents.**

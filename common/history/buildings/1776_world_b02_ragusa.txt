@@ -1,0 +1,17 @@
+BUILDINGS = { s:STATE_DALMATIA = { region_state:RAG = {
+ # One existing Dalmatian fishing level is reassigned; Venetian levels 3 -> 2.
+ create_building = {
+  building = "building_fishing_wharf"
+  add_ownership = { building = { type = "building_fishing_wharf" country = "c:RAG" levels = 1 region = "STATE_DALMATIA" } }
+  reserves = 1 activate_production_methods = { "pm_simple_fishing" "pm_unrefrigerated" }
+ }
+ # Independent harbour; the Venetian Zadar port is preserved.
+ create_building = { building = "building_port"
+  add_ownership = { country = { country = "c:RAG" levels = 1 } }
+  reserves = 1 activate_production_methods = { "pm_basic_port" }
+ }
+ create_building = { building = "building_aor1776_ragusan_chancery"
+  add_ownership = { country = { country = "c:RAG" levels = 1 } }
+  reserves = 1 activate_production_methods = { "pm_aor1776_ragusan_chancery" }
+ }
+} } }

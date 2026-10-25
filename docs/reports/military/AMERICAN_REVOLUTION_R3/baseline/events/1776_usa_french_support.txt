@@ -1,0 +1,130 @@
+namespace = aor1776_french_support
+
+aor1776_french_support.1 = {
+	type = country_event
+	placement = root
+	title = aor1776_french_support.1.t
+	desc = aor1776_french_support.1.d
+	flavor = aor1776_french_support.1.f
+	event_image = { video = "unspecific_devastation" }
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 30
+	trigger = { c:FRA ?= this aor1776_french_support_can_offer = yes NOT = { has_variable = aor1776_support_offer_window } }
+	immediate = {
+		set_variable = { name = aor1776_support_offer_window days = 30 }
+		c:USA = { set_variable = { name = aor1776_support_request_pending days = 30 } }
+	}
+	option = {
+		name = aor1776_french_support.1.a
+		default_option = yes
+		ai_chance = { base = 70 }
+		trigger = { aor1776_french_support_can_offer = yes }
+		set_variable = { name = aor1776_support_proposed_level value = 1 }
+		aor1776_support_issue_offer_effect = yes
+	}
+	option = {
+		name = aor1776_french_support.1.b
+		ai_chance = { base = 20 }
+		trigger = { aor1776_french_support_can_offer = yes net_total_income >= 22000 }
+		set_variable = { name = aor1776_support_proposed_level value = 2 }
+		aor1776_support_issue_offer_effect = yes
+	}
+	option = {
+		name = aor1776_french_support.1.c
+		ai_chance = { base = 10 }
+		c:USA ?= { set_variable = { name = aor1776_support_cooldown days = 90 } }
+		c:USA ?= { trigger_event = { id = aor1776_french_support.4 popup = yes } }
+	}
+}
+
+aor1776_french_support.2 = {
+	type = country_event
+	placement = root
+	title = aor1776_french_support.2.t
+	desc = {
+		first_valid = {
+			triggered_desc = { desc = aor1776_french_support.2.d_high trigger = { var:aor1776_support_offer_level = 2 } }
+			desc = aor1776_french_support.2.d
+		}
+	}
+	flavor = aor1776_french_support.2.f
+	event_image = { video = "europenorthamerica_springtime_of_nations" }
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 20
+	trigger = { c:USA ?= this has_variable = aor1776_support_offer }
+	option = {
+		name = aor1776_french_support.2.a
+		default_option = yes
+		ai_chance = { base = 90 }
+		trigger = { aor1776_french_support_can_accept = yes }
+		aor1776_support_accept_effect = yes
+	}
+	option = {
+		name = aor1776_french_support.2.b
+		ai_chance = { base = 10 }
+		aor1776_support_stop_effect = yes
+		set_variable = { name = aor1776_support_cooldown days = 90 }
+	}
+}
+
+aor1776_french_support.3 = {
+	type = country_event
+	placement = root
+	title = aor1776_french_support.3.t
+	desc = aor1776_french_support.3.d
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 10
+	option = { name = aor1776_french_support.3.a default_option = yes }
+}
+
+aor1776_french_support.4 = {
+	type = country_event
+	placement = root
+	title = aor1776_french_support.4.t
+	desc = aor1776_french_support.4.d
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 15
+	option = { name = aor1776_french_support.4.a default_option = yes }
+}
+
+aor1776_french_support.5 = {
+	type = country_event
+	placement = root
+	title = aor1776_french_support.5.t
+	desc = aor1776_french_support.5.d
+	flavor = aor1776_french_support.5.f
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 30
+	trigger = { c:FRA ?= this game_date >= 1777.10.17 c:USA ?= { has_variable = aor1776_public_treaty_pending NOT = { has_variable = aor1776_public_treaty_signed } } }
+	option = {
+		name = aor1776_french_support.5.a
+		default_option = yes
+		ai_chance = { base = 75 }
+		trigger = {
+			c:USA ?= { has_variable = aor1776_public_treaty_pending NOT = { has_variable = aor1776_public_treaty_signed } }
+			can_create_treaty = {
+				first_country = c:FRA second_country = c:USA is_draft = no binding_period = { years = 5 }
+				articles_to_create = {
+					{ article = alliance }
+					{ article = trade_privilege source_country = c:USA target_country = c:FRA }
+					{ article = trade_privilege source_country = c:FRA target_country = c:USA }
+				}
+			}
+		}
+		create_treaty = {
+			name = aor1776_public_treaty_name
+			first_country = c:FRA second_country = c:USA is_draft = no binding_period = { years = 5 }
+			articles_to_create = {
+				{ article = alliance }
+				{ article = trade_privilege source_country = c:USA target_country = c:FRA }
+				{ article = trade_privilege source_country = c:FRA target_country = c:USA }
+			}
+		}
+		c:USA = { set_variable = aor1776_public_treaty_signed remove_variable = aor1776_public_treaty_pending }
+	}
+	option = {
+		name = aor1776_french_support.5.b
+		ai_chance = { base = 25 }
+		c:USA ?= { remove_variable = aor1776_public_treaty_pending }
+	}
+}

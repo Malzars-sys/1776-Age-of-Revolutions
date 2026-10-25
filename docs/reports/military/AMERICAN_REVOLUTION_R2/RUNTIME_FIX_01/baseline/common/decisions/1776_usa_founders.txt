@@ -1,0 +1,32 @@
+aor1776_appoint_franklin_envoy = {
+	is_shown = { c:USA ?= this game_date >= 1776.9.26 }
+	possible = {
+		exists = c:FRA
+		aor1776_franklin_available = yes
+		gold_reserves >= 5000
+		NOT = { has_variable = aor1776_franklin_mission_cooldown }
+		OR = { aor1776_usa_independence_war_active = yes is_subject = no }
+		c:FRA = { NOT = { is_diplomatic_play_enemy_of = c:USA } }
+	}
+	when_taken = {
+		set_variable = { name = aor1776_franklin_mission_cooldown days = 365 }
+		trigger_event = { id = aor1776_usa_founders.1 popup = yes }
+	}
+	ai_chance = { base = 75 }
+}
+
+aor1776_convene_founders_commission = {
+	is_shown = { c:USA ?= this has_variable = us_revolt is_subject = no }
+	possible = {
+		has_law_or_variant = law_type:law_presidential_republic
+		is_at_war = no
+		NOT = { has_variable = aor1776_founders_commission_done }
+		NOT = { has_variable = aor1776_founders_commission_pending }
+		OR = { aor1776_adams_available = yes aor1776_jefferson_available = yes }
+	}
+	when_taken = {
+		set_variable = { name = aor1776_founders_commission_pending days = 60 }
+		trigger_event = { id = aor1776_usa_founders.2 popup = yes }
+	}
+	ai_chance = { base = 75 }
+}

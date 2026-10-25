@@ -1,0 +1,13 @@
+# Validation en jeu — TR-I-CORE, noyau B de Trente
+
+Livraison attendue : **IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION**. Aucun test du moteur ou reçu utilisateur n’est créé par les contrôles statiques.
+
+1. Lancer une **nouvelle partie au 1er janvier 1776** avec le mod actuel. Vérifier le pays distinct **Trente (TRT)** et son petit noyau de résidence au sud de Bolzano, au nord de Rovereto. Ne pas utiliser uniquement une ancienne sauvegarde.
+2. Contrôler le prince-évêque **Cristoforo Sizzo de Noris**, né en 1706, gouvernement théocratique et religion catholique. Pietro Vigilio Thun ne doit pas régner au départ. Vérifier le nom et le placement de la capitale à Trente dans sa portion du Sud-Tyrol.
+3. Vérifier **9 000 habitants TRT** ; dans la portion AUS du Sud-Tyrol, **482 000** habitants, dont 299 000 nord-italiens et 183 000 sud-allemands. Total régional 491 000 conservé. L’ordre de grandeur concerne la résidence, pas toute la principauté.
+4. Vérifier l’administration publique TRT : un niveau, propriété nationale, bureaucratie héréditaire/religieuse et organisation simple disponibles et fonctionnelles. Les bâtiments et investisseurs AUS/VEN antérieurs restent en place ; aucun régiment ou fort n’est ajouté ou déplacé par cette passe.
+5. Vérifier le **pacte défensif avec l’Autriche**, nommé accord de défense du Landlibell, sans union personnelle ou statut de marionnette. Signaler s’il manque ou se termine immédiatement. Le pacte natif représente la défense commune avec une portée plus large que le seul Tyrol ; les contributions fiscales et offices historiques ne sont pas intégralement simulés.
+6. Vérifier TRT membre du Saint-Empire avec des droits sur **son seul RGB**, sans électorat ou ville libre ; neuf électeurs conservés. Rovereto, Merano, Bolzano et les autres territoires alpins conservent leur propriétaire actuel. Brixen demeure à traiter séparément. Contrôler Salzbourg/Passau/Freising/Ratisbonne, puis MCA et ses 10 000 habitants, ainsi que les populations et frontières voisines prévues.
+7. Laisser passer **un mois complet**. Vérifier la persistance du souverain, des institutions, du pacte et des droits, ainsi que l’absence d’anomalie bloquante d’administration ou d’économie. Sauvegarder puis recharger ; confirmer le maintien du noyau et l’absence de crash ou bug.
+
+Renvoyer le résultat réel du protocole et les anomalies éventuelles. Aucun test demandé ne vaut certification des limites intégrales de la principauté, des vallées périphériques ou de la procédure canonique d’élection. Le prochain chantier sera seulement identifié, sans commencement automatique.

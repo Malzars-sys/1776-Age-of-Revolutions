@@ -1,0 +1,32 @@
+# Country scope. No map/HRE scopes and no forced French war participation.
+aor1776_usa_independence_war_active = {
+	exists = c:USA
+	exists = c:GBR
+	c:USA = {
+		is_at_war = yes
+		NOT = { has_variable = us_revolt }
+	}
+	c:GBR = { is_diplomatic_play_enemy_of = c:USA }
+}
+
+aor1776_french_support_relationship_valid = {
+	exists = c:USA
+	exists = c:FRA
+	aor1776_usa_independence_war_active = yes
+	c:FRA = {
+		NOT = { is_diplomatic_play_enemy_of = c:USA }
+		relations:c:USA >= -25
+		in_default = no
+	}
+}
+
+aor1776_french_support_can_offer = {
+	aor1776_french_support_relationship_valid = yes
+	c:USA = {
+		NOT = { has_variable = aor1776_support_active }
+		NOT = { has_variable = aor1776_support_cooldown }
+		NOT = { has_variable = aor1776_support_offer }
+		var:aor1776_support_rounds < 6
+	}
+	c:FRA = { gold_reserves >= 84000 net_total_income > 0 }
+}

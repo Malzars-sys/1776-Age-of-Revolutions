@@ -1,0 +1,38 @@
+{
+  "task_ids": [
+    "SC1-TRENTO"
+  ],
+  "status": "OBSOLETE_SNAPSHOT_ASSERTIONS_ONLY",
+  "total": 427,
+  "passed": 421,
+  "failed": [
+    {
+      "id": "test_map2w_r2b_completion.HesseNassauCompletion.test_registry_guard_accepts_current_layer",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2w_r2b_completion.py\", line 58, in test_registry_guard_accepts_current_layer\n    self.assertEqual(layers[layers.index(w.OUT)+1:],expected)\nAssertionError: Lists differ: [Wind[152 chars]SAU'), WindowsPath('C:/Users/simeo/Documents/P[762 chars]TO')] != [Wind[152 chars]SAU')]\n\nFirst list contains 5 additional elements.\nFirst extra element 1:\nWindowsPath('C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/R4B')\n\nDiff is 1488 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_map2w_r4_political.PassauPoliticalPilot.test_registry_current_layer",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2w_r4_political.py\", line 66, in test_registry_current_layer\n    def test_registry_current_layer(self):self.assertEqual(reg.approved_lot_dirs()[-1],w.OUT)\n                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Windo[93 chars]ork/docs/reports/map/SERG_CLOSURE/SC1-TRENTO') != Windo[93 chars]ork/docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU')\n"
+    },
+    {
+      "id": "test_map2w_r4bc.FreisingRegensburg.test_current_cumulative_tail_not_previous_last",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2w_r4bc.py\", line 53, in test_current_cumulative_tail_not_previous_last\n    def test_current_cumulative_tail_not_previous_last(self):self.assertEqual(reg.approved_lot_dirs()[-3:],[w.pas.OUT,w.OUT/'R4B',w.OUT/'R4C'])\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [Wind[110 chars]/map/SERG_CLOSURE/SC1-SALZBURG'), WindowsPath([281 chars]TO')] != [Wind[110 chars]/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU'[357 chars]4C')]\n\nFirst differing element 0:\nWindo[93 chars]ork/docs/reports/map/SERG_CLOSURE/SC1-SALZBURG')\nWindo[93 chars]ork/docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU')\n\nDiff is 1305 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc1_salzburg.SalzburgContracts.test_exact_cumulative_tail",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_salzburg.py\", line 31, in test_exact_cumulative_tail\n    self.assertEqual(reg.approved_lot_dirs()[-4:],[lot.prior.pas.OUT,lot.prior.OUT/'R4B',lot.prior.OUT/'R4C',lot.OUT])\nAssertionError: Lists differ: [Wind[144 chars]TION/FREISING_REGENSBURG/R4C'), WindowsPath('C[427 chars]TO')] != [Wind[144 chars]TION/PASSAU'), WindowsPath('C:/Users/simeo/Doc[471 chars]RG')]\n\nFirst differing element 0:\nWindo[110 chars]map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/R4C')\nWindo[110 chars]map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU')\n\nDiff is 1636 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc4_massa_carrara.MassaCarraraContracts.test_current_chain_retains_salzburg_before_massa",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc4_massa_carrara.py\", line 28, in test_current_chain_retains_salzburg_before_massa\n    self.assertEqual(lot.reg.approved_lot_dirs()[-2:],[lot.rm.OUT/'SC1-SALZBURG',lot.OUT])\nAssertionError: Lists differ: [Wind[125 chars]RE/SC4-MASSA-CARRARA'), WindowsPath('C:/Users/[118 chars]TO')] != [Wind[125 chars]RE/SC1-SALZBURG'), WindowsPath('C:/Users/simeo[120 chars]RA')]\n\nFirst differing element 0:\nWindo[83 chars]olutions_fork/docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA')\nWindo[83 chars]olutions_fork/docs/reports/map/SERG_CLOSURE/SC1-SALZBURG')\n\nDiff is 926 characters long. Set self.maxDiff to None to see it.\n"
+    }
+  ],
+  "skipped": [
+    {
+      "id": "test_serg_closure_roadmap.RoadmapTests.test_protection_runtime_git_and_audit",
+      "reason": "Initial no-edit check only; future authorized edits must not fail old snapshots"
+    }
+  ],
+  "unexplained_failures": [],
+  "automated_engine_test": false
+}

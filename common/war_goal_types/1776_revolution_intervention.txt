@@ -1,0 +1,16 @@
+# Gameplay objective requested for the intervention. Native humiliation effect,
+# but unlike vanilla humiliation this requires control of the British capital.
+# It grants no territory and is not a claim that France historically invaded.
+aor1776_break_british_power = {
+ icon = "gfx/interface/icons/war_goals/humiliation.dds"
+ kind = humiliation
+ settings = { require_target_be_part_of_war validate_conflicts_war_goals_all skip_build_list }
+ execution_priority = 18
+ contestion_type = control_target_country_capital
+ target_type = country
+ possible = { c:FRA ?= this scope:target_country = { c:GBR ?= this } }
+ valid = { scope:target_country = { c:GBR ?= this } }
+ maneuvers = { value = 20 }
+ infamy = { value = 0 }
+ ai = { is_significant_demand = yes }
+}

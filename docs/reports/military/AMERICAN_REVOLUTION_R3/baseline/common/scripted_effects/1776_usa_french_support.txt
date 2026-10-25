@@ -1,0 +1,129 @@
+# Initialization is safe for new games and existing saves. It never recreates
+# commanders, changes American technologies, or infers a loan from old modifiers.
+aor1776_remove_legacy_debt_effect = {
+	if = { limit = { has_modifier = debt_usa_big_money } remove_modifier = debt_usa_big_money }
+	if = { limit = { has_modifier = debt_payback_fra_big_money } remove_modifier = debt_payback_fra_big_money }
+}
+
+aor1776_support_initialize_effect = {
+	if = {
+		limit = { NOT = { has_variable = aor1776_support_version_2 } }
+		set_variable = aor1776_support_version_2
+		set_variable = { name = aor1776_support_rounds value = 0 }
+		set_variable = { name = aor1776_french_principal value = 0 }
+		aor1776_remove_legacy_debt_effect = yes
+		c:FRA ?= { aor1776_remove_legacy_debt_effect = yes }
+	}
+}
+
+# Explicit country scopes allow the same request from either country's decision.
+aor1776_support_request_effect = {
+	c:USA ?= { aor1776_support_initialize_effect = yes }
+	if = {
+		limit = { aor1776_french_support_can_request = yes }
+		c:USA = { set_variable = { name = aor1776_support_request_pending days = 30 } }
+		c:FRA = { trigger_event = { id = aor1776_french_support.1 popup = yes } }
+	}
+}
+
+# A missed startup event must not make the entire feature unavailable.
+# Only the active American journal calls this weekly, not every country.
+aor1776_support_weekly_effect = {
+	if = {
+		limit = { game_date >= 1776.1.3 aor1776_usa_independence_war_active = yes }
+		aor1776_support_request_effect = yes
+	}
+}
+
+aor1776_support_stop_effect = {
+	remove_variable = aor1776_support_active
+	remove_variable = aor1776_support_offer
+	remove_variable = aor1776_support_offer_level
+}
+
+aor1776_support_issue_offer_effect = {
+	# Root FRA; the caller sets the proposed level, expiring after 30 days.
+	c:USA ?= {
+		set_variable = { name = aor1776_support_offer days = 30 }
+		set_variable = { name = aor1776_support_offer_level value = c:FRA.var:aor1776_support_proposed_level days = 30 }
+		trigger_event = { id = aor1776_french_support.2 popup = yes }
+	}
+}
+
+aor1776_support_accept_effect = {
+ if = {
+  limit = { aor1776_french_support_can_accept = yes }
+  set_variable = { name = aor1776_support_active days = 182 }
+  if = {
+   limit = { var:aor1776_support_offer_level = 2 }
+   aor1776_support_conclude_effect = { MONEY = 21000 ARMS = 12 }
+  }
+  else = { aor1776_support_conclude_effect = { MONEY = 14000 ARMS = 6 } }
+  remove_variable = aor1776_support_offer
+  remove_variable = aor1776_support_offer_level
+ }
+}
+
+# Literal parameters use the same native inputs in the validation and effect.
+# Scripted-effect parameter expansion is native; no dynamic input API is assumed.
+aor1776_support_conclude_effect = {
+ if = {
+  limit = {
+   can_create_treaty = {
+    first_country = c:FRA second_country = c:USA is_draft = no
+    binding_period = { days = 182 }
+    articles_to_create = {
+     { article = aor1776_support_money source_country = c:FRA target_country = c:USA inputs = { { quantity = $MONEY$ } } }
+     { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:small_arms } { quantity = $ARMS$ } } }
+     { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:artillery } { quantity = 1 } } }
+    }
+   }
+  }
+  create_treaty = {
+   name = aor1776_support_commercial_cover
+   first_country = c:FRA second_country = c:USA is_draft = no
+   binding_period = { days = 182 }
+   articles_to_create = {
+    { article = aor1776_support_money source_country = c:FRA target_country = c:USA inputs = { { quantity = $MONEY$ } } }
+    { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:small_arms } { quantity = $ARMS$ } } }
+    { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:artillery } { quantity = 1 } } }
+   }
+  }
+  set_variable = { name = aor1776_support_weekly_money value = $MONEY$ }
+  set_variable = { name = aor1776_support_weekly_arms value = $ARMS$ }
+  change_variable = { name = aor1776_support_rounds add = 1 }
+  set_variable = { name = aor1776_support_cooldown days = 196 }
+  set_variable = aor1776_support_ever_received
+  if = {
+   limit = { NOT = { has_variable = aor1776_support_obligation_issued } }
+   if = {
+    limit = { NOT = { owes_obligation_to = c:FRA } }
+    set_owes_obligation_to = { country = c:FRA setting = yes }
+   }
+   set_variable = aor1776_support_obligation_issued
+  }
+  change_relations = { country = c:FRA value = 10 }
+ }
+ else = {
+  aor1776_support_stop_effect = yes
+  trigger_event = { id = aor1776_french_support.3 popup = yes }
+ }
+}
+
+aor1776_support_monthly_effect = {
+	aor1776_support_initialize_effect = yes
+	if = {
+		limit = { aor1776_usa_independence_war_active = yes NOT = { has_journal_entry = je_aor1776_french_support } }
+		add_journal_entry = { type = je_aor1776_french_support }
+	}
+	if = {
+		limit = {
+			has_variable = aor1776_support_active
+			OR = {
+				NOT = { aor1776_french_support_relationship_valid = yes }
+				c:FRA ?= { net_total_income < 0 }
+			}
+		}
+		aor1776_support_stop_effect = yes
+	}
+}

@@ -135,7 +135,7 @@ BUILDINGS={
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_pig_iron" "pm_automation_disabled"  }
+				activate_production_methods={ "pm_crude_tools" "pm_automation_disabled"  }
 			}
 			create_building={
 				building="building_logging_camp"
@@ -148,7 +148,7 @@ BUILDINGS={
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_saw_mills" "pm_hardwood" "pm_no_equipment" "pm_road_carts"  }
+				activate_production_methods={ "pm_simple_forestry" "pm_hardwood" "pm_no_equipment" "pm_road_carts"  }
 			}
 			create_building={
 				building="building_government_administration"
@@ -159,7 +159,7 @@ BUILDINGS={
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_religious_bureaucrats" "pm_hereditary_bureaucrats" "pm_horizontal_drawer_cabinets" }
+				activate_production_methods={ "pm_religious_bureaucrats" "pm_hereditary_bureaucrats" "pm_simple_organization" }
 			}
 			create_building={
 				building="building_trade_center"
@@ -226,7 +226,7 @@ BUILDINGS={
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_lathe" "pm_no_luxuries" "pm_automation_disabled"  }
+				activate_production_methods={ "pm_handcrafted_furniture" "pm_no_luxuries" "pm_automation_disabled"  }
 			}
 			create_building={
 				building="building_textile_mill"
@@ -1472,7 +1472,7 @@ BUILDINGS={
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_horizontal_drawer_cabinets" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+				activate_production_methods={ "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
 			}
 			create_building={
 				building="building_trade_center"
@@ -4199,17 +4199,7 @@ BUILDINGS={
 	}
 	s:STATE_SLOVENIA={
 		region_state:AUS={
-						create_building={
-							building="building_port"
-							add_ownership={
-								country={
-									country="c:AUS"
-									levels=3
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_anchorage" }
-						}
+
 						create_building={
 							building="building_railway"
 							add_ownership={
@@ -4223,19 +4213,7 @@ BUILDINGS={
 							reserves=1
 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
-						create_building={
-							building="building_shipyard"
-							add_ownership={
-								building={
-									type="building_shipyard"
-									country="c:AUS"
-									levels=1
-									region="STATE_SLOVENIA"
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_basic_shipbuilding" "pm_no_copper_sheathing_building_shipyard" }
-						}
+
 						create_building={
 							building="building_trade_center"
 							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
@@ -4258,7 +4236,7 @@ BUILDINGS={
 					building={
 						type="building_fishing_wharf"
 						country="c:VEN"
-						levels=3
+						levels=2
 						region="STATE_DALMATIA"
 					}
 				}
@@ -4439,7 +4417,7 @@ BUILDINGS={
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_pig_iron" "pm_automation_disabled"  }
+				activate_production_methods={ "pm_crude_tools" "pm_automation_disabled"  }
 			}
 			create_building={
 				building="building_shipyard"
@@ -4486,7 +4464,7 @@ BUILDINGS={
 				building="building_port"
 				add_ownership={
 					country={
-						country="c:VEN"
+						country="c:AUS"
 						levels = 2
 					}
 				}
@@ -4586,7 +4564,7 @@ BUILDINGS={
 		}
 	}
 	s:STATE_WEST_AEGEAN_ISLANDS={
-		region_state:VEN={
+		region_state:TUR={
 			create_building={
 				building="building_fishing_wharf"
 				add_ownership={

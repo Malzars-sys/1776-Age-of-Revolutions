@@ -223,7 +223,7 @@ def check_gates_and_recipes() -> None:
             fail(f"Hall-Heroult invariant failed: {key}={value}")
 
     for block, invariants, label in (
-        (basic_alloys, {"goods_input_iron_add": 25, "goods_input_copper_add": 15, "goods_input_lead_add": 10, "goods_input_coal_add": 10, "goods_output_alloys_add": 60}, "basic alloying"),
+        (basic_alloys, {"goods_input_iron_add": 3, "goods_input_copper_add": 4, "goods_input_lead_add": 1, "goods_input_coal_add": 2, "goods_output_alloys_add": 20}, "basic alloying"),
         (electric_alloys, {"goods_input_steel_add": 25, "goods_input_copper_add": 20, "goods_input_lead_add": 10, "goods_input_industrial_chemicals_add": 5, "goods_input_electricity_add": 10, "goods_output_alloys_add": 90}, "electric alloying"),
     ):
         for key, value in invariants.items():

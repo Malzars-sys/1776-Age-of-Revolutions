@@ -1,0 +1,692 @@
+# MISSION CODEX — VICTORIA 3 : 1776 AGE OF REVOLUTIONS
+## TECH-R2 — Validation humaine de R1 et deuxième vague de corrections technologiques
+
+### 1. Mission
+
+Tu es chargé de :
+
+1. Enregistrer la validation humaine de la première vague de l'audit technologique 1776 (`STARTING_TECH_AUDIT_1776_R1`).
+2. Préserver intégralement les validations territoriales du Saint-Empire (SERG).
+3. Examiner et hiérarchiser les anomalies technologiques encore ouvertes.
+4. Installer une deuxième vague cohérente de corrections fonctionnelles et historiques.
+5. Préparer les tests en jeu correspondants.
+
+Cette mission est indépendante des chantiers territoriaux SERG et WORLD 1776.
+
+**Ne commence aucune nouvelle tâche territoriale pendant cette passe.**
+
+La date historique de référence du scénario est le **1er janvier 1776**.
+
+---
+
+# PARTIE I — ENREGISTREMENT DE LA VALIDATION R1
+
+## 2. Attestation explicite du joueur
+
+Je confirme avoir effectué intégralement le protocole joueur de l'audit technologique R1.
+
+Toutes les vérifications demandées ont réussi :
+
+- Nouvelle partie démarrée au 1er janvier 1776.
+- Les huit corrections technologiques fonctionnent.
+- Berchtesgaden possède ses technologies initiales corrigées.
+- Brixen, Trente et les autres pays corrigés possèdent les technologies attendues.
+- Les technologies et méthodes de production contrôlées fonctionnent.
+- La mine native de sel de Berchtesgaden fonctionne.
+- Le recrutement, les intrants, la production et les finances de cette mine ne présentent pas d'anomalie bloquante pendant le protocole.
+- Les pays témoins contrôlés ne présentent pas d'anomalie.
+- Aucun octroi technologique supplémentaire inattendu n'a été constaté lors des vérifications.
+- Un mois complet de simulation a réussi.
+- Sauvegarde et rechargement réussis.
+
+**J'autorise l'enregistrement de `PASS_RUNTIME_USER_VALIDATED` pour les huit corrections technologiques de R1 et pour la configuration de la mine BGT effectivement couverte par ce protocole.**
+
+Cette validation est strictement limitée au périmètre de R1.
+
+Elle ne signifie pas que l'ensemble des 470 pays possède désormais des technologies historiquement correctes.
+
+Elle ne signifie pas non plus que les 207 signalements de prérequis et les 16 avertissements de ressources sont résolus.
+
+Ne crée aucune capture, date de test effective, valeur d'emploi, prix, revenu ou observation supplémentaire qui n'a pas été explicitement rapportée.
+
+## 3. Périmètre exact de R1
+
+Les huit pays corrigés sont :
+
+| TAG | Technologies avant | Après |
+|---|---:|---:|
+| BGT | 0 | 10 |
+| BRX | 1 | 8 |
+| TRT | 4 | 10 |
+| LGE | 12 | 13 |
+| PAP | 15 | 16 |
+| CAR | 6 | 7 |
+| ARK | 18 | 19 |
+| VIE | 18 | 19 |
+
+Au total, R1 comportait 28 attributions technologiques supplémentaires ciblées.
+
+Berchtesgaden a également reçu une correction de méthode de production destinée à supprimer une dépendance injustifiée à `scientific_metrology`.
+
+Le bâtiment actuellement retenu est une mine native publique de niveau 1, avec une capacité nominale de 5 000 postes.
+
+**La validation humaine concerne cette configuration de R1, pas une éventuelle future modification de la mine.**
+
+Conserve les fichiers originaux, les preuves et les rapports dans :
+
+`docs/reports/technology/STARTING_TECH_AUDIT_1776_R1/`
+
+Vérifie leur présence et leur contenu réel avant de créer le reçu.
+
+## 4. Enregistrement technique du reçu
+
+Procéder dans cet ordre :
+
+1. Identifier les trois fichiers fonctionnels réellement modifiés pendant R1.
+2. Vérifier leur état actuel.
+3. Comparer les empreintes disponibles avec les preuves de livraison de R1.
+4. Identifier les modifications concurrentes intervenues depuis.
+5. Enregistrer la confirmation humaine dans un nouveau fichier de validation ou dans le système de reçus existant.
+6. Lier la validation à la version exacte des corrections concernées.
+7. Préserver toutes les preuves antérieures.
+8. Vérifier qu'aucune modification R2 n'est automatiquement considérée comme validée par le reçu R1.
+
+Si les fichiers ont évolué depuis les tests du joueur, distinguer les corrections R1 réellement testées des modifications postérieures.
+
+Ne pas annuler arbitrairement une validation historique au seul motif qu'une révision ultérieure existe.
+
+Le reçu doit conserver explicitement :
+
+`PASS_RUNTIME_USER_VALIDATED`
+
+Le rapport global R1 peut être marqué comme validé dans son périmètre, mais **l'audit technologique mondial reste incomplet**.
+
+---
+
+# PARTIE II — DIAGNOSTIC DE LA DEUXIÈME VAGUE
+
+## 5. État initial connu
+
+Le premier audit a examiné :
+
+- 470 pays.
+- 93 nouveaux TAGs du mod.
+- 252 profils techniquement conformes au contrôle statique.
+- 158 profils nécessitant une revue historique.
+- 45 pays classés principalement en conflit bâtiment/technologie.
+- 7 pays présentant des incohérences principales de prérequis.
+- 8 entités sans historique retrouvé.
+
+Le registre détaillé contient :
+
+- 207 signalements de conflits de prérequis ou de disponibilité technique.
+- 16 avertissements relatifs aux ressources régionales.
+
+Ces signalements ne représentent pas nécessairement 223 bugs indépendants ou confirmés en jeu.
+
+**Ne convertis pas automatiquement chaque signalement statique en erreur fonctionnelle.**
+
+Lire obligatoirement :
+
+- `STARTING_TECH_AUDIT_1776.csv`
+- `STARTING_TECH_BEFORE_AFTER.csv`
+- `BUILDING_TECH_CONFLICTS.csv`
+- `COUNTRIES_REQUIRING_REVIEW.csv`
+- `TECH_VALIDATION.json`
+- `SOURCES_AND_DECISIONS.md`
+- `REPORT.md`
+- `PLAYER_TEST_PROTOCOL.md`
+
+Retrouver également les scripts du mod qui ont servi à produire l'audit.
+
+Ne pas reprendre mécaniquement les anciens résultats si les fichiers du workspace ont changé.
+
+## 6. Créer le dossier R2
+
+Créer un dossier indépendant :
+
+`docs/reports/technology/STARTING_TECH_AUDIT_1776_R2/`
+
+Y conserver :
+
+- `REPORT.md`
+- `PRIORITY_MATRIX.csv`
+- `CONFIRMED_TECH_CONFLICTS.csv`
+- `BUILDING_TECH_FIXES.csv`
+- `TECH_BEFORE_AFTER.csv`
+- `HISTORICAL_DECISIONS.md`
+- `FILES_MODIFIED.json`
+- `CONCURRENT_CHANGES.json`
+- `TECH_VALIDATION.json`
+- `PLAYER_TEST_PROTOCOL.md`
+
+Ajouter des fichiers complémentaires lorsque leur nécessité est démontrée.
+
+Ne pas modifier les rapports R1 pour leur faire décrire rétrospectivement R2.
+
+---
+
+# PARTIE III — PRIORISATION DES ANOMALIES
+
+## 7. Classification des problèmes
+
+Classe chaque signalement en cinq niveaux de priorité.
+
+### P0 — Fonctionnement bloqué
+
+Traiter en premier :
+
+- Bâtiment historique rendu impossible à construire par une technologie manquante.
+- Méthode de production initialement sélectionnée mais impossible à utiliser.
+- Chaîne de production sans méthode compatible.
+- Pays ne pouvant exploiter une ressource historique majeure à cause d'un défaut technique.
+- Historique produisant une combinaison de technologies ou de méthodes invalide.
+- Erreur d'initialisation empêchant le fonctionnement normal d'un système essentiel.
+
+Une correction P0 doit être confirmée par l'analyse des conditions réelles du moteur et du mod.
+
+### P1 — Prérequis incohérents
+
+Examiner ensuite :
+
+- Technologies attribuées sans leurs prérequis normalement obligatoires.
+- Dépendances devenues contradictoires après la refonte de l'arbre technologique.
+- Capacités historiques représentées par une technologie inappropriée.
+- Bâtiments utilisant une méthode avancée alors qu'une méthode ancienne compatible existe.
+
+Le but est de corriger la cohérence technologique, pas seulement de faire disparaître un avertissement.
+
+### P2 — Profil historiquement incorrect
+
+Étudier ensuite :
+
+- Pays trop avancés pour leur situation historique.
+- Pays privés de connaissances courantes en 1776.
+- Profils régionaux trop uniformes.
+- Technologies attribuées en fonction d'un ancien propriétaire plutôt que de l'histoire du pays.
+- Technologies militaires, administratives ou économiques injustifiées.
+
+### P3 — Cas documentaires incertains
+
+Conserver dans une file de recherche :
+
+- Entités décentralisées mal documentées.
+- Pays dont les pratiques techniques locales exigent une recherche spécialisée.
+- Situations où le moteur simplifie des techniques historiquement différentes.
+
+Ne pas inventer de solution pour transformer artificiellement ces dossiers en réussites.
+
+### P4 — Améliorations facultatives
+
+Exemples :
+
+- Nettoyage de profils redondants.
+- Simplification de scripts.
+- Harmonisation de conventions.
+- Suppression d'anciennes structures inutilisées lorsque leur innocuité est démontrée.
+
+Ces améliorations sont secondaires.
+
+**L'ordre d'exécution est P0, puis P1, puis P2.**
+
+Ne commence pas un nettoyage esthétique tant que des défauts fonctionnels importants restent non traités.
+
+## 8. Vérifier la cause réelle des conflits
+
+Pour chaque signalement, répondre :
+
+1. Quelle technologie est concernée ?
+2. Quel bâtiment ou méthode de production en dépend ?
+3. Quel pays est affecté ?
+4. Cette technologie est-elle réellement nécessaire au démarrage ?
+5. Le bâtiment existe-t-il effectivement au début de 1776 ?
+6. Sa méthode de production est-elle réellement sélectionnée ?
+7. Existe-t-il une autre méthode compatible ?
+8. Le problème concerne-t-il une absence de technologie, une dépendance mal définie ou un bâtiment historiquement inapproprié ?
+9. Le moteur autorise-t-il certains éléments historiques malgré un prérequis de construction non satisfait ?
+10. Quelle correction minimale rétablit un comportement historiquement cohérent ?
+
+Ne pas confondre :
+
+- Condition de construction.
+- Condition de déverrouillage de méthode de production.
+- Condition d'activation.
+- Technologie possédée.
+- Technologie accessible à la recherche.
+- Ressource disponible.
+- Bâtiment déjà construit.
+- Bâtiment réellement productif.
+
+Un bâtiment historique déjà présent ne prouve pas automatiquement que son pays possédait toutes les technologies requises pour le construire à nouveau.
+
+Une absence de technologie ne prouve pas automatiquement que le bâtiment installé ne produit rien.
+
+---
+
+# PARTIE IV — CORRECTIONS PRIORITAIRES
+
+## 9. Premier groupe : conflits de bâtiments
+
+Commence par les cas présentant des conséquences économiques concrètes.
+
+Étudier notamment les signalements liés aux :
+
+- Mines.
+- Bâtiments agricoles.
+- Manufactures.
+- Armureries.
+- Chantiers navals.
+- Ports.
+- Centres commerciaux.
+- Universités.
+- Bâtiments de transformation.
+- Méthodes de production industrielles.
+- Méthodes de production spécialisées.
+
+Pour chaque cas, déterminer si la meilleure correction consiste à :
+
+**A. Attribuer une technologie historiquement justifiée.**
+
+**B. Sélectionner une méthode de production plus ancienne et compatible.**
+
+**C. Modifier un prérequis technologique incorrect dans le mod.**
+
+**D. Corriger l'historique d'un bâtiment anachronique.**
+
+**E. Corriger une ressource ou une disponibilité régionale mal déclarée.**
+
+**F. Classer le signalement comme faux positif démontré.**
+
+Ne pas choisir systématiquement A.
+
+Il est parfois plus correct de retirer une méthode de production anachronique que d'offrir au pays une technologie trop avancée.
+
+Ne pas modifier les technologies communes à l'ensemble des pays sans examiner les conséquences globales.
+
+## 10. Deuxième groupe : sept incohérences de prérequis
+
+Examiner spécifiquement :
+
+- `AUS`
+- `BEO`
+- `FRA`
+- `PRU`
+- `RUS`
+- `SAX`
+- `SWE`
+
+Le premier audit signale que ces pays possèdent `alloysworking` sans `coke_smelting`, bien que le graphe actuel semble exiger ce dernier.
+
+Il faut déterminer :
+
+1. Si ce prérequis est historiquement pertinent.
+2. Si `alloysworking` désigne des pratiques métallurgiques qui existaient avant la généralisation du coke.
+3. Si la dépendance a été introduite lors d'une refonte récente.
+4. Si une technologie intermédiaire serait pertinente.
+5. Si le graphe doit être corrigé plutôt que les historiques nationaux.
+6. Quels bâtiments et méthodes de production dépendent de ces technologies.
+
+**Ne donne pas automatiquement `coke_smelting` aux sept pays.**
+
+Une technologie de métallurgie traditionnelle ne doit pas être artificiellement conditionnée à un procédé industriel ultérieur si cela contredit son contenu historique.
+
+Si une modification du graphe est nécessaire, documente ses conséquences sur l'ensemble des pays.
+
+## 11. Troisième groupe : pays nouvellement créés
+
+Vérifier les nouveaux TAGs qui n'ont pas été corrigés pendant R1.
+
+Accorder une attention particulière aux pays disposant :
+
+- De mines déjà construites.
+- De manufactures.
+- De ports commerciaux.
+- D'unités militaires utilisant des technologies particulières.
+- De lois conditionnées par des technologies.
+- De méthodes de production initiales spécifiques.
+
+Les profils des pays déjà validés politiquement doivent être vérifiés sans modifier leurs territoires.
+
+Ne pas considérer que les technologies de départ sont correctement définies simplement parce qu'un pays dispose d'un historique politique complet.
+
+## 12. Quatrième groupe : huit historiques absents
+
+L'audit R1 signale :
+
+- `AP7`
+- `CKC`
+- `FRS`
+- `GR7`
+- `HWA`
+- `INDOP`
+- `PLW`
+- `TTI`
+
+Ces entités sont décrites comme décentralisées.
+
+Les examiner individuellement.
+
+Ne pas leur imposer automatiquement les technologies d'une monarchie européenne.
+
+Vérifier leurs cultures, structures sociales et pratiques économiques historiques.
+
+Si leur absence d'historique technologique est volontaire et fonctionnelle, documenter cette conclusion.
+
+Si une omission réelle est démontrée, la corriger.
+
+Ne pas créer arbitrairement de nouvelles industries pour justifier un profil technologique.
+
+---
+
+# PARTIE V — COORDINATION AVEC LES AUTRES AGENTS
+
+## 13. Trois chantiers territoriaux et fonctionnels
+
+Plusieurs agents peuvent désormais travailler simultanément :
+
+**Agent SERG :**
+Restauration des États du Saint-Empire.
+
+**Agent WORLD 1776 :**
+Balkans, Italie méridionale, Afrique subsaharienne, Maghreb et Amériques.
+
+**Ton chantier TECH-R2 :**
+Technologies initiales, prérequis, compatibilité des bâtiments et méthodes de production.
+
+Tu dois respecter strictement les responsabilités de chacun.
+
+## 14. Ne pas modifier les territoires
+
+Interdiction de modifier directement :
+
+- RGB.
+- Frontières.
+- Propriétaires territoriaux.
+- Populations.
+- Capitales.
+- Souverains.
+- Gouvernements.
+- Diplomatie.
+- Registre impérial.
+- Suivi territorial SERG.
+- Suivi territorial WORLD 1776.
+
+Si une anomalie nécessite une correction territoriale, documente-la pour l'agent propriétaire.
+
+N'utilise pas le chantier technologique comme justification pour modifier la carte.
+
+## 15. Fichiers partagés
+
+Les historiques nationaux, bâtiments et méthodes de production peuvent être modifiés par plusieurs agents.
+
+Avant toute écriture :
+
+1. Inspecter le fichier courant.
+2. Identifier les modifications intervenues depuis R1.
+3. Vérifier si un autre agent a déjà corrigé le problème.
+4. Limiter le patch aux éléments effectivement concernés.
+5. Préserver les modifications non liées.
+6. Recontrôler le fichier avant et après écriture.
+7. Enregistrer les différences pertinentes.
+
+Si une correction concurrente rend ton patch obsolète, ne l'applique pas.
+
+Ne restaure jamais un fichier depuis une ancienne baseline.
+
+Préserver en particulier :
+
+- Anzin et la houille de prestige.
+- Les infrastructures régionales.
+- Les mines et le sel.
+- Le drainage.
+- Les fortifications.
+- Le Corps du génie.
+- Saint-Gobain.
+- Les États-Unis et les Minutemen.
+- Les travaux français.
+- Les travaux territoriaux des Balkans.
+- Les corrections SERG.
+
+## 16. Intégration aux futurs pays
+
+Préparer des contrôles réutilisables afin qu'un nouveau TAG ne soit plus créé sans vérification technologique.
+
+Chaque nouveau pays devrait disposer d'un test contrôlant :
+
+- L'existence ou l'intention documentée d'absence d'historique technologique.
+- Le profil initial.
+- Les prérequis.
+- Les technologies inconnues.
+- Les technologies historiquement anachroniques.
+- Les bâtiments initiaux.
+- Les méthodes de production initiales.
+- Les ressources nécessaires.
+
+Concevoir ce contrôle de manière à pouvoir l'intégrer aux tests des agents territoriaux.
+
+Il ne doit pas imposer artificiellement un profil uniforme à toutes les nations.
+
+---
+
+# PARTIE VI — IMPLÉMENTATION ET LIMITES
+
+## 17. Stratégie de la deuxième vague
+
+Après classification, installer un ensemble cohérent de corrections prioritaires.
+
+Privilégier :
+
+1. Les conflits P0 confirmés.
+2. Les prérequis P1 dont la correction est démontrée.
+3. Les omissions technologiques manifestes de nouveaux pays.
+
+Regrouper les corrections lorsqu'elles partagent la même cause racine.
+
+Ne pas corriger arbitrairement les 207 signalements d'un seul coup.
+
+Ne pas modifier des dizaines de profils historiques simplement pour augmenter le nombre de pays considérés comme conformes.
+
+Ne pas recopier toutes les technologies d'un grand pays vers un micro-État.
+
+L'objectif est une **deuxième vague de corrections fonctionnelles vérifiables**, et non une augmentation artificielle du taux de réussite de l'audit.
+
+## 18. Respect de l'histoire de 1776
+
+Toute technologie ajoutée doit correspondre à une capacité plausible au 1er janvier 1776.
+
+Vérifier la signification précise des technologies personnalisées du mod.
+
+Ne pas accorder massivement :
+
+- Machines à vapeur industrielles avancées.
+- Chemins de fer.
+- Procédés métallurgiques tardifs.
+- Technologies militaires postérieures.
+- Équipements industriels du XIXe siècle.
+
+Vérifier aussi que certains procédés historiquement existants ne sont pas bloqués artificiellement par des prérequis anachroniques.
+
+## 19. Version du jeu et compatibilité
+
+L'audit R1 mentionne une comparaison avec un vanilla local `1.13.11`.
+
+Déterminer la version réellement utilisée pour exécuter le mod et la version actuellement ciblée par le projet.
+
+Ne pas présumer que `1.13.11` reste la version de référence.
+
+Vérifier que les effets, technologies, bâtiments et méthodes de production existent dans la version réellement ciblée.
+
+Signaler séparément toute incompatibilité de version découverte.
+
+Ne modifier aucun fichier du jeu vanilla.
+
+---
+
+# PARTIE VII — TESTS ET VALIDATION
+
+## 20. Contrôles techniques
+
+Exécuter les contrôles statiques, ciblés et cumulatifs appropriés.
+
+Vérifier :
+
+1. Syntaxe Paradox.
+2. Validité des technologies.
+3. Validité des profils partagés.
+4. Exécution correcte des effets d'initialisation.
+5. Respect des dépendances.
+6. Cohérence des bâtiments.
+7. Cohérence des méthodes de production.
+8. Disponibilité des ressources.
+9. Absence de technologies tardives injustifiées.
+10. Préservation des historiques nationaux.
+11. Préservation des populations et territoires.
+12. Conservation des reçus R1.
+13. Absence de régression chez les autres pays.
+14. Absence de modification concurrente écrasée.
+
+La première vague annonçait :
+
+- 72/72 contrôles statiques.
+- 29/29 tests ciblés.
+- 521/533 tests cumulatifs.
+- Onze anciennes assertions classées.
+- Une exclusion héritée.
+
+Ces résultats sont seulement des références historiques.
+
+Ne les recopier pas comme s'ils avaient été réexécutés.
+
+Ne pas supprimer les anciens tests pour afficher une suite entièrement verte.
+
+Distinguer les anciennes assertions obsolètes des nouvelles régressions.
+
+## 21. Validation humaine R2
+
+Toute nouvelle correction fonctionnelle R2 doit rester :
+
+`IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`
+
+Préparer un protocole joueur regroupé.
+
+Le protocole devra permettre de contrôler :
+
+- Nouvelle partie en 1776.
+- Technologies initiales des pays corrigés.
+- Bâtiments concernés.
+- Méthodes de production corrigées.
+- Recrutement et économie.
+- Ressources.
+- Technologies ajoutées ou retirées.
+- Conservation des pays témoins.
+- Absence de déblocage anachronique.
+- Un mois de simulation.
+- Sauvegarde et rechargement.
+
+Le reçu R1 ne certifie aucune modification R2.
+
+Aucune validation moteur ne doit être inventée.
+
+---
+
+# PARTIE VIII — CONSERVATION DU SUIVI SERG
+
+## 22. Progression territoriale
+
+L'état territorial de référence est :
+
+**82/235 points = 34,89 %.**
+
+**24 tâches qualifiées sur 81.**
+
+Ce suivi est entièrement indépendant des corrections technologiques.
+
+Ne modifie pas :
+
+`docs/reports/map/SERG_CLOSURE/ROADMAP_STATE.json`
+
+Ni aucun autre fichier canonique du suivi SERG.
+
+Ne clôture pas les tâches régionales bloquées en raison de l'amélioration de leurs technologies.
+
+Conserver notamment les validations précédentes :
+
+- `MC-I-CORE`
+- `TR-I-CORE`
+- `BR-I-CORE`
+- `BG-I-CORE`
+- `PS-OB-CORE`
+
+La correction démographique `RG-D-CITY` demeure un sous-lot distinct, avec son propre état de validation.
+
+Conserver les blocages territoriaux P0/P1 existants.
+
+Ne pas anticiper les résultats des agents territoriaux travaillant simultanément.
+
+---
+
+# PARTIE IX — RAPPORT FINAL
+
+## 23. Présentation obligatoire
+
+Commencer par :
+
+**AUDIT TECHNOLOGIQUE 1776 — R2**
+
+Présenter ensuite :
+
+1. Confirmation de l'enregistrement humain de R1.
+2. Périmètre exact de la validation R1.
+3. Différences éventuelles depuis la livraison initiale.
+4. État global de l'inventaire technologique.
+5. Nombre de conflits réévalués.
+6. Nombre de faux positifs démontrés.
+7. Nombre de conflits fonctionnels confirmés.
+8. Répartition par priorité P0/P1/P2/P3/P4.
+9. Corrections R2 réellement installées.
+10. Pays concernés.
+11. Technologies avant/après.
+12. Bâtiments et méthodes de production corrigés.
+13. Décisions concernant les sept incohérences de prérequis.
+14. Situation des huit historiques absents.
+15. Résultats des tests.
+16. Modifications concurrentes conservées.
+17. Protocole de validation humaine R2.
+18. Anomalies restant ouvertes.
+19. Progression SERG inchangée ou modification indépendante explicitement justifiée.
+
+Le rapport doit distinguer :
+
+- **R1 validé en jeu.**
+- **R2 installé mais non encore validé en jeu.**
+- **Anomalies encore ouvertes.**
+
+## 24. Restrictions Git
+
+Aucune opération Git d'écriture :
+
+- Pas de staging.
+- Pas de commit.
+- Pas de push.
+- Pas de merge.
+- Pas de reset.
+- Pas de rebase.
+- Pas de checkout modifiant la branche.
+
+Aucune modification du vanilla.
+
+Aucune restauration depuis une ancienne baseline.
+
+---
+
+# 25. Instruction finale
+
+**Commence par enregistrer le reçu humain `PASS_RUNTIME_USER_VALIDATED` de R1 pour les huit corrections et la configuration de la mine BGT effectivement testée.**
+
+**Ensuite, réévalue les 207 signalements technologiques et les 16 avertissements de ressources à partir des fichiers actuels.**
+
+**Identifie les véritables blocages de bâtiments et de méthodes de production, traite en priorité les P0 confirmés, puis les incohérences de prérequis P1 historiquement démontrées.**
+
+**Installe une deuxième vague cohérente de corrections sans modifier les territoires, les populations ou les validations SERG.**
+
+**Prépare enfin un protocole joueur R2 et un rapport indiquant clairement ce qui est corrigé, ce qui est seulement suspect et ce qui reste à faire.**

@@ -1,0 +1,56 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2W\R3\CALIBRATION\REPORT.md
+@@
+ Cinq points FIT, tous des locators non relevés géodésiquement :
+ 
+ - Hanover : géographie [9.73322, 52.37052] → locator [4325.178, 788.162].
+ - Magdeburg : géographie [11.63189, 52.13129] → locator [4365.351, 796.94].
+ - Frankfurt : géographie [8.68417, 50.11552] → locator [4300.876, 856.939].
+ - Brunswick : géographie [10.52673, 52.26594] → locator [4339.979, 795.886].
+ - Dresden : géographie [13.73832, 51.05089] → locator [4411.987, 828.656].
+ 
+ Domaine des points FIT : longitude 8,68417–13,73832°, latitude **50,11552–52,37052° N**. Langenbourg et Kirchberg, vers 49,2° N, sont environ 0,86–0,91° au sud : c’est une extrapolation. RMS FIT 1,716 pixel et RMS CHECK européen 12,082 pixels ne constituent pas une marge locale garantie. Les biais de locators et l’extrapolation peuvent se combiner ; on ne peut attribuer le désaccord à une simple translation ou à la seule formule Miller.
+ 
+ ### Calage intermédiaire du candidat retiré
+ 
+ `R3/SOURCE_ALIGNMENT.json` envoie le dessin de Gerabronn vers **trois positions prédites par le Miller hérité**, et non vers trois nouveaux points physiques natifs. Les contrôles de feuille Gerabronn/Schrozberg, 0,079 et 0,222 pixel, partagent ce même référentiel parent. Ils vérifient une cohérence relative, pas la position réelle dans le jeu. Le SVG ne déclare pas de CRS : ses unités nominales ne sont pas assimilées arbitrairement à UTM ou Gauss–Krüger.
+ 
+ Les anciens écarts Würzburg 7,57 / Nuremberg 2,29 / Bayreuth 1,99 / Ratisbonne 4,97 pixels sont des désaccords entre référentiels, pas des erreurs certifiées des villes. Aucun des deux n’est promu comme vérité par défaut. Aucun profil ancien ou frontière validée n’a été réécrit.
++
++Les rasters provinciaux et fluviaux partagent le même repère image 8192 × 3616, origine en haut à gauche, Y vers le bas. Le facteur deux de la hauteur 16384 × 7232 est un facteur de résolution, pas une correction géographique. `default.map` et les defines natifs indiquent le bouclage horizontal et une position graphique d’équateur 0,58 ; ils ne fournissent pas une formule géodésique exacte. Aucun retournement, facteur deux ou translation n’a été introduit pour faire coïncider les hypothèses.
+ 
+ ## 2. Nouvelles données physiques indépendantes
+ 
+ Source primaire : [LUBW, réseau hydrographique officiel AWGN](https://www.lubw.baden-wuerttemberg.de/wasser/awgn). Service `Gewaessernetz_AWGN`, couche 0 : système natif EPSG:25832, export demandé en EPSG:4326. Réponse complète : Neckar OBJECTID 18518 (**8 341 sommets**), Jagst 4294 (**9 722**), Kocher 4311 (**7 402**), soit **25 465 sommets**. Métadonnées et réponse GeoJSON conservées avec empreintes.
+ 
+ Le réseau moderne sert à rechercher des formes physiques, pas à définir les frontières de 1776. Rectifications de cours d’eau et écart de date restent des limites. Le réseau Natural Earth 1:10 millions déjà conservé ne contient pas ici la Jagst, le Kocher ou le Neckar ; son seul ajout ou sa meilleure interpolation ne pouvait pas créer ces informations.
+ 
+ Six candidats physiques sont examinés. P1/P2 correspondent aux embouchures ; P3–P6 à des secteurs de boucle, choisis par la géométrie hydrographique seule dans des fenêtres déclarées. Les points réservés ne sont jamais utilisés pour ajuster un modèle.
+ 
+ | ID | Repère physique candidat | Longitude / latitude WGS84 | Rôle prévu | Pixel natif homologue | Résidu indépendant | Utilisé |
+ | --- | --- | --- | --- | --- | --- | --- |
+ | P1 | Confluent Jagst–Neckar | 9.178179 / 49.233266 | Ajustement candidat | Non identifié | Non mesurable | Non |
+ | P2 | Confluent Kocher–Neckar | 9.198495 / 49.224801 | Ajustement candidat | Non identifié | Non mesurable | Non |
+ | P3 | Boucle Jagst près de Bächlingen | 9.832621 / 49.249831 | Ajustement candidat | Non identifié | Non mesurable | Non |
+ | P4 | Boucle Kocher près de Künzelsau | 9.678824 / 49.283853 | Ajustement candidat | Non identifié | Non mesurable | Non |
+@@
+ | --- | --- | --- |
+ | Castell | Le Main offre un contexte régional, pas un contrôle local précis déjà accepté. Partages des branches et possessions communes à tracer séparément. | Aucun sous-lot territorial prêt ; ne pas reprendre le RGB WZB entier. |
+ | Wertheim | Une étude autonome des boucles du Main est une piste réelle. Le confluent de la Tauber n’est pas identifié dans le réseau natif et les droits des branches restent à délimiter. | Piste future, pas un calage indépendant validé dans cette passe. |
+ | Rothenburg, Windsheim, Weißenburg | Tauber, Aisch et Rezat non disponibles comme homologues natifs acceptés ici. | Différer ; pas de pays artificiel d’une cellule. |
+ | Schweinfurt | Le Main peut soutenir un futur pilote, mais ni la position de la ville ni son territoire ne se déduisent de la courbe régionale seule. | Aucun transfert automatique du noyau WZB protégé. |
+ 
+ 
+ **Recommandation explicite : différer R3 et passer à MAP-2W-R4, juridictions bavaroises et ecclésiastiques**, après consigne du joueur. Les boucles du Main restent une piste de recherche indépendante pour une reprise ultérieure, pas un sous-lot déjà testable. Aucune autre région ne démarre automatiquement.
+ 
+ ## 6. Protection, reproductibilité et limites
+ 
+ La capture fraîche `BASELINE.json` conserve les empreintes de **2 328 fichiers fonctionnels** et de Git. Le contrôle final distingue les fichiers inchangés des **9 chemins précis du chantier américain concurrent**, dont l’évolution a été observée sans écriture ou restauration par cette passe. Une modification de visibilité de loi est notamment limitée aux États-Unis, et l’ancien fichier séparé des minutemen a été retiré par ce chantier externe ; les autres lois natives sont comparées à leur source antérieure et conservées. Ces observations ne constituent pas une validation fonctionnelle du chantier américain. La liste et les empreintes observées sont dans `CONCURRENT_OBSERVATION.json` ; la baseline n’est pas réécrite.
+ 
+ Carte provinciale, propriétaires, populations, bâtiments, unités, registre impérial de 567 RGB, compilateur existant, anciens profils, Erfurt–Eichsfeld et lots validés sont préservés. HEAD et index inchangés. Aucun commit, push, merge, reset, rebase, changement de branche ou staging. Installation du jeu en lecture seule.
+ 
+-Le contrôle territorial moteur est **sans objet**, puisqu’aucun correctif fonctionnel n’est installé. Les tests du diagnostic vérifient notamment le maintien de valeurs nulles en absence de contrôles, les rôles réservés, le refus d’un calage sans couples et les protections de périmètre. Ils ne certifient pas une précision géographique.
++Le contrôle territorial moteur est **sans objet**, puisqu’aucun correctif fonctionnel n’est installé. **22/22 tests du diagnostic** et **11/11 contrôles de protection** passent. Les tests vérifient notamment le maintien de valeurs nulles en absence de contrôles, les rôles réservés, le refus d’un calage sans couples et les protections de périmètre. Ils ne certifient pas une précision géographique.
+ 
+ Outil indépendant : `tools/map2w_r3_calibration.py` ; commandes de lecture/diagnostic `inspect`, `origins`, `physics`, `map_evidence`, `decision`, `verify`. `snapshot` refuse d’écraser sa capture. Les réponses téléchargées sont conservées ; aucune intégration ou dépendance supplémentaire installée. Les chemins étaient connus ou retrouvables par identifiant/nom exact : aucun appel ColGrep redondant et aucune reconstruction d’index dans cette passe.
+*** End Patch

@@ -1,0 +1,61 @@
+{
+  "method": "Manual political cartogram on current native cells, not a recalibration or an exact historical trace",
+  "historical_date": "1776-01-01",
+  "status": "OPTION_1_INSTALLED_OPTION_2_REJECTED",
+  "proposed_country_tag": "PAS",
+  "country_tag_status": "PAS verified unused before installation and now installed; see VALIDATION.json",
+  "sources": [
+    "docs/reports/map/MAP2W/R4/EVIDENCE/PASSAU_HLB.html",
+    "docs/reports/map/MAP2W/R4/EVIDENCE/BSB_1791_READING.jpg",
+    "docs/reports/map/MAP2W/R4/EVIDENCE/PASSAU_HLB_BOUNDARIES.jpg"
+  ],
+  "common_basis": [
+    "Physically observed Inn-Danube junction at native marker [4400,902] is the orientation anchor, not an exact urban-centre observation.",
+    "1791 source sheet: Passau on the south edge of its main territory; Oberhaus/Hauzenberg/Obernzell in the southern body, Waldkirchen and Wolfstein/Freyung northward; neighbouring Bavaria westward, Bohemia northward, Upper Austria eastward.",
+    "Independent territorial prose confirms temporal Abteiland, Hals under Bavarian sovereignty and separate Rent-/Waldguetleramt. It dates the eastern revision to 1765; does not authorize all the Muehlviertel.",
+    "Current parent connectivity supports splitting the long north-south xB08021 instead of transferring its full 252 cells or all State 71.",
+    "Schematic boundaries intentionally round and shorten the engraved jurisdiction shapes. No city-radius selection, no averaged translation, no city-locator GCP and no new hydrographic fit."
+  ],
+  "common_exclusions": [
+    {"id":"HALS_WEST", "native_box":[4396,898,4400,902], "class":"C", "meaning":"Western/northwestern approach retained in Bavaria as an exclusion sector for Hals and neighbouring Bavarian land; not a certified pixel outline or a newly created one-cell Hals enclave."},
+    {"id":"SOUTH_BANK", "native_box":[4393,903,4412,916], "class":"C", "meaning":"No southern bridge or corridor; Rent-/Waldguetleramt, St Nikola and Neuburg need a separate treatment. This box is a screening sector, not their exact borders."}
+  ],
+  "options": [
+    {
+      "id":"OPTION_1_MINIMAL",
+      "name_fr":"Noyau méridional réduit",
+      "class":"B_POLITICAL_APPROXIMATION_INSTALLED",
+      "polygon_native":[[4400,895],[4403,895],[4406,896],[4406,899],[4404,901],[4403,903],[4400,903],[4400,901],[4399,899],[4399,897]],
+      "allowed_parents":["xB08021"],
+      "intended_jurisdictions":["Passau-Oberhaus and eastern/southern Abteiland, schematically toward Hauzenberg"],
+      "coverage_limits":["Not a claim to represent the whole Hochstift", "Wolfstein/Freyung and the western Abteiland largely deferred", "Obernzell and Wegscheid not individually certified as native cells"],
+      "advantages":["Smaller intervention, one existing Bavarian parent, avoids western exclusion sector and all Austrian/Bohemian owners", "Distinct political representation without creating an isolated one-cell country"],
+      "risks":["Under-represents northern possessions whose sovereignty is known", "Settlement labels cannot be read as pixel-exact positions", "Native confluence is not the city boundary"],
+      "confidence":"High historical identity; moderate political placement; low precise boundary confidence"
+    },
+    {
+      "id":"OPTION_2_SCHEMATIC",
+      "name_fr":"Abteiland schématique prolongé au nord",
+      "class":"C_REJECTED_AFTER_CONNECTIVITY_REVIEW",
+      "polygon_native":[[4399,889],[4402,889],[4405,892],[4405,895],[4406,896],[4406,899],[4404,901],[4403,903],[4400,903],[4400,901],[4399,899],[4398,896],[4397,893]],
+      "allowed_parents":["xB08021"],
+      "intended_jurisdictions":["Same southern body as Option 1", "Northern political extension toward Wolfstein/Freyung and Waldkirchen"],
+      "coverage_limits":["Not the whole 1791 outline", "No Austrian or Bohemian cells automatically annexed", "No separate claims to western Rathsmannsdorf or peripheral Inn enclaves"],
+      "advantages":["Better expresses the north-south extent of the temporal principality on the historical sheet", "Keeps one coherent principal body without joining detached possessions by corridors"],
+      "risks":["Larger Bavarian transfer; northern and western fringes only schematically related to the source", "The native Bavaria-Bohemia line is used as a no-transfer safeguard, not certified as the historical boundary", "More sensitive to the known map generalisation than the minimal option"],
+      "confidence":"High historical identity; moderate macro-position; lower fringe confidence than Option 1"
+    },
+    {
+      "id":"OPTION_3_DEFER",
+      "name_fr":"Conserver la carte actuelle",
+      "class":"C_RETAINED_NOT_HISTORICALLY_CERTIFIED",
+      "polygon_native":[],
+      "allowed_parents":[],
+      "intended_jurisdictions":[],
+      "coverage_limits":["Passau remains absent as a distinct owner"],
+      "advantages":["No new geographical allocation decision"],
+      "risks":["Keeps the acknowledged political omission"],
+      "confidence":"No new claim; current Bavarian ownership not certified as correct"
+    }
+  ]
+}

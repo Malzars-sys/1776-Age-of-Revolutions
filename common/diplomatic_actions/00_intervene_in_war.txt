@@ -1,0 +1,56 @@
+﻿# Join Ongoing Wars by The Lizerd King, adapted for this fork with permission.
+# https://steamcommunity.com/sharedfiles/filedetails/?id=3015811655
+intervene_in_war = {
+ groups = { general }
+ requires_approval = no
+ should_notify_third_parties = yes
+ potential = {
+  scope:target_country = { is_at_war = yes }
+  NOT = { is_country_type = decentralized }
+ }
+ possible = {
+  aor1776_can_intervene_trigger = { ACTOR = scope:actor FRIEND = scope:target_country }
+  custom_tooltip = {
+   text = DIPLO_ACTION_RELATIONS_CORDIAL_OR_GREATER
+   scope:target_country.relations:root >= relations_threshold:cordial
+  }
+ }
+ accept_effect = {
+  aor1776_intervene_effect = { ACTOR = scope:actor FRIEND = scope:target_country }
+ }
+ ai = {
+  evaluation_chance = { value = 0.25 }
+  propose_score = { value = 10 }
+  will_propose = {
+   aor1776_can_intervene_trigger = { ACTOR = scope:actor FRIEND = scope:target_country }
+   # France uses dated rolls; Spain awaits a French alliance call. Neither
+   # path is bypassed by autonomous generic intervention in this campaign.
+   NOT = {
+    AND = {
+     OR = { c:FRA ?= this c:SPA ?= this }
+     scope:target_country = { c:USA ?= this }
+     aor1776_usa_independence_war_active = yes
+    }
+   }
+   NOT = {
+    AND = {
+     c:SPA ?= this
+     scope:target_country = {
+      any_scope_war = { is_war_participant = c:USA is_war_participant = c:GBR }
+     }
+    }
+   }
+   OR = {
+    scope:target_country = { is_subject_of = root }
+    scope:target_country = {
+     any_scope_treaty = {
+      binds = scope:actor
+      any_scope_article = { OR = { has_type = alliance has_type = defensive_pact } }
+     }
+    }
+   }
+   in_default = no
+   has_healthy_economy = yes
+  }
+ }
+}

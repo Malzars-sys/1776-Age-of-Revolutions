@@ -1,0 +1,49 @@
+aor1776_content_initialize_effect = {
+	if = {
+		limit = { NOT = { has_variable = aor1776_content_r1_initialized } aor1776_usa_independence_war_active = yes }
+		set_variable = aor1776_content_r1_initialized
+		set_variable = { name = aor1776_fervour value = 50 }
+	}
+}
+
+aor1776_fervour_refresh_effect = {
+	if = { limit = { var:aor1776_fervour > 100 } set_variable = { name = aor1776_fervour value = 100 } }
+	if = { limit = { var:aor1776_fervour < 0 } set_variable = { name = aor1776_fervour value = 0 } }
+	if = { limit = { has_modifier = aor1776_fervour_low } remove_modifier = aor1776_fervour_low }
+	if = { limit = { has_modifier = aor1776_fervour_high } remove_modifier = aor1776_fervour_high }
+	if = { limit = { has_modifier = aor1776_fervour_steady } remove_modifier = aor1776_fervour_steady }
+	if = {
+		limit = { aor1776_usa_independence_war_active = yes }
+		if = { limit = { var:aor1776_fervour < 35 } add_modifier = { name = aor1776_fervour_low months = -1 } }
+		else_if = { limit = { var:aor1776_fervour > 65 } add_modifier = { name = aor1776_fervour_high months = -1 } }
+		else = { add_modifier = { name = aor1776_fervour_steady months = -1 } }
+	}
+}
+
+aor1776_content_finish_effect = {
+	if = { limit = { has_modifier = aor1776_fervour_low } remove_modifier = aor1776_fervour_low }
+	if = { limit = { has_modifier = aor1776_fervour_high } remove_modifier = aor1776_fervour_high }
+	if = { limit = { has_modifier = aor1776_fervour_steady } remove_modifier = aor1776_fervour_steady }
+	remove_variable = aor1776_fervour
+	remove_variable = aor1776_fervour_win_cooldown
+	remove_variable = aor1776_fervour_loss_cooldown
+	if = {
+		limit = { is_subject = yes has_law = law_type:law_aor1776_minutemen }
+		activate_law = law_type:law_peasant_levies
+	}
+}
+
+aor1776_content_monthly_effect = {
+	aor1776_content_initialize_effect = yes
+	if = {
+		limit = { aor1776_usa_independence_war_active = yes }
+		if = { limit = { NOT = { has_journal_entry = je_aor1776_revolutionary_spirit } } add_journal_entry = { type = je_aor1776_revolutionary_spirit } }
+		if = {
+			limit = { has_variable = aor1776_support_ever_received NOT = { has_variable = aor1776_support_fervour_awarded } }
+			change_variable = { name = aor1776_fervour add = 5 }
+			set_variable = aor1776_support_fervour_awarded
+		}
+		aor1776_fervour_refresh_effect = yes
+	}
+	else = { aor1776_content_finish_effect = yes }
+}

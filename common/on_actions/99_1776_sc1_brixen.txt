@@ -1,0 +1,9 @@
+on_game_started = { on_actions = { aor1776_brixen_names_initialize } }
+on_game_started_after_lobby = { on_actions = { aor1776_brixen_names_initialize } }
+on_state_created = { on_actions = { aor1776_brixen_state_name_changed } }
+on_state_owner_change = { on_actions = { aor1776_brixen_state_name_changed } }
+on_become_subject = { on_actions = { aor1776_brixen_country_names_changed } }
+on_become_independent = { on_actions = { aor1776_brixen_country_names_changed } }
+aor1776_brixen_names_initialize = { effect = { every_state = { assign_aor1776_brixen_names = yes } } }
+aor1776_brixen_state_name_changed = { effect = { assign_aor1776_brixen_names = yes } }
+aor1776_brixen_country_names_changed = { effect = { every_scope_state = { assign_aor1776_brixen_names = yes } } }

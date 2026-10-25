@@ -1,0 +1,213 @@
+aor1776_remove_legacy_debt_effect = {
+ if = { limit = { has_modifier = debt_usa_big_money } remove_modifier = debt_usa_big_money }
+ if = { limit = { has_modifier = debt_payback_fra_big_money } remove_modifier = debt_payback_fra_big_money }
+}
+
+# Earlier grants never become a loan retrospectively. Migration changes no
+# troops, technologies, ownership or other agents' scopes.
+aor1776_support_initialize_effect = {
+ if = {
+  limit = { NOT = { has_variable = aor1776_support_version_3 } }
+  set_variable = aor1776_support_version_3
+  set_variable = aor1776_support_version_2
+  set_variable = { name = aor1776_support_rounds value = 0 }
+  set_variable = { name = aor1776_french_principal value = 0 }
+  aor1776_support_stop_effect = yes
+  remove_variable = aor1776_support_request_pending
+  aor1776_remove_legacy_debt_effect = yes
+  c:FRA ?= { aor1776_remove_legacy_debt_effect = yes }
+ }
+}
+
+aor1776_support_open_journal_effect = {
+ set_variable = aor1776_r3_journal_open
+ if = {
+  limit = { NOT = { has_journal_entry = je_aor1776_french_support } }
+  add_journal_entry = { type = je_aor1776_french_support }
+ }
+}
+
+aor1776_support_request_effect = {
+ if = {
+  limit = { aor1776_french_support_can_request = yes }
+  c:USA = {
+   set_variable = { name = aor1776_support_request_pending days = 90 }
+   trigger_event = { id = aor1776_american_diplomacy.2 popup = yes }
+  }
+ }
+}
+
+# Called after the American choice of diplomatic promises.
+aor1776_support_send_request_effect = {
+ c:FRA = { trigger_event = { id = aor1776_american_diplomacy.3 days = 1 popup = yes } }
+}
+
+aor1776_support_issue_offer_effect = {
+ c:USA = {
+  set_variable = { name = aor1776_support_offer days = 45 }
+  trigger_event = { id = aor1776_american_diplomacy.4 popup = yes }
+ }
+}
+
+aor1776_support_stop_effect = {
+ remove_variable = aor1776_support_active
+ remove_variable = aor1776_support_offer
+ remove_variable = aor1776_support_offer_level
+ remove_variable = aor1776_support_request_pending
+ set_variable = { name = aor1776_weekly_credit value = 0 }
+ # Principal, interest and creditor survive peace or termination of aid.
+}
+
+aor1776_support_accept_effect = {
+ if = {
+  limit = { aor1776_french_support_can_accept = yes }
+  set_variable = { name = aor1776_support_active days = 3653 }
+  if = {
+   limit = { var:aor1776_support_offer_level = 2 }
+   aor1776_support_conclude_effect = { CREDIT = aor1776_war_credit_extended ARMS = 12 }
+  }
+  else = { aor1776_support_conclude_effect = { CREDIT = aor1776_war_credit_moderate ARMS = 6 } }
+  remove_variable = aor1776_support_offer
+  remove_variable = aor1776_support_offer_level
+  remove_variable = aor1776_support_request_pending
+ }
+}
+
+# Native treaty validation and creation use identical inputs. The event is the
+# proposal; this effect ratifies only after France and the US have consented.
+aor1776_support_conclude_effect = {
+ if = {
+  limit = {
+   can_create_treaty = {
+    first_country = c:FRA second_country = c:USA is_draft = no
+    binding_period = { years = 10 }
+    articles_to_create = {
+     { article = aor1776_deferred_debt_article source_country = c:FRA target_country = c:USA }
+     { article = $CREDIT$ source_country = c:FRA target_country = c:USA }
+     { article = aor1776_revolution_military_assistance source_country = c:FRA target_country = c:USA }
+     { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:small_arms } { quantity = $ARMS$ } } }
+     { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:artillery } { quantity = 1 } } }
+    }
+   }
+  }
+  create_treaty = {
+   name = aor1776_r3_support_treaty
+   first_country = c:FRA second_country = c:USA is_draft = no
+   binding_period = { years = 10 }
+   articles_to_create = {
+    { article = aor1776_deferred_debt_article source_country = c:FRA target_country = c:USA }
+    { article = $CREDIT$ source_country = c:FRA target_country = c:USA }
+    { article = aor1776_revolution_military_assistance source_country = c:FRA target_country = c:USA }
+    { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:small_arms } { quantity = $ARMS$ } } }
+    { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:artillery } { quantity = 1 } } }
+   }
+  }
+  set_variable = aor1776_support_ever_received
+  set_variable = aor1776_debt_revolution_credit
+  set_variable = { name = aor1776_support_weekly_arms value = $ARMS$ }
+  set_variable = { name = aor1776_support_rounds value = 1 }
+  if = {
+   limit = { NOT = { owes_obligation_to = c:FRA } }
+   set_owes_obligation_to = { country = c:FRA setting = yes }
+  }
+  set_variable = aor1776_support_obligation_issued
+  change_relations = { country = c:FRA value = 10 }
+ }
+ else = {
+  aor1776_support_stop_effect = yes
+  trigger_event = { id = aor1776_american_diplomacy.5 popup = yes }
+ }
+}
+
+# Borrower scope, with an explicit typed creditor. One live creditor at a time.
+aor1776_debt_open_effect = {
+ if = {
+  limit = { NOT = { has_variable = aor1776_debt_creditor } }
+  save_scope_as = aor1776_borrower
+  set_variable = { name = aor1776_debt_creditor value = $CREDITOR$ }
+  set_variable = { name = aor1776_debt_principal value = 0 }
+  set_variable = { name = aor1776_debt_interest value = 0 }
+  remove_variable = aor1776_debt_revolution_credit
+  $CREDITOR$ = {
+   create_diplomatic_pact = { country = scope:aor1776_borrower type = aor1776_deferred_debt }
+  }
+ }
+}
+
+# Paired treasury changes and the ledger increase are one guarded operation.
+# The seven-day lock prevents duplicate first/weekly advances.
+aor1776_debt_advance_effect = {
+ if = {
+  limit = { aor1776_war_credit_can_advance = yes }
+  c:FRA = { add_treasury = { value = c:USA.var:aor1776_weekly_credit multiply = -1 } }
+  add_treasury = var:aor1776_weekly_credit
+  change_variable = { name = aor1776_debt_principal add = var:aor1776_weekly_credit }
+  set_variable = { name = aor1776_credit_paid_this_week days = 7 }
+ }
+}
+
+# Generic agreements lend a single £10,000 at zero interest. Only the American
+# wartime package opens a recurring credit line. Never double-charge an entry.
+aor1776_debt_generic_advance_effect = {
+ if = {
+  limit = {
+   has_variable = aor1776_debt_creditor
+   var:aor1776_debt_principal = 0
+   var:aor1776_debt_creditor = { gold_reserves >= 10000 in_default = no }
+  }
+  var:aor1776_debt_creditor = { add_treasury = -10000 }
+  add_treasury = 10000
+  set_variable = { name = aor1776_debt_principal value = 10000 }
+ }
+}
+
+aor1776_support_weekly_effect = {
+ # No unsolicited request: the pact, not the journal, disburses advances.
+ if = {
+  limit = { has_variable = aor1776_support_active NOT = { aor1776_french_support_relationship_valid = yes } }
+  aor1776_support_stop_effect = yes
+ }
+}
+
+aor1776_support_monthly_effect = {
+ aor1776_support_initialize_effect = yes
+ aor1776_support_weekly_effect = yes
+ aor1776_revolution_intervention_monthly_effect = yes
+}
+
+aor1776_debt_repay_effect = {
+ if = {
+  limit = { has_variable = aor1776_debt_demand_pending has_variable = aor1776_debt_creditor }
+  save_scope_as = aor1776_borrower
+  add_treasury = { value = var:aor1776_debt_due multiply = -1 }
+  var:aor1776_debt_creditor = {
+   add_treasury = scope:aor1776_borrower.var:aor1776_debt_due
+   remove_diplomatic_pact = { country = scope:aor1776_borrower type = aor1776_deferred_debt }
+  }
+  set_variable = { name = aor1776_debt_last_repaid value = var:aor1776_debt_due }
+  remove_variable = aor1776_debt_creditor
+  remove_variable = aor1776_debt_revolution_credit
+  remove_variable = aor1776_debt_demand_pending
+  set_variable = { name = aor1776_debt_principal value = 0 }
+  aor1776_support_stop_effect = yes
+ }
+}
+
+aor1776_debt_refuse_effect = {
+ if = {
+  limit = { has_variable = aor1776_debt_demand_pending has_variable = aor1776_debt_creditor }
+  save_scope_as = aor1776_borrower
+  set_variable = { name = aor1776_debt_repudiated value = var:aor1776_debt_due }
+  set_variable = { name = aor1776_debt_repudiated_creditor value = var:aor1776_debt_creditor }
+  change_relations = { country = var:aor1776_debt_creditor value = -40 }
+  change_infamy = 10
+  var:aor1776_debt_creditor = {
+   remove_diplomatic_pact = { country = scope:aor1776_borrower type = aor1776_deferred_debt }
+  }
+  remove_variable = aor1776_debt_creditor
+  remove_variable = aor1776_debt_revolution_credit
+  remove_variable = aor1776_debt_demand_pending
+  set_variable = { name = aor1776_debt_principal value = 0 }
+  aor1776_support_stop_effect = yes
+ }
+}

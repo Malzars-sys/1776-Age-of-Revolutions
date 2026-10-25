@@ -254,6 +254,11 @@ pm_manual_dough_processing = {
 }
 
 pm_automated_bakery = {
+
+	unlocking_production_methods = {
+		pm_baking_powder
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/automated_bakery.dds"
 
 	disallowing_laws = {
@@ -272,7 +277,9 @@ pm_automated_bakery = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -3000
+			building_employment_laborers_add = -2000
+			building_employment_machinists_add = -750
+			building_employment_engineers_add = -250
 		}
 	}
 }
@@ -485,6 +492,13 @@ pm_mechanized_looms = {
 }
 
 pm_automatic_power_looms = {
+
+	unlocking_production_methods = {
+		pm_chemical_bleaching_textile_mill
+		pm_sewing_machines
+		pm_electric_sewing_machines
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/automatic_power_looms.dds"
 
 	unlocking_technologies = {
@@ -503,8 +517,10 @@ pm_automatic_power_looms = {
 		}
 
 		level_scaled = {
+			building_employment_laborers_add = -1500
+			building_employment_machinists_add = -750
+			building_employment_engineers_add = -250
 			# profit = -500 (break-even when annual laborer wage > 10.4)
-			building_employment_laborers_add = -2500
 		}
 	}
 
@@ -683,6 +699,12 @@ pm_watertube_boiler_building_furniture_manufactory = {
 }
 
 pm_rotary_valve_engine_building_furniture_manufactory = {
+
+	unlocking_production_methods = {
+		pm_lathe
+		pm_mechanized_workshops
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 
 	unlocking_technologies = {
@@ -707,12 +729,18 @@ pm_rotary_valve_engine_building_furniture_manufactory = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add = -1500
+			building_employment_machinists_add = -500
 		}
 	}
 }
 
 pm_assembly_lines_building_furniture_manufactory = {
+
+	unlocking_production_methods = {
+		pm_mechanized_workshops
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
 
 	unlocking_technologies = {
@@ -738,7 +766,9 @@ pm_assembly_lines_building_furniture_manufactory = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -3000
+			building_employment_laborers_add = -1500
+			building_employment_machinists_add = -1000
+			building_employment_engineers_add = -500
 		}
 	}
 
@@ -923,6 +953,14 @@ pm_manual_glassblowing = {
 }
 
 pm_automatic_bottle_blowers = {
+
+	unlocking_production_methods = {
+		pm_crystal_glass
+		pm_pressed_glass
+		pm_aluminium_housewares
+		pm_houseware_plastics
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/automated_bottle_blowers.dds"
 
 	unlocking_technologies = {
@@ -948,7 +986,9 @@ pm_automatic_bottle_blowers = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -2500
+			building_employment_laborers_add = -1000
+			building_employment_machinists_add = -1000
+			building_employment_engineers_add = -500
 		}
 	}
 }
@@ -1050,6 +1090,13 @@ pm_rubber_grips = {
 }
 
 pm_watertube_boiler_building_tooling_workshop = {
+
+	unlocking_production_methods = {
+		pm_pig_iron
+		pm_steel
+		pm_rubber_grips
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 
 	state_modifiers = {
@@ -1072,12 +1119,19 @@ pm_watertube_boiler_building_tooling_workshop = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -1500
+			building_employment_laborers_add = -1000
+			building_employment_machinists_add = -500
 		}
 	}
 }
 
 pm_rotary_valve_engine_building_tooling_workshop = {
+
+	unlocking_production_methods = {
+		pm_steel
+		pm_rubber_grips
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 
 	state_modifiers = {
@@ -1100,12 +1154,19 @@ pm_rotary_valve_engine_building_tooling_workshop = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add = -1000
+			building_employment_machinists_add = -500
+			building_employment_engineers_add = -500
 		}
 	}
 }
 
 pm_assembly_lines_building_tooling_workshop = {
+
+	unlocking_production_methods = {
+		pm_rubber_grips
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
 
 	state_modifiers = {
@@ -1130,7 +1191,10 @@ pm_assembly_lines_building_tooling_workshop = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -3000
+			building_employment_laborers_add = -1000
+			building_employment_machinists_add = -1000
+			building_employment_engineers_add = -500
+			building_employment_shopkeepers_add = -500
 		}
 	}
 
@@ -1248,6 +1312,12 @@ pm_watertube_boiler_building_paper_mill = {
 }
 
 pm_rotary_valve_engine_building_paper_mill = {
+
+	unlocking_production_methods = {
+		pm_sulfite_pulping
+		pm_bleached_paper
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 
 	state_modifiers = {
@@ -1272,7 +1342,8 @@ pm_rotary_valve_engine_building_paper_mill = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add = -1500
+			building_employment_machinists_add = -500
 		}
 	}
 }
@@ -1561,8 +1632,8 @@ pm_rayon = {
         }
 
         level_scaled = {
-            building_employment_laborers_add = -1000
-            building_employment_machinists_add = 1000
+			building_employment_engineers_add = -500
+			building_employment_machinists_add = 500
         }
     }
 }
@@ -1767,6 +1838,15 @@ pm_electric_arc_process = {
 }
 
 pm_watertube_boiler_building_steel_mill = {
+
+	unlocking_production_methods = {
+		pm_blister_steel_process
+		pm_bessemer_process
+		pm_thomas_process
+		pm_open_hearth_process
+		pm_electric_arc_process
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/watertube_boiler.dds"
 
 	state_modifiers = {
@@ -1787,12 +1867,22 @@ pm_watertube_boiler_building_steel_mill = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -1500
+			building_employment_laborers_add = -500
+			building_employment_machinists_add = -750
+			building_employment_engineers_add = -250
 		}
 	}
 }
 
 pm_rotary_valve_engine_building_steel_mill = {
+
+	unlocking_production_methods = {
+		pm_bessemer_process
+		pm_thomas_process
+		pm_open_hearth_process
+		pm_electric_arc_process
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 
 	state_modifiers = {
@@ -1813,7 +1903,9 @@ pm_rotary_valve_engine_building_steel_mill = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add = -500
+			building_employment_machinists_add = -1000
+			building_employment_engineers_add = -500
 		}
 	}
 }
@@ -1931,8 +2023,7 @@ pm_watertube_boiler_building_motor_industry = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -500
-			building_employment_machinists_add = -500
+			building_employment_machinists_add = -1000
 		}
 	}
 }
@@ -1958,8 +2049,7 @@ pm_rotary_valve_engine_building_motor_industry = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -1000
-			building_employment_machinists_add = -500
+			building_employment_machinists_add = -1500
 		}
 	}
 }
@@ -1986,8 +2076,8 @@ pm_assembly_lines_building_motor_industry = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -1500
-			building_employment_machinists_add = -500
+			building_employment_machinists_add = -1500
+			building_employment_engineers_add = -500
 		}
 	}
 
@@ -2016,7 +2106,8 @@ pm_assembly_lines_building_automotive_industry = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -1500
+			building_employment_machinists_add = -1000
+			building_employment_engineers_add = -500
 		}
 	}
 
@@ -2556,7 +2647,7 @@ pm_cannons = {
 	texture = "gfx/interface/icons/production_method_icons/artillery_production.dds"
 
 	unlocking_technologies = {
-		standardized_field_artillery
+		organized_military_establishments
 	}
 
 	building_modifiers = {
@@ -2662,6 +2753,13 @@ pm_recoiled_barrels = {
 }
 
 pm_rotary_valve_engine_building_arms_industry = {
+
+	unlocking_production_methods = {
+		pm_rifles
+		pm_repeaters
+		pm_bolt_action_rifles
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/rotary_valve_engine.dds"
 
 	state_modifiers = {
@@ -2680,12 +2778,19 @@ pm_rotary_valve_engine_building_arms_industry = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add = -1000
+			building_employment_machinists_add = -1000
 		}
 	}
 }
 
 pm_assembly_lines_building_arms_industry = {
+
+	unlocking_production_methods = {
+		pm_repeaters
+		pm_bolt_action_rifles
+	}
+
 	texture = "gfx/interface/icons/production_method_icons/assembly_lines.dds"
 
 	state_modifiers = {
@@ -2706,7 +2811,9 @@ pm_assembly_lines_building_arms_industry = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -2500
+			building_employment_laborers_add = -1000
+			building_employment_machinists_add = -1000
+			building_employment_engineers_add = -500
 		}
 	}
 
@@ -2796,7 +2903,8 @@ pm_rotary_valve_engine_building_munition_plant = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -2000
+			building_employment_laborers_add = -1000
+			building_employment_machinists_add = -1000
 		}
 	}
 }
@@ -2822,7 +2930,9 @@ pm_assembly_lines_building_munition_plant = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = -2500
+			building_employment_laborers_add = -1000
+			building_employment_machinists_add = -1000
+			building_employment_engineers_add = -500
 		}
 	}
 

@@ -1,0 +1,100 @@
+﻿# R4: real native money transfer; debt is callable after the binding period.
+aor1776_usa_independence_war_active = {
+ exists = c:USA
+ exists = c:GBR
+ c:USA = { has_war_with = c:GBR NOT = { has_variable = us_revolt } }
+}
+aor1776_support_contract_parties_valid = {
+ exists = c:USA
+ exists = c:FRA
+ c:FRA = { NOR = { has_war_with = c:USA is_diplomatic_play_enemy_of = c:USA } }
+}
+aor1776_french_support_relationship_valid = {
+ aor1776_support_contract_parties_valid = yes
+ aor1776_usa_independence_war_active = yes
+ c:USA = { c:FRA.relations:this >= -25 }
+}
+aor1776_french_support_finances_available = {
+ c:FRA = { gold_reserves >= 30000 in_default = no }
+}
+
+aor1776_french_support_invitation_authorized = {
+ custom_tooltip = {
+  text = aor1776_r6_french_invitation_tt
+  c:FRA ?= { has_variable = aor1776_french_support_invitation }
+  exists = c:FRA
+ }
+}
+aor1776_french_support_can_request = {
+ aor1776_french_support_invitation_authorized = yes
+ custom_tooltip = { text = aor1776_r3_journal_open_tt c:USA = { has_variable = aor1776_r3_journal_open } }
+ custom_tooltip = { text = aor1776_r3_relationship_tt aor1776_french_support_relationship_valid = yes }
+ custom_tooltip = {
+  text = aor1776_r3_negotiations_available_tt
+  c:USA = {
+   NOR = {
+    has_variable = aor1776_support_active
+    has_variable = aor1776_support_cooldown
+    has_variable = aor1776_support_request_pending
+    has_variable = aor1776_support_offer
+    has_variable = aor1776_debt_creditor
+   }
+  }
+ }
+}
+aor1776_french_support_can_offer = {
+ aor1776_french_support_invitation_authorized = yes
+ custom_tooltip = {
+  text = aor1776_r3_offer_still_valid_tt
+  aor1776_french_support_relationship_valid = yes
+  aor1776_french_support_finances_available = yes
+  c:USA = {
+   has_variable = aor1776_support_request_pending
+   NOT = { has_variable = aor1776_debt_creditor }
+   NOT = { has_variable = aor1776_support_active }
+  }
+ }
+}
+aor1776_french_support_can_accept = {
+ aor1776_french_support_invitation_authorized = yes
+ custom_tooltip = {
+  text = aor1776_r3_offer_still_valid_tt
+  has_variable = aor1776_support_offer
+  aor1776_french_support_relationship_valid = yes
+  aor1776_french_support_finances_available = yes
+  NOT = { has_variable = aor1776_debt_creditor }
+  NOT = { has_variable = aor1776_support_active }
+ }
+}
+# Actor creditor. The native treaty is authoritative, including renegotiation
+# that extends its binding period; the timed lock covers standalone loan pacts.
+aor1776_debt_mature = {
+ scope:target_country = {
+  custom_tooltip = {
+   text = aor1776_r4_debt_unbound_tt
+   NOT = { has_variable = aor1776_debt_binding_lock }
+   NOT = {
+    any_scope_treaty = {
+     binds = root
+     remaining_binding_period > 0
+     any_scope_article = {
+      has_type = aor1776_deferred_debt_article
+      OR = { source_country = root target_country = root }
+     }
+    }
+   }
+  }
+ }
+}
+
+# Country scope (USA). A failed native creation must not issue a debt or an
+# obligation. Two supply articles are required in addition to the other three.
+aor1776_support_treaty_exists = {
+ any_scope_treaty = {
+  binds = c:FRA
+  any_scope_article = { has_type = aor1776_support_money source_country = c:FRA target_country = c:USA }
+  any_scope_article = { has_type = aor1776_deferred_debt_article source_country = c:USA target_country = c:FRA }
+  any_scope_article = { has_type = aor1776_revolution_military_assistance source_country = c:FRA target_country = c:USA }
+  any_scope_article = { count >= 2 has_type = aor1776_support_supplies source_country = c:FRA target_country = c:USA }
+ }
+}

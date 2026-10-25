@@ -1,0 +1,35 @@
+aor1776_request_french_support = {
+	is_shown = { c:USA ?= this aor1776_usa_independence_war_active = yes }
+	possible = { aor1776_french_support_can_request = yes }
+	when_taken = { aor1776_support_request_effect = yes }
+	ai_chance = { base = 100 }
+}
+
+aor1776_propose_french_support = {
+	is_shown = { c:FRA ?= this aor1776_usa_independence_war_active = yes }
+	possible = { aor1776_french_support_can_request = yes }
+	when_taken = { aor1776_support_request_effect = yes }
+	ai_chance = { base = 0 }
+}
+
+aor1776_negotiate_public_treaty = {
+	is_shown = { c:USA ?= this game_date >= 1777.10.17 }
+	possible = {
+		exists = c:FRA
+		NOT = { has_variable = aor1776_public_treaty_signed }
+		NOT = { has_variable = aor1776_public_treaty_pending }
+		c:FRA = { relations:c:USA >= 20 NOR = { has_war_with = c:USA is_diplomatic_play_enemy_of = c:USA } }
+	}
+	when_taken = {
+		set_variable = { name = aor1776_public_treaty_pending days = 60 }
+		c:FRA = { trigger_event = { id = aor1776_french_support.5 popup = yes } }
+	}
+	ai_chance = { base = 50 }
+}
+
+aor1776_end_french_support = {
+	is_shown = { OR = { c:USA ?= this c:FRA ?= this } c:USA ?= { has_variable = aor1776_support_active } }
+	possible = { always = yes }
+	when_taken = { c:USA ?= { aor1776_support_stop_effect = yes } }
+	ai_chance = { base = 0 }
+}

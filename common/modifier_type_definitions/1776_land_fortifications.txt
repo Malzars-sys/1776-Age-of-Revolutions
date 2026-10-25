@@ -1,0 +1,33 @@
+# Native has_max_level building modifier, unlocked together with the building.
+state_building_aor1776_land_fortification_max_level_add = {
+ decimals = 0
+ color = good
+ game_data = { ai_value = 100 }
+}
+
+# Local PM outputs displayed by the native modifier tooltips. These are
+# script-only: the conditional battle stance applies the actual combat stats.
+# In particular, do not propagate native unit stats to every army in the state.
+state_aor1776_land_fort_provinces_lost_mult = {
+ script_only = yes
+ decimals = 1
+ percent = yes
+ color = bad
+ game_data = { ai_value = 0 }
+}
+
+state_aor1776_land_fort_casualties_mult = {
+ script_only = yes
+ decimals = 1
+ percent = yes
+ color = bad
+ game_data = { ai_value = 0 }
+}
+
+state_aor1776_land_fort_defense_mult = {
+ script_only = yes
+ decimals = 1
+ percent = yes
+ color = good
+ game_data = { ai_value = 0 }
+}

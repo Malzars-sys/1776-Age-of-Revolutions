@@ -1,0 +1,1733 @@
+{
+  "status": "DESIGN_ONLY",
+  "patch_applied": false,
+  "runtime_executed": false,
+  "unit_file": "common/combat_unit_types/00_land_combat_unit_types.txt",
+  "unit_file_sha256": "1c856d1d89007de052cf32ec925df30864383aa64ae156b19808be67312a0537",
+  "checks": {
+    "current_stats_equal_R1_audit": true,
+    "regular_battalions_505": true,
+    "countries_117": true,
+    "no_proposal_installed": true,
+    "all_unit_definitions_parse": true,
+    "nominal_goods_cost_unchanged": true,
+    "proposal.same_unit_identifiers": true,
+    "proposal.other_units_unchanged": true,
+    "proposal.lancers_unchanged": true,
+    "proposal.combat_unit_type_lancers.cost_tech_mobility_unchanged": true,
+    "proposal.combat_unit_type_lancers.exact_P1_stats": true,
+    "proposal.combat_unit_type_lancers.other_combat_effects_unchanged": true,
+    "proposal.combat_unit_type_dragoons.cost_tech_mobility_unchanged": true,
+    "proposal.combat_unit_type_dragoons.exact_P1_stats": true,
+    "proposal.combat_unit_type_dragoons.other_combat_effects_unchanged": true,
+    "proposal.combat_unit_type_hussars.cost_tech_mobility_unchanged": true,
+    "proposal.combat_unit_type_hussars.exact_P1_stats": true,
+    "proposal.combat_unit_type_hussars.other_combat_effects_unchanged": true,
+    "proposal.combat_unit_type_cuirassiers.cost_tech_mobility_unchanged": true,
+    "proposal.combat_unit_type_cuirassiers.exact_P1_stats": true,
+    "proposal.combat_unit_type_cuirassiers.other_combat_effects_unchanged": true,
+    "proposal.patch_applies_cleanly_without_applying": true
+  },
+  "passed": 22,
+  "failed": [],
+  "countries": 117,
+  "battalions": 505,
+  "contingents": 165,
+  "formations": 156,
+  "counts": {
+    "combat_unit_type_hussars": 117,
+    "combat_unit_type_dragoons": 179,
+    "combat_unit_type_cuirassiers": 27,
+    "combat_unit_type_lancers": 182
+  },
+  "top_countries": [
+    [
+      "CHI",
+      60
+    ],
+    [
+      "RUS",
+      36
+    ],
+    [
+      "DUR",
+      22
+    ],
+    [
+      "PRU",
+      20
+    ],
+    [
+      "AUS",
+      20
+    ],
+    [
+      "FRA",
+      19
+    ],
+    [
+      "TUR",
+      17
+    ],
+    [
+      "MARATH",
+      15
+    ],
+    [
+      "SPA",
+      14
+    ],
+    [
+      "PAN",
+      14
+    ],
+    [
+      "PER",
+      10
+    ],
+    [
+      "GWA",
+      10
+    ]
+  ],
+  "current": {
+    "combat_unit_type_lancers": {
+      "max_manpower": "1000",
+      "supply_capacity": "25",
+      "upkeep_modifier": {
+        "goods_input_grain_add": "1"
+      },
+      "battle_modifier": {
+        "unit_offense_add": "16",
+        "unit_defense_add": "10",
+        "unit_morale_loss_add": "12",
+        "unit_kill_rate_add": "0.03",
+        "unit_occupation_mult": "0.15",
+        "unit_naval_invasion_efficiency_mult": "-0.25"
+      },
+      "formation_modifier": {
+        "military_formation_mobilization_speed_mult": "0.1",
+        "military_formation_army_movement_speed_mult": "0.1"
+      },
+      "unlocking_technologies": [],
+      "upgrades": [
+        "combat_unit_type_dragoons",
+        "combat_unit_type_cuirassiers",
+        "combat_unit_type_hussars"
+      ]
+    },
+    "combat_unit_type_dragoons": {
+      "max_manpower": "1000",
+      "supply_capacity": "35",
+      "upkeep_modifier": {
+        "goods_input_grain_add": "1",
+        "goods_input_small_arms_add": "1"
+      },
+      "battle_modifier": {
+        "unit_offense_add": "20",
+        "unit_defense_add": "24",
+        "unit_morale_loss_add": "9",
+        "unit_occupation_mult": "0.25",
+        "unit_naval_invasion_efficiency_mult": "-0.25"
+      },
+      "formation_modifier": {
+        "military_formation_mobilization_speed_mult": "0.1",
+        "military_formation_army_movement_speed_mult": "0.1"
+      },
+      "unlocking_technologies": [
+        "regulated_small_arms"
+      ],
+      "upgrades": [
+        "combat_unit_type_hussars",
+        "combat_unit_type_cuirassiers"
+      ]
+    },
+    "combat_unit_type_hussars": {
+      "max_manpower": "1000",
+      "supply_capacity": "40",
+      "upkeep_modifier": {
+        "goods_input_grain_add": "1.5",
+        "goods_input_small_arms_add": "1"
+      },
+      "battle_modifier": {
+        "unit_offense_add": "24",
+        "unit_defense_add": "18",
+        "unit_morale_loss_add": "8",
+        "unit_occupation_mult": "0.3",
+        "unit_naval_invasion_efficiency_mult": "-0.25"
+      },
+      "formation_modifier": {
+        "military_formation_mobilization_speed_mult": "0.25",
+        "military_formation_army_movement_speed_mult": "0.25"
+      },
+      "unlocking_technologies": [
+        "horse_artillery"
+      ],
+      "upgrades": [
+        "combat_unit_type_cuirassiers"
+      ]
+    },
+    "combat_unit_type_cuirassiers": {
+      "max_manpower": "1000",
+      "supply_capacity": "55",
+      "upkeep_modifier": {
+        "goods_input_grain_add": "2",
+        "goods_input_small_arms_add": "1.5",
+        "goods_input_iron_add": "0.5"
+      },
+      "battle_modifier": {
+        "unit_offense_add": "32",
+        "unit_defense_add": "28",
+        "unit_morale_loss_add": "6",
+        "unit_kill_rate_add": "0.05",
+        "unit_morale_damage_mult": "0.05",
+        "unit_occupation_mult": "0.3",
+        "unit_naval_invasion_efficiency_mult": "-0.25"
+      },
+      "formation_modifier": {
+        "military_formation_mobilization_speed_mult": "0.05",
+        "military_formation_army_movement_speed_mult": "0.05"
+      },
+      "unlocking_technologies": [
+        "military_veterinary_services"
+      ],
+      "upgrades": [
+        "combat_unit_type_light_tanks"
+      ]
+    }
+  },
+  "proposal": {
+    "combat_unit_type_lancers": {
+      "unit_offense_add": 16,
+      "unit_defense_add": 10,
+      "unit_morale_loss_add": 12,
+      "unit_kill_rate_add": 0.03,
+      "unit_occupation_mult": 0.15,
+      "supply_capacity": 25
+    },
+    "combat_unit_type_dragoons": {
+      "unit_offense_add": 22,
+      "unit_defense_add": 18,
+      "unit_morale_loss_add": 10,
+      "unit_kill_rate_add": 0,
+      "unit_occupation_mult": 0.2,
+      "supply_capacity": 35
+    },
+    "combat_unit_type_hussars": {
+      "unit_offense_add": 18,
+      "unit_defense_add": 12,
+      "unit_morale_loss_add": 9,
+      "unit_kill_rate_add": 0.04,
+      "unit_occupation_mult": 0.35,
+      "supply_capacity": 40
+    },
+    "combat_unit_type_cuirassiers": {
+      "unit_offense_add": 28,
+      "unit_defense_add": 20,
+      "unit_morale_loss_add": 8,
+      "unit_kill_rate_add": 0.05,
+      "unit_occupation_mult": 0.1,
+      "supply_capacity": 30
+    }
+  },
+  "aggregate_metrics_not_battle_results": {
+    "unit_offense_add": {
+      "before": 10164.0,
+      "after": 9712,
+      "delta": -452.0
+    },
+    "unit_defense_add": {
+      "before": 8978.0,
+      "after": 6986,
+      "delta": -1992.0
+    }
+  },
+  "nominal_goods_cost": 32540.0,
+  "exposure": [
+    {
+      "tag": "CRI",
+      "formation": "cleanup2d3e_r1_cri_land_1",
+      "state": "s:STATE_CHERSON",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "PLC",
+      "formation": "cleanup2d3e_r1_plc_land_1",
+      "state": "s:STATE_BREST",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "PRU",
+      "formation": "cleanup2d3b_pru_land_4",
+      "state": "s:STATE_ANHALT",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "PRU",
+      "formation": "cleanup2d3b_pru_land_1",
+      "state": "s:STATE_ANHALT",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "PRU",
+      "formation": "cleanup2d3b_pru_land_2",
+      "state": "s:STATE_ANHALT",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "PRU",
+      "formation": "cleanup2d3b_pru_land_3",
+      "state": "s:STATE_LOWER_SILESIA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "VEN",
+      "formation": "cleanup2d3e_r1_ven_land_1",
+      "state": "s:STATE_ISTRIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "AUS",
+      "formation": "cleanup2d3b_aus_land_3",
+      "state": "s:STATE_BUKOVINA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "AUS",
+      "formation": "cleanup2d3b_aus_land_4",
+      "state": "s:STATE_AUSTRIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "AUS",
+      "formation": "cleanup2d3b_aus_land_1",
+      "state": "s:STATE_AUSTRIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "AUS",
+      "formation": "cleanup2d3b_aus_land_2",
+      "state": "s:STATE_LOMBARDY",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "HUN",
+      "formation": "generalkommando_ofen",
+      "state": "s:STATE_BANAT",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 6,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "FRA",
+      "formation": "cleanup2d3b_fra_land_1",
+      "state": "s:STATE_ALSACE_LORRAINE",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "FRA",
+      "formation": "cleanup2d3b_fra_land_2",
+      "state": "s:STATE_ALSACE_LORRAINE",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "FRA",
+      "formation": "cleanup2d3b_fra_land_3",
+      "state": "s:STATE_AQUITAINE",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "FRA",
+      "formation": "cleanup2d3b_fra_land_4",
+      "state": "s:STATE_WEST_INDIES",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "GBR",
+      "formation": "cleanup2d3b_gbr_land_2",
+      "state": "s:STATE_HOME_COUNTIES",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "GBR",
+      "formation": "Home_Army",
+      "state": "s:STATE_EAST_ANGLIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "GBR",
+      "formation": "cleanup2d3b_gbr_land_4",
+      "state": "s:STATE_EAST_ANGLIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "GBR",
+      "formation": "cleanup2d3b_gbr_land_3",
+      "state": "s:STATE_BAHAMAS",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "GBR",
+      "formation": "cleanup2d3b_gbr_land_5",
+      "state": "s:STATE_EAST_ANGLIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "RUS",
+      "formation": "cleanup2d3b_rus_land_1",
+      "state": "s:STATE_ARKHANGELSK",
+      "type": "combat_unit_type_cuirassiers",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "RUS",
+      "formation": "cleanup2d3b_rus_land_2",
+      "state": "s:STATE_ORYOL",
+      "type": "combat_unit_type_cuirassiers",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "RUS",
+      "formation": "cleanup2d3b_rus_land_2",
+      "state": "s:STATE_YAROSLAVL",
+      "type": "combat_unit_type_cuirassiers",
+      "service": "regular",
+      "count": 6,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "RUS",
+      "formation": "cleanup2d3b_rus_land_3",
+      "state": "s:STATE_KHARKOV",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "RUS",
+      "formation": "cleanup2d3b_rus_land_4",
+      "state": "s:STATE_MOSCOW",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "RUS",
+      "formation": "cleanup2d3b_rus_land_5",
+      "state": "s:STATE_BURYATIA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "CIR",
+      "formation": "cleanup2d3e_r1_cir_land_1",
+      "state": "s:STATE_KUBAN",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "CHC",
+      "formation": "Murtazeki",
+      "state": "s:STATE_DAGESTAN",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "BAD",
+      "formation": "Groherzoglich_Badische_Armee",
+      "state": "s:STATE_BADEN",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "WUR",
+      "formation": "Kniglich_Wrttembergische_Armee",
+      "state": "s:STATE_WURTTEMBERG",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SAX",
+      "formation": "Kniglich_Schsische_Armee",
+      "state": "s:STATE_SAXONY",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "BAV",
+      "formation": "I_ArmeeKorps",
+      "state": "s:STATE_BAVARIA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "HEK",
+      "formation": "Kurfrstlich_Hessische_Armee",
+      "state": "s:STATE_HESSE",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "HES",
+      "formation": "Groherzoglich_Hessische_Armee",
+      "state": "s:STATE_HESSE",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "HAN",
+      "formation": "Kniglich_Hannoversche_Armee",
+      "state": "s:STATE_BRUNSWICK",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "MEC",
+      "formation": "Groherzoglich_MecklenburgischSchwerinsche_Armee",
+      "state": "s:STATE_MECKLENBURG",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SWE",
+      "formation": "Kungliga_Svenska_Armn",
+      "state": "s:STATE_SVEALAND",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "DENNOR",
+      "formation": "Hren",
+      "state": "s:STATE_EASTERN_NORWAY",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "HOL",
+      "formation": "Holsteinische_Armee",
+      "state": "s:STATE_SCHLESWIG_HOLSTEIN",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "WAL",
+      "formation": "Armata_rii_Romneti",
+      "state": "s:STATE_WALLACHIA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "MON",
+      "formation": "Montengrin_Raiders",
+      "state": "s:STATE_MONTENEGRO",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "MOL",
+      "formation": "Armata_Principatului_Moldovei",
+      "state": "s:STATE_MOLDAVIA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SIC",
+      "formation": "Reale_Esercito_di_SM_il_Re_del_Regno_delle_Due_Sicilie",
+      "state": "s:STATE_CAMPANIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SIC",
+      "formation": "Reale_Esercito_di_SM_il_Re_del_Regno_delle_Due_Sicilie",
+      "state": "s:STATE_CALABRIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SIC",
+      "formation": "Guardia_Reale",
+      "state": "s:STATE_CAMPANIA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SAR",
+      "formation": "I_Corpo_dArmata",
+      "state": "s:STATE_PIEDMONT",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "PAP",
+      "formation": "Esercito_dello_Stato_della_Chiesa",
+      "state": "s:STATE_LAZIO",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "TUS",
+      "formation": "Esercito_del_Granducato_di_Toscana",
+      "state": "s:STATE_TUSCANY",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "MOD",
+      "formation": "Esercito_del_Ducato_di_Modena_e_Reggio",
+      "state": "s:STATE_EMILIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "PAR",
+      "formation": "Truppe_Reali_Parmensi",
+      "state": "s:STATE_EMILIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "NET",
+      "formation": "Koninklijk_Nederlands_Leger",
+      "state": "s:STATE_FRIESLAND",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "BEO",
+      "formation": "Armee_Belge",
+      "state": "s:STATE_FLANDERS",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "POR",
+      "formation": "Exercito_Portugues",
+      "state": "s:STATE_ALENTEJO",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SPA",
+      "formation": "cleanup2d3b_spa_land_2",
+      "state": "s:STATE_ARAGON",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SPA",
+      "formation": "cleanup2d3b_spa_land_1",
+      "state": "s:STATE_NEW_CASTILE",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SPA",
+      "formation": "cleanup2d3b_spa_land_3",
+      "state": "s:STATE_WEST_INDIES",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "UBD",
+      "formation": "cleanup2d3e_r1_ubd_land_1",
+      "state": "s:STATE_RIGA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "BUK",
+      "formation": "cleanup2d3b_buk_land_1",
+      "state": "s:STATE_MERZ",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "GAL",
+      "formation": "cleanup2d3b_gal_land_1",
+      "state": "s:STATE_EAST_GALICIA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "KHI",
+      "formation": "cleanup2d3b_khi_land_1",
+      "state": "s:STATE_KHIVA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "KOK",
+      "formation": "cleanup2d3b_kok_land_1",
+      "state": "s:STATE_FERGANA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "KOR",
+      "formation": "cleanup2d3b_kor_land_1",
+      "state": "s:STATE_BUSAN",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "KZH",
+      "formation": "cleanup2d3b_kzh_land_1",
+      "state": "s:STATE_AKTOBE",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "NEP",
+      "formation": "cleanup2d3b_nep_land_1",
+      "state": "s:STATE_HIMALAYAS",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "OZH",
+      "formation": "cleanup2d3b_ozh_land_1",
+      "state": "s:STATE_AKMOLINSK",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "SWI",
+      "formation": "cleanup2d3b_swi_land_1",
+      "state": "s:STATE_EAST_SWITZERLAND",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "TIB",
+      "formation": "cleanup2d3b_tib_land_1",
+      "state": "s:STATE_EASTERN_HIMALAYAS",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/00_military_formations_europe.txt"
+    },
+    {
+      "tag": "HAI",
+      "formation": "ArmeeIndigene",
+      "state": "s:STATE_HAITI",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/01_military_formations_north_america.txt"
+    },
+    {
+      "tag": "CUB",
+      "formation": "MiliciasdeCuba",
+      "state": "s:STATE_WESTERN_CUBA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/01_military_formations_north_america.txt"
+    },
+    {
+      "tag": "PCO",
+      "formation": "MiliciasDiciplinadas",
+      "state": "s:STATE_PUERTO_RICO",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/01_military_formations_north_america.txt"
+    },
+    {
+      "tag": "BRZ",
+      "formation": "aor1776_brz_army",
+      "state": "s:STATE_PARAIBA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/02_military_formations_south_america.txt"
+    },
+    {
+      "tag": "SC4",
+      "formation": "aor1776_sc4_army",
+      "state": "s:STATE_BUENOS_AIRES",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/02_military_formations_south_america.txt"
+    },
+    {
+      "tag": "SC2",
+      "formation": "aor1776_sc2_quito_army",
+      "state": "s:STATE_ECUADOR",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/02_military_formations_south_america.txt"
+    },
+    {
+      "tag": "SC2",
+      "formation": "aor1776_sc2_granada_army",
+      "state": "s:STATE_CAUCA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/02_military_formations_south_america.txt"
+    },
+    {
+      "tag": "SC2",
+      "formation": "aor1776_sc2_venezuela_army",
+      "state": "s:STATE_ZULIA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/02_military_formations_south_america.txt"
+    },
+    {
+      "tag": "TUN",
+      "formation": "cleanup2d3b_tun_land_1",
+      "state": "s:STATE_TUNISIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/03_military_formations_north_africa.txt"
+    },
+    {
+      "tag": "TRI",
+      "formation": "cleanup2d3b_tri_land_1",
+      "state": "s:STATE_LIBYA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/03_military_formations_north_africa.txt"
+    },
+    {
+      "tag": "MAS",
+      "formation": "Jaish_alMohammadi",
+      "state": "s:STATE_ALGIERS",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 6,
+      "source": "common/history/military_formations/03_military_formations_north_africa.txt"
+    },
+    {
+      "tag": "CON",
+      "formation": "cleanup2d3b_con_land_1",
+      "state": "s:STATE_CONSTANTINE",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/03_military_formations_north_africa.txt"
+    },
+    {
+      "tag": "DFR",
+      "formation": "cleanup2d3b_dfr_land_1",
+      "state": "s:STATE_DARFUR",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/03_military_formations_north_africa.txt"
+    },
+    {
+      "tag": "MOR",
+      "formation": "cleanup2d3b_mor_land_1",
+      "state": "s:STATE_AL_RIF",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/03_military_formations_north_africa.txt"
+    },
+    {
+      "tag": "IR1",
+      "formation": "cleanup2d3e_r1_ir1_land_1",
+      "state": "s:STATE_BAGHDAD",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "TUR",
+      "formation": "cleanup2d3b_tur_land_1",
+      "state": "s:STATE_ALBANIA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "TUR",
+      "formation": "cleanup2d3b_tur_land_2",
+      "state": "s:STATE_ALBANIA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "TUR",
+      "formation": "cleanup2d3b_tur_land_3",
+      "state": "s:STATE_ADANA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "TUR",
+      "formation": "cleanup2d3b_tur_land_4",
+      "state": "s:STATE_ADANA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "OMA",
+      "formation": "cleanup2d3e_r1_oma_land_1",
+      "state": "s:STATE_OMAN",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "PER",
+      "formation": "cleanup2d3e_r1_per_land_1",
+      "state": "s:STATE_TABRIZ",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "PER",
+      "formation": "cleanup2d3e_r1_per_land_1",
+      "state": "s:STATE_FARS",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "PER",
+      "formation": "cleanup2d3e_r1_per_land_1",
+      "state": "s:STATE_ISFAHAN",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "PER",
+      "formation": "cleanup2d3e_r1_per_land_1",
+      "state": "s:STATE_IRAKAJEMI",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "PER",
+      "formation": "cleanup2d3e_r1_per_land_1",
+      "state": "s:STATE_LURISTAN",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "PER",
+      "formation": "cleanup2d3e_r1_per_land_1",
+      "state": "s:STATE_URMIA",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "DUR",
+      "formation": "cleanup2d3e_r1_dur_land_1",
+      "state": "s:STATE_HERAT",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 11,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "DUR",
+      "formation": "cleanup2d3e_r1_dur_land_2",
+      "state": "s:STATE_BALKH",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 11,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "ARB",
+      "formation": "cleanup2d3e_r1_arb_land_1",
+      "state": "s:STATE_KHUZESTAN",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "HDJ",
+      "formation": "cleanup2d3b_hdj_land_1",
+      "state": "s:STATE_HEDJAZ",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "ZAI",
+      "formation": "cleanup2d3b_zai_land_1",
+      "state": "s:STATE_YEMEN",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/04_military_formations_middle_east.txt"
+    },
+    {
+      "tag": "PAN",
+      "formation": "FaujiKhas",
+      "state": "s:STATE_PUNJAB",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "PAN",
+      "formation": "FaujiAin",
+      "state": "s:STATE_PUNJAB",
+      "type": "combat_unit_type_cuirassiers",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "BIC",
+      "formation": "cleanup2d3b_bic_land_2",
+      "state": "s:STATE_CIRCARS",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "BIC",
+      "formation": "cleanup2d3b_bic_land_3",
+      "state": "s:STATE_CIRCARS",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "BIC",
+      "formation": "Bengal_Army",
+      "state": "s:STATE_AWADH",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "HYD",
+      "formation": "sarf_e_khas",
+      "state": "s:STATE_HYDERABAD",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 8,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "AWA",
+      "formation": "OudhRoyalArmy",
+      "state": "s:STATE_AWADH",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 9,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "MARATH",
+      "formation": "cleanup2d3b_marath_land_2",
+      "state": "s:STATE_BOMBAY",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "MARATH",
+      "formation": "cleanup2d3b_marath_land_1",
+      "state": "s:STATE_AGRA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 8,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "GWA",
+      "formation": "GwaliorArmy",
+      "state": "s:STATE_MALWA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 10,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "NAG",
+      "formation": "NagpurArmy",
+      "state": "s:STATE_CENTRAL_PROVINCES",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "MYS",
+      "formation": "cleanup2d3b_mys_land_2",
+      "state": "s:STATE_MYSORE",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "MYS",
+      "formation": "cleanup2d3b_mys_land_1",
+      "state": "s:STATE_MYSORE",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "COO",
+      "formation": "CoochBeharArmy",
+      "state": "s:STATE_WEST_BENGAL",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "GAR",
+      "formation": "GarhwalArmy",
+      "state": "s:STATE_AGRA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "SAT",
+      "formation": "SataraArmy",
+      "state": "s:STATE_BOMBAY",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "KHP",
+      "formation": "KolhapurArmy",
+      "state": "s:STATE_BOMBAY",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "KNO",
+      "formation": "KurnoolArmy",
+      "state": "s:STATE_KURNOOL",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "BHV",
+      "formation": "BhavnagarArmy",
+      "state": "s:STATE_GUJARAT",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "PUD",
+      "formation": "PudukottaiArmy",
+      "state": "s:STATE_MADRAS",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "JEY",
+      "formation": "JeyporeArmy",
+      "state": "s:STATE_CIRCARS",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "COC",
+      "formation": "CochinArmy",
+      "state": "s:STATE_TRAVANCORE",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "TRA",
+      "formation": "TravancoreArmy",
+      "state": "s:STATE_TRAVANCORE",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "SIN",
+      "formation": "SindhArmy",
+      "state": "s:STATE_SINDH",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "MUG",
+      "formation": "MughalArmy",
+      "state": "s:STATE_DELHI",
+      "type": "combat_unit_type_hussars",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/05_military_formations_india.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_1",
+      "state": "s:STATE_ALXA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 8,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_2",
+      "state": "s:STATE_JIANGXI",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 8,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_3",
+      "state": "s:STATE_AMUR",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 8,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_4",
+      "state": "s:STATE_CHONGQING",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 8,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_5",
+      "state": "s:STATE_HENAN",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_5",
+      "state": "s:STATE_SUZHOU",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_6",
+      "state": "s:STATE_FUJIAN",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_7",
+      "state": "s:STATE_SHANDONG",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_7",
+      "state": "s:STATE_BEIJING",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CHI",
+      "formation": "cleanup2d3b_chi_land_8",
+      "state": "s:STATE_GUANGXI",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 7,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "DEI",
+      "formation": "Koninklijk_Nederlandsch_Indisch_Leger",
+      "state": "s:STATE_CELEBES",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "BUR",
+      "formation": "tatmadaw",
+      "state": "s:STATE_KACHIN",
+      "type": "combat_unit_type_cuirassiers",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "PHI",
+      "formation": "ejercito_de_filipinas",
+      "state": "s:STATE_LUZON",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "JAP",
+      "formation": "Edo_Guard_Army",
+      "state": "s:STATE_CHUGOKU",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "JAP",
+      "formation": "Kinai_Guard_Army",
+      "state": "s:STATE_CHUGOKU",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "BAL",
+      "formation": "cleanup2d3b_bal_land_1",
+      "state": "s:STATE_SUNDA_ISLANDS",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CAM",
+      "formation": "cleanup2d3b_cam_land_1",
+      "state": "s:STATE_CAMBODIA",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "CMI",
+      "formation": "cleanup2d3b_cmi_land_1",
+      "state": "s:STATE_CHIANG_MAI",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "SIA",
+      "formation": "cleanup2d3b_sia_land_1",
+      "state": "s:STATE_BANGKOK",
+      "type": "combat_unit_type_lancers",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/06_military_formations_asia.txt"
+    },
+    {
+      "tag": "AGC",
+      "formation": "army_of_angoche",
+      "state": "s:STATE_MOCAMBIQUE",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "ASH",
+      "formation": "cleanup2d3b_ash_land_1",
+      "state": "s:STATE_GOLD_COAST",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 3,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "BEN",
+      "formation": "cleanup2d3b_ben_land_1",
+      "state": "s:STATE_BENIN",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "BOR",
+      "formation": "cleanup2d3b_bor_land_1",
+      "state": "s:STATE_BORNU",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "BRD",
+      "formation": "cleanup2d3b_brd_land_1",
+      "state": "s:STATE_TANGANYIKA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "BST",
+      "formation": "cleanup2d3b_bst_land_1",
+      "state": "s:STATE_VRYSTAAT",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "BUG",
+      "formation": "cleanup2d3b_bug_land_1",
+      "state": "s:STATE_UGANDA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "DAH",
+      "formation": "cleanup2d3b_dah_land_1",
+      "state": "s:STATE_DAHOMEY",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "ETH",
+      "formation": "cleanup2d3b_eth_land_1",
+      "state": "s:STATE_AMHARA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 4,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "FTJ",
+      "formation": "cleanup2d3b_ftj_land_1",
+      "state": "s:STATE_GUINEA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "FTR",
+      "formation": "cleanup2d3b_ftr_land_1",
+      "state": "s:STATE_MAURITANIA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "GLD",
+      "formation": "cleanup2d3b_gld_land_1",
+      "state": "s:STATE_SOMALILAND",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "HAU",
+      "formation": "cleanup2d3b_hau_land_1",
+      "state": "s:STATE_OUTER_HAUSALAND",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "KON",
+      "formation": "cleanup2d3b_kon_land_1",
+      "state": "s:STATE_BAS_CONGO",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "KRT",
+      "formation": "cleanup2d3b_krt_land_1",
+      "state": "s:STATE_WESTERN_MALI",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "MAD",
+      "formation": "cleanup2d3b_mad_land_1",
+      "state": "s:STATE_NORTH_MADAGASCAR",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "MJT",
+      "formation": "cleanup2d3b_mjt_land_1",
+      "state": "s:STATE_SOMALILAND",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "MSN",
+      "formation": "cleanup2d3b_msn_land_1",
+      "state": "s:STATE_EASTERN_MALI",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 2,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "OYO",
+      "formation": "cleanup2d3b_oyo_land_1",
+      "state": "s:STATE_YORUBA_STATES",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 5,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "RWD",
+      "formation": "cleanup2d3b_rwd_land_1",
+      "state": "s:STATE_TANGANYIKA",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "SGU",
+      "formation": "cleanup2d3b_sgu_land_1",
+      "state": "s:STATE_WESTERN_MALI",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    },
+    {
+      "tag": "WAD",
+      "formation": "cleanup2d3b_wad_land_1",
+      "state": "s:STATE_CHAD",
+      "type": "combat_unit_type_dragoons",
+      "service": "regular",
+      "count": 1,
+      "source": "common/history/military_formations/07_military_formations_subsaharan_africa.txt"
+    }
+  ]
+}

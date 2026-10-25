@@ -1,0 +1,40 @@
+{
+  "revision": "Hardware",
+  "agent_attempts": 2,
+  "successful_local_agent_executions": 1,
+  "pre_inference_cache_permission_failures": 1,
+  "previous_V1_agent_calls": 1,
+  "command": "& 'C:/Users/simeo/.cargo/bin/colgrep.exe' --agent 'Locate the minimal existing implementation of a custom everyday tradeable good: its goods definition, UI text icon registration, goods-input/output modifier localization, and a POP household substitution entry. Return a few precise file paths and lines, no modifications, no historical research. Focus on common/goods, gui and localization.' .",
+  "exit_code": 0,
+  "configured_model": "colgrep-agent-2B-Q8_0.gguf",
+  "gpu_execution_independently_confirmed": false,
+  "duration_seconds": null,
+  "codex_tokens": null,
+  "classic_search_total": null,
+  "quantifiable_quota_saving": null,
+  "index_rebuilt": false,
+  "verified_locations": [
+    {
+      "path": "common/pop_needs/00_pop_needs.txt",
+      "reported_lines": "152-177",
+      "result": "Correct existing furniture/glass/paper entries; partial block, latest additions verified directly"
+    },
+    {
+      "path": "common/modifier_type_definitions/12_tech6c_custom_goods_modifier_types.txt",
+      "reported_lines": "1-455",
+      "verified_relevant_lines": "281-305",
+      "result": "Useful custom-good modifier registration convention, overly broad excerpt"
+    },
+    {
+      "path": "localization/english/tech6c_goods_modifiers_l_english.yml",
+      "reported_lines": "1-173",
+      "result": "Modifier-prefixed localization convention; verified French counterpart 124-136 as well"
+    },
+    {
+      "path": "common/goods/10_tech6a1b_salt.txt",
+      "reported_lines": "1-9",
+      "result": "Verified staple-good definition"
+    }
+  ],
+  "conclusion": "One successful local search supplied useful dependencies for the new good. Known paths inspected directly. No controlled A/B comparison or precise savings estimate."
+}

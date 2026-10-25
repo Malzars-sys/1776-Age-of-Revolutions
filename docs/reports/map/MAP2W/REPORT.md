@@ -1,8 +1,16 @@
 # MAP-2W — Inventaire et premier sous-lot Fulda
 
+> **Suite R4-B/C, 18 octobre 2026 :** noyau de Freising (FSI, 14 cellules), noyaux épiscopaux Donaustauf/Wörth (RBI, 14) et ville impériale de Ratisbonne (RCI, 2) installés en catégorie B. **MAP2W_R4B_READY_FOR_SCOPED_RUNTIME_VALIDATION / MAP2W_R4C_READY_FOR_SCOPED_RUNTIME_VALIDATION**, limités aux noyaux. 228/228 contrôles actuels, 37/37 nouveaux tests ; suite cumulative 258/260, deux anciennes assertions de dernière couche conservées, non réécrites. Registre 573 RGB, monde 835 801 255 inchangé, neuf électeurs conservés. [Livraison et limites](R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/REPORT.md). Aucun test moteur de ces nouveaux ajouts ; attestation Passau distincte maintenue.
+
+> **18 octobre 2026 : noyau Passau PASS_RUNTIME_USER_VALIDATED.** Huit vérifications, nouvelle partie 1776, un mois de simulation, sauvegarde/rechargement réussis, aucune anomalie rapportée. [Attestation manuelle limitée à PAS](R4/POLITICAL_REPRESENTATION/PASSAU/RUNTIME_USER_ATTESTATION.json), sans certification des frontières B ni des futurs sous-lots R4-B/C.
+
+> **18 octobre 2026 — Passau, méthode politique R4 :** noyau B de 40 cellules installé, nouveau PAS/xEDBA00, 14 267 habitants transférés sans création, monde 835 801 255 inchangé. **MAP2W_R4_READY_FOR_SCOPED_RUNTIME_VALIDATION** : 207/207 contrôles et 223/223 tests ciblés, pas de test moteur nouveau. [Rapport du pilote](R4/POLITICAL_REPRESENTATION/PASSAU/REPORT.md). Les anciennes attestations ne couvrent pas PAS ; ni Passau périphérique ni les autres secteurs bavarois ne sont déclarés achevés.
+
 17 octobre 2026. Date historique : 1er janvier 1776.
 
-**MAP2W_READY_FOR_SCOPED_RUNTIME_VALIDATION**. Ce statut concerne exclusivement le noyau MAP2W-R1. Les 94 entrées de l’inventaire ne signifient pas que toute l’Allemagne occidentale et méridionale est achevée. Aucun test moteur MAP2W n’a été exécuté.
+**Attestation manuelle reçue le 17 octobre 2026 : `PASS_RUNTIME_USER_VALIDATED`, au périmètre général déclaré par le joueur.** Le prompt R2-B indique que les corrections des lots récents, notamment celles du Saint-Empire, fonctionnent sans les bugs précédemment rencontrés. Il ne précise ni les territoires inspectés individuellement ni la durée de simulation. Ce n’est ni un test moteur automatisé ni une certification de toutes les frontières. Voir `RUNTIME_USER_ATTESTATION_R2B.json` ; les contrôles statiques de livraison restent conservés dans leur état daté.
+
+Statut de livraison initial : **MAP2W_READY_FOR_SCOPED_RUNTIME_VALIDATION**, exclusivement pour le noyau MAP2W-R1. Les 94 entrées de l’inventaire ne signifient pas que toute l’Allemagne occidentale et méridionale est achevée. Aucun test moteur automatisé MAP2W n’a été exécuté. Les cas C restent ouverts ; les ajouts R2-B ne sont pas couverts par cette attestation.
 
 ## Le risque de refaire les mêmes zones était réel
 
@@ -64,6 +72,8 @@ MAP2T, MAP2U et les papeteries : attestation manuelle de l’utilisateur enregis
 HEAD conservé : `31556939116deaa1664eb2d25bc91f753f0a7f75`. Empreinte de l’index identique. Aucun staging, commit, push, merge, reset, changement de branche ou modification de l’installation du jeu. La modification nord-américaine des formations militaires déjà présente au départ reste byte-identique et n’est pas un changement MAP2W.
 
 ## Suite proposée, sans la commencer automatiquement
+
+**Suivi du 18 octobre 2026 :** R1, R2-A et R2-B restent installés ; R3 demeure retiré / `MAP2W_R3_BLOCKED`. La passe bavaroise R4 a désormais été examinée : **`MAP2W_R4_BLOCKED`**, aucun transfert. Son nouveau contrôle physique indépendant donne 4,674 pixels d’écart, sans marge locale suffisante démontrée pour ces petites juridictions. Eichstätt et les noyaux précédents ne sont pas refaits. Voir [livraison R4](R4/REPORT.md), [diagnostic et méthode alternative](R4/CALIBRATION.md), [cas ouverts](R4/UNRESOLVED.md). Ne pas recommencer les mêmes ajustements ou traiter la liste ci-dessous comme des lots encore entièrement inexplorés.
 
 1. MAP2W-R2 : Hesses/Nassau, différences de branches et compléments de Fulda après validation du noyau.
 2. MAP2W-R3 : Hohenlohe, Castell, Wertheim et villes franconiennes encore absentes ; préserver les noyaux déjà validés.

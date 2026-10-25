@@ -1,0 +1,53 @@
+# Country scope. No map/HRE scopes and no forced French war participation.
+aor1776_usa_independence_war_active = {
+	exists = c:USA
+	exists = c:GBR
+	c:USA = {
+		has_war_with = c:GBR
+		NOT = { has_variable = us_revolt }
+	}
+}
+
+aor1776_french_support_relationship_valid = {
+	exists = c:USA
+	exists = c:FRA
+	aor1776_usa_independence_war_active = yes
+	c:FRA = {
+		NOR = { has_war_with = c:USA is_diplomatic_play_enemy_of = c:USA }
+		relations:c:USA >= -25
+		in_default = no
+	}
+}
+
+aor1776_french_support_finances_available = {
+	c:FRA = { gold_reserves >= 84000 net_total_income >= 0 }
+}
+
+aor1776_french_support_can_offer = {
+	custom_tooltip = { text = aor1776_support_relationship_valid_tt aor1776_french_support_relationship_valid = yes }
+	c:USA = {
+		custom_tooltip = { text = aor1776_support_no_active_tranche_tt NOT = { has_variable = aor1776_support_active } }
+		custom_tooltip = { text = aor1776_support_cooldown_finished_tt NOT = { has_variable = aor1776_support_cooldown } }
+		custom_tooltip = { text = aor1776_support_no_pending_offer_tt NOT = { has_variable = aor1776_support_offer } }
+		custom_tooltip = { text = aor1776_support_below_six_tranches_tt var:aor1776_support_rounds < 6 }
+	}
+	custom_tooltip = { text = aor1776_support_finances_available_tt aor1776_french_support_finances_available = yes }
+}
+
+aor1776_french_support_can_request = {
+	aor1776_french_support_can_offer = yes
+	custom_tooltip = {
+		text = aor1776_support_no_pending_request_tt
+		c:USA = { NOT = { has_variable = aor1776_support_request_pending } }
+		c:FRA = { NOT = { has_variable = aor1776_support_offer_window } }
+	}
+}
+
+aor1776_french_support_can_accept = {
+	custom_tooltip = { text = aor1776_support_offer_pending_tt has_variable = aor1776_support_offer }
+	custom_tooltip = { text = aor1776_support_relationship_valid_tt aor1776_french_support_relationship_valid = yes }
+	custom_tooltip = { text = aor1776_support_no_active_tranche_tt NOT = { has_variable = aor1776_support_active } }
+	custom_tooltip = { text = aor1776_support_cooldown_finished_tt NOT = { has_variable = aor1776_support_cooldown } }
+	custom_tooltip = { text = aor1776_support_below_six_tranches_tt var:aor1776_support_rounds < 6 }
+	custom_tooltip = { text = aor1776_support_finances_available_tt aor1776_french_support_finances_available = yes }
+}

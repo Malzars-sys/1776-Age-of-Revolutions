@@ -1,0 +1,651 @@
+# MISSION CODEX — 1776 AGE OF REVOLUTIONS
+## TECH-R3 — Validation humaine de TECH-R2 et correction des infrastructures commerciales et militaires
+
+### OBJECTIF
+
+Tu es responsable de la troisième vague de corrections de l'audit technologique du mod Victoria 3 « 1776 – Age of Revolutions ».
+
+Cette mission comprend deux étapes obligatoires, à exécuter dans cet ordre :
+
+**A — Enregistrer la validation humaine de TECH-R2.**
+
+**B — Exécuter une nouvelle vague TECH-R3**, ciblant prioritairement :
+
+1. Les ports et leurs méthodes de production.
+2. Les centres commerciaux et leurs capacités.
+3. Les armureries et les chaînes d'approvisionnement militaire.
+4. Les technologies et prérequis directement nécessaires à ces bâtiments.
+
+Cette mission est indépendante des chantiers territoriaux SERG et WORLD 1776.
+
+Tu dois réaliser des corrections fonctionnelles lorsque les preuves sont suffisantes, pas seulement produire un audit théorique.
+
+---
+
+# PARTIE I — VALIDATION HUMAINE DE TECH-R2
+
+## 1. Attestation explicite du joueur
+
+Je confirme avoir effectué intégralement le protocole joueur TECH-R2.
+
+Toutes les vérifications ont réussi :
+
+- Nouvelle partie au 1er janvier 1776.
+- Fonctionnement des méthodes de production corrigées.
+- Fonctionnement des administrations et centres commerciaux concernés.
+- Fonctionnement des bâtiments forestiers, manufactures, ateliers et autres bâtiments du protocole.
+- Fonctionnement du nouveau graphe de prérequis de la technologie des alliages.
+- Absence d'attribution technologique nationale inattendue pendant le protocole.
+- Absence de déblocage industriel anachronique constaté.
+- Conservation des territoires et modifications concurrentes vérifiés.
+- Absence d'anomalie économique ou fonctionnelle bloquante lors des contrôles.
+- Un mois complet de simulation effectué avec succès.
+- Sauvegarde et rechargement réussis.
+
+**J'autorise explicitement l'enregistrement de `PASS_RUNTIME_USER_VALIDATED` pour les corrections TECH-R2 effectivement livrées et couvertes par ce protocole.**
+
+Cette attestation est réelle et ne nécessite pas de recommencer le test.
+
+Elle ne certifie pas l'intégralité de l'audit mondial et ne couvre pas les futurs correctifs TECH-R3.
+
+Ne fabrique aucune capture, date effective de test, valeur économique, observation moteur ou mesure supplémentaire.
+
+## 2. Périmètre exact validé
+
+Retrouve le rapport et les manifestes de TECH-R2.
+
+La livraison comprenait :
+
+- Douze sélections de PM corrigées.
+- Quatorze remplacements dans quatre historiques.
+- Une correction du graphe technologique dans un cinquième fichier fonctionnel.
+- Six pays concernés par des changements de PM : BIK, CAR, GEN, KND, RUS et VEN.
+- Aucune technologie nationale ajoutée ou retirée.
+- Aucune modification territoriale.
+
+Parmi les corrections :
+
+- Foresterie simple en Russie et à Gênes.
+- Mobilier artisanal et outils primitifs à Gênes.
+- Outillage primitif en Istrie vénitienne.
+- Organisation administrative simple à Ceylan et Venise.
+- Réseau de canaux désactivé à Ceylan lorsque sa technologie manque.
+- Méthode textile compatible à Bikaner.
+- Centres commerciaux en capacité limitée à Ceylan, Circars et Madras.
+
+Le graphe `alloysworking` a été corrigé :
+
+**Prérequis retenus : `shaft_mining` et `organized_workshops`, sans obligation de `coke_smelting`.**
+
+Les détenteurs existants conservent leurs technologies.
+
+Aucune technologie de coke n'a été distribuée automatiquement.
+
+### Procédure de réception
+
+1. Retrouver la livraison R2.
+2. Vérifier les fichiers fonctionnels concernés.
+3. Contrôler les empreintes et les éventuelles révisions ultérieures.
+4. Enregistrer le reçu humain R2.
+5. Préserver les manifestes, rapports, tests et preuves antérieures.
+6. Vérifier les reçus R1.
+7. Actualiser uniquement le suivi technologique concerné.
+8. Exécuter les tests d'acceptation du reçu.
+
+Si des modifications concurrentes sont intervenues depuis le test humain, identifier précisément leur portée.
+
+**Une révision postérieure n'hérite pas automatiquement du PASS de R2.**
+
+Ne supprime pas les validations historiques antérieures.
+
+---
+
+# PARTIE II — ÉTAT INITIAL DE TECH-R3
+
+## 3. Données de référence
+
+Le dernier rapport TECH-R2 faisait état de :
+
+- 470 pays audités.
+- 93 nouveaux TAGs.
+- 253 profils conformes statiquement.
+- 165 profils nécessitant une revue historique.
+- 141 conflits de PM encore ouverts.
+- 54 restrictions de construction encore ouvertes.
+- 16 avertissements de ressources.
+- Huit historiques nationaux absents.
+- Aucun nouveau dysfonctionnement inexpliqué dans les tests statiques de R2.
+
+La suite cumulative R2 annonçait :
+
+- 60/60 contrôles statiques.
+- 35/35 tests ciblés.
+- 556/568 tests cumulatifs réussis.
+- Onze anciennes assertions classées.
+- Une exclusion héritée.
+
+Ces chiffres sont des références historiques.
+
+**Ne les recopie pas comme des résultats de nouveaux tests.**
+
+Recalcule l'état réel à partir des fichiers du workspace.
+
+## 4. Créer le dossier TECH-R3
+
+Créer :
+
+`docs/reports/technology/STARTING_TECH_AUDIT_1776_R3/`
+
+Avec au minimum :
+
+- `REPORT.md`
+- `R2_ACCEPTANCE.json`
+- `PRIORITY_MATRIX.csv`
+- `PORT_TECH_AUDIT.csv`
+- `TRADE_CENTER_TECH_AUDIT.csv`
+- `ARMS_INDUSTRY_TECH_AUDIT.csv`
+- `TECH_BEFORE_AFTER.csv`
+- `BUILDING_PM_BEFORE_AFTER.csv`
+- `HISTORICAL_DECISIONS.md`
+- `FILES_MODIFIED.json`
+- `CONCURRENT_CHANGES.json`
+- `TEST_RESULTS.json`
+- `PLAYER_TEST_PROTOCOL.md`
+
+Conserver les rapports R1 et R2 originaux.
+
+---
+
+# PARTIE III — AUDIT PRIORITAIRE DES PORTS
+
+## 5. Examiner tous les conflits portuaires
+
+Identifier les pays et régions présentant :
+
+- Des ports construits sans technologie de construction correspondante.
+- Des méthodes de production portuaires indisponibles.
+- Des méthodes de transport avancées utilisées trop tôt.
+- Des capacités portuaires disproportionnées.
+- Des chaînes d'intrants impossibles.
+- Des incohérences entre ports commerciaux et installations militaires.
+- Des méthodes exigeant des technologies navales postérieures à 1776.
+
+Distinguer :
+
+1. Possession historique d'un port.
+2. Capacité de construire de nouveaux ports.
+3. Disponibilité d'une méthode de production.
+4. Niveau du bâtiment.
+5. Infrastructure et accès au marché.
+6. Capacité commerciale.
+7. Capacité militaire.
+
+Un port historique déjà construit peut exister sans que le pays maîtrise les procédés modernes nécessaires à son extension.
+
+Ne supprime pas un port historique simplement parce qu'une technologie avancée manque.
+
+## 6. Choisir la correction appropriée
+
+Pour chaque cas, examiner :
+
+**A. Technologie initiale historiquement justifiée.**
+
+**B. PM maritime ancien compatible.**
+
+**C. Correction d'une dépendance technologique anachronique.**
+
+**D. Réduction de capacité lorsqu'elle est manifestement excessive.**
+
+**E. Suppression d'une méthode moderne initialement sélectionnée par erreur.**
+
+**F. Signalement non bloquant démontré.**
+
+Privilégier les corrections minimales.
+
+Ne pas distribuer automatiquement des technologies de navigation moderne ou de transport industriel aux pays possédant des ports.
+
+Ne pas modifier les emplacements physiques ou propriétaires territoriaux des ports : ces opérations appartiennent aux agents territoriaux.
+
+---
+
+# PARTIE IV — CENTRES COMMERCIAUX
+
+## 7. Examiner les centres commerciaux initiaux
+
+Identifier :
+
+- Les méthodes sélectionnées sans technologie correspondante.
+- Les capacités commerciales disproportionnées.
+- Les technologies commerciales manquantes.
+- Les bâtiments dont le fonctionnement dépend d'une méthode indisponible.
+- Les effets sur les employés et la rentabilité.
+- Les effets sur les routes commerciales et l'accès aux marchandises.
+- Les problèmes de construction ou de disponibilité de PM.
+
+TECH-R2 a déjà corrigé certains centres commerciaux :
+
+- KND / Ceylan.
+- CAR / Circars.
+- CAR / Madras.
+
+**Ne répète pas ces corrections si elles sont encore valides.**
+
+Vérifie leur compatibilité avec l'état actuel du mod.
+
+## 8. Équilibrage commercial
+
+La capacité commerciale initiale doit être cohérente avec le développement économique et les infrastructures du pays.
+
+Ne pas donner automatiquement la capacité commerciale maximale à tous les États.
+
+Ne pas non plus pénaliser les États historiquement commerçants parce qu'ils ne possèdent pas une technologie administrative européenne spécifique.
+
+Étudier la situation des :
+
+- Grandes puissances commerciales.
+- Ports méditerranéens.
+- Comptoirs coloniaux.
+- États marchands asiatiques.
+- Régences et États commerciaux africains.
+- Micro-États disposant d'un commerce spécialisé.
+
+Respecter les technologies et institutions réellement définies dans le mod.
+
+Une méthode commerciale primitive ou de capacité limitée peut être préférable à l'attribution d'une technologie avancée.
+
+### Vérification économique
+
+Contrôler :
+
+- Capacité avant/après.
+- Emploi.
+- Intrants.
+- Coût d'exploitation.
+- Recettes et viabilité théoriques.
+- Conséquences sur les routes commerciales.
+- Absence de blocage de marché.
+- Éventuels effets négatifs sur les économies voisines.
+
+Les estimations statiques ne remplacent pas les tests moteur.
+
+---
+
+# PARTIE V — ARMURERIES ET PRODUCTION MILITAIRE
+
+## 9. Examiner les armureries
+
+Contrôler les bâtiments producteurs d'armes, de munitions et de canons.
+
+Examiner :
+
+- Technologies militaires initiales.
+- Technologies industrielles nécessaires.
+- PM d'armurerie.
+- PM de fabrication d'armes légères.
+- PM de canons.
+- PM de munitions.
+- Intrants.
+- Emplois.
+- Disponibilité des méthodes.
+- Construction et fonctionnement des bâtiments.
+
+La référence historique est le 1er janvier 1776.
+
+Les procédés doivent être cohérents avec les capacités militaires du XVIIIe siècle.
+
+Ne pas attribuer des technologies industrielles du XIXe siècle uniquement pour permettre à une armurerie déjà présente de fonctionner.
+
+## 10. Distinguer les méthodes historiques
+
+Rechercher les alternatives compatibles avec :
+
+- Fabrication artisanale d'armes.
+- Production organisée en arsenaux.
+- Fabrication traditionnelle de canons.
+- Canons en bronze ou en fer.
+- Production des munitions adaptées.
+- Procédés industriels plus avancés.
+
+Ne pas transformer toutes les armureries de 1776 en usines mécanisées.
+
+Ne pas effacer les différences historiques entre les capacités de production des grandes puissances et celles des petits États.
+
+### Coordination importante avec le chantier des alliages
+
+Un autre sous-agent travaille sur :
+
+`ECON-ALLOYS-1776`
+
+Ce chantier doit notamment introduire une faible consommation d'alliages dans la fabrication de canons traditionnels.
+
+**TECH-R3 ne doit pas modifier simultanément la recette des canons en bronze ou les groupes de PM concernés sans vérifier l'état de ce chantier.**
+
+Règle de responsabilité :
+
+- TECH-R3 traite les prérequis technologiques, l'initialisation et la disponibilité des PM militaires.
+- ECON-ALLOYS traite les recettes économiques des alliages, notamment la consommation dans l'artillerie.
+
+En cas de chevauchement, conserver les changements économiques existants et corriger uniquement le problème technologique indépendant.
+
+Documenter les conflits non résolus.
+
+Ne pas écraser les nouveaux PM de bronze ou d'alliages.
+
+---
+
+# PARTIE VI — MÉTHODE GÉNÉRALE DE CORRECTION
+
+## 11. Éviter les corrections superficielles
+
+Pour chaque problème :
+
+1. Identifier le pays.
+2. Identifier le bâtiment.
+3. Identifier la méthode de production.
+4. Identifier le prérequis manquant.
+5. Vérifier si la méthode est réellement sélectionnée en 1776.
+6. Vérifier si une méthode ancienne compatible existe.
+7. Vérifier si le bâtiment peut effectivement fonctionner.
+8. Vérifier la pertinence historique de la technologie.
+9. Vérifier les effets économiques du remplacement.
+10. Choisir la correction minimale historiquement défendable.
+
+Ne pas résoudre automatiquement tous les conflits en donnant la technologie manquante.
+
+Ne pas non plus remplacer toutes les méthodes avancées par la méthode la plus primitive sans examiner le pays.
+
+**Une correction statiquement valide mais économiquement absurde n'est pas une correction satisfaisante.**
+
+## 12. Priorités de TECH-R3
+
+Classer les problèmes :
+
+### P0 — Dysfonctionnement fonctionnel démontré
+
+Exemples :
+
+- PM initial explicitement sélectionné mais indisponible.
+- Chaîne de production bloquée.
+- Infrastructure commerciale inutilisable.
+- Armurerie incapable d'assurer sa fonction historique.
+- Méthode essentielle sans alternative compatible.
+
+### P1 — Anomalie de disponibilité ou de prérequis
+
+Exemples :
+
+- Port existant mais méthode de construction incohérente.
+- Technologie de départ historiquement justifiée mais absente.
+- Méthode avancée sélectionnée sans justification.
+- Capacité commerciale ou militaire incompatible avec l'arbre technologique.
+
+### P2 — Rééquilibrage historique
+
+Exemples :
+
+- Capacité commerciale excessive.
+- Productivité industrielle trop élevée en 1776.
+- PM techniquement possible mais historiquement peu crédible.
+
+### P3 — Recherche supplémentaire nécessaire
+
+Cas où les preuves historiques ou techniques sont insuffisantes.
+
+Priorité :
+
+**P0 → P1 → P2.**
+
+Ne transforme pas un signalement statique en panne moteur confirmée sans preuve.
+
+---
+
+# PARTIE VII — CONTRÔLES TRANSVERSAUX
+
+## 13. Nouveaux pays et technologies
+
+Réutiliser l'outil :
+
+`tools/validate_starting_technology_1776.py`
+
+Vérifier son interface réelle avant utilisation.
+
+Ce contrôle doit être applicable aux nouveaux TAGs créés par les agents territoriaux.
+
+Ne pas imposer une technologie uniforme aux pays de toutes les régions.
+
+Contrôler les prérequis, bâtiments et PM en tenant compte de leurs réalités historiques.
+
+## 14. Version du jeu
+
+Le dernier audit indique :
+
+- Exécutable local : 1.13.11.
+- Descriptor du mod : 1.13.*.
+
+Vérifier à nouveau ces informations à partir des fichiers actuels.
+
+Ne pas supposer que la version du moteur a changé.
+
+Ne pas non plus reprendre aveuglément une version mentionnée dans un ancien rapport.
+
+Utiliser les définitions réellement présentes dans le jeu et dans le mod.
+
+Aucune modification du vanilla.
+
+## 15. Protection des chantiers concurrents
+
+D'autres agents travaillent simultanément sur :
+
+- SERG territorial.
+- WORLD 1776, notamment les Balkans.
+- ECON-ALLOYS-1776.
+- Fortifications et Corps du génie.
+- Anzin et les industries françaises.
+- Infrastructures.
+- Drainage.
+- Mines et sel.
+- Saint-Gobain.
+- États-Unis et Minutemen.
+
+Avant toute écriture :
+
+1. Lire la version courante du fichier.
+2. Identifier les modifications concurrentes.
+3. Limiter le changement à ton périmètre.
+4. Préserver les données étrangères au correctif.
+5. Recontrôler la version du fichier immédiatement avant sauvegarde.
+6. Vérifier le résultat après écriture.
+7. Conserver les preuves de concurrence.
+
+Si un autre agent a modifié le même fichier entre la lecture et l'écriture, réexaminer le patch.
+
+Ne jamais restaurer un fichier partagé depuis une ancienne baseline.
+
+---
+
+# PARTIE VIII — PROTECTION DU SUIVI TERRITORIAL
+
+## 16. SERG
+
+Référence territoriale :
+
+**82/235 points = 34,89 %.**
+
+**24 tâches qualifiées sur 81.**
+
+Le chantier TECH-R3 ne doit modifier aucun fichier de suivi :
+
+`docs/reports/map/SERG_CLOSURE/`
+
+Les validations territoriales existantes doivent rester conservées.
+
+Notamment :
+
+- MC-I-CORE.
+- TR-I-CORE.
+- BR-I-CORE.
+- BG-I-CORE.
+- PS-OB-CORE.
+
+Les dossiers territoriaux partiellement validés demeurent bloqués tant que leurs critères de clôture ne sont pas satisfaits.
+
+Ne modifie ni les frontières ni les populations.
+
+## 17. WORLD 1776
+
+Ne modifie pas :
+
+`docs/reports/map/WORLD_1776_CLOSURE/`
+
+Préserve les corrections du chantier Balkans.
+
+En particulier, les transferts territoriaux et démographiques réalisés sur les îles ou provinces balkaniques ne doivent pas être annulés.
+
+Ne modifie pas les souverainetés, les relations politiques ou les lois des pays concernés.
+
+Toute correction touchant un fichier partagé doit rester strictement technologique.
+
+---
+
+# PARTIE IX — IMPLÉMENTATION ET TESTS
+
+## 18. Première livraison TECH-R3
+
+Après réception du reçu R2 :
+
+1. Réexaminer les conflits portuaires.
+2. Réexaminer les centres commerciaux.
+3. Réexaminer les armureries.
+4. Prioriser les cas les plus graves.
+5. Implémenter un ensemble cohérent de corrections démontrables.
+6. Préserver les autres conflits dans un registre de suivi.
+7. Exécuter les tests statiques.
+8. Préparer un protocole joueur.
+
+Tu peux traiter plusieurs pays et bâtiments dans cette même passe si leurs corrections sont indépendantes et compatibles.
+
+Ne commence pas une vague R4 distincte.
+
+Ne modifie pas les systèmes économiques extérieurs au périmètre choisi.
+
+## 19. Tests
+
+Vérifier :
+
+- Syntaxe Paradox.
+- Existence des PM.
+- Validité des groupes de PM.
+- Technologie requise par chaque méthode.
+- Sélection initiale.
+- Validité des intrants.
+- Ressources disponibles.
+- Compatibilité avec les bâtiments.
+- Emploi et capacités théoriques.
+- Conservation des autres PM.
+- Conservation des technologies nationales non concernées.
+- Absence de régression dans les historiques nationaux.
+- Préservation des travaux concurrents.
+- Absence de modification territoriale.
+- Conservation des attestations R1 et R2.
+
+Ne pas supprimer les anciens tests simplement pour afficher une suite verte.
+
+Distinguer les anciennes assertions obsolètes des nouvelles régressions.
+
+## 20. Validation joueur TECH-R3
+
+Toute correction fonctionnelle R3 doit conserver :
+
+`IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`
+
+Préparer un protocole regroupé permettant de vérifier :
+
+- Nouvelle partie au 1er janvier 1776.
+- Pays et bâtiments corrigés.
+- Technologies nécessaires.
+- PM sélectionnés.
+- Ports fonctionnels.
+- Centres commerciaux fonctionnels.
+- Armureries fonctionnelles.
+- Production et intrants.
+- Recrutement et rentabilité.
+- Accès au marché.
+- Préservation des témoins R1/R2.
+- Conservation des modifications WORLD et SERG.
+- Un mois complet de simulation.
+- Sauvegarde et rechargement.
+
+Aucune validation humaine anticipée.
+
+---
+
+# PARTIE X — RAPPORT FINAL
+
+## 21. Résultats obligatoires
+
+Commencer par :
+
+**AUDIT TECHNOLOGIQUE 1776 — TECH-R3**
+
+Puis présenter :
+
+1. Attestation humaine R2 enregistrée.
+2. Comparaison des empreintes et versions R2.
+3. État du reçu R1.
+4. Nombre de conflits réexaminés.
+5. Classement P0/P1/P2/P3.
+6. Problèmes des ports.
+7. Problèmes des centres commerciaux.
+8. Problèmes des armureries.
+9. Corrections réellement installées.
+10. Pays et bâtiments concernés.
+11. PM avant/après.
+12. Technologies avant/après.
+13. Effets économiques théoriques.
+14. Tests exécutés.
+15. Modifications concurrentes préservées.
+16. Protocole joueur.
+17. Conflits restant ouverts.
+18. Prochaine action recommandée.
+19. Confirmation de la conservation des suivis territoriaux.
+
+Fournir les chiffres réels.
+
+Distinguer :
+
+- R2 validé par le joueur.
+- R3 installé mais en attente de validation.
+- Problèmes identifiés mais non corrigés.
+- Problèmes nécessitant une décision historique.
+
+## 22. Restrictions Git
+
+Aucune opération Git d'écriture :
+
+- Pas de staging.
+- Pas de commit.
+- Pas de push.
+- Pas de merge.
+- Pas de reset.
+- Pas de rebase.
+- Pas de checkout.
+
+Ne modifie aucun fichier vanilla.
+
+Ne restaure aucune ancienne baseline.
+
+---
+
+# INSTRUCTION FINALE
+
+**Commence par enregistrer `PASS_RUNTIME_USER_VALIDATED` pour TECH-R2 uniquement, sur la base de mon attestation explicite.**
+
+**Vérifie que R1 et tous les suivis territoriaux restent intacts.**
+
+**Ensuite, lance TECH-R3 : audite et corrige en priorité les incompatibilités fonctionnelles des ports, centres commerciaux et armureries.**
+
+**Privilégie les corrections minimales historiquement défendables, sans accorder artificiellement des technologies avancées et sans interférer avec la refonte économique des alliages.**
+
+**Exécute les tests, conserve les anomalies non résolues et livre un protocole joueur R3.**
+
+Aucun reçu humain R3 ne doit être créé avant mon retour.

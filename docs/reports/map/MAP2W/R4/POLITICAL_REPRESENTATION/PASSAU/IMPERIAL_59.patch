@@ -1,0 +1,18 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\scripted_triggers\1776_imperial_centralization.txt
+@@
+ aor1776_hre_centralized_subject = {
+ OR = { is_subject_type = subject_type_imperial_estate is_subject_type = subject_type_imperial_elector }
+ }
+ aor1776_hre_any_native_bond = {
+ OR = { is_subject_type = subject_type_aor1776_hre_protectorate aor1776_hre_centralized_subject = yes }
+ }
+ aor1776_hre_centralization_native_eligible = {
+ aor1776_hre_member = yes
+-OR = { c:ABG ?= this c:AKT ?= this c:ANH ?= this c:ANS ?= this c:AZR ?= this c:BAD ?= this c:BAV ?= this c:BEO ?= this c:BRA ?= this c:BRE ?= this c:COB ?= this c:EIC ?= this c:FBM ?= this c:FRM ?= this c:FUL ?= this c:GOT ?= this c:HAM ?= this c:HAN ?= this c:HEK ?= this c:HES ?= this c:HIL ?= this c:HLB ?= this c:HOH ?= this c:HOL ?= this c:HSG ?= this c:KCL ?= this c:KMZ ?= this c:KPF ?= this c:KTR ?= this c:LGE ?= this c:LIP ?= this c:LUB ?= this c:MEC ?= this c:MEI ?= this c:MOD ?= this c:MST ?= this c:NAS ?= this c:NOU ?= this c:NSB ?= this c:NUR ?= this c:NWB ?= this c:OLD ?= this c:PAR ?= this c:REB ?= this c:RGE ?= this c:RGZ ?= this c:RLO ?= this c:RSL ?= this c:SAC ?= this c:SAG ?= this c:SAX ?= this c:SBI ?= this c:SCM ?= this c:SCW ?= this c:SEW ?= this c:SFU ?= this c:SKC ?= this c:SKE ?= this c:SKI ?= this c:SLM ?= this c:SMM ?= this c:SRQ ?= this c:SRT ?= this c:SSO ?= this c:STM ?= this c:SUU ?= this c:SWF ?= this c:SWG ?= this c:SWW ?= this c:SWX ?= this c:SWY ?= this c:TUS ?= this c:WEI ?= this c:WLD ?= this c:WPD ?= this c:WPM ?= this c:WPO ?= this c:WUR ?= this c:WZB ?= this }
++OR = { c:ABG ?= this c:AKT ?= this c:ANH ?= this c:ANS ?= this c:AZR ?= this c:BAD ?= this c:BAV ?= this c:BEO ?= this c:BRA ?= this c:BRE ?= this c:COB ?= this c:EIC ?= this c:FBM ?= this c:FRM ?= this c:FUL ?= this c:GOT ?= this c:HAM ?= this c:HAN ?= this c:HEK ?= this c:HES ?= this c:HIL ?= this c:HLB ?= this c:HOH ?= this c:HOL ?= this c:HSG ?= this c:KCL ?= this c:KMZ ?= this c:KPF ?= this c:KTR ?= this c:LGE ?= this c:LIP ?= this c:LUB ?= this c:MEC ?= this c:MEI ?= this c:MOD ?= this c:MST ?= this c:NAS ?= this c:NOU ?= this c:NSB ?= this c:NUR ?= this c:NWB ?= this c:OLD ?= this c:PAR ?= this c:PAS ?= this c:REB ?= this c:RGE ?= this c:RGZ ?= this c:RLO ?= this c:RSL ?= this c:SAC ?= this c:SAG ?= this c:SAX ?= this c:SBI ?= this c:SCM ?= this c:SCW ?= this c:SEW ?= this c:SFU ?= this c:SKC ?= this c:SKE ?= this c:SKI ?= this c:SLM ?= this c:SMM ?= this c:SRQ ?= this c:SRT ?= this c:SSO ?= this c:STM ?= this c:SUU ?= this c:SWF ?= this c:SWG ?= this c:SWW ?= this c:SWX ?= this c:SWY ?= this c:TUS ?= this c:WEI ?= this c:WLD ?= this c:WPD ?= this c:WPM ?= this c:WPO ?= this c:WUR ?= this c:WZB ?= this }
+ OR = { is_subject = no aor1776_hre_any_native_bond = yes }
+ NOT = { any_direct_subject = { aor1776_hre_any_native_bond = no } }
+ is_at_war = no is_diplomatic_play_committed_participant = no
+ }
+*** End Patch

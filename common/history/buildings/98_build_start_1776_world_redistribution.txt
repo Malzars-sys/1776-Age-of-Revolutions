@@ -3043,12 +3043,12 @@ add_ownership = {
 								}
 							}
 							reserves=1
-							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
+							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 		
 			create_building={
 							building="building_trade_center"
-							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_limited" }
 							add_ownership={
 								country={
 									country="c:DEI"
@@ -14948,17 +14948,7 @@ create_building = {
 	}
 	s:STATE_SLOVENIA = {
 		region_state:AUS = {
-						create_building={
-							building="building_port"
-							add_ownership={
-								country={
-									country="c:AUS"
-									levels=3
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_anchorage" }
-						}
+
 						create_building={
 							building="building_railway"
 							add_ownership={
@@ -14972,19 +14962,7 @@ create_building = {
 							reserves=1
 							activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
-						create_building={
-							building="building_shipyard"
-							add_ownership={
-								building={
-									type="building_shipyard"
-									country="c:AUS"
-									levels=1
-									region="STATE_SLOVENIA"
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_basic_shipbuilding" "pm_no_copper_sheathing_building_shipyard" }
-						}
+
 						create_building={
 							building="building_trade_center"
 							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }

@@ -1,0 +1,58 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\journal_entries\1776_imperial_situation.txt
+@@
+ scripted_button = aor1776_hre_vote_ABG
+ scripted_button = aor1776_hre_vote_AKT
+ scripted_button = aor1776_hre_vote_AZR
+ scripted_button = aor1776_hre_vote_GOT
+ scripted_button = aor1776_hre_vote_HIL
+ scripted_button = aor1776_hre_vote_SSO
+ scripted_button = aor1776_hre_vote_RGZ
+ scripted_button = aor1776_hre_vote_RGE
+ scripted_button = aor1776_hre_vote_RSL
+ scripted_button = aor1776_hre_vote_RLO
+ scripted_button = aor1776_hre_vote_REB
+ scripted_button = aor1776_hre_vote_FUL
+ scripted_button = aor1776_hre_vote_NOU
+ scripted_button = aor1776_hre_vote_NWB
+ scripted_button = aor1776_hre_vote_NSB
++scripted_button = aor1776_hre_vote_PAS
+ }
+ je_aor1776_hre_vote = {
+ 
+  icon = "gfx/interface/icons/central_identity_pillars_icons/aor1776_imperial_federation_v2.dds"
+  is_shown_when_inactive = { aor1776_hre_elector = yes has_global_variable = aor1776_hre_election_open }
+  possible = { aor1776_hre_elector = yes has_global_variable = aor1776_hre_election_open }
+  complete = { NOT = { has_global_variable = aor1776_hre_election_open } }
+  invalid = { aor1776_hre_elector = no }
+  weight = 100
+ scripted_button = aor1776_hre_vote_AUS
+ scripted_button = aor1776_hre_vote_KPF
+ scripted_button = aor1776_hre_vote_KTR
+ scripted_button = aor1776_hre_vote_KMZ
+ scripted_button = aor1776_hre_vote_KCL
+ scripted_button = aor1776_hre_vote_MOD
+@@
+ scripted_button = aor1776_hre_vote_ABG
+ scripted_button = aor1776_hre_vote_AKT
+ scripted_button = aor1776_hre_vote_AZR
+ scripted_button = aor1776_hre_vote_GOT
+ scripted_button = aor1776_hre_vote_HIL
+ scripted_button = aor1776_hre_vote_SSO
+ scripted_button = aor1776_hre_vote_RGZ
+ scripted_button = aor1776_hre_vote_RGE
+ scripted_button = aor1776_hre_vote_RSL
+ scripted_button = aor1776_hre_vote_RLO
+ scripted_button = aor1776_hre_vote_REB
+ scripted_button = aor1776_hre_vote_FUL
+ scripted_button = aor1776_hre_vote_NOU
+ scripted_button = aor1776_hre_vote_NWB
+ scripted_button = aor1776_hre_vote_NSB
++scripted_button = aor1776_hre_vote_PAS
+ 
+ 
+ group = je_group_aor1776_imperial_affairs
+ 
+ should_be_pinned_by_default_uninvolved_or_context = yes
+ }
+*** End Patch

@@ -1,0 +1,17 @@
+# Test joueur — SC2-INNER-AUSTRIA
+
+**En attente de confirmation. Aucun test moteur effectué par l'agent.** Les sous-lots IA-I-ST, IA-I-C et IA-E-C sont autonomes; indiquer lequel échoue si les résultats divergent.
+
+1. Lancer une **nouvelle partie au 1er janvier 1776**, avec la version actuelle du mod, et choisir l'Autriche. Un chargement d'une ancienne sauvegarde ne vérifie pas la nouvelle initialisation.
+2. Ouvrir la région **Styrie**, autour de Graz et Klagenfurt : vérifier **un niveau d'administration gouvernementale**, propriété publique autrichienne. Il représente une capacité régionale; le jeu ne doit pas créer de pays carinthien ou fusion juridique nouvelle.
+3. Ouvrir la région appelée **Slovénie** dans le jeu, autour de Ljubljana : vérifier **un niveau d'administration gouvernementale**, propriété publique autrichienne. Ce nom de région technique n'affirme pas une Slovénie souveraine en 1776. Maribor/Ptuj restent dans l'agrégat actuel.
+4. Dans chacune des deux administrations, contrôler l'absence de PM invalide ou indisponible : organisation simple, bureaucrates héréditaires, administration religieuse, rapports organisés de recherche désactivés. Ne pas changer de loi pour rendre les PM utilisables. Vérifier le fonctionnement et l'emploi au fil de la simulation; aucun effectif historique précis n'est promis.
+   Pour IA-E-C, vérifier aussi dans la région de Ljubljana **l'absence du port et du chantier naval maritimes**, ainsi que la conservation des routes et du centre de commerce. Les ports autrichiens et vénitiens des régions côtières voisines doivent rester présents comme avant; aucune compensation n'y a été installée.
+5. Contrôler la conservation visible : provinces autrichiennes dans les deux régions, capitale Vienne et souveraine inchangées; aucun nouveau territoire BMB/FSI/SLZ déduit d'un domaine ecclésiastique. Populations initiales de référence : **599 143** en Styrie et **395 031** dans l'agrégat de Ljubljana. Il s'agit des pools conservés du scénario, pas de recensements de 1776. Aucun nouvel effectif militaire n'est ajouté.
+6. Vérifier brièvement les noyaux antérieurement validés disponibles à l'écran : Salzbourg, Passau, Freising, Ratisbonne, Bohême, Moravie et Silésie/MAP2A. L'administration morave installée précédemment doit rester présente. Ces contrôles de conservation n'étendent pas leurs reçus à de nouvelles périphéries.
+7. Laisser passer **un mois complet**, jusqu'au 1er février 1776 au minimum. Contrôler les trois sous-lots et l'absence d'anomalie, puis **sauvegarder et recharger** cette partie. Vérifier la persistance des administrations, du retrait maritime et l'absence de crash ou bug.
+8. Rapporter explicitement les résultats des trois sous-lots, du mois et du rechargement, et toute anomalie observée. Une capture ou un extrait de journal n'est utile qu'en cas de problème; aucun résultat n'est présumé.
+
+Le test porte sur les **deux ajouts administratifs et le retrait des déclarations maritimes intérieures**, ainsi que les conservations ci-dessus. Il ne certifie pas le cadastre, les populations historiques, les seigneuries médiates, la future interface adriatique ou SC2-TESCHEN. Il ne résout pas l'Innviertel : SC2-AUSTRIA reste BLOCKED, sans conservation définitive approuvée.
+
+Après votre réponse, un reçu sera rédigé dans le périmètre réellement confirmé. Aucun point de SC2-INNER-AUSTRIA n'est acquis actuellement. Candidate ultérieure : **SC2-ANTERIOR-AUSTRIA**, non commencée comme étape; pas de lancement automatique.

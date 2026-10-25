@@ -1,5 +1,5 @@
 """Versioned, explicitly reviewed territorial registry; keep MAP2K frozen."""
-import json
+import json,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -153,7 +153,225 @@ def approved_lot_dirs():
         assert all(4319<=x<=4325 and 840<=y<=847 for r in geo['assignments'] if r['owner']=='FUL' for x,y in r['cells'])
         assert geo['protected_saxon_new_RGB']=='xEDB40F'
         assert set(m['country_additions'])=={'FUL'}
-    return earlier+([poel] if (poel/'REGISTRY_MIGRATION.json').exists() else [])+([completion] if (completion/'REGISTRY_MIGRATION.json').exists() else [])+([east_frisia] if (east_frisia/'REGISTRY_MIGRATION.json').exists() else [])+([eutin] if (eutin/'REGISTRY_MIGRATION.json').exists() else [])+([kaltenhof] if (kaltenhof/'REGISTRY_MIGRATION.json').exists() else [])+([anhalt] if (anhalt/'REGISTRY_MIGRATION.json').exists() else [])+([saxony] if (saxony/'REGISTRY_MIGRATION.json').exists() else [])+([thuringia] if (thuringia/'REGISTRY_MIGRATION.json').exists() else [])+([fulda] if (fulda/'REGISTRY_MIGRATION.json').exists() else [])
+    result=earlier+([poel] if (poel/'REGISTRY_MIGRATION.json').exists() else [])+([completion] if (completion/'REGISTRY_MIGRATION.json').exists() else [])+([east_frisia] if (east_frisia/'REGISTRY_MIGRATION.json').exists() else [])+([eutin] if (eutin/'REGISTRY_MIGRATION.json').exists() else [])+([kaltenhof] if (kaltenhof/'REGISTRY_MIGRATION.json').exists() else [])+([anhalt] if (anhalt/'REGISTRY_MIGRATION.json').exists() else [])+([saxony] if (saxony/'REGISTRY_MIGRATION.json').exists() else [])+([thuringia] if (thuringia/'REGISTRY_MIGRATION.json').exists() else [])+([fulda] if (fulda/'REGISTRY_MIGRATION.json').exists() else [])
+    nassau=fulda/'R2'
+    if (nassau/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((nassau/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((nassau/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert m['replaced_regions']==['STATE_HESSE'] and m['new_members']==['NOU','NWB']
+        assert not m['free_cities'] and not m['extent_added_cells'] and not m['extent_removed_cells']
+        assert geo['parents']==['x1357DB','x3E794B','x8B7C67'] and m['new_provinces']==geo['new_provinces']
+        assert len(m['new_provinces'])==9 and sum(r['pixels'] for r in geo['assignments'])==561
+        assert sum(r['pixels'] for r in geo['assignments'] if r['owner']!=r['previous_owner'])==72
+        assert all(r['state']=='STATE_HESSE' and r['previous_owner'] in {'NAS','WLD','HES'} and r['owner'] in {r['previous_owner'],'NOU','NWB','NAS'} for r in geo['assignments'])
+        assert all(4270<=x<=4305 and 830<=y<=860 for r in geo['assignments'] if r['owner']!=r['previous_owner'] for x,y in r['cells'])
+        assert set(m['country_additions'])=={'NOU','NWB'}
+        assert all(r['beneficiary'] in {'NOU','NWB','NAS','HES','WLD'} for r in m['updated'] if r['rgb'] in {a['rgb'] for a in geo['assignments']})
+        result.append(nassau)
+    continuation=fulda/'R2B'
+    if (continuation/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((continuation/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((continuation/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert m['replaced_regions']==['STATE_HESSE','STATE_RHINELAND','STATE_SAXONY']
+        assert m['new_members']==['NSB'] and set(m['country_additions'])=={'NSB'}
+        assert not m['free_cities'] and not m['extent_added_cells'] and not m['extent_removed_cells']
+        assert geo['parents']==['x11C021','x11C0A0','x1357DB','x8B7C67','x90C0A0','xD04121','xD0C021']
+        assert m['new_provinces']==geo['new_provinces']
+        assert [r['rgb'] for r in m['new_provinces']]==['xEDB8'+format(i,'02X') for i in range(13)]
+        transferred=[r for r in geo['assignments'] if r['owner']!=r['previous_owner']]
+        assert sum(r['pixels'] for r in transferred)==45
+        allowed={('x11C021','KPF','NSB','STATE_RHINELAND'),('x11C0A0','FRM','NAS','STATE_HESSE'),('x1357DB','NAS','NOU','STATE_HESSE'),('x1357DB','NAS','NWB','STATE_HESSE'),('x90C0A0','NAS','NOU','STATE_HESSE'),('x8B7C67','HES','NAS','STATE_HESSE'),('xD04121','HEK','FUL','STATE_HESSE'),('xD0C021','MEI','FUL','STATE_SAXONY')}
+        assert all((r['parent_rgb'],r['previous_owner'],r['owner'],r['state']) in allowed for r in transferred)
+        for r in transferred:
+            bounds=(4260,4269,875,884) if r['owner']=='NSB' else (4314,4335,836,846) if r['owner']=='FUL' else (4280,4300,843,860)
+            x0,x1,y0,y1=bounds
+            assert all(x0<=x<=x1 and y0<=y<=y1 for x,y in r['cells'])
+        # No waiver for any previously accepted core; all eligible parents
+        # are retained residuals or unsplit pre-MAP colours, never xED cores.
+        assert all(not r['parent_rgb'].startswith('xED') for r in geo['assignments'])
+        assert all(r['field'] in {'prime_land','mine'} for r in m['region_reference_changes'])
+        result.append(continuation)
+    passau=fulda/'R4/POLITICAL_REPRESENTATION/PASSAU'
+    if (passau/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((passau/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((passau/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert m['replaced_regions']==['STATE_BAVARIA'] and m['new_members']==['PAS']
+        assert set(m['country_additions'])=={'PAS'} and not m['free_cities']
+        assert not m['extent_added_cells'] and not m['extent_removed_cells'] and not m['region_reference_changes']
+        assert geo['parents']==['xB08021'] and geo['selected_option']=='OPTION_1_MINIMAL'
+        assert geo['classification']=='B_POLITICAL_APPROXIMATION' and not geo['historical_cadastral_precision']
+        assert m['new_provinces']==geo['new_provinces']==[{'rgb':'xEDBA00','parent_rgb':'xB08021'}]
+        assert len(geo['assignments'])==2 and sum(r['pixels'] for r in geo['assignments'])==252
+        assert {(r['rgb'],r['owner'],r['pixels']) for r in geo['assignments']}=={('xB08021','BAV',212),('xEDBA00','PAS',40)}
+        assert all(r['parent_rgb']=='xB08021' and r['state']=='STATE_BAVARIA' and r['previous_owner']=='BAV' for r in geo['assignments'])
+        cells=sorted(c for r in geo['assignments'] if r['owner']=='PAS' for c in r['cells'])
+        assert len(cells)==len({tuple(c) for c in cells})==40
+        assert hashlib.sha256(json.dumps(cells,separators=(',',':')).encode()).hexdigest()=='3d95b83f8956e38d29a34303b537469ff812ea70d33ea0ebdefa2aa6ba4c0ea6'
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(new)==set(old)|{'xEDBA00'} and all(new[k]==v for k,v in old.items() if k!='xB08021')
+        assert new['xB08021']['beneficiary']=='BAV' and new['xEDBA00']['beneficiary']=='PAS'
+        result.append(passau)
+    # Two separately reviewed political layers; no reopening of Passau or R3.
+    bc=fulda/'R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG'
+    contracts=[('R4B',['FSI'],[],['x68CE1C'],[('xEDBA10','x68CE1C')],
+                {('x68CE1C','BAV',167),('xEDBA10','FSI',14)},
+                'fdcb024cebfd604d09b73b75631806c494ef705cc39313fd32b3b4741deab8a5'),
+               ('R4C',['RBI','RCI'],['RCI'],['x3101A0','xA7094D','xFE59E7'],
+                [('xEDBA11','x3101A0'),('xEDBA12','x3101A0'),('xEDBA13','xA7094D'),('xEDBA14','xFE59E7')],
+                {('x3101A0','BAV',219),('xEDBA11','RBI',5),('xEDBA12','RBI',9),('xA7094D','BAV',126),('xEDBA13','RCI',1),('xFE59E7','BAV',165),('xEDBA14','RCI',1)},
+                '9912e18bd05d16c5a46d0ec6d1793bab3a147da6fb377034bb3e5d6dd2213452')]
+    for sector,members,free,parents,children,assignments,digest in contracts:
+        directory=bc/sector
+        if not (directory/'REGISTRY_MIGRATION.json').exists():continue
+        assert passau in result
+        if sector=='R4C':assert bc/'R4B' in result
+        m=json.loads((directory/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((directory/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert m['replaced_regions']==['STATE_BAVARIA'] and m['new_members']==members and m['free_cities']==free
+        assert set(m['country_additions'])==set(members)
+        assert not m['extent_added_cells'] and not m['extent_removed_cells'] and not m['region_reference_changes']
+        assert geo['parents']==parents and geo['new_members']==members and geo['free_cities']==free
+        assert geo['classification']=='B_POLITICAL_APPROXIMATION' and not geo['historical_cadastral_precision']
+        assert m['new_provinces']==geo['new_provinces']==[dict(rgb=rgb,parent_rgb=parent) for rgb,parent in children]
+        assert {(r['rgb'],r['owner'],r['pixels']) for r in geo['assignments']}==assignments
+        assert all(r['state']=='STATE_BAVARIA' and r['previous_owner']=='BAV' and r['parent_rgb'] in parents for r in geo['assignments'])
+        footprint=sorted([r['rgb'],r['owner'],x,y] for r in geo['assignments'] for x,y in r['cells'])
+        assert len({(x,y) for _,_,x,y in footprint})==len(footprint)
+        assert hashlib.sha256(json.dumps(footprint,separators=(',',':')).encode()).hexdigest()==digest
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(new)==set(old)|{rgb for rgb,_ in children}
+        assert all(new[k]==v for k,v in old.items() if k not in parents)
+        assert all(new[parent]['beneficiary']=='BAV' for parent in parents)
+        assert all(new[r['rgb']]['beneficiary']==r['owner'] for r in geo['assignments'])
+        result.append(directory)
+    # Authorized SC1-SALZBURG installation: a residence nucleus only. Runtime
+    # validation remains pending; this manifest authorizes no peripheral claims.
+    salzburg=ROOT/'docs/reports/map/SERG_CLOSURE/SC1-SALZBURG'
+    if (salzburg/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((salzburg/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((salzburg/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert bc/'R4C' in result
+        assert m['replaced_regions']==['STATE_BAVARIA'] and m['new_members']==['SLZ'] and not m['free_cities']
+        assert set(m['country_additions'])=={'SLZ'}
+        assert not m['extent_added_cells'] and not m['extent_removed_cells'] and not m['region_reference_changes']
+        assert geo['parents']==['x6EA29B'] and geo['selected_option']=='CITY_ONLY'
+        assert geo['classification']=='B_POLITICAL_APPROXIMATION' and not geo['historical_cadastral_precision']
+        assert m['new_provinces']==geo['new_provinces']==[{'rgb':'xEDBB00','parent_rgb':'x6EA29B'}]
+        assert {(r['rgb'],r['owner'],r['pixels']) for r in geo['assignments']}=={('x6EA29B','BAV',53),('xEDBB00','SLZ',12)}
+        assert all(r['state']=='STATE_BAVARIA' and r['previous_owner']=='BAV' and r['parent_rgb']=='x6EA29B' for r in geo['assignments'])
+        assert next(r['cells'] for r in geo['assignments'] if r['owner']=='SLZ')==[[x,y] for x in range(4385,4389) for y in range(924,927)]
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(new)==set(old)|{'xEDBB00'} and all(new[k]==v for k,v in old.items())
+        assert new['x6EA29B']['beneficiary']=='BAV' and new['xEDBB00']['beneficiary']=='SLZ'
+        result.append(salzburg)
+    # Authorized SC4-MASSA-CARRARA political nucleus, explicitly bounded.
+    # No annexation of Lucca, Genoa or the whole Modenese coastal province.
+    massa=ROOT/'docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA'
+    if (massa/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((massa/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((massa/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert salzburg in result
+        assert m['replaced_regions']==['STATE_EMILIA'] and m['new_members']==['MCA'] and not m['free_cities']
+        assert set(m['country_additions'])=={'MCA'}
+        assert not m['extent_added_cells'] and not m['extent_removed_cells']
+        assert m['region_reference_changes']==[{'state':'STATE_EMILIA','field':'prime_land','before':['xF08021','x0B3B43'],'after':['xF08021','xEDBC00','x0B3B43']}]
+        assert geo['parents']==['xF08021'] and geo['selected_option']=='COASTAL_RESIDENCE_CORE'
+        assert geo['classification']=='B_POLITICAL_APPROXIMATION' and not geo['historical_cadastral_precision']
+        assert m['new_provinces']==geo['new_provinces']==[{'rgb':'xEDBC00','parent_rgb':'xF08021'}]
+        assert {(r['rgb'],r['owner'],r['pixels']) for r in geo['assignments']}=={('xF08021','MOD',108),('xEDBC00','MCA',8)}
+        assert all(r['state']=='STATE_EMILIA' and r['previous_owner']=='MOD' and r['parent_rgb']=='xF08021' for r in geo['assignments'])
+        assert next(r['cells'] for r in geo['assignments'] if r['owner']=='MCA')==[[4325,1029],[4326,1029],[4326,1030],[4327,1030],[4327,1031],[4328,1030],[4328,1031],[4328,1032]]
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(new)==set(old)|{'xEDBC00'} and all(new[k]==v for k,v in old.items())
+        assert old['xF08021']['beneficiary']==new['xF08021']['beneficiary']=='MOD'
+        assert new['xEDBC00']['beneficiary']=='MCA'
+        result.append(massa)
+    # SC1-TRENTO: residence only; never all South Tyrol or the diocese.
+    trento=ROOT/'docs/reports/map/SERG_CLOSURE/SC1-TRENTO'
+    if (trento/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((trento/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((trento/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert massa in result
+        assert m['replaced_regions']==['STATE_SOUTH_TYROL'] and m['new_members']==['TRT'] and not m['free_cities']
+        assert set(m['country_additions'])=={'TRT'}
+        assert not m['extent_added_cells'] and not m['extent_removed_cells']
+        assert m['region_reference_changes']==[{'state':'STATE_SOUTH_TYROL','field':'city','before':'xD0BF60','after':'xEDBD00','pixel':[4352,973]}]
+        assert geo['hub_rebindings']==m['region_reference_changes']
+        assert geo['parents']==['xD0BF60'] and geo['selected_option']=='TRENT_RESIDENCE_CORE'
+        assert geo['classification']=='B_POLITICAL_APPROXIMATION' and not geo['historical_cadastral_precision']
+        assert m['new_provinces']==geo['new_provinces']==[{'rgb':'xEDBD00','parent_rgb':'xD0BF60'}]
+        assert {(r['rgb'],r['owner'],r['pixels']) for r in geo['assignments']}=={('xD0BF60','AUS',291),('xEDBD00','TRT',12)}
+        assert all(r['state']=='STATE_SOUTH_TYROL' and r['previous_owner']=='AUS' and r['parent_rgb']=='xD0BF60' for r in geo['assignments'])
+        assert next(r['cells'] for r in geo['assignments'] if r['owner']=='TRT')==[[4350,973],[4350,974],[4351,972],[4351,973],[4351,974],[4352,972],[4352,973],[4352,974],[4353,972],[4353,973],[4353,974],[4354,973]]
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(new)==set(old)|{'xEDBD00'} and all(new[k]==v for k,v in old.items())
+        assert old['xD0BF60']['beneficiary']==new['xD0BF60']['beneficiary']=='AUS'
+        assert new['xEDBD00']['beneficiary']=='TRT'
+        result.append(trento)
+    # SC1-BRIXEN: nine-cell residence, no diocesan/Puster annexation.
+    # No hub rebind: the human-validated Trento city reference is retained.
+    brixen=ROOT/'docs/reports/map/SERG_CLOSURE/SC1-BRIXEN'
+    if (brixen/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((brixen/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((brixen/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert trento in result
+        assert m['replaced_regions']==['STATE_SOUTH_TYROL'] and m['new_members']==['BRX'] and not m['free_cities']
+        assert set(m['country_additions'])=={'BRX'}
+        assert not m['extent_added_cells'] and not m['extent_removed_cells']
+        assert m['region_reference_changes']==geo['hub_rebindings']==[]
+        assert geo['parents']==['xD040E0'] and geo['selected_option']=='BRIXEN_RESIDENCE_CORE'
+        assert geo['classification']=='B_POLITICAL_APPROXIMATION' and not geo['historical_cadastral_precision']
+        assert m['new_provinces']==geo['new_provinces']==[{'rgb':'xEDBE00','parent_rgb':'xD040E0'}]
+        assert {(r['rgb'],r['owner'],r['pixels']) for r in geo['assignments']}=={('xD040E0','AUS',453),('xEDBE00','BRX',9)}
+        assert all(r['state']=='STATE_SOUTH_TYROL' and r['previous_owner']=='AUS' and r['parent_rgb']=='xD040E0' for r in geo['assignments'])
+        assert next(r['cells'] for r in geo['assignments'] if r['owner']=='BRX')==[[x,y] for x in range(4362,4365) for y in range(948,951)]
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(new)==set(old)|{'xEDBE00'} and all(new[k]==v for k,v in old.items())
+        assert old['xD040E0']['beneficiary']==new['xD040E0']['beneficiary']=='AUS'
+        assert old['xEDBD00']['beneficiary']==new['xEDBD00']['beneficiary']=='TRT'
+        assert new['xEDBE00']['beneficiary']=='BRX'
+        result.append(brixen)
+    # Berchtesgaden residence B only; no cell from the validated SLZ core.
+    berchtesgaden=ROOT/'docs/reports/map/SERG_CLOSURE/SC1-BERCHTESGADEN'
+    if (berchtesgaden/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((berchtesgaden/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((berchtesgaden/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert brixen in result
+        assert m['replaced_regions']==['STATE_TYROL'] and m['new_members']==['BGT'] and not m['free_cities']
+        assert set(m['country_additions'])=={'BGT'}
+        assert not m['extent_added_cells'] and not m['extent_removed_cells']
+        assert m['region_reference_changes']==geo['hub_rebindings']==[]
+        assert geo['parents']==['xAB7EB0'] and geo['selected_option']=='BERCHTESGADEN_RESIDENCE_CORE'
+        assert geo['classification']=='B_POLITICAL_APPROXIMATION' and not geo['historical_cadastral_precision']
+        assert m['new_provinces']==geo['new_provinces']==[{'rgb':'xEDBF00','parent_rgb':'xAB7EB0'}]
+        assert {(r['rgb'],r['owner'],r['pixels']) for r in geo['assignments']}=={('xAB7EB0','AUS',304),('xEDBF00','BGT',4)}
+        assert all(r['state']=='STATE_TYROL' and r['previous_owner']=='AUS' and r['parent_rgb']=='xAB7EB0' for r in geo['assignments'])
+        assert next(r['cells'] for r in geo['assignments'] if r['owner']=='BGT')==[[4384,930],[4384,931],[4385,930],[4385,931]]
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(new)==set(old)|{'xEDBF00'} and all(new[k]==v for k,v in old.items())
+        assert old['xAB7EB0']['beneficiary']==new['xAB7EB0']['beneficiary']=='AUS'
+        assert new['xEDBF00']['beneficiary']=='BGT'
+        result.append(berchtesgaden)
+    passau_outliers=ROOT/'docs/reports/map/SERG_CLOSURE/SC1-PASSAU-OUTLIERS'
+    if (passau_outliers/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((passau_outliers/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((passau_outliers/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert berchtesgaden in result
+        assert m['replaced_regions']==['STATE_AUSTRIA'] and m['new_members']==[] and not m['free_cities'] and m['country_additions']=={}
+        assert not m['extent_added_cells'] and not m['extent_removed_cells']
+        assert m['region_reference_changes']==geo['hub_rebindings']==[]
+        assert geo['parents']==['xFDA6CB'] and geo['selected_option']=='OBERNBERG_MARKET_CORE'
+        assert geo['classification']=='B_POLITICAL_APPROXIMATION' and not geo['historical_cadastral_precision']
+        assert m['new_provinces']==geo['new_provinces']==[{'rgb':'xEDC000','parent_rgb':'xFDA6CB'}]
+        assert {(r['rgb'],r['owner'],r['pixels']) for r in geo['assignments']}=={('xFDA6CB','AUS',175),('xEDC000','PAS',4)}
+        assert all(r['state']=='STATE_AUSTRIA' and r['previous_owner']=='AUS' and r['parent_rgb']=='xFDA6CB' for r in geo['assignments'])
+        assert next(r['cells'] for r in geo['assignments'] if r['owner']=='PAS')==[[4393,911],[4393,912],[4394,911],[4394,912]]
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(new)==set(old)|{'xEDC000'} and all(new[k]==v for k,v in old.items())
+        assert old['xFDA6CB']['beneficiary']==new['xFDA6CB']['beneficiary']=='AUS'
+        assert new['xEDC000']['beneficiary']=='PAS'
+        result.append(passau_outliers)
+    return result
 
 def reviewed_core_exception_owner(point,previous_owner,later_dirs):
     """Only the human-approved Kempten municipal cell, never a broad waiver."""
@@ -223,6 +441,9 @@ def expected_country_definitions(before,migrations):
             tag=change['tag']
             if tag=='WUR':
                 assert change['before']=='kingdom' and change['after']=='principality'
+            elif tag=='HES':
+                assert migration.get('new_members')==['NOU','NWB'] and migration.get('replaced_regions')==['STATE_HESSE']
+                assert change['before']=='grand_principality' and change['after']=='principality'
             else:
                 assert migration.get('replaced_regions')==['STATE_SAXONY']
                 assert migration.get('new_members')==['GOT','HIL','SSO','RGZ','RGE','RSL']

@@ -1,0 +1,25 @@
+# SC2-MORAVIA: minimal representation of the Moravian gubernium at Brno.
+# One public level is a game-scale abstraction, not historical headcount.
+# The technical state includes protected MAP2A districts; no 1783 legal merger is asserted.
+BUILDINGS = {
+    s:STATE_MORAVIA = {
+        region_state:AUS = {
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:AUS"
+                        levels = 1
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_organization"
+                    "pm_hereditary_bureaucrats"
+                    "pm_religious_bureaucrats"
+                    "pm_1776_no_organized_data_reporting"
+                }
+            }
+        }
+    }
+}

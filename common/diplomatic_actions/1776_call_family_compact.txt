@@ -1,0 +1,50 @@
+﻿# France requests Spanish participation under the existing Bourbon alliance.
+# Acceptance ratifies the integrated Join Ongoing Wars article, source SPA,
+# target FRA. The native war join can support an allied backer, not only a leader.
+aor1776_call_family_compact = {
+ groups = { general }
+ texture = "gfx/interface/icons/lens_toolbar_icons/intervene_in_war.dds"
+ requires_approval = yes
+ should_notify_third_parties = yes
+ potential = {
+  c:FRA ?= this
+  scope:target_country = { c:SPA ?= this }
+  any_scope_treaty = { binds = c:SPA any_scope_article = { has_type = alliance } }
+  any_scope_war = {
+   is_war_participant = c:USA
+   is_war_participant = c:GBR
+   NOT = { is_war_participant = c:SPA }
+  }
+ }
+ possible = {
+  aor1776_can_intervene_trigger = { ACTOR = c:SPA FRIEND = c:FRA }
+  can_create_treaty = {
+   first_country = c:FRA second_country = c:SPA is_draft = no
+   binding_period = { months = 1 }
+   articles_to_create = { { article = join_war source_country = c:SPA target_country = c:FRA } }
+  }
+ }
+ accept_effect = {
+  c:SPA = { set_variable = { name = aor1776_join_american_war_only days = 2 } }
+  create_treaty = {
+   name = aor1776_family_compact_call_treaty
+   first_country = c:FRA second_country = c:SPA is_draft = no
+   binding_period = { months = 1 }
+   articles_to_create = { { article = join_war source_country = c:SPA target_country = c:FRA } }
+  }
+ }
+ ai = {
+  evaluation_chance = { value = 1 }
+  propose_score = { value = 2000 }
+  will_propose = { c:FRA ?= this has_war_with = c:GBR }
+  # Native approval, not an independent annual Spanish entry roll. Spain can
+  # decline when its finances or other wars make intervention unattractive.
+  accept_score = {
+   value = 50
+   if = { limit = { c:SPA = { net_total_income < 0 } } add = -100 }
+   if = { limit = { c:SPA = { in_default = yes } } add = -250 }
+   if = { limit = { c:SPA = { is_at_war = yes } } add = -75 }
+   if = { limit = { c:SPA = { c:FRA.relations:this < relations_threshold:cordial } } add = -100 }
+  }
+ }
+}

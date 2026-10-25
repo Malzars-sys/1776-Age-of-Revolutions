@@ -1,0 +1,16 @@
+# Rapports du projet
+
+Les rapports sont classés par chantier afin de conserver l’historique technique tout en rendant les validations actuelles faciles à retrouver.
+
+- [Index général](INDEX.md) : navigation vers les phases de portage et les audits.
+- [Fortifications terrestres](military/LAND_FORTIFICATIONS/REPORT.md) : bâtiment intérieur limité à cinq niveaux, méthodes alignées sur les forts navals, protection locale et icône détourée ; 903 contrôles statiques, essai moteur à effectuer.
+- [Réorganisation des Minutemen](military/CONTENT-USA-MINUTEMEN-REFORM/REPORT.md) : événement de réforme proposé à la victoire, promulgation volontaire et retour aux levées paysannes conservé à la défaite ; 464 contrôles statiques, essai moteur à effectuer.
+- [Révolution américaine R6](military/AMERICAN_REVOLUTION_R6/SYNTHESIS.md) : initiative française avant l’invitation américaine et remplacement de la milice par les Minutemen dans la liste des lois ; corrections R5 conservées, vérifications statiques et essais moteur distingués.
+- [Phases CLEANUP](cleanup/README.md) : reconstruction post-release et clôtures militaire/économique.
+- [Bibliothèque Hotfix](hotfix/INDEX.md) : rapports du merge et validations Victoria 3 1.13.
+- [Documentation de release](release/README.md) : audits pré-patch et futures notes de publication.
+- [Préparation Steam Workshop](workshop/INDEX.md) : frontend, objectifs et futures phases de publication.
+- `phase1/`, `admin/`, `navy/`, `localization/` et `audit/` : rapports spécialisés antérieurs.
+- [Manifeste de réorganisation](DOCUMENTATION_REORGANIZATION_MANIFEST.csv) : ancien chemin, nouveau chemin et hashes des documents déplacés pendant PREP1E.
+
+Les crédits et licences sont conservés dans [`docs/credits/`](../credits/).

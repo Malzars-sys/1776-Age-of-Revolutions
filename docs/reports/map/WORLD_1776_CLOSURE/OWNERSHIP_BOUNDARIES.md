@@ -1,0 +1,39 @@
+# Propriété des modifications — chantier autonome n° 2
+
+Référence : 1er janvier 1776. Ce suivi est indépendant du chantier SERG.
+
+## Répartition
+
+Le chantier WORLD traite successivement les Balkans, l'Italie méridionale, les espaces subsahariens R7, le Maghreb attribué à R3 et les Amériques R8/R9. Les identifiants régionaux du catalogue MAP-1776 sont conservés ; le nom d'une phase ne remplace pas le Region_ID canonique.
+
+Les recherches et installations existantes restent acquises dans leur périmètre réel. En particulier, les transferts MAP2D en Bessarabie et autour de la mer Noire ne sont pas rejoués depuis les CSV antérieurs. La nouvelle baseline est capturée sur le workspace courant.
+
+## Interfaces réservées ou à arbitrer
+
+Tous les territoires attribués à une tâche SERG restent réservés à ce chantier : territoires germaniques, possessions impériales italiennes, juridictions habsbourgeoises couvertes par ses tâches, et tous ses noyaux déjà installés. Aucun changement dans son suivi, ses 81 tâches, son dénominateur ou ses reçus.
+
+Croatie, Slavonie, Banat, Transylvanie, Istrie, Dalmatie de contact et Frontière militaire sont des zones de recherche commune. Aucun transfert de cellule AUS/HUN/TRS ou de juridiction déjà réservée ne sera fait ici sans attribution explicite. Une suzeraineté habsbourgeoise n'établit pas à elle seule une appartenance au Saint-Empire.
+
+Pour l'Italie, Naples et Sicile, Bénévent et Pontecorvo seront étudiés pendant la phase 2. Les possessions et enclaves couvertes par SERG ne seront pas reprises sous un autre nom. Les interfaces avec les États pontificaux seront isolées au niveau des cellules et juridictions.
+
+## Premier lot BALKANS-01
+
+- Écriture territoriale : seuls `x6090A0` et `x6960A0`, dans `STATE_WEST_AEGEAN_ISLANDS`, de VEN vers TUR.
+- POPs et bâtiments : seul le rattachement politique de cette State Region. Effectifs, cultures, religion implicite de la culture grecque, professions et propriété économique sont conservés.
+- Institutions : seules les activations initiales de deux lois anachroniques dans les historiques MOL et WAL. Les lois communes et les effets génériques ne sont pas modifiés.
+- Monténégro : lecture et décision historique documentée, aucune cellule transférée, aucun TAG supprimé, aucune relation nouvelle créée.
+- Îles ioniennes, Dalmatie, Istrie, possessions habsbourgeoises, anciennes corrections MAP2D et noyaux SERG : conservés.
+
+## Fichiers partagés
+
+`00_states.txt`, `01_south_europe.txt` des POPs et des bâtiments contiennent des modifications d'autres chantiers. Chaque écriture doit partir de leur contenu courant et porter uniquement sur le bloc de l'Égée occidentale. Vérifier l'empreinte immédiatement avant l'écriture ; en cas d'évolution, relire et adapter le patch. Ne jamais restaurer un fichier entier depuis la capture.
+
+Les autres travaux sur les technologies, PM, infrastructures, Anzin, Saint-Gobain, fortifications, génie et Révolution américaine sont hors périmètre. Leurs fichiers sont inclus dans les contrôles de conservation. Toute différence concurrente est enregistrée dans `CONCURRENT_CHANGES.json`, sans écrasement ni attribution abusive au lot WORLD.
+
+## Lot BALKANS-02 — Raguse et passages adriatiques
+
+Périmètre d'écriture : 122 pixels du seul parent `x11A0E0`, avec trois RGB `xE8D201` (RAG), `xE8D202` (TUR/Neum) et `xE8D203` (TUR/Sutorina), toujours dans `STATE_DALMATIA`. Les masques exacts sont dans BALKANS-02/PIXEL_PATCH.json. Les anciens RGB gardent leurs propriétaires ; le parent perd uniquement les pixels du masque.
+
+Les six fichiers partagés sont le bitmap, la définition régionale, les terrains, les historiques des États, des POPs et des bâtiments d'Europe du Sud. Seuls le bloc dalmate, l'enregistrement des nouvelles couleurs et les pixels déclarés sont autorisés. POP croate VEN -30 000 / RAG +30 000 ; pêche VEN 3 -> 2 et RAG +1. Quinze fichiers nouveaux spécifiques portent les autres capacités ragusaines.
+
+Ne pas restaurer le bitmap complet depuis une ancienne baseline : toute future écriture doit préserver les pixels concurrents et contrôler l'empreinte courante. Les preuves SERG (873 fichiers dans la capture) et les zones AUS/HUN/TRS restent protégées. Les locators et les autres régions ne sont pas écrits. Les dix fichiers économiques et technologiques modifiés en parallèle sont attribués à leurs chantiers dans BALKANS-02/CONCURRENT_CHANGES.json.

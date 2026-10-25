@@ -1,0 +1,600 @@
+﻿# MANUFACTURING INDUSTRIES
+
+building_food_industry = {
+	building_group = bg_light_industry
+	icon = "gfx/interface/icons/building_icons/food_industry.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	ai_nationalization_desire = -0.25 # AI is generally fine with privatizing consumer goods industries
+
+	unlocking_technologies = {
+		  traditional_food_processing
+	}
+
+	production_method_groups = {
+		pmg_base_building_food_industry
+		pmg_canning
+		pmg_distillery
+		pmg_spiced_food_building_food_industry
+		pmg_automation_building_food_industry
+		pmg_1776_light_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_high
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
+}
+
+building_textile_mill = {
+	aliases = { building_textile_mills }
+	building_group = bg_light_industry
+	icon = "gfx/interface/icons/building_icons/textile_industry.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	ai_nationalization_desire = -0.25 # AI is generally fine with privatizing consumer goods industries
+
+	unlocking_technologies = {
+		organized_textile_production
+	}
+
+	production_method_groups = {
+		pmg_base_building_textile_mill
+		pmg_luxury_building_textile_mill
+		pmg_automation_building_textile_mill
+		pmg_1776_light_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_high
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
+}
+
+building_furniture_manufactory = {
+	aliases = { building_furniture_manufacturies }
+	building_group = bg_light_industry
+	icon = "gfx/interface/icons/building_icons/furniture_manufacturies.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	ai_nationalization_desire = -0.25 # AI is generally fine with privatizing consumer goods industries
+
+	unlocking_technologies = {
+		organized_workshops
+	}
+
+	production_method_groups = {
+		pmg_base_building_furniture_manufactory
+		pmg_luxury_building_furniture_manufactory
+		pmg_automation_building_furniture_manufactory
+		pmg_1776_light_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_high
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
+}
+
+building_glassworks = {
+	building_group = bg_light_industry
+	icon = "gfx/interface/icons/building_icons/glassworks.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	unlocking_technologies = {
+		organized_workshops
+	}
+
+	production_method_groups = {
+		pmg_base_building_glassworks
+		pmg_luxury_building_glassworks
+		pmg_glassblowing
+		pmg_1776_light_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_high
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
+}
+
+building_tooling_workshop = {
+	aliases = { building_tooling_workshops }
+	building_group = bg_light_industry
+	icon = "gfx/interface/icons/building_icons/tooling_workshops.dds"
+
+	ai_nationalization_desire = 0.25 # AI is a bit reluctant to privatize tools due to importance for construction etc
+
+	unlocking_technologies = {
+		organized_workshops
+	}
+
+	city_type = city
+	levels_per_mesh = 50
+
+	production_method_groups = {
+		pmg_base_building_tooling_workshop
+		pmg_precision_machinery_production
+		pmg_automation_building_tooling_workshop
+		pmg_scientific_management
+		pmg_1776_light_data_reporting
+		pmg_aor1776_industrial_transport
+	}
+
+	required_construction = construction_cost_high
+
+	ai_value = {
+		value = 2000
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_tools = yes aor1776_ai_can_produce_tools = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_tooling_workshop
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
+		}
+	} # Tools are very important
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
+}
+
+building_paper_mill = {
+	aliases = { building_paper_mills }
+	building_group = bg_light_industry
+	icon = "gfx/interface/icons/building_icons/paper_mills.dds"
+
+	ai_nationalization_desire = 0.25 # AI is a bit reluctant to privatize government goods
+
+	unlocking_technologies = {
+		traditional_papermaking
+	}
+
+	city_type = city
+	levels_per_mesh = 50
+
+	production_method_groups = {
+		pmg_base_building_paper_mill
+		pmg_automation_building_paper_mill
+		pmg_1776_light_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_high
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_light_industry.dds"
+}
+
+building_chemical_plant = {
+	# TECH & RES-style consolidated chemical complex.  The legacy
+	# building_chemical_works identifier remains an alias for save/history
+	# compatibility, but there is now only one chemical-industry building.
+	aliases = { building_chemical_plants building_chemical_works }
+	building_group = bg_heavy_industry
+	# Dedicated 1776 icon: period chemical works with industrial chemicals in the foreground.
+	icon = "gfx/interface/icons/building_icons/1776_chemical_plant.dds"
+
+	unlocking_technologies = {
+		industrial_acids
+	}
+
+	city_type = city
+	levels_per_mesh = 50
+
+	production_method_groups = {
+		pmg_fertilizer_production
+		pmg_base_building_chemical_works
+		pmg_pharmaceutical_production_building_chemical_works
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_very_high
+
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law_or_variant = law_type:law_industry_banned
+					has_law_or_variant = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
+
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+}
+
+building_explosives_factory = {
+	building_group = bg_heavy_industry
+	icon = "gfx/interface/icons/building_icons/explosives_factory.dds"
+
+	unlocking_technologies = {
+		nitroglycerin
+	}
+
+	city_type = city
+	levels_per_mesh = 50
+
+	production_method_groups = {
+		pmg_explosives_building_chemical_plant
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_very_high
+
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law_or_variant = law_type:law_industry_banned
+					has_law_or_variant = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+}
+
+building_synthetics_plant = {
+	aliases = { building_synthetics_plants }
+	building_group = bg_heavy_industry
+	icon = "gfx/interface/icons/building_icons/synthetics_plants.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	unlocking_technologies = {
+		aniline
+	}
+
+	production_method_groups = {
+		pmg_synthetic_dyes
+		pmg_synthetic_silk
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_very_high
+
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law_or_variant = law_type:law_industry_banned
+					has_law_or_variant = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+}
+
+building_steel_mill = {
+	aliases = { building_steel_mills }
+	building_group = bg_heavy_industry
+	icon = "gfx/interface/icons/building_icons/steel_mills.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	ai_nationalization_desire = 0.25 # AI will generally not privatize steel mills due to importance for construction
+
+	unlocking_technologies = {
+		coke_smelting
+	}
+
+	production_method_groups = {
+		pmg_steelmaking_process
+		pmg_automation_building_steel_mill
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_very_high
+
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law_or_variant = law_type:law_industry_banned
+					has_law_or_variant = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+
+	ai_value = {
+		value = 1000
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_steel = yes aor1776_ai_can_produce_steel = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_steel_mill
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
+		}
+	}
+}
+
+building_motor_industry = {
+	building_group = bg_heavy_industry
+	icon = "gfx/interface/icons/building_icons/motor_industry.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	unlocking_technologies = {
+		rotative_steam_power
+	}
+
+	production_method_groups = {
+		pmg_base_building_motor_industry
+		pmg_automation_building_motor_industry
+		pmg_scientific_management
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+	}
+
+	required_construction = construction_cost_very_high
+
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law_or_variant = law_type:law_industry_banned
+					has_law_or_variant = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+
+	ai_value = {
+		value = 1000
+		# Native eligibility, costs, resources and AI budgets still apply.
+		if = {
+			limit = {
+				OR = {
+					AND = { aor1776_ai_prioritize_engines = yes aor1776_ai_can_produce_engines = yes }
+				}
+				NOT = { any_scope_building = {
+					is_building_type = building_motor_industry
+					OR = { is_under_construction = yes building_has_goods_shortage = yes }
+				} }
+			}
+			multiply = 4
+		}
+	}
+}
+
+building_shipyard = {
+	aliases = { building_shipyards }
+	building_group = bg_ship_construction
+	icon = "gfx/interface/icons/building_icons/shipyards.dds"
+	city_type = port
+	levels_per_mesh = 1
+
+	unlocking_technologies = {
+		state_dockyard_systems
+	}
+
+	ai_nationalization_desire = 0.25 # AI is a bit reluctant to privatize government goods
+
+	production_method_groups = {
+		pmg_base_building_shipyard
+		pmg_copper_sheathing_building_shipyard
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+		pmg_scientific_management
+	}
+
+	required_construction = construction_cost_high
+
+	potential = {
+		is_coastal = yes
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_harbour.dds"
+}
+
+building_automotive_industry = {
+	building_group = bg_heavy_industry
+	icon = "gfx/interface/icons/building_icons/vehicles_industry.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	unlocking_technologies = {
+		combustion_engine
+	}
+
+	production_method_groups = {
+		pmg_automobile_production
+		pmg_aeroplanes
+		pmg_tanks
+		pmg_automation_building_automotive_industry
+		pmg_scientific_management_automotive_industry
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+	}
+
+	required_construction = construction_cost_very_high
+
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law_or_variant = law_type:law_industry_banned
+					has_law_or_variant = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+}
+
+building_electrics_industry = {
+	building_group = bg_heavy_industry
+	icon = "gfx/interface/icons/building_icons/electrics_industry.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	unlocking_technologies = {
+		telephone
+	}
+
+	production_method_groups = {
+		pmg_telephones_category
+		pmg_radios_category
+		pmg_scientific_management_electrics_industry
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+	}
+
+	required_construction = construction_cost_very_high
+
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law_or_variant = law_type:law_industry_banned
+					has_law_or_variant = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+}
+
+building_arms_industry = {
+	aliases = { building_arms_industries }
+	building_group = bg_military_industry
+	icon = "gfx/interface/icons/building_icons/arms_industry.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	ai_nationalization_desire = 0.5 # AI generally does not want to privatize military goods industries
+
+	unlocking_technologies = {
+		regulated_small_arms
+	}
+
+	production_method_groups = {
+		pmg_firearms_manufacturing
+		pmg_automation_building_arms_industry
+		pmg_scientific_management
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+	}
+
+	required_construction = construction_cost_high
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+}
+
+building_artillery_foundry = {
+	building_group = bg_military_industry
+	icon = "gfx/interface/icons/building_icons/artillery_foundry.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	ai_nationalization_desire = 0.5 # AI generally does not want to privatize military goods industries
+
+	unlocking_technologies = {
+		standardized_field_artillery
+	}
+
+	production_method_groups = {
+		pmg_foundries
+		pmg_automation_building_arms_industry
+		pmg_scientific_management
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+	}
+
+	required_construction = construction_cost_high
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+}
+
+building_munition_plant = {
+	aliases = { building_munition_plants }
+	building_group = bg_military_industry
+	icon = "gfx/interface/icons/building_icons/munition_plants.dds"
+	city_type = city
+	levels_per_mesh = 50
+
+	ai_nationalization_desire = 0.5 # AI generally does not want to privatize military goods industries
+
+	unlocking_technologies = {
+		percussion_cap
+	}
+
+	production_method_groups = {
+		pmg_base_building_munition_plant
+		pmg_automation_building_munition_plant
+		pmg_scientific_management
+		pmg_1776_heavy_data_reporting
+		pmg_aor1776_industrial_transport
+	}
+
+	required_construction = construction_cost_very_high
+
+	possible = {
+		owner = {
+			NOT = {
+				OR = {
+					has_law_or_variant = law_type:law_industry_banned
+					has_law_or_variant = law_type:law_extraction_economy
+				}
+			}
+		}
+	}
+	ownership_type = self
+
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_heavy_industry.dds"
+}

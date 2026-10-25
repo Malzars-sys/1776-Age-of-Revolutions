@@ -1,0 +1,138 @@
+﻿# R4: article 1 is a native weekly transfer, article 2 is the US debt promise.
+aor1776_support_money = {
+ kind = directed cost = 0
+ icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/bankroll_treaties.dds"
+ flags = { is_money_transfer }
+ maintenance_paid_by = target_country
+ usage_limit = once_per_treaty
+ required_inputs = { quantity }
+ visible = { OR = { c:FRA ?= this c:USA ?= this } }
+ possible = { in_default = no }
+ can_ratify = {
+  scope:source_country = { c:FRA ?= this in_default = no }
+  scope:target_country = { c:USA ?= this }
+ }
+ quantity_min_value = { value = 30000 }
+ quantity_max_value = { value = 30000 }
+ requirement_to_maintain = {
+  trigger = {
+   aor1776_support_contract_parties_valid = yes
+   c:USA = { has_variable = aor1776_support_active }
+   scope:article ?= { treaty = { remaining_binding_period > 0 } }
+  }
+ }
+ non_fulfillment = {
+  consequences = freeze
+  conditions = { weekly = { scope:article = { source_country = { in_default = yes } } } }
+ }
+ can_withdraw = { scope:treaty ?= { remaining_binding_period <= 0 } }
+}
+
+# Source is the debtor making the promise; target is its creditor.
+aor1776_deferred_debt_article = {
+ kind = directed cost = 0
+ icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/aor1776_deferred_debt.dds"
+ maintenance_paid_by = source_country
+ usage_limit = once_per_side
+ visible = { NOT = { is_country_type = decentralized } }
+ possible = { NOT = { has_war_with = scope:other_country } }
+ can_ratify = {
+  scope:source_country = {
+   OR = {
+    AND = { c:USA ?= this has_variable = aor1776_support_offer scope:target_country = { c:FRA ?= this } }
+    AND = { has_variable = aor1776_debt_creditor var:aor1776_debt_creditor = scope:target_country }
+   }
+  }
+ }
+ requirement_to_maintain = {
+  trigger = {
+   scope:source_country = {
+    OR = {
+     has_variable = aor1776_support_offer
+     AND = { has_variable = aor1776_debt_creditor var:aor1776_debt_creditor = scope:target_country }
+    }
+   }
+  }
+ }
+ can_withdraw = { scope:treaty ?= { remaining_binding_period <= 0 } }
+}
+
+aor1776_revolution_military_assistance = {
+ kind = directed cost = 0
+ icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/military_assistance_treaties.dds"
+ maintenance_paid_by = source_country
+ usage_limit = once_per_treaty
+ visible = { OR = { c:FRA ?= this c:USA ?= this } }
+ possible = { OR = { c:FRA ?= this c:USA ?= this } }
+ can_ratify = {
+  scope:source_country = { c:FRA ?= this }
+  scope:target_country = { c:USA ?= this }
+ }
+ source_modifier = { country_military_goods_cost_mult = 0.05 }
+ target_modifier = { building_training_rate_mult = 0.10 unit_experience_gain_mult = 0.10 }
+ requirement_to_maintain = {
+  trigger = {
+   aor1776_support_contract_parties_valid = yes
+   c:USA = { has_variable = aor1776_support_active }
+   scope:article ?= { treaty = { remaining_binding_period > 0 } }
+  }
+ }
+}
+aor1776_support_supplies = {
+ kind = directed cost = 0
+ icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/goods_transfer_treaties.dds"
+ flags = { is_goods_transfer }
+ maintenance_paid_by = source_country
+ required_inputs = { quantity goods }
+ visible = { OR = { c:FRA ?= this c:USA ?= this } }
+ possible = {
+  OR = { c:FRA ?= this c:USA ?= this }
+  is_market_reachable_for_trade = scope:other_country.market
+ }
+ can_ratify = {
+  scope:source_country = { c:FRA ?= this }
+  scope:target_country = { c:USA ?= this }
+ }
+ requirement_to_maintain = {
+  trigger = {
+   aor1776_support_contract_parties_valid = yes
+   c:USA = { has_variable = aor1776_support_active }
+   scope:article ?= { treaty = { remaining_binding_period > 0 } }
+  }
+ }
+ non_fulfillment = {
+  consequences = freeze
+  conditions = {
+   weekly = {
+    scope:article = {
+     OR = {
+      source_country = { supply_network_strength < 0.5 }
+      NOT = { source_country = { is_market_reachable_for_trade = scope:article.target_country.market } }
+      "scope:article.input_market_goods(scope:article.source_country)" = { treaty_exports > market_export_cap }
+     }
+    }
+   }
+  }
+ }
+ goods_valid_trigger = { scope:input = { OR = { this = g:small_arms this = g:artillery } } }
+ quantity_min_value = { value = 1 }
+ quantity_max_value = { value = 15 }
+}
+
+# Disable retired R3 pseudo-financial clauses in old saves. No scripted money.
+aor1776_war_credit_moderate = {
+ kind = directed cost = 0
+ icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/bankroll_treaties.dds"
+ maintenance_paid_by = source_country
+ visible = { always = no }
+ possible = { always = no }
+ requirement_to_maintain = { trigger = { always = no } }
+}
+aor1776_war_credit_extended = {
+ kind = directed cost = 0
+ icon = "gfx/interface/icons/diplomatic_treaties_articles_icons/bankroll_treaties.dds"
+ maintenance_paid_by = source_country
+ visible = { always = no }
+ possible = { always = no }
+ requirement_to_maintain = { trigger = { always = no } }
+}

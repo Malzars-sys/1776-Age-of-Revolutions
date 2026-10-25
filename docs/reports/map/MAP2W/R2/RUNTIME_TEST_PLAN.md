@@ -1,0 +1,16 @@
+# Test manuel MAP2W-R2-A
+
+Statut actuel : fichiers contrôlés statiquement ; aucun test moteur exécuté par l’agent. R1 n’est pas non plus attesté manuellement. Utiliser une **nouvelle partie au 1er janvier 1776**, pas une sauvegarde ancienne.
+
+1. **Nassau-Orange — NOU** : petit noyau au nord-ouest de Francfort, entre NAS et le résidu de Waldeck. Repère principal du bitmap X4292/Y839 ; RGB xEDB705, avec xEDB701/xEDB702 plus à l’ouest/nord. Wilhelm V., principauté, capitale économique Hesse. Environ **27 710 habitants techniques**. Le pays ne comprend pas toutes ses possessions historiques ; ne pas attendre l’absorption des Provinces-Unies.
+2. **Nassau-Weilbourg — NWB** : immédiatement au sud de NOU et au nord-est du raccord NAS. Repères X4292/Y846 et X4294/Y847. RGB xEDB703/xEDB704/xEDB707/xEDB708. Karl Christian ; environ **12 265 habitants techniques**. Plusieurs petites composantes possibles, sans corridor ajouté.
+3. **Nassau-Usingen — NAS** : raccord d’Idstein, au nord-ouest de Francfort, autour de X4292/Y854, RGB xEDB706. Karl Wilhelm, pas Wilhelm ou Adolf du XIXe siècle. Vérifier le nom dans le panneau du pays et les info-bulles. Les grands résidus NAS restent provisoires et ne certifient pas toutes les possessions d’Usingen.
+4. **Hesse-Cassel — HEK** : Friedrich II., né en 1720, personnellement catholique. Ne pas attendre une conversion de tout le pays. **Hesse-Darmstadt — HES** : Ludwig IX., landgraviat, pas grand-duché ; la capitale technique reste Hesse. Les anciens souverains de 1836 ne doivent pas apparaître en double.
+5. Pour NOU/NWB, contrôler les noms FR/EN si possible, drapeaux non manquants, gouvernement princier, autonomie initiale, appartenance impériale et accès au marché. Aucun nouveau vote électoral ni assujettissement natif automatique à l’empereur ou à la Hollande n’est attendu. Les neuf électeurs restent les mêmes.
+6. Vérifier populations, cultures/religions, subsistance, emploi, bâtiments et infrastructures des subdivisions HES/NAS/WLD conservées. Aucun bâtiment ni niveau n’est ajouté ou transféré par cette passe. Signaler une éventuelle fragilité économique sans la masquer par une usine ou une population artificielle.
+7. Contrôler **Fulda R1**, ses deux subdivisions Hesse/Saxe et environ 20 047 habitants, ainsi que les noyaux voisins déjà validés. Aucune modification d’Erfurt–Eichsfeld. Les possessions PRU, FRM et les noyaux de Mayence protégés ne sont pas annexés par le tracé de Nassau.
+8. Laisser passer **au moins un mois**, contrôler le changement de date, l’absence de crash, de disparition de pays, de rupture de marché ou de nouveaux messages d’erreur. Les modifications militaires concurrentes relèvent d’un suivi distinct ; ne pas attribuer toute anomalie du workspace partagé à MAP.
+
+Les coordonnées ci-dessus servent à trouver les cellules installées, pas à certifier la projection géographique d’une ville. Les cartes montrent des généralisations B. **Usingen-centre, Wiesbaden, Hanau, Hombourg, Sarrebruck, Diez/Hadamar et les compléments de Fulda restent ouverts** : ne pas interpréter leur absence de correction comme un échec de chargement des nouveaux noyaux.
+
+Après votre retour seulement : enregistrer `PASS_RUNTIME_USER_VALIDATED` pour les éléments réellement inspectés, sans le transformer en certification historique exhaustive ni en test moteur automatisé.

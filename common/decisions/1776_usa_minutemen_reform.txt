@@ -1,0 +1,12 @@
+# Optional access during the war; victory also proposes this event once.
+aor1776_review_revolutionary_militias = {
+ is_shown = {
+  c:USA ?= this
+  has_law = law_type:law_aor1776_minutemen
+  aor1776_minutemen_reform_institutional_context = yes
+  NOT = { has_variable = aor1776_minutemen_reform_resolved }
+ }
+ possible = { aor1776_minutemen_reform_can_offer = yes }
+ when_taken = { aor1776_minutemen_reorganization_offer_effect = yes }
+ ai_chance = { value = 0 }
+}

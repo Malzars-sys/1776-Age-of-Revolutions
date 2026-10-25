@@ -1,0 +1,35 @@
+# Native battle callbacks; constant filters, no global or army scans.
+on_battle_won = { on_actions = { aor1776_fervour_battle_won } }
+on_battle_lost = { on_actions = { aor1776_fervour_battle_lost } }
+
+aor1776_fervour_battle_won = {
+	trigger = {
+		c:USA ?= this
+		aor1776_usa_independence_war_active = yes
+		exists = scope:enemy_country
+		scope:enemy_country = { c:GBR ?= this }
+		NOT = { has_variable = aor1776_fervour_win_cooldown }
+	}
+	effect = {
+		aor1776_content_initialize_effect = yes
+		change_variable = { name = aor1776_fervour add = 5 }
+		set_variable = { name = aor1776_fervour_win_cooldown days = 90 }
+		aor1776_fervour_refresh_effect = yes
+	}
+}
+
+aor1776_fervour_battle_lost = {
+	trigger = {
+		c:USA ?= this
+		aor1776_usa_independence_war_active = yes
+		exists = scope:enemy_country
+		scope:enemy_country = { c:GBR ?= this }
+		NOT = { has_variable = aor1776_fervour_loss_cooldown }
+	}
+	effect = {
+		aor1776_content_initialize_effect = yes
+		change_variable = { name = aor1776_fervour add = -5 }
+		set_variable = { name = aor1776_fervour_loss_cooldown days = 90 }
+		aor1776_fervour_refresh_effect = yes
+	}
+}

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:adv="http://www.adv-online.de/namespaces/adv/gid/7.1" xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="http://www.adv-online.de/namespaces/adv/gid/7.1" elementFormDefault="qualified">
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" />
+  <element name="AX_Wasserlauf" substitutionGroup="adv:AA_ZUSO" type="adv:AX_WasserlaufType" />
+  <element abstract="true" name="AA_ZUSO" substitutionGroup="adv:AA_Objekt" type="adv:AA_ZUSOType" />
+  <complexType name="AX_WasserlaufType">
+    <complexContent>
+      <extension base="adv:AA_ZUSOType">
+        <sequence>
+          <element minOccurs="0" name="name" type="string" />
+          <element minOccurs="0" name="gewaesserkennzahl" type="string" />
+          <element minOccurs="0" name="identnummer" type="string" />
+          <element minOccurs="0" name="schifffahrtskategorie" type="adv:AX_SchifffahrtskategorieType" />
+          <element minOccurs="0" name="widmung" type="adv:AX_Widmung_WasserlaufType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="zweitname" type="string" />
+          <element maxOccurs="2" minOccurs="0" name="regionalsprache" type="string" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <element abstract="true" name="AA_Objekt" substitutionGroup="gml:AbstractFeature" type="adv:AA_ObjektType" />
+  <complexType abstract="true" name="AA_ZUSOType">
+    <complexContent>
+      <extension base="adv:AA_ObjektType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="bestehtAus">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence />
+                  <attributeGroup ref="gml:AssociationAttributeGroup" />
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <simpleType name="AX_SchifffahrtskategorieType">
+    <restriction base="string">
+      <enumeration value="1000" />
+      <enumeration value="2000" />
+      <enumeration value="3000" />
+    </restriction>
+  </simpleType>
+  <simpleType name="AX_Widmung_WasserlaufType">
+    <restriction base="string">
+      <enumeration value="1310" />
+      <enumeration value="1320" />
+      <enumeration value="1330" />
+      <enumeration value="1340" />
+    </restriction>
+  </simpleType>
+  <complexType abstract="true" name="AA_ObjektType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="lebenszeitintervall" type="adv:AA_LebenszeitintervallPropertyType" />
+          <element maxOccurs="unbounded" name="modellart" type="adv:AA_ModellartPropertyType" />
+          <element maxOccurs="2" minOccurs="0" name="anlass" type="gml:ReferenceType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="zeigtAufExternes" type="adv:AA_FachdatenverbindungPropertyType" />
+          <element minOccurs="0" name="quellobjektID" type="string" />
+          <element maxOccurs="unbounded" minOccurs="0" name="istTeilVon" type="gml:ReferenceType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="inversZu_dientZurDarstellungVon_AP_Darstellung" type="gml:ReferenceType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="inversZu_dientZurDarstellungVon_AX_Gestaltung3D" type="gml:ReferenceType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="inversZu_dientZurDarstellungVon_AP_FPO" type="gml:ReferenceType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="inversZu_dientZurDarstellungVon_AP_KPO_3D" type="gml:ReferenceType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="inversZu_dientZurDarstellungVon_AP_LPO" type="gml:ReferenceType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="inversZu_dientZurDarstellungVon_AP_PTO" type="gml:ReferenceType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="inversZu_dientZurDarstellungVon_AP_LTO" type="gml:ReferenceType" />
+          <element maxOccurs="unbounded" minOccurs="0" name="inversZu_dientZurDarstellungVon_AP_PPO" type="gml:ReferenceType" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AA_LebenszeitintervallPropertyType">
+    <sequence>
+      <element ref="adv:AA_Lebenszeitintervall" />
+    </sequence>
+  </complexType>
+  <complexType name="AA_ModellartPropertyType">
+    <sequence>
+      <element ref="adv:AA_Modellart" />
+    </sequence>
+  </complexType>
+  <complexType name="AA_FachdatenverbindungPropertyType">
+    <sequence>
+      <element ref="adv:AA_Fachdatenverbindung" />
+    </sequence>
+  </complexType>
+  <element name="AA_Lebenszeitintervall" substitutionGroup="gml:AbstractObject" type="adv:AA_LebenszeitintervallType" />
+  <element name="AA_Modellart" substitutionGroup="gml:AbstractObject" type="adv:AA_ModellartType" />
+  <element name="AA_Fachdatenverbindung" substitutionGroup="gml:AbstractObject" type="adv:AA_FachdatenverbindungType" />
+  <complexType name="AA_LebenszeitintervallType">
+    <sequence>
+      <element name="beginnt" type="dateTime" />
+      <element minOccurs="0" name="endet" type="dateTime" />
+    </sequence>
+  </complexType>
+  <complexType name="AA_ModellartType">
+    <choice>
+      <element name="advStandardModell" type="adv:AA_AdVStandardModellType" />
+      <element name="sonstigesModell" type="gml:ReferenceType" />
+    </choice>
+  </complexType>
+  <complexType name="AA_FachdatenverbindungType">
+    <sequence>
+      <element name="art" type="anyURI" />
+      <element name="fachdatenobjekt" type="adv:AA_FachdatenobjektPropertyType" />
+    </sequence>
+  </complexType>
+  <simpleType name="AA_AdVStandardModellType">
+    <restriction base="string">
+      <enumeration value="DLKM" />
+      <enumeration value="DKKM500" />
+      <enumeration value="DKKM1000" />
+      <enumeration value="DKKM2000" />
+      <enumeration value="DKKM5000" />
+      <enumeration value="Basis-DLM" />
+      <enumeration value="DLM50" />
+      <enumeration value="DLM250" />
+      <enumeration value="DLM1000" />
+      <enumeration value="DTK10" />
+      <enumeration value="DTK25" />
+      <enumeration value="DTK50" />
+      <enumeration value="DTK100" />
+      <enumeration value="DTK250" />
+      <enumeration value="DTK1000" />
+      <enumeration value="DFGM" />
+      <enumeration value="DHM" />
+      <enumeration value="LoD1" />
+      <enumeration value="LoD2" />
+      <enumeration value="LoD3" />
+      <enumeration value="GeoBasis-DE" />
+      <enumeration value="GVM" />
+      <enumeration value="BRM" />
+    </restriction>
+  </simpleType>
+  <complexType name="AA_FachdatenobjektPropertyType">
+    <sequence>
+      <element ref="adv:AA_Fachdatenobjekt" />
+    </sequence>
+  </complexType>
+  <element name="AA_Fachdatenobjekt" substitutionGroup="gml:AbstractObject" type="adv:AA_FachdatenobjektType" />
+  <complexType name="AA_FachdatenobjektType">
+    <choice>
+      <element name="name" type="string" />
+      <element name="uri" type="anyURI" />
+    </choice>
+  </complexType>
+</schema>

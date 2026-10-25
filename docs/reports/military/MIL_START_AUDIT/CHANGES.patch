@@ -1,0 +1,227 @@
+diff --git a/common/history/military_formations/00_military_formations_europe.txt b/common/history/military_formations/00_military_formations_europe.txt
+index 59dc73f..4f33c61 100644
+--- a/common/history/military_formations/00_military_formations_europe.txt
++++ b/common/history/military_formations/00_military_formations_europe.txt
+@@ -4092,29 +4092,29 @@ MILITARY_FORMATIONS = {
+ 				count = 4
+ 			}
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_ALENTEJO
+ 				count = 18
+ 			}
+ 
+ 			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				service_type = conscript
+ 				state_region = s:STATE_ENTRE_DOURO_E_MINHO
+-				count = 12
++				count = 9
+ 			}
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				service_type = conscript
+ 				state_region = s:STATE_BEIRA
+-				count = 11
++				count = 8
+ 			}
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				service_type = conscript
+ 				state_region = s:STATE_ESTREMADURA
+-				count = 7
++				count = 6
+ 			}
+ 			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+ 
+@@ -4135,7 +4135,7 @@ MILITARY_FORMATIONS = {
+ 				count = 4
+ 			}
+ 			ship = {
+-				type = ship_type:ship_type_ship_of_the_line
++				type = ship_type:ship_type_caravel
+ 				count = 1
+ 			}
+ 			ship = {
+diff --git a/common/history/military_formations/02_military_formations_south_america.txt b/common/history/military_formations/02_military_formations_south_america.txt
+index e96d7a6..ec4847e 100644
+--- a/common/history/military_formations/02_military_formations_south_america.txt
++++ b/common/history/military_formations/02_military_formations_south_america.txt
+@@ -4,10 +4,10 @@ MILITARY_FORMATIONS = {
+ 		create_military_formation = {
+ 			type = army
+ 			hq_region = sr:region_brazil
+-			name = Exrcito_Imperial_Brasileiro
++			name = aor1776_brz_army
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_irregular_infantry
+ 				state_region = s:STATE_RIO_DE_JANEIRO
+ 				count = 1
+ 			}
+@@ -19,7 +19,7 @@ MILITARY_FORMATIONS = {
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_cuirassiers
++				type = unit_type:combat_unit_type_lancers
+ 				state_region = s:STATE_PARAIBA
+ 				count = 1
+ 			}
+@@ -30,7 +30,7 @@ MILITARY_FORMATIONS = {
+ 		create_military_formation = {
+ 			type = fleet
+ 			hq_region = sr:region_brazil
+-			name = Armada_Nacional
++			name = aor1776_brz_fleet
+ 
+ 			ship = {
+ 				type = ship_type:ship_type_caravel
+@@ -73,22 +73,22 @@ MILITARY_FORMATIONS = {
+ 		create_military_formation = {
+ 			type = army
+ 			hq_region = sr:region_la_plata
+-			name = Ejrcito_Argentino # No organized army really existed in 1836, but an ad-hoc 'Northern Army' was formed in 1837
++			name = aor1776_sc4_army
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_BUENOS_AIRES
+ 				count = 4
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_TUCUMAN
+ 				count = 2
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_cuirassiers
++				type = unit_type:combat_unit_type_lancers
+ 				state_region = s:STATE_BUENOS_AIRES
+ 				count = 1
+ 			}
+@@ -96,17 +96,6 @@ MILITARY_FORMATIONS = {
+ 			save_scope_as = cleanup2d4_formation_094
+ 		}
+ 
+-		create_military_formation = {
+-			type = fleet
+-			hq_region = sr:region_la_plata
+-			name = Armada_Argentina
+-
+-			ship = {
+-				type = ship_type:ship_type_caravel
+-				count = 1
+-			}
+-		}
+-
+ 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+ 		# GEN1776-094 — Ejrcito_Argentino — PROCEDURAL_ALLOWED_PENDING_STRUCTURE_REWORK
+ 		create_character = {
+@@ -124,10 +113,10 @@ MILITARY_FORMATIONS = {
+ 		create_military_formation = {
+ 			type = army
+ 			hq_region = sr:region_andes
+-			name = Ejrcito_del_Ecuador
++			name = aor1776_sc2_quito_army
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_ECUADOR
+ 				count = 4
+ 			}
+@@ -139,7 +128,7 @@ MILITARY_FORMATIONS = {
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_cuirassiers
++				type = unit_type:combat_unit_type_lancers
+ 				state_region = s:STATE_ECUADOR
+ 				count = 1
+ 			}
+@@ -149,34 +138,34 @@ MILITARY_FORMATIONS = {
+ 		create_military_formation = {
+ 			type = army
+ 			hq_region = sr:region_gran_colombia
+-			name = Ejrcito_de_la_Nueva_Granada
++			name = aor1776_sc2_granada_army
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_CUNDINAMARCA
+ 				count = 5
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_CAUCA
+ 				count = 3
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_ANTIOQUIA
+ 				count = 2
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_CUNDINAMARCA
+ 				count = 2
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_cuirassiers
++				type = unit_type:combat_unit_type_lancers
+ 				state_region = s:STATE_CAUCA
+ 				count = 2
+ 			}
+@@ -192,28 +181,28 @@ MILITARY_FORMATIONS = {
+ 		create_military_formation = {
+ 			type = army
+ 			hq_region = sr:region_gran_colombia
+-			name = Ejrcito_de_Venezuela
++			name = aor1776_sc2_venezuela_army
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_ZULIA
+ 				count = 3
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_MIRANDA
+ 				count = 3
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_line_infantry
++				type = unit_type:combat_unit_type_musket_infantry
+ 				state_region = s:STATE_BOLIVAR
+ 				count = 1
+ 			}
+ 
+ 			combat_unit = {
+-				type = unit_type:combat_unit_type_cuirassiers
++				type = unit_type:combat_unit_type_lancers
+ 				state_region = s:STATE_ZULIA
+ 				count = 2
+ 			}

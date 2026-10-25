@@ -1,0 +1,242 @@
+﻿namespace = aor1776_american_diplomacy
+namespace = aor1776_debt
+
+aor1776_american_diplomacy.1 = {
+ type = country_event placement = root
+ title = aor1776_american_diplomacy.1.t
+ desc = aor1776_american_diplomacy.1.d
+ flavor = aor1776_american_diplomacy.1.f
+ event_image = { video = "ep2_intellectual_writer" }
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 30
+ trigger = {
+  c:USA ?= this
+  is_ai = no
+  aor1776_usa_independence_war_active = yes
+  aor1776_french_support_invitation_authorized = yes
+  NOT = { has_variable = aor1776_american_invitation_seen }
+ }
+ option = {
+  name = aor1776_american_diplomacy.1.a
+  default_option = yes
+  set_variable = aor1776_american_invitation_seen
+  aor1776_support_open_journal_effect = yes
+ }
+}
+
+aor1776_american_diplomacy.2 = {
+ type = country_event placement = root
+ title = aor1776_american_diplomacy.2.t
+ desc = aor1776_american_diplomacy.2.d
+ flavor = aor1776_american_diplomacy.2.f
+ event_image = { video = "ep2_intellectual_writer" }
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 30
+ trigger = { c:USA ?= this has_variable = aor1776_support_request_pending aor1776_french_support_invitation_authorized = yes }
+ option = {
+  name = aor1776_american_diplomacy.2.a default_option = yes
+  ai_chance = { base = 65 }
+  set_variable = { name = aor1776_support_offer_level value = 1 days = 90 }
+  aor1776_support_send_request_effect = yes
+ }
+ option = {
+  name = aor1776_american_diplomacy.2.b
+  ai_chance = { base = 30 }
+  set_variable = { name = aor1776_support_offer_level value = 2 days = 90 }
+  aor1776_support_send_request_effect = yes
+ }
+ option = {
+  name = aor1776_american_diplomacy.2.c
+  ai_chance = { base = 5 }
+  aor1776_support_stop_effect = yes
+  set_variable = { name = aor1776_support_cooldown days = 90 }
+ }
+}
+
+aor1776_american_diplomacy.3 = {
+ type = country_event placement = root
+ title = aor1776_american_diplomacy.3.t
+ desc = {
+  first_valid = {
+   triggered_desc = { desc = aor1776_american_diplomacy.3.d_high trigger = { c:USA = { var:aor1776_support_offer_level = 2 } } }
+   triggered_desc = { trigger = { always = yes } desc = aor1776_american_diplomacy.3.d }
+  }
+ }
+ flavor = aor1776_american_diplomacy.3.f
+ event_image = { video = "ep2_intellectual_writer" }
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 30
+ trigger = { c:FRA ?= this c:USA ?= { has_variable = aor1776_support_request_pending } aor1776_french_support_invitation_authorized = yes }
+ option = {
+  name = aor1776_american_diplomacy.3.a default_option = yes
+  ai_chance = { base = 95 }
+  trigger = { aor1776_french_support_can_offer = yes }
+  aor1776_support_issue_offer_effect = yes
+ }
+ option = {
+  name = aor1776_american_diplomacy.3.b
+  ai_chance = { base = 5 }
+  c:USA = {
+   aor1776_support_stop_effect = yes
+   set_variable = { name = aor1776_support_cooldown days = 90 }
+   trigger_event = { id = aor1776_american_diplomacy.6 popup = yes }
+  }
+ }
+ option = {
+  name = aor1776_american_diplomacy.3.c
+  ai_chance = { base = 15 }
+  trigger = { aor1776_french_support_can_offer = yes c:USA = { var:aor1776_support_offer_level = 1 } }
+  c:USA = { set_variable = { name = aor1776_support_offer_level value = 2 days = 90 } }
+  aor1776_support_issue_offer_effect = yes
+ }
+}
+
+aor1776_american_diplomacy.4 = {
+ type = country_event placement = root
+ title = {
+  first_valid = {
+   triggered_desc = { trigger = { c:USA = { var:aor1776_support_offered_interest = 5 } } desc = aor1776_american_diplomacy.4.t_high }
+   triggered_desc = { trigger = { always = yes } desc = aor1776_american_diplomacy.4.t }
+  }
+ }
+ desc = {
+  first_valid = {
+   triggered_desc = { desc = aor1776_american_diplomacy.4.d_high trigger = { c:USA = { var:aor1776_support_offered_interest = 5 } } }
+   triggered_desc = { trigger = { always = yes } desc = aor1776_american_diplomacy.4.d }
+  }
+ }
+ flavor = aor1776_american_diplomacy.4.f
+ event_image = { video = "ep2_intellectual_writer" }
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 30
+ trigger = { c:USA ?= this has_variable = aor1776_support_offer aor1776_french_support_invitation_authorized = yes }
+ immediate = {
+  # Recover terms for an offer scheduled by R4 before this correction loaded.
+  if = {
+   limit = { NOT = { has_variable = aor1776_support_offered_interest } }
+   set_variable = { name = aor1776_support_offered_interest value = 0 days = 45 }
+   if = {
+    limit = { var:aor1776_support_offer_level = 2 }
+    set_variable = { name = aor1776_support_offered_interest value = 5 days = 45 }
+   }
+  }
+ }
+ option = {
+  name = aor1776_american_diplomacy.4.a default_option = yes
+  ai_chance = { base = 95 }
+  trigger = { aor1776_french_support_can_accept = yes var:aor1776_support_offered_interest = 0 }
+  custom_tooltip = aor1776_r5_ratification_no_interest_tt
+  hidden_effect = { aor1776_support_accept_effect = yes }
+ }
+ option = {
+  name = aor1776_american_diplomacy.4.c default_option = yes
+  ai_chance = { base = 95 }
+  trigger = { aor1776_french_support_can_accept = yes var:aor1776_support_offered_interest = 5 }
+  custom_tooltip = aor1776_r5_ratification_interest_tt
+  hidden_effect = { aor1776_support_accept_effect = yes }
+ }
+ option = {
+  name = aor1776_american_diplomacy.4.b
+  ai_chance = { base = 5 }
+  aor1776_support_stop_effect = yes
+  set_variable = { name = aor1776_support_cooldown days = 90 }
+ }
+}
+
+aor1776_american_diplomacy.5 = {
+ type = country_event placement = root
+ title = aor1776_american_diplomacy.5.t
+ desc = aor1776_american_diplomacy.5.d
+ event_image = { video = "ep2_intellectual_writer" }
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ option = { name = aor1776_r3_acknowledge default_option = yes }
+}
+
+aor1776_american_diplomacy.6 = {
+ type = country_event placement = root
+ title = aor1776_american_diplomacy.6.t
+ desc = aor1776_american_diplomacy.6.d
+ event_image = { video = "ep2_intellectual_writer" }
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ option = { name = aor1776_r3_acknowledge default_option = yes }
+}
+
+# The American AI reacts only after French consent, including with a French player.
+aor1776_american_diplomacy.7 = {
+ type = country_event hidden = yes
+ trigger = {
+  c:USA ?= this is_ai = yes aor1776_usa_independence_war_active = yes
+  aor1776_french_support_invitation_authorized = yes
+  NOT = { has_variable = aor1776_american_invitation_seen }
+ }
+ immediate = {
+  set_variable = aor1776_american_invitation_seen
+  aor1776_support_open_journal_effect = yes
+  aor1776_support_ai_request_effect = yes
+ }
+}
+
+# Political consent in France precedes the American invitation and loan request.
+aor1776_american_diplomacy.8 = {
+ type = country_event placement = root
+ title = aor1776_american_diplomacy.8.t
+ desc = aor1776_american_diplomacy.8.d
+ flavor = aor1776_american_diplomacy.8.f
+ event_image = { video = "ep2_intellectual_writer" }
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 30
+ trigger = {
+  c:FRA ?= this
+  aor1776_french_support_relationship_valid = yes
+  NOT = { has_variable = aor1776_french_approach_resolved }
+ }
+ option = {
+  name = aor1776_american_diplomacy.8.a default_option = yes
+  ai_chance = { base = 95 }
+  custom_tooltip = aor1776_american_diplomacy.8.a_tt
+  hidden_effect = {
+   set_variable = aor1776_french_approach_resolved
+   set_variable = aor1776_french_support_invitation
+   c:USA = {
+    trigger_event = { id = aor1776_american_diplomacy.1 days = 1 popup = yes }
+    trigger_event = { id = aor1776_american_diplomacy.7 days = 1 }
+   }
+  }
+ }
+ option = {
+  name = aor1776_american_diplomacy.8.b
+  ai_chance = { base = 5 }
+  custom_tooltip = aor1776_american_diplomacy.8.b_tt
+  hidden_effect = {
+   set_variable = aor1776_french_approach_resolved
+   set_variable = aor1776_french_approach_declined
+  }
+ }
+}
+
+aor1776_debt.1 = {
+ type = country_event placement = root
+ title = aor1776_debt.1.t
+ desc = aor1776_debt.1.d
+ flavor = aor1776_debt.1.f
+ event_image = { video = "ep2_intellectual_writer" }
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 30
+ trigger = { has_variable = aor1776_debt_demand_pending has_variable = aor1776_debt_creditor }
+ immediate = { var:aor1776_debt_creditor = { save_scope_as = aor1776_creditor } }
+ option = {
+  name = aor1776_debt.1.a default_option = yes
+  ai_chance = {
+   base = 80
+   modifier = { factor = 0.1 gold_reserves < var:aor1776_debt_due }
+  }
+  custom_tooltip = aor1776_r3_repay_tt
+  aor1776_debt_repay_effect = yes
+ }
+ option = {
+  name = aor1776_debt.1.b
+  ai_chance = { base = 20 }
+  custom_tooltip = aor1776_r3_refuse_tt
+  aor1776_debt_refuse_effect = yes
+ }
+}

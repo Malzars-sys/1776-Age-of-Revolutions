@@ -1,0 +1,41 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\scripted_buttons\1776_imperial_voting.txt
+@@
+   hidden_effect = { c:NWB = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+  ai_chance = { value = 0 }
+ 
+ }
+ aor1776_hre_vote_NSB = {
+ 
+  name = aor1776_hre.choose_NSB
+  desc = aor1776_hre_choose_vote_desc
+  visible = { aor1776_hre_elector = yes c:NSB ?= { aor1776_hre_ballot_candidate = yes } }
+  possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:NSB } }
+  effect = { custom_tooltip = aor1776_hre_choose_vote_result
+   hidden_effect = { c:NSB = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
+  ai_chance = { value = 0 }
+ 
+ }
++aor1776_hre_vote_HLN = {
++
++ name = aor1776_hre.choose_HLN
++ desc = aor1776_hre_choose_vote_desc
++ visible = { aor1776_hre_elector = yes c:HLN ?= { aor1776_hre_ballot_candidate = yes } }
++ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:HLN } }
++ effect = { custom_tooltip = aor1776_hre_choose_vote_result
++  hidden_effect = { c:HLN = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
++ ai_chance = { value = 0 }
++
++}
++aor1776_hre_vote_HKI = {
++
++ name = aor1776_hre.choose_HKI
++ desc = aor1776_hre_choose_vote_desc
++ visible = { aor1776_hre_elector = yes c:HKI ?= { aor1776_hre_ballot_candidate = yes } }
++ possible = { aor1776_hre_can_choose_electoral_vote = { CANDIDATE = c:HKI } }
++ effect = { custom_tooltip = aor1776_hre_choose_vote_result
++  hidden_effect = { c:HKI = { save_scope_as = hre_vote_choice } aor1776_hre_choose_electoral_vote = yes } }
++ ai_chance = { value = 0 }
++
++}
+*** End Patch

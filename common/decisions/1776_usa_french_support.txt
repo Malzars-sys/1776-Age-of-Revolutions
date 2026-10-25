@@ -1,0 +1,29 @@
+﻿aor1776_open_french_support_correspondence = {
+ is_shown = {
+  c:USA ?= this
+  game_date >= 1776.1.4
+  aor1776_usa_independence_war_active = yes
+  aor1776_french_support_invitation_authorized = yes
+  NOT = { has_variable = aor1776_r3_journal_open }
+ }
+ possible = { NOT = { has_variable = aor1776_r3_intro_recovery_pending } }
+ when_taken = {
+  set_variable = { name = aor1776_r3_intro_recovery_pending days = 30 }
+  if = {
+   limit = { is_ai = yes }
+   aor1776_support_open_journal_effect = yes
+   aor1776_support_ai_request_effect = yes
+  }
+  else = { trigger_event = { id = aor1776_american_diplomacy.1 popup = yes } }
+ }
+ ai_chance = { value = 100 }
+}
+aor1776_request_french_support = {
+ is_shown = { c:USA ?= this has_variable = aor1776_r3_journal_open aor1776_usa_independence_war_active = yes }
+ possible = { aor1776_french_support_can_request = yes }
+ when_taken = {
+  if = { limit = { is_ai = yes } aor1776_support_ai_request_effect = yes }
+  else = { aor1776_support_request_effect = yes }
+ }
+ ai_chance = { value = 100 }
+}

@@ -1,0 +1,212 @@
+﻿aor1776_remove_legacy_debt_effect = {
+ if = { limit = { has_modifier = debt_usa_big_money } remove_modifier = debt_usa_big_money }
+ if = { limit = { has_modifier = debt_payback_fra_big_money } remove_modifier = debt_payback_fra_big_money }
+}
+aor1776_support_initialize_effect = {
+ if = {
+  limit = { NOT = { has_variable = aor1776_support_version_4 } }
+  set_variable = aor1776_support_version_4
+  set_variable = aor1776_support_version_3
+  set_variable = aor1776_support_version_2
+  remove_variable = aor1776_support_active
+  remove_variable = aor1776_support_request_pending
+  remove_variable = aor1776_support_offer
+  set_variable = { name = aor1776_weekly_credit value = 0 }
+  if = { limit = { NOT = { has_variable = aor1776_support_rounds } } set_variable = { name = aor1776_support_rounds value = 0 } }
+  aor1776_remove_legacy_debt_effect = yes
+  c:FRA ?= { aor1776_remove_legacy_debt_effect = yes }
+  # Existing R3 loans are not silently converted into ten years of new debt.
+ }
+}
+aor1776_support_open_journal_effect = {
+ set_variable = aor1776_r3_journal_open
+ if = { limit = { NOT = { has_journal_entry = je_aor1776_french_support } } add_journal_entry = { type = je_aor1776_french_support } }
+}
+aor1776_support_request_effect = {
+ if = {
+  limit = { aor1776_french_support_can_request = yes }
+  c:USA = {
+   set_variable = { name = aor1776_support_request_pending days = 90 }
+   trigger_event = { id = aor1776_american_diplomacy.2 popup = yes }
+  }
+ }
+}
+aor1776_support_send_request_effect = {
+ c:FRA = { trigger_event = { id = aor1776_american_diplomacy.3 days = 1 popup = yes } }
+}
+aor1776_support_ai_request_effect = {
+ if = {
+  limit = { is_ai = yes aor1776_french_support_can_request = yes }
+  set_variable = { name = aor1776_support_request_pending days = 90 }
+  set_variable = { name = aor1776_support_offer_level value = 1 days = 90 }
+  aor1776_support_send_request_effect = yes
+ }
+}
+aor1776_support_issue_offer_effect = {
+ c:USA = {
+  # Snapshot the French-approved terms; descriptions and settlement use the
+  # same value, including when France counters an interest-free request.
+  set_variable = { name = aor1776_support_offered_interest value = 0 days = 45 }
+  if = {
+   limit = { var:aor1776_support_offer_level = 2 }
+   set_variable = { name = aor1776_support_offered_interest value = 5 days = 45 }
+  }
+  set_variable = { name = aor1776_support_offer days = 45 }
+  trigger_event = { id = aor1776_american_diplomacy.4 popup = yes }
+ }
+}
+aor1776_support_stop_effect = {
+ remove_variable = aor1776_support_offer
+ remove_variable = aor1776_support_offer_level
+ remove_variable = aor1776_support_offered_interest
+ remove_variable = aor1776_support_request_pending
+ set_variable = { name = aor1776_weekly_credit value = 0 }
+ # Ending the independence journal does not terminate a signed ten-year treaty.
+ if = {
+  limit = { NOT = { has_variable = aor1776_debt_ten_year_contract } }
+  remove_variable = aor1776_support_active
+ }
+}
+aor1776_support_accept_effect = {
+ if = {
+  limit = { aor1776_french_support_can_accept = yes }
+  aor1776_support_conclude_effect = yes
+  remove_variable = aor1776_support_offer
+  remove_variable = aor1776_support_offer_level
+  remove_variable = aor1776_support_offered_interest
+  remove_variable = aor1776_support_request_pending
+ }
+}
+aor1776_support_conclude_effect = {
+ if = {
+  limit = {
+   # The 1.13 can_create_treaty parser rejects goods inputs (observed in logs).
+   # Validate finance/debt/instructors natively, and shipping separately.
+   c:FRA = { is_market_reachable_for_trade = c:USA.market }
+   can_create_treaty = {
+    first_country = c:FRA second_country = c:USA is_draft = no
+    binding_period = { years = 10 }
+    articles_to_create = {
+     { article = aor1776_support_money source_country = c:FRA target_country = c:USA inputs = { { quantity = 30000 } } }
+     { article = aor1776_deferred_debt_article source_country = c:USA target_country = c:FRA }
+     { article = aor1776_revolution_military_assistance source_country = c:FRA target_country = c:USA }
+    }
+   }
+  }
+  create_treaty = {
+   name = aor1776_r3_support_treaty
+   first_country = c:FRA second_country = c:USA is_draft = no
+   binding_period = { years = 10 }
+   articles_to_create = {
+    { article = aor1776_support_money source_country = c:FRA target_country = c:USA inputs = { { quantity = 30000 } } }
+    { article = aor1776_deferred_debt_article source_country = c:USA target_country = c:FRA }
+    { article = aor1776_revolution_military_assistance source_country = c:FRA target_country = c:USA }
+    { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:small_arms } { quantity = 15 } } }
+    { article = aor1776_support_supplies source_country = c:FRA target_country = c:USA inputs = { { goods = g:artillery } { quantity = 1 } } }
+   }
+  }
+  # Commit the debt only after the complete ratified native treaty exists.
+  if = {
+   limit = { aor1776_support_treaty_exists = yes }
+   aor1776_support_commit_contract_effect = yes
+  }
+  else = { aor1776_support_failed_ratification_effect = yes }
+ }
+ else = { aor1776_support_failed_ratification_effect = yes }
+}
+
+aor1776_support_failed_ratification_effect = {
+ aor1776_support_stop_effect = yes
+ trigger_event = { id = aor1776_american_diplomacy.5 popup = yes }
+}
+
+aor1776_support_commit_contract_effect = {
+  set_variable = { name = aor1776_support_active years = 10 }
+  aor1776_debt_open_effect = { CREDITOR = c:FRA }
+  set_variable = aor1776_debt_ten_year_contract
+  set_variable = { name = aor1776_debt_binding_lock years = 10 }
+  # Weekly native transfer is prorated over days. Read the actual native
+  # binding-period length instead of treating ten years as exactly 520 weeks.
+  set_variable = { name = aor1776_debt_principal value = { value = 30000 multiply = 3650 divide = 7 } }
+  every_scope_treaty = {
+   limit = {
+    binds = c:FRA
+    remaining_binding_period > 0
+    any_scope_article = { has_type = aor1776_deferred_debt_article source_country = c:USA target_country = c:FRA }
+   }
+   save_scope_as = aor1776_debt_contract
+   c:USA = {
+    set_variable = { name = aor1776_debt_principal value = { value = 30000 multiply = scope:aor1776_debt_contract.binding_period divide = 7 } }
+   }
+  }
+  if = { limit = { var:aor1776_support_offered_interest = 5 } set_variable = { name = aor1776_debt_interest value = 5 } }
+  set_variable = aor1776_support_ever_received
+  set_variable = { name = aor1776_support_weekly_money value = 30000 }
+  set_variable = { name = aor1776_support_weekly_arms value = 15 }
+  set_variable = { name = aor1776_support_rounds value = 1 }
+  if = { limit = { NOT = { owes_obligation_to = c:FRA } } set_owes_obligation_to = { country = c:FRA setting = yes } }
+  set_variable = aor1776_support_obligation_issued
+  change_relations = { country = c:FRA value = 10 }
+}
+aor1776_debt_open_effect = {
+ if = {
+  limit = { NOT = { has_variable = aor1776_debt_creditor } }
+  save_scope_as = aor1776_borrower
+  set_variable = { name = aor1776_debt_creditor value = $CREDITOR$ }
+  set_variable = { name = aor1776_debt_principal value = 0 }
+  set_variable = { name = aor1776_debt_interest value = 0 }
+  $CREDITOR$ = { create_diplomatic_pact = { country = scope:aor1776_borrower type = aor1776_deferred_debt } }
+ }
+}
+# Standalone accepted loans remain generic. No periodic cash is scripted.
+aor1776_debt_generic_advance_effect = {
+ if = {
+  limit = {
+   has_variable = aor1776_debt_creditor
+   var:aor1776_debt_principal = 0
+   var:aor1776_debt_creditor = { gold_reserves >= 10000 in_default = no }
+  }
+  var:aor1776_debt_creditor = { add_treasury = -10000 }
+  add_treasury = 10000
+  set_variable = { name = aor1776_debt_principal value = 10000 }
+  set_variable = { name = aor1776_debt_binding_lock years = 10 }
+ }
+}
+# Compatibility name: no hidden periodic cash, no second payment or extra debt.
+aor1776_debt_advance_effect = { }
+aor1776_support_weekly_effect = { }
+aor1776_support_monthly_effect = {
+ aor1776_support_initialize_effect = yes
+ aor1776_revolution_intervention_monthly_effect = yes
+}
+aor1776_debt_close_effect = {
+ save_scope_as = aor1776_borrower
+ var:aor1776_debt_creditor = { remove_diplomatic_pact = { country = scope:aor1776_borrower type = aor1776_deferred_debt } }
+ remove_variable = aor1776_debt_creditor
+ remove_variable = aor1776_debt_demand_pending
+ remove_variable = aor1776_debt_binding_lock
+ remove_variable = aor1776_debt_ten_year_contract
+ remove_variable = aor1776_support_active
+ set_variable = { name = aor1776_debt_principal value = 0 }
+ aor1776_support_stop_effect = yes
+}
+aor1776_debt_repay_effect = {
+ if = {
+  limit = { has_variable = aor1776_debt_demand_pending has_variable = aor1776_debt_creditor }
+  save_scope_as = aor1776_borrower
+  add_treasury = { value = var:aor1776_debt_due multiply = -1 }
+  var:aor1776_debt_creditor = { add_treasury = scope:aor1776_borrower.var:aor1776_debt_due }
+  set_variable = { name = aor1776_debt_last_repaid value = var:aor1776_debt_due }
+  aor1776_debt_close_effect = yes
+ }
+}
+aor1776_debt_refuse_effect = {
+ if = {
+  limit = { has_variable = aor1776_debt_demand_pending has_variable = aor1776_debt_creditor }
+  set_variable = { name = aor1776_debt_repudiated value = var:aor1776_debt_due }
+  set_variable = { name = aor1776_debt_repudiated_creditor value = var:aor1776_debt_creditor }
+  change_relations = { country = var:aor1776_debt_creditor value = -40 }
+  change_infamy = 10
+  aor1776_debt_close_effect = yes
+ }
+}

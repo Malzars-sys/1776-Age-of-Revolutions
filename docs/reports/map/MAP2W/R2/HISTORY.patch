@@ -1,0 +1,1021 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 	s:STATE_HESSE = {
+ 		create_state = {
+ 			country = c:FRM
+ 			owned_provinces = { x11C0A0 }
+ 		}
+ 		create_state = {
+ 			country = c:HES
+ 			owned_provinces = { x8B7C67 x90C020 }
+ 		}
+ 		create_state = {
+ 			country = c:HEK
+ 			owned_provinces = { x2248E2 xC08020 xFF1DBB xD04121 xEDB601 xEDB602 }
+ 		}
+ 		create_state = {
+ 			country = c:NAS
+-			owned_provinces = { x90C0A0 x1357DB }
++			owned_provinces = { x90C0A0 x1357DB xEDB700 xEDB706 }
+ 		}
+ 		create_state = {
+ 			country = c:WLD
+ 			owned_provinces = { x3E794B }
+ 		}
+ 
+ 		add_homeland = cu:north_german
+ 	
+ 		# MAP-2K: approved coarse electoral-state representation, no new RGB.
+ 		create_state = { country = c:KMZ owned_provinces = { xEDA400 x1141A0 xEDA500 xEDA501 xEDA502 xEDA503 } }
+ 	
+ create_state = { country = c:FUL owned_provinces = { xEDB600 } }
++
++create_state = { country = c:NOU owned_provinces = { xEDB701 xEDB702 xEDB705 } }
++create_state = { country = c:NWB owned_provinces = { xEDB703 xEDB704 xEDB707 xEDB708 } }
+ }
+ 	s:STATE_PIEDMONT = {
+ 		create_state = {
+ 			country = c:SAR
+ 			owned_provinces = { xD080E0 xAA6958 xDA86EA xA9397D x90C060 x1140E0 xF00544 xACB500 x11C061 }
+ 		}
+ 		create_state = {
+ 			country = c:GEN
+ 			owned_provinces = { x904061 x5F6BAA x54728A }
+ 		}
+ 
+ 		add_homeland = cu:north_italian
+ 	}
+ 	s:STATE_SARDINIA = {
+ 		create_state = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     arable_land = 100
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_vineyard" }
+     capped_resources = {
+         building_coal_mine = 80
+         building_iron_mine = 30
+         building_sulfur_mine = 80
+         building_logging_camp = 6
+         building_limestone_quarry = 28
+         building_copper_mine = 16
+     }
+ }
+ 
+ STATE_HESSE = {
+     id = 74
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x11C0A0" "x1357DB" "x2248E2" "x3E794B" "x8B7C67" "x90C0A0" "xC08020" "xFF1DBB" "x90C020" "xEDA400" "x1141A0" "xEDA500" "xEDA501" "xEDA502" "xEDB600" "xD04121" "xEDB601" "xEDB602" "xEDA503" }
+-    prime_land = { "x1141A0" "x8B7C67" "xEDB600" "xD04121" "xEDB601" "xEDB602" "x1357DB" }
++    provinces = { "x11C0A0" "x1357DB" "xEDB700" "xEDB701" "xEDB702" "xEDB703" "xEDB704" "x2248E2" "xEDB705" "x3E794B" "x8B7C67" "xEDB706" "xEDB707" "xEDB708" "x90C0A0" "xC08020" "xFF1DBB" "x90C020" "xEDA400" "x1141A0" "xEDA500" "xEDA501" "xEDA502" "xEDB600" "xD04121" "xEDB601" "xEDB602" "xEDA503" }
++    prime_land = { "x1141A0" "x8B7C67" "xEDB706" "xEDB707" "xEDB708" "xEDB600" "xD04121" "xEDB601" "xEDB602" "x1357DB" "xEDB700" "xEDB701" "xEDB702" "xEDB703" "xEDB704" }
+     city = "x11C0A0"
+     farm = "x1141A0"
+     mine = "x8B7C67"
+     wood = "xD04121"
+     arable_land = 80
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" "building_vineyard" }
+     capped_resources = {
+         building_coal_mine = 60
+         building_iron_mine = 30
+         building_sulfur_mine = 40
+         building_logging_camp = 8
+         building_limestone_quarry = 28
+         building_copper_mine = 8
+     }
+ }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 				size = 78678
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 3121
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 6241
+ 			}
+ 		}
+ 		region_state:HES = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 332643
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 80294
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 2852
++				size = 315461
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 76147
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 2705
+ 			}
+ 		}
+ 		region_state:HEK = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 339168
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 87521
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 2305
+ 			}
+ 		}
+ 		region_state:NAS = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 149763
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 1873
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 162239
++				size = 141112
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 1765
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 152868
++			}
++		
++create_pop = {
++				culture = north_german
++				size = 10996
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 2654
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 94
+ 			}
+ 		}
+ 		region_state:WLD = {
+ 			create_pop = {
+ 				culture = north_german
+-				size = 21400
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 21849
++				size = 14417
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 14719
+ 			}
+ 		}
+ 	
+ 		region_state:KMZ = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 109965
+ 			}
+ 			create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 26544
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+@@
+ 		}
+ 	
+ 		region_state:FUL = {
+ create_pop = {
+ 				culture = north_german
+ 				size = 11259
+ 			}
+ create_pop = {
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 2905
+ 			}
+ create_pop = {
+ 				culture = ashkenazi
+ 				size = 76
++			}
++		}
++	
++		region_state:NWB = {
++create_pop = {
++				culture = north_german
++				size = 6186
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 1493
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 53
++			}
++create_pop = {
++				culture = north_german
++				size = 2163
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 27
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 2343
++			}
++		}
++	
++		region_state:NOU = {
++create_pop = {
++				culture = north_german
++				size = 6488
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 81
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 7028
++			}
++create_pop = {
++				culture = north_german
++				size = 6983
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 7130
+ 			}
+ 		}
+ 	}
+ 	s:STATE_MECKLENBURG = {
+ 		region_state:MEC = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 377175
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 3077
+ 			}
+ 		}
+ 		region_state:MST = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\province_terrains.txt
+@@
+ xEDB40A="plains"
+ xEDB40B="plains"
+ xEDB40C="mountain"
+ xEDB40D="mountain"
+ xEDB40E="mountain"
+ xEDB40F="forest"
+ 
+ xEDB500="plains"
+ xEDB501="forest"
+ xEDB502="mountain"
+ xEDB503="mountain"
+ xEDB600="forest"
+ xEDB601="forest"
+ xEDB602="forest"
+ xEDB603="forest"
++xEDB700="forest"
++xEDB701="forest"
++xEDB702="forest"
++xEDB703="forest"
++xEDB704="forest"
++xEDB705="forest"
++xEDB706="plains"
++xEDB707="plains"
++xEDB708="plains"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\1776_map2w_r2_nassau.txt
++NOU = { color = { 225 155 65 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_HESSE }
++NWB = { color = { 93 158 172 } country_type = recognized tier = principality cultures = { north_german } religion = protestant capital = STATE_HESSE }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\nou - map2w_r2.txt
++COUNTRIES = {
++	c:NOU ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		
++		effect_starting_politics_reactionary = yes
++		activate_law = law_type:law_religious_schools	
++		activate_law = law_type:law_freedom_of_conscience	
++		
++		set_institution_investment_level = {
++			institution = institution_schools
++			level = 1
++		}
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\nwb - map2w_r2.txt
++COUNTRIES = {
++	c:NWB ?= {
++		add_technology_researched = distillation
++		add_technology_researched = international_relations
++		add_technology_researched = organized_textile_production
++		add_technology_researched = traditional_food_processing
++		add_technology_researched = organized_workshops
++
++
++		
++		effect_starting_politics_reactionary = yes
++		activate_law = law_type:law_religious_schools	
++		activate_law = law_type:law_freedom_of_conscience	
++		
++		set_institution_investment_level = {
++			institution = institution_schools
++			level = 1
++		}
++	}
++}
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\nou - map2w_r2.txt
++CHARACTERS = { c:NOU ?= { create_character = { first_name = aor1776_map2w_r2_nou_first last_name = aor1776_map2w_r2_nou_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1748.3.8 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\nwb - map2w_r2.txt
++CHARACTERS = { c:NWB ?= { create_character = { first_name = aor1776_map2w_r2_nwb_first last_name = aor1776_map2w_r2_nwb_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1735.1.16 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\nas - nassau.txt
++CHARACTERS = { c:NAS ?= { create_character = { first_name = aor1776_map2w_r2_nas_first last_name = aor1776_map2w_r2_nas_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1735.11.9 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\hek - hesse-kassel.txt
++CHARACTERS = { c:HEK ?= { create_character = { first_name = aor1776_map2w_r2_hek_first last_name = aor1776_map2w_r2_hek_last historical = yes culture = north_german religion = rel:catholic ruler = yes birth_date = 1720.8.14 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\hes - hesse.txt
++CHARACTERS = { c:HES ?= { create_character = { first_name = aor1776_map2w_r2_hes_first last_name = aor1776_map2w_r2_hes_last historical = yes culture = north_german religion = rel:protestant ruler = yes birth_date = 1719.12.15 interest_group = ig_landowners ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\flag_definitions\1776_map2w_r2_nassau.txt
++NOU = { flag_definition = { coa = aor1776_map2w_r2_nassau priority = 100 allow_overlord_canton = no } }
++NWB = { flag_definition = { coa = aor1776_map2w_r2_nassau priority = 100 allow_overlord_canton = no } }
++NAS = { flag_definition = { coa = aor1776_map2w_r2_nassau priority = 100 allow_overlord_canton = no } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\coat_of_arms\coat_of_arms\1776_map2w_r2_nassau.txt
++# Provisional shared dynastic arms, not a claim of identical state flags.
++aor1776_map2w_r2_nassau = { pattern = "pattern_solid.tga" color1 = "blue" colored_emblem = { texture = "ce_lion_rampant.dds" color1 = "yellow" color2 = "red" instance = { scale = { 0.8 0.8 } } } }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\00_countries.txt
+@@
+ 
+ 	country_type = recognized
+ 
+ 	tier = kingdom
+ 
+ 	cultures = { north_german }
+ 	capital = STATE_HANNOVER
+ 	is_named_from_capital = yes
+ }
+ 
+ HES = {
+ 	color = { 146  108  146 }
+ 
+ 	country_type = recognized
+ 
+-	tier = grand_principality
++	tier = principality
+ 
+ 	cultures = { north_german }
+ 	capital = STATE_HESSE
+ 	is_named_from_capital = yes
+ }
+ 
+ HOL = {
+ 	color = { 220  150  158 }
+ 
+ 	country_type = recognized
+ 
+ 	tier = principality
+ 
+ 	cultures = { north_german }
+ 	capital = STATE_SCHLESWIG_HOLSTEIN
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\replace\1776_map2w_r2_l_french.yml
++﻿l_french:
++ NAS:0 "Nassau-Usingen"
++ NAS_ADJ:0 "nassovien"
++ NOU:0 "Nassau-Orange"
++ NOU_ADJ:0 "nassovien"
++ NWB:0 "Nassau-Weilbourg"
++ NWB_ADJ:0 "nassovien"
++ aor1776_map2w_r2_nou_first:0 "Wilhelm V."
++ aor1776_map2w_r2_nou_last:0 "von Oranien-Nassau"
++ aor1776_map2w_r2_nwb_first:0 "Karl Christian"
++ aor1776_map2w_r2_nwb_last:0 "von Nassau-Weilburg"
++ aor1776_map2w_r2_nas_first:0 "Karl Wilhelm"
++ aor1776_map2w_r2_nas_last:0 "von Nassau-Usingen"
++ aor1776_map2w_r2_hek_first:0 "Friedrich II."
++ aor1776_map2w_r2_hek_last:0 "von Hessen-Kassel"
++ aor1776_map2w_r2_hes_first:0 "Ludwig IX."
++ aor1776_map2w_r2_hes_last:0 "von Hessen-Darmstadt"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\english\replace\1776_map2w_r2_l_english.yml
++﻿l_english:
++ NAS:0 "Nassau-Usingen"
++ NAS_ADJ:0 "Nassau-Usingen"
++ NOU:0 "Orange-Nassau"
++ NOU_ADJ:0 "Orange-Nassau"
++ NWB:0 "Nassau-Weilburg"
++ NWB_ADJ:0 "Nassau-Weilburg"
++ aor1776_map2w_r2_nou_first:0 "Wilhelm V."
++ aor1776_map2w_r2_nou_last:0 "von Oranien-Nassau"
++ aor1776_map2w_r2_nwb_first:0 "Karl Christian"
++ aor1776_map2w_r2_nwb_last:0 "von Nassau-Weilburg"
++ aor1776_map2w_r2_nas_first:0 "Karl Wilhelm"
++ aor1776_map2w_r2_nas_last:0 "von Nassau-Usingen"
++ aor1776_map2w_r2_hek_first:0 "Friedrich II."
++ aor1776_map2w_r2_hek_last:0 "von Hessen-Kassel"
++ aor1776_map2w_r2_hes_first:0 "Ludwig IX."
++ aor1776_map2w_r2_hes_last:0 "von Hessen-Darmstadt"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "rgb": "x12778D",
+     "state": "STATE_MORAVIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x12E54F",
+     "state": "STATE_MECKLENBURG",
+     "beneficiary": "MEC",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x1357DB",
+     "state": "STATE_HESSE",
+     "beneficiary": "NAS",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
+   },
+   {
+     "rgb": "x155A44",
+     "state": "STATE_STYRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x165E05",
+     "state": "STATE_HANNOVER",
+     "beneficiary": "HAN",
+     "basis": "MAP2L MINDEN_RAVENSBERG: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "x169073",
+@@
+     "rgb": "x3C9B93",
+     "state": "STATE_ANHALT",
+     "beneficiary": "PRU",
+     "basis": "MAP2U B core/quantization, C residual retained; see GEOMETRY.json and HISTORICAL_EVIDENCE.md."
+   },
+   {
+     "rgb": "x3E3572",
+     "state": "STATE_POMERANIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x3E794B",
+     "state": "STATE_HESSE",
+     "beneficiary": "WLD",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
+   },
+   {
+     "rgb": "x3F1E38",
+     "state": "STATE_LOMBARDY",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x400226",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x4101A0",
+@@
+     "rgb": "x89A2A9",
+     "state": "STATE_POMERANIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x8A448C",
+     "state": "STATE_ANHALT",
+     "beneficiary": "ANH",
+     "basis": "MAP2R: reviewed subdivision of existing Anhalt; B core envelopes, residual Dessau attribution provisional. See MAP2R/REPORT.md."
+   },
+   {
+     "rgb": "x8B7C67",
+     "state": "STATE_HESSE",
+     "beneficiary": "HES",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
+   },
+   {
+     "rgb": "x8C26DD",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x8C6982",
+     "state": "STATE_POMERANIA",
+     "beneficiary": "PRU",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "x8D1E12",
+@@
+     "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
+   },
+   {
+     "rgb": "xEDB602",
+     "state": "STATE_HESSE",
+     "beneficiary": "HEK",
+     "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
+   },
+   {
+     "rgb": "xEDB603",
+     "state": "STATE_SAXONY",
+     "beneficiary": "FUL",
+     "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
+   },
+   {
++    "rgb": "xEDB700",
++    "state": "STATE_HESSE",
++    "beneficiary": "NAS",
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++  },
++  {
++    "rgb": "xEDB701",
++    "state": "STATE_HESSE",
++    "beneficiary": "NOU",
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++  },
++  {
++    "rgb": "xEDB702",
++    "state": "STATE_HESSE",
++    "beneficiary": "NOU",
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++  },
++  {
++    "rgb": "xEDB703",
++    "state": "STATE_HESSE",
++    "beneficiary": "NWB",
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++  },
++  {
++    "rgb": "xEDB704",
++    "state": "STATE_HESSE",
++    "beneficiary": "NWB",
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++  },
++  {
++    "rgb": "xEDB705",
++    "state": "STATE_HESSE",
++    "beneficiary": "NOU",
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++  },
++  {
++    "rgb": "xEDB706",
++    "state": "STATE_HESSE",
++    "beneficiary": "NAS",
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++  },
++  {
++    "rgb": "xEDB707",
++    "state": "STATE_HESSE",
++    "beneficiary": "NWB",
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++  },
++  {
++    "rgb": "xEDB708",
++    "state": "STATE_HESSE",
++    "beneficiary": "NWB",
++    "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2W\R2\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_HESSE"
++  ],
++  "previous": [
++    {
++      "rgb": "x1141A0",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x11C0A0",
++      "state": "STATE_HESSE",
++      "beneficiary": "FRM",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x1357DB",
++      "state": "STATE_HESSE",
++      "beneficiary": "NAS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x2248E2",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x3E794B",
++      "state": "STATE_HESSE",
++      "beneficiary": "WLD",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x8B7C67",
++      "state": "STATE_HESSE",
++      "beneficiary": "HES",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x90C020",
++      "state": "STATE_HESSE",
++      "beneficiary": "HES",
++      "basis": "MAP2L MAINZ_PALATINATE: conservative source-traced core; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x90C0A0",
++      "state": "STATE_HESSE",
++      "beneficiary": "NAS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xC08020",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD04121",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
++    },
++    {
++      "rgb": "xEDA400",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_PALATINATE: conservative source-traced core; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA500",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA501",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA502",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA503",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB600",
++      "state": "STATE_HESSE",
++      "beneficiary": "FUL",
++      "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
++    },
++    {
++      "rgb": "xEDB601",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
++    },
++    {
++      "rgb": "xEDB602",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
++    },
++    {
++      "rgb": "xFF1DBB",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x1141A0",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x11C0A0",
++      "state": "STATE_HESSE",
++      "beneficiary": "FRM",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x2248E2",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x90C020",
++      "state": "STATE_HESSE",
++      "beneficiary": "HES",
++      "basis": "MAP2L MAINZ_PALATINATE: conservative source-traced core; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x90C0A0",
++      "state": "STATE_HESSE",
++      "beneficiary": "NAS",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xC08020",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xD04121",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
++    },
++    {
++      "rgb": "xEDA400",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_PALATINATE: conservative source-traced core; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA500",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA501",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA502",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA503",
++      "state": "STATE_HESSE",
++      "beneficiary": "KMZ",
++      "basis": "MAP2L MAINZ_ESTATES: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB600",
++      "state": "STATE_HESSE",
++      "beneficiary": "FUL",
++      "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
++    },
++    {
++      "rgb": "xEDB601",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
++    },
++    {
++      "rgb": "xEDB602",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "MAP2W-R1 Fulda-Hünfeld-Neuhof inward B core; C residual preserved; see GEOMETRY.json."
++    },
++    {
++      "rgb": "xFF1DBB",
++      "state": "STATE_HESSE",
++      "beneficiary": "HEK",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x1357DB",
++      "state": "STATE_HESSE",
++      "beneficiary": "NAS",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "xEDB700",
++      "state": "STATE_HESSE",
++      "beneficiary": "NAS",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "xEDB701",
++      "state": "STATE_HESSE",
++      "beneficiary": "NOU",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "xEDB702",
++      "state": "STATE_HESSE",
++      "beneficiary": "NOU",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "xEDB703",
++      "state": "STATE_HESSE",
++      "beneficiary": "NWB",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "xEDB704",
++      "state": "STATE_HESSE",
++      "beneficiary": "NWB",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "xEDB705",
++      "state": "STATE_HESSE",
++      "beneficiary": "NOU",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "x3E794B",
++      "state": "STATE_HESSE",
++      "beneficiary": "WLD",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "x8B7C67",
++      "state": "STATE_HESSE",
++      "beneficiary": "HES",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "xEDB706",
++      "state": "STATE_HESSE",
++      "beneficiary": "NAS",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "xEDB707",
++      "state": "STATE_HESSE",
++      "beneficiary": "NWB",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    },
++    {
++      "rgb": "xEDB708",
++      "state": "STATE_HESSE",
++      "beneficiary": "NWB",
++      "basis": "MAP2W-R2-A Nassau inward B core; unchanged C residual explicitly not certified; see MAP2W/R2/REPORT.md"
++    }
++  ],
++  "new_members": [
++    "NOU",
++    "NWB"
++  ],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDB700",
++      "parent_rgb": "x1357DB"
++    },
++    {
++      "rgb": "xEDB701",
++      "parent_rgb": "x1357DB"
++    },
++    {
++      "rgb": "xEDB702",
++      "parent_rgb": "x1357DB"
++    },
++    {
++      "rgb": "xEDB703",
++      "parent_rgb": "x1357DB"
++    },
++    {
++      "rgb": "xEDB704",
++      "parent_rgb": "x1357DB"
++    },
++    {
++      "rgb": "xEDB705",
++      "parent_rgb": "x3E794B"
++    },
++    {
++      "rgb": "xEDB706",
++      "parent_rgb": "x8B7C67"
++    },
++    {
++      "rgb": "xEDB707",
++      "parent_rgb": "x8B7C67"
++    },
++    {
++      "rgb": "xEDB708",
++      "parent_rgb": "x8B7C67"
++    }
++  ],
++  "geometry": "MAP2W/R2/GEOMETRY.json",
++  "region_reference_changes": [
++    {
++      "state": "STATE_HESSE",
++      "field": "prime_land",
++      "before": [
++        "x1141A0",
++        "x8B7C67",
++        "xEDB600",
++        "xD04121",
++        "xEDB601",
++        "xEDB602",
++        "x1357DB"
++      ],
++      "after": [
++        "x1141A0",
++        "x8B7C67",
++        "xEDB706",
++        "xEDB707",
++        "xEDB708",
++        "xEDB600",
++        "xD04121",
++        "xEDB601",
++        "xEDB602",
++        "x1357DB",
++        "xEDB700",
++        "xEDB701",
++        "xEDB702",
++        "xEDB703",
++        "xEDB704"
++      ]
++    }
++  ],
++  "extent_added_cells": [],
++  "extent_removed_cells": [],
++  "country_additions": {
++    "NOU": "[\"NOU\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"225\"],[\"\",\"\",\"155\"],[\"\",\"\",\"65\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_HESSE\"]]]",
++    "NWB": "[\"NWB\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"93\"],[\"\",\"\",\"158\"],[\"\",\"\",\"172\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"religion\",\"=\",\"protestant\"],[\"capital\",\"=\",\"STATE_HESSE\"]]]"
++  },
++  "country_tier_corrections": [
++    {
++      "tag": "HES",
++      "before": "grand_principality",
++      "after": "principality",
++      "before_signature": "[\"HES\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"146\"],[\"\",\"\",\"108\"],[\"\",\"\",\"146\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"grand_principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"capital\",\"=\",\"STATE_HESSE\"],[\"is_named_from_capital\",\"=\",\"yes\"]]]",
++      "after_signature": "[\"HES\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"146\"],[\"\",\"\",\"108\"],[\"\",\"\",\"146\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"north_german\"]]],[\"capital\",\"=\",\"STATE_HESSE\"],[\"is_named_from_capital\",\"=\",\"yes\"]]]"
++    }
++  ]
++}
+*** End Patch

@@ -1,0 +1,245 @@
+MILITARY_FORMATIONS = {
+	c:BRZ ?= {
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_brazil
+			name = aor1776_brz_army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_RIO_DE_JANEIRO
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_RIO_DE_JANEIRO
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_PARAIBA
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_093
+		}
+
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_brazil
+			name = aor1776_brz_fleet
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_galley
+				count = 1
+			}
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 7
+			}
+
+
+
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-093 — João Henrique Böhm — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_093
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:north_german
+			religion = rel:protestant
+			home_region = STATE_ELBE
+			age = 67 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_093
+		}
+		scope:cleanup2d4_general_093 = {
+			transfer_to_formation = scope:cleanup2d4_formation_093
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SC4 ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_la_plata
+			name = aor1776_sc4_army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_BUENOS_AIRES
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_TUCUMAN
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_BUENOS_AIRES
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_094
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-094 — Ejrcito_Argentino — PROCEDURAL_ALLOWED_PENDING_STRUCTURE_REWORK
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_094
+		}
+		scope:cleanup2d4_general_094 = {
+			transfer_to_formation = scope:cleanup2d4_formation_094
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:SC2 ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_andes
+			name = aor1776_sc2_quito_army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_ECUADOR
+				count = 4
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ECUADOR
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ECUADOR
+				count = 1
+			}
+
+			save_scope_as = cleanup2d4_formation_095
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_gran_colombia
+			name = aor1776_sc2_granada_army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_CUNDINAMARCA
+				count = 5
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_CAUCA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_ANTIOQUIA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_CUNDINAMARCA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CAUCA
+				count = 2
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_ANTIOQUIA
+				count = 4
+			}
+
+			save_scope_as = cleanup2d4_formation_096
+		}
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_gran_colombia
+			name = aor1776_sc2_venezuela_army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_ZULIA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_MIRANDA
+				count = 3
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_musket_infantry
+				state_region = s:STATE_BOLIVAR
+				count = 1
+			}
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_ZULIA
+				count = 2
+			}
+
+			save_scope_as = cleanup2d4_formation_097
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-095 — José Diguja — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_095
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:spanish
+			religion = rel:catholic
+			home_region = STATE_LEON
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_095
+		}
+		scope:cleanup2d4_general_095 = {
+			transfer_to_formation = scope:cleanup2d4_formation_095
+		}
+		# GEN1776-096 — Manuel de Guirior — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_096 = {
+			transfer_to_formation = scope:cleanup2d4_formation_096
+		}
+		# GEN1776-097 — Ejrcito_de_Venezuela — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_097
+		}
+		scope:cleanup2d4_general_097 = {
+			transfer_to_formation = scope:cleanup2d4_formation_097
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+}

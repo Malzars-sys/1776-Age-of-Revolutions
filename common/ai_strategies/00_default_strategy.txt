@@ -4142,6 +4142,13 @@ ai_strategy_default = {
 	# root = country
 	# scope:military_formation = military formation
 	combat_unit_group_weights = {
+		combat_unit_group_aor1776_engineers = {
+			value = 0
+			if = {
+				limit = { has_technology_researched = permanent_engineer_services }
+				add = 15
+			}
+		}
 		combat_unit_group_infantry = {
 			value = 100
 		}

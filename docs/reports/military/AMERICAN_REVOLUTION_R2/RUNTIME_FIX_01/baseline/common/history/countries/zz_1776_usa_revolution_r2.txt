@@ -1,0 +1,10 @@
+COUNTRIES = {
+	c:USA ?= {
+		aor1776_support_initialize_effect = yes
+		add_journal_entry = { type = je_aor1776_french_support }
+		add_journal_entry = { type = je_aor1776_revolutionary_spirit }
+	}
+	c:FRA ?= {
+		trigger_event = { id = aor1776_french_support.1 days = 2 popup = yes }
+	}
+}

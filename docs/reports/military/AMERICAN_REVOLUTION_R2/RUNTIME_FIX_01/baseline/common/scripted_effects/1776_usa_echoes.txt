@@ -1,0 +1,91 @@
+# Called once from an actual independence journal outcome, not a global pulse.
+aor1776_echo_colonial_recipient_effect = {
+	if = {
+		limit = {
+			is_subject = yes
+			NOT = { has_variable = aor1776_echo_seen }
+			OR = {
+				has_law_or_variant = law_type:law_right_of_assembly
+				relations:c:USA >= 20
+			}
+		}
+		set_variable = { name = aor1776_echo_american_victory value = c:USA.var:aor1776_independence_result }
+		trigger_event = { id = aor1776_usa_echoes.3 popup = yes }
+	}
+}
+
+aor1776_echo_european_recipient_effect = {
+	if = {
+		limit = {
+			NOT = { has_variable = aor1776_echo_seen }
+			has_technology_researched = institutionalized_scientific_exchange
+			relations:c:USA >= 20
+			ig:ig_intelligentsia = { ig_counts_as_marginal = no }
+		}
+		set_variable = { name = aor1776_echo_american_victory value = c:USA.var:aor1776_independence_result }
+		trigger_event = { id = aor1776_usa_echoes.4 popup = yes }
+	}
+}
+
+aor1776_independence_outcome_effect = {
+	if = {
+		limit = { NOT = { has_variable = aor1776_outcome_dispatched } }
+		set_variable = aor1776_outcome_dispatched
+		set_variable = { name = aor1776_independence_result value = 0 }
+		if = { limit = { is_subject = no } set_variable = { name = aor1776_independence_result value = 1 } }
+		c:FRA ?= {
+			if = {
+				limit = { NOT = { has_variable = aor1776_echo_seen } c:USA = { OR = { has_variable = aor1776_support_ever_received has_variable = aor1776_public_treaty_signed } } }
+				set_variable = { name = aor1776_echo_american_victory value = c:USA.var:aor1776_independence_result }
+				trigger_event = { id = aor1776_usa_echoes.1 popup = yes }
+			}
+		}
+		c:GBR ?= {
+			if = {
+				limit = { NOT = { has_variable = aor1776_echo_seen } }
+				set_variable = { name = aor1776_echo_american_victory value = c:USA.var:aor1776_independence_result }
+				trigger_event = { id = aor1776_usa_echoes.2 popup = yes }
+			}
+			every_subject_or_below = {
+				limit = { OR = { c:ONT ?= this c:QUE ?= this c:NBS ?= this c:NVS ?= this c:HBC ?= this } }
+				aor1776_echo_colonial_recipient_effect = yes
+			}
+		}
+		c:SPA ?= {
+			every_subject_or_below = {
+				limit = { OR = { c:SC1 ?= this c:SC2 ?= this c:SC3 ?= this c:SC4 ?= this c:CUB ?= this } }
+				aor1776_echo_colonial_recipient_effect = yes
+			}
+		}
+		c:POR ?= {
+			every_subject_or_below = {
+				limit = { c:BRZ ?= this }
+				aor1776_echo_colonial_recipient_effect = yes
+			}
+		}
+		c:NET ?= { aor1776_echo_european_recipient_effect = yes }
+		c:SWE ?= { aor1776_echo_european_recipient_effect = yes }
+		c:DEN ?= { aor1776_echo_european_recipient_effect = yes }
+	}
+}
+
+aor1776_founders_maintenance_effect = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { has_law_or_variant = law_type:law_presidential_republic }
+				NOT = { any_scope_character = { has_template = aor1776_john_adams is_character_alive = yes owner = c:USA has_role_of_type = politician } }
+			}
+		}
+		remove_modifier = aor1776_adams_accounts
+	}
+	if = {
+		limit = {
+			OR = {
+				NOT = { has_law_or_variant = law_type:law_presidential_republic }
+				NOT = { any_scope_character = { has_template = aor1776_thomas_jefferson is_character_alive = yes owner = c:USA has_role_of_type = politician } }
+			}
+		}
+		remove_modifier = aor1776_jefferson_guarantees
+	}
+}

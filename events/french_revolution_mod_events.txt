@@ -1,201 +1,63 @@
 ﻿namespace = french_revolution_mod_events
 
-french_revolution_mod_events.1 = { # French failed American Revolution, triggers fiscal crisis
-	type = country_event
-	placement = root
-
-	title = french_revolution_mod_events.1.t
-	desc = french_revolution_mod_events.1.d
-	flavor = french_revolution_mod_events.1.f
-
-	duration = 3
-
-	event_image = {
-		video = "unspecific_devastation"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/event_skull.dds"
-
-	trigger = {
-
-	}
-
-	immediate = {
-
-	}
-
-	option = { # Summon the Estates
-		name = french_revolution_mod_events.1.a
-		default_option = yes
-		add_modifier = {
-			name = debt_usa_big_money
-			months = 84
-		}
-		cu:french ?= {
-			add_fervor = 10
-		}
-		add_journal_entry = {
-			type = je_fr_rev_summon_estates
-		}
-	}
+french_revolution_mod_events.1 = {
+ type = country_event
+ placement = root
+ title = aor1776_legacy_debt.t
+ desc = aor1776_legacy_debt.d
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 10
+ immediate = {
+  aor1776_remove_legacy_debt_effect = yes
+  c:USA ?= { aor1776_remove_legacy_debt_effect = yes }
+  c:FRA ?= { aor1776_remove_legacy_debt_effect = yes }
+ }
+ option = { name = aor1776_legacy_debt.a default_option = yes }
 }
 
-french_revolution_mod_events.2 = { # USA Rejects or Accepts Paying Loans
-	type = country_event
-	placement = root
-
-	title = french_revolution_mod_events.2.t
-	desc = french_revolution_mod_events.2.d
-	flavor = french_revolution_mod_events.2.f
-
-	duration = 3
-
-	event_image = {
-		video = "europenorthamerica_springtime_of_nations"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-
-	trigger = {
-
-	}
-
-	immediate = {
-
-	}
-
-	option = { # Reject paying
-		name = french_revolution_mod_events.2.a
-		default_option = yes
-		ai_chance = {
-			base = 50
-		}
-		cu:french ?= {
-			add_fervor = 10
-		}
-		change_infamy = 25
-		change_relations = {
-			country = c:FRA
-			value = -30
-		}
-		c:FRA ?= {
-			trigger_event = { id = french_revolution_mod_events.4 }
-		}
-	}
-	
-	option = { # Accept paying
-		name = french_revolution_mod_events.2.b
-#		trigger = { # Can be used to remove the AI picking the first option
-#			root ?= {
-#				is_player = yes
-#			}
-#		}
-		ai_chance = {
-			base = 5
-		}
-		change_relations = {
-			country = c:FRA
-			value = 30
-		}
-		add_modifier = {
-			name = debt_usa_big_money
-			months = 84
-		}
-		c:FRA ?= {
-			trigger_event = { id = french_revolution_mod_events.3 }
-		}
-	}
+french_revolution_mod_events.2 = {
+ type = country_event
+ placement = root
+ title = aor1776_legacy_debt.t
+ desc = aor1776_legacy_debt.d
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 10
+ immediate = {
+  aor1776_remove_legacy_debt_effect = yes
+  c:USA ?= { aor1776_remove_legacy_debt_effect = yes }
+  c:FRA ?= { aor1776_remove_legacy_debt_effect = yes }
+ }
+ option = { name = aor1776_legacy_debt.a default_option = yes }
 }
 
-french_revolution_mod_events.3 = { # thanks for paying usa
-	type = country_event
-	placement = root
-
-	title = french_revolution_mod_events.3.t
-	desc = french_revolution_mod_events.3.d
-	flavor = french_revolution_mod_events.3.f
-
-	duration = 3
-
-	event_image = {
-		video = "europenorthamerica_springtime_of_nations"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-
-	trigger = {
-
-	}
-
-	immediate = {
-
-	}
-
-	option = { # thanks
-		name = french_revolution_mod_events.3.a
-		default_option = yes
-		change_relations = {
-			country = c:USA
-			value = 30
-		}
-		add_modifier = {
-			name = debt_payback_fra_big_money
-			months = 84
-		}
-	}
+french_revolution_mod_events.3 = {
+ type = country_event
+ placement = root
+ title = aor1776_legacy_debt.t
+ desc = aor1776_legacy_debt.d
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 10
+ immediate = {
+  aor1776_remove_legacy_debt_effect = yes
+  c:USA ?= { aor1776_remove_legacy_debt_effect = yes }
+  c:FRA ?= { aor1776_remove_legacy_debt_effect = yes }
+ }
+ option = { name = aor1776_legacy_debt.a default_option = yes }
 }
 
-french_revolution_mod_events.4 = { # rude USA not paying them
-	type = country_event
-	placement = root
-
-	title = french_revolution_mod_events.4.t
-	desc = french_revolution_mod_events.4.d
-	flavor = french_revolution_mod_events.1.f
-
-	duration = 3
-
-	event_image = {
-		video = "europenorthamerica_springtime_of_nations"
-	}
-
-	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
-
-	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
-
-	trigger = {
-
-	}
-
-	immediate = {
-		if = { # Just so French doesn't get hit with two big loan payments if they capitulate the war
-			limit = {
-				has_modifier = debt_usa_big_money
-			}
-			remove_modifier = debt_usa_big_money
-		}
-	}
-
-	option = { # summon estates
-		name = french_revolution_mod_events.1.a
-		default_option = yes
-		add_modifier = {
-			name = debt_usa_big_money
-			months = 84
-		}
-		cu:french ?= {
-			add_fervor = 20
-		}
-		add_journal_entry = {
-			type = je_fr_rev_summon_estates
-		}
-	}
+french_revolution_mod_events.4 = {
+ type = country_event
+ placement = root
+ title = aor1776_legacy_debt.t
+ desc = aor1776_legacy_debt.d
+ icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+ duration = 10
+ immediate = {
+  aor1776_remove_legacy_debt_effect = yes
+  c:USA ?= { aor1776_remove_legacy_debt_effect = yes }
+  c:FRA ?= { aor1776_remove_legacy_debt_effect = yes }
+ }
+ option = { name = aor1776_legacy_debt.a default_option = yes }
 }
 
 french_revolution_mod_events.5 = { # Rise of Radicalism

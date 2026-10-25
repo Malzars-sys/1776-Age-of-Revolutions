@@ -1,0 +1,110 @@
+﻿# Shared implementation for the integrated action, treaty article and annual
+# campaign AI. Based on Join Ongoing Wars by The Lizerd King (3015811655).
+aor1776_intervene_effect = {
+ $ACTOR$ = { save_scope_as = aor1776_intervening_country }
+ $FRIEND$ = { save_scope_as = aor1776_supported_country }
+ scope:aor1776_intervening_country = {
+  if = {
+   limit = { aor1776_can_intervene_trigger = { ACTOR = scope:aor1776_intervening_country FRIEND = scope:aor1776_supported_country } }
+   # Native 1.13 API, as used by 44_enforce_military_access.txt. The old
+   # is_diplomatic_play_participant trigger is not supported by this engine.
+   scope:aor1776_supported_country = {
+    every_scope_war = {
+     limit = {
+      OR = {
+       is_warleader = scope:aor1776_supported_country
+       scope:aor1776_intervening_country = { any_scope_treaty = { binds = scope:aor1776_supported_country any_scope_article = { has_type = alliance } } }
+      }
+      NOT = { is_war_participant = scope:aor1776_intervening_country }
+      aor1776_intervention_stake_in_war = { ACTOR = scope:aor1776_intervening_country FRIEND = scope:aor1776_supported_country }
+      OR = {
+       scope:aor1776_intervening_country = { NOT = { has_variable = aor1776_join_american_war_only } }
+       AND = { is_war_participant = c:USA is_war_participant = c:GBR }
+      }
+     }
+     join_war = { target = scope:aor1776_intervening_country side = scope:aor1776_supported_country }
+    }
+    change_relations = { country = scope:aor1776_intervening_country value = 30 }
+   }
+   every_diplomatic_play = {
+    limit = {
+     is_war = yes initiator_is = c:USA target_is = c:GBR
+     scope:aor1776_intervening_country = { has_war_with = c:GBR is_in_war_together = c:USA }
+    }
+    if = {
+     limit = { scope:aor1776_intervening_country = { c:FRA ?= this NOT = { has_variable = aor1776_revolution_joined } } }
+     aor1776_french_revolution_goals_effect = yes
+     c:FRA = { set_variable = aor1776_revolution_joined set_strategy = ai_strategy_aor1776_french_revolution_war }
+    }
+    else_if = {
+     limit = { scope:aor1776_intervening_country = { c:SPA ?= this NOT = { has_variable = aor1776_revolution_joined } } }
+     aor1776_spanish_revolution_goals_effect = yes
+     c:SPA = { set_variable = aor1776_revolution_joined set_strategy = ai_strategy_aor1776_spanish_revolution_war }
+    }
+   }
+   remove_variable = aor1776_join_american_war_only
+  }
+ }
+}
+
+# Diplomatic-play scope. Goals are guarded by the continued existence of a
+# British state share. No ownership, claims on Britain itself or map edits.
+aor1776_french_revolution_goals_effect = {
+ if = {
+  limit = { exists = s:STATE_WEST_INDIES.region_state:GBR }
+  add_war_goal = { holder = c:FRA type = conquer_state target_state = s:STATE_WEST_INDIES.region_state:GBR }
+ }
+ if = {
+  limit = { exists = s:STATE_SENEGAL.region_state:GBR }
+  add_war_goal = { holder = c:FRA type = conquer_state target_state = s:STATE_SENEGAL.region_state:GBR }
+ }
+ # Capital-occupation objective: strategic pressure for an attack on Britain,
+ # not presented as a historical French territorial claim.
+ add_war_goal = { holder = c:FRA target_country = c:GBR type = aor1776_break_british_power }
+}
+
+aor1776_spanish_revolution_goals_effect = {
+ if = {
+  limit = { exists = s:STATE_FLORIDA.region_state:GBR }
+  add_war_goal = { holder = c:SPA type = return_state target_state = s:STATE_FLORIDA.region_state:GBR }
+ }
+ if = {
+  limit = { exists = s:STATE_BALEARIC_ISLANDS.region_state:GBR }
+  add_war_goal = { holder = c:SPA type = return_state target_state = s:STATE_BALEARIC_ISLANDS.region_state:GBR }
+ }
+}
+
+# Only France is evaluated, once each year. Deadline checks deliberately
+# precede the annual cooldown. Human-controlled countries retain their choice.
+aor1776_revolution_intervention_monthly_effect = {
+ if = {
+  limit = { aor1776_usa_independence_war_active = yes }
+  c:FRA ?= { aor1776_french_entry_roll_effect = yes }
+ }
+}
+
+aor1776_french_entry_roll_effect = {
+ if = {
+  limit = {
+   is_ai = yes
+   game_date >= 1777.1.1
+   aor1776_revolution_intervention_eligible = { ACTOR = c:FRA }
+  }
+  if = {
+   limit = { game_date >= 1778.3.17 }
+   aor1776_intervene_effect = { ACTOR = c:FRA FRIEND = c:USA }
+  }
+  else_if = {
+   limit = { NOT = { has_variable = aor1776_intervention_annual_roll } }
+   set_variable = { name = aor1776_intervention_annual_roll days = 365 }
+   if = {
+    limit = { game_date >= 1778.1.1 }
+    random = { chance = 75 aor1776_intervene_effect = { ACTOR = c:FRA FRIEND = c:USA } }
+   }
+   else = { random = { chance = 45 aor1776_intervene_effect = { ACTOR = c:FRA FRIEND = c:USA } } }
+  }
+ }
+}
+
+# Compatibility for old queued events: Spain no longer rolls for entry.
+aor1776_spanish_entry_roll_effect = { }

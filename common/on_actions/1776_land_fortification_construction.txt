@@ -1,0 +1,45 @@
+# Child actions retain the native effects and the other mod systems.
+on_game_started = { on_actions = { aor1776_fort_construction_initialize } }
+on_game_started_after_lobby = { on_actions = { aor1776_fort_construction_initialize } }
+aor1776_fort_construction_initialize = {
+	effect = {
+		every_country = {
+			limit = { any_scope_state = { aor1776_fort_construction_needs_update = yes } }
+			aor1776_refresh_fort_construction_country = yes
+			aor1776_ensure_fort_construction_monitor = yes
+		}
+	}
+}
+
+# Building-root callbacks refresh before expansion and immediately on completion.
+on_building_built = { on_actions = { aor1776_fort_construction_building_changed } }
+on_building_expanded = { on_actions = { aor1776_fort_construction_building_changed } }
+on_start_expanding_building = { on_actions = { aor1776_fort_construction_building_changed } }
+aor1776_fort_construction_building_changed = {
+	trigger = { is_building_type = building_aor1776_land_fortification }
+	effect = {
+		state = { aor1776_refresh_fort_construction_state = yes }
+		owner ?= { aor1776_ensure_fort_construction_monitor = yes }
+	}
+}
+
+# State-root callbacks retain the state's real level after transfers or merges.
+on_state_owner_change = { on_actions = { aor1776_fort_construction_state_changed } }
+on_state_created = { on_actions = { aor1776_fort_construction_state_changed } }
+on_monthly_pulse_state = { on_actions = { aor1776_fort_construction_state_changed } }
+aor1776_fort_construction_state_changed = {
+	trigger = { aor1776_fort_construction_needs_update = yes }
+	effect = {
+		aor1776_refresh_fort_construction_state = yes
+		owner ?= { aor1776_ensure_fort_construction_monitor = yes }
+	}
+}
+
+# One daily chain per affected country; also repairs downsizing/demolition.
+aor1776_fort_construction_monitor_tick = {
+	effect = {
+		remove_variable = aor1776_fort_construction_monitor_pending
+		aor1776_refresh_fort_construction_country = yes
+		aor1776_ensure_fort_construction_monitor = yes
+	}
+}

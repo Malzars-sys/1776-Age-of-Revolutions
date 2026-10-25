@@ -92,7 +92,7 @@ def pm_icon(key):
     elif key.startswith('pm_unit_electric_drive_building_'):
         name = '1776_unit_electric_drive'
     elif key.startswith('field_drainage_building_') or key == 'pm_field_drainage_spice_cultivation':
-        name = 'maintained_sewers'
+        name = '1776_field_drainage_yellow'
     if name is None:
         raise ValueError('PM requires semantic review: ' + key)
     # Some shipped native symbols are under unused/, but still loadable assets.

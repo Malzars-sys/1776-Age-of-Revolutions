@@ -1,0 +1,25 @@
+**SERG TERRITORIAL 1.0 — PROGRESSION : 34,89 %**
+
+# SC4-MASSA-CARRARA — restitution souveraine partielle
+
+Avant/après : **82/235 points, 34,89 % → 34,89 %**, périmètre 1.0.0 et 81 tâches inchangés. Le constat utilisateur Piombino est enregistré par SERG-RM-0024 sans PASS ni point. Piombino reste P0 BLOCKED ; toutes ses preuves antérieures sont conservées.
+
+Une seule nouvelle étape est exécutée : Massa-Carrare, P0 sans dépendance. Les sources archivistiques distinguent le gouvernement de Marie-Thérèse et le mariage avec Ercole, qui ne règne à Modène qu’en 1780. La carte Robert 1750 a été lue, pas seulement sa notice. Voir SOURCES.md et JURISDICTION_MATRIX.csv.
+
+**Installation MC-I-CORE — IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION** : nouveau TAG MCA reconnu, un RGB xEDBC00 de huit cellules littorales détachées de xF08021 MOD (116→108, parent encore connecté). Lucques, Gênes et Toscane conservent leurs cellules. Portion incorporée MCA de STATE_EMILIA, Marie-Thérèse Cybo-Malaspina née le 29 juin 1725, monarchie héréditaire, un niveau administratif public propre. Aucun pacte MOD–MCA, électorat, ville libre ou port industriel ajouté. Les droits impériaux passent de 574 à 575 RGB sans extension physique. Les fichiers constitutionnels sont régénérés depuis le générateur courant, dont la sortie correspondait exactement au workspace avant installation.
+
+Démographie : **10000 habitants transférés**, MOD 505752→495752, MCA 0→10000 ; population mondiale 834926252 inchangée, cultures/religions/métiers déclarés conservés. Cet ordre de grandeur est celui du noyau massais, **pas le total du duché et de Carrare**. Aucun bâtiment existant, propriétaire économique ou unité déplacé ; plafonds, ressources, traits, arables et locators conservés. Le nouveau pays utilise les ressources partagées de l’Émilie ; aucun rendement ni propriétaire de carrière inventé. Pavillon technique rouge et blanc de repérage, sans authenticité héraldique revendiquée.
+
+**Tâche régionale BLOCKED P0**, installation partielle réelle : le périmètre et la population complète de Carrare, ainsi que les possessions périphériques individuellement pertinentes, ne sont pas reconstitués. L’implantation automatique de la capitale dans cet État partagé est à contrôler en jeu ; aucun nouveau hub Massa n’a été créé. Action précise : comparer le noyau livré et les cellules MOD immédiatement au nord-ouest aux ressorts Carrare/Avenza de la carte déjà lue, exclure Sarzana/Lerici, Montignoso, Pietrasanta/Seravezza et Garfagnana ; établir une population de Carrare au périmètre comparable avant une extension B. Une validation de MC-I-CORE ne clôturera pas à elle seule cette couverture régionale.
+
+Validation réelle : voir VALIDATION.json, TESTS.json et TEST_REVIEW.json. Trois anciennes assertions de dernière couche étaient héritées ; une assertion supplémentaire de Salzbourg devient obsolète après ajout de Massa. Les anciens tests sont conservés sans réécriture ; le contrôle cumulatif courant et les tests négatifs Massa couvrent la nouvelle chaîne. Aucun moteur exécuté ou reçu humain inventé. Les preuves antérieures, travaux fortifications/génie/France/États-Unis et autres fichiers fonctionnels sont vérifiés par empreinte ; les changements nécessaires sont énumérés dans FILES_MODIFIED.json.
+
+**Prochaine action : test joueur MC-I-CORE**, selon PLAYER_TEST_PROTOCOL.md (nouvelle partie 1776, souveraineté/capitale/démographie/administration/droits/conservation, un mois, sauvegarde/rechargement). Après résultat réel et revue du blocage, **SC1-TRENTO P1** est la prochaine candidate indépendante admissible, sans commencement dans cette mission. Innviertel, Autriche antérieure, droits italiens/Savoie/Ligurie, Piombino et Teschen restent distincts. Aucun Git écrit, aucun vanilla modifié.
+
+Résultats constatés : **134/134 contrôles statiques**, **411/416 tests cumulatifs réussis**, quatre assertions de snapshots classées et une exclusion ; **11/11 tests ciblés réussis**. Voir TEST_REVIEW.json pour la distinction entre les trois échecs hérités et l’ancienne assertion de dernière couche Salzbourg.
+
+## Concurrence arrivée en fin de passe
+
+Après les contrôles Massa, onze fichiers du chantier concurrent Anzin/transport industriel ont changé ou été ajoutés, hors des 31 fichiers fonctionnels de cette passe. Ces changements sont conservés sans restauration ; inventaire mondial des historiques strictement identique à la validation Massa, fichiers du noyau inchangés. Suite cumulative répétée : 411/416 réussites, quatre assertions de snapshots déjà classées et une exclusion, aucun échec inexpliqué. Aucune validation moteur ou humaine du chantier concurrent créée. Progression inchangée 82/235=34,89 % ; seul MC-I-CORE attend le joueur, couverture Massa-Carrare BLOCKED, candidate Trente non commencée.
+
+Empreintes exactes et fichiers dans CONCURRENT_OBSERVATION.json. Le premier contrôle final a détecté cet écart ; sa preuve est conservée dans FINAL_CHECKS_BEFORE_CONCURRENT_REVIEW.json. Aucun fichier Anzin modifié par cette passe.

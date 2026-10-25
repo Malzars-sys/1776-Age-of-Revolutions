@@ -1,0 +1,17 @@
+# New-game creation only. Never called from migration or character death hooks.
+CHARACTERS = {
+	c:USA ?= {
+		if = {
+			limit = { NOT = { any_scope_character = { has_template = aor1776_benjamin_franklin } } }
+			create_character = { template = aor1776_benjamin_franklin }
+		}
+		if = {
+			limit = { NOT = { any_scope_character = { has_template = aor1776_john_adams } } }
+			create_character = { template = aor1776_john_adams }
+		}
+		if = {
+			limit = { NOT = { any_scope_character = { has_template = aor1776_thomas_jefferson } } }
+			create_character = { template = aor1776_thomas_jefferson }
+		}
+	}
+}

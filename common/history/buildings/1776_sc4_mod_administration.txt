@@ -1,0 +1,25 @@
+# SC4-EXISTING-ITALIAN-STATES: minimal regional representation of the ducal government at Modena.
+# One public level is a game-scale abstraction, not historical headcount.
+# Capacity abstraction only; no territorial or constitutional change.
+BUILDINGS = {
+    s:STATE_EMILIA = {
+        region_state:MOD = {
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:MOD"
+                        levels = 1
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_organization"
+                    "pm_hereditary_bureaucrats"
+                    "pm_religious_bureaucrats"
+                    "pm_1776_no_organized_data_reporting"
+                }
+            }
+        }
+    }
+}

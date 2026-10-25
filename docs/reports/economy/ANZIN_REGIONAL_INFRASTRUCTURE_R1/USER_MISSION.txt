@@ -1,0 +1,119 @@
+# MISSION CODEX — ANZIN & REGIONAL INFRASTRUCTURE REBALANCE
+
+Projet : Victoria 3 — 1776 Age of Revolutions.
+
+Je t'autorise à réaliser un patch comprenant deux volets cohérents.
+
+### A. Refonte de la Compagnie des mines d'Anzin
+
+Modifier les industries admissibles de la compagnie :
+
+- Conserver les mines de charbon comme activité principale historique.
+- Ajouter les infrastructures régionales comme nouvelle activité principale.
+- Inclure les chemins de fer parmi ses activités de développement, sous réserve des technologies ferroviaires.
+- Conserver les mines de fer comme industrie d'extension possible, et non comme spécialité historique initiale.
+- Préserver les autres caractéristiques de la compagnie qui ne sont pas concernées.
+
+Vérifier les identifiants exacts des bâtiments et les contraintes des compagnies dans la version actuelle du mod.
+
+La compagnie ne doit pas pouvoir construire des chemins de fer modernes dès 1776 sans technologie appropriée.
+
+Cette diversification est une abstraction de gameplay. La Compagnie d'Anzin exploite historiquement ses propres lignes ferroviaires au XIXe siècle, notamment Saint-Waast–Denain en 1838.
+
+Ne pas supprimer la compagnie ou empêcher son fonctionnement au démarrage en raison de conditions technologiques incompatibles.
+
+### B. Rééquilibrage des infrastructures régionales
+
+Le problème actuel est que les infrastructures régionales nécessitent des subventions importantes parce que leur production de tickets de transport est insuffisante relativement à leurs charges.
+
+Avant toute modification :
+
+1. Examiner le bâtiment d'infrastructure régionale et tous ses PM.
+2. Relever les emplois par niveau, les salaires attendus, les intrants, les tickets produits et les autres effets économiques.
+3. Rechercher les causes du déficit : production, prix de vente, demande, main-d'œuvre, subventions et propriété.
+4. Comparer les routes en terre, à péage, pavées et goudronnées.
+
+Appliquer ensuite un premier réglage ciblé :
+
+**Routes en terre**
+- Réduire fortement la main-d'œuvre nécessaire.
+- Point de départ : environ −60 % par rapport à la valeur actuelle.
+- Conserver une capacité de transport modeste.
+- Ne pas leur donner les performances d'une route moderne.
+
+**Routes à péage**
+- Augmenter significativement la production de tickets de transport.
+- Point de départ : environ +60 %.
+- Vérifier la rentabilité après prise en compte du prix de marché et des coûts salariaux.
+
+**Routes pavées et goudronnées**
+- Préserver initialement leurs valeurs.
+- Vérifier qu'elles restent pertinentes par rapport aux méthodes moins avancées.
+- Ajuster uniquement si l'équilibrage révèle une incohérence.
+
+Ces pourcentages sont des hypothèses de départ à tester, pas des valeurs à imposer si elles créent une régression économique.
+
+### C. Objectifs économiques
+
+Chercher à réduire les subventions nécessaires sans supprimer toute difficulté de rentabilité.
+
+Objectif indicatif : réduction de 30 à 50 % des subventions dans les cas initialement déficitaires, lorsque la demande de transport est suffisante.
+
+Vérifier que :
+
+- Les infrastructures peu utilisées peuvent encore être déficitaires.
+- Les routes en terre restent bon marché, mais de faible capacité.
+- Les routes à péage deviennent plus intéressantes.
+- Les méthodes avancées restent compétitives.
+- L'offre supplémentaire ne provoque pas un effondrement des prix des tickets.
+- Les infrastructures ne produisent pas des recettes disproportionnées.
+- L'emploi et les besoins en qualifications restent cohérents.
+
+Ne pas modifier arbitrairement les prix mondiaux des biens pour masquer un déficit.
+
+### D. Tests comparatifs obligatoires
+
+Produire un tableau avant/après pour chaque méthode de production :
+
+- Travailleurs par niveau.
+- Coûts salariaux estimés.
+- Intrants.
+- Tickets de transport.
+- Autres effets du bâtiment.
+- Recettes estimées aux prix de référence et aux prix de marché observables.
+- Rentabilité estimée.
+- Subventions nécessaires, si elles sont calculables.
+
+Tester plusieurs situations : région très peuplée, région rurale, forte demande de transport et faible demande.
+
+Vérifier les effets sur l'IA, les infrastructures régionales, les technologies et les autres compagnies utilisant ces bâtiments.
+
+Les calculs statiques ne remplacent pas un test réel dans Victoria 3.
+
+### E. Protections
+
+Préserver les travaux concurrents : SERG territorial, fortifications, Corps du génie, États-Unis, Minutemen, accords franco-américains, Saint-Gobain, Anzin et autres chantiers français.
+
+Ne pas restaurer les fichiers depuis une ancienne baseline.
+
+Ne pas modifier l'installation vanilla.
+
+Aucune opération Git d'écriture : commit, push, staging, merge, reset, rebase ou changement de branche.
+
+### F. Livraison
+
+Implémenter effectivement les corrections défendables.
+
+Produire :
+- Un rapport des modifications de la compagnie.
+- Un comparatif économique détaillé des PM avant/après.
+- Les résultats des tests statiques et de non-régression.
+- Les fichiers modifiés.
+- Un protocole de test en jeu incluant un mois de simulation, sauvegarde et rechargement.
+- Les éventuels problèmes économiques encore ouverts.
+
+Ne pas prétendre que les subventions ont diminué en jeu si seul un calcul statique a été effectué.
+
+Arrêter la mission après ce patch, sans lancer un autre chantier.
+
+**Commence par auditer les valeurs réelles des infrastructures régionales et les industries actuellement attribuées à Anzin, puis réalise la refonte et ses tests.**

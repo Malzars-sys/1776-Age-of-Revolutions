@@ -1,0 +1,16 @@
+﻿aor1776_organize_minutemen = {
+	is_shown = { c:USA ?= this aor1776_usa_independence_war_active = yes NOT = { has_law = law_type:law_aor1776_minutemen } }
+	possible = { has_technology_researched = light_infantry_tactics has_law_or_variant = law_type:law_peasant_levies }
+	when_taken = { activate_law = law_type:law_aor1776_minutemen }
+	ai_chance = { value = 100 }
+}
+
+aor1776_renew_enlistments = {
+	is_shown = { c:USA ?= this aor1776_usa_independence_war_active = yes }
+	possible = { NOT = { has_variable = aor1776_enlistment_cooldown } }
+	when_taken = {
+		set_variable = { name = aor1776_enlistment_cooldown days = 180 }
+		trigger_event = { id = aor1776_usa_content.1 popup = yes }
+	}
+	ai_chance = { value = 50 }
+}

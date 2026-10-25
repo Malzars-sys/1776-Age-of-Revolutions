@@ -1,0 +1,73 @@
+﻿aor1776_deferred_debt = {
+ groups = { general }
+ texture = "gfx/interface/icons/diplomatic_treaties_articles_icons/aor1776_deferred_debt.dds"
+ requires_approval = yes
+ should_notify_third_parties = yes
+ potential = {
+  NOT = { is_country_type = decentralized }
+  scope:target_country = { NOT = { is_country_type = decentralized } }
+ }
+ possible = {
+  gold_reserves >= 10000 in_default = no
+  NOT = { has_war_with = scope:target_country }
+  custom_tooltip = {
+   text = aor1776_r3_no_existing_debt_tt
+   scope:target_country = { NOT = { has_variable = aor1776_debt_creditor } }
+  }
+ }
+ accept_effect = {
+  scope:target_country = {
+   set_variable = { name = aor1776_debt_creditor value = root }
+   set_variable = { name = aor1776_debt_principal value = 0 }
+   set_variable = { name = aor1776_debt_interest value = 0 }
+   aor1776_debt_generic_advance_effect = yes
+  }
+ }
+ pact = {
+  cost = 0
+  is_two_sided_pact = no
+  actor_can_break = { always = no }
+  target_can_break = { always = no }
+  # No weekly_effect: the treaty's native money article is the only payer.
+  requirement_to_maintain = {
+   trigger = {
+    NOT = { is_country_type = decentralized }
+    scope:target_country = { NOT = { is_country_type = decentralized } }
+   }
+  }
+ }
+ ai = { will_propose = { always = no } accept_score = { value = 20 } }
+}
+aor1776_demand_debt_repayment = {
+ groups = { general }
+ texture = "gfx/interface/icons/diplomatic_treaties_articles_icons/aor1776_deferred_debt.dds"
+ requires_approval = no
+ should_notify_third_parties = no
+ potential = {
+  scope:target_country = {
+   has_variable = aor1776_debt_creditor
+   var:aor1776_debt_creditor = root
+   var:aor1776_debt_principal > 0
+  }
+ }
+ possible = {
+  aor1776_debt_mature = yes
+  custom_tooltip = {
+   text = aor1776_r3_no_pending_demand_tt
+   scope:target_country = { NOT = { has_variable = aor1776_debt_demand_pending } }
+  }
+ }
+ accept_effect = {
+  scope:target_country = {
+   set_variable = { name = aor1776_debt_demand_pending days = 60 }
+   set_variable = { name = aor1776_debt_due value = var:aor1776_debt_principal }
+   if = { limit = { var:aor1776_debt_interest = 5 } change_variable = { name = aor1776_debt_due multiply = 1.05 } }
+   trigger_event = { id = aor1776_debt.1 popup = yes }
+  }
+ }
+ ai = {
+  evaluation_chance = { value = 1 }
+  propose_score = { value = 100 }
+  will_propose = { aor1776_debt_mature = yes }
+ }
+}

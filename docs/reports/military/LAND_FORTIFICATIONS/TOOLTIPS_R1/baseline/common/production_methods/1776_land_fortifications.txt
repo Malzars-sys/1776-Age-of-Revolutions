@@ -1,0 +1,45 @@
+# Same inputs and staffing as the naval counterparts. Only the military output
+# changes: a local strength read by the defending side's battle conditions.
+pm_aor1776_land_fortification_basic = {
+ texture = "gfx/interface/icons/production_method_icons/fortification_basic.dds"
+ state_modifiers = {
+  workforce_scaled = { state_aor1776_land_fortification_strength_add = 1 }
+ }
+ building_modifiers = {
+  workforce_scaled = { goods_input_small_arms_add = 5 goods_input_iron_add = 5 }
+  level_scaled = { building_employment_soldiers_add = 900 building_employment_officers_add = 100 }
+ }
+}
+
+pm_aor1776_land_fortification_reinforced = {
+ texture = "gfx/interface/icons/production_method_icons/fortification_reinforced.dds"
+ unlocking_technologies = { casemated_fortifications }
+ state_modifiers = {
+  workforce_scaled = { state_aor1776_land_fortification_strength_add = 2 }
+ }
+ building_modifiers = {
+  workforce_scaled = {
+   goods_input_small_arms_add = 5
+   goods_input_artillery_add = 3
+   goods_input_steel_add = 5
+  }
+  level_scaled = { building_employment_soldiers_add = 850 building_employment_officers_add = 150 }
+ }
+}
+
+pm_aor1776_land_fortification_advanced = {
+ texture = "gfx/interface/icons/production_method_icons/fortification_advanced.dds"
+ unlocking_technologies = { concrete_fortifications }
+ state_modifiers = {
+  workforce_scaled = { state_aor1776_land_fortification_strength_add = 3 }
+ }
+ building_modifiers = {
+  workforce_scaled = {
+   goods_input_small_arms_add = 5
+   goods_input_artillery_add = 5
+   goods_input_ammunition_add = 5
+   goods_input_steel_add = 10
+  }
+  level_scaled = { building_employment_soldiers_add = 800 building_employment_officers_add = 200 }
+ }
+}

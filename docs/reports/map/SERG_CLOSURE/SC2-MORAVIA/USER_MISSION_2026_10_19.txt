@@ -1,0 +1,259 @@
+# MISSION CODEX — SERG TERRITORIAL 1.0
+## Validation du dernier sous-lot et poursuite automatique de la feuille de route
+
+### 1. Confirmation explicite du joueur
+
+J'ai effectué l'intégralité du protocole de validation en jeu de **SC2-MORAVIA**.
+
+Je confirme :
+- Nouvelle partie de Victoria 3 au 1er janvier 1776.
+- Toutes les vérifications du protocole `PLAYER_TEST_PROTOCOL.md` réussies.
+- Présence et fonctionnement du niveau d'administration publique ajouté en Moravie.
+- Absence d'anomalie constatée dans les territoires, populations et éléments contrôlés.
+- Un mois de simulation effectué avec succès.
+- Sauvegarde et rechargement réussis.
+- Aucun crash ni bug constaté pendant les vérifications.
+
+**Je valide explicitement SC2-MORAVIA : `PASS_RUNTIME_USER_VALIDATED`.**
+
+Enregistre cette attestation dans le dossier du sous-lot et dans le suivi canonique.
+
+Cette validation couvre uniquement les modifications réellement installées et testées de SC2-MORAVIA. Elle ne certifie pas l'exactitude cadastrale de toutes les frontières moraves, ni les futurs travaux de Silésie ou de Teschen.
+
+Ne fabrique aucune observation supplémentaire.
+
+### 2. Actualisation préalable de la progression
+
+Avant de commencer une nouvelle intervention, lis obligatoirement :
+
+- `docs/reports/map/SERG_CLOSURE/ROADMAP.md`
+- `docs/reports/map/SERG_CLOSURE/ROADMAP_STATE.json`
+- `docs/reports/map/SERG_CLOSURE/NEXT_ACTION.md`
+- `docs/reports/map/SERG_CLOSURE/BLOCKERS.md`
+- `docs/reports/map/SERG_CLOSURE/PROGRESS_HISTORY.md`
+
+Vérifie également les rapports et attestations des dernières passes.
+
+Enregistre la validation de Moravie avec un événement additif dans l'historique.
+
+La progression attendue après validation est :
+
+**72/235 → 75/235 points, soit 30,64 % → 31,91 %.**
+
+Vérifie ces valeurs avec le système de calcul existant. Ne les impose pas si l'état réel du suivi a légitimement évolué entre-temps.
+
+Exécute le validateur de la feuille de route avant toute nouvelle installation.
+
+Ne réinitialise jamais l'historique ni le périmètre existant.
+
+### 3. Reprise automatique du chantier
+
+Je t'autorise à poursuivre la reconstruction territoriale du Saint-Empire romain germanique, à la date historique du **1er janvier 1776**.
+
+Après l'enregistrement de la validation précédente, sélectionne la prochaine tâche prioritaire admissible selon :
+
+1. Le degré de priorité P0/P1.
+2. Les dépendances.
+3. Les tâches déjà installées.
+4. Les validations acquises.
+5. Les travaux concurrents.
+6. La possibilité de livrer un sous-lot indépendamment testable.
+
+La prochaine tâche actuellement prévue est :
+
+**`SC2-AUSTRIAN-SILESIA` — Silésie autrichienne et frontière impériale.**
+
+Vérifie que cette sélection correspond toujours à la feuille de route effective.
+
+Si oui, exécute cette tâche.
+
+Si le suivi révèle un changement légitime de priorité, explique-le puis sélectionne la prochaine tâche admissible.
+
+### 4. Trois règles permanentes
+
+**RÈGLE 1 — Priorité P0 et P1**
+
+Traiter d'abord les grandes omissions territoriales, les souverainetés historiquement erronées et les régions insuffisamment auditées.
+
+Les détails P2 peuvent être reportés lorsqu'ils sont documentés et non bloquants.
+
+**RÈGLE 2 — Audit suivi de correction**
+
+Pour chaque secteur :
+- Réutiliser les recherches existantes.
+- Vérifier les sources historiques indépendantes.
+- Examiner les fichiers actuels du mod.
+- Identifier les différences réellement démontrées.
+- Installer les corrections historiquement et techniquement défendables.
+- Tester les changements.
+
+Ne crée pas de nouvelle correction si l'état actuel est déjà conforme.
+
+Ne multiplie pas les recherches redondantes ni les essais de géoréférence dont les limites sont déjà connues.
+
+**RÈGLE 3 — Lots régionaux cohérents et indépendamment testables**
+
+Éviter de lancer une passe par petite enclave.
+
+Une grande région peut néanmoins être divisée en sous-lots lorsqu'une validation séparée est nécessaire.
+
+Les approximations politiques documentées de catégorie B sont acceptées lorsque la résolution de Victoria 3 empêche un tracé exact.
+
+Ne jamais effectuer de transferts arbitraires.
+
+### 5. Consignes particulières pour SC2-AUSTRIAN-SILESIA
+
+Si cette tâche est bien sélectionnée :
+
+Étudie la situation politique et territoriale de la Silésie autrichienne au 1er janvier 1776.
+
+Distingue notamment :
+- Les territoires conservés par les Habsbourg après les guerres de Silésie.
+- Les possessions prussiennes.
+- Les districts et principautés de la Silésie autrichienne.
+- Les rapports avec la Moravie.
+- Les territoires de Teschen et leurs particularités.
+- L'appartenance au Saint-Empire des possessions concernées.
+- Les limites de représentation du bitmap natif.
+
+**Protège impérativement les corrections de MAP2A**, notamment les RGB `x71E080` et `xF0E080`, déjà vérifiés dans la passe morave.
+
+Préserve également :
+- Les 21 RGB de Bohême.
+- Les 10 RGB de STATE_MORAVIA.
+- Les populations modifiées en Bohême.
+- L'administration publique ajoutée en Moravie.
+- Toutes les autres corrections déjà validées.
+
+Ne considère pas toute la Silésie comme autrichienne en 1776.
+
+Ne rétroprojette pas les frontières de 1815 ou de 1836.
+
+La tâche distincte `SC2-TESCHEN` demeure dans la feuille de route : ne la déclare pas automatiquement terminée lors de cette passe.
+
+### 6. Exécution technique
+
+Pour la tâche choisie :
+
+1. Examiner la documentation historique.
+2. Vérifier la carte réellement installée.
+3. Établir les propriétaires territoriaux et les RGB actuels.
+4. Identifier les erreurs et omissions.
+5. Corriger ce qui peut être historiquement justifié.
+6. Préserver les bâtiments, populations, unités, gouvernements et ressources qui ne nécessitent aucune modification.
+7. Vérifier les éventuelles implications pour le registre impérial.
+8. Exécuter les tests statiques ciblés et les contrôles cumulatifs.
+9. Produire le protocole de test manuel.
+
+Si aucune correction fonctionnelle n'est nécessaire, produire les preuves permettant de qualifier le secteur de conforme, sans inventer une modification pour obtenir des points de progression.
+
+### 7. Conservation et concurrence
+
+Ne modifie pas les corrections précédemment validées sans régression démontrée.
+
+Protège les travaux concurrents, notamment :
+
+- Les États-Unis.
+- Les Minutemen.
+- Les accords financiers franco-américains.
+- Les fortifications terrestres.
+- Les nouvelles unités du génie militaire.
+- Les bâtiments et unités militaires.
+- Saint-Gobain et Anzin.
+- Les autres interventions françaises.
+- Les autres sous-lots du SERG.
+
+Effectue une capture du workspace avant toute écriture.
+
+N'écrase jamais les fichiers modifiés par un agent concurrent en les restaurant depuis une ancienne baseline.
+
+Aucune opération Git d'écriture :
+- Pas de commit.
+- Pas de push.
+- Pas de staging.
+- Pas de merge.
+- Pas de reset.
+- Pas de rebase.
+- Pas de changement de branche.
+
+Ne modifie pas l'installation vanilla de Victoria 3.
+
+### 8. Validation et progression
+
+Une nouvelle installation ne peut être considérée comme validée en jeu que sur confirmation explicite de ma part.
+
+Si la tâche est installée mais pas encore testée :
+
+`IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`
+
+Livraison :
+
+`READY_FOR_SCOPED_RUNTIME_VALIDATION`
+
+Ne crée aucun reçu humain anticipé.
+
+Le pourcentage de progression ne doit augmenter que lorsque les critères du jalon sont effectivement satisfaits.
+
+Conserve tous les événements et attestations historiques.
+
+Si une tâche reste bloquée, conserve son statut et passe éventuellement à un autre P0/P1 indépendant lors d'une mission ultérieure.
+
+### 9. Mise à jour du suivi
+
+À la fin de la passe :
+
+- Mettre à jour `ROADMAP_STATE.json`.
+- Ajouter les nouveaux événements à `PROGRESS_HISTORY.md`.
+- Régénérer `ROADMAP.md` et `NEXT_ACTION.md`.
+- Actualiser `BLOCKERS.md`.
+- Recalculer le pourcentage.
+- Exécuter les validateurs du suivi.
+- Vérifier les dépendances.
+- Préserver les anciens reçus.
+- Vérifier le diff des modifications.
+- Documenter les nouvelles preuves et incertitudes.
+
+N'efface pas d'anciens rapports pour remplacer leur statut par celui d'une passe ultérieure.
+
+### 10. Rapport final obligatoire
+
+Commencer par :
+
+**SERG TERRITORIAL 1.0 — PROGRESSION : XX,XX %**
+
+Présenter ensuite :
+
+1. Validation du précédent sous-lot enregistrée.
+2. Progression avant/après.
+3. Tâche nouvellement sélectionnée.
+4. Recherche historique effectuée.
+5. Corrections réellement installées.
+6. RGB, territoires, populations et bâtiments avant/après.
+7. Résultats des tests statiques, y compris les échecs hérités.
+8. Travaux concurrents préservés.
+9. Problèmes historiques ou techniques encore ouverts.
+10. Protocole de test en jeu.
+11. Prochaine tâche recommandée.
+
+Le rapport doit distinguer clairement :
+- Les tâches entièrement validées.
+- Les tâches installées mais non testées.
+- Les tâches auditées sans changement.
+- Les tâches bloquées.
+- Les tâches différées.
+
+### 11. Limite de la mission
+
+Exécute **une seule nouvelle étape territoriale ou un sous-lot cohérent**.
+
+Ne commence pas automatiquement une deuxième étape après la livraison.
+
+Je réaliserai les tests en jeu puis te transmettrai une nouvelle confirmation.
+
+L'objectif final est :
+
+`SERG_TERRITORIAL_1_0_COMPLETE`
+
+Il nécessite 100 % des critères de clôture et mon approbation finale explicite.
+
+**Commence par enregistrer PASS_RUNTIME_USER_VALIDATED pour SC2-MORAVIA, puis lance la prochaine tâche prioritaire admissible de la feuille de route, normalement SC2-AUSTRIAN-SILESIA.**

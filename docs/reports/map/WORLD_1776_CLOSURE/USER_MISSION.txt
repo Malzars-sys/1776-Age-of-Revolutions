@@ -1,0 +1,854 @@
+# MISSION CODEX — 1776 AGE OF REVOLUTIONS
+## CHANTIER TERRITORIAL AUTONOME N° 2
+### Balkans → Italie méridionale → Afrique subsaharienne → Maghreb → Amériques
+
+# 1. MISSION GÉNÉRALE
+
+Tu es chargé de conduire un deuxième chantier de restitution territoriale historique pour le mod Victoria 3 « 1776 – Age of Revolutions ».
+
+**Date historique de référence : 1er janvier 1776.**
+
+Tu travailles en parallèle d'un autre agent Codex qui poursuit la restauration territoriale du Saint-Empire romain germanique (SERG).
+
+Ton objectif est de rechercher, corriger et implémenter la situation politique, territoriale, démographique et institutionnelle de plusieurs grandes régions du monde.
+
+Tu ne dois pas te limiter à produire des rapports historiques : tu dois également **installer dans le mod les corrections techniquement réalisables et historiquement défendables**.
+
+Ton chantier comporte cinq phases successives :
+
+1. Balkans.
+2. Italie méridionale.
+3. Afrique subsaharienne.
+4. Maghreb.
+5. Amériques.
+
+Commence immédiatement par **les Balkans**.
+
+Les phases suivantes sont autorisées, mais elles ne doivent pas être commencées avant l'achèvement du travail techniquement réalisable de la phase précédente et la production de son bilan.
+
+**Une phase peut comporter des sous-lots non encore validés par le joueur. Leur présence ne doit pas empêcher toute progression vers la phase suivante, à condition qu'ils soient techniquement isolés, documentés et que leurs dépendances soient maîtrisées.**
+
+# 2. SÉPARATION IMPÉRATIVE DES DEUX AGENTS
+
+Deux agents travaillent simultanément dans le même dépôt.
+
+## Agent 1 — Saint-Empire
+
+L'autre agent est responsable :
+
+- Des États du Saint-Empire.
+- Des principautés épiscopales.
+- Des villes impériales.
+- Des territoires germaniques.
+- Des États italiens appartenant au périmètre SERG.
+- Des frontières et possessions habsbourgeoises relevant de ses tâches canoniques.
+- De son système de suivi territorial.
+
+Il utilise notamment :
+
+`docs/reports/map/SERG_CLOSURE/`
+
+**Tu n'as pas le droit de modifier sa feuille de route, ses rapports, ses statuts ou ses validations.**
+
+Ne modifie pas :
+
+- `ROADMAP_STATE.json` du SERG.
+- `ROADMAP.md` du SERG.
+- `NEXT_ACTION.md` du SERG.
+- `BLOCKERS.md` du SERG.
+- `PROGRESS_HISTORY.md` du SERG.
+
+Ne change pas ses 81 tâches, ses 235 points, ses priorités ou ses dépendances.
+
+## Agent 2 — Ton chantier
+
+Tu es responsable des cinq régions attribuées ci-dessus, **à l'exclusion des territoires explicitement réservés au SERG**.
+
+Crée ton propre système de suivi, dans un répertoire distinct :
+
+`docs/reports/map/WORLD_1776_CLOSURE/`
+
+Il doit contenir au minimum :
+
+- `ROADMAP.md`
+- `ROADMAP_STATE.json`
+- `NEXT_ACTION.md`
+- `BLOCKERS.md`
+- `PROGRESS_HISTORY.md`
+- `OWNERSHIP_BOUNDARIES.md`
+- `CONCURRENT_CHANGES.json`
+
+N'invente pas un pourcentage de progression à partir du nombre de rapports rédigés.
+
+Utilise une progression fondée sur les régions, sous-régions et critères effectivement vérifiés.
+
+Ne modifie pas le dénominateur du suivi SERG.
+
+# 3. PRÉVENTION DES CONFLITS
+
+**La règle fondamentale est qu'un seul agent peut être propriétaire d'une modification territoriale donnée.**
+
+Cela ne signifie pas qu'un fichier partagé est interdit à l'autre agent : plusieurs régions du monde peuvent dépendre du même fichier Paradox.
+
+En revanche, tu dois isoler tes modifications à ton propre périmètre.
+
+Avant toute écriture :
+
+1. Lire le fichier courant.
+2. Identifier les modifications déjà présentes.
+3. Vérifier les changements concurrentiels.
+4. Modifier uniquement les entrées nécessaires.
+5. Ne pas supprimer les entrées des autres agents.
+6. Contrôler les différences après écriture.
+
+Si un fichier évolue entre ta lecture et ton écriture, relire sa version actuelle et adapter ton patch.
+
+Ne restaure jamais un fichier entier depuis une ancienne copie lorsque des modifications concurrentes existent.
+
+## Zones de contact sensibles
+
+Les régions suivantes nécessitent une vigilance particulière :
+
+- Croatie et Slavonie.
+- Frontière militaire habsbourgeoise.
+- Banat.
+- Transylvanie.
+- Dalmatie.
+- Istrie.
+- Territoires habsbourgeois de l'Adriatique.
+- États pontificaux et enclaves méridionales.
+- Possessions impériales en Italie.
+- Interfaces entre royaumes italiens et États du SERG.
+
+La possession d'un territoire par les Habsbourg ne prouve pas automatiquement son appartenance au Saint-Empire.
+
+Inversement, une région géographiquement balkanique ne devient pas automatiquement ta responsabilité si elle est déjà couverte par une tâche SERG.
+
+**Sur les interfaces, rechercher et documenter ; ne pas transférer les cellules attribuées à l'autre agent sans arbitrage explicite.**
+
+Inscrire les conflits éventuels dans `OWNERSHIP_BOUNDARIES.md`.
+
+Poursuivre les sous-lots indépendants plutôt que bloquer toute une région.
+
+# 4. DOCUMENTS ET DONNÉES INITIALES
+
+Commence par inspecter le dépôt réel.
+
+Réutilise, s'ils existent, les documents déjà produits pour la restauration territoriale mondiale :
+
+- `MAP_1776_BASELINE.csv`
+- `MAP_1776_9_REGIONS.csv`
+- `MAP_1776_RESEARCH_SCHEMA.md`
+- `MAP_1776_KNOWN_ISSUES.csv`
+
+Localise leurs versions canoniques et vérifie leur actualité.
+
+Ces documents constituent des bases de travail, pas des preuves historiques automatiques.
+
+Respecte les `Region_ID`, `State_ID`, `Owner_TAG` et RGB du bitmap.
+
+Les RGB correspondent aux couleurs réelles des provinces cartographiques de Victoria 3.
+
+Ne les traite pas comme des identifiants arbitraires.
+
+Lorsqu'un même État technique contient plusieurs propriétaires, conserve leurs portions distinctes.
+
+N'écrase pas les corrections déjà installées après la génération des fichiers de référence.
+
+# 5. MÉTHODE HISTORIQUE COMMUNE
+
+Pour chaque région, établir la situation réelle au **1er janvier 1776**.
+
+Distinguer systématiquement :
+
+1. Souveraineté politique.
+2. Administration effective.
+3. Dépendance diplomatique.
+4. Suzerainté.
+5. Vassalité.
+6. Autonomie locale.
+7. Revendication territoriale.
+8. Propriété foncière.
+9. Autorité religieuse.
+10. Contrôle militaire.
+11. Implantation coloniale.
+12. Territoires non soumis à une administration étatique centralisée.
+
+Ne pas confondre une carte de revendications coloniales avec une carte de contrôle territorial réel.
+
+Ne pas transformer automatiquement une région peu documentée en territoire vide ou sans propriétaire.
+
+Ne pas utiliser les frontières contemporaines comme preuve des frontières de 1776.
+
+Ne pas anticiper les conquêtes, annexions, partitions, indépendances ou réformes postérieures au 1er janvier 1776.
+
+Pour chaque décision importante, conserver :
+
+- Les sources.
+- La date des sources.
+- Leur périmètre.
+- Leur niveau de fiabilité.
+- Les éventuelles contradictions.
+- Le degré de certitude du choix.
+
+Distinguer les documents réellement consultés de ceux seulement identifiés dans une notice.
+
+# 6. PREMIÈRE PHASE — BALKANS
+
+**Priorité immédiate : P0.**
+
+Étudier et corriger :
+
+- Les Balkans ottomans.
+- La Bulgarie historique.
+- La Macédoine.
+- La Serbie sous domination ottomane.
+- La Bosnie.
+- L'Herzégovine.
+- L'Albanie.
+- L'Épire.
+- La Grèce continentale.
+- Les îles grecques.
+- Les possessions ottomanes dans les Balkans.
+- Les possessions vénitiennes de l'Adriatique et de la mer Ionienne.
+- Les principautés de Valachie et de Moldavie.
+- Le Monténégro et ses institutions particulières.
+- Les territoires frontaliers des Habsbourg qui ne sont pas réservés à l'agent SERG.
+- Les entités politiques autonomes pertinentes.
+- Les principales juridictions et subdivisions nécessaires à une représentation historiquement cohérente.
+
+## Empire ottoman
+
+Distingue :
+
+- Territoires gouvernés directement.
+- Provinces administratives.
+- États ou principautés tributaires.
+- Autonomies locales.
+- Régions où l'autorité ottomane est contestée.
+- Possessions vénitiennes et habsbourgeoises.
+
+Ne transforme pas automatiquement toutes les subdivisions administratives ottomanes en pays indépendants.
+
+Inversement, ne supprime pas l'autonomie politique réellement exercée par certaines principautés.
+
+## Principautés danubiennes
+
+Vérifier les dirigeants, institutions, dépendances et limites territoriales de la Moldavie et de la Valachie en 1776.
+
+Ne pas anticiper les réformes ni les annexions des décennies suivantes.
+
+## Monténégro
+
+Distinguer les prétentions ottomanes, l'autorité ecclésiastique, les communautés locales et le contrôle politique effectif.
+
+Éviter aussi bien une indépendance moderne fictive qu'une absorption injustifiée.
+
+## Possessions vénitiennes
+
+Vérifier les possessions adriatiques et ioniennes effectivement détenues par Venise.
+
+Ne pas anticiper la disparition de la République de Venise en 1797.
+
+## Habsbourg
+
+Documenter soigneusement la frontière militaire, les juridictions civiles et les possessions non impériales.
+
+Les territoires couverts par le SERG ne doivent pas être modifiés sans accord.
+
+## Résultat attendu de la phase Balkans
+
+- Frontières politiques corrigées.
+- Pays manquants créés lorsqu'ils sont nécessaires.
+- États tributaires et autonomies représentés de façon pertinente.
+- Gouvernements et souverains de 1776.
+- Populations redistribuées.
+- Institutions et bâtiments historiques pertinents.
+- Technologies de départ vérifiées.
+- Sources et limites documentées.
+- Tests statiques.
+- Sous-lots prêts pour test joueur.
+
+Ne laisse pas un manque de précision sur une petite vallée bloquer toutes les corrections importantes de la péninsule.
+
+# 7. DEUXIÈME PHASE — ITALIE MÉRIDIONALE
+
+Après les Balkans, poursuivre avec l'Italie méridionale.
+
+Périmètre principal :
+
+- Royaume de Naples.
+- Royaume de Sicile.
+- Sud de la péninsule italienne.
+- Calabre.
+- Pouilles.
+- Campanie.
+- Basilicate.
+- Molise.
+- Abruzzes.
+- Sicile et îles associées.
+- Enclaves pontificales pertinentes, notamment Bénévent et Pontecorvo.
+- Autres juridictions méridionales historiquement distinctes.
+
+Vérifier :
+
+- La dynastie des Bourbons.
+- Le souverain en fonction.
+- Les gouvernements et lois.
+- Les relations institutionnelles entre Naples et Sicile.
+- Les différences administratives entre les deux royaumes.
+- Les territoires pontificaux.
+- Les possessions et enclaves éventuelles.
+- La population.
+- Les structures économiques.
+- Les ports.
+- Les activités minières, agricoles et artisanales.
+- Les technologies de départ.
+
+**Ne pas anticiper le royaume des Deux-Siciles de 1816.**
+
+Ne pas absorber automatiquement les enclaves pontificales dans Naples.
+
+Ne pas modifier les territoires italiens déjà réservés au chantier SERG.
+
+Si un territoire constitue une interface avec une tâche SERG, documenter le problème et poursuivre les corrections indépendantes.
+
+# 8. TROISIÈME PHASE — AFRIQUE SUBSAHARIENNE
+
+Après l'Italie méridionale, poursuivre avec l'Afrique au sud du Sahara selon le périmètre du fichier canonique `MAP_1776_9_REGIONS.csv`.
+
+Étudier notamment :
+
+- Afrique de l'Ouest.
+- Région sénégambienne.
+- Royaumes et confédérations de la zone guinéenne.
+- États du golfe de Guinée.
+- Région du Bénin.
+- Bassin du Niger.
+- États et confédérations sahéliens attribués à cette phase.
+- Afrique centrale.
+- Bassin du Congo.
+- Afrique orientale.
+- Corne de l'Afrique selon les limites régionales canoniques.
+- Grands Lacs.
+- Afrique australe.
+- Madagascar.
+- Îles et établissements européens concernés.
+
+Attention : la catégorie « Afrique subsaharienne » ne représente pas une seule organisation politique ou un niveau technologique uniforme.
+
+## Règles impératives
+
+- Identifier les États africains réellement existants en 1776.
+- Respecter leurs frontières lorsqu'elles sont documentées.
+- Distinguer les royaumes centralisés, confédérations et systèmes politiques décentralisés.
+- Ne pas traiter les territoires africains comme automatiquement non possédés.
+- Ne pas inventer une souveraineté européenne sur tout l'arrière-pays à partir d'un comptoir côtier.
+- Distinguer les forts commerciaux, les concessions et le contrôle territorial.
+- Éviter les frontières coloniales de la fin du XIXe siècle.
+- Respecter les dynasties et les institutions locales.
+- Attribuer les cultures et religions avec prudence.
+- Utiliser des technologies cohérentes avec les capacités historiques réelles, sans hiérarchie simpliste fondée sur le continent.
+
+## Colonies et comptoirs
+
+Étudier séparément :
+
+- Les possessions portugaises.
+- Les implantations britanniques.
+- Les implantations françaises.
+- Les implantations néerlandaises.
+- Les autres établissements européens existants.
+
+Un comptoir ou un fort ne justifie pas l'annexion de toute la région environnante.
+
+## Démographie
+
+Les données sont parfois très incertaines.
+
+Distinguer les estimations contemporaines, reconstructions historiques et hypothèses de gameplay.
+
+Ne pas inventer de précision démographique sans source.
+
+## Résultat attendu
+
+Une restitution politique cohérente et aussi complète que techniquement possible, avec sous-lots documentés pour les régions où les limites exactes restent incertaines.
+
+# 9. QUATRIÈME PHASE — MAGHREB
+
+Après l'Afrique subsaharienne, poursuivre avec le Maghreb et les interfaces nord-africaines attribuées à cette phase.
+
+Périmètre principal :
+
+- Maroc.
+- Régence d'Alger.
+- Régence de Tunis.
+- Régence de Tripoli.
+- Cyrénaïque, selon les souverainetés et juridictions pertinentes.
+- Interfaces sahariennes.
+- Territoires tribaux et oasis.
+- Présides et enclaves européens, lorsque compris dans le périmètre.
+- Autres autorités nord-africaines effectivement pertinentes en 1776.
+
+## Règles historiques
+
+Distinguer :
+
+- Souveraineté marocaine.
+- Statut des régences ottomanes.
+- Autorité effective des deys et beys.
+- Liens avec Constantinople.
+- Autonomies locales.
+- Structures tribales.
+- Centres urbains.
+- Routes commerciales.
+- Oasis.
+- Comptoirs et places fortes européennes.
+
+Ne pas assimiler automatiquement les régences à des provinces ottomanes administrées directement.
+
+Ne pas non plus transformer arbitrairement chaque régence en État totalement indépendant si des obligations historiques la relient à l'Empire ottoman.
+
+Ne pas représenter tout le Sahara comme une propriété territoriale continue de quatre États côtiers.
+
+Distinguer influence, contrôle des routes et souveraineté effective.
+
+Vérifier les frontières avec les territoires sahéliens déjà étudiés pendant la troisième phase.
+
+Ne pas modifier les pays subsahariens validés sans correction historique démontrée.
+
+# 10. CINQUIÈME PHASE — AMÉRIQUES
+
+Après le Maghreb, poursuivre avec l'ensemble des Amériques couvertes par les régions canoniques R8 et R9.
+
+Cette phase comprend :
+
+- Amérique du Nord.
+- Amérique centrale.
+- Caraïbes.
+- Amérique du Sud.
+- Alaska et Groenland selon les affectations canoniques.
+- Îles atlantiques attribuées à ces régions.
+
+## Amérique du Nord
+
+Étudier :
+
+- Colonies britanniques.
+- Territoires français encore pertinents en 1776.
+- Possessions espagnoles.
+- Possessions russes.
+- Possessions danoises, selon les régions.
+- Territoires autochtones.
+- Confédérations et nations amérindiennes.
+- Frontières entre colonies.
+- Espaces revendiqués mais non administrés.
+- Implantations et établissements isolés.
+
+**Attention absolue à la date du 1er janvier 1776.**
+
+La Déclaration d'indépendance américaine du 4 juillet 1776 est postérieure au début du scénario.
+
+Ne pas appliquer automatiquement la situation internationale postérieure à juillet 1776 ou au traité de Paris de 1783.
+
+Il faut néanmoins représenter les réalités politiques et militaires de la guerre d'indépendance déjà commencée.
+
+La distinction entre indépendance proclamée, contrôle militaire, revendication et reconnaissance diplomatique doit être explicite.
+
+## Caraïbes
+
+Étudier :
+
+- Saint-Domingue français.
+- Cuba espagnole.
+- Porto Rico espagnol.
+- Jamaïque britannique.
+- Colonies françaises des Petites Antilles.
+- Possessions britanniques.
+- Possessions néerlandaises.
+- Possessions danoises.
+- Autres souverainetés insulaires pertinentes.
+
+Vérifier les propriétaires exacts au début de 1776.
+
+Respecter la situation coloniale réelle sans anticiper les indépendances ultérieures.
+
+## Amérique centrale
+
+Étudier les différentes subdivisions et dépendances coloniales.
+
+Distinguer contrôle territorial, établissements côtiers, communautés autochtones autonomes et revendications impériales.
+
+## Amérique du Sud
+
+Étudier :
+
+- Vice-royautés espagnoles.
+- Capitaineries et autres subdivisions.
+- Brésil portugais.
+- Guyanes.
+- Andes.
+- Bassin amazonien.
+- Cône Sud.
+- Patagonie.
+- Autorités autochtones et zones de contrôle limité.
+- Frontières coloniales réellement applicables en 1776.
+
+Ne pas anticiper les indépendances du XIXe siècle.
+
+Ne pas utiliser les frontières des États sud-américains contemporains comme frontières coloniales de 1776.
+
+**Attention à la chronologie : le vice-royaume du Río de la Plata est créé plus tard en 1776 ; ne pas lui attribuer rétroactivement au 1er janvier une situation postérieure.**
+
+## Nations autochtones
+
+Respecter autant que possible :
+
+- Les entités politiques réellement constituées.
+- Les confédérations.
+- Les alliances.
+- Les territoires et systèmes de contrôle.
+- Les relations avec les puissances coloniales.
+
+Ne pas remplacer systématiquement les souverainetés autochtones par de grandes possessions coloniales.
+
+## Résultat attendu
+
+Une restitution politique des deux Amériques avec les corrections territoriales, diplomatiques, démographiques et institutionnelles nécessaires.
+
+Ne pas traiter les vastes espaces revendiqués comme étant automatiquement administrés.
+
+# 11. TECHNOLOGIES INITIALES — CONTRÔLE OBLIGATOIRE
+
+Un défaut transversal a été identifié dans le mod : certains nouveaux micro-États ont été créés sans technologies de départ correctes.
+
+Il existe un chantier séparé d'audit technologique global.
+
+**Ne reproduis pas ce défaut dans tes nouvelles installations.**
+
+Chaque nouveau pays doit obligatoirement posséder :
+
+- Un historique national fonctionnel.
+- Ses technologies de départ.
+- Un profil technique pertinent pour 1776.
+- Des technologies compatibles avec ses bâtiments.
+- Des méthodes de production disponibles lorsque nécessaire.
+- Des dépendances technologiques cohérentes.
+
+Ne copie pas aveuglément les technologies d'un autre pays.
+
+Ne donne pas automatiquement toutes les technologies aux États nouvellement créés.
+
+Avant de modifier une infrastructure technologique commune, vérifier qu'un autre agent ne travaille pas déjà dessus.
+
+Réutiliser les correctifs et profils issus du chantier technologique global dès qu'ils sont disponibles.
+
+# 12. POPULATIONS ET CONSERVATION
+
+Pour chaque correction territoriale :
+
+- Identifier la population actuellement représentée.
+- Vérifier son attribution politique.
+- Comparer le périmètre démographique aux sources historiques.
+- Transférer les POPs pertinents si la souveraineté change.
+- Conserver les cultures, religions et professions sauf correction documentée.
+- Contrôler l'emploi et les bâtiments.
+- Vérifier la population mondiale avant/après.
+
+Un simple transfert territorial doit normalement conserver la population mondiale.
+
+Une correction démographique fondée sur des sources peut modifier le total mondial, mais cette variation doit être explicitement justifiée.
+
+Ne pas ajouter artificiellement des habitants pour rendre un micro-État économiquement viable.
+
+Ne pas transformer les habitants d'une colonie entière en population d'un établissement colonial côtier.
+
+# 13. ÉCONOMIE, ARMÉE ET INSTITUTIONS
+
+Créer ou corriger uniquement les éléments historiquement pertinents :
+
+- Gouvernements.
+- Dirigeants.
+- Lois.
+- Institutions.
+- Technologies.
+- Bâtiments.
+- Ressources.
+- Unités militaires.
+- Relations diplomatiques.
+- Vassalités.
+- Autonomies.
+- Traités.
+
+Pour les États tributaires et les protectorats, vérifier les mécanismes réellement disponibles dans Victoria 3.
+
+Ne pas inventer des relations diplomatiques modernes lorsqu'elles n'existent pas en 1776.
+
+Ne pas ajouter de grandes armées à des micro-États dépourvus des effectifs correspondants.
+
+Ne pas créer des industries avancées du XIXe siècle à la date de 1776.
+
+# 14. ORGANISATION DU TRAVAIL PAR LOTS
+
+Chaque phase doit être subdivisée en lots cohérents.
+
+Exemple :
+
+`BALKANS-01`
+`BALKANS-02`
+`BALKANS-03`
+
+Chaque lot doit disposer :
+
+- D'un périmètre précis.
+- D'une justification historique.
+- Des sources consultées.
+- Des pays et propriétaires concernés.
+- Des RGB.
+- Des cellules modifiées.
+- Des populations avant/après.
+- Des nouveaux personnages ou institutions.
+- Des technologies initiales.
+- De tests statiques.
+- D'un protocole de validation en jeu.
+- D'une liste de problèmes encore ouverts.
+
+Pour les lots installés, utiliser :
+
+`IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`
+
+Après ma confirmation explicite, enregistrer :
+
+`PASS_RUNTIME_USER_VALIDATED`
+
+Ne jamais inventer de reçu humain.
+
+Un sous-lot testé ne certifie pas automatiquement toute sa région.
+
+## Accélération autorisée
+
+Tu peux préparer plusieurs lots indépendants au sein d'une même phase.
+
+Tu peux rechercher les étapes suivantes pendant que les lots précédents attendent mon test.
+
+Tu peux poursuivre l'implémentation d'autres lots indépendants sans attendre une validation individuelle à chaque petite correction.
+
+Cependant :
+
+- Ne réécris pas un lot en attente de test sans documenter sa nouvelle version.
+- Ne mélange pas plusieurs versions sous le même reçu.
+- Ne prétends pas qu'une région est achevée si ses blocs importants restent ouverts.
+- Fournis des protocoles de test groupés lorsque les corrections sont compatibles.
+- Évite de créer inutilement des dizaines de micro-lots difficiles à tester.
+
+Privilégie des livraisons suffisamment importantes pour accélérer réellement la restauration mondiale.
+
+# 15. STRATÉGIE EN CAS DE BLOCAGE
+
+Si une frontière exacte ne peut pas être restituée :
+
+**Option A — Restitution précise**
+
+Implémenter les cellules dont la souveraineté est démontrée.
+
+**Option B — Approximation historique défendable**
+
+Créer un noyau politique cohérent qui représente une souveraineté réellement existante, sans prétendre reproduire exactement toutes les frontières.
+
+**Option C — Sous-lot partiel**
+
+Installer les corrections démontrables et isoler les zones incertaines.
+
+**Option D — Blocage justifié**
+
+Documenter la preuve ou la dépendance manquante, avec une action concrète permettant de reprendre.
+
+Ne pas transformer un simple manque de précision cadastrale en blocage permanent de toute une région.
+
+Ne pas non plus inventer arbitrairement un territoire parce qu'un pays doit absolument apparaître sur la carte.
+
+Les approximations B doivent rester explicitement identifiées.
+
+# 16. PROTECTION DES AUTRES CHANTIERS
+
+Outre le SERG, des agents peuvent travailler sur :
+
+- Les technologies initiales.
+- Les fortifications.
+- Le Corps du génie.
+- Les bâtiments militaires.
+- Les infrastructures régionales.
+- La Compagnie des mines d'Anzin.
+- La houille de prestige.
+- Saint-Gobain.
+- Le drainage.
+- Les bâtiments et méthodes de production.
+- Les mines et le sel.
+- Les États-Unis et les Minutemen.
+- Les accords franco-américains.
+- Les autres systèmes économiques.
+
+**Ces chantiers sont hors de ton périmètre.**
+
+Une exception existe pour les modifications strictement nécessaires au lancement de tes nouveaux pays, mais elles doivent être minimales, documentées et coordonnées au niveau des fichiers partagés.
+
+Pour l'Amérique du Nord, en particulier, vérifier les travaux déjà réalisés sur les colonies britanniques, les Minutemen et les relations franco-américaines.
+
+Ne pas écraser ces travaux au motif que la phase Amériques intervient plus tard.
+
+# 17. RÈGLES GIT ET FICHIERS
+
+Interdictions :
+
+- Aucun commit.
+- Aucun push.
+- Aucun staging.
+- Aucun merge.
+- Aucun rebase.
+- Aucun reset.
+- Aucun checkout modifiant la branche.
+- Aucune restauration depuis une ancienne baseline.
+- Aucune écriture dans le jeu vanilla.
+
+Travailler dans le workspace courant du mod.
+
+Limiter les changements au périmètre attribué.
+
+Documenter tous les fichiers fonctionnels modifiés.
+
+Protéger les modifications concurrentes même lorsqu'elles sont arrivées pendant ton exécution.
+
+# 18. TESTS ET VALIDATION
+
+Pour chaque lot, vérifier :
+
+1. Syntaxe Paradox.
+2. Intégrité des TAGs.
+3. Propriétaires des State Regions.
+4. RGB et cellules.
+5. Frontières et connexité.
+6. Conservation des propriétaires voisins.
+7. Populations.
+8. Cultures et religions.
+9. Professions et emploi.
+10. Gouvernements.
+11. Dirigeants.
+12. Lois.
+13. Technologies initiales.
+14. Bâtiments et méthodes de production.
+15. Ressources.
+16. Unités militaires.
+17. Relations diplomatiques.
+18. Compatibilité avec les autres lots installés.
+19. Absence de régression sur le SERG.
+20. Absence de modification concurrente écrasée.
+
+Exécuter les tests statiques, ciblés et cumulatifs réellement disponibles.
+
+Ne pas fabriquer de validation moteur.
+
+Préparer des protocoles joueur comprenant :
+
+- Nouvelle partie au 1er janvier 1776.
+- Vérification de la carte.
+- Vérification des souverains.
+- Vérification des populations.
+- Vérification de l'économie.
+- Vérification des technologies.
+- Vérification des relations diplomatiques.
+- Un mois de simulation.
+- Sauvegarde et rechargement.
+
+# 19. FEUILLE DE ROUTE AUTONOME
+
+Créer un tableau de progression pour les cinq phases.
+
+Pour chaque phase, distinguer :
+
+- `NOT_STARTED`
+- `RESEARCH_IN_PROGRESS`
+- `IMPLEMENTATION_IN_PROGRESS`
+- `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`
+- `PARTIALLY_USER_VALIDATED`
+- `BLOCKED`
+- `PASS_RUNTIME_USER_VALIDATED`
+- `REGION_COMPLETE`
+
+Ne pas utiliser `REGION_COMPLETE` si des obligations territoriales essentielles restent non résolues.
+
+Conserver les installations partielles et leurs reçus même lorsque la région reste bloquée.
+
+Un lot historiquement documenté mais non installé n'est pas un lot implémenté.
+
+Un lot statiquement validé n'est pas automatiquement un lot validé en jeu.
+
+# 20. RAPPORT DE FIN DE PASSE
+
+Chaque livraison doit présenter :
+
+**WORLD 1776 — CHANTIER TERRITORIAL AUTONOME N° 2**
+
+Puis :
+
+1. Phase actuelle.
+2. Progression des cinq phases.
+3. Liste des pays étudiés.
+4. Corrections installées.
+5. RGB et cellules modifiés.
+6. Populations avant/après.
+7. Souverains et institutions.
+8. Technologies de départ.
+9. Bâtiments, ressources et unités.
+10. Relations diplomatiques.
+11. Sources historiques et incertitudes.
+12. Tests exécutés.
+13. Lots en attente du joueur.
+14. Blocages encore ouverts.
+15. Conservation des modifications SERG.
+16. Changements concurrents détectés.
+17. Prochaine action concrète.
+
+# 21. ORDRE DE TRAVAIL ET AUTONOMIE
+
+Ordre obligatoire :
+
+**Phase 1 — Balkans.**
+
+**Phase 2 — Italie méridionale.**
+
+**Phase 3 — Afrique subsaharienne.**
+
+**Phase 4 — Maghreb.**
+
+**Phase 5 — Amériques.**
+
+Ne réordonne pas ces phases sans mon autorisation.
+
+Tu peux travailler de manière autonome à l'intérieur d'une phase, en privilégiant les corrections importantes et en regroupant les modifications compatibles.
+
+Tu ne dois pas attendre systématiquement un nouveau message de ma part après chaque sous-lot.
+
+Tu dois néanmoins t'arrêter au terme de chaque passe d'exécution pour publier un rapport traçable, préserver les états de validation et identifier les travaux suivants.
+
+Si une phase reste bloquée uniquement par quelques juridictions secondaires, tu peux passer à la phase suivante avec une liste explicite des obligations non résolues, sans déclarer la phase précédente complètement terminée.
+
+Ne lance pas les cinq phases simultanément.
+
+Ne crée pas d'automatisation externe ni de tâche planifiée : toute poursuite doit s'effectuer dans les sessions Codex explicitement lancées et autorisées.
+
+# 22. INSTRUCTION FINALE
+
+**Commence immédiatement par la phase Balkans.**
+
+1. Inspecte le mod et les recherches existantes.
+2. Délimite le périmètre Balkans hors SERG.
+3. Identifie les principales erreurs historiques au 1er janvier 1776.
+4. Construis une feuille de route propre à ton chantier.
+5. Priorise les corrections politiques et territoriales les plus importantes.
+6. Implémente un premier ensemble cohérent de corrections défendables.
+7. Vérifie les technologies de départ des nouveaux pays.
+8. Exécute les contrôles statiques et de non-régression.
+9. Prépare un protocole de test joueur.
+10. Rapporte précisément ce qui est installé et ce qui reste à faire.
+
+**L'objectif est d'accélérer réellement la restauration mondiale du mod, tout en maintenant une séparation stricte avec le chantier du Saint-Empire et les autres modifications concurrentes.**

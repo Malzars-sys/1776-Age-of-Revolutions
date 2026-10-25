@@ -1,0 +1,30 @@
+﻿# Join Ongoing Wars by The Lizerd King, adapted for 1776 and the local engine.
+# Credit and source hashes: docs/credits/JOIN_ONGOING_WARS.md
+join_war = {
+ kind = directed
+ cost = 0
+ icon = "gfx/interface/icons/lens_toolbar_icons/intervene_in_war.dds"
+ flags = { giftable friendly }
+ maintenance_paid_by = source_country
+ usage_limit = once_per_side
+ visible = { NOT = { is_country_type = decentralized } scope:other_country = { is_at_war = yes } }
+ possible = { NOT = { has_war_with = scope:other_country } }
+ can_ratify = {
+  aor1776_can_intervene_trigger = { ACTOR = scope:source_country FRIEND = scope:target_country }
+ }
+ on_entry_into_force = {
+  aor1776_intervene_effect = { ACTOR = scope:article_options.source_country FRIEND = scope:article_options.target_country }
+ }
+ requirement_to_maintain = {
+  trigger = {
+   scope:target_country = { is_at_war = yes }
+  }
+ }
+ ai = {
+  treaty_categories = { military }
+  article_ai_usage = { offer }
+  # Proposals are handled by the dated French controller and alliance calls.
+  evaluation_chance = { value = 0 }
+  inherent_accept_score = { value = 10 }
+ }
+}

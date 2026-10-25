@@ -1,0 +1,17 @@
+# Choix A / B / C — Obernberg et périphéries de Passau
+
+**A, ensemble complet : non installé.** Abteiland nord/Wolfstein/Freyung, Rannariedl/Jandelsbrunn occidental après 1765, Obernzell/Wegscheid, Rent-/Waldgütleramt, Vichtenstein et possessions dispersées ne sont pas réunis artificiellement. Leurs ressorts et populations doivent être attribués séparément. Hals, St. Nikola, Niederkessla, Neuburg et les propriétés médiates restent distingués ; une carte de 1791 ne restitue pas les acquisitions de 1765 et cessions de 1782 à elle seule.
+
+**B, noyau de marché d'Obernberg : retenu.** Quatre cellules **[4393,911], [4393,912], [4394,911], [4394,912]**, nouveau RGB **xEDC000**, PAS existant. Région technique STATE_AUSTRIA, parent **xFDA6CB AUS 179→175 cellules**, résidu connecté. Les quarante cellules PAS xEDBA00 restent exactement identiques, de même que son parent BAV xB08021 et le noyau SLZ de douze cellules. Aucun nouveau TAG ni corridor reliant l'enclave au noyau.
+
+Le placement est un **cartogramme politique B** sur la rive droite de l'Inn, en amont/sud-ouest du confluent natif [4400,902], au sud de Schärding dans la lecture Seutter, à l'ouest du Hausruck/Linz. Les cellules retenues sont immédiatement au sud-est du cours natif de l'Inn vers [4392,910], sans emprunt à Hals ou au noyau PAS. Ce raisonnement topologique et la petite emprise ne tracent ni les limites cadastrales ni tous les faubourgs. Les cartes de source et la grille native sont examinées séparément ; aucune équation de recalage R4 ou frontière moderne n'est appliquée.
+
+**1400 habitants existants** south_german catholiques par défaut sont transférés depuis AUS/STATE_AUSTRIA. Estimation arrondie du marché et faubourgs, fourchette de travail **1200–1600**, confrontée à l'estimation publiée 1441 de 1783 ; ce n'est ni la population de toute la paroisse ni une allocation par pixel. AUS/STATE_AUSTRIA **1638057→1636657**, PAS/BAVIÈRE **14267 inchangés**, nouveau PAS/AUTRICHE **1400**, total PAS **15667**. Monde inchangé. Aucun métier fictif ajouté.
+
+La portion reçoit seulement les noms Obernberg am Inn, limités au propriétaire PAS ; la capitale nationale reste dans STATE_BAVARIA. Firmian, gouvernement, lois, drapeau et relations du noyau validé restent inchangés. Aucun localisateur physique déplacé, aucune référence de hub ni capacité agricole/minière modifiée, aucun bâtiment ou effectif militaire ajouté. Le fonctionnement de la portion et ses moyens de subsistance sont à observer en jeu, pas présumés équilibrés.
+
+Un titre impérial borné supplémentaire pour xEDC000, **578→579** entrées ; parent AUS conservé et emprise physique constante. PAS est déjà membre : aucune nouvelle admission, ville libre ou dignité électorale. Pas de changement du total de neuf électeurs.
+
+La représentation AUS du voisinage reste un agrégat technique avec le blocage Innviertel déjà connu : **les voisins historiques d'Obernberg sont bavarois en 1776**, pas autrichiens par approbation de cette passe. Ce sous-lot ne certifie ni ne clôture cette erreur potentielle et ne réouvre pas SC2-AUSTRIA. Il en distingue seulement l'enclave passavienne.
+
+**C, diagnostic sans transfert : non retenu pour Obernberg**, dont la souveraineté, le centre et un ordre démographique comparable sont suffisamment étayés pour B. Cette solution demeure applicable aux autres périphéries non attribuées. SC1-PASSAU-OUTLIERS restera BLOCKED P1 ; seul PS-OB-CORE attendra le test joueur. Aucun point régional ni reçu humain.

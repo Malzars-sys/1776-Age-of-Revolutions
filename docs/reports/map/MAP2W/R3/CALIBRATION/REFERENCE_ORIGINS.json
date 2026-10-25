@@ -1,0 +1,436 @@
+{
+  "status": "NEITHER_FRAME_IS_LOCAL_PHYSICAL_GROUND_TRUTH",
+  "old_scan": {
+    "source": "docs/reports/map/MAP2L/GEOMETRY/Homann_reading.jpg",
+    "source_sha256": "a6c73e30795ff712487008662c6831ee2909993d78d0eba95d26a2546fea089a",
+    "formula": "[scan_x,scan_y,1] @ matrix = [bitmap_x,bitmap_y]",
+    "matrix": [
+      [
+        0.029492293710111982,
+        0.005888939080532318
+      ],
+      [
+        -0.0016747473712444005,
+        0.027387013519378556
+      ],
+      [
+        4318.161171091778,
+        826.2133799005417
+      ]
+    ],
+    "parameters": 6,
+    "fit_points": 3,
+    "unique_affine_exactly_reproduced": true,
+    "anchors": [
+      {
+        "name": "Wurzburg",
+        "role": "FIT",
+        "source": [
+          209,
+          1245
+        ],
+        "game": [
+          4322.24,
+          861.541
+        ],
+        "native_hub_type": "wood",
+        "native_hub_label": "Würzburg",
+        "geodetic_ground_truth": false,
+        "residual_px": 8.22404643550127e-12
+      },
+      {
+        "name": "Nuremberg",
+        "role": "FIT",
+        "source": [
+          1223,
+          1598
+        ],
+        "game": [
+          4351.554,
+          877.18
+        ],
+        "native_hub_type": "city",
+        "native_hub_label": "Nuremberg",
+        "geodetic_ground_truth": false,
+        "residual_px": 3.653931044024875e-12
+      },
+      {
+        "name": "Bayreuth",
+        "role": "FIT",
+        "source": [
+          1563,
+          985
+        ],
+        "game": [
+          4362.608,
+          862.394
+        ],
+        "native_hub_type": "mine",
+        "native_hub_label": "Bayreuth",
+        "geodetic_ground_truth": false,
+        "residual_px": 7.448006433223417e-12
+      },
+      {
+        "name": "Regensburg",
+        "role": "CHECK",
+        "source": [
+          2058,
+          2170
+        ],
+        "game": [
+          4373.729,
+          892.864
+        ],
+        "native_hub_type": "farm",
+        "native_hub_label": "Regensburg",
+        "geodetic_ground_truth": false,
+        "residual_px": 5.121133670523465
+      },
+      {
+        "name": "Bamberg versus displaced native Coburg farm",
+        "role": "DIAGNOSTIC_NOT_FIT",
+        "source": [
+          1024,
+          1027
+        ],
+        "game": [
+          4347.858,
+          862.075
+        ],
+        "native_hub_type": "farm",
+        "native_hub_label": "Coburg",
+        "geodetic_ground_truth": false,
+        "residual_px": 2.0945052324818367
+      },
+      {
+        "name": "Coburg rejected native farm label",
+        "role": "REJECTED_LABEL_CONTROL",
+        "source": [
+          1150,
+          625
+        ],
+        "game": [
+          4347.858,
+          862.075
+        ],
+        "native_hub_type": "farm",
+        "native_hub_label": "Coburg",
+        "geodetic_ground_truth": false,
+        "residual_px": 12.385679554530842
+      }
+    ],
+    "source_projection": "Historical engraved scan; no exact geographical projection established. Paper/engraving distortions not removed.",
+    "warning": "\"surveyed native hubs\" in the old method field means read positions in the game, NOT geodetically surveyed cities. Leave previous work unchanged."
+  },
+  "miller": {
+    "formula": "p=[radians(lon),1.25*log(tan(pi/4+0.4*radians(lat)))]; pixel=p@A+b",
+    "matrix": [
+      [
+        1255.167041359254,
+        -5.159846201805137
+      ],
+      [
+        -0.9688003245595548,
+        -1274.9110326762366
+      ],
+      [
+        4111.662940799494,
+        2076.7654941378114
+      ]
+    ],
+    "parameters": 6,
+    "fit_points": 5,
+    "anchors": [
+      {
+        "name": "Hanover",
+        "geo": [
+          9.73322,
+          52.37052
+        ],
+        "pixel": [
+          4325.178,
+          788.162
+        ],
+        "role": "FIT",
+        "quality": "native_locator_not_surveyed",
+        "geonames_id": 2910831
+      },
+      {
+        "name": "Magdeburg",
+        "geo": [
+          11.63189,
+          52.13129
+        ],
+        "pixel": [
+          4365.351,
+          796.94
+        ],
+        "role": "FIT",
+        "quality": "native_locator_not_surveyed",
+        "geonames_id": 2874545
+      },
+      {
+        "name": "Frankfurt",
+        "geo": [
+          8.68417,
+          50.11552
+        ],
+        "pixel": [
+          4300.876,
+          856.939
+        ],
+        "role": "FIT",
+        "quality": "native_locator_not_surveyed",
+        "geonames_id": 2925533
+      },
+      {
+        "name": "Brunswick",
+        "geo": [
+          10.52673,
+          52.26594
+        ],
+        "pixel": [
+          4339.979,
+          795.886
+        ],
+        "role": "FIT",
+        "quality": "native_locator_not_surveyed",
+        "geonames_id": 2945024
+      },
+      {
+        "name": "Dresden",
+        "geo": [
+          13.73832,
+          51.05089
+        ],
+        "pixel": [
+          4411.987,
+          828.656
+        ],
+        "role": "FIT",
+        "quality": "native_locator_not_surveyed",
+        "geonames_id": 2935022
+      }
+    ],
+    "domain": [
+      [
+        8.68417,
+        50.11552
+      ],
+      [
+        13.73832,
+        52.37052
+      ]
+    ],
+    "evaluation": {
+      "fit": {
+        "count": 5,
+        "rms_px": 1.7161194525273686,
+        "max_px": 2.9060047623058765,
+        "median_px": 0.4696309660630037
+      },
+      "check": {
+        "count": 10,
+        "rms_px": 12.081726746047412,
+        "max_px": 24.29913230680226,
+        "median_px": 7.817837730255027
+      },
+      "leave_one_out": [
+        {
+          "name": "Hanover",
+          "error_px": 4.687729170663993
+        },
+        {
+          "name": "Magdeburg",
+          "error_px": 0.4524962877431008
+        },
+        {
+          "name": "Frankfurt",
+          "error_px": 12.054370045270487
+        },
+        {
+          "name": "Brunswick",
+          "error_px": 4.390366142638116
+        },
+        {
+          "name": "Dresden",
+          "error_px": 4.267831331590028
+        }
+      ]
+    },
+    "warning": "Five unsurveyed city locators fitted north of Hohenlohe; affine cross-terms and extrapolation can propagate hub displacement. Miller is an empirical basis, not proof of engine projection."
+  },
+  "r3_sheet": {
+    "matrix": [
+      [
+        0.2681750243534405,
+        -0.003413781788978779
+      ],
+      [
+        -0.01087726772951116,
+        -0.26504549468233957
+      ],
+      [
+        4181.040302114411,
+        1004.9081846851406
+      ]
+    ],
+    "fit_points": [
+      {
+        "name": "Langenburg",
+        "source": [
+          561.6,
+          457.7
+        ],
+        "pixel": [
+          4326.6688703515065,
+          881.6796819163433
+        ]
+      },
+      {
+        "name": "Bartenstein",
+        "source": [
+          564.1,
+          469.2
+        ],
+        "pixel": [
+          4327.2142193335,
+          878.6231242730239
+        ]
+      },
+      {
+        "name": "Kirchberg_Jagst",
+        "source": [
+          571.6,
+          452.4
+        ],
+        "pixel": [
+          4329.408270114007,
+          883.0502852202699
+        ]
+      }
+    ],
+    "checks": [
+      {
+        "name": "Gerabronn",
+        "source": [
+          567.1,
+          457.4
+        ],
+        "geo": [
+          9.92028,
+          49.24944
+        ],
+        "residual": 0.0786902170352628
+      },
+      {
+        "name": "Schrozberg",
+        "source": [
+          571.3,
+          467.9
+        ],
+        "geo": [
+          9.97944,
+          49.34528
+        ],
+        "residual": 0.22205786294063773
+      }
+    ],
+    "warning": "SVG -> three pixels PREDICTED by the inherited Miller model. No new native observation; tiny sheet residuals are correlated with the same parent model."
+  },
+  "targets": [
+    {
+      "name": "Oehringen",
+      "geo": [
+        9.503,
+        49.201
+      ],
+      "pixel": [
+        4318.936908372468,
+        883.2084528572814
+      ],
+      "outside_fit_latitude": true,
+      "south_of_fit_domain_degrees": 0.914519999999996
+    },
+    {
+      "name": "Neuenstein",
+      "geo": [
+        9.58,
+        49.204
+      ],
+      "pixel": [
+        4320.623666173111,
+        883.1151784738793
+      ],
+      "outside_fit_latitude": true,
+      "south_of_fit_domain_degrees": 0.9115199999999959
+    },
+    {
+      "name": "Langenburg",
+      "geo": [
+        9.856,
+        49.253
+      ],
+      "pixel": [
+        4326.6688703515065,
+        881.6796819163433
+      ],
+      "outside_fit_latitude": true,
+      "south_of_fit_domain_degrees": 0.8625199999999964
+    },
+    {
+      "name": "Ingelfingen",
+      "geo": [
+        9.652,
+        49.3
+      ],
+      "pixel": [
+        4322.198854899941,
+        880.3442444360805
+      ],
+      "outside_fit_latitude": true,
+      "south_of_fit_domain_degrees": 0.8155199999999994
+    },
+    {
+      "name": "Bartenstein",
+      "geo": [
+        9.881,
+        49.359
+      ],
+      "pixel": [
+        4327.2142193335,
+        878.6231242730239
+      ],
+      "outside_fit_latitude": true,
+      "south_of_fit_domain_degrees": 0.7565199999999948
+    },
+    {
+      "name": "Kirchberg_Jagst",
+      "geo": [
+        9.981,
+        49.205
+      ],
+      "pixel": [
+        4329.408270114007,
+        883.0502852202699
+      ],
+      "outside_fit_latitude": true,
+      "south_of_fit_domain_degrees": 0.9105199999999982
+    },
+    {
+      "name": "Waldenburg",
+      "geo": [
+        9.64,
+        49.184
+      ],
+      "pixel": [
+        4321.938511379212,
+        883.6853193911479
+      ],
+      "outside_fit_latitude": true,
+      "south_of_fit_domain_degrees": 0.931519999999999
+    }
+  ],
+  "source_svg_crs": "Undeclared in SVG metadata; source coordinates have nominal map units, not asserted to be EPSG:25832 or GK3.",
+  "no_global_model_modified": true
+}

@@ -1,0 +1,773 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\states\00_states.txt
+@@
+ 		add_homeland = cu:south_german
+ 
+ 		create_state = { country = c:ANS owned_provinces = { xEDA800 } }
+ 		create_state = { country = c:EIC owned_provinces = { xEDA801 xEDA802 xEDA803 } }
+ 		create_state = { country = c:FBM owned_provinces = { xEDA804 xEDA807 } }
+ 		create_state = { country = c:NUR owned_provinces = { xEDA808 } }
+ 
+ create_state = { country = c:AUS owned_provinces = { xEDAD09 } }
+ create_state = { country = c:SAG owned_provinces = { xEDAD0A xEDAD0C } }
+ create_state = { country = c:SKE owned_provinces = { xEDAD0D } }
+ 
+ create_state = { country = c:SWY owned_provinces = { xEDAF00 xEDAF01 } }
+ 
+ create_state = { country = c:SAC owned_provinces = { xEDB002 } }
+ create_state = { country = c:SKI owned_provinces = { xEDB008 } }
++
++ create_state = { country = c:PAS owned_provinces = { xEDBA00 } }
+ }
+ 	s:STATE_FRANCONIA = {
+ 		create_state = { country = c:ANS owned_provinces = { xEDA200 xEDA205 xEDA208 xD041A0 xEDA217 xF91154 } }
+ 		create_state = { country = c:BAV owned_provinces = { xEDA201 xEDA202 xEDA209 xEDA20A xEDA20B xEDA210 xEDA212 xEDA213 xEDA219 xEDA21A xEDA21B xEDA21F xEDA220 xEDA504 xEDA505 xEDA506 xEDA507 xEDA206 xEDA218 } }
+ 		create_state = { country = c:COB owned_provinces = { xEDA20C xEDA221 } }
+ 		create_state = { country = c:EIC owned_provinces = { xEDA21C } }
+ 		create_state = { country = c:FBM owned_provinces = { xEDA203 x648AD1 xEDA211 xEDA214 xEDA215 xEDA21D xEDA222 } }
+ 		create_state = { country = c:NUR owned_provinces = { xEDA204 xEDA216 xD0C0A0 } }
+ 		create_state = { country = c:WZB owned_provinces = { x0B0DBA x51C0A0 xEDA207 xEDA20D xEDA20E xEDA20F xA55FB1 xEDA21E } }
+ 
+ 		add_homeland = cu:south_german
+ 	
+ create_state = { country = c:KMZ owned_provinces = { x9040A0 xEDA401 xEDA508 } }
+ 
+ create_state = { country = c:SEW owned_provinces = { xEDAE0B } }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\state_regions\00_west_europe.txt
+@@
+     wood = "xA61E6E"
+     arable_land = 30
+     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
+     capped_resources = {
+         building_coal_mine = 40
+         building_iron_mine = 45
+         building_lead_mine = 45
+         building_logging_camp = 6
+         building_limestone_quarry = 28
+     }
+ }
+ 
+ STATE_BAVARIA = {
+     id = 71
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x18A2E1" "x3101A0" "x565185" "x68CE1C" "x6EA29B" "x8C26DD" "xB00121" "xB08021" "xE75868" "xE76994" "xFE59E7" "x010AD7" "xEDA800" "xEDA801" "x318021" "xEDA802" "xEDA803" "x82F4B9" "xEDA804" "xA7094D" "xEDA805" "xEDA806" "xEDA807" "xEDA808" "xEDAD09" "xEDAD0A" "xEDAD0B" "xEDAD0C" "x704A5F" "xEDAF00" "xEDAF01" "xC347B1" "xEDB002" "xEDAD0D" "xEDB008" }
++    provinces = { "x18A2E1" "x3101A0" "x565185" "x68CE1C" "x6EA29B" "x8C26DD" "xB00121" "xB08021" "xEDBA00" "xE75868" "xE76994" "xFE59E7" "x010AD7" "xEDA800" "xEDA801" "x318021" "xEDA802" "xEDA803" "x82F4B9" "xEDA804" "xA7094D" "xEDA805" "xEDA806" "xEDA807" "xEDA808" "xEDAD09" "xEDAD0A" "xEDAD0B" "xEDAD0C" "x704A5F" "xEDAF00" "xEDAF01" "xC347B1" "xEDB002" "xEDAD0D" "xEDB008" }
+     traits = { "state_trait_danube_river" }
+     city = "xE76994"
+     farm = "xFE59E7"
+     mine = "xE75868"
+     wood = "xC347B1"
+     arable_land = 65
+     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_vineyard" }
+     capped_resources = {
+         building_coal_mine = 60
+         building_iron_mine = 30
+         building_lead_mine = 30
+         building_logging_camp = 23
+         building_limestone_quarry = 48
+     }
+     resource = {
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\pops\00_west_europe.txt
+@@
+ 				religion = catholic
+ 				size = 3121
+ 			}
+ 		}
+ 		region_state:PRU = {
+ 			create_pop = {
+ 				culture = north_german
+ 				size = 45719
+ 			}
+ 		}
+ 	}
+ 	s:STATE_BAVARIA = {
+ 		region_state:BAV = {
+ 			create_pop = {
+ 				culture = south_german
+-				size = 1201877
+-			}
+-			create_pop = {
+-				culture = south_german
+-				religion = protestant
+-				size = 25694
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 3612
++				size = 1187950
++			}
++			create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 25396
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 3570
+ 			}
+ 		}
+ 
+ 		region_state:ANS = {
+ 			create_pop = {
+ 				culture = south_german
+ 				size = 8789
+ 			}
+ 			create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 287
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+@@
+ 				culture = south_german
+ 				size = 12000
+ 			}
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 10000
+ 			}
+ 		}
+ 	
+ 		region_state:SKI = {
+ create_pop = {
+ 				culture = south_german
+ 				religion = protestant
+ 				size = 4000
++			}
++		}
++	
++		region_state:PAS = {
++create_pop = {
++				culture = south_german
++				size = 13927
++			}
++create_pop = {
++				culture = south_german
++				religion = protestant
++				size = 298
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 42
+ 			}
+ 		}
+ 	}
+ 	s:STATE_FRANCONIA = {
+ 		region_state:BAV = {
+ 			create_pop = {
+ 				culture = south_german
+ 				size = 217212
+ 			}
+ 			create_pop = {
+ 				culture = ashkenazi
+ 				size = 826
+ 			}
+ 			create_pop = {
+ 				culture = south_german
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\map_data\province_terrains.txt
+@@
+ xEDB707="plains"
+ xEDB708="plains"
+ xEDB800="forest"
+ xEDB801="plains"
+ xEDB802="forest"
+ xEDB803="forest"
+ xEDB804="forest"
+ xEDB805="forest"
+ xEDB806="plains"
+ xEDB807="plains"
+ xEDB808="forest"
+ xEDB809="forest"
+ xEDB80A="forest"
+ xEDB80B="forest"
+ xEDB80C="forest"
++xEDBA00="forest"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\country_definitions\1776_map2w_r4_passau.txt
++PAS = { color = { 181 73 67 } country_type = recognized tier = principality cultures = { south_german } religion = catholic capital = STATE_BAVARIA }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\countries\pas - map2w_r4.txt
++COUNTRIES = { c:PAS ?= {
++ add_technology_researched = distillation
++ add_technology_researched = improved_husbandry
++ add_technology_researched = industrial_ceramics
++ add_technology_researched = institutionalized_scientific_exchange
++ add_technology_researched = international_relations
++ add_technology_researched = light_infantry_tactics
++ add_technology_researched = medical_degrees
++ add_technology_researched = organized_forestry
++ add_technology_researched = organized_textile_production
++ add_technology_researched = periodical_print_networks
++ add_technology_researched = permanent_engineer_services
++ add_technology_researched = regulated_small_arms
++ add_technology_researched = scientific_fortification_siegecraft
++ add_technology_researched = shaft_mining
++ add_technology_researched = standardized_field_artillery
++ add_technology_researched = centralization
++ add_technology_researched = systematic_legal_codification
++ add_technology_researched = traditional_food_processing
++ add_technology_researched = organized_workshops
++ add_technology_researched = traditional_papermaking
++ add_technology_researched = organized_military_establishments
++ activate_law = law_type:law_aor1776_imperial_customs
++ activate_law = law_type:law_aor1776_imperial_no_slavery
++ activate_law = law_type:law_land_based_taxation
++ activate_law = law_type:law_hereditary_bureaucrats
++ activate_law = law_type:law_peasant_levies
++ activate_law = law_type:law_no_police
++ activate_law = law_type:law_guild_system
++ activate_law = law_type:law_tenant_farmers
++ activate_law = law_type:law_no_workers_rights
++ activate_law = law_type:law_autocracy
++ activate_law = law_type:law_state_religion
++ activate_law = law_type:law_theocracy
++} }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\history\characters\pas - map2w_r4.txt
++CHARACTERS = { c:PAS ?= { create_character = { first_name = aor1776_pas_first last_name = aor1776_pas_last historical = yes culture = south_german religion = rel:catholic ruler = yes age = 67 interest_group = ig_devout ideology = ideology_traditionalist } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\government_types\00_1776_map2w_r4_passau.txt
++gov_aor1776_passau = { transfer_of_power = dictatorial male_ruler = "RULER_TITLE_PRINCE_BISHOP" female_ruler = "RULER_TITLE_PRINCE_BISHOP" possible = { c:PAS ?= this has_law = law_type:law_theocracy } on_government_type_change = { change_to_dictatorial = yes } on_post_government_type_change = { post_change_to_dictatorial = yes } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\coat_of_arms\coat_of_arms\1776_map2w_r4_passau.txt
++aor1776_passau = { pattern = "pattern_solid.tga" color1 = "white" textured_emblem = { texture = "te_aor1776_passau.dds" instance = { scale = { 0.8 0.8 } position = { 0.5 0.5 } } } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\flag_definitions\1776_map2w_r4_passau.txt
++PAS = { flag_definition = { coa = aor1776_passau priority = 100 allow_overlord_canton = no } }
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\1776_map2w_r4_passau_l_french.yml
++﻿l_french:
++ PAS:0 "Passau"
++ PAS_ADJ:0 "passavien"
++ aor1776_pas_first:0 "Leopold Ernst"
++ aor1776_pas_last:0 "von Firmian"
++ gov_aor1776_passau:0 "Principauté épiscopale de Passau"
++ gov_aor1776_passau_desc:0 "Le prince-évêque exerce l’autorité temporelle sur les terres de Passau. Le chapitre cathédral élit le titulaire de cette principauté ecclésiastique de l’Empire.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\english\1776_map2w_r4_passau_l_english.yml
++﻿l_english:
++ PAS:0 "Passau"
++ PAS_ADJ:0 "Passau"
++ aor1776_pas_first:0 "Leopold Ernst"
++ aor1776_pas_last:0 "von Firmian"
++ gov_aor1776_passau:0 "Prince-Bishopric of Passau"
++ gov_aor1776_passau_desc:0 "The prince-bishop exercises temporal authority over the lands of Passau. The cathedral chapter elects the ruler of this ecclesiastical principality of the Empire.\n\n$TRANSFER_OF_POWER_NAME_DESC$"
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2L\IMPERIAL_DE_JURE_REGISTRY.json
+@@
+     "rgb": "xB04020",
+     "state": "STATE_TUSCANY",
+     "beneficiary": "TUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xB06141",
+     "state": "STATE_STYRIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xB08021",
+     "state": "STATE_BAVARIA",
+     "beneficiary": "BAV",
+-    "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    "basis": "MAP2W-R4 Passau: minimal political representation B, NOT cadastral; deferred peripheral jurisdictions; see MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/REPORT.md"
+   },
+   {
+     "rgb": "xB08061",
+     "state": "STATE_BADEN",
+     "beneficiary": "AUS",
+     "basis": "MAP2L SWABIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
+   },
+   {
+     "rgb": "xB0A0C0",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "BEO",
+     "basis": "MAP2L Belgian lot: source-traced game-scale approximation; see BELGIUM/GEOMETRY.json"
+   },
+   {
+     "rgb": "xB0E040",
+@@
+     "basis": "MAP2W-R2-B: inward jurisdiction generalisation B; C remnants unchanged, not certified; see MAP2W/R2B/REPORT.md"
+   },
+   {
+     "rgb": "xEDB80B",
+     "state": "STATE_SAXONY",
+     "beneficiary": "FUL",
+     "basis": "MAP2W-R2-B: inward jurisdiction generalisation B; C remnants unchanged, not certified; see MAP2W/R2B/REPORT.md"
+   },
+   {
+     "rgb": "xEDB80C",
+     "state": "STATE_SAXONY",
+     "beneficiary": "FUL",
+     "basis": "MAP2W-R2-B: inward jurisdiction generalisation B; C remnants unchanged, not certified; see MAP2W/R2B/REPORT.md"
+   },
+   {
++    "rgb": "xEDBA00",
++    "state": "STATE_BAVARIA",
++    "beneficiary": "PAS",
++    "basis": "MAP2W-R4 Passau: minimal political representation B, NOT cadastral; deferred peripheral jurisdictions; see MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/REPORT.md"
++  },
++  {
+     "rgb": "xEE1941",
+     "state": "STATE_BOHEMIA",
+     "beneficiary": "AUS",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF0021",
+     "state": "STATE_EMILIA",
+     "beneficiary": "MOD",
+     "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
+   },
+   {
+     "rgb": "xEF2040",
+     "state": "STATE_WALLONIA",
+     "beneficiary": "LGE",
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\docs\reports\map\MAP2W\R4\POLITICAL_REPRESENTATION\PASSAU\REGISTRY_MIGRATION.json
++{
++  "replaced_regions": [
++    "STATE_BAVARIA"
++  ],
++  "previous": [
++    {
++      "rgb": "x010AD7",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x18A2E1",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x3101A0",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x318021",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x565185",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x68CE1C",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x6EA29B",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x704A5F",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L SWABIA_FINISH: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x82F4B9",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x8C26DD",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA7094D",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xB00121",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xB08021",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xC347B1",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L SWABIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xE75868",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE76994",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xEDA800",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA801",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA802",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA803",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA804",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA805",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA806",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA807",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA808",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD09",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "AUS",
++      "basis": "MAP2L SWABIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD0A",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SAG",
++      "basis": "MAP2L SWABIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD0B",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L SWABIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD0C",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SAG",
++      "basis": "MAP2L SWABIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD0D",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SKE",
++      "basis": "MAP2L SWABIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAF00",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SWY",
++      "basis": "MAP2L SWABIA_FINISH: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAF01",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SWY",
++      "basis": "MAP2L SWABIA_FINISH: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB002",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SAC",
++      "basis": "MAP2L SWABIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB008",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SKI",
++      "basis": "MAP2L SWABIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xFE59E7",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    }
++  ],
++  "updated": [
++    {
++      "rgb": "x010AD7",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x18A2E1",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x3101A0",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x318021",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x565185",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x68CE1C",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x6EA29B",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "x704A5F",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L SWABIA_FINISH: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x82F4B9",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "x8C26DD",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xA7094D",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xB00121",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xC347B1",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L SWABIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xE75868",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xE76994",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xEDA800",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "ANS",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA801",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA802",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA803",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "EIC",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA804",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA805",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA806",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA807",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "FBM",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDA808",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "NUR",
++      "basis": "MAP2L FRANCONIA_CONTINUATION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD09",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "AUS",
++      "basis": "MAP2L SWABIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD0A",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SAG",
++      "basis": "MAP2L SWABIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD0B",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2L SWABIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD0C",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SAG",
++      "basis": "MAP2L SWABIA: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAD0D",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SKE",
++      "basis": "MAP2L SWABIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAF00",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SWY",
++      "basis": "MAP2L SWABIA_FINISH: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDAF01",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SWY",
++      "basis": "MAP2L SWABIA_FINISH: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB002",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SAC",
++      "basis": "MAP2L SWABIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xEDB008",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "SKI",
++      "basis": "MAP2L SWABIA_COMPLETION: source-traced game-scale territory; retained fringe not historically certified; see REPORT.md."
++    },
++    {
++      "rgb": "xFE59E7",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "Frozen 1776 gameplay assignment; NOT a new historical territorial claim"
++    },
++    {
++      "rgb": "xB08021",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "BAV",
++      "basis": "MAP2W-R4 Passau: minimal political representation B, NOT cadastral; deferred peripheral jurisdictions; see MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/REPORT.md"
++    },
++    {
++      "rgb": "xEDBA00",
++      "state": "STATE_BAVARIA",
++      "beneficiary": "PAS",
++      "basis": "MAP2W-R4 Passau: minimal political representation B, NOT cadastral; deferred peripheral jurisdictions; see MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/REPORT.md"
++    }
++  ],
++  "new_members": [
++    "PAS"
++  ],
++  "free_cities": [],
++  "new_provinces": [
++    {
++      "rgb": "xEDBA00",
++      "parent_rgb": "xB08021"
++    }
++  ],
++  "geometry": "MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/GEOMETRY.json",
++  "region_reference_changes": [],
++  "extent_added_cells": [],
++  "extent_removed_cells": [],
++  "country_additions": {
++    "PAS": "[\"PAS\",\"=\",[[\"color\",\"=\",[[\"\",\"\",\"181\"],[\"\",\"\",\"73\"],[\"\",\"\",\"67\"]]],[\"country_type\",\"=\",\"recognized\"],[\"tier\",\"=\",\"principality\"],[\"cultures\",\"=\",[[\"\",\"\",\"south_german\"]]],[\"religion\",\"=\",\"catholic\"],[\"capital\",\"=\",\"STATE_BAVARIA\"]]]"
++  }
++}
+*** End Patch

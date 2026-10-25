@@ -1,0 +1,134 @@
+﻿COUNTRIES = {
+	c:FRA ?= {
+		effect_starting_technology_tier_4_tech = yes
+		add_technology_researched = advanced_crop_rotations
+		add_technology_researched = alloysworking
+		add_technology_researched = armament_standardization_inspection
+		add_technology_researched = atmospheric_engine
+		add_technology_researched = colonization
+		add_technology_researched = commercial_insurance_markets
+		add_technology_researched = enclosed_dock_systems
+		add_technology_researched = improved_agricultural_implements
+		add_technology_researched = industrial_acids
+		add_technology_researched = industrial_canals
+		add_technology_researched = industrial_ceramics
+		add_technology_researched = institutionalized_scientific_exchange
+		add_technology_researched = institutionalized_public_credit
+		add_technology_researched = marine_chronometry
+		add_technology_researched = medical_degrees
+		add_technology_researched = military_topographic_surveying
+		add_technology_researched = organized_forestry
+		add_technology_researched = periodical_print_networks
+		add_technology_researched = permanent_engineer_services
+		add_technology_researched = permanent_military_hospitals
+		add_technology_researched = political_economy
+		add_technology_researched = scientific_fortification_siegecraft
+		add_technology_researched = scientific_naval_architecture
+		add_technology_researched = specialized_technical_academies
+		add_technology_researched = standardized_naval_signals
+		add_technology_researched = state_dockyard_systems
+		add_technology_researched = stock_exchange
+		add_technology_researched = sugar_refining
+		add_technology_researched = systematic_population_registration
+		add_technology_researched = traditional_food_processing
+		add_technology_researched = organized_workshops
+		add_technology_researched = traditional_papermaking
+		add_technology_researched = veterinary_science
+		add_technology_researched = organized_financial_institutions
+		add_technology_researched = organized_military_establishments
+		add_technology_researched = ship_classification_surveying
+		add_technology_researched = turnpike_road_networks
+		add_technology_researched = selective_breeding
+
+
+
+
+
+
+
+#		set_tax_level = medium
+
+		add_taxed_goods = g:wine
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:salt
+
+		# TECH6A-2C: France begins in 1776 with the historical Gabelle.
+		add_journal_entry = {
+			type = je_gabelle
+		}
+
+		# Laws
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_right_of_assembly
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_mercantilism # Corn Laws, babyyy
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_no_health_system
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_professional_navy
+		activate_law = law_type:law_manorialism # third estate baby thanks paradox for new laws
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_colonial_slavery
+		activate_law = law_type:law_agrarianism
+
+		active_law:lawgroup_church_and_state ?= { # First Estate
+			add_amendment = {
+				type = amendment_first_estate
+				sponsor = PREV.ig:ig_devout
+			}
+		}
+
+		active_law:lawgroup_land_reform ?= { # Second Estate
+			add_amendment = {
+				type = amendment_second_estate
+				sponsor = PREV.ig:ig_landowners
+			}
+		}
+
+		# Historic French companies already operating at the 1776 start.
+		add_company = company_type:company_mines_anzin
+		company:company_mines_anzin = {
+			set_company_establishment_date = 1757.11.19
+			set_company_state_region = s:STATE_FRENCH_LOW_COUNTRIES
+		}
+
+		# The Royal Mirror Manufactory was chartered in October 1665.
+		# October 1 is a gameplay placeholder because the exact day is not established.
+		add_company = company_type:company_saint_gobain
+		company:company_saint_gobain = {
+			set_company_establishment_date = 1665.10.1
+			set_company_state_region = s:STATE_PICARDY
+		}
+
+		set_institution_investment_level = {
+			institution = institution_police
+			level = 1
+		}
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+
+		ig:ig_landowners = {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_devout = {
+			add_ruling_interest_group = yes
+		}
+
+		set_variable = {
+			name = fra_republic_counter
+			value = 1
+		}
+		set_variable = {
+			name = one_true_dynasty
+		}
+	}
+}

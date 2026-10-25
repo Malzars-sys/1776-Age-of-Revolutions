@@ -1,0 +1,57 @@
+# Independent specialist group: does not replace the country's default infantry.
+combat_unit_type_aor1776_engineer_corps = {
+	group = combat_unit_group_aor1776_engineers
+	max_manpower = 1000
+	supply_capacity = 30
+	conscript_peasant_levies = no
+	unlocking_technologies = { permanent_engineer_services }
+
+	upkeep_modifier = {
+		goods_input_small_arms_add = 1
+		goods_input_tools_add = 1
+		goods_input_wood_add = 0.5
+	}
+	battle_modifier = {
+		# Readouts of the local siege counter, per 1000 men in this battle.
+		unit_aor1776_enemy_fort_territorial_protection_add = -0.01
+		unit_aor1776_enemy_fort_casualty_protection_add = -0.01
+		unit_aor1776_enemy_fort_defense_add = -0.01
+	}
+
+	# These triggers use the unit's culture, as in native unit illustrations.
+	combat_unit_image = {
+		trigger = { aor1776_engineer_culture_is_american = yes }
+		texture = "gfx/unit_illustrations/1776_engineer_corps_american.dds"
+	}
+	combat_unit_image = {
+		trigger = { aor1776_engineer_culture_is_american = no has_culture_graphics = east_asian }
+		texture = "gfx/unit_illustrations/1776_engineer_corps_east_asian.dds"
+	}
+	combat_unit_image = {
+		trigger = { aor1776_engineer_culture_is_american = no has_culture_graphics = south_asian }
+		texture = "gfx/unit_illustrations/1776_engineer_corps_south_asian.dds"
+	}
+	combat_unit_image = {
+		trigger = { aor1776_engineer_culture_is_american = no has_culture_graphics = african }
+		texture = "gfx/unit_illustrations/1776_engineer_corps_african.dds"
+	}
+	combat_unit_image = {
+		trigger = { aor1776_engineer_culture_is_american = no has_culture_graphics = arabic }
+		texture = "gfx/unit_illustrations/1776_engineer_corps_arabic.dds"
+	}
+	combat_unit_image = {
+		trigger = {
+			aor1776_engineer_culture_is_american = no
+			OR = {
+				has_culture_graphics = european
+				has_culture_graphics = french
+				has_culture_graphics = balkan
+			}
+		}
+		texture = "gfx/unit_illustrations/1776_engineer_corps_european.dds"
+	}
+	combat_unit_image = {
+		# Generic fallback supplied separately by the player (khaki uniforms).
+		texture = "gfx/unit_illustrations/1776_engineer_corps.dds"
+	}
+}

@@ -1,0 +1,21 @@
+on_game_started_after_lobby = { on_actions = { aor1776_usa_support_startup } }
+
+aor1776_usa_support_startup = {
+	effect = {
+		c:USA ?= { aor1776_support_initialize_effect = yes }
+		c:FRA ?= {
+			if = {
+				limit = { exists = c:USA c:USA = { NOT = { has_variable = aor1776_support_startup_scheduled } } }
+				c:USA = { set_variable = aor1776_support_startup_scheduled }
+				trigger_event = { id = aor1776_french_support.1 days = 2 popup = yes }
+			}
+		}
+	}
+}
+
+on_monthly_pulse_country = { on_actions = { aor1776_usa_support_monthly } }
+
+aor1776_usa_support_monthly = {
+	trigger = { c:USA ?= this }
+	effect = { aor1776_support_monthly_effect = yes aor1776_content_monthly_effect = yes aor1776_founders_maintenance_effect = yes }
+}

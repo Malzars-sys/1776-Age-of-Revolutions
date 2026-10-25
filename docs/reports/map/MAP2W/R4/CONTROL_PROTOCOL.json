@@ -1,0 +1,16 @@
+{
+  "status": "FROZEN_BEFORE_FIRST_FIT",
+  "basis": "Named ATKIS watercourse axes compared with native tributary topology and index-1 join markers; neither cities nor inherited projections used.",
+  "model": "one local affine longitude/latitude to native cell-centre diagnostic, six parameters; no optimisation, no second fit after holdout",
+  "source_axis_order": "GML EPSG:4326 latitude/longitude; normalized to longitude/latitude",
+  "native_coordinate_convention": "Upper-left origin; an index-1 marker at column x,row y is observed at [x+0.5,y+0.5]. Marker cell is an uncertain rasterised junction, not exact geodetic point.",
+  "controls": [
+    {"id": "LECH", "role": "FIT", "native_marker": [4337,898], "identification": "Second major south-bank Danube tributary after Iller in west-east order; Lech valley topology."},
+    {"id": "INN", "role": "FIT", "native_marker": [4400,902], "identification": "Eastern large Inn-Danube junction; Inn upstream joined by Salzach."},
+    {"id": "SALZACH", "role": "FIT", "native_marker": [4385,912], "identification": "Southern branch joining lower Inn before its northward final run to Danube."},
+    {"id": "ISAR", "role": "CHECK", "native_marker": [4384,894], "identification": "Danube tributary between Lech and Inn, upstream separate from Inn, matching independent Isar topology."}
+  ],
+  "source_join_rule": "Mean of all distinct exact shared endpoints of named main/tributary station axes inside the declared small source window. Multiple source mouths remain explicit alternatives, not silently selected to improve residuals.",
+  "rejection_rule": "A single independent physical check is a diagnostic, not a territorial accuracy certificate. If its residual or sensitivity is comparable to target widths, no installation; if small, still require source boundary and local error support before transfers. No fixed universal two-pixel rule.",
+  "excluded": ["Iller: no exact shared named source-axis endpoint in this window", "Ilz: no identifiable native branch", "Regen and Naab: not represented as identifiable native branches here", "all urban and building locators", "Miller and Homann inherited transforms"]
+}

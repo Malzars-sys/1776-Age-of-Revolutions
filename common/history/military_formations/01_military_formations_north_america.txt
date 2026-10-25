@@ -97,7 +97,7 @@ MILITARY_FORMATIONS = {
 			name = cleanup2d3b_usa_naval_1
 
 			ship = {
-				type = ship_type:ship_type_caravel
+				type = ship_type:ship_type_aor1776_armed_merchantman
 				count = 5
 			}
 			save_scope_as = cleanup2d6_fleet_030
@@ -105,6 +105,7 @@ MILITARY_FORMATIONS = {
 
 		# BEGIN CLEANUP-2D-6L NAV1776-030 — Esek Hopkins
 		create_character = {
+			template = aor1776_usa_hopkins
 			first_name = cleanup2d6_name_030
 			last_name = cleanup2d6_empty_name
 			historical = yes
@@ -124,6 +125,7 @@ MILITARY_FORMATIONS = {
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
 		# GEN1776-087 — George Washington — CLEANUP-2D-5
 		create_character = {
+			template = aor1776_usa_washington
 			first_name = cleanup2d5_name_087
 			last_name = cleanup2d5_empty_name
 			historical = yes
@@ -140,6 +142,40 @@ MILITARY_FORMATIONS = {
 			transfer_to_formation = scope:dannys_army
 		}
 		# END CLEANUP-2D-4 STARTING GENERALS 1776
+
+		# USA-COMMANDERS-1776: senior officers of the Boston siege.
+		create_character = {
+			template = aor1776_usa_charles_lee
+			save_scope_as = aor1776_usa_lee
+		}
+		scope:aor1776_usa_lee = {
+			transfer_to_formation = scope:dannys_army
+		}
+		create_character = {
+			template = aor1776_usa_artemas_ward
+			save_scope_as = aor1776_usa_ward
+		}
+		scope:aor1776_usa_ward = {
+			transfer_to_formation = scope:dannys_army
+		}
+		create_character = {
+			template = aor1776_usa_israel_putnam
+			save_scope_as = aor1776_usa_putnam
+		}
+		scope:aor1776_usa_putnam = {
+			transfer_to_formation = scope:dannys_army
+		}
+
+		# No extra formation or battalion is created for departmental/brigade roles.
+		# These two officers remain available for assignment by the player.
+		create_character = {
+			template = aor1776_usa_philip_schuyler
+			save_scope_as = aor1776_usa_schuyler
+		}
+		create_character = {
+			template = aor1776_usa_nathanael_greene
+			save_scope_as = aor1776_usa_greene
+		}
 	}
 	c:HAI ?= {
 		create_military_formation = {

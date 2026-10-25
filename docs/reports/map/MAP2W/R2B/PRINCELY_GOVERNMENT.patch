@@ -1,0 +1,22 @@
+*** Begin Patch
+*** Add File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\common\government_types\00_1776_map2w_r2b_saarbruecken.txt
++gov_aor1776_map2w_r2b_saarbruecken = { transfer_of_power = hereditary male_ruler = "RULER_TITLE_PRINCE" female_ruler = "RULER_TITLE_PRINCESS" possible = { c:NSB ?= this has_law = law_type:law_monarchy } on_government_type_change = { change_to_hereditary = yes } on_post_government_type_change = { post_change_to_hereditary = yes } }
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\french\1776_map2w_r2b_l_french.yml
+@@
+ ﻿l_french:
+  NSB:0 "Nassau-Sarrebruck"
+  NSB_ADJ:0 "sarrebruckois"
+  aor1776_map2w_r2b_nsb_first:0 "Ludwig"
+  aor1776_map2w_r2b_nsb_last:0 "von Nassau-Saarbrücken"
++ gov_aor1776_map2w_r2b_saarbruecken:0 "Principauté de Nassau-Sarrebruck"
++ gov_aor1776_map2w_r2b_saarbruecken_desc:0 "Le [concept_ruler] héréditaire gouverne les possessions de Nassau-Sarrebruck, demeurées distinctes de celles de Nassau-Usingen."
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\localization\english\1776_map2w_r2b_l_english.yml
+@@
+ ﻿l_english:
+  NSB:0 "Nassau-Saarbrücken"
+  NSB_ADJ:0 "Saarbrücken"
+  aor1776_map2w_r2b_nsb_first:0 "Ludwig"
+  aor1776_map2w_r2b_nsb_last:0 "von Nassau-Saarbrücken"
++ gov_aor1776_map2w_r2b_saarbruecken:0 "Principality of Nassau-Saarbrücken"
++ gov_aor1776_map2w_r2b_saarbruecken_desc:0 "The hereditary [concept_ruler] governs the possessions of Nassau-Saarbrücken, which remain distinct from those of Nassau-Usingen."
+*** End Patch

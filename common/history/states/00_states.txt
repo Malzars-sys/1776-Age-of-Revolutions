@@ -2054,6 +2054,9 @@ create_state = { country = c:LUB owned_provinces = { xEDB101 } }
 		}
 
 		add_homeland = cu:north_italian
+
+		# SC4-MASSA-CARRARA: coastal political nucleus; not all Lunigiana.
+		create_state = { country = c:MCA owned_provinces = { xEDBC00 } }
 	}
 	s:STATE_TUSCANY = {
 		create_state = {
@@ -6379,7 +6382,7 @@ create_state = { country = c:LUB owned_provinces = { xEDB101 } }
 	}
 	s:STATE_WEST_AEGEAN_ISLANDS = {
 		create_state = {
-			country = c:VEN
+			country = c:TUR
 			owned_provinces = { x6090A0 x6960a0 }
 		}
 
@@ -7817,7 +7820,10 @@ create_state = { country = c:LUB owned_provinces = { xEDB101 } }
 
 		add_homeland = cu:croat
 		add_homeland = cu:serb
-	}
+	
+		create_state = { country = c:RAG owned_provinces = { xE8D201 } }
+		create_state = { country = c:TUR owned_provinces = { xE8D202 xE8D203 } }
+}
 	s:STATE_CROATIA = {
 		create_state = {
 			country = c:AUS
@@ -7928,6 +7934,9 @@ create_state = { country = c:LUB owned_provinces = { xEDB101 } }
 		}
 
 		add_homeland = cu:south_german
+
+		# SC1-BERCHTESGADEN: sovereign residence B, technical region is not sovereignty.
+		create_state = { country = c:BGT owned_provinces = { xEDBF00 } }
 	}
 	s:STATE_AUSTRIA = {
 		create_state = {
@@ -7936,6 +7945,9 @@ create_state = { country = c:LUB owned_provinces = { xEDB101 } }
 		}
 
 		add_homeland = cu:south_german
+
+		# SC1-PASSAU-OUTLIERS: Obernberg sovereign market B, not all Innviertel.
+		create_state = { country = c:PAS owned_provinces = { xEDC000 } }
 	}
 	s:STATE_SOUTH_TYROL = {
 		
@@ -7947,6 +7959,12 @@ create_state = { country = c:LUB owned_provinces = { xEDB101 } }
 
 		add_homeland = cu:south_german
 		add_homeland = cu:north_italian
+
+		# SC1-TRENTO: episcopal residence core, not the diocese or all South Tyrol.
+		create_state = { country = c:TRT owned_provinces = { xEDBD00 } }
+
+		# SC1-BRIXEN: political residence, not the diocese or all Puster/Isarco.
+		create_state = { country = c:BRX owned_provinces = { xEDBE00 } }
 	}
 	s:STATE_SLOVENIA = {
 		create_state = {
@@ -8054,7 +8072,9 @@ create_state = { country = c:SSO owned_provinces = { xEDB501 } }
 	
 		# MAP-2K: approved coarse electoral-state representation, no new RGB.
 		create_state = { country = c:KTR owned_provinces = { xD080A0 } }
-	}
+
+create_state = { country = c:NSB owned_provinces = { xEDB800 } }
+}
 	s:STATE_NORTH_RHINE = {
 		create_state = {
 			country = c:PRU
@@ -8220,7 +8240,18 @@ create_state = { country = c:SWY owned_provinces = { xEDAF00 xEDAF01 } }
 
 create_state = { country = c:SAC owned_provinces = { xEDB002 } }
 create_state = { country = c:SKI owned_provinces = { xEDB008 } }
-}
+
+ create_state = { country = c:PAS owned_provinces = { xEDBA00 } }
+
+ create_state = { country = c:FSI owned_provinces = { xEDBA10 } }
+
+ create_state = { country = c:RBI owned_provinces = { xEDBA11 xEDBA12 } }
+
+ create_state = { country = c:RCI owned_provinces = { xEDBA13 xEDBA14 } }
+
+		# SC1-SALZBURG: documented political residence nucleus.
+		create_state = { country = c:SLZ owned_provinces = { xEDBB00 } }
+	}
 	s:STATE_FRANCONIA = {
 		create_state = { country = c:ANS owned_provinces = { xEDA200 xEDA205 xEDA208 xD041A0 xEDA217 xF91154 } }
 		create_state = { country = c:BAV owned_provinces = { xEDA201 xEDA202 xEDA209 xEDA20A xEDA20B xEDA210 xEDA212 xEDA213 xEDA219 xEDA21A xEDA21B xEDA21F xEDA220 xEDA504 xEDA505 xEDA506 xEDA507 xEDA206 xEDA218 } }
@@ -8271,7 +8302,7 @@ create_state = { country = c:RSL owned_provinces = { xEDB402 xEDB403 xEDB40E } }
 create_state = { country = c:RLO owned_provinces = { xEDB503 } }
 create_state = { country = c:REB owned_provinces = { xEDB500 xEDB502 } }
 
-create_state = { country = c:FUL owned_provinces = { xEDB603 } }
+create_state = { country = c:FUL owned_provinces = { xEDB603 xEDB80A xEDB80B xEDB80C } }
 }
 	s:STATE_BRUNSWICK = {
 		create_state = {
@@ -8296,7 +8327,7 @@ create_state = { country = c:FUL owned_provinces = { xEDB603 } }
 		}
 		create_state = {
 			country = c:HES
-			owned_provinces = { x8B7C67 x90C020 }
+			owned_provinces = { x8B7C67 xEDB806 x90C020 }
 		}
 		create_state = {
 			country = c:HEK
@@ -8304,7 +8335,7 @@ create_state = { country = c:FUL owned_provinces = { xEDB603 } }
 		}
 		create_state = {
 			country = c:NAS
-			owned_provinces = { x90C0A0 x1357DB }
+			owned_provinces = { x90C0A0 x1357DB xEDB700 xEDB706 xEDB801 xEDB807 }
 		}
 		create_state = {
 			country = c:WLD
@@ -8316,7 +8347,10 @@ create_state = { country = c:FUL owned_provinces = { xEDB603 } }
 		# MAP-2K: approved coarse electoral-state representation, no new RGB.
 		create_state = { country = c:KMZ owned_provinces = { xEDA400 x1141A0 xEDA500 xEDA501 xEDA502 xEDA503 } }
 	
-create_state = { country = c:FUL owned_provinces = { xEDB600 } }
+create_state = { country = c:FUL owned_provinces = { xEDB600 xEDB809 } }
+
+create_state = { country = c:NOU owned_provinces = { xEDB701 xEDB702 xEDB705 xEDB802 xEDB803 xEDB808 } }
+create_state = { country = c:NWB owned_provinces = { xEDB703 xEDB704 xEDB707 xEDB708 xEDB804 xEDB805 } }
 }
 	s:STATE_PIEDMONT = {
 		create_state = {

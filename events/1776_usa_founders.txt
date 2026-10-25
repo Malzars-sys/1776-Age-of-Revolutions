@@ -1,0 +1,47 @@
+namespace = aor1776_usa_founders
+
+aor1776_usa_founders.1 = {
+	type = country_event
+	placement = root
+	title = aor1776_usa_founders.1.t
+	desc = aor1776_usa_founders.1.d
+	flavor = aor1776_usa_founders.1.f
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 20
+	trigger = { c:USA ?= this game_date >= 1776.9.26 aor1776_franklin_available = yes OR = { aor1776_usa_independence_war_active = yes is_subject = no } }
+	option = {
+		name = aor1776_usa_founders.1.a
+		default_option = yes
+		trigger = { aor1776_franklin_available = yes gold_reserves >= 5000 OR = { aor1776_usa_independence_war_active = yes is_subject = no } exists = c:FRA c:FRA = { NOR = { has_war_with = c:USA is_diplomatic_play_enemy_of = c:USA } } }
+		add_treasury = -5000
+		change_relations = { country = c:FRA value = 10 }
+	}
+	option = { name = aor1776_usa_founders.1.b }
+}
+
+aor1776_usa_founders.2 = {
+	type = country_event
+	placement = root
+	title = aor1776_usa_founders.2.t
+	desc = aor1776_usa_founders.2.d
+	flavor = aor1776_usa_founders.2.f
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 30
+	trigger = { c:USA ?= this is_subject = no has_law_or_variant = law_type:law_presidential_republic }
+	option = {
+		name = aor1776_usa_founders.2.a
+		default_option = yes
+		trigger = { aor1776_adams_available = yes is_subject = no has_law_or_variant = law_type:law_presidential_republic NOT = { has_variable = aor1776_founders_commission_done } }
+		add_modifier = { name = aor1776_adams_accounts months = 24 }
+		set_variable = aor1776_founders_commission_done
+		remove_variable = aor1776_founders_commission_pending
+	}
+	option = {
+		name = aor1776_usa_founders.2.b
+		trigger = { aor1776_jefferson_available = yes is_subject = no has_law_or_variant = law_type:law_presidential_republic NOT = { has_variable = aor1776_founders_commission_done } }
+		add_modifier = { name = aor1776_jefferson_guarantees months = 24 }
+		set_variable = aor1776_founders_commission_done
+		remove_variable = aor1776_founders_commission_pending
+	}
+	option = { name = aor1776_usa_founders.2.c remove_variable = aor1776_founders_commission_pending }
+}

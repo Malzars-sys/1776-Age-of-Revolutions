@@ -1,0 +1,58 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\tools\map2l_registry.py
+@@
+         assert m['new_provinces']==geo['new_provinces']
+         assert [r['rgb'] for r in m['new_provinces']]==['xEDB8'+format(i,'02X') for i in range(13)]
+         transferred=[r for r in geo['assignments'] if r['owner']!=r['previous_owner']]
+         assert sum(r['pixels'] for r in transferred)==45
+         allowed={('x11C021','KPF','NSB','STATE_RHINELAND'),('x11C0A0','FRM','NAS','STATE_HESSE'),('x1357DB','NAS','NOU','STATE_HESSE'),('x1357DB','NAS','NWB','STATE_HESSE'),('x90C0A0','NAS','NOU','STATE_HESSE'),('x8B7C67','HES','NAS','STATE_HESSE'),('xD04121','HEK','FUL','STATE_HESSE'),('xD0C021','MEI','FUL','STATE_SAXONY')}
+         assert all((r['parent_rgb'],r['previous_owner'],r['owner'],r['state']) in allowed for r in transferred)
+         for r in transferred:
+             bounds=(4260,4269,875,884) if r['owner']=='NSB' else (4314,4335,836,846) if r['owner']=='FUL' else (4280,4300,843,860)
+             x0,x1,y0,y1=bounds
+             assert all(x0<=x<=x1 and y0<=y<=y1 for x,y in r['cells'])
+         # No waiver for any previously accepted core; all eligible parents
+         # are retained residuals or unsplit pre-MAP colours, never xED cores.
+         assert all(not r['parent_rgb'].startswith('xED') for r in geo['assignments'])
+         assert all(r['field'] in {'prime_land','mine'} for r in m['region_reference_changes'])
+         result.append(continuation)
+-    hohenlohe=fulda/'R3'
+-    if (hohenlohe/'REGISTRY_MIGRATION.json').exists():
+-        m=json.loads((hohenlohe/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+-        geo=json.loads((hohenlohe/'GEOMETRY.json').read_text(encoding='utf8'))
+-        assert m['replaced_regions']==['STATE_FRANCONIA'] and m['new_members']==['HLN','HKI']
+-        assert set(m['country_additions'])=={'HLN','HKI'} and not m['free_cities']
+-        assert not m['extent_added_cells'] and not m['extent_removed_cells'] and not m['region_reference_changes']
+-        assert geo['parents']==['xEDA218'] and m['new_provinces']==geo['new_provinces']
+-        assert [r['rgb'] for r in m['new_provinces']]==['xEDB900','xEDB901','xEDB902','xEDB903']
+-        # This one old xED colour was an explicitly unassigned Bavarian
+-        # remnant, NOT an accepted earlier sovereign core. No broad waiver.
+-        old=json.loads((ROOT/'docs/reports/map/MAP2L/FRANCONIA/GEOMETRY.json').read_text(encoding='utf8'))
+-        residual=next(r for r in old['assignments'] if r['rgb']=='xEDA218')
+-        oldbase=json.loads((ROOT/'docs/reports/map/MAP2L/FRANCONIA/BASELINE.json').read_text(encoding='utf8'))
+-        assert residual['owner']=='BAV' and residual['parent_rgb']=='xD0C0A0'
+-        assert next(r for r in oldbase['inventory']['owners'] if r['key'][0]==residual['parent_rgb'])['key'][1:]==['STATE_FRANCONIA','BAV']
+-        assert all(r['parent_rgb']=='xEDA218' and r['previous_owner']=='BAV' and r['state']=='STATE_FRANCONIA' and r['owner'] in {'BAV','HLN','HKI'} for r in geo['assignments'])
+-        assert sum(r['pixels'] for r in geo['assignments'])==194
+-        moved=[r for r in geo['assignments'] if r['owner']!='BAV']
+-        assert {(r['rgb'],r['owner'],r['pixels']) for r in moved}=={('xEDB902','HKI',4),('xEDB903','HLN',3)}
+-        assert all(4326<=x<=4329 and 880<=y<=883 for r in moved for x,y in r['cells'])
+-        assert sorted(next(r for r in moved if r['owner']=='HKI')['cells'])==[[4328,882],[4328,883],[4329,882],[4329,883]]
+-        assert sorted(next(r for r in moved if r['owner']=='HLN')['cells'])==[[4326,881],[4327,880],[4327,881]]
+-        result.append(hohenlohe)
+     return result
+ 
+ def reviewed_core_exception_owner(point,previous_owner,later_dirs):
+     """Only the human-approved Kempten municipal cell, never a broad waiver."""
+     result=previous_owner
+     for directory in later_dirs:
+         migration=json.loads((directory/'REGISTRY_MIGRATION.json').read_text())
+         for exc in migration.get('core_exceptions',[]):
+             assert directory.name=='SWABIA_COMPLETION'
+             assert (exc['preceding_lot'],exc['rgb'],exc['previous_owner'],exc['new_owner'],exc['cells'])==('SWABIA','xEDAD0D','SKE','SKI',[[4324,928]])
+             if list(point) not in exc['cells']:continue
+             assert result==exc['previous_owner'],'Broken protected-core exception chain'
+             geo=json.loads((directory/'GEOMETRY.json').read_text())
+             changed=[r for r in geo['assignments'] if list(point) in r['cells']]
+             assert len(changed)==1 and changed[0]['owner']==exc['new_owner'] and changed[0]['parent_rgb']==exc['rgb'] and changed[0]['previous_owner']==result and changed[0]['pixels']==1
+*** End Patch

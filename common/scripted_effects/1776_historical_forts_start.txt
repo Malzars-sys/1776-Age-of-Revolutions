@@ -1,0 +1,134 @@
+# MIL-FORT-ENGINEERS-1776, lot A1: one basic level per selected regional network.
+# Country-root iteration selects the country's actual state subdivision.
+# The player requested coastal buildings throughout coastal economic states,
+# including when an individual historical citadel stood inland in that state.
+# See docs/reports/military/MIL_FORT_ENGINEERS_1776/FORTRESS_PLACEMENT.csv.
+
+# State scope. Never overwrite an existing fort, PM, reserve or level.
+aor1776_historical_fort_a1_add_land = {
+	if = {
+		limit = {
+			is_coastal = no
+			owner = { has_technology_researched = scientific_fortification_siegecraft }
+			NOT = { has_variable = aor1776_historical_forts_a1_seeded }
+			NOR = {
+				has_building = building_aor1776_land_fortification
+				has_building = building_naval_fortification
+			}
+		}
+		create_building = {
+			building = building_aor1776_land_fortification
+			level = 1
+			reserves = 1
+			activate_production_methods = { pm_aor1776_land_fortification_basic }
+		}
+		if = {
+			limit = { has_building = building_aor1776_land_fortification }
+			set_variable = aor1776_historical_forts_a1_seeded
+			aor1776_refresh_fort_construction_state = yes
+			owner = { aor1776_ensure_fort_construction_monitor = yes }
+		}
+	}
+}
+
+aor1776_historical_fort_a1_add_coastal = {
+	if = {
+		limit = {
+			is_coastal = yes
+			owner = { has_technology_researched = scientific_fortification_siegecraft }
+			NOT = { has_variable = aor1776_historical_forts_a1_seeded }
+			NOR = {
+				has_building = building_aor1776_land_fortification
+				has_building = building_naval_fortification
+			}
+		}
+		create_building = {
+			building = building_naval_fortification
+			level = 1
+			reserves = 1
+			activate_production_methods = { pm_naval_fortification_basic }
+		}
+		if = {
+			limit = { has_building = building_naval_fortification }
+			set_variable = aor1776_historical_forts_a1_seeded
+		}
+	}
+}
+
+aor1776_historical_forts_a1_france = {
+	# Lille; the regional building is coastal under the requested abstraction.
+	every_scope_state = {
+		limit = { state_region = s:STATE_FRENCH_LOW_COUNTRIES }
+		aor1776_historical_fort_a1_add_coastal = yes
+	}
+	# Strasbourg and Neuf-Brisach form one regional network, not two levels.
+	every_scope_state = {
+		limit = { state_region = s:STATE_ALSACE_LORRAINE }
+		aor1776_historical_fort_a1_add_land = yes
+	}
+	# Besancon.
+	every_scope_state = {
+		limit = { state_region = s:STATE_FRANCHE_COMTE }
+		aor1776_historical_fort_a1_add_land = yes
+	}
+	# Longwy.
+	every_scope_state = {
+		limit = { state_region = s:STATE_LORRAINE }
+		aor1776_historical_fort_a1_add_land = yes
+	}
+}
+
+aor1776_historical_forts_a1_britain = {
+	# Portsmouth: pre-1776 bastioned defensive lines; no Palmerston forts.
+	every_scope_state = {
+		limit = { state_region = s:STATE_HOME_COUNTIES }
+		aor1776_historical_fort_a1_add_coastal = yes
+	}
+	# Gibraltar is the GBR subdivision, never the Spanish subdivision.
+	# Hesse/Montagu works; no completed King's Bastion assumed on January 1.
+	every_scope_state = {
+		limit = { state_region = s:STATE_UPPER_ANDALUSIA }
+		aor1776_historical_fort_a1_add_coastal = yes
+	}
+}
+
+aor1776_historical_forts_a1_spain = {
+	# Jaca.
+	every_scope_state = {
+		limit = { state_region = s:STATE_ARAGON }
+		aor1776_historical_fort_a1_add_land = yes
+	}
+	# Badajoz. Spanish Extremadura, not Portuguese Estremadura.
+	every_scope_state = {
+		limit = { state_region = s:STATE_EXTREMADURA }
+		aor1776_historical_fort_a1_add_land = yes
+	}
+	# Cadiz: Santa Catalina and Candelaria; no San Carlos (1784).
+	every_scope_state = {
+		limit = { state_region = s:STATE_LOWER_ANDALUSIA }
+		aor1776_historical_fort_a1_add_coastal = yes
+	}
+}
+
+aor1776_historical_forts_a1_portugal = {
+	# Elvas/Santa Luzia: no Graça completion assumed at the start date.
+	every_scope_state = {
+		limit = { state_region = s:STATE_ALENTEJO }
+		aor1776_historical_fort_a1_add_coastal = yes
+	}
+	# Almeida. Coastal economic state, although the historical fortress is inland.
+	every_scope_state = {
+		limit = { state_region = s:STATE_BEIRA }
+		aor1776_historical_fort_a1_add_coastal = yes
+	}
+}
+
+aor1776_historical_forts_a1_netherlands = {
+	# Naarden, rebuilt 1675-1685. No 19th-century casemates.
+	every_scope_state = {
+		limit = { state_region = s:STATE_HOLLAND }
+		aor1776_historical_fort_a1_add_coastal = yes
+	}
+	# Maastricht is deliberately absent: the current mine province x0000DF
+	# belongs to BEO. Its sovereignty/mapping needs a separate correction.
+}

@@ -1,0 +1,91 @@
+namespace = aor1776_usa_echoes
+
+aor1776_usa_echoes.1 = {
+	type = country_event
+	placement = root
+	title = aor1776_usa_echoes.1.t
+	desc = {
+		first_valid = {
+			triggered_desc = { desc = aor1776_usa_echoes.1.d_win trigger = { var:aor1776_echo_american_victory = 1 } }
+			desc = aor1776_usa_echoes.1.d_loss
+		}
+	}
+	flavor = aor1776_usa_echoes.1.f
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 30
+	trigger = { c:FRA ?= this NOT = { has_variable = aor1776_echo_seen } }
+	immediate = { set_variable = aor1776_echo_seen }
+	option = {
+		name = aor1776_usa_echoes.1.a
+		trigger = { var:aor1776_echo_american_victory = 1 ig:ig_intelligentsia = { ig_counts_as_marginal = no } }
+		add_modifier = { name = aor1776_echo_french_debate months = 12 }
+	}
+	option = { name = aor1776_usa_echoes.1.b default_option = yes }
+}
+
+aor1776_usa_echoes.2 = {
+	type = country_event
+	placement = root
+	title = aor1776_usa_echoes.2.t
+	desc = {
+		first_valid = {
+			triggered_desc = { desc = aor1776_usa_echoes.2.d_win trigger = { var:aor1776_echo_american_victory = 1 } }
+			desc = aor1776_usa_echoes.2.d_loss
+		}
+	}
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 30
+	trigger = { c:GBR ?= this NOT = { has_variable = aor1776_echo_seen } }
+	immediate = { set_variable = aor1776_echo_seen }
+	option = {
+		name = aor1776_usa_echoes.2.a
+		trigger = { var:aor1776_echo_american_victory = 0 }
+		add_modifier = { name = aor1776_echo_british_reassurance months = 12 }
+	}
+	option = { name = aor1776_usa_echoes.2.b default_option = yes }
+}
+
+aor1776_usa_echoes.3 = {
+	type = country_event
+	placement = root
+	title = aor1776_usa_echoes.3.t
+	desc = {
+		first_valid = {
+			triggered_desc = { desc = aor1776_usa_echoes.3.d_win trigger = { var:aor1776_echo_american_victory = 1 } }
+			desc = aor1776_usa_echoes.3.d_loss
+		}
+	}
+	flavor = aor1776_usa_echoes.3.f
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 30
+	trigger = { is_subject = yes NOT = { has_variable = aor1776_echo_seen } }
+	immediate = { set_variable = aor1776_echo_seen }
+	option = {
+		name = aor1776_usa_echoes.3.a
+		trigger = { var:aor1776_echo_american_victory = 1 is_subject = yes ig:ig_intelligentsia = { ig_counts_as_marginal = no } }
+		add_modifier = { name = aor1776_echo_colonial_debate months = 12 }
+	}
+	option = {
+		name = aor1776_usa_echoes.3.b
+		trigger = { var:aor1776_echo_american_victory = 0 is_subject = yes }
+		add_modifier = { name = aor1776_echo_colonial_caution months = 12 }
+	}
+	option = { name = aor1776_usa_echoes.3.c default_option = yes }
+}
+
+aor1776_usa_echoes.4 = {
+	type = country_event
+	placement = root
+	title = aor1776_usa_echoes.4.t
+	desc = aor1776_usa_echoes.4.d
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	duration = 30
+	trigger = { NOT = { has_variable = aor1776_echo_seen } var:aor1776_echo_american_victory = 1 }
+	immediate = { set_variable = aor1776_echo_seen }
+	option = {
+		name = aor1776_usa_echoes.4.a
+		trigger = { ig:ig_intelligentsia = { ig_counts_as_marginal = no } }
+		add_modifier = { name = aor1776_echo_european_reform months = 12 }
+	}
+	option = { name = aor1776_usa_echoes.4.b default_option = yes }
+}

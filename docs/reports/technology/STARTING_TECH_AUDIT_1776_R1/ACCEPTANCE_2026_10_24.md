@@ -1,0 +1,3 @@
+# R1 — validation humaine bornée
+
+PASS_RUNTIME_USER_VALIDATED pour les huit corrections (28 ajouts) et la configuration TECH-R1 de la mine native BGT. Le joueur confirme le protocole complet, un mois et la sauvegarde/rechargement. Aucune date effective de test, capture, valeur d’emploi ou mesure économique inventée. Trois fichiers fonctionnels identiques à la livraison R1 lors de l’enregistrement. Audit mondial encore ouvert ; aucune couverture de R2, de RG-D-CITY ou des régions SERG/WORLD. Rapports originaux et manifestes de livraison conservés comme preuves datées ; seule la vue AUDIT_STATE est actualisée.

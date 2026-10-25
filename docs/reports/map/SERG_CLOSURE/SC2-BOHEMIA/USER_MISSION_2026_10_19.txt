@@ -1,0 +1,186 @@
+# MISSION CODEX — SERG TERRITORIAL 1.0
+## Reprise automatique de la feuille de route et poursuite des corrections
+
+### 1. Confirmation du joueur
+
+La dernière passe installée est `SC2-BOHEMIA`.
+
+J'ai lancé Victoria 3 avec cette correction et **le lancement du jeu fonctionne, sans erreur bloquante constatée à cette étape**.
+
+Cette confirmation porte sur le lancement. N'en déduis pas que tous les contrôles démographiques, le mois de simulation et la sauvegarde/rechargement ont été effectués.
+
+Consigne ce résultat comme une **observation manuelle partielle**, sans attribuer `PASS_RUNTIME_USER_VALIDATED` à `SC2-BOHEMIA` tant que le protocole complet n'a pas été confirmé.
+
+Ne modifie pas la population de Bohême ni ses corrections précédentes sans nouvelle anomalie démontrée.
+
+### 2. Lecture obligatoire avant toute intervention
+
+Lis systématiquement :
+
+- `docs/reports/map/SERG_CLOSURE/ROADMAP.md`
+- `docs/reports/map/SERG_CLOSURE/ROADMAP_STATE.json`
+- `docs/reports/map/SERG_CLOSURE/NEXT_ACTION.md`
+- `docs/reports/map/SERG_CLOSURE/BLOCKERS.md`
+- `docs/reports/map/SERG_CLOSURE/PROGRESS_HISTORY.md`
+
+Consulte ensuite les rapports et sources propres à la prochaine tâche.
+
+La feuille de route est la référence opérationnelle permanente.
+
+Ne recommence pas l'audit global du SERG à chaque passe.
+
+### 3. Sélection automatique de la prochaine tâche
+
+Je t'autorise à poursuivre les travaux territoriaux du SERG.
+
+Après avoir vérifié les fichiers réellement présents, sélectionne la **prochaine tâche prioritaire admissible** dans la feuille de route.
+
+Respecte :
+
+1. Les priorités P0 puis P1.
+2. Les dépendances entre les tâches.
+3. L'état des installations précédentes.
+4. Les validations humaines déjà reçues.
+5. Les travaux concurrents.
+6. La possibilité de livrer un sous-lot indépendamment testable.
+
+La prochaine candidate connue est `SC2-MORAVIA`, mais vérifie qu'elle reste admissible dans le suivi actuel.
+
+Une installation précédente encore en attente de validation ne doit pas être marquée comme validée automatiquement.
+
+Toutefois, elle ne doit pas empêcher le traitement d'une autre tâche indépendante.
+
+### 4. Les trois règles permanentes
+
+**Règle 1 — Priorité P0/P1**
+
+Corrige d'abord les grandes omissions, les souverainetés erronées et les régions insuffisamment auditées.
+
+Les détails P2 peuvent être reportés après justification.
+
+**Règle 2 — Recherche suivie d'implémentation**
+
+Réutilise les recherches existantes, vérifie l'état effectif du mod et installe les corrections historiquement défendables.
+
+N'accumule pas de nouveaux diagnostics sans proposer de décision concrète.
+
+Une absence de modification est acceptable lorsqu'un secteur est déjà conforme ou qu'aucune correction n'est défendable, mais elle doit être justifiée.
+
+**Règle 3 — Grands lots, validations indépendantes**
+
+Traite les ensembles historiques cohérents tout en livrant des sous-lots que je peux tester séparément.
+
+Évite de multiplier les passes pour chaque micro-enclave.
+
+Utilise l'approximation politique documentée de catégorie B lorsque les frontières exactes ne peuvent pas être restituées à la résolution du jeu.
+
+N'effectue jamais de transferts arbitraires.
+
+### 5. Exécution de la passe
+
+Pour la tâche retenue :
+
+1. Vérifie les sources historiques au 1er janvier 1776.
+2. Examine les propriétaires, RGB, State_ID et autres données réellement installés.
+3. Identifie les corrections nécessaires.
+4. Protège les territoires déjà validés.
+5. Installe uniquement les modifications justifiées.
+6. Vérifie les populations, bâtiments, gouvernements, lois, unités et relations impériales concernés.
+7. Exécute les tests statiques et de non-régression.
+8. Prépare un protocole de validation moteur ciblé pour le joueur.
+
+Une région auditée et historiquement conforme peut être traitée sans nouvelle modification fonctionnelle si cette conclusion est suffisamment démontrée.
+
+Ne fabrique pas des modifications pour faire progresser artificiellement le pourcentage.
+
+### 6. Gestion des validations humaines
+
+Distingue obligatoirement :
+
+- Lancement du jeu réussi.
+- Contrôles visuels et fonctionnels réalisés.
+- Simulation d'un mois.
+- Sauvegarde et rechargement.
+- Validation complète du sous-lot.
+
+Ne crée un reçu `PASS_RUNTIME_USER_VALIDATED` que lorsque ma confirmation explicite couvre les critères du sous-lot concerné.
+
+Les observations partielles doivent être conservées sans donner de points prématurément.
+
+Si une nouvelle installation est prête mais pas encore testée, utilise :
+
+`IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`
+
+Et présente-la comme :
+
+`READY_FOR_SCOPED_RUNTIME_VALIDATION`
+
+### 7. Mise à jour obligatoire de la feuille de route
+
+À la fin de chaque passe :
+
+- Actualise les tâches concernées dans `ROADMAP_STATE.json`.
+- Ajoute les preuves et validations effectivement acquises.
+- Ajoute un événement daté dans l'historique.
+- Recalcule la progression selon les poids du périmètre courant.
+- Actualise `ROADMAP.md`.
+- Régénère `NEXT_ACTION.md`.
+- Actualise `BLOCKERS.md`.
+- Exécute le validateur du suivi.
+- Vérifie que les tâches et attestations antérieures sont préservées.
+
+Ne réinitialise jamais la feuille de route.
+
+Ne supprime pas de tâches pour augmenter artificiellement la progression.
+
+La progression doit rester inchangée lorsqu'une installation attend sa validation humaine, sauf acquisition indépendante et justifiée d'autres jalons.
+
+### 8. Protection des travaux
+
+Préserve les corrections déjà validées du SERG, notamment Passau, Freising, Ratisbonne, Salzbourg et les autres noyaux historiques.
+
+Préserve aussi les travaux concurrents sur les États-Unis, la France, les Minutemen, les accords financiers franco-américains, Saint-Gobain, Anzin, les bâtiments et les unités militaires.
+
+N'utilise pas une ancienne baseline pour restaurer des fichiers actuellement modifiés.
+
+N'effectue aucune opération Git d'écriture : commit, push, staging, merge, reset, rebase ou changement de branche.
+
+Ne modifie pas l'installation vanilla du jeu.
+
+### 9. Rapport final obligatoire
+
+Commence le rapport par :
+
+**SERG TERRITORIAL 1.0 — PROGRESSION : XX,XX %**
+
+Présente ensuite :
+
+- Progression avant/après.
+- Tâche sélectionnée et raison de sa priorité.
+- Territoires historiquement étudiés.
+- Corrections réellement installées.
+- Propriétaires, RGB et populations avant/après.
+- Tests statiques réussis et échoués.
+- Validations humaines acquises ou encore attendues.
+- Problèmes historiques et techniques restants.
+- Fichiers modifiés.
+- Protocole de test en jeu.
+- Prochaine tâche admissible.
+
+Si un test ancien échoue, explique pourquoi. Ne le supprime pas pour afficher une suite entièrement verte.
+
+### 10. Limite de la mission
+
+**Exécute une seule nouvelle étape territoriale ou un sous-lot cohérent de la feuille de route pendant cette mission.**
+
+Ne commence pas automatiquement l'étape suivante après la livraison.
+
+Je testerai les nouvelles corrections, puis je te renverrai le présent prompt dans une nouvelle passe.
+
+L'objectif final reste :
+
+`SERG_TERRITORIAL_1_0_COMPLETE`
+
+Ce statut nécessite 100 % des critères de clôture et mon approbation explicite.
+
+**Commence maintenant par lire la feuille de route, enregistrer le résultat partiel du lancement de SC2-BOHEMIA, puis poursuivre la prochaine tâche prioritaire admissible, normalement SC2-MORAVIA.**

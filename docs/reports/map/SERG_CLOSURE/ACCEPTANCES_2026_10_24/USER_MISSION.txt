@@ -1,0 +1,639 @@
+# MISSION CODEX — SERG TERRITORIAL 1.0
+## Double attestation humaine et poursuite vers SC1-REGENSBURG-DEMOGRAPHY
+
+### 1. Objectif et ordre impératif
+
+Cette mission comporte deux étapes distinctes :
+
+**Étape A — Régulariser deux validations humaines déjà obtenues :**
+- `BG-I-CORE` — noyau de Berchtesgaden.
+- `PS-OB-CORE` — enclave d'Obernberg am Inn appartenant à Passau.
+
+**Étape B — Exécuter une seule nouvelle tâche territoriale admissible :**
+- `SC1-REGENSBURG-DEMOGRAPHY`, si le validateur canonique confirme sa sélection.
+
+Ne commence pas la recherche ou les modifications de Ratisbonne avant d'avoir enregistré et vérifié les deux attestations.
+
+Ne modifie pas les statuts régionaux bloqués à partir des seules validations de sous-lots.
+
+---
+
+### 2. Première attestation — BG-I-CORE, Berchtesgaden
+
+**Confirmation explicite déjà donnée par le joueur dans la conversation précédente :**
+
+« J'ai suivi intégralement le protocole SC1-BERCHTESGADEN et toutes les vérifications ont réussi, notamment la capitale, la saline, les finances, un mois de simulation et la sauvegarde/rechargement. »
+
+Cette confirmation constitue une attestation humaine réelle, bien que le rapport de la passe Passau ait indiqué qu'aucun reçu humain BGT n'était enregistré.
+
+Il s'agit d'un **défaut d'enregistrement du reçu**, et non d'une obligation de refaire le protocole.
+
+Enregistre :
+
+`BG-I-CORE = PASS_RUNTIME_USER_VALIDATED`
+
+Périmètre exact de cette validation :
+
+- Pays `BGT`.
+- RGB `xEDBF00`.
+- Quatre cellules initialement transférées d'AUS.
+- Capitale Berchtesgaden fonctionnelle.
+- Prince-prévôt Franz Anton Josef von Hausen-Gleichenstorff.
+- Théocratie catholique.
+- Population initiale de 1 000 habitants.
+- Chancellerie publique de 100 postes.
+- Petite saline de Frauenreuth de 100 postes.
+- Fonctionnement vérifié de la production de sel et des finances selon le protocole joueur.
+- Droits impériaux du noyau.
+- Préservation des territoires voisins contrôlés.
+- Un mois complet de simulation.
+- Sauvegarde et rechargement réussis.
+
+**Ne pas étendre cette attestation à des modifications ultérieures ou à des versions techniques du bâtiment salin qui n'auraient pas été couvertes par le test humain.**
+
+Si la correction concurrente des bâtiments de sel a modifié le fonctionnement exact de la saline depuis le test, distinguer :
+
+1. Le noyau historique effectivement testé et approuvé.
+2. Les éventuelles modifications techniques postérieures, qui ne bénéficient pas automatiquement du même reçu.
+
+Ne pas inventer la date du test, des captures, des mesures de rentabilité ou des observations moteur supplémentaires.
+
+#### Maintien du blocage régional
+
+`SC1-BERCHTESGADEN = BLOCKED P1`
+
+Restent ouverts notamment :
+
+- Schellenberg.
+- Ramsau, Bischofswiesen, Gern et Au.
+- Salzberg, Schönau et Königssee.
+- Les Gnotschaften périphériques.
+- L'accès de Hallthurm.
+- Les droits de passage et de protection.
+- Les obligations historiques liées au commerce du sel.
+- La démographie du territoire complet.
+
+La validation du noyau BGT n'accorde aucun point de clôture régionale.
+
+---
+
+### 3. Deuxième attestation — PS-OB-CORE, Obernberg am Inn
+
+**Nouvelle confirmation explicite du joueur :**
+
+« J'ai suivi intégralement le protocole SC1-PASSAU-OUTLIERS : Obernberg fonctionne, toutes les vérifications ont réussi, y compris un mois de simulation et la sauvegarde/rechargement. »
+
+Enregistre :
+
+`PS-OB-CORE = PASS_RUNTIME_USER_VALIDATED`
+
+Périmètre exact :
+
+- Pays existant `PAS`.
+- Nouvelle possession périphérique d'Obernberg am Inn.
+- RGB `xEDC000`.
+- Quatre cellules transférées d'AUS vers PAS.
+- Portion technique `STATE_AUSTRIA`.
+- Population initiale transférée de 1 400 habitants.
+- Conservation du noyau principal de Passau et de sa capitale.
+- Conservation de la démographie et des propriétaires voisins vérifiés.
+- Droits impériaux associés à cette portion.
+- Fonctionnement de la nouvelle enclave.
+- Un mois complet de simulation sans anomalie.
+- Sauvegarde et rechargement réussis.
+
+Les cellules concernées lors de l'installation étaient :
+
+- `[4393, 911]`
+- `[4393, 912]`
+- `[4394, 911]`
+- `[4394, 912]`
+
+La validation couvre cette installation uniquement.
+
+Elle ne signifie pas que toute la frontière austro-bavaroise autour d'Obernberg est historiquement correcte.
+
+Le voisinage historiquement bavarois, encore représenté techniquement par AUS, demeure une question distincte liée notamment à l'Innviertel.
+
+Ne pas inventer de nouvelle vérification moteur ou de mesure démographique.
+
+#### Maintien du blocage régional
+
+`SC1-PASSAU-OUTLIERS = BLOCKED P1`
+
+Restent ouverts notamment :
+
+- Vichtenstein et Riedenburg.
+- Abteiland, Wolfstein et Freyung.
+- La frontière historique de 1765.
+- Les transferts et réorganisations de 1782, à ne pas anticiper.
+- Rentamt et Waldgütleramt, selon leurs juridictions effectives.
+- Les autres possessions temporelles dispersées.
+- La distinction entre propriétés domaniales, droits ecclésiastiques et souveraineté effective.
+
+Ne pas considérer Obernberg comme une restitution complète de toutes les possessions passaviennes.
+
+---
+
+### 4. Enregistrement des deux reçus
+
+Pour chaque sous-lot :
+
+1. Retrouver le dossier de livraison original.
+2. Vérifier l'identité technique de l'installation.
+3. Préserver les preuves et fichiers de validation antérieurs.
+4. Ajouter une attestation humaine explicite correspondant exactement aux déclarations du joueur.
+5. Ajouter un événement distinct à `PROGRESS_HISTORY.md`.
+6. Actualiser les informations de validation sans clôturer la tâche régionale.
+7. Vérifier les empreintes pertinentes.
+8. Exécuter les contrôles de cohérence du suivi.
+
+Ne pas fusionner les deux attestations en un seul reçu ambigu.
+
+Ne pas faire croire qu'une nouvelle partie commune Berchtesgaden–Obernberg a été testée si le joueur a validé les deux installations au moyen de protocoles distincts.
+
+Si les fichiers du chantier BGT ont changé après sa validation, identifier et isoler les différences sans invalider arbitrairement ce qui a effectivement été testé.
+
+**Les reçus humains doivent être conservés comme preuves additives et bornées.**
+
+---
+
+### 5. Progression attendue
+
+État de référence :
+
+**82/235 points = 34,89 %.**
+
+Nombre de tâches qualifiées : **24 sur 81**.
+
+La validation de `BG-I-CORE` et de `PS-OB-CORE` ne clôture pas `SC1-BERCHTESGADEN` ou `SC1-PASSAU-OUTLIERS`.
+
+La progression doit donc rester :
+
+**82/235 = 34,89 %**, sauf évolution indépendante, légitime et démontrée du suivi.
+
+Ne modifie pas :
+
+- Le périmètre `SERG TERRITORIAL 1.0`.
+- Les 81 tâches.
+- Le dénominateur de 235 points.
+- Les pondérations.
+- Les règles de qualification des tâches.
+
+Aucun point ne doit être artificiellement accordé pour les deux sous-lots.
+
+---
+
+### 6. Vérification du suivi canonique
+
+Lire avant toute nouvelle modification :
+
+- `docs/reports/map/SERG_CLOSURE/ROADMAP.md`
+- `docs/reports/map/SERG_CLOSURE/ROADMAP_STATE.json`
+- `docs/reports/map/SERG_CLOSURE/NEXT_ACTION.md`
+- `docs/reports/map/SERG_CLOSURE/BLOCKERS.md`
+- `docs/reports/map/SERG_CLOSURE/PROGRESS_HISTORY.md`
+
+Utiliser les commandes appropriées de l'outil canonique :
+
+`python -B -X utf8 tools/serg_closure_roadmap.py check`
+
+Et, selon les fonctionnalités et paramètres réellement disponibles :
+
+- `observe`
+- `render`
+
+Ne pas deviner les arguments des commandes ; consulter l'aide du script si nécessaire.
+
+**Ne jamais réinitialiser la feuille de route.**
+
+Après enregistrement des deux reçus, vérifier que la sélection recalculée reste :
+
+`SC1-REGENSBURG-DEMOGRAPHY`
+
+Si une autre tâche apparaît légitimement prioritaire, documenter la divergence et suivre les règles canoniques de priorité et de dépendance, sans contourner le validateur.
+
+---
+
+### 7. Nouvelle tâche — SC1-REGENSBURG-DEMOGRAPHY
+
+Date historique de référence :
+
+**1er janvier 1776.**
+
+Objectif : vérifier et, si nécessaire, corriger la répartition démographique de Ratisbonne (*Regensburg*) entre ses différentes juridictions politiques.
+
+Il ne s'agit pas de recréer arbitrairement les États déjà installés.
+
+Le mod possède déjà des corrections territoriales validées concernant notamment :
+
+- La ville impériale libre de Ratisbonne.
+- La principauté épiscopale de Ratisbonne.
+- Les institutions ecclésiastiques et possessions environnantes représentées dans le mod.
+
+Commence par retrouver les données, décisions et validations exactes de ces installations.
+
+Ne suppose ni TAG, ni RGB, ni effectif démographique avant lecture des fichiers.
+
+### 8. Problème historique à résoudre
+
+Au XVIIIe siècle, Ratisbonne rassemble plusieurs autorités distinctes dans un espace géographique réduit.
+
+Étudier séparément :
+
+**A. La ville impériale libre de Ratisbonne**
+
+- Souveraineté municipale.
+- Population de la ville sous administration urbaine.
+- Bourgeois, habitants et juridictions propres.
+- Territoire municipal et éventuelles possessions hors les murs.
+
+**B. La principauté épiscopale de Ratisbonne**
+
+- Autorité temporelle du prince-évêque.
+- Possessions souveraines effectives.
+- Résidence et dépendances politiques.
+- Distinction entre principauté épiscopale et diocèse.
+
+**C. Les abbayes impériales de la région**
+
+Examiner en particulier, selon les sources et le périmètre canonique :
+
+- Saint-Emmeram.
+- Obermünster.
+- Niedermünster.
+
+Déterminer leur statut politique et leurs possessions effectives au 1er janvier 1776.
+
+Ne pas présumer qu'une abbaye possédant l'immédiateté impériale dispose nécessairement d'un territoire autonome assez vaste pour être représenté par un pays distinct dans Victoria 3.
+
+**D. Les autres juridictions voisines**
+
+Vérifier :
+
+- Les territoires bavarois.
+- Les possessions épiscopales.
+- Les terres relevant d'autres États impériaux.
+- Les biens domaniaux et juridictions ecclésiastiques.
+- Les éventuelles enclaves ou possessions discontinues.
+
+Ne pas confondre droits religieux, propriété foncière, souveraineté politique et résidence des habitants.
+
+### 9. Recherche démographique historique
+
+L'objectif prioritaire est une **population historiquement plausible et correctement répartie**.
+
+Rechercher les meilleures estimations disponibles autour de 1776 :
+
+- Dénombrements urbains.
+- Registres fiscaux.
+- Données paroissiales.
+- Statistiques ecclésiastiques.
+- Estimations d'historiens.
+- Données de ménages ou de foyers.
+- Informations sur les populations des territoires ruraux associés.
+
+Privilégier les sources contemporaines ou proches de 1776.
+
+Établir pour chaque chiffre :
+
+1. La source.
+2. L'année effective.
+3. Le périmètre géographique.
+4. Le type de population comptée.
+5. Les éventuelles exclusions.
+6. La méthode d'estimation.
+7. L'incertitude.
+
+**Ne pas traiter comme équivalents :**
+
+- Population de la ville intra-muros.
+- Population de la ville libre et de ses dépendances.
+- Population du diocèse.
+- Population de la principauté épiscopale.
+- Population d'une abbaye et de ses domaines.
+- Population d'une State Region Victoria 3.
+
+Les données de ménages ne doivent pas être converties en habitants à l'aide d'un multiplicateur arbitraire présenté comme une certitude.
+
+Si les sources divergent, fournir une fourchette historiquement motivée et choisir un chiffre de gameplay documenté.
+
+### 10. Audit du modèle démographique existant
+
+Inventorier les données du mod avant modification :
+
+- Population totale de chaque pays concerné.
+- Population de chaque portion de State Region.
+- Culture.
+- Religion.
+- Profession.
+- Qualification et niveau de vie si pertinents.
+- Emploi et bâtiments.
+- Propriétaire souverain.
+- RGB et nombre de cellules.
+- États techniques partagés.
+- Institutions et gouvernements.
+- Capitale et localisateurs.
+
+Vérifier notamment si un même agrégat démographique représente plusieurs juridictions distinctes.
+
+Déterminer si les déséquilibres viennent :
+
+- D'une population initiale historiquement excessive.
+- D'une population historiquement insuffisante.
+- D'une mauvaise répartition entre TAGs.
+- D'une mauvaise subdivision technique.
+- D'une confusion entre ville libre et prince-évêque.
+- D'un transfert territorial antérieur sans redistribution démographique adaptée.
+- D'une incohérence dans l'emploi ou les bâtiments.
+
+Ne présume pas que toute différence entre la population historique et la population du jeu impose une correction : comparer d'abord des périmètres équivalents.
+
+### 11. Choix des corrections à installer
+
+Privilégier les interventions minimales, vérifiables et historiquement justifiées.
+
+**Option A — Redistribution interne à population mondiale constante**
+
+Si le total régional est suffisamment plausible, mais attribué au mauvais propriétaire ou à la mauvaise portion, transférer les habitants concernés.
+
+**Option B — Ajustement démographique historique**
+
+Si le total lui-même est erroné, corriger la population selon une estimation documentée.
+
+Dans ce cas, expliciter la variation de population mondiale et mettre à jour les contrats démographiques concernés.
+
+**Option C — Correction partielle défendable**
+
+Si seuls certains ressorts disposent de données fiables, corriger ceux-ci et laisser les autres obligations ouvertes.
+
+**Option D — Absence de correction fonctionnelle justifiée**
+
+Si l'état actuel est déjà suffisamment défendable, fournir les preuves permettant une décision de qualification conforme à la feuille de route.
+
+Ne pas attribuer automatiquement `NOT_APPLICABLE_VERIFIED` sans satisfaire les conditions requises et sans approbation humaine lorsque celle-ci est nécessaire.
+
+Le résultat attendu est une décision démographique concrète, pas seulement un inventaire de sources.
+
+### 12. Préserver la cohérence des POPs
+
+Toute modification démographique doit contrôler :
+
+- Conservation ou variation justifiée des populations totales.
+- Distribution des cultures historiques.
+- Répartition confessionnelle plausible.
+- Professions existantes.
+- Employeurs et bâtiments.
+- Nombre de travailleurs disponibles.
+- Effets sur l'économie locale.
+- Fiscalité et institutions.
+- Absence de création ou disparition involontaire d'habitants.
+- Absence de doublon démographique entre juridictions.
+
+Ne pas inventer de professions pour atteindre artificiellement un effectif souhaité.
+
+Ne pas déplacer des populations entre pays uniquement pour obtenir un résultat visuellement équilibré.
+
+Si une reconstitution démographique requiert une approximation, documenter explicitement sa portée.
+
+### 13. Protection des corrections territoriales de Ratisbonne
+
+Les corrections antérieures de Ratisbonne, de la principauté épiscopale et de la ville libre ont déjà fait l'objet de validations.
+
+**Ne pas annuler ces corrections pour simplifier la répartition démographique.**
+
+Ne pas modifier les frontières, RGB et localisateurs sans nécessité historique démontrée.
+
+Ne pas fusionner artificiellement les autorités municipales et épiscopales.
+
+Ne pas transformer une abbaye en nouvel électorat impérial.
+
+Ne pas ajouter de dixième électeur.
+
+Si un problème de représentation territoriale empêche réellement la correction démographique, documenter séparément le problème, ses dépendances et la correction minimale possible.
+
+### 14. Priorité à l'exécution, sans faux blocage
+
+Cette tâche porte d'abord sur la démographie.
+
+Ne pas relancer inutilement un audit cadastral complet des environs de Ratisbonne si les données actuelles permettent une correction fiable.
+
+Réutiliser les recherches et validations antérieures.
+
+Éviter une nouvelle succession de dossiers sans modification ni décision.
+
+Chercher en priorité un sous-lot démographique cohérent qui puisse être validé en jeu.
+
+Si l'ensemble de la tâche ne peut pas être résolu, documenter les obligations restantes avec précision.
+
+---
+
+### 15. Conservation de tous les acquis
+
+Préserver les sous-lots validés, notamment :
+
+- `BG-I-CORE` — Berchtesgaden.
+- `PS-OB-CORE` — Obernberg.
+- `BR-I-CORE` — Brixen.
+- `TR-I-CORE` — Trente.
+- `MC-I-CORE` — Massa.
+- Le noyau initial de Passau.
+- Salzbourg.
+- Freising.
+- Ratisbonne, ville libre et principauté épiscopale.
+- Modène, Parme et Lucques.
+- Gênes et les autres États italiens.
+- Savoie et Nice.
+- Autriche intérieure et antérieure.
+- Bohême, Moravie et Silésie.
+- Les corrections MAP2A et autres secteurs du SERG.
+
+Conserver également les blocages régionaux connus, notamment :
+
+- `SC1-BERCHTESGADEN`.
+- `SC1-PASSAU-OUTLIERS`.
+- `SC1-BRIXEN`.
+- `SC1-TRENTO`.
+- `SC4-MASSA-CARRARA`.
+- `SC4-PIOMBINO`.
+- `SC4-LIGURIAN-FIEFS`.
+- `SC4-SAVOY-NICE`.
+- `SC4-EXISTING-ITALIAN-STATES`.
+- `SC2-AUSTRIA` et l'Innviertel.
+- `SC2-ANTERIOR-AUSTRIA`.
+- `SC2-TESCHEN`.
+- Tous les autres blocages canoniques.
+
+Les validations partielles ne doivent pas entraîner de clôture automatique de ces tâches.
+
+### 16. Concurrence et protection du workspace
+
+Plusieurs chantiers parallèles travaillent dans le même dépôt.
+
+Préserver :
+
+- Les fortifications modernes.
+- Le Corps du génie et ses illustrations.
+- L'implantation historique des unités spécialisées.
+- Le chantier Anzin et le charbon de prestige.
+- Les infrastructures régionales.
+- Le drainage.
+- Les bâtiments de production de sel et leurs corrections techniques.
+- Saint-Gobain.
+- Les autres industries françaises.
+- Les États-Unis et les Minutemen.
+- Les accords franco-américains.
+- Les autres modifications économiques et militaires en cours.
+
+Avant toute écriture :
+
+1. Vérifier le contenu actuel du fichier.
+2. Identifier les modifications concurrentes.
+3. Limiter la modification au périmètre nécessaire.
+4. Préserver les modifications non liées.
+5. Contrôler les fichiers partagés après écriture.
+
+Ne jamais restaurer un fichier partagé depuis une ancienne baseline.
+
+Ne pas écraser les modifications produites par d'autres agents.
+
+Si un fichier critique a évolué pendant la mission, réexaminer son état courant avant de poursuivre.
+
+### 17. Contrôles statiques, cumulatifs et non-régression
+
+La passe Obernberg annonçait :
+
+- 133/133 contrôles statiques réussis.
+- 14/14 contrats ciblés réussis.
+- 463/473 tests cumulatifs réussis.
+- Neuf anciennes assertions classées.
+- Une exclusion héritée.
+- Aucun nouvel échec inexpliqué.
+
+Ces chiffres sont des références de la passe antérieure, pas des résultats à recopier automatiquement.
+
+Exécute les tests sur le workspace réellement présent.
+
+Pour Ratisbonne, vérifier notamment :
+
+1. Syntaxe Paradox.
+2. Sommes démographiques avant/après.
+3. Propriétaires des populations.
+4. Cultures et religions.
+5. Professions et emploi.
+6. Bâtiments et ressources.
+7. Cohérence avec les RGB et State Regions.
+8. Conservation des anciennes souverainetés.
+9. Registre impérial.
+10. Conservation des neuf électeurs.
+11. Compatibilité avec les corrections précédentes.
+12. Absence de modification concurrente écrasée.
+13. Tests négatifs des frontières démographiques.
+14. Contrats de suivi et de progression.
+
+Distinguer les assertions anciennes obsolètes des régressions nouvelles.
+
+La présence attendue des vrais reçus BG-I-CORE et PS-OB-CORE peut rendre obsolètes certains tests vérifiant historiquement leur absence.
+
+Ne supprimer aucun test existant simplement pour afficher une suite verte.
+
+Documenter précisément chaque échec.
+
+### 18. Statut et test joueur de Ratisbonne
+
+Si une correction fonctionnelle est installée et les contrôles statiques réussissent, utiliser :
+
+`IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`
+
+Ne pas inventer de validation humaine.
+
+Préparer un `PLAYER_TEST_PROTOCOL.md` spécifique, couvrant :
+
+- Nouvelle partie au 1er janvier 1776.
+- Population de la ville libre.
+- Population des possessions épiscopales.
+- Répartition démographique entre les différentes souverainetés.
+- Cultures et religions.
+- Emploi et bâtiments.
+- Fiscalité et équilibre économique si concernés.
+- Conservation des frontières et des États voisins.
+- Conservation des institutions impériales.
+- Un mois de simulation.
+- Sauvegarde et rechargement.
+
+Si aucune modification fonctionnelle n'est requise, ne demande pas un test moteur inutile.
+
+### 19. Mise à jour de la feuille de route
+
+À la fin :
+
+- Enregistrer les deux attestations humaines distinctes.
+- Actualiser `ROADMAP_STATE.json`.
+- Ajouter les événements à `PROGRESS_HISTORY.md`.
+- Régénérer `ROADMAP.md`.
+- Actualiser `NEXT_ACTION.md`.
+- Actualiser `BLOCKERS.md`.
+- Recalculer la progression.
+- Exécuter le validateur canonique.
+- Préserver les anciennes preuves et attestations.
+- Vérifier les dépendances.
+
+La progression ne doit évoluer que si une tâche complète est légitimement qualifiée.
+
+### 20. Restrictions Git
+
+Aucune opération Git d'écriture :
+
+- Pas de staging.
+- Pas de commit.
+- Pas de push.
+- Pas de merge.
+- Pas de reset.
+- Pas de rebase.
+- Pas de changement de branche.
+
+Ne modifier aucun fichier vanilla de Victoria 3.
+
+Ne restaurer aucune modification concurrente.
+
+### 21. Rapport final obligatoire
+
+Commencer exactement par :
+
+**SERG TERRITORIAL 1.0 — PROGRESSION : XX,XX %**
+
+Présenter ensuite :
+
+1. Reçu `BG-I-CORE` enregistré.
+2. Reçu `PS-OB-CORE` enregistré.
+3. Statuts régionaux P1 maintenus.
+4. Progression avant/après et nombre de tâches qualifiées.
+5. Validation de la sélection `SC1-REGENSBURG-DEMOGRAPHY`.
+6. État démographique initial de Ratisbonne.
+7. Recherche historique et sources utilisées.
+8. Distinction ville libre / principauté épiscopale / autres juridictions.
+9. Corrections réellement installées.
+10. Populations, cultures, religions et professions avant/après.
+11. Éventuelle variation mondiale explicitement justifiée.
+12. Conservation des souverainetés et droits impériaux.
+13. Tests ciblés et cumulatifs.
+14. Conservation des chantiers concurrents.
+15. Protocole joueur, si applicable.
+16. Prochaine tâche admissible.
+17. Blocages encore ouverts.
+
+### 22. Limite et instruction finale
+
+Après l'enregistrement des deux reçus, exécute **une seule nouvelle tâche ou un sous-lot démographique cohérent**.
+
+Ne commence pas automatiquement une deuxième tâche.
+
+Ne clos aucune région simplement parce que son noyau fonctionne en jeu.
+
+L'objectif final reste :
+
+`SERG_TERRITORIAL_1_0_COMPLETE`
+
+Sa clôture exige le respect des critères canoniques et mon approbation finale explicite.
+
+**Commence par enregistrer `PASS_RUNTIME_USER_VALIDATED` pour `BG-I-CORE` et `PS-OB-CORE`, avec deux attestations distinctes et limitées. Maintiens `SC1-BERCHTESGADEN` et `SC1-PASSAU-OUTLIERS` en `BLOCKED P1`. Vérifie la progression, puis exécute `SC1-REGENSBURG-DEMOGRAPHY` si le validateur confirme sa priorité.**

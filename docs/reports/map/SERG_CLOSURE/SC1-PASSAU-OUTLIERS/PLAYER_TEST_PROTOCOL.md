@@ -1,0 +1,15 @@
+# Protocole commun — Berchtesgaden et Obernberg
+
+Deux installations en attente : **BG-I-CORE révisé** (mine standard) et **PS-OB-CORE**. Aucun reçu humain anticipé. Un même mois de la même nouvelle partie peut servir aux deux vérifications ; rapporter séparément leurs résultats.
+
+1. Fermer puis relancer Victoria 3 et lancer une **nouvelle partie au 1er janvier 1776** avec le mod actuel. Une ancienne sauvegarde ne valide pas les nouvelles initialisations.
+2. **Berchtesgaden/BGT** : quatre cellules, 1000 habitants, capitale Berchtesgaden intérieure ; Hausen prince-prévôt, théocratie, chancellerie publique de 100 postes. Vérifier **un niveau de Mines de sel standard**, visible dans Ressources, propriété BGT et méthodes ordinaires. La capacité affichée de 5000 postes n'est pas un effectif réellement rempli ; le recrutement partiel est voulu. Aucune saline ou petite mine spéciale ne doit exister. Examiner outils, sel, finances et toute anomalie.
+3. **Passau/PAS** : le noyau original de quarante cellules reste présent et sa capitale nationale reste dans sa portion bavaroise. Leopold Ernst von Firmian, prince-évêché, lois et relations sont conservés. L'ajout n'est pas un nouveau pays Obernberg.
+4. Repérer l'**enclave Obernberg am Inn**, au sud-ouest du noyau de Passau, sur la rive droite de l'Inn : quatre cellules B, sans corridor. Comparer BEFORE_AFTER.png. Nouvelle portion PAS dans la région technique Autriche : **1400 habitants** initiaux. Portion PAS en Bavière **14267**, total national **15667**, avant croissance. Portion AUS/Autriche **1636657**. Aucun nouveau métier, régiment ou bâtiment propre à cet ajout n'est prévu ; observer les moyens de subsistance et l'équilibre réel.
+5. Vérifier le nom Obernberg sur la seule portion PAS/Autriche et son point de ville s'il est affiché. Aucune capitale nationale déplacée vers Obernberg ; Vienne/Linz et les hubs autrichiens restent à leur propriétaire. Le placement automatique local n'est pas déjà certifié.
+6. Vérifier les droits impériaux de l'enclave au bénéfice de PAS, sans nouvelle admission, ville libre ou dixième électeur. Ne pas exiger de pacte ou armée nouvelle. Vérifier les **douze cellules de Salzbourg**, Trente, Brixen, Massa, BAV/AUS et les autres anciens noyaux.
+7. Les territoires voisins encore affichés AUS ne constituent pas une validation historique de tout l'Innviertel en 1776. Vichtenstein, l'Abteiland et les autres périphéries non installées restent bloqués ; ne pas les inclure dans la réussite de PS-OB-CORE.
+8. Contrôler les travaux concurrents utilisés dans la partie (fortifications/génie, France/Anzin/Saint-Gobain/drainage, États-Unis). Simuler **un mois complet**, sauvegarder puis recharger. Revérifier la mine BGT, l'enclave PAS, leurs noms, propriétaires, populations, bâtiments, souverains et voisins.
+9. Rapporter les résultats réels pour **BG-I-CORE révisé** et **PS-OB-CORE** séparément. Un succès de l'un ne masque pas un échec de l'autre et ne clôture pas leurs régions entières.
+
+Prochaine candidate identifiée dans NEXT_ACTION.md seulement ; aucune autre tâche n'est commencée par cette passe.

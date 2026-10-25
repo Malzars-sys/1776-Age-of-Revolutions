@@ -1,0 +1,18 @@
+# Possessions non installées et limites de représentation
+
+| Secteur | Établi | Incertitude / décision |
+| --- | --- | --- |
+| Ismaning | Comté temporel de Freising, bande distincte du diocèse | La grande bande testée empiète sur Munich. Ne pas la récupérer en transférant tout un RGB ni par un corridor ; seuls les 14 pixels du noyau nord sont installés. |
+| Burgrain / Isen | Seigneurie temporelle séparée | Deux fenêtres concrètes à l'est de l'Isar : [4364,910,4368,914] et [4367,912,4371,916]. Ce sont des **fenêtres de comparaison C**, pas des polygones historiques proposés au transfert. Le panneau ancien montre la juridiction séparée mais ne permet pas encore de choisir entre les localités voisines du vaste parent natif E76994. Aucun transfert. |
+| Werdenfels | Possession souveraine de Freising, même titulaire ; distincte d'Ettal et du Tyrol | Fenêtres C [4334,930,4341,934] et [4340,931,4350,936] : conséquences BAV/AUS différentes. La vallée/Loisach et le raccord d'Ettal ne sont pas identifiables de façon suffisante pour choisir sans réattribuer une autre souveraineté ou une ancienne correction souabe. Aucun prélèvement autrichien ni pays Werdenfels artificiel. |
+| Domaines dispersés de Freising | Propriété foncière et pouvoir spirituel ne prouvent pas l'immédiateté | Aucun transfert automatique en Autriche, Tyrol ou ailleurs sur la foi de l'appartenance au diocèse. |
+| Donaustauf–Wörth, raccord et districts méridionaux | La planche HAB distingue les juridictions interposées et une connexion étroite | Deux noyaux réduits installés. Le raccord de Kiefenholz, Wiesent et les districts au sud ne sont pas reconstruits. Les deux composantes ne certifient pas une séparation historique complète. |
+| Hohenburg au Nordgau | Seigneurie épiscopale distincte des domaines médiats homonymes | Pas de cellule sélectionnée dans ce sous-lot danubien ; pas d'assimilation à Hohenburg am Inn. |
+| Immunité épiscopale dans Ratisbonne | Quartier cathédral distinct du pouvoir urbain | Non séparable honnêtement à cette résolution. RBI est représenté dans ses noyaux orientaux, pas par l'appropriation politique de la ville entière. |
+| St. Emmeram, Obermünster, Niedermünster | Institutions immédiates distinctes, non absorbées historiquement par le conseil ou le diocèse | Territoires intra-urbains sous-résolus : abstraction explicitement conservée, aucun TAG automatique. Titulaires individuels et possessions rurales propres non reconstitués ici. |
+| Stadtamhof | Bavarois et non ville impériale | Pas de ville étendue sur les deux rives. L'exclusion est une relation politique générale, pas une frontière urbaine certifiée au pixel. |
+| Population / économie des nouveaux noyaux | Profils conservés, pas un recensement | RCI 713 habitants est une allocation technique très réduite. Démographie historique, confession locale et viabilité restent à examiner séparément ; aucune conversion religieuse, industrie ou troupe artificielle pour masquer cette limite. |
+
+[Options visuelles Burgrain](BURGRAIN_C_OPTIONS.png), [Werdenfels](WERDENFELS_C_OPTIONS.png), [RGB et propriétaires dans les fenêtres](UNRESOLVED_OPTIONS.json). Les rectangles ne sont **pas** des nouvelles frontières en attente d'un simple clic d'approbation : leur attribution reste indécidable avec les données confrontées.
+
+Les catégories C ne découlent pas seulement du résidu affine de 4,674 pixels : elles portent sur l'identification des juridictions voisines et les conséquences politiques alternatives. Les noyaux B livrés ne revendiquent aucune exactitude urbaine ou cadastrale. Les anomalies préexistantes, les autres anciennes franges, Hohenlohe et Erfurt ne sont pas déclarés résolus.

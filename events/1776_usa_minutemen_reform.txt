@@ -1,0 +1,31 @@
+namespace = aor1776_usa_minutemen_reorganization
+
+aor1776_usa_minutemen_reorganization.1 = {
+ type = country_event placement = root
+ title = aor1776_usa_minutemen_reorganization.1.t
+ desc = aor1776_usa_minutemen_reorganization.1.d
+ flavor = aor1776_usa_minutemen_reorganization.1.f
+ event_image = { video = "ep2_intellectual_writer" }
+ icon = "gfx/interface/icons/event_icons/event_military.dds"
+ duration = 30
+ trigger = {
+  aor1776_minutemen_reform_institutional_context = yes
+  has_law = law_type:law_aor1776_minutemen
+  NOT = { has_variable = aor1776_minutemen_reform_resolved }
+ }
+ option = {
+  name = aor1776_usa_minutemen_reorganization.1.a
+  trigger = { aor1776_minutemen_reform_can_begin = yes }
+  show_as_unavailable = { always = yes }
+  ai_chance = { base = 60 }
+  custom_tooltip = aor1776_minutemen_reform_start_tt
+  aor1776_minutemen_reorganization_begin_effect = yes
+ }
+ option = {
+  name = aor1776_usa_minutemen_reorganization.1.b
+  default_option = yes
+  ai_chance = { base = 40 }
+  custom_tooltip = aor1776_minutemen_reform_keep_tt
+  aor1776_minutemen_reorganization_keep_effect = yes
+ }
+}

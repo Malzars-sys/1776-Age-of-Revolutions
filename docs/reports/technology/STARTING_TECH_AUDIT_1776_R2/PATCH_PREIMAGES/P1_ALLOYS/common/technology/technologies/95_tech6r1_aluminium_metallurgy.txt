@@ -1,0 +1,46 @@
+alloysworking = {
+	# Early industrial metallurgy and the alloy works imported from Tech & Res.
+	era = era_2
+	category = production
+	texture = "gfx/interface/icons/invention_icons/alloysworking.dds"
+
+	unlocking_technologies = {
+		coke_smelting
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+bauxite_processing = {
+	# Wöhler-Deville chemical aluminium route, before electrical mass production.
+	era = era_9
+	category = production
+	texture = "gfx/interface/icons/invention_icons/bauxite_processing.dds"
+
+	unlocking_technologies = {
+		alloysworking
+		industrial_alkalis
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}
+
+bayer_process = {
+	# Industrial purification and electrical generation enable Hall-Heroult electrolysis.
+	era = era_10
+	category = production
+	texture = "gfx/interface/icons/invention_icons/bayer_process.dds"
+
+	unlocking_technologies = {
+		bauxite_processing
+		electrical_capacitors
+	}
+
+	ai_weight = {
+		value = 2
+	}
+}

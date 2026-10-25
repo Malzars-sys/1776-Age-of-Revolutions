@@ -1,0 +1,17 @@
+{
+  "task_ids": [
+    "SC2-BOHEMIA"
+  ],
+  "unexplained_failures": [],
+  "historical_final_layer_assertions": [
+    "test_map2w_r2b_completion.HesseNassauCompletion.test_registry_guard_accepts_current_layer",
+    "test_map2w_r4_political.PassauPoliticalPilot.test_registry_current_layer",
+    "test_map2w_r4bc.FreisingRegensburg.test_current_cumulative_tail_not_previous_last"
+  ],
+  "raw_failure_logs_preserved": true,
+  "old_tests_not_modified": true,
+  "explanation": "Same three assertions already failed before SC2: they demand a previous lot be the final registry layer. The registry and all compiled outputs remain byte-identical to the SC2 baseline; Salzburg remains its last layer.",
+  "replacement": "VALIDATION.json plus test_serg_sc1_salzburg.SalzburgContracts.test_exact_cumulative_tail",
+  "initial_only_skip": "No-edit initialization invariant deliberately skipped after authorized installations",
+  "engine_executed": false
+}

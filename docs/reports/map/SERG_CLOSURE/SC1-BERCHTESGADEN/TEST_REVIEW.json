@@ -1,0 +1,21 @@
+{
+  "task_ids": [
+    "SC1-BERCHTESGADEN"
+  ],
+  "historical_final_layer_assertions": [
+    "test_map2w_r2b_completion.HesseNassauCompletion.test_registry_guard_accepts_current_layer",
+    "test_map2w_r4_political.PassauPoliticalPilot.test_registry_current_layer",
+    "test_map2w_r4bc.FreisingRegensburg.test_current_cumulative_tail_not_previous_last"
+  ],
+  "obsolete_snapshot_assertions": [
+    "test_serg_sc1_brixen.BrixenContracts.test_current_cumulative_tail",
+    "test_serg_sc1_brixen.BrixenContracts.test_no_brixen_human_receipt_no_credit",
+    "test_serg_sc1_salzburg.SalzburgContracts.test_exact_cumulative_tail",
+    "test_serg_sc1_trento.TrentoContracts.test_current_chain_retains_both_user_validated_nuclei",
+    "test_serg_sc4_massa_carrara.MassaCarraraContracts.test_current_chain_retains_salzburg_before_massa"
+  ],
+  "old_tests_not_modified": true,
+  "unexplained_failures": [],
+  "classification": "Seven fixed-final-layer expectations plus one pre-acceptance absence-of-Brixen-receipt expectation; genuine user receipt now replaces that old lifecycle snapshot.",
+  "replacement": "Current cumulative tail and genuine partial BRX receipt checked by Berchtesgaden contracts."
+}

@@ -203,6 +203,8 @@ law_professional_army = {
 law_national_militia = {
 	group = lawgroup_army_model
 	icon = "gfx/interface/icons/law_icons/national_militia.dds"
+	# The American variant occupies this model's position in the law list.
+	is_visible = { NOT = { c:USA ?= this } }
 
 	progressiveness = 0
 
@@ -262,6 +264,31 @@ law_national_militia = {
 			add = 750
 		}
 	}
+}
+
+# Keep the national variant beside its parent, before mass conscription, so
+# the visible American list substitutes it instead of appending another model.
+law_aor1776_minutemen = {
+	group = lawgroup_army_model
+	parent = law_national_militia
+	icon = "gfx/interface/icons/law_icons/national_militia.dds"
+	progressiveness = 0
+	unlocking_technologies = { light_infantry_tactics }
+	modifier = {
+		state_conscription_rate_add = 0.04
+		state_building_barrack_max_level_add = 25
+		state_building_conscription_center_max_level_add = 25
+		military_formation_mobilization_speed_mult = 0.20
+		building_training_rate_mult = 0.10
+		country_military_goods_cost_mult = 0.05
+	}
+	is_visible = { c:USA ?= this }
+	can_enact = {
+		c:USA ?= this
+		OR = { aor1776_usa_independence_war_active = yes is_subject = no }
+	}
+	can_impose = { always = no }
+	ai_will_do = { c:USA ?= this aor1776_usa_independence_war_active = yes }
 }
 
 law_mass_conscription = {

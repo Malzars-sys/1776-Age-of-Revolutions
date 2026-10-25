@@ -1,0 +1,136 @@
+# Shared implementation for the integrated action, treaty article and annual
+# campaign AI. Based on Join Ongoing Wars by The Lizerd King (3015811655).
+aor1776_intervene_effect = {
+ $ACTOR$ = { save_scope_as = aor1776_intervening_country }
+ $FRIEND$ = { save_scope_as = aor1776_supported_country }
+ scope:aor1776_intervening_country = {
+  if = {
+   limit = {
+    aor1776_can_intervene_trigger = { ACTOR = scope:aor1776_intervening_country FRIEND = scope:aor1776_supported_country }
+   }
+   scope:aor1776_supported_country = { change_relations = { country = scope:aor1776_intervening_country value = 30 } }
+   every_diplomatic_play = {
+    limit = {
+     is_war = yes
+     OR = { initiator_is = scope:aor1776_supported_country target_is = scope:aor1776_supported_country }
+     NOT = { is_diplomatic_play_participant = scope:aor1776_intervening_country }
+    }
+    if = {
+     limit = { initiator_is = scope:aor1776_supported_country }
+     add_initiator_backers = { scope:aor1776_intervening_country }
+    }
+    else = { add_target_backers = { scope:aor1776_intervening_country } }
+    if = {
+     limit = { initiator_is = c:USA target_is = c:GBR }
+     if = {
+      limit = { scope:aor1776_intervening_country = { c:FRA ?= this NOT = { has_variable = aor1776_revolution_joined } } }
+      aor1776_french_revolution_goals_effect = yes
+      c:FRA = {
+       set_variable = aor1776_revolution_joined
+       set_strategy = ai_strategy_aor1776_french_revolution_war
+      }
+     }
+     else_if = {
+      limit = { scope:aor1776_intervening_country = { c:SPA ?= this NOT = { has_variable = aor1776_revolution_joined } } }
+      aor1776_spanish_revolution_goals_effect = yes
+      c:SPA = {
+       set_variable = aor1776_revolution_joined
+       set_strategy = ai_strategy_aor1776_spanish_revolution_war
+      }
+     }
+    }
+   }
+  }
+ }
+}
+
+# Diplomatic-play scope. Goals are guarded by the continued existence of a
+# British state share. No ownership, claims on Britain itself or map edits.
+aor1776_french_revolution_goals_effect = {
+ if = {
+  limit = { exists = s:STATE_WEST_INDIES.region_state:GBR }
+  add_war_goal = { holder = c:FRA type = conquer_state target_state = s:STATE_WEST_INDIES.region_state:GBR }
+ }
+ if = {
+  limit = { exists = s:STATE_SENEGAL.region_state:GBR }
+  add_war_goal = { holder = c:FRA type = conquer_state target_state = s:STATE_SENEGAL.region_state:GBR }
+ }
+ # Capital-occupation objective: strategic pressure for an attack on Britain,
+ # not presented as a historical French territorial claim.
+ add_war_goal = { holder = c:FRA target_country = c:GBR type = aor1776_break_british_power }
+}
+
+aor1776_spanish_revolution_goals_effect = {
+ if = {
+  limit = { exists = s:STATE_FLORIDA.region_state:GBR }
+  add_war_goal = { holder = c:SPA type = return_state target_state = s:STATE_FLORIDA.region_state:GBR }
+ }
+ if = {
+  limit = { exists = s:STATE_BALEARIC_ISLANDS.region_state:GBR }
+  add_war_goal = { holder = c:SPA type = return_state target_state = s:STATE_BALEARIC_ISLANDS.region_state:GBR }
+ }
+}
+
+# Only two countries are evaluated, once each year. Deadline checks deliberately
+# precede the annual cooldown. Human-controlled countries retain their choice.
+aor1776_revolution_intervention_monthly_effect = {
+ if = {
+  limit = { aor1776_usa_independence_war_active = yes }
+  c:FRA ?= { aor1776_french_entry_roll_effect = yes }
+  c:SPA ?= { aor1776_spanish_entry_roll_effect = yes }
+ }
+}
+
+aor1776_french_entry_roll_effect = {
+ if = {
+  limit = {
+   is_ai = yes
+   aor1776_revolution_intervention_eligible = { ACTOR = c:FRA }
+  }
+  if = {
+   limit = { game_date >= 1778.3.17 }
+   aor1776_intervene_effect = { ACTOR = c:FRA FRIEND = c:USA }
+  }
+  else_if = {
+   limit = { NOT = { has_variable = aor1776_intervention_annual_roll } }
+   set_variable = { name = aor1776_intervention_annual_roll days = 365 }
+   if = {
+    limit = { game_date >= 1778.1.1 }
+    random = { chance = 75 aor1776_intervene_effect = { ACTOR = c:FRA FRIEND = c:USA } }
+   }
+   else_if = {
+    limit = { game_date >= 1777.1.1 }
+    random = { chance = 45 aor1776_intervene_effect = { ACTOR = c:FRA FRIEND = c:USA } }
+   }
+   else = { random = { chance = 10 aor1776_intervene_effect = { ACTOR = c:FRA FRIEND = c:USA } } }
+  }
+ }
+}
+
+aor1776_spanish_entry_roll_effect = {
+ if = {
+  limit = {
+   is_ai = yes
+   NOT = { has_variable = aor1776_spanish_final_roll_taken }
+   aor1776_revolution_intervention_eligible = { ACTOR = c:SPA }
+  }
+  if = {
+   limit = { game_date >= 1779.6.21 }
+   set_variable = aor1776_spanish_final_roll_taken
+   random = { chance = 60 aor1776_intervene_effect = { ACTOR = c:SPA FRIEND = c:USA } }
+  }
+  else_if = {
+   limit = { NOT = { has_variable = aor1776_intervention_annual_roll } game_date >= 1777.1.1 }
+   set_variable = { name = aor1776_intervention_annual_roll days = 365 }
+   if = {
+    limit = { game_date >= 1779.1.1 }
+    random = { chance = 40 aor1776_intervene_effect = { ACTOR = c:SPA FRIEND = c:USA } }
+   }
+   else_if = {
+    limit = { game_date >= 1778.1.1 }
+    random = { chance = 25 aor1776_intervene_effect = { ACTOR = c:SPA FRIEND = c:USA } }
+   }
+   else = { random = { chance = 10 aor1776_intervene_effect = { ACTOR = c:SPA FRIEND = c:USA } } }
+  }
+ }
+}

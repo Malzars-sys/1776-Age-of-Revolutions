@@ -1,0 +1,1019 @@
+# Index des preuves et des anciens travaux
+
+Les références chemin:ligne sont résolues sur le dépôt actuel. DOCUMENT_INDEX.json conserve les empreintes des 1020 documents candidats repérés. Ce balayage machine ne signifie pas lecture intégrale de 1020 pièces ni certification de leurs conclusions.
+
+## Conclusions régionales
+
+- A01 — Holstein royal et exclusion du Schleswig : docs/reports/map/MAP2Q/REPORT.md:1. PARTIELLEMENT TRAITÉ. Règlement de 1773 et limites HOL/SCH non reconstruits; Eutin n’est pas tout le Holstein.
+- A02 — Eutin et Schwartau, noyaux HLB : docs/reports/map/MAP2Q/R3/REPORT.md:1. VALIDÉ EN JEU. Chapitre, Ruppersdorf, Neuhof restent ouverts.
+- A03 — Villes de Lübeck, Hambourg et Brême : docs/reports/map/MAP2K/MAP2K_EXECUTIVE_SUMMARY.md:1. PARTIELLEMENT TRAITÉ. Pays présents; limites et dépendances suédoises héritées non certifiées historiquement.
+- A04 — Wismar–Poel–Neukloster : docs/reports/map/MAP2N/REPORT.md:1. VALIDÉ EN JEU. Poel regroupée techniquement en Poméranie; Suède entière non impériale.
+- A05 — Mecklembourg hors possessions suédoises : docs/reports/map/MAP2M/R9/HRE_REGIONS_PROGRESS.md:1. NON AUDITÉ. Recherche macro R2, pas de contrôle territorial dédié retrouvé.
+- A06 — Poméranie impériale, Peene et Wolgast : docs/reports/map/MAP2M/R9/REPORT.md:1. VALIDÉ EN JEU. Peendamm abstrait; frontière politique généralisée acceptée, pas levé cadastral.
+- A07 — Brandebourg, Neumark, Magdebourg–Halberstadt : docs/reports/map/MAP2M/R9/PRUSSIAN_HRE_BORDERS_AUDIT.md:1. PARTIELLEMENT TRAITÉ. Audit macro; frontières Magdebourg/Halberstadt et franges non certifiées RGB par RGB.
+- A08 — Hanovre, Brunswick et principautés du Harz : docs/reports/map/MAP1/inputs/regional_originals/R2_NORTHERN_CENTRAL_EASTERN_EUROPE_RECOMMENDATIONS.csv:1. PARTIELLEMENT TRAITÉ. Minden/Osnabrück/Niederstift traités séparément; noyaux restants non reconstruits en détail.
+- B01 — Münster, Paderborn, Juliers–Berg : premiers noyaux : docs/reports/map/MAP2L/RHINE_WESTPHALIA/REPORT.md:1. VALIDÉ EN JEU. Limites et petites juridictions intercalées ouvertes.
+- B02 — Osnabrück, Niederstift, Lingen–Tecklenburg : docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/REPORT.md:1. VALIDÉ EN JEU. Damme-Neuenkirchen, bordures HAN/OLD non certifiées.
+- B03 — Minden : correction de 76 cellules : docs/reports/map/MAP2L/MINDEN_RAVENSBERG/REPORT.md:1. INSTALLÉ — NON VALIDÉ. Pas de reçu spécifique couvrant ce sous-lot; Ravensberg distinct et différé.
+- B04 — Duché de Westphalie et Vest de Cologne : docs/reports/map/MAP2L/DUCHY_WESTPHALIA/REPORT.md:1. INSTALLÉ — NON VALIDÉ. 84 cellules préservées; reçu spécifique non retrouvé; franges ouvertes.
+- B05 — Clèves, Mark, Ravensberg et Gueldre prussienne : docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/UNRESOLVED.csv:1. PARTIELLEMENT TRAITÉ. Cœurs PRU maintenus; partage Gueldre et bordures non achevés.
+- B06 — Lippe et Schaumbourg-Lippe : docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/UNRESOLVED.csv:1. PARTIELLEMENT TRAITÉ. Pays présents, aucune reconstitution complète des frontières retrouvée.
+- B07 — Petits comtés, abbayes et Dortmund : docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/UNRESOLVED.csv:1. AUDITÉ — BLOQUÉ OU DIFFÉRÉ. Gage de Bentheim à distinguer du titre; pas de pays automatique par abbaye.
+- B08 — Emden et noyau côtier de Frise orientale : docs/reports/map/MAP2O/REPORT.md:1. VALIDÉ EN JEU. 319 cellules B; ne certifie pas toute la Frise historique.
+- B09 — Frise orientale méridionale et Jever : docs/reports/map/MAP2S/JEVER_HISTORICAL_EVIDENCE.md:1. AUDITÉ — BLOQUÉ OU DIFFÉRÉ. Jever toujours OLD dans enveloppes candidates; attribution exacte non résolue. MAP2P n’a rien transféré.
+- C01 — Rhin central, noyaux palatins et électoraux : docs/reports/map/MAP2L/RHINE_CENTRAL/REPORT.md:1. VALIDÉ EN JEU. Validation limitée aux zones inspectées, pas à tous les bailliages.
+- C02 — Mayence Rheingau–Bergstraße–Spessart–Tauber : docs/reports/map/MAP2L/MAINZ_COMPLETION/REPORT.md:1. INSTALLÉ — NON VALIDÉ. Trois couches de noyaux installées; aucune attestation détaillée de l’ensemble retrouvée.
+- C03 — Erfurt–Eichsfeld : docs/reports/map/MAP2L/ERFURT_EICHSFELD/REPORT.md:1. AUDITÉ — BLOQUÉ OU DIFFÉRÉ. Translation 7,20 pixels refusée; villes et frontières restent non validées. Aucun nouvel ajustement.
+- C04 — Fulda et branches de Nassau installées : docs/reports/map/MAP2W/R2B/REPORT.md:1. VALIDÉ EN JEU. R1/R2A reçu général; R2B explicitement validé. Franges, Hombourg, Hanau, apanages restent ouverts.
+- C05 — Hesses, Waldeck, Francfort et juridictions rhénanes restantes : docs/reports/map/MAP2W/R2B/UNRESOLVED_R2B.csv:1. PARTIELLEMENT TRAITÉ. Ne pas convertir tous apanages en souverainetés; temporalités épiscopales à séparer du diocèse et de la ville.
+- D01 — Franconie : noyaux principaux et continuation : docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/REPORT.md:1. VALIDÉ EN JEU. Union Ansbach–Bayreuth sous même prince; pas Prusse de 1791. Résidus BAV non certifiés.
+- D02 — Hohenlohe, Castell, Wertheim et villes secondaires : docs/reports/map/MAP2W/R3/CALIBRATION/REPORT.md:1. AUDITÉ — BLOQUÉ OU DIFFÉRÉ. Aucun R3 installé; candidats Langenbourg/Kirchberg retirés, zéro homologue physique accepté.
+- D03 — Franges franconiennes et possessions dispersées : docs/reports/map/MAP2L/FRANCONIA/UNRESOLVED.csv:1. PARTIELLEMENT TRAITÉ. 662 cellules BAV était un chiffre initial, pas le résidu actuel après continuations.
+- E01 — Souabe : première passe : docs/reports/map/MAP2L/SWABIA/REPORT.md:1. VALIDÉ EN JEU. Noyaux seulement; souveraineté hors noyau non certifiée.
+- E02 — Fürstenberg et Ellwangen : continuation : docs/reports/map/MAP2L/SWABIA_CONTINUATION/REPORT.md:1. INSTALLÉ — NON VALIDÉ. Noyaux préservés dans tests postérieurs; le reçu FINISH ne valide pas automatiquement toute cette couche.
+- E03 — Salem, Waldburg, Constance : finition : docs/reports/map/MAP2L/SWABIA_FINISH/REPORT.md:1. VALIDÉ EN JEU. Condominats et offices externes ouverts; Constance autrichienne distincte du Hochstift.
+- E04 — Villes libres, Weingarten et raccord autrichien : docs/reports/map/MAP2L/SWABIA_COMPLETION/REPORT.md:1. VALIDÉ EN JEU. Une cellule chacune autorisée; pas extension automatique à Isny/Lindau/Kaufbeuren.
+- E05 — Montbéliard, Oettingen et franges souabes : docs/reports/map/MAP2L/SWABIA_COMPLETION/UNRESOLVED.csv:1. AUDITÉ — BLOQUÉ OU DIFFÉRÉ. Aucun transfert de Montbéliard; pas rétroprojection de 1786. Petits territoires et limites autrichiennes ouverts.
+- F01 — Passau : noyau politique : docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/REPORT.md:1. VALIDÉ EN JEU. xEDBA00, 40 cellules; périphérie et possessions autrichiennes non reconstituées.
+- F02 — Freising : noyau politique : docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/REPORT.md:1. VALIDÉ EN JEU. 14 cellules; Burgrain, Werdenfels, bande Ismaning restent C.
+- F03 — Ratisbonne : ville et évêché : docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/REPORT.md:1. VALIDÉ EN JEU. RCI 2 cellules/713 habitants techniques; RBI 14 cellules. Hohenburg et immunités ouverts.
+- F04 — Bavière et enclaves restantes : docs/reports/map/MAP2W/R4/HISTORICAL_INVENTORY.md:1. PARTIELLEMENT TRAITÉ. Pays BAV préservé; pas preuve globale des résidus, Ortenbourg/Berchtesgaden manquent de représentation distincte.
+- F05 — Salzbourg : docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/HISTORICAL_GAPS.md:1. AUDITÉ — BLOQUÉ OU DIFFÉRÉ. Absence politique distincte confirmée; limites natives et population à établir. Ne pas confondre avec circonscription moderne.
+- G01 — Anhalt : quatre principautés : docs/reports/map/MAP2R/REPORT.md:1. VALIDÉ EN JEU. MAP2S arrêt pratique: Rosslau/Barby/Hoym et Jever ne sont pas clos.
+- G02 — Saxe et duchés ernestins : docs/reports/map/MAP2T/REPORT.md:1. VALIDÉ EN JEU. Noyaux inspectés, pas toutes enclaves et branches.
+- G03 — Reuss et Schwarzbourg-Sondershausen : docs/reports/map/MAP2U/REPORT.md:1. VALIDÉ EN JEU. Noyaux et enclave septentrionale seulement; franges résiduelles ouvertes.
+- G04 — Possessions dispersées de Saxe/Anhalt/Thuringe : docs/reports/map/MAP2U/UNRESOLVED.csv:1. PARTIELLEMENT TRAITÉ. Ne pas réutiliser listes pré-T/U comme preuve d’absence des nouveaux pays.
+- H01 — Bohême : docs/reports/map/MAP1/inputs/regional_originals/R2_NORTHERN_CENTRAL_EASTERN_EUROPE_RECOMMENDATIONS.csv:1. NON AUDITÉ. Bibliographie macro LOW; pas audit territorial complet retrouvé.
+- H02 — Moravie et Silésie autrichienne : docs/reports/map/MAP2A/MAP2A_EXECUTIVE_SUMMARY.md:1. PARTIELLEMENT TRAITÉ. Deux doubles propriétaires corrigés et Teschen rescopé; reste de la région non certifié.
+- H03 — Silésie prussienne, Glatz et Lusaces : docs/reports/map/MAP1B/MAP1B_GEOGRAPHIC_EVIDENCE/SILESIA_READING.md:1. PARTIELLEMENT TRAITÉ. Études et maintiens proposés, pas reconstruction complète de la frontière.
+- H04 — Autriche, Styrie, Carinthie et Carniole : docs/reports/map/MAP1/inputs/regional_originals/R2_NORTHERN_CENTRAL_EASTERN_EUROPE_RECOMMENDATIONS.csv:1. NON AUDITÉ. R2-0133/136/137: inventaire bibliographique seulement; limites natives non homologuées.
+- H05 — Tyrol et principautés de Trente/Brixen : docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/HISTORICAL_GAPS.md:1. PARTIELLEMENT TRAITÉ. Trente/Brixen sans pays territorial distinct; partage administratif initial ne prouve pas leur souveraineté autrichienne.
+- H06 — Autriche antérieure et frontière adriatique : docs/reports/map/MAP2A/MAP2A_EXECUTIVE_SUMMARY.md:1. PARTIELLEMENT TRAITÉ. Fribourg/Nellenburg/Landvogtei corrigés; Sundgau antérieur vs 1648 et Gorizia/Trieste à examiner séparément.
+- I01 — Liège, Stavelot et Pays-Bas autrichiens : noyaux : docs/reports/map/MAP2L/BELGIUM/IMPLEMENTATION.md:1. VALIDÉ EN JEU. Ne valide pas chaque limite de Limbourg, Maastricht ou Bouillon.
+- I02 — Luxembourg : intégration à BEO : docs/reports/map/LUX_BEO_INTEGRATION_2026-10-10/REPORT.md:1. INSTALLÉ — NON VALIDÉ. xD001A0 présent BEO; aucun reçu propre à tout le périmètre luxembourgeois.
+- I03 — Limbourg, Maastricht, Bouillon et franges belges : docs/reports/map/MAP2L/BELGIUM/IMPLEMENTATION.md:1. PARTIELLEMENT TRAITÉ. Petites juridictions ouvertes; souveraineté de Bouillon et Saint-Hubert ne se déduit pas d’un TAG voisin.
+- J01 — Milanais–Crémonais et Trois Ligues : docs/reports/map/MAP2L/MILAN_CREMONESE/REPORT.md:1. INSTALLÉ — NON VALIDÉ. 64 cellules AUS de continuité conservées; autre frontière lombarde non certifiée.
+- J02 — Piémont : inclusion impériale limitée : docs/reports/map/MAP2L/PIEDMONT/REPORT.md:1. INSTALLÉ — NON VALIDÉ. Appartenance pays entier au bloc ≠ territoire impérial; Savoie/Nice restent non tranchées par ce lot.
+- J03 — Savoie, Nice et fiefs ligures : docs/reports/map/MAP1/inputs/regional_originals/R1_WESTERN_EUROPE_RECOMMENDATIONS.csv:1. NON AUDITÉ. R1-0013/14/15: dossier macro, pas délimitation et statut impérial entièrement établis.
+- J04 — Modène, Parme et Toscane : docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/HISTORICAL_GAPS.md:1. NON AUDITÉ. MOD/PAR/TUS présents au registre gelé; aucune reconstruction territoriale dédiée retrouvée. Pas toute Italie impériale par défaut.
+- K01 — Petites juridictions non cerclées et chevalerie : docs/reports/map/MAP2W/R3/HISTORICAL_EVIDENCE.md:1. NON AUDITÉ. Pas d’inventaire de toutes possessions immédiates; portée pratique 1.0 à définir.
+- K02 — Liechtenstein et autres exceptions alpines : docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/HISTORICAL_GAPS.md:1. AUDITÉ — BLOQUÉ OU DIFFÉRÉ. Liechtenstein sans représentation distincte; faible surface, décision P2 possible. Pas nouveau pays automatique.
+
+## Chronologie des installations et reçus
+
+- 1 — LUX_BEO_INTEGRATION_2026-10-10 (2026-10-10) : docs/reports/map/LUX_BEO_INTEGRATION_2026-10-10/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. xD001A0 BEO; ancien LUX sans territoire; frontière inchangée
+- 2 — MAP2A (2026-10-10) : docs/reports/map/MAP2A/MAP2A_EXECUTIVE_SUMMARY.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. Trois Ligues et Silésie autrichienne; quatre RGB existants
+- 3 — MAP2K (2026-10-13) : docs/reports/map/MAP2K/MAP2K_EXECUTIVE_SUMMARY.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. Cinq provinces anciennes, quatre TAG actifs supplémentaires, neuf titres
+- 4 — MAP2L/BELGIUM (2026-10-13) : docs/reports/map/MAP2L/BELGIUM/IMPLEMENTATION.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION.json:1. Liège, Stavelot et noyaux belges
+- 5 — MAP2L/PIEDMONT (2026-10-13) : docs/reports/map/MAP2L/PIEDMONT/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. Neuf RGB SAR piémontais, pas île de Sardaigne
+- 6 — MAP2L/FRANCONIA (2026-10-13) : docs/reports/map/MAP2L/FRANCONIA/REPORT.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION.json:1. STATE_FRANCONIA; nouveaux membres ANS,FBM,WZB,NUR,EIC
+- 7 — MAP2L/RHINE_CENTRAL (2026-10-13) : docs/reports/map/MAP2L/RHINE_CENTRAL/REPORT.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION.json:1. STATE_BADEN; nouveaux membres 
+- 8 — MAP2L/MAINZ_PALATINATE (2026-10-13) : docs/reports/map/MAP2L/MAINZ_PALATINATE/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. STATE_FRANCONIA;STATE_HESSE;STATE_RHINELAND; nouveaux membres 
+- 9 — MAP2L/MAINZ_ESTATES (2026-10-13) : docs/reports/map/MAP2L/MAINZ_ESTATES/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. STATE_BADEN;STATE_FRANCONIA;STATE_HESSE; nouveaux membres 
+- 10 — MAP2L/MAINZ_COMPLETION (2026-10-13) : docs/reports/map/MAP2L/MAINZ_COMPLETION/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. STATE_BADEN;STATE_WURTTEMBERG; nouveaux membres 
+- 11 — MAP2L/MILAN_CREMONESE (2026-10-13) : docs/reports/map/MAP2L/MILAN_CREMONESE/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. STATE_LOMBARDY; nouveaux membres 
+- 12 — MAP2L/FRANCONIA_CONTINUATION (2026-10-14) : docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/REPORT.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION.json:1. STATE_BAVARIA;STATE_FRANCONIA; nouveaux membres 
+- 13 — MAP2L/RHINE_WESTPHALIA (2026-10-14) : docs/reports/map/MAP2L/RHINE_WESTPHALIA/REPORT.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION.json:1. STATE_NORTH_RHINE;STATE_RUHR;STATE_WESTPHALIA; nouveaux membres WPM,WPD
+- 14 — MAP2L/MINDEN_RAVENSBERG (2026-10-14) : docs/reports/map/MAP2L/MINDEN_RAVENSBERG/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. STATE_HANNOVER; nouveaux membres 
+- 15 — MAP2L/DUCHY_WESTPHALIA (2026-10-14) : docs/reports/map/MAP2L/DUCHY_WESTPHALIA/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. STATE_RUHR;STATE_WESTPHALIA; nouveaux membres 
+- 16 — MAP2L/RHINE_WESTPHALIA_COMPLETION (2026-10-14) : docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/REPORT.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_RHINE_SWABIA.json:1. STATE_HANNOVER;STATE_WESTPHALIA; nouveaux membres WPO
+- 17 — MAP2L/SWABIA (2026-10-14) : docs/reports/map/MAP2L/SWABIA/REPORT.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_RHINE_SWABIA.json:1. STATE_BADEN;STATE_BAVARIA;STATE_WURTTEMBERG; nouveaux membres HSG,SUU,SAG,SKE
+- 18 — MAP2L/SWABIA_CONTINUATION (2026-10-14) : docs/reports/map/MAP2L/SWABIA_CONTINUATION/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. STATE_BADEN;STATE_BAVARIA;STATE_FRANCONIA;STATE_WURTTEMBERG; nouveaux membres SFU,SEW
+- 19 — MAP2L/SWABIA_FINISH (2026-10-14) : docs/reports/map/MAP2L/SWABIA_FINISH/REPORT.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_SWABIA_FINISH.json:1. STATE_BADEN;STATE_BAVARIA;STATE_WURTTEMBERG; nouveaux membres SLM,SWW,SWF,SWX,SWY,SKC
+- 20 — MAP2L/SWABIA_COMPLETION (2026-10-14) : docs/reports/map/MAP2L/SWABIA_COMPLETION/REPORT.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_SWABIA_COMPLETION.json:1. STATE_BADEN;STATE_BAVARIA;STATE_WURTTEMBERG; nouveaux membres SAC,SKI,SRT,SBI,SMM,SRQ,SWG
+- 21 — MAP2L/PRUSSIAN_BORDERS (2026-10-14) : docs/reports/map/MAP2L/PRUSSIAN_BORDERS/REPORT.md:1; reçu : docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_PRUSSIAN_CORE.json:1. STATE_POMERANIA; nouveaux membres 
+- 22 — MAP2M/R2 (2026-10-15) : docs/reports/map/MAP2M/R2/REPORT.md:1; reçu : docs/reports/map/MAP2M/R3/R2_USER_RUNTIME_VALIDATION.json:1. Peene progressive; R2 inclut Bromberg 85 cellules hors SERG, Netze non achevée
+- 23 — MAP2M/R3 (2026-10-15) : docs/reports/map/MAP2M/R3/REPORT.md:1; reçu : docs/reports/map/MAP2M/R4/R3_USER_RUNTIME_VALIDATION.json:1. Peene progressive; R2 inclut Bromberg 85 cellules hors SERG, Netze non achevée
+- 24 — MAP2M/R8 (2026-10-15) : docs/reports/map/MAP2M/R8/REPORT.md:1; reçu : docs/reports/map/MAP2M/R8_R9_USER_RUNTIME_VALIDATION_2026_10_15.json:1. Peene progressive; R2 inclut Bromberg 85 cellules hors SERG, Netze non achevée
+- 25 — MAP2M/R9 (2026-10-15) : docs/reports/map/MAP2M/R9/REPORT.md:1; reçu : docs/reports/map/MAP2M/R8_R9_USER_RUNTIME_VALIDATION_2026_10_15.json:1. Peene progressive; R2 inclut Bromberg 85 cellules hors SERG, Netze non achevée
+- 26 — MAP2N (2026-10-15) : docs/reports/map/MAP2N/REPORT.md:1; reçu : docs/reports/map/MAP2N/RUNTIME_USER_VALIDATION_2026_10_15.json:1. STATE_MECKLENBURG;STATE_POMERANIA; nouveaux membres 
+- 27 — MAP2N/COMPLETION (2026-10-15) : Voir rapport parent MAP2N et migration; reçu : docs/reports/map/MAP2N/RUNTIME_USER_VALIDATION_2026_10_15.json:1. STATE_MECKLENBURG; nouveaux membres 
+- 28 — MAP2O (2026-10-16) : docs/reports/map/MAP2O/REPORT.md:1; reçu : docs/reports/map/MAP2P/MAP2O_RUNTIME_USER_VALIDATION.json:1. STATE_HANNOVER; nouveaux membres 
+- 29 — MAP2Q (2026-10-16) : docs/reports/map/MAP2Q/REPORT.md:1; reçu : docs/reports/map/MAP2Q/CONTINUATION_R2/RUNTIME_USER_VALIDATION.json:1. STATE_SCHLESWIG_HOLSTEIN; nouveaux membres HLB
+- 30 — MAP2Q/CONTINUATION_R2 (2026-10-16) : docs/reports/map/MAP2Q/REPORT.md:1; reçu : docs/reports/map/MAP2Q/CONTINUATION_R2/RUNTIME_USER_VALIDATION.json:1. Eutin 7600; HLB 9206 après R3; monde -3725 sans compensation
+- 31 — MAP2Q/R3 (2026-10-16) : docs/reports/map/MAP2Q/R3/REPORT.md:1; reçu : docs/reports/map/MAP2Q/R3/RUNTIME_USER_VALIDATION.json:1. STATE_SCHLESWIG_HOLSTEIN; nouveaux membres 
+- 32 — MAP2R (2026-10-17) : docs/reports/map/MAP2R/REPORT.md:1; reçu : docs/reports/map/MAP2S/MAP2R_RUNTIME_USER_VALIDATION.json:1. STATE_ANHALT; nouveaux membres ABG,AKT,AZR
+- 33 — MAP2T (2026-10-17) : docs/reports/map/MAP2T/REPORT.md:1; reçu : docs/reports/map/MAP2T/RUNTIME_USER_ATTESTATION_MAP2U.json:1. STATE_SAXONY; nouveaux membres GOT,HIL,SSO,RGZ,RGE,RSL
+- 34 — MAP2U (2026-10-17) : docs/reports/map/MAP2U/REPORT.md:1; reçu : docs/reports/map/MAP2W/PREVIOUS_LOTS_RUNTIME_USER_ATTESTATION.json:1. STATE_SAXONY;STATE_ANHALT; nouveaux membres RLO,REB
+- 35 — MAP2W (2026-10-17) : docs/reports/map/MAP2W/REPORT.md:1; reçu : docs/reports/map/MAP2W/RUNTIME_USER_ATTESTATION_R2B.json:1. STATE_HESSE;STATE_SAXONY; nouveaux membres FUL
+- 36 — MAP2W/R2 (2026-10-17) : docs/reports/map/MAP2W/R2/REPORT.md:1; reçu : docs/reports/map/MAP2W/RUNTIME_USER_ATTESTATION_R2B.json:1. STATE_HESSE; nouveaux membres NOU,NWB
+- 37 — MAP2W/R2B (2026-10-17) : docs/reports/map/MAP2W/R2B/REPORT.md:1; reçu : docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/RUNTIME_USER_ATTESTATION.json:1. STATE_HESSE;STATE_RHINELAND;STATE_SAXONY; nouveaux membres NSB
+- 38 — HRE_CENTRALIZATION_01 (2026-10-17) : docs/reports/hre/HRE_CENTRALIZATION_01/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. Sujets / taux-transitions / lentille; prototype de succession isolé non activé
+- 39 — HRE_CENTRALIZATION_01/FEEDBACK_R1 (2026-10-17) : docs/reports/hre/HRE_CENTRALIZATION_01/FEEDBACK_R1/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. Sujets / taux-transitions / lentille; prototype de succession isolé non activé
+- 40 — HRE_CENTRALIZATION_01/SECESSION_LENS_R2 (2026-10-17) : docs/reports/hre/HRE_CENTRALIZATION_01/SECESSION_LENS_R2/REPORT.md:1; reçu : Aucune attestation spécifique suffisante retrouvée. Sujets / taux-transitions / lentille; prototype de succession isolé non activé
+- 41 — MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU (2026-10-18) : docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/REPORT.md:1; reçu : docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/RUNTIME_USER_ATTESTATION.json:1. STATE_BAVARIA; nouveaux membres PAS
+- 42 — MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/R4B (2026-10-18) : docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/R4B/REPORT.md:1; reçu : docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/RUNTIME_USER_ATTESTATION.json:1. STATE_BAVARIA; nouveaux membres FSI
+- 43 — MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/R4C (2026-10-18) : docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/R4C/REPORT.md:1; reçu : docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/RUNTIME_USER_ATTESTATION.json:1. STATE_BAVARIA; nouveaux membres RBI,RCI
+
+## Corpus non cartographiques vérifiés comme pistes, pas comme frontières
+- docs/research/WORLD_BORDERS_1776_COMPARISON_ROADMAP_CLEAN (1).md : contexte macro, pas mapping local.
+- docs/reports/buildings/BUILD_START_1776_CENTRAL_EUROPE_GERMAN_ITALY_RESEARCH.md : économie, pas attribution des frontières.
+- docs/reports/technology/recherche régional/TECH_START_1776_CENTRAL_EUROPE_GERMAN_ITALY_RESEARCH.md : technologies, noms historiques parfois antérieurs aux splits.
+- docs/research/characters/RULERS_1776_EUROPE_RESIDUAL_SOURCES.md : identités, ne prouve pas contours.
+- docs/research/military/CLEANUP2D2_IMPERIAL_AND_COMPANY_FORCE_ALLOCATION.csv : forces, pas souveraineté par province.
+- docs/reports/hre/HRE_CENTRALIZATION_01 et suites : institutions réellement installées, prototype isolé de succession distinct et non activé.
+
+## Index machine des pistes documentaires (pas toutes lues intégralement)
+
+- docs/credits/WORKSHOP_VISUAL_ASSETS_LICENSES.md:1 — 154 lignes; SHA-256 35c9126595cf7eb187cacdf29794bab0a0ad8790bed436dbdd15f5192365c953.
+- docs/portraits/README.md:1 — 261 lignes; SHA-256 6c9971226bd9b852b495355e6d6638cf83088542fc292ae6842e438f0012f368.
+- docs/reports/DOCUMENTATION_REORGANIZATION_MANIFEST.csv:1 — 104 lignes; SHA-256 fd00139aa83b1a8a82104b860d42edbdd96f60b132fc720e0c65754ae175ad79.
+- docs/research/WORLD_BORDERS_1776_COMPARISON_ROADMAP_CLEAN (1).md:1 — 338 lignes; SHA-256 cf445ac1e1c5fc245c9fa966e5611bb405178cf37d4809d71597852ed2b83d01.
+- docs/workshop/STEAM_DEV_BLOG_2.5.0_EN.md:1 — 75 lignes; SHA-256 9373917da02f5051d3a3a90580641efee3262895744461df13314a1df9c41045.
+- docs/workshop/STEAM_WORKSHOP_CREDITS.md:1 — 69 lignes; SHA-256 e342a5bff7dbade3903a1d27edc8fc25a209357399ab309b32bc6bf7cd06e8ce.
+- docs/workshop/WORKSHOP_FEATURE_STATUS.csv:1 — 13 lignes; SHA-256 d3de36adf2770a94b4d602fac812df4620e49a450b6a5e1c994facc1fbbf11ac.
+- docs/workshop/WORKSHOP_FINAL_SHIPPING_FILELIST.csv:1 — 856 lignes; SHA-256 735a531c9089f207ce48fb7f44323d8981f971d245e0f2385bd2855ed1303d25.
+- docs/workshop/WORKSHOP_PACKAGE_SIZE_REPORT.md:1 — 123 lignes; SHA-256 ca04d8b3fdb60ddff871bb5af2c69f378bec5f87049792f6bf3c4e2bbcce538b.
+- docs/prototypes/REGIONAL_INFRASTRUCTURE/BASELINE.json:1 — 2182 lignes; SHA-256 a25ca597857a80cf3bba3cac48702a64fa4dd9d9ae602ba663a7ddd2c52c0684.
+- docs/reports/ai_regional_infrastructure_shortage_2026-10-10/baseline.json:1 — 1111 lignes; SHA-256 39826b85f9aea24bf0a22b6d9d907fa3ecf893b364a20971d850e7b348e592be.
+- docs/reports/ai_regional_infrastructure_shortage_2026-10-10/baseline_other.json:1 — 2175 lignes; SHA-256 026719b6ca9fb69fe7c126887d1bf68b6bba71d827bd63a022bbf9a037027f3a.
+- docs/reports/assets/ASSET1_VANILLA_TECH_ICON_INVENTORY.csv:1 — 179 lignes; SHA-256 090c293f22f7dfc2d7dfddc29cdae80fb9c0fe4f3690875d9bae8c19c6a0a428.
+- docs/reports/audit/AUDIT_1776_GREAT_WAVE_1.13.md:1 — 327 lignes; SHA-256 bc1fb3793aeb29c38fad6e2027ff9c383ad0db7d7ea019edce3688f27e9d1cac.
+- docs/reports/buildings/BUILD_START_1776_ADMINISTRATION_CALIBRATION.csv:1 — 546 lignes; SHA-256 5dc5e011d18456e4482adb2f4876a497391d0877d268e174bb39c63144a5c55c.
+- docs/reports/buildings/BUILD_START_1776_AMERICAS_CARIBBEAN_RESEARCH.csv:1 — 389 lignes; SHA-256 ab98a25303d96fed3d809efd78eadd7299ac4d9eafc30afd327fe6d80cadb58d.
+- docs/reports/buildings/BUILD_START_1776_AMERICAS_CARIBBEAN_RESEARCH.md:1 — 257 lignes; SHA-256 466c9ce58597084ae5e238d2c87f2f5312663d14097e1f46cbaa11400dc74e0f.
+- docs/reports/buildings/BUILD_START_1776_CENTRAL_EUROPE_GERMAN_ITALY_RESEARCH.csv:1 — 202 lignes; SHA-256 46d068bd5c0363c729e1c232639d2dc51dafd14dfa6ffd5c3f0bca70fcd33252.
+- docs/reports/buildings/BUILD_START_1776_CENTRAL_EUROPE_GERMAN_ITALY_RESEARCH.md:1 — 95 lignes; SHA-256 acb364fc1d5b08ab1f764962e27717ce4bb71edf9af223bd8a1d8ddba5dbfab4.
+- docs/reports/buildings/BUILD_START_1776_CURRENT_BUILDINGS.csv:1 — 2585 lignes; SHA-256 973bebfce635ae7d0ed1fa12bd472fea80a13e6791ae3d457508b9364c827b0d.
+- docs/reports/buildings/BUILD_START_1776_EAST_ASIA_SE_ASIA_RESEARCH.md:1 — 236 lignes; SHA-256 21fb71e5b76fba2a23e8241f14f0f459fb1b21d77ae3afc04b67351a7835dc38.
+- docs/reports/buildings/BUILD_START_1776_EAST_ASIA_SE_ASIA_RESEARCH_MATRIX.csv:1 — 169 lignes; SHA-256 2d8b8a46d56eff5bb77517220b2e721a294529e928d03ddf1ee97d697519c47b.
+- docs/reports/buildings/BUILD_START_1776_FINAL_TARGET_VALIDATION.csv:1 — 2585 lignes; SHA-256 12457b20fb9db0decc8f9c8840b69b991ccb6708224832ae7c602948b2829f0a.
+- docs/reports/buildings/BUILD_START_1776_INFRASTRUCTURE_PM_PLAN.csv:1 — 233 lignes; SHA-256 542c921991310fa33ee711e6ae126bbcabe79792b71cbc2516c74dba7bef4716.
+- docs/reports/buildings/BUILD_START_1776_LOGGING_CALIBRATION.csv:1 — 209 lignes; SHA-256 da25c4c24afc1d220a4d356df3b4cd47b116c79ef2eb636e5d2425a5d51182ca.
+- docs/reports/buildings/BUILD_START_1776_NORTHERN_EASTERN_EUROPE_RECOMMENDATIONS.csv:1 — 238 lignes; SHA-256 034ace4d251345f15aa6da9fa5c3832c390cf3cb0322c1879d732bb0b708e823.
+- docs/reports/buildings/BUILD_START_1776_NORTHERN_EASTERN_EUROPE_RESEARCH.md:1 — 177 lignes; SHA-256 645c1163a05e13a93214ab580bc465aa14963d1fa0d22d0550618221bae3ef03.
+- docs/reports/buildings/BUILD_START_1776_PM_GATE_FALLBACKS.csv:1 — 161 lignes; SHA-256 45257cf8da4073b84b0527306cca5dfd8949f0eccf43b8acd3a87d7958b898ca.
+- docs/reports/buildings/BUILD_START_1776_R3_RECOMMENDATIONS.csv:1 — 487 lignes; SHA-256 c82bf4676ec86b1cc5fd50ed56eb765f9a5efad32b45693ddb0b8dd4a2587eaa.
+- docs/reports/buildings/BUILD_START_1776_REMOVAL_REVIEW.csv:1 — 1807 lignes; SHA-256 62aa5fece4e60531ede4a48b60d9017e04145ef1e008f5b49406b9e0e385a43b.
+- docs/reports/buildings/BUILD_START_1776_RESEARCH_COVERAGE_AUDIT_CORRIGE.csv:1 — 1044 lignes; SHA-256 da18826c3fcaf6347bfdc3913b201f5d88ee3fc683a647b50a4f534d9529458f.
+- docs/reports/buildings/BUILD_START_1776_RESEARCH_REGIONS.csv:1 — 1044 lignes; SHA-256 6deec273efd24d90abb287953f220557aeecbaf7ea8575bdc7be09c718684da1.
+- docs/reports/buildings/BUILD_START_1776_RUNTIME_INFRASTRUCTURE_AUDIT.csv:1 — 1044 lignes; SHA-256 41e3c840d3f800b4aeb2e8aeed426caf784775105121166178e8ef2923dd856d.
+- docs/reports/buildings/BUILD_START_1776_RUNTIME_PM_FALLBACK_IMPACT.csv:1 — 161 lignes; SHA-256 8a49b56ca0f71df532dd8a8a625ddb0a8e0a4d167d0cb0e066651e672bbaa7f6.
+- docs/reports/buildings/BUILD_START_1776_SOUTH_ASIA_RESEARCH.csv:1 — 160 lignes; SHA-256 b45dc560d87861bcbb3d62abd9cf104cce6f21a76575f3380c6b1396559b6f16.
+- docs/reports/buildings/BUILD_START_1776_STATE_CATALOG.csv:1 — 1044 lignes; SHA-256 88c5dc5cb13863b1baf37bc6e5f7090102ac0428297789b5ee404781f687d6b0.
+- docs/reports/buildings/BUILD_START_1776_TECH_CONFLICTS.csv:1 — 665 lignes; SHA-256 5b3c73eb0b36a3e22c7052692034bef3b0b9fa94d9c72f807d762194c4e14802.
+- docs/reports/buildings/BUILD_START_1776_WORLD_HISTORICAL_TARGET.csv:1 — 2119 lignes; SHA-256 19bb2b1f9b8da9e5410d025e58c3bc19ee55c078429a24776b0e7c201d5d4308.
+- docs/reports/buildings/BUILD_START_1776_WORLD_TRADE_CENTERS.csv:1 — 240 lignes; SHA-256 248937937ab14307c70af210533eb702e36b2ca2fc3c3e95aa4c5a5135cdb050.
+- docs/reports/buildings/german_fabric_supply_2026-10-06.json:1 — 161 lignes; SHA-256 434e2459cfc5f4216487bfc962316f3b980c93ba30167022c050769c81d3ed6f.
+- docs/reports/cleanup/CLEANUP2A_GLOBAL_1776_CHARACTER_RULER_AUDIT.md:1 — 355 lignes; SHA-256 890401332e76a0044daebae43f3a9254e267a4ad10686a91a537b870c3023170.
+- docs/reports/cleanup/CLEANUP2B0_CHARACTER_HISTORY_VFS_ISOLATION.md:1 — 524 lignes; SHA-256 9992170cd79de20d3d8021ee98d1308cfe23bf22293bbe3fa657614fa6c0ba2c.
+- docs/reports/cleanup/CLEANUP2D1_HISTORICAL_WORLD_MILITARY_NAVAL_RESEARCH_1776.md:1 — 185 lignes; SHA-256 a140da9c2178c5606c21430d4b1345a04291bbf246144aa26ed39e576b08821a.
+- docs/reports/cleanup/CLEANUP2D2_V3_HISTORICAL_CONVERSION_AND_GLOBAL_BALANCE_MODEL.md:1 — 366 lignes; SHA-256 84886a466ba06a1f7bf6c2053dfb157bf99cde15c9c50f67c94cccb43095ee8d.
+- docs/reports/cleanup/CLEANUP2D3A_ENGINE_BASELINE_AND_DEFINES_REPAIR.md:1 — 342 lignes; SHA-256 bc407e8dbc7c318c297998408e0ee9caac43b1afae74311e669377dde7f92f21.
+- docs/reports/cleanup/CLEANUP2E3_MERCHANT_REPUBLIC_ECONOMIC_IDENTITY_EXPANSION_AUDIT.md:1 — 198 lignes; SHA-256 b6176ed2ea82f57fc42818894dd4f68bcd97b9b1bd8b5c98998f236f930ea30f.
+- docs/reports/cleanup/RULERS_1776_NON_EUROPE_CONSTITUTIONAL_NOTES.md:1 — 272 lignes; SHA-256 ab6848f035626bdcbca3167939ed30b8571031f9c105029c99cbbf4f481b9fe6.
+- docs/reports/diplomacy/DIPLOMACY_OTTOMAN_1776_2026-10-09.md:1 — 302 lignes; SHA-256 99785ebe06a786401151db2e7c7f93af34cd80cbdac54715f493a6eb01f63c44.
+- docs/reports/diplomacy/OTTOMAN_REFORMS_RUSSIAN_STABILITY_2026-10-09.md:1 — 292 lignes; SHA-256 61a591f3caf510f80f1309ee30784e17c99ac73c8e9d779ff034c37c76b4d68c.
+- docs/reports/historical_workforce_revision_1776/SNAPSHOT_MANIFEST.json:1 — 22107 lignes; SHA-256 760b70970894d04eb26668471cfafa94466a467541a32b40b03b4311dc9016c1.
+- docs/reports/hotfix/INDEX.md:1 — 161 lignes; SHA-256 e605808388361d66b5cb2e3b43b68f9872344f70ad7276590d7ac1ec2f6c8e8a.
+- docs/reports/industry/TECH6C1_LIMESTONE_RESOURCE_POTENTIAL_DEFERRED_MATRIX.csv:1 — 676 lignes; SHA-256 76f4c45ce78ccb40e68d0980ea6192677ddad181a6858f2cbebb244f04e8817a.
+- docs/reports/industry/TECH6C2A_LIMESTONE_GLOBAL_DISTRIBUTION_MATRIX.csv:1 — 676 lignes; SHA-256 64b0cffb17dfee5dc40f65a4ef6da7483ff34e9e76581d70dec6ed344c977631.
+- docs/reports/industry/TECH6C2B_LIMESTONE_RESOURCE_DISTRIBUTION_IMPLEMENTATION_MATRIX.csv:1 — 676 lignes; SHA-256 179f32f138a5ee9230a468c867456817d9eb5714407bab20f0d89afd3dd6476f.
+- docs/reports/industry/TECH6C5B_COPPER_GLOBAL_RESOURCE_MATRIX.csv:1 — 676 lignes; SHA-256 10d6cf635b6e3d9f47dd75401bf3b20e20e1bdefcaa9aab2e35be933c6104df3.
+- docs/reports/industry/TECH6C6A_NITRATE_RESOURCE_CANDIDATES.csv:1 — 676 lignes; SHA-256 a10d53b96893d276e9c093290715a9be4dade63384347851cd748eec6f45ff96.
+- docs/reports/industry/TECH6C6A_PHOSPHATE_RESOURCE_CANDIDATES.csv:1 — 676 lignes; SHA-256 864f47095de1f91464506ad4ac42516e655a8a3e24a911aa8de6bd62e5531e28.
+- docs/reports/industry/TECH6C6B_PHOSPHATE_GLOBAL_RESOURCE_MATRIX.csv:1 — 676 lignes; SHA-256 df21c017ec79a6de2f3f590423f69a9408b00f21d3559cf594bd67f82d991832.
+- docs/reports/log_cleanup/LOG_CLEANUP_12_GLOBAL_REGION_EVENTTARGET_CLOSURE.md:1 — 374 lignes; SHA-256 3a20742e00ddc1f7299d382d46f1a505d259ac6e82073caf7840d876ce9b577f.
+- docs/reports/log_cleanup/LOG_CLEANUP_12_NON_REGION_MATRIX.csv:1 — 31 lignes; SHA-256 729f961b701a973db9ac12a619a56f20509a6f82e33bc3c4de29a86b64696f0a.
+- docs/reports/log_cleanup/LOG_CLEANUP_12_REGION_MATRIX.csv:1 — 230 lignes; SHA-256 82e31f83a6e4516aa2320450309d62990ac541c304efddd5dc27ec3bc0d10019.
+- docs/reports/log_cleanup/LOG_CLEANUP_13_FINAL_ATTRIBUTION_MATRIX.csv:1 — 1650 lignes; SHA-256 9817c7db6fa5c5edebcaad383c0f5fd5793f2808397e2c702ff98ada94de3987.
+- docs/reports/log_cleanup/LOG_CLEANUP_13_FINAL_RUNTIME_INVENTORY.csv:1 — 1650 lignes; SHA-256 f87b39995c6dc7647ce1ded404041593fdcedbb0a3f485430254bbdb63d0c7c7.
+- docs/reports/map/MAP_1776_9_REGIONS.csv:1 — 1044 lignes; SHA-256 dd2a9dee557adef284a7bf3a504ff82720f0ade6d55b77af7159037c20ad87d8.
+- docs/reports/map/MAP_1776_REGIONAL_PROMPTS.md:1 — 984 lignes; SHA-256 a29e42c8442c88728f869243eee94ca49a34f2b333571f719a0f06972abc6e2e.
+- docs/reports/map/MAP_POPULATION_POLICY.md:1 — 29 lignes; SHA-256 cdc8f076a2c02f0e7f3fb65fdd4574c6a6d3e852b1f8286f79f68cf35e699863.
+- docs/reports/military/AMERICAN_REVOLUTION_REWORK_MANIFEST.json:1 — 35 lignes; SHA-256 8396fcc408a39f980d222f6b8c5b3f871ffb4c10dd8f1f9e1ae47e2a27025a3e.
+- docs/reports/military/AMERICAN_REVOLUTION_REWORK_SYNTHESIS.md:1 — 118 lignes; SHA-256 b73e48d0ed59a8c1444da30e26dddcea7f8dd92b3fdb9b194808ad9a327329bd.
+- docs/reports/navy/PHASE_NAVY_0_THE_GREAT_WAVE_NAVAL_AUDIT.md:1 — 565 lignes; SHA-256 89f820647dbc1b3e061312d1e3a9b04238444fcb939943b5bef99a9a13b44ac7.
+- docs/reports/navy/PHASE_NAVY_1A_GREAT_POWER_FLEETS_REACTIVATION.md:1 — 196 lignes; SHA-256 1075f4215b1b7b17b480771c6e58e0f5a251f3c69fc0ed9375a2de53714794ed.
+- docs/reports/navy/PHASE_NAVY_1A_SEXIES_RUSSIAN_ADMIRALS.md:1 — 191 lignes; SHA-256 debfd74e6cafdd1e2138f4ea0dca325fad85ae445c645697728b61bd65852fef.
+- docs/reports/navy/PHASE_NAVY_1C_GREAT_POWER_NAVAL_LAWS.md:1 — 145 lignes; SHA-256 0d472509491581f0903d919ef2681b1ea9b5f10c4fe3ed307603bdd0bee4b031.
+- docs/reports/navy/PHASE_NAVY_2A_SECONDARY_EUROPEAN_NAVAL_AUDIT.md:1 — 360 lignes; SHA-256 655b9bb8dc758610eb389eacec06ad08a9234ae721a17ee46268daf019f9482b.
+- docs/reports/navy/PHASE_NAVY_3C_2_BIC_NAVAL_DECISION.md:1 — 189 lignes; SHA-256 77b0e6b304cd7a9d3c48d5c741fdc0a09339386453f1a6c7c5712be86b588b27.
+- docs/reports/phase1/PHASE1_7C_SAKOKU_JOURNAL_FIX.md:1 — 107 lignes; SHA-256 57fb464a506f758fbe64f828a7daf74a3a0645327402696de2ba9ef7458b043f.
+- docs/reports/phase1/PHASE1_BASELINE_LOG_DIAGNOSTIC.md:1 — 478 lignes; SHA-256 8e0ffe8d243e5c3db5785d3739253c40e1c84294551c95fcd668c0b980dc6329.
+- docs/reports/technology/TECH4A_POST1836_DEAD_END_REGISTER.csv:1 — 23 lignes; SHA-256 ae639438e51a146c2b015dedf34927364c3466493caa1f14d64fdfdf392de210.
+- docs/reports/technology/TECH4A_POST1836_PREPARATORY_AUDIT_REPORT.md:1 — 265 lignes; SHA-256 3e36e5d26b3bc6a08de5843615e25d06a67c3b8a4c2d8fd2fd2b91b52a05dafb.
+- docs/reports/technology/TECH4A_POST1836_TECHNOLOGY_INVENTORY.csv:1 — 112 lignes; SHA-256 833e7acf8629917191e62ff8e214d75980deea66644587863654edf86dccdd48.
+- docs/reports/technology/TECH4A_POST1836_TECH_FAMILY_MATRIX.csv:1 — 112 lignes; SHA-256 b5ee19b668cb8761555ef06c50ffbf3b1fcbc3bbd9477293349beb0a2f6b4b17.
+- docs/reports/technology/TECH4B_POST1836_ERA_REBALANCE_MATRIX.csv:1 — 112 lignes; SHA-256 fe0bc5717c1961a660bc155068080491df032cba6d553f1bcad8e1109c3ef923.
+- docs/reports/technology/TECH4B_POST1836_FAMILY_CONTINUITY_AUDIT.csv:1 — 37 lignes; SHA-256 1779dbfe88d12e661c4f1211a151e87de6b37eccdc1a1a1d75b606bd1fb51b14.
+- docs/reports/technology/TECH4C2_PRE1836_VANILLA_RESIDUAL_AUDIT.csv:1 — 10 lignes; SHA-256 304f808edfc9211f0808d2ac79e4944188083c11b314ff0c71aa32f887a71e41.
+- docs/reports/technology/TECH4C_POST1836_EDGE_CHANGE_LOG.csv:1 — 169 lignes; SHA-256 1b893f1940e3df9676d4cef1341b14ae95a1f92598b61db3fccbab6466afcd02.
+- docs/reports/technology/TECH4C_POST1836_FINAL_DEAD_END_REGISTER.csv:1 — 28 lignes; SHA-256 7274b9030c0e9c8eee2f6a01afcce04e6cf68e500dff2a8b0247ba7e82188ec7.
+- docs/reports/technology/TECH4C_POST1836_FINAL_EDGE_AUDIT.csv:1 — 150 lignes; SHA-256 854de895471506fc02b3c6416549248d8659827cfcff3ef03336fcb9c18efef8.
+- docs/reports/technology/TECH4C_POST1836_PREREQUISITE_RECONSTRUCTION_MATRIX.csv:1 — 112 lignes; SHA-256 bfed6b7e7a50b7ae654163129295f24c7c71432fadabc6033aa4275b415f8a36.
+- docs/reports/technology/TECH4C_POST1836_PREREQUISITE_RECONSTRUCTION_REPORT.md:1 — 183 lignes; SHA-256 59bcd1ef5885a782072c8da6806c7e9103f2a9848f72f2f82da0b3a5c161c5e0.
+- docs/reports/technology/TECH6B1_SOCIETY_GAMEPLAY_RESPONSIBILITY_MATRIX.csv:1 — 192 lignes; SHA-256 fa36d9ade78a540520722803f22b11275da4ef7cd0bb8b2e77ea94592938e798.
+- docs/reports/technology/TECH6B2_SOCIETY_GAMEPLAY_IMPLEMENTATION_REPORT.md:1 — 228 lignes; SHA-256 120da0bfee5a2387bb3aeeff3f996fd07c66469ddbd7fde1c0dd1c1afbbae497.
+- docs/reports/technology/TECH6B3A_11311_VANILLA_DELTA_MATRIX.csv:1 — 795 lignes; SHA-256 96a9984de0e1b711e61bf252006dbbacb3bf9008c609362fdcfcd369d71162a8.
+- docs/reports/technology/TECH6B3A_STEAM_MAIN_MOD_DELTA_MATRIX.csv:1 — 648 lignes; SHA-256 d83ffb54e9e42b4654411d6288943872eacbb92f9fbe4b217c19ebcc70445255.
+- docs/reports/technology/TECH6B3E_HIDDEN_TECH_RESPONSIBILITY_MATRIX.csv:1 — 414 lignes; SHA-256 a4c3d6d7f9c442e5454fdf00f5aabbe4d63cc24d321137b14ceed42a53f1e566.
+- docs/reports/technology/TECH6B3F_CAVALRY_UNIT_UNLOCK_RECONCILIATION_REPORT.md:1 — 307 lignes; SHA-256 af6463889b434bc4e5e8dc3cc68222122e2c52b01d1379ec704cf1fd0b5dccb9.
+- docs/reports/technology/TECH6B3F_HIDDEN_TECH_RESPONSIBILITY_IMPLEMENTATION_MATRIX.csv:1 — 185 lignes; SHA-256 34c8c999e7091771065a8aec3b3e27ada1774451901ef251cea65d54e2113e18.
+- docs/reports/technology/TECH_0_RESEARCH_MODIFIER_INVENTORY.csv:1 — 166 lignes; SHA-256 cd72b76403b590cdbfcb1e6b20345727ede516411b73f73866be34877ff22021.
+- docs/reports/technology/TECH_SOCIETY_1700_1836_V1.csv:1 — 40 lignes; SHA-256 1d8a18c5cf5d02ac04bd80e6cdce966a0103c522035a1d89bd3918aa1d9f8f6a.
+- docs/reports/technology/TECH_START_1776_SECOND_PASS_IMPLEMENTATION_DELTA.csv:1 — 2762 lignes; SHA-256 deafd2d868c38828033bb2a17776e52dc2f1e66c198f4515429008a75c4c058d.
+- docs/reports/wallonia_start_1776_2026-10-10/BASELINE.json:1 — 1129 lignes; SHA-256 76ed01b692657a7c5856ae201b6bbf34fc11f06f535b4d67f198f07336c8a7bb.
+- docs/reports/wallonia_start_1776_2026-10-10/SAVE_DIAGNOSIS.json:1 — 2684 lignes; SHA-256 73da974a7bab9a96f27cef35247dfeb12cee9d70d21b64dafe7a65c4ba14aa23.
+- docs/reports/assets/all_asset_color_layout_2026-10-03/diagnosis.json:1 — 2389 lignes; SHA-256 70d9e45d31bc8716c3f6ab3a7e1f8fbfdfd37833ea57d4c744794013f813041c.
+- docs/reports/assets/asset25_preview_2026-10-05/generation_plan.json:1 — 144 lignes; SHA-256 9e1088fdbb4626b86d2efd84eed12d25d6d268f9765aa80a74d48b724fb5f4f7.
+- docs/reports/assets/asset25_preview_2026-10-05/preview_manifest.json:1 — 227 lignes; SHA-256 989cfb9e2b90664688b0d2b629bc8c5e94bc69424d76d83ecee3580028cb5be5.
+- docs/reports/assets/asset25_preview_2026-10-05/PROMPTS.md:1 — 42 lignes; SHA-256 0679772e23f137cdab0f07fba434927233ba90690160b45ad67d69bbf37802bf.
+- docs/reports/assets/asset25_preview_2026-10-05/source_provenance.json:1 — 66 lignes; SHA-256 efdbb85b76bc64b2ab6522f0e139bd7f4f6226cc9120d83db6ab74f876103fae.
+- docs/reports/assets/asset4_import_2026-10-01/regional_generation_plan.json:1 — 229 lignes; SHA-256 2e6409dffc184610eafcf516486c5a515758310d157c8341a602f67e51f880ea.
+- docs/reports/assets/asset4_import_2026-10-01/regional_preview_manifest.json:1 — 261 lignes; SHA-256 84bc745b7fa681c6ea68cddc9c5cb15c22ac54b0fe19ce5e28ac09fbd55ff710.
+- docs/reports/assets/asset4_import_2026-10-01/regional_preview_manifest_before_bombard_v3.json:1 — 252 lignes; SHA-256 8614d0cd5186b8f2120442c0215fb6da2ace3f5ffba923e9b05a1175650ff344.
+- docs/reports/assets/pm_explosives_sources_2026-10-07/manifest.json:1 — 104 lignes; SHA-256 b6b6df84a2e28cbdcb6ee77593b866445ccb4e39f30efcac1e53bcf76b34796e.
+- docs/reports/assets/pm_industrial_process_sources_2026-10-07/manifest.json:1 — 127 lignes; SHA-256 26a8baf17ee227ded4e92d6ab9768c4e30b7fc409f9b53974260cd5f05f197cb.
+- docs/reports/assets/pm_steelmaking_sources_2026-10-07/manifest.json:1 — 139 lignes; SHA-256 702866fc1898dcb85e0a2435d5167d8288a0ba5221e040077fab78b501dd4117.
+- docs/reports/assets/asset25_preview_2026-10-05/revision_v2/generation_plan.json:1 — 154 lignes; SHA-256 6bd453dbfb9e11da86f388c1b44c90d403079ffd024fd44d7dd8f29c2bf4f23a.
+- docs/reports/assets/asset25_preview_2026-10-05/revision_v2/preview_manifest.json:1 — 237 lignes; SHA-256 b248894011aee48b5fe4bb16ed8dca7c9605ed09bce44f212ec32c92ed55de84.
+- docs/reports/assets/asset25_preview_2026-10-05/revision_v2/source_provenance.json:1 — 96 lignes; SHA-256 16a7e5228ca1b7d58f33c3afd128c8f54200b5696735636907608abc11900c14.
+- docs/reports/assets/asset25_preview_2026-10-05/revision_v3/generation_plan.json:1 — 156 lignes; SHA-256 6c036b63dd3fae514642eb17a4a95eb23d7d4a7decd2a62659dae82d31a5217b.
+- docs/reports/assets/asset25_preview_2026-10-05/revision_v3/preview_manifest.json:1 — 237 lignes; SHA-256 734713946aaccd9b416c23b6c9f107e6bd63776a19d994640bca2960b1460f66.
+- docs/reports/assets/asset25_preview_2026-10-05/revision_v3/source_provenance.json:1 — 92 lignes; SHA-256 817bda1abe638381df9142a19318cdf4974cf35f80ddddeb42dc3f41e05cc89e.
+- docs/reports/bridge/VIC3_LOCAL_BRIDGE/BASELINE.json:1 — 2199 lignes; SHA-256 1582ba48b0f101e9ec5bcacc65b077ecc0af5901110f9181a19133e2d2f905fd.
+- docs/reports/economy/ECON_PAPER_1776/MARKET_BALANCE_AUDIT.md:1 — 35 lignes; SHA-256 55bb74d7e3337174380555dae9d45237ab90029eedb7a36029aac7d857ee2cf6.
+- docs/reports/economy/PRUSSIA_MICRO_ADJUSTMENT_2026_10_14/REPORT.md:1 — 56 lignes; SHA-256 3e8b0d3f837be4033265032a098db27e1bd1d5cc7d9c7f0e3c8d9d1b5cd03177.
+- docs/reports/economy/PRUSSIA_MICRO_ADJUSTMENT_2026_10_14/VALIDATION.json:1 — 11029 lignes; SHA-256 b8a0a1629bbfcb4cc1ba06e29b69cb77cf0e03ce41dc219952761de8968de287.
+- docs/reports/economy/PRUSSIA_MICRO_ADJUSTMENT_2026_10_14/LOWER_SILESIA_TEXTILE_REMOVAL/VALIDATION.json:1 — 8760 lignes; SHA-256 b67ca2c478e376837d0a8faca9a701e8638fb0d90dc44f3bb60c45f316beefe5.
+- docs/reports/economy/START_BUILDINGS_2026_10_15/CHINA_CANTON/VALIDATION.json:1 — 8724 lignes; SHA-256 233dbcae294afe042dc184446838db19350cfadf6342c5f107e48ca4b1a7dbdf.
+- docs/reports/graphics/REGIONAL_INFRASTRUCTURE_LANDSCAPE/BASELINE.json:1 — 2181 lignes; SHA-256 63985db84df2ea555db8e1bf63fc97e691817a0ccaf8d62cbed4331254308c31.
+- docs/reports/hotfix/japan/HOTFIX_4E5_JAPAN_FINAL_VALIDATION.md:1 — 223 lignes; SHA-256 86aa20b73c943bdca52af860578fd9bd5b79a43c8f0718f1e61a5849d9f16a83.
+- docs/reports/hotfix/_index/HOTFIX_MERGE_BLOCK_STATUS.csv:1 — 59 lignes; SHA-256 21ffac831245fec7d2026d758a7378d31be971207aa6232c2dc748b99414b901.
+- docs/reports/hotfix/_index/HOTFIX_MERGE_COMPLETION_ROADMAP.md:1 — 1635 lignes; SHA-256 95083bc06efc7b69870b7435f7ade476ff09a6046de85f82bf07bc0adaa97fac.
+- docs/reports/hotfix/_index/HOTFIX_MERGE_REMAINING_WORK.csv:1 — 514 lignes; SHA-256 1dfe76e11e741d7854ff8c4886383a082809a221877c6b7cc4bbe1eefad100a5.
+- docs/reports/hotfix/_index/HOTFIX_NEXT_MERGE_PHASE_PROMPT.md:1 — 787 lignes; SHA-256 a6fb9d4dd11d7b61ff7d838753c887f10ef589f381cef9a821578d03a8984380.
+- docs/reports/hotfix/_index/HOTFIX_REPORT_INDEX.csv:1 — 161 lignes; SHA-256 b49adc4df9d2d49021d55e702012950c3d8a47fc5afcebe8d37469c8afede20c.
+- docs/reports/hotfix/archive/disposable_test_mod/HOTFIX_DISPOSABLE_TEST_MOD_FINAL_MANIFEST.csv:1 — 985 lignes; SHA-256 0e8da271f33e5a7c0af4558162ab1e5550341c29cd3137367fd4041657db010e.
+- docs/reports/hotfix/global_script/6A01_6A09/HOTFIX_6A4_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 348 lignes; SHA-256 0becbacfbef79b79363fcca181f6b696987aaa5451b6c07a7ff9e3c72a05ec3b.
+- docs/reports/hotfix/global_script/6A01_6A09/HOTFIX_6A5_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 386 lignes; SHA-256 64800f2aaa5be6a69160eec62a5e74c345e9136ea5dee47c1051876648a83b41.
+- docs/reports/hotfix/global_script/6A01_6A09/HOTFIX_6A6_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 412 lignes; SHA-256 41851717fa824c2c131e02527f7f586f1f774647ac747477749d3ac79d88190a.
+- docs/reports/hotfix/global_script/6A01_6A09/HOTFIX_6A7F_GREEK_NATIONALISM_1_13_API_ALIGNMENT.md:1 — 550 lignes; SHA-256 f2e1f9c960f02ddc1f12d8a5bc3418014a99cbde73c1e532e4aeb932ca9ba249.
+- docs/reports/hotfix/global_script/6A01_6A09/HOTFIX_6A7_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 450 lignes; SHA-256 4e0b04ef075d61a18438f7ed7e964de5aa88ee3d75cb33fdcb1993c90929efb4.
+- docs/reports/hotfix/global_script/6A01_6A09/HOTFIX_6A8R_GREAT_EASTERN_CRISIS_1_13_AUDIT.md:1 — 561 lignes; SHA-256 df3434b56cbcb6b17984b21484c8490dce87dde9ca96d26efa36dad0fcc7058c.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A10F_ROMANIA_TWO_JE_PINNING_1_13_ALIGNMENT.md:1 — 397 lignes; SHA-256 3a6d588b60a9b53c6e7efb98f8140aa9387f635d11f21155eba3f2f022299d3e.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A10_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 593 lignes; SHA-256 311e34db3ed5393e57a0a8058fd4e828172138407973f4adcda0ba62de10a6f2.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A11_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 518 lignes; SHA-256 fa4e09c1ba292d28a6cf9677b3be5743f687b62bf096c480ca985e3608213e7f.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A12_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 585 lignes; SHA-256 342f85abcd45eafccf73c96f1a619a331e729730c56e612f176d3dc094577665.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A13_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 629 lignes; SHA-256 036eb6d6e83ca1ca3b27950c348e529a47ee1fe39709c71de2d1c81f8f14781a.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A16_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 248 lignes; SHA-256 5b713e7d9376d4cf7c803bcfa2b63728f6ad93c3c201a5bedf6ab938e6852894.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A17R_IMPERIALISM_OF_PROMISE_1_13_FUNCTIONAL_AUDIT.md:1 — 435 lignes; SHA-256 eaadb0f9046c685fcc1e1c19034356b83aef76850f0b203248f04d8385c2d298.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A17_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 378 lignes; SHA-256 0af8bb4525f061815ef131aea9e6243c58769a278633805c2f42c2a288e69859.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A18R3_INDOCHINA_LEGACY_INTEREST_LOGIC_1_13_AUDIT.md:1 — 469 lignes; SHA-256 d7391ee104a1c941462e41048ee45f79c8d5494585cdfeaf3b1354118b9ae80d.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A18R_DECLARED_INTEREST_HISTORY_API_1_13_AUDIT.md:1 — 426 lignes; SHA-256 f4c875131c3fec5a69b43ff58c9f6cac7dde46943a2fa8f40048302aebdf3771.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A18_RESIDUAL_GLOBAL_SCRIPT_SELECTION.md:1 — 434 lignes; SHA-256 2cb1f983464f632f18f153d20f75fed28c2bf34829c60f50bde185332c834dbd.
+- docs/reports/hotfix/global_script/6A10_6A19/HOTFIX_6A19_RESIDUAL_GLOBAL_SCRIPT_REINDEX.md:1 — 300 lignes; SHA-256 b77a39a69789c109bace3bfb1a64a9e3af632724ab703f008e68fd1e764b155a.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A20F_POLAND_TWO_JE_PINNING_1_13_ALIGNMENT.md:1 — 210 lignes; SHA-256 dbc10c06909bf95ecb3089f5416342b89043965afb5f1fde288be5657affbe54.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A20_POLAND_JOURNAL_ENTRY_1_13_ALIGNMENT_AUDIT.md:1 — 256 lignes; SHA-256 d962d2f339b5cac9ce6c8f101106e8e86377d457398e09b50a988ad825697288.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A25Q_GLOBAL_JE_PINNING_RUNTIME_RESULTS.csv:1 — 130 lignes; SHA-256 359d6f501b5c838c4183963a1abe986440c8b83bab40436310e782cfb4b51e15.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A25_GLOBAL_JE_PINNING_1_13_ATOMIC_SWEEP.md:1 — 430 lignes; SHA-256 8bffcb00abe061e7be4c61d01a8f02cbc5f2b4ef5add3691ecebc6d34fa1b338.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A25_GLOBAL_JE_PINNING_INVENTORY.csv:1 — 400 lignes; SHA-256 549d7c3df96e79db8d4b1294651f102ee0a6fcd8776f116745622a6da93fbad0.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A26_API_FAMILY_MATRIX.csv:1 — 34 lignes; SHA-256 86cc861caec340d8ee5f98a60e8e2c405e7201e3ba7184cd718878be5e5bbb6e.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A26_ATOMIC_API_PATCH_PLAN.csv:1 — 823 lignes; SHA-256 86650e290b81e07b18224ba832397c10514f8e01173d14f314ab2a91cc0a71e4.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A26_GLOBAL_NON_PINNING_DIAGNOSTIC_REINDEX_AND_API_FAMILY_AUDIT.md:1 — 175 lignes; SHA-256 d6054efd9b5e20e27c1b49b646a84531acb516f46bcc95c8cb52f95b3c2d8197.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A26_RESIDUAL_DIAGNOSTIC_INVENTORY.csv:1 — 1030 lignes; SHA-256 05289022929c9ab3e48644e9a564fca8fd4fefef07cb907c6526c7fe9e098cb2.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A27Q_GLOBAL_SCRIPT_API_RUNTIME_RESULTS.csv:1 — 136 lignes; SHA-256 273ae8437a614a8e9b33007001b4ce148bb712b4f315c63c3711b70c092da26b.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A27_GLOBAL_SCRIPT_API_APPLIED_RESULTS.csv:1 — 702 lignes; SHA-256 1fc10f7247fb3119b74166d83d4f791e26c0d8589567bb4ce652c5ac790e98bc.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A28_FINAL_RESIDUAL_DIAGNOSTIC_INVENTORY.csv:1 — 421 lignes; SHA-256 e2de7174cad7fb1b94c28a512a8e907382b9821c3a9b8f43650710dcea532703.
+- docs/reports/hotfix/global_script/6A20_6A29/HOTFIX_6A29_FINAL_GLOBAL_RUNTIME_RESULTS.csv:1 — 116 lignes; SHA-256 28d35849ae0a606eb300b0241a0b3642e252ee8157a6ca21334d4001ed5e34b6.
+- docs/reports/hotfix/global_script/inventories/HOTFIX_GLOBAL_DIFFERENCE_INVENTORY.csv:1 — 535 lignes; SHA-256 577594c370c43a4c685ac90c30f8bb3600c71e75893f4ccc9282c660f3edf113.
+- docs/reports/hotfix/global_script/inventories/HOTFIX_MERGE_THREE_WAY_INVENTORY.csv:1 — 542 lignes; SHA-256 75e626e7dca657d4677705ab36b985eb4b92ca8bcf0e34701c8d889d14365929.
+- docs/reports/hotfix/india/00_overview/HOTFIX_5_AUDIT_INDIA_BIC_BATTLE_FOR_INDIA.md:1 — 567 lignes; SHA-256 dc76cdb38beb0806bb8926ac00f7671924df5882a522d6cdeae2a0f03ccc9d39.
+- docs/reports/hotfix/india/east_india_company/HOTFIX_5B1_AUDIT_UNIQUE_EAST_INDIA_COMPANY.md:1 — 281 lignes; SHA-256 c19c52b5a0bf0c61f0e2edf6bff7ca3eddd43511c36be4348db27104c8cf45dc.
+- docs/reports/hotfix/india/east_india_company/HOTFIX_5B2_UNIQUE_EAST_INDIA_COMPANY.md:1 — 193 lignes; SHA-256 4a37d53c4f99b7508989f858df50ff5ae7ab194616d3f80f63acf8200f7b033d.
+- docs/reports/hotfix/india/sepoy/HOTFIX_5C2E4C1A_DISPOSABLE_COPY_MANIFEST.csv:1 — 946 lignes; SHA-256 84282e739395a461a982dfdf2f1efcba02c3e453f9fbbdfe3d1e183568e4a215.
+- docs/reports/hotfix/india/states_and_setup/HOTFIX_5C1_AUDIT_INDIA_REGION_REFERENCES.md:1 — 368 lignes; SHA-256 0503f1a4640340274209bde2909659aefffb0fd311476b94c7dc3279258ed656.
+- docs/reports/hre/HRE_CENTRALIZATION_01/ASSET_PROMPTS.md:1 — 13 lignes; SHA-256 4c1c4d9a4eddba51a5c648d8856d9c7e0505e0f8a9e863c79fea1c8820919822.
+- docs/reports/hre/HRE_CENTRALIZATION_01/ASSET_VALIDATION.json:1 — 35 lignes; SHA-256 af5628d62bca668f83b183eabcf7314603f16561407c89c2e8908f5881df10bc.
+- docs/reports/hre/HRE_CENTRALIZATION_01/BALANCE_PARAMETERS.md:1 — 19 lignes; SHA-256 bc68f95468e43a6cb24cecd5b473957ca78e829c9228189bdbb2ab41f2e869da.
+- docs/reports/hre/HRE_CENTRALIZATION_01/IMPERIAL_ELECTION_TRANSFER_PROTOTYPE.md:1 — 13 lignes; SHA-256 ee402d2aef11af1e6cf87f0026ee1d3414e24ea08cd3960cde93833e2d6d1af2.
+- docs/reports/hre/HRE_CENTRALIZATION_01/IMPERIAL_SUBJECT_DESIGN.md:1 — 15 lignes; SHA-256 06e73fbc7bb30408cef96f09e70a80537af8af27b565a99e5fdfaab169c787c9.
+- docs/reports/hre/HRE_CENTRALIZATION_01/IMPLEMENTED_FILES.md:1 — 48 lignes; SHA-256 386fb548b46153039e00ed4001a0b05d248377341d4ab51e97776142bb96cf15.
+- docs/reports/hre/HRE_CENTRALIZATION_01/PLAN.json:1 — 26 lignes; SHA-256 6290e2b8a2a8a5b474baebebb50e41e49afc6d38ebe4c8650cd5d39e9c750c8c.
+- docs/reports/hre/HRE_CENTRALIZATION_01/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/hre/HRE_CENTRALIZATION_01/PROTOTYPE_EXPECTED.json:1 — 6 lignes; SHA-256 77374306b7dc91df64072671847a0355bc77b4ef15d8f89c1887bda775187631.
+- docs/reports/hre/HRE_CENTRALIZATION_01/REPORT.md:1 — 37 lignes; SHA-256 f85db0f70ba89685192e0c1a24582bf1e0a16e3bb4ac69b25c72ba19fc58cf5d.
+- docs/reports/hre/HRE_CENTRALIZATION_01/RUNTIME_TEST_PLAN.md:1 — 24 lignes; SHA-256 771f7111dfb7a6d65f07c56f733298b9531bdf096d7f9c423e93722e3c272ffb.
+- docs/reports/hre/HRE_CENTRALIZATION_01/UNIT_TESTS.json:1 — 82 lignes; SHA-256 b97c2eb046a312e0693f8eb5f753cae91a9f67b0d7ba6bd575cf2a0163a4ef06.
+- docs/reports/hre/HRE_CENTRALIZATION_01/VALIDATION.json:1 — 1336 lignes; SHA-256 460e797736ba928dd7d7d5abfc6211114f7b78649e05647dc4821918d5f5d9ce.
+- docs/reports/hre/HRE_CENTRALIZATION_01/FEEDBACK_R1/COMPILER_REPRODUCTION.json:1 — 290 lignes; SHA-256 2a77e227660b9448300bad4371cb6cb38721733f7de8bfe43827dde696d72b48.
+- docs/reports/hre/HRE_CENTRALIZATION_01/FEEDBACK_R1/PLAN.json:1 — 18 lignes; SHA-256 5d63db20f17584bd3f8075327a4451c6c76842e6d09bb5cabd2b509565881603.
+- docs/reports/hre/HRE_CENTRALIZATION_01/FEEDBACK_R1/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/hre/HRE_CENTRALIZATION_01/FEEDBACK_R1/REPORT.md:1 — 38 lignes; SHA-256 9991fa33cd87a9d64e10bc5be22b7e97a43997cbd9ffb91ff4faf6de88c116e4.
+- docs/reports/hre/HRE_CENTRALIZATION_01/FEEDBACK_R1/VALIDATION.json:1 — 803 lignes; SHA-256 f00032910caf56e6c02b03c482d8e39f8b14c1b8ed7dfe66030b7c83a2eec668.
+- docs/reports/hre/HRE_CENTRALIZATION_01/SECESSION_LENS_R2/COMPILER_REPRODUCTION.json:1 — 298 lignes; SHA-256 c5c55f2f8afc0058bf45a645d09780dceb7eba4ffdf9ae2bfa9255f9d5374d41.
+- docs/reports/hre/HRE_CENTRALIZATION_01/SECESSION_LENS_R2/EXPECTED_TEXT.json:1 — 7 lignes; SHA-256 060de2c0543f561d708a7949eb280f83bbfd5464db19cbdc1eb2d7fad69909c0.
+- docs/reports/hre/HRE_CENTRALIZATION_01/SECESSION_LENS_R2/PLAN.json:1 — 9 lignes; SHA-256 e39458e2388f765f096bd770cf4178d4433da73bb9cbae53358b28299405fc7f.
+- docs/reports/hre/HRE_CENTRALIZATION_01/SECESSION_LENS_R2/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/hre/HRE_CENTRALIZATION_01/SECESSION_LENS_R2/REPORT.md:1 — 23 lignes; SHA-256 bfbf099b0b00e694bd5461b80ced158ef0bb91951f576d33b3347f9e586cb569.
+- docs/reports/hre/HRE_CENTRALIZATION_01/SECESSION_LENS_R2/VALIDATION.json:1 — 174 lignes; SHA-256 766e5364cf6e159a8aeb0ebc04f4d92d6a29e3a1aaa20c278f3e50c5bb33f061.
+- docs/reports/map/MAP1/MAP1_BUILDING_INVENTORY.csv:1 — 488 lignes; SHA-256 c224aa595ea8cb370bfe8e8bd8f517b36410e16d824f7df37a5af8bdb4105c70.
+- docs/reports/map/MAP1/MAP1_DELIVERABLE_HASHES.csv:1 — 1221 lignes; SHA-256 57860770dd9a2a766e3ad2c02d544a394e16099d115a8cdd495026aec42bf8b0.
+- docs/reports/map/MAP1/MAP1_DEPENDENCY_REFERENCES.csv:1 — 8282 lignes; SHA-256 be2a217e24ceffedf213d7a18fbd3b70fe33bbf29e39416845c3304c96b1b4fc.
+- docs/reports/map/MAP1/MAP1_GEOGRAPHIC_MATCHES.csv:1 — 411 lignes; SHA-256 a2343906f85fe69a6d08604369df35a3977eecadaac3b9ab473818b4bf91b53d.
+- docs/reports/map/MAP1/MAP1_HUB_LOCATOR_CHECKS.csv:1 — 3031 lignes; SHA-256 faf50ff0ba88d23b35d8e1b00214acd765ce0d3b132909542244118a8ec60640.
+- docs/reports/map/MAP1/MAP1_POP_INVENTORY.csv:1 — 749 lignes; SHA-256 368f969dd2bcf8efde8f2ad583801755341ab32158c3e84a42400927aeab3a2a.
+- docs/reports/map/MAP1/MAP1_RUNTIME_BEFORE.json:1 — 1902 lignes; SHA-256 102b1399aa84541c1199874c47e57455eea63c7c507ef903d4e8f1ba8082a736.
+- docs/reports/map/MAP1/MAP1_SOURCE_REVIEW.csv:1 — 375 lignes; SHA-256 41e70431cd2f4277e3ce27cc18f4e99f1ed848e1ab557a2bf1898688e190556d.
+- docs/reports/map/MAP1/MAP1_TRANSFER_CANDIDATES_NOT_ADMISSIBLE.csv:1 — 81 lignes; SHA-256 6bf0cb9178e74c8eb7d4d804fa3b3901544deb35a04104852f35d16dc971677c.
+- docs/reports/map/MAP1/MAP1_UNRESOLVED_AND_CROSS_REGION.csv:1 — 561 lignes; SHA-256 e4c5a2e905774a88b32f7beddd9de3cde25e414c3a2c047c1e98038b7349375a.
+- docs/reports/map/MAP1B/MAP1B_RUNTIME_BEFORE.json:1 — 1902 lignes; SHA-256 102b1399aa84541c1199874c47e57455eea63c7c507ef903d4e8f1ba8082a736.
+- docs/reports/map/MAP1C/MAP1C_PROTECTED_BEFORE.json:1 — 1973 lignes; SHA-256 bef64c148bca9e6652d0db9e05fc57e733e684fd2816dece3397b6541f73713a.
+- docs/reports/map/MAP2B/INFRASTRUCTURE_PLAN.json:1 — 1244 lignes; SHA-256 73399760caab5ffe2c0b181714a66aeb58b65a41a02d57458e909449593d4ad8.
+- docs/reports/map/MAP2B/MAP2B_INFRASTRUCTURE_CHANGES.csv:1 — 70 lignes; SHA-256 b52c0d42c0ca8713f81a1e89ac4ec41f6c018d3afbc9fce6cb0589e81aae46af.
+- docs/reports/map/MAP2B/MAP2B_TERRITORIAL_CHANGES.csv:1 — 7 lignes; SHA-256 881ad60ef7d0c81ac30c1666048bacdf192f55e5464bf11462560374d364c577.
+- docs/reports/map/MAP2B/MAP2B_UNRESOLVED.csv:1 — 16 lignes; SHA-256 1ae4759ed14ab33fff4546697959029ff2f463a7fd04d21967e0b031b13822ad.
+- docs/reports/map/MAP2B/OBSERVATEUR_3_COMPARISON.json:1 — 3286 lignes; SHA-256 5d5401c0fb4705dcf860083f2374467d924858fc396f4b5abd93fd3aaa9f2854.
+- docs/reports/map/MAP2B/SAVE_INPUTS.json:1 — 1 lignes; SHA-256 ee8b46bebd04dc636c62e8660862eaf6b6401f61f3db3ab50872f2c5424abed7.
+- docs/reports/map/MAP2B/TABLE_DATA.json:1 — 1 lignes; SHA-256 c510771c575e5cb65254ae45ff12d1a2c21bc44202ae0e2991ba9c1ba29330e5.
+- docs/reports/map/MAP2E/MAP2E_UNRESOLVED.csv:1 — 14 lignes; SHA-256 dcf809f230b253d146eca5b5e6a0643897ceffe5d360f42b4a3148d815ac15b7.
+- docs/reports/map/MAP2F/MAP2F_EXECUTIVE_SUMMARY.md:1 — 141 lignes; SHA-256 c199b8dce13817a4593b0c593c2c08f8c2d961624af0cafe8f5a3a6ced9deaf5.
+- docs/reports/map/MAP2F/MAP2F_TERRITORIAL_CHANGES.csv:1 — 145 lignes; SHA-256 08fff1c9047956ad4652e4ad33988c75164419c52b1b702414f106ff13548f05.
+- docs/reports/map/MAP2G/MAP2G_UNRESOLVED.csv:1 — 16 lignes; SHA-256 fc898f789b3cb5526cbf935f637d172da6026a68ae3f8a4e64bdf2d623273779.
+- docs/reports/map/MAP2G/MAP2G_VALIDATION.json:1 — 588 lignes; SHA-256 eb09a11df47a42d187cbc177210c66148812408e5e821ed636dad8a6c1be6d36.
+- docs/reports/map/MAP2H/MAP2H_UNRESOLVED.csv:1 — 20 lignes; SHA-256 fd67758d8b2650654e9c39308df09967ecf12fb25c8e0beeb5d39fda270213e3.
+- docs/reports/map/MAP2K/EMBLEM_V2.md:1 — 13 lignes; SHA-256 2ca945f4f04a7a767d94d3e3f9a39cd0e199c96f7907c7262bbaf2c6bb7e680f.
+- docs/reports/map/MAP2K/EMBLEM_V2_VALIDATION.json:1 — 18 lignes; SHA-256 479e267937225d6051c5e1a85458f431ddf31fc3490d7b01f7a5991c50e7df63.
+- docs/reports/map/MAP2K/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 c0f864e8220b33ca77a2645698d0ee35bf360c8f803311e4f64b5910fe870ca1.
+- docs/reports/map/MAP2K/IMPERIAL_DE_JURE_REGISTRY.json:1 — 1670 lignes; SHA-256 f79519eaecbcd0f04e29ce08b63e9df516cac2360a1e000a529b76858d9ef0f7.
+- docs/reports/map/MAP2K/MAP2K_EXECUTIVE_SUMMARY.md:1 — 113 lignes; SHA-256 a0548262c9c2ec531fe17fcec1871c7341f96a96c2d13a540e486227f0dcf4e2.
+- docs/reports/map/MAP2K/MAP2K_FEEDBACK_REVISION.md:1 — 72 lignes; SHA-256 e2e0715588f71d29b40055c5e26016ad326201497ab4decc30d29ed42246c60b.
+- docs/reports/map/MAP2K/MAP2K_PRINCIPLES_AND_REPAIRS.md:1 — 229 lignes; SHA-256 fc47eb0836858555a5724b1c93e442d4158ba3f95d95bff549a25a984a9ea1a5.
+- docs/reports/map/MAP2K/MAP2K_UNRESOLVED.csv:1 — 7 lignes; SHA-256 701d970501b988eaa0a9d6df3334c098dc9b4bda5d6a7527fd0b312f6752b5bc.
+- docs/reports/map/MAP2K/MAP2K_VALIDATION.json:1 — 2125 lignes; SHA-256 4fc6f1beb9b29c4da087f575acf3038004cb2f4bef89333a33795490a2f466ff.
+- docs/reports/map/MAP2K/PLAN.json:1 — 527 lignes; SHA-256 cb05ff3640b5a497fff3190ddf374cdd5e9d69b77c1ca20e05c8ab0fdbdac3a9.
+- docs/reports/map/MAP2K/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/BELGIUM_SCOPE_AUDIT.json:1 — 115 lignes; SHA-256 088b25e02337d9a62c3b3b9a8b3a9b46f7cc60ce0cf51ef46babb9e1c0e53dc6.
+- docs/reports/map/MAP2L/CLOSURE_STATUS.json:1 — 111 lignes; SHA-256 920aaee3a2fd2e9c5aded41ff90f5d441bdcd2722dfad4a6a6a26152abcce0be.
+- docs/reports/map/MAP2L/IMPERIAL_DE_JURE_REGISTRY.json:1 — 3440 lignes; SHA-256 36fe6efbc359d07d12b56d98e29659d94acf49324c52a5e58faf0ffb1b49969b.
+- docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION.json:1 — 19 lignes; SHA-256 5dccc7ee9d56415aa92551a2d7f69275a45268abf78979e114eedfdeb59a02f9.
+- docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_RHINE_SWABIA.json:1 — 20 lignes; SHA-256 4ab4db20142e6c1a6d9547934c7f2a9c63eaefba0a6141b155211b4c354eeb9f.
+- docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_SWABIA_COMPLETION.json:1 — 14 lignes; SHA-256 9c2e8e46e309f8d370964c567a05035bd74af7751902a3b78a444e5782382c63.
+- docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_SWABIA_FINISH.json:1 — 21 lignes; SHA-256 e1a2db1b0754da9ee8305a74ee8de00cc3c996eb9ac81b1708a0e33aa5357393.
+- docs/reports/map/MAP2L/SCOPE.md:1 — 45 lignes; SHA-256 6342fe3593b4b4270ca160566a96f69787d861507e2887651080ed1623260772.
+- docs/reports/map/MAP2N/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 f0a0f98d4c0a61e152cb5d1585c1a92f4c46c7fdfa82171d7eeff879d539fc2f.
+- docs/reports/map/MAP2N/ISLAND_EXPECTED_TEXT.json:1 — 7 lignes; SHA-256 252c31f5375d77581da359690f51ca6904386fbce115fe805e7912d4caf514cc.
+- docs/reports/map/MAP2N/ISLAND_INSTALLED_MANIFEST.json:1 — 23 lignes; SHA-256 4525c7a1c9c92edbed2e9f6cbd3f0bb1296a2d80f06fdc4c6a06f392a05c2262.
+- docs/reports/map/MAP2N/ISLAND_ORIGINAL_TEXT.json:1 — 7 lignes; SHA-256 100a59ebffa618bb00079001674844bae98e8db90cec285c2a0a1f0747c72a62.
+- docs/reports/map/MAP2N/ISLAND_PLAN.json:1 — 5306 lignes; SHA-256 8101a5398fb399a2248e29628356a69d3b47862ac29cf33492538cf88771181a.
+- docs/reports/map/MAP2N/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2N/REPORT.md:1 — 114 lignes; SHA-256 45db1cf1531fe572745abcb6077ba195ba3b13767a76a8369649d3683769745d.
+- docs/reports/map/MAP2N/UNRESOLVED.csv:1 — 14 lignes; SHA-256 4879b22aeb7d17cfbade3dc1f59fa9604418c8bb8998b79ddd4a25d38e59da9c.
+- docs/reports/map/MAP2N/VALIDATION.json:1 — 658 lignes; SHA-256 296581f50c27d9189dee816efb6bf3027353591963198073ff54581e5a11de8a.
+- docs/reports/map/MAP2O/COLGREP_RETRIEVAL.json:1 — 22 lignes; SHA-256 d582834e35113d6b2a7504dbc52779d17c997fb6173fe604087ff1d328883d4f.
+- docs/reports/map/MAP2O/COMPILER_VALIDATION.json:1 — 234 lignes; SHA-256 838f5171c7445136a566261b3fc08695cb3a08f82a73371b1b6facf7b07e063d.
+- docs/reports/map/MAP2O/EXPECTED_TEXT.json:1 — 9 lignes; SHA-256 a643f38ac175d997b79bf0eebf260872232cd91cd1776427c7108e394c43bfc2.
+- docs/reports/map/MAP2O/INSTALLED_MANIFEST.json:1 — 13 lignes; SHA-256 e4eedebc09d867dee85bc551539ea6e34a30fdd0bb83e2ea170613d226589f70.
+- docs/reports/map/MAP2O/PLAN.json:1 — 3601 lignes; SHA-256 dd5b8ec4afa8583900a2787477f7449e83630cd9852b043bd1552b6a4773a347.
+- docs/reports/map/MAP2O/REGISTRY_MIGRATION.json:1 — 377 lignes; SHA-256 5777e1c3e80059ec552b4550becbcd4c5ee40d82f276f7a97a5b1e34053ff3cf.
+- docs/reports/map/MAP2O/REPORT.md:1 — 50 lignes; SHA-256 e8ca8dffefdf83c7aa44a457fd3ec022907a71bb4795d1e2e4e5d38539e11b67.
+- docs/reports/map/MAP2O/VALIDATION.json:1 — 531 lignes; SHA-256 d6e1361a3a8f1144f2a4ac6d59bcb3805c7bd69684d4bef08a4e588ad362cbbe.
+- docs/reports/map/MAP2P/audit.py:1 — 191 lignes; SHA-256 a27a5f960bf06a33a639704cd972ec2e50e90b26a928ad7da964a89a5182e08c.
+- docs/reports/map/MAP2P/VALIDATION.json:1 — 195 lignes; SHA-256 8b8f7d6815975f9dab358ce5b3e06265b7bd2edfdefb2be27a434dde65793e75.
+- docs/reports/map/MAP2Q/EXPECTED_TEXT.json:1 — 17 lignes; SHA-256 6d84856a41cdb9f79ef0ef83447923f40efa16c00deaa7d2b9b5b743c1dcf405.
+- docs/reports/map/MAP2Q/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 fa357e6fe2bc0bcf46be6cd7e1d62b8c38867732c3d7d6e8dd0401cf1076ba67.
+- docs/reports/map/MAP2Q/IMPERIAL_COUNTERFACTUAL_COMPARISON.json:1 — 230 lignes; SHA-256 e6e740a73d199f930dabaecee758b01f14bd51ab708356b872e23eb408436b3a.
+- docs/reports/map/MAP2Q/IMPERIAL_FILES.json:1 — 79 lignes; SHA-256 7b88bd1be4299ef2ca8a075a84ba2bb9b920ae06496d2161bdcf230fa5a389f4.
+- docs/reports/map/MAP2Q/IMPERIAL_STATUS_AUDIT.md:1 — 12 lignes; SHA-256 deb26d3f2e4b561515d68a7991d0d3a7835d94cfaf1f201bb0475b5ff7471c4f.
+- docs/reports/map/MAP2Q/INSTALLED_MANIFEST.json:1 — 44 lignes; SHA-256 09d36c4158bdae5919c69959e8c52a9edbda8c8c7a9810b6342eebbbd718db40.
+- docs/reports/map/MAP2Q/PLAN.json:1 — 99 lignes; SHA-256 b8afb47fef502c33059de8c893c6a53e4600162db3bb01f5df281f5b40bdbbda.
+- docs/reports/map/MAP2Q/PRE_LOT_REGISTRY.json:1 — 3026 lignes; SHA-256 2411e6dcfb2a2eb865c3c43a660cada2815d623258c50423111244ecc1bdde00.
+- docs/reports/map/MAP2Q/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2Q/REPORT.md:1 — 72 lignes; SHA-256 b1a72020606cc1a29e24695b8f037ea3c409008d2e95fd2ff6d50480efc82c41.
+- docs/reports/map/MAP2Q/UNIT_TESTS_PRE_LOT.json:1 — 11 lignes; SHA-256 82a8ee983d3544d0fcc50df5ed91227db53f6d7dd146ee6c50de5ed06b70e25e.
+- docs/reports/map/MAP2Q/VALIDATION.json:1 — 1027 lignes; SHA-256 3f40def65cb437ab11436c0e78d5f487901f7e68bb39c38d88652c21ddfc5978.
+- docs/reports/map/MAP2R/COLGREP_USAGE.json:1 — 23 lignes; SHA-256 921468a69c610fbe31063c78fc3cd0421b0f29d9ab8266c34334b0f58b6a069c.
+- docs/reports/map/MAP2R/COMPILER_BEFORE.json:1 — 234 lignes; SHA-256 d7803a81c3bee68f858f3aebabba3a753f0a888082a0bc8144f571abcaae7557.
+- docs/reports/map/MAP2R/DELIVERY_VALIDATION.json:1 — 118 lignes; SHA-256 a2cba40c8065a96f70e58d1c7a0bbe22952807810e37d2b3c538fb058c6ece07.
+- docs/reports/map/MAP2R/EXPECTED_TEXT.json:1 — 20 lignes; SHA-256 daae934612ab011c83152769efb09bd3043ab3c766e4cc978b400bb53710c82e.
+- docs/reports/map/MAP2R/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 607085b2782e5c212478246a248e38c8b52bbeebe1f7de2c239a3b4afe726bb4.
+- docs/reports/map/MAP2R/HISTORICAL_EVIDENCE.md:1 — 40 lignes; SHA-256 380d2c549cfdaf420f31cbafdfadd6188b1cf344d4ef3ea766f6f133ef0794d6.
+- docs/reports/map/MAP2R/IMPERIAL_FILES.json:1 — 20 lignes; SHA-256 be61a8500fdf0711c3057beae95d66211212555e911e357e9bf8b6be83888719.
+- docs/reports/map/MAP2R/INSTALLED_MANIFEST.json:1 — 43 lignes; SHA-256 c09196fd7747b263882030c643e7b1851908c8534e04adfa07486d46b039358e.
+- docs/reports/map/MAP2R/NEXT_REGION_RECOMMENDATION.md:1 — 7 lignes; SHA-256 6a38958010a0bd3e99329628e26f54d445b08a51ab0c7c2866965717de9ab80a.
+- docs/reports/map/MAP2R/PLAN.json:1 — 36 lignes; SHA-256 30413aed360862ae9cb498957a284147d5910b9d32d6155a9514349dc10bb32d.
+- docs/reports/map/MAP2R/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2R/REPORT.md:1 — 61 lignes; SHA-256 99931374c86c2c3e2763e7b188b946f564d6022a0f84beeaa3ecced61c303970.
+- docs/reports/map/MAP2R/RUNTIME_TEST_PLAN.md:1 — 15 lignes; SHA-256 c8f29398696c6a8fd2c25da4131efe456a33f98ef2cdf391d545cf85e2a54326.
+- docs/reports/map/MAP2R/VALIDATION.json:1 — 3644 lignes; SHA-256 ecef676e95206f17bec6a207d46f093c5e96f9dc9ba3cf67447c1a3f38242523.
+- docs/reports/map/MAP2S/NEXT_HRE_REGION_RECOMMENDATION.md:1 — 13 lignes; SHA-256 a1ddde29a15b827e655df7302a91cfcf081b3c1035f2a5cbe23d971b010e4ecf.
+- docs/reports/map/MAP2S/REPORT.md:1 — 33 lignes; SHA-256 b1ac2dc38217bbb1ee98713c3faf7d3add34689c15339e37ccff4f5de62f28bd.
+- docs/reports/map/MAP2S/UNIT_TESTS.json:1 — 92 lignes; SHA-256 2625b67b63feb565550cbed7a6fe0f6f8f1cdaeed568014fab532bd8d4d97206.
+- docs/reports/map/MAP2S/VALIDATION.json:1 — 18828 lignes; SHA-256 0653235325a44188a5bcc8595ab656e00208729862d30f3168c8fb1801926e30.
+- docs/reports/map/MAP2T/1776_POLITICAL_INVENTORY.csv:1 — 14 lignes; SHA-256 c75e40959e9e1f935f23c8230188aeba3a3debde52eae645291fe08ae584b1e2.
+- docs/reports/map/MAP2T/COMPILER_BEFORE.json:1 — 298 lignes; SHA-256 289de7a8800bd9d6a08f09ff4bb92f744e7f6f82a04efc7448b98c41aead0662.
+- docs/reports/map/MAP2T/CSV_TABLES.json:1 — 2615 lignes; SHA-256 4e822f2b50a608b64e93d122c2974f74b9b860e6c5f9fa54cfaa769566a67e95.
+- docs/reports/map/MAP2T/EXPECTED_TEXT.json:1 — 28 lignes; SHA-256 13158b8b387a4a91544615f41beb313a38a34b2cdd892c7bfa408f1369c26477.
+- docs/reports/map/MAP2T/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 5032d0de2cb667067eed89727aefa3b8bb64e41aed1b44b09a98eee38cc6d805.
+- docs/reports/map/MAP2T/HISTORICAL_EVIDENCE.md:1 — 33 lignes; SHA-256 d53797a48bb5e3a04159fe6e91496b7f4f10c13e1304eee866c56da5510256c0.
+- docs/reports/map/MAP2T/IMPERIAL_FILES.json:1 — 21 lignes; SHA-256 6d30779a06ba18bf9c80a5c28f00347c79421bfa796de89719419255a01d8ab8.
+- docs/reports/map/MAP2T/INSTALLED_MANIFEST.json:1 — 52 lignes; SHA-256 f9ce9eaca3c7794d0ce2e74943795217cb670171584002a8924710d6aaa3277d.
+- docs/reports/map/MAP2T/PLAN.json:1 — 81 lignes; SHA-256 c4cdba6c3d98e82fe678425ccfbb974ca77c0343781682e432e3da52e5e19531.
+- docs/reports/map/MAP2T/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2T/REPORT.md:1 — 71 lignes; SHA-256 a024db2aaa837baf25b6e53da975a4ef4f7cba90b9a3eb4c7b4b8289d3df7860.
+- docs/reports/map/MAP2T/REPORTS_EXPECTED.json:1 — 9 lignes; SHA-256 fd55804b0bcdeea29c08b7bc3637cf085563c372a8a65fa8c6780afc4e4fd4b4.
+- docs/reports/map/MAP2T/RUNTIME_TEST_PLAN.md:1 — 12 lignes; SHA-256 970507e844c70e3c61518ef6668bc32a10320233585245748b88a95ada02f0be.
+- docs/reports/map/MAP2T/RUNTIME_USER_ATTESTATION_MAP2U.json:1 — 13 lignes; SHA-256 7bb7011d21f5a7d7e75cc2ccbde405cfaca9826059b8408f877533e4a01783c2.
+- docs/reports/map/MAP2T/UNIT_TESTS.json:1 — 48 lignes; SHA-256 ac5de0be03dd9da1efa8b839f379e4e2fb6a4c9ef962a1d209975f6aecc27b92.
+- docs/reports/map/MAP2T/UNRESOLVED.csv:1 — 12 lignes; SHA-256 cc5d5f5840b266090ae92b5f5ccaf1c843c70af8f7566b63ccd4520d9b6b28a6.
+- docs/reports/map/MAP2T/VALIDATION.json:1 — 4522 lignes; SHA-256 982cfa713188d35fc28c6da00065b0d5fb6ec1db9b6abd1c428fe4ad1e29cb98.
+- docs/reports/map/MAP2U/COMPILER_BEFORE.json:1 — 298 lignes; SHA-256 289de7a8800bd9d6a08f09ff4bb92f744e7f6f82a04efc7448b98c41aead0662.
+- docs/reports/map/MAP2U/CSV_TABLES.json:1 — 624 lignes; SHA-256 c5fca08b0cde289979009c44cca836bff2feb540f6e39d60bb1f0d1ef38e15da.
+- docs/reports/map/MAP2U/CURRENT_PROVINCES.json:1 — 450 lignes; SHA-256 2d3bc0060681a44f8781f047abbb0a99414647a6ee59e1055b0ba5db9369d16d.
+- docs/reports/map/MAP2U/DELIVERY_CHECK.json:1 — 138 lignes; SHA-256 0ebc1e5232f5b9ce607338baeea464d6277363cc1e8621d78f481ae2359efce5.
+- docs/reports/map/MAP2U/EXPECTED_TEXT.json:1 — 18 lignes; SHA-256 3583867a948e584a04fd53df11ead2a295ae1a62c1077c9366cf287e0f8d1c99.
+- docs/reports/map/MAP2U/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 bafaba3c1fd091b4e103d9c7ca88dd72b117e67aaa83e73f23220596f6f295b4.
+- docs/reports/map/MAP2U/IMPERIAL_FILES.json:1 — 21 lignes; SHA-256 6d30779a06ba18bf9c80a5c28f00347c79421bfa796de89719419255a01d8ab8.
+- docs/reports/map/MAP2U/INSTALLED_MANIFEST.json:1 — 41 lignes; SHA-256 85795414f98489a82a36effcf78bbc4e93908f6c2e3491757acfa70ace988935.
+- docs/reports/map/MAP2U/NEXT_HRE_REGION_RECOMMENDATION.md:1 — 7 lignes; SHA-256 222db29657b9cfa6b6e6bf9635c4f18cb3b0fe609d3fa8081b74661df8de8008.
+- docs/reports/map/MAP2U/PLAN.json:1 — 76 lignes; SHA-256 26c0168e55dee433aafac3e83994184efaba7a1e9262faed4945bddddd8ce01c.
+- docs/reports/map/MAP2U/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2U/REPORT.md:1 — 90 lignes; SHA-256 3f0b8a54b80287b2c5c6b227473913a56db193905cb84616d2bdbe754e793aaf.
+- docs/reports/map/MAP2U/REPORTS_EXPECTED.json:1 — 10 lignes; SHA-256 db2ae77ba1ee37b3213086988378f6feb41ba07356349edafb5b83d590ae05f4.
+- docs/reports/map/MAP2U/RUNTIME_TEST_PLAN.md:1 — 13 lignes; SHA-256 54b6be55dab9c543c02f78da17404aa58f9ad5217221c91ff5f63cac4c8025e9.
+- docs/reports/map/MAP2U/UNIT_TESTS.json:1 — 56 lignes; SHA-256 8187e0fe71d3afc65480740e9ea7797be8f6db1cd433a2b1f02eec0dfcc2ccc5.
+- docs/reports/map/MAP2U/UNRESOLVED.csv:1 — 10 lignes; SHA-256 4bf525f030779c32896ee7b5365dd241aabea9864b34564398ec6ecc4a95cc39.
+- docs/reports/map/MAP2U/VALIDATION.json:1 — 4746 lignes; SHA-256 4ba81eed037cce8d32b8ec696095352109ee1d73c00720a9ed01ecca17caa524.
+- docs/reports/map/MAP2W/COMPILER_BEFORE.json:1 — 298 lignes; SHA-256 289de7a8800bd9d6a08f09ff4bb92f744e7f6f82a04efc7448b98c41aead0662.
+- docs/reports/map/MAP2W/COVERAGE_SUMMARY.json:1 — 30 lignes; SHA-256 16072d3319bdc8d531de7a18d897245f88a4a2565186ec0146a85683733b405d.
+- docs/reports/map/MAP2W/CSV_TABLES.json:1 — 3106 lignes; SHA-256 d32efc1a768bd712a619ad3c89c2cf992a0f8cbcbbfe3a46d45294c396bc6186.
+- docs/reports/map/MAP2W/CURRENT_PROVINCES.json:1 — 254 lignes; SHA-256 ecef35baa540727c38d37c1dc8119908a8a93968855ae2acd37e0178aa5028ad.
+- docs/reports/map/MAP2W/DISCREPANCIES.csv:1 — 95 lignes; SHA-256 0c6e0d5eca51292e8bd6b3829f59e4472d5e0794d5a96a808aa95e9cdc3d0b45.
+- docs/reports/map/MAP2W/EXPECTED_TEXT.json:1 — 16 lignes; SHA-256 f14b9aaa58ef5c18ba37e728d50c6a471ca0638685f6048e45f9735a629d323f.
+- docs/reports/map/MAP2W/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 4b10a767d1a07aeb648b0b0217e69cf9f5ba21450d351ea36103aec10f31f88a.
+- docs/reports/map/MAP2W/GEOMETRY.json:1 — 1841 lignes; SHA-256 df5c0f821b416e5eba382eed45fc1d72d3d06917373bff855f658ed19a2660f5.
+- docs/reports/map/MAP2W/IMPERIAL_FILES.json:1 — 11 lignes; SHA-256 012ee9372db8a258fdb520b71cbdf80ff524addd350ecdb8ea90aed65624c37b.
+- docs/reports/map/MAP2W/INSTALLED_MANIFEST.json:1 — 38 lignes; SHA-256 0236ac5c2e17910fb8e9aa8817eb9b991cf4429f0e91819d52f6f46b00c33814.
+- docs/reports/map/MAP2W/INVENTORY_1776.csv:1 — 95 lignes; SHA-256 269bd399c3fa2afce50a14d2193c60b747f8b3035e179f7d5344b08472d829cf.
+- docs/reports/map/MAP2W/INVENTORY_PHASE.json:1 — 8 lignes; SHA-256 bc491df9a23918310d549055fbb6954a679eb8eca092ddfc9bdf01ca5e3be63d.
+- docs/reports/map/MAP2W/PLAN.json:1 — 90 lignes; SHA-256 688d5ec7fd5d22d7b5967e2a492112d2a466a0ef6e89ee075efd5d166f7fb7de.
+- docs/reports/map/MAP2W/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2W/REFERENCE_VALIDATION.json:1 — 62 lignes; SHA-256 8f81739e93cd1df7ee49dd21de7ff2ca71153f6d31a841cf20a46ffb924e181f.
+- docs/reports/map/MAP2W/REPORT.md:1 — 121 lignes; SHA-256 34a04c6bc5522c95d804c3f52ecdaf32da2e1176590d4ebc46003d197f01f22c.
+- docs/reports/map/MAP2W/RUNTIME_USER_ATTESTATION_R2B.json:1 — 14 lignes; SHA-256 c1aa18f6cfe0f611aac7f3bcab23b504d1014e8043c0d3f5e22232cdf0d03f88.
+- docs/reports/map/MAP2W/UNIT_TESTS.json:1 — 46 lignes; SHA-256 2416428d95f489a3a748a6a7f440a5105cc6d7cb3fd10cc09083c7f953cd6ca7.
+- docs/reports/map/MAP2W/UNRESOLVED.csv:1 — 47 lignes; SHA-256 e4118ff021f8dfbc8ac3361760ac2f42b807166f7092d95237cc7188a976ad18.
+- docs/reports/map/MAP2W/VALIDATION.json:1 — 6825 lignes; SHA-256 e4d7148b1e53e0e1392c6d3c24802e5ab72a6065c3b815a7db94c4ea845502b7.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R1_WESTERN_EUROPE-0002.md:1 — 63 lignes; SHA-256 1d34120795d3fb31dff2f23b8cd25b928c61afacbc557acac7847de81bb39302.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R1_WESTERN_EUROPE-0035.md:1 — 60 lignes; SHA-256 fd740ab7cfb32e2e45423bfa1b72e115c8ed7afa5e8ae4fb9f84115ecb4b5fef.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0010.md:1 — 60 lignes; SHA-256 8b31aa13e26e83920c27acb198abf17d7f875a00f81d88fc51076cbe6d935619.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0029.md:1 — 60 lignes; SHA-256 71a0494b74162ac095d0999e3ccdbc56889fb2fa8c8eb8538ba563235ba6d8cb.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0031.md:1 — 60 lignes; SHA-256 d5a18dd13a936e31a8939d0db90ae00e540a6ed8df9bfb73dcf18bf15385ef0d.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0033.md:1 — 57 lignes; SHA-256 ac0c06f04a2e5c8595b8604c6fa59e7df1a0a54b4e537215fcbd843859621dd8.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0034.md:1 — 57 lignes; SHA-256 1a069a285248c2a3e5d51ab31ef34bb2864e34f442d00c61d8f539fcac37668a.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0061.md:1 — 60 lignes; SHA-256 599e39e6fbc0628e1bebf969d4a446bc70c9c210385c0ebc532159f2df35ba08.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0062.md:1 — 60 lignes; SHA-256 920e3962b2f28f591653168dbfc858fc3b15b5617b916a8cba35b4294f412503.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0063.md:1 — 60 lignes; SHA-256 634970a4bcf4e08f1d32d1858dddb04c722be673b3915fc92e4290a888447ea0.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0086.md:1 — 57 lignes; SHA-256 59e9991005ecda2b612e750c55fa7a1a4b3f2a42d1e6d181d2cde29475096ff3.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0087.md:1 — 57 lignes; SHA-256 e8003f1f15df190ec8399b07116c0f9abdc0df48194e1a6c71d1da634df5f17f.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R2_NORTHERN_CENTRAL_EASTERN_EUROPE-0099.md:1 — 60 lignes; SHA-256 436274b24610d4ff7eb79b37c16dd85ad197c4d762efd047ac7c0250c810a113.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R3_MIDDLE_EAST_NORTH_AFRICA_CAUCASUS_CENTRAL_ASIA-0011.md:1 — 60 lignes; SHA-256 9f77021de13eb9dd5f883f863d03d5c4e57ed5eb7f6bf9dc7057928a70bee9e0.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R3_MIDDLE_EAST_NORTH_AFRICA_CAUCASUS_CENTRAL_ASIA-0023.md:1 — 60 lignes; SHA-256 d0801a1f550e710672583943b4c3f5a18bfd8df78348e980a61a85f7acd4f08d.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R4_SOUTH_ASIA-0016.md:1 — 60 lignes; SHA-256 5e4e92e4295a884e6b9d6e5c346459b80a3a6298e1101bb202ee777b7322a6fd.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R4_SOUTH_ASIA-0031.md:1 — 63 lignes; SHA-256 3f58fa5e97a9f14792dbc8ea6c3a852dd672cb874e820f29cfd41e89d5c54263.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R5_EAST_ASIA-0024.md:1 — 63 lignes; SHA-256 d2dd7f98040363d198a05c870ed1a10ca629308ca453a831f85805577fb18453.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R5_EAST_ASIA-0026.md:1 — 66 lignes; SHA-256 53434f793c4e5437515d364a4ebd6f7e7d34fca92d307e0816d06efb86da7a49.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R7_SUBSAHARAN_AFRICA-0046.md:1 — 60 lignes; SHA-256 d9ece8ba7dfaa79738b7b88d82cb3b1c1b9d979ba1c172399495780b15f8b113.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R7_SUBSAHARAN_AFRICA-0047.md:1 — 60 lignes; SHA-256 8f96f08631caa67e009d63616939b0418a55fc044813da2ce1a4c4814b784aec.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R7_SUBSAHARAN_AFRICA-0048.md:1 — 60 lignes; SHA-256 a099453d00e37f16a5eb7614647193ce9a8f254a740c7c11f37d7f95881e59a7.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R8_NORTH_AMERICA_CARIBBEAN-0031.md:1 — 63 lignes; SHA-256 ffcb6d562b445c315170b9df410508fdbe6225bddc4a0460597a003bf1ef425d.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R8_NORTH_AMERICA_CARIBBEAN-0086.md:1 — 63 lignes; SHA-256 01398de0f9aa291ae2538bbdbbd5c1b9f19e6f1435c69af659a6edcfde27c791.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R8_NORTH_AMERICA_CARIBBEAN-0112.md:1 — 60 lignes; SHA-256 36492726120a8eebf0590919926c6fac9378f377975c3773784d191e8cf640a4.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R8_NORTH_AMERICA_CARIBBEAN-0113.md:1 — 60 lignes; SHA-256 e65fe9881dd076fa264ad70ddf813ff2a787e599b65e48c38a25259e0a25c652.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R8_NORTH_AMERICA_CARIBBEAN-0114.md:1 — 60 lignes; SHA-256 b1721eb299be8e41d4e4889adbcfe51c1e97c58418bfeb41c9add8706fd253c6.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R8_NORTH_AMERICA_CARIBBEAN-0115.md:1 — 60 lignes; SHA-256 2f2acdbb7231eae58af9c83f245815683266ca6be242bb7b911db2f808333c9c.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R9_SOUTH_AMERICA-0023.md:1 — 63 lignes; SHA-256 a65f73cc7192f87e4e2aa62abacf9920a5507fe891286a6eb778f74a96b85bf5.
+- docs/reports/map/MAP1/MAP1_CASE_DOSSIERS/R9_SOUTH_AMERICA-0047.md:1 — 60 lignes; SHA-256 90047bbd2bd96c57a731821df18512cca579c336d338a6ba3d2621a93f3db7dc.
+- docs/reports/map/MAP1/MAP1_DEPENDENCY_DOSSIERS/STATE_FRANCONIA.json:1 — 770 lignes; SHA-256 73b0384ae7b25acd347f3b6c15e2fed905781e6801a353e6d43b4c8082274054.
+- docs/reports/map/MAP1/inputs/map0_reference/MAP_1776_9_REGIONS.csv:1 — 1044 lignes; SHA-256 dd2a9dee557adef284a7bf3a504ff82720f0ade6d55b77af7159037c20ad87d8.
+- docs/reports/map/MAP1/inputs/map1_outputs/WORLD_BORDERS_1776_COVERAGE.csv:1 — 1044 lignes; SHA-256 9e1e43e9ede331508a8a4e928f41dfa829154ea1b754e877b062bc5a89728e82.
+- docs/reports/map/MAP1/inputs/map1_outputs/WORLD_BORDERS_1776_IMPLEMENTATION_DRAFT.csv:1 — 81 lignes; SHA-256 095c041e3dd4b717a3e7037795a223ab39186429c45e7806d40b45e301be1aab.
+- docs/reports/map/MAP1/inputs/map1_outputs/WORLD_BORDERS_1776_MAPPING_QUEUE.csv:1 — 411 lignes; SHA-256 b01a72aa256308fec75ff2689e9d6ada78e6b80bf527e8af6ddd352965bdc046.
+- docs/reports/map/MAP1/inputs/map1_outputs/WORLD_BORDERS_1776_MASTER.csv:1 — 1006 lignes; SHA-256 5f98ac530bcd00876f05395c5787d232efa9b48723a0867e54f65ebb7e0bcbb7.
+- docs/reports/map/MAP1/inputs/map1_outputs/WORLD_BORDERS_1776_SOURCES.csv:1 — 375 lignes; SHA-256 14da1f7a2ff67b30e09d0a699b65071181da08eba552726ee5321b4667fb97c2.
+- docs/reports/map/MAP1/inputs/regional_originals/R1_WESTERN_EUROPE_RECOMMENDATIONS.csv:1 — 36 lignes; SHA-256 9b60f5f25f581f5f521b48e2af1ac8fb7003134863fbc02f7e5311a1946c4f5e.
+- docs/reports/map/MAP1/inputs/regional_originals/R1_WESTERN_EUROPE_SOURCES.csv:1 — 44 lignes; SHA-256 ce3551a15e315b3abbb89af9e21dfeaf11276f8ad32ee440e858377dd0e96ebe.
+- docs/reports/map/MAP1/inputs/regional_originals/R2_NORTHERN_CENTRAL_EASTERN_EUROPE_COVERAGE.csv:1 — 165 lignes; SHA-256 2a6e59c93512c3ee68737834fabfb31834674ad04f2685573961eda181f30347.
+- docs/reports/map/MAP1/inputs/regional_originals/R2_NORTHERN_CENTRAL_EASTERN_EUROPE_RECOMMENDATIONS.csv:1 — 166 lignes; SHA-256 eccd50874eb8abf88800d2394aac5657726111b79c8e2deab60883d8c47768a6.
+- docs/reports/map/MAP1/inputs/regional_originals/R2_NORTHERN_CENTRAL_EASTERN_EUROPE_SOURCES.csv:1 — 46 lignes; SHA-256 a3817d2d1937992ba0d11054a7a1b62d7298aad8c0a1668d8b1e076c53e12b7e.
+- docs/reports/map/MAP1/inputs/regional_originals/R2_NORTHERN_CENTRAL_EASTERN_EUROPE_UNCERTAINTIES.md:1 — 100 lignes; SHA-256 7e112b0560370e1c8470b239920272398e874fa27ca50eedc61e3733fcd8ed91.
+- docs/reports/map/MAP1/inputs/regional_originals/R3_MIDDLE_EAST_NORTH_AFRICA_CAUCASUS_CENTRAL_ASIA_SOURCES.csv:1 — 44 lignes; SHA-256 b04a82faf5ddc56c19d715fb375c6c8e971489329d3ff78d989e59b853ba6f26.
+- docs/reports/map/MAP1/inputs/regional_originals/R4_SOUTH_ASIA_COVERAGE.csv:1 — 55 lignes; SHA-256 ca06fa685882c6d543029752e85d292e7d2bade26642bcd893ad4f7506814fb1.
+- docs/reports/map/MAP1/inputs/regional_originals/R4_SOUTH_ASIA_RECOMMENDATIONS.csv:1 — 63 lignes; SHA-256 f3342a9e2d724b1c9f794d68e31398cac6286289dce4addc87f8edf07fa6a320.
+- docs/reports/map/MAP1/inputs/regional_originals/R4_SOUTH_ASIA_SOURCES.csv:1 — 59 lignes; SHA-256 1cfcdf1473645ae30ba23600ae689f75b08f274e6b55b63279ac075ca5e0d0cc.
+- docs/reports/map/MAP1/inputs/regional_originals/R5_EAST_ASIA_SOURCES.csv:1 — 29 lignes; SHA-256 582a074de3a73231fa6bea9b96295a8445c4cdd3f0eacb9895a6fd3dbfd80c1c.
+- docs/reports/map/MAP1/inputs/regional_originals/R7_SUBSAHARAN_AFRICA_SOURCES.csv:1 — 44 lignes; SHA-256 9b5fd8bb6176537cf6f2056ca91aca16d663f0e88800059daf9e5c7c7127ce4d.
+- docs/reports/map/MAP1/inputs/regional_originals/R8_NORTH_AMERICA_CARIBBEAN_SOURCES.csv:1 — 51 lignes; SHA-256 8e6b7ad474514b5d8388a0cf44568d00fe7366d7d7d4202424a740c9552fffb6.
+- docs/reports/map/MAP1/inputs/regional_originals/R9_SOUTH_AMERICA_RECOMMENDATIONS.csv:1 — 64 lignes; SHA-256 b77d4db499a050e3a3088753ea2e2c94dd4b0f51945f1adfd71cc68906ab996c.
+- docs/reports/map/MAP1/MAP1_GEOGRAPHIC_EVIDENCE/STATE_ATLAS/STATE_FRANCONIA.json:1 — 26 lignes; SHA-256 5dc5b71bcb0db296112dbc154700fc4434f1d08e1b20c121b93603c6f7711a50.
+- docs/reports/map/MAP2F/FINISHING/BASELINE.json:1 — 3447 lignes; SHA-256 16bf3db714ac4d4f6bd1700bfb7fd533a5201b59647d2fb69708603c6ce3053f.
+- docs/reports/map/MAP2G/NORTHERN_BAND/IMPLEMENTATION.json:1 — 1069 lignes; SHA-256 940236b26704ecea80e79e92b175cda1120df8be64db1879548eb3c95e67351d.
+- docs/reports/map/MAP2G/NORTHERN_BAND/VALIDATION.json:1 — 1327 lignes; SHA-256 e1662d3ef74a6ed07891960a0895bf0ad7fee921d1da1a352aa6776f27fdf3f3.
+- docs/reports/map/MAP2K/MAIN_MAP/INTEGRATION.md:1 — 61 lignes; SHA-256 7dc026b37125687eb7ab704b9c22d6fb31d58d008fc3e92464e3c4846c3e995e.
+- docs/reports/map/MAP2K/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 89dbffc4b5639f68b0c6ebe4247e9d2170281a83ede0c7cc1b79714ee526c671.
+- docs/reports/map/MAP2K/PROTOTYPES/hre_main_map/PLAYSET_CREATED.json:1 — 28 lignes; SHA-256 4a43423fdbb04c4ce54e6d1b8596a62474eaa227792cd5bd359dac2638b42d22.
+- docs/reports/map/MAP2K/PROTOTYPES/hre_main_map/README.md:1 — 86 lignes; SHA-256 a8c9dec0d6c1759fe81c60bfc3624ef98cc5033c6d7050a8066533630379925c.
+- docs/reports/map/MAP2K/PROTOTYPES/hre_main_map/VALIDATION.json:1 — 99 lignes; SHA-256 89dbffc4b5639f68b0c6ebe4247e9d2170281a83ede0c7cc1b79714ee526c671.
+- docs/reports/map/MAP2L/BELGIUM/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 ca2f3224d375e2e1234200735f8f57e012867bde1a089805ae33294a3cd32a53.
+- docs/reports/map/MAP2L/BELGIUM/IMPERIAL_FILES.json:1 — 79 lignes; SHA-256 74d1450cf67531df93616ceda05c25bd821333b6221bcf8bfaa87738baa421da.
+- docs/reports/map/MAP2L/BELGIUM/PLAN.json:1 — 734 lignes; SHA-256 a2be057d958da3278d2515ba5e1e16787c2904d277ed52f5ddccf1c799bd4d46.
+- docs/reports/map/MAP2L/BELGIUM/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/BELGIUM/registry_candidate.json:1 — 1892 lignes; SHA-256 6391d106945af64e30b2c0fcc2b53a5bcbe7b41f5c0593820020becf98b612bb.
+- docs/reports/map/MAP2L/BELGIUM/VALIDATION.json:1 — 12708 lignes; SHA-256 b6c98db78ab29578c844df0368e9edf175a6c836b3baeebe71cf16b22899a8ac.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/ALIGNMENT.json:1 — 207 lignes; SHA-256 ef3bae6564547517b4c7781eb39501f03e490c41add8de1f33ee3c2b97f92c0b.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 efbe2b01c40687026da6238b07c6f633cf82b4c36c89d269580fb9414b2403bc.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/GEOMETRY.json:1 — 2607 lignes; SHA-256 dd0d4f9738a2c6cbbba867aae83255c234cb4e0f6ec3ab326c42aed6c7e07749.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/IMPERIAL_FILES.json:1 — 70 lignes; SHA-256 2c3d36d979a60c57030ae5965e3627a241221b57ac9edffc16cf1b8764322d67.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/IMPERIAL_PARTS.json:1 — 10 lignes; SHA-256 b6ac2843bac88bdc8467ca3fe6a419778b20a150882ee7029a885fb04d56b80f.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/NON_REGRESSION.json:1 — 158 lignes; SHA-256 66a27e945309576356b395c1273de312baa30bfc8b92795f887722cfe4f4377c.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/PLAN.json:1 — 122 lignes; SHA-256 5c37353dc26794b6268a52ab01c0dac9b6dae33ce9ee891fa1e1783b07912f2c.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/POPULATION_VALIDATION.csv:1 — 58 lignes; SHA-256 e91ec755864bb13027d4ef79a4d51680c0002e64b55fb7d797b1d91ae0fc7d91.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/REPORT.md:1 — 63 lignes; SHA-256 5052ac30d428faa6599a3a9c9093b53bb46d50dc7c6ca94cbfc60e449c3f8b8f.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/TRACING.json:1 — 55 lignes; SHA-256 fe1cbd174cebee2bb500c6ef915bced8c0e009f4b8460132b569330d8e620a4f.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/VALIDATION.json:1 — 4609 lignes; SHA-256 1841f9a2a04d08af9d411c8c1d9cf6f693e6c5d0a4f287c14dcd33b3a56c9982.
+- docs/reports/map/MAP2L/ERFURT_EICHSFELD/READ_ONLY_VALIDATION.json:1 — 21 lignes; SHA-256 2bc29df1f68f8fae131ed7ebbe0f2800d976dcb0abcc7f061d014515229032c5.
+- docs/reports/map/MAP2L/ERFURT_EICHSFELD/REPORT.md:1 — 47 lignes; SHA-256 3c4fea502473a080c60aea7a7fea6dfd086e5e8e677505d1d8d93d0d603d769d.
+- docs/reports/map/MAP2L/ERFURT_EICHSFELD/REPRISE_FUTURE.md:1 — 12 lignes; SHA-256 86f0bc7b8abdb6fa63b9e753280164bc61d6a8ed405e4518210721d7c553c89d.
+- docs/reports/map/MAP2L/EVIDENCE/BR_ARCHIVE_LINKS.json:1 — 6 lignes; SHA-256 5b2f26a7656ee190bd9fac96567e5018286a3607602e344e16446bbeee8e7ea8.
+- docs/reports/map/MAP2L/EVIDENCE/NUREMBERG_ARCHIVE_SOURCE.json:1 — 10 lignes; SHA-256 0850170a7e78a36e0e1e8d14aff6eef261c61b71acee27daaf90575cf5cb89c4.
+- docs/reports/map/MAP2L/FRANCONIA/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 5861f827355181788c5e15fa2e047f2694b7fad11adc54bca6fb3746bc6bef5f.
+- docs/reports/map/MAP2L/FRANCONIA/GEOGRAPHIC_EVIDENCE.md:1 — 38 lignes; SHA-256 dd4f5b6a1403df2f1cf6ec201d0f9302bbe61846b3c040d44762574e10468404.
+- docs/reports/map/MAP2L/FRANCONIA/GEOMETRY.json:1 — 8560 lignes; SHA-256 d2114d70271b488e0acafd1adffe5a5c9e01fabacb631b92686dd8620dead180.
+- docs/reports/map/MAP2L/FRANCONIA/IMPERIAL_FILES.json:1 — 79 lignes; SHA-256 52af5af2c695d103383b4a531294a3a240d42e428029275d880dcac6c5849bf9.
+- docs/reports/map/MAP2L/FRANCONIA/NATIVE_ANCHORS.json:1 — 162 lignes; SHA-256 0fbb22be411776deee6bfa5dc19d51ba8cbdaf19a8b9716c64bbf702dfc7a6cd.
+- docs/reports/map/MAP2L/FRANCONIA/PLAN.json:1 — 210 lignes; SHA-256 5512a537c2d8300adac54612d2af81b956b0518cba82d07d11822aaf09350de1.
+- docs/reports/map/MAP2L/FRANCONIA/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/FRANCONIA/REGISTRY_MIGRATION.json:1 — 467 lignes; SHA-256 26f1ae8a0c892eb72021f4fa54c0cc38478c95f6baab7fe5e18432c792945bd1.
+- docs/reports/map/MAP2L/FRANCONIA/REPORT.md:1 — 78 lignes; SHA-256 ebb5ba4f4f596df6687d875f32b9c8ad22a0a3dd11ce876ba15897087045a71a.
+- docs/reports/map/MAP2L/FRANCONIA/TERRITORIAL_CHANGES.csv:1 — 44 lignes; SHA-256 f2f077c9fe4b232a445523b069093b8272df72b04b1f5128c5506777f4dd3b78.
+- docs/reports/map/MAP2L/FRANCONIA/TRACING.json:1 — 24 lignes; SHA-256 0308907527f4a8ffae17f3d54b117308706a29bc110bf87e4eb5139833e115e2.
+- docs/reports/map/MAP2L/FRANCONIA/UNRESOLVED.csv:1 — 12 lignes; SHA-256 e5e67b430185963f39ccc7cdbc334596583a5290af242143f23fa54d32393ccf.
+- docs/reports/map/MAP2L/FRANCONIA/VALIDATION.json:1 — 4461 lignes; SHA-256 dd053301c1a049123e7947d6e9bb1436eb3bbbbcaed8ed6c7df393a83fb692a4.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/ALIGNMENT.json:1 — 82 lignes; SHA-256 6724d2a23581c2f43e52eb9c1b54ec46544cc56e94446f14699d4dee8b8ee73a.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/CONTINUATION_INTERSECTIONS.json:1 — 910 lignes; SHA-256 84e4499c36975688bca7fb708a764330053a8f5e091c591ab01c594d9687b4a2.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/CURRENT.csv:1 — 67 lignes; SHA-256 8469a897a222fefd36ddc757dd0da9ab02591e10aa525632005a1433ab81d8bf.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 bc74db83f9e986c5525f2efca8263541698b78a15465db4be302cf4c9b3fd815.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/GEOMETRY.json:1 — 3448 lignes; SHA-256 30d89e445b1d56ea183a2281ce4c295382fc4987ae82dd98db96a3c26fce9c0e.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/IMPERIAL_FILES.json:1 — 70 lignes; SHA-256 2c3d36d979a60c57030ae5965e3627a241221b57ac9edffc16cf1b8764322d67.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/PLAN.json:1 — 149 lignes; SHA-256 70e02715ea7d180109cf1f3d2937b86ab74a2081ec32c87d0983ae8e5f3becc8.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/POPULATION_VALIDATION.csv:1 — 75 lignes; SHA-256 f9f20e187489238e29c1db12c31474e86eb72eb53e442186b91f609d25ffa8f3.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/REGISTRY_MIGRATION.json:1 — 897 lignes; SHA-256 18cf5cec289af5ec668697531bc3d658c139cb7e14a9af805891a5adc46155b6.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/REPORT.md:1 — 117 lignes; SHA-256 c0b10bf2392bc1480cacd50c90b9b6f21d36bacc87409c47e86be38cd9c5f71c.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/TRACING.json:1 — 32 lignes; SHA-256 cf4e31dd6d85ee3496a2006c59a2da0c2bade472f93671027e5b42604dde328b.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/VALIDATION.json:1 — 5684 lignes; SHA-256 da49578d6f12b2d7ce0ac9354e87a6e6c09a0d39315bdbe6ecfc50c92d342f7a.
+- docs/reports/map/MAP2L/GEOREFERENCE_PROTOTYPE/REPORT.md:1 — 54 lignes; SHA-256 f4c2c4f4c60d3d37877bc245c2bad641334c3486419febd848426d1a800f54e4.
+- docs/reports/map/MAP2L/GEOREFERENCE_PROTOTYPE/VALIDATION.json:1 — 487 lignes; SHA-256 b3f7b81dc8c53b2f33b83579a8f5c4951dbf3416c2300f5062769ea465d8ee26.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/ALIGNMENT.json:1 — 176 lignes; SHA-256 192d47583c07fd8205ecf2f3877cf104494b79559cb8948715e9aa0dcaaf06bc.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/CURRENT.csv:1 — 74 lignes; SHA-256 d47a3b8da857b86a59363abca26f25b5ca4cbd376695439fc6574064a6edb725.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/EICHSFELD_FULL_SOURCE.jpg.SOURCE.json:1 — 11 lignes; SHA-256 48f3ba4033286814b1c90a121361a80d27c0cf5933121da4ee5ad1baa0693649.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/EICHSFELD_SOURCE.jpg.SOURCE.json:1 — 11 lignes; SHA-256 34fd9a0f326d608d37105e63847c644e45b08016190ac11665f33327e51b2e51.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 068b65d5084c1099caeb39f4084866cd4e9fe4f5bf8e0258b57b1a216b7fb531.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/GEOMETRY.json:1 — 1535 lignes; SHA-256 5724093e858c3d0c7800b5628168e05ee74eb9d3f8eba23ed28ee3797dee3b5e.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/IMPERIAL_FILES.json:1 — 70 lignes; SHA-256 2c3d36d979a60c57030ae5965e3627a241221b57ac9edffc16cf1b8764322d67.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/NATIVE_ANCHORS.json:1 — 298 lignes; SHA-256 0cd76ac02e4b00cef87c7979ab5d8e9bfface515a169530563aa2301f916445b.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/PLAN.json:1 — 279 lignes; SHA-256 99be15aee453f7672a2f710a75d291a65002289540dd1836aa6ebe8af69b1afc.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/POPULATION_VALIDATION.csv:1 — 86 lignes; SHA-256 b9e62ed81838f9909001bedd866f87bd996e3376237857f4c3a095a6181774a3.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/REPORT.md:1 — 77 lignes; SHA-256 e70a36cd8798b2cc8af7caa4631fb2a627efb5340a4a8f0240cf48fbc0718a27.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/TRACING.json:1 — 230 lignes; SHA-256 4e7229e17a602a55855fce4b32bdfcfd9f20dd419f0ab8d2bc3a20595a42ce01.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/VALIDATION.json:1 — 6046 lignes; SHA-256 32ce9203ffd377208fdc08becbe8e69b06cd3993d67310dbc788f8137136de39.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/ALIGNMENT.json:1 — 230 lignes; SHA-256 ca8139b2bae337781153b07f84c306a55691fc04ff84d9aa260c886c2f94e785.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/CANDIDATE_INTERSECTIONS.json:1 — 58 lignes; SHA-256 233a583b2d94ed2fad1100129f57ed70927a901663d4d5455a2808dae1571a90.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/CURRENT.csv:1 — 66 lignes; SHA-256 2c022bdbed17042dc7ce86045cbcf6722f390b7d3ef51aa70093dc8d48a3cefc.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 b035c1ff7fc4c142d796e6f9052315a6e036c659bbac9f42db9c9f1fe80a264d.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/GEOGRAPHIC_EVIDENCE.md:1 — 32 lignes; SHA-256 94184378676c92fd4b0863944484186fdf09989edd6b86adc8d9e74e74a95d09.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/GEOMETRY.json:1 — 4139 lignes; SHA-256 78bc6d0e3483e95f44613a6ba0d5bca4e804999c79fe0e08d7a6437e46c0b57c.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/IMPERIAL_FILES.json:1 — 70 lignes; SHA-256 2c3d36d979a60c57030ae5965e3627a241221b57ac9edffc16cf1b8764322d67.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/PLAN.json:1 — 487 lignes; SHA-256 fe7b80c97748721d463e736841da56284f264e16bfbb4fb6a3d6407e2bbf6b99.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/POPULATION_VALIDATION.csv:1 — 105 lignes; SHA-256 8bd5695228cca01bb00d30294c89759c62f23347ee184f95216f79deb77959bb.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/REGISTRY_MIGRATION.json:1 — 976 lignes; SHA-256 dfb92ae148131093821168d767e56a117c4faa413a4d44ed82b86e82ebdbb0e5.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/REPORT.md:1 — 75 lignes; SHA-256 0816d5d6cc18e3cb0500cb20527fc499f49a221451606c29198df8d8a36ad089.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/TERRITORIAL_CHANGES.csv:1 — 25 lignes; SHA-256 09e066a19d8d2625ed609690e89754537963e9d2a729868f36a5cb3677521741.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/TRACING.json:1 — 54 lignes; SHA-256 850fa7ffb398139587869cda6db7210657d1d4f457b40d7dd940d7e07d2d3fe9.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/VALIDATION.json:1 — 6679 lignes; SHA-256 c407c6891d1395e15d330a30a2fc922c663e9a8c252053050f3442169fa644af.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/CURRENT.csv:1 — 61 lignes; SHA-256 6b8338df6ed8660631c8e1868ec43f2d2951cce580a0c92370f414195cbc3963.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 38e9ac11356d49e7a6c736e39b852a71260eb5ea9a4999051ceecf2e701829f6.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/GEOMETRY.json:1 — 2407 lignes; SHA-256 bd76f972e495d6e7f01431f9e5ea72a3302239dbd40999680dc262392daee664.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/IMPERIAL_FILES.json:1 — 70 lignes; SHA-256 2c3d36d979a60c57030ae5965e3627a241221b57ac9edffc16cf1b8764322d67.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/PLAN.json:1 — 262 lignes; SHA-256 6d2b3a88cc769530dd9122eb01187bf4fda83a290302832792165a81513f56b8.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/POPULATION_VALIDATION.csv:1 — 114 lignes; SHA-256 e1e8c6cd08aa04dbe3a94f74290403f0625941f3211a3dc0b0c0227ccb4e6c04.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/REGISTRY_MIGRATION.json:1 — 766 lignes; SHA-256 34a38e149cc725383bb3b4a9fe8deeac36135116106fd2a88738d328082a2ac0.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/REPORT.md:1 — 77 lignes; SHA-256 0657d0ec25100bc0c85d44c03fa217b333cec6796e1b5da3f038d0a1e89c1d9e.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/TERRITORIAL_CHANGES.csv:1 — 7 lignes; SHA-256 20ef23b31182b757e3cd0f97c8f2f8d08bc45f93558a3c53df2514c241812caa.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/VALIDATION.json:1 — 6743 lignes; SHA-256 19396151c8614776b02cfb1c5095abb4b219815ef04cd34de7bf780f25e9faa3.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 bc5ba08a5d8c22bf8c828b3aa6ddb154a3bdeb82175b893b3bfdbc911e863135.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/IMPERIAL_FILES.json:1 — 70 lignes; SHA-256 2c3d36d979a60c57030ae5965e3627a241221b57ac9edffc16cf1b8764322d67.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/NON_REGRESSION.json:1 — 65 lignes; SHA-256 5432c6bb204db6757489dbcc5d8f3e4447be9aa6d42172953ac1d4af15eb2dfd.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/PLAN.json:1 — 110 lignes; SHA-256 4b22ccd7a45fbc77afaa1e70163d4a2085a64bef27e82fb4bd4ff998f43357ab.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/POPULATION_VALIDATION.csv:1 — 79 lignes; SHA-256 6527b5f51479998949b3a6187dd71a36ab13523bedb701699c64835e162bf610.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/REPORT.md:1 — 61 lignes; SHA-256 08aca49fc7b1cf98a51b3ed456bea75b1a1ecff838ff363e6f9bfda78255e1a6.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/TRACING.json:1 — 25 lignes; SHA-256 8507df555714f0317884eba4645556e56c21a0dfef07df64453af723b67db666.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/VALIDATION.json:1 — 5776 lignes; SHA-256 4376ea1c713a4bbf1a6632689834508d1a04a0335918ef227cfdbe248646b3b4.
+- docs/reports/map/MAP2L/MINDEN_RAVENSBERG/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 ce952b404c703bf2de6684171767a2ee0fffedb791abe8c382b4b67620bfb346.
+- docs/reports/map/MAP2L/MINDEN_RAVENSBERG/IMPERIAL_FILES.json:1 — 70 lignes; SHA-256 2c3d36d979a60c57030ae5965e3627a241221b57ac9edffc16cf1b8764322d67.
+- docs/reports/map/MAP2L/MINDEN_RAVENSBERG/IMPERIAL_PARTS.json:1 — 11 lignes; SHA-256 179b0d2236703c24d4dd831b3379a62909ac99cc204cd54b22b185d687541318.
+- docs/reports/map/MAP2L/MINDEN_RAVENSBERG/PLAN.json:1 — 111 lignes; SHA-256 e4105270fbb237ee8e7abae992662d8ef1569d4d1631bc9fc1d199259ef5a819.
+- docs/reports/map/MAP2L/MINDEN_RAVENSBERG/POPULATION_VALIDATION.csv:1 — 62 lignes; SHA-256 083f9769b7d2ab656c24e62642cc8728b2d9f3ccdf7b19acacfae09df018ca74.
+- docs/reports/map/MAP2L/MINDEN_RAVENSBERG/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/MINDEN_RAVENSBERG/REPORT.md:1 — 44 lignes; SHA-256 5a39993a543892514573e75c776148e56bb753a684a5fa8c1316dfaeafffc734.
+- docs/reports/map/MAP2L/MINDEN_RAVENSBERG/VALIDATION.json:1 — 4706 lignes; SHA-256 e558d26d00bec8143d275b994813479ebdb918c9060707746732b07799a8d46e.
+- docs/reports/map/MAP2L/PIEDMONT/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 d35c4a6ab933cfd923829803b72997a5aaa17666b110a7ad36c8a5d1fdf2cd3d.
+- docs/reports/map/MAP2L/PIEDMONT/IMPERIAL_FILES.json:1 — 79 lignes; SHA-256 52af5af2c695d103383b4a531294a3a240d42e428029275d880dcac6c5849bf9.
+- docs/reports/map/MAP2L/PIEDMONT/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/PIEDMONT/REPORT.md:1 — 38 lignes; SHA-256 4d45ee5dcded985c4f71b9e769c7e9b9ddbf8bde9cfd66ad2971f0c6bc6a31cc.
+- docs/reports/map/MAP2L/PIEDMONT/VALIDATION.json:1 — 12224 lignes; SHA-256 25197aa263afa7af4791bd5c1947135aca32038f2148f2578e9dce52113632e9.
+- docs/reports/map/MAP2L/PRUSSIAN_BORDERS/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 43a40de69d60814f95342e1f586e608bdbebd7d9c868617f9c5c2c44a270e28a.
+- docs/reports/map/MAP2L/PRUSSIAN_BORDERS/IMPERIAL_FILES.json:1 — 67 lignes; SHA-256 f9db8cc80e22a2215c6650ff059915c8f677ea587b4e96306d8e6baaee7da084.
+- docs/reports/map/MAP2L/PRUSSIAN_BORDERS/PLAN.json:1 — 170 lignes; SHA-256 8c366b53ec99a24f216391ab0a2cdf69eb4319f03832ed87587617311851455e.
+- docs/reports/map/MAP2L/PRUSSIAN_BORDERS/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/PRUSSIAN_BORDERS/REPORT.md:1 — 63 lignes; SHA-256 efa88b67126be455b0e8739ad996e6e1c22ea77fc397966f17d425b3ba68b259.
+- docs/reports/map/MAP2L/PRUSSIAN_BORDERS/TRACING.json:1 — 46 lignes; SHA-256 f983d2cc8fcf28ce68c46ef407e40efbeccf9528b73ac5c36d78f8737812c813.
+- docs/reports/map/MAP2L/PRUSSIAN_BORDERS/UNRESOLVED.csv:1 — 9 lignes; SHA-256 8024ee73f6a373f5b58c8db25fdc3c06d87fada188db50ebf3c72cad83b4a00d.
+- docs/reports/map/MAP2L/PRUSSIAN_BORDERS/VALIDATION.json:1 — 2054 lignes; SHA-256 be757fafe501229cfbb2fdda14e8641c713ddcc4dca932741a553e13df05352a.
+- docs/reports/map/MAP2L/READINESS/AUDIT.json:1 — 5765 lignes; SHA-256 10a062b84e62c628328e4131c63bd35c4814dbe849c0c00b138331f5d8dc538b.
+- docs/reports/map/MAP2L/READINESS/METRICS.json:1 — 53 lignes; SHA-256 972fcc749773d87ccad066b8af102ee6e9524b8a26058fbc115ea46bea2dbb23.
+- docs/reports/map/MAP2L/READINESS/REPORT.md:1 — 96 lignes; SHA-256 e73eaad096a54deea2d7e3498fb072d1d74df31f0fcb242f7d81596ad891222d.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/CURRENT_PROVINCES.csv:1 — 66 lignes; SHA-256 1a735f330af165a01dc0fe5dde354941ae23551550d0e4dfde426587a0428d12.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 7246c3cc7288284d05d8d8e9bfeb07ecb08d0d0706497a630e67b98bfaf9b0d4.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/GEOMETRY.json:1 — 1776 lignes; SHA-256 8fa1309de0622afd1310ac76d35c5479b36f8039c4976943ccbe3fa02381c87c.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/IMPERIAL_FILES.json:1 — 70 lignes; SHA-256 2c3d36d979a60c57030ae5965e3627a241221b57ac9edffc16cf1b8764322d67.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/NATIVE_ANCHORS.json:1 — 130 lignes; SHA-256 6aa2d254288a018ccfa93b9be2b382ca7638d8db9062c827d3666488864c0089.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/PLAN.json:1 — 148 lignes; SHA-256 5496b48a3df514be28153a02fd340c43a7498ce412f4c803450e9c77b72e719a.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/REPORT.md:1 — 68 lignes; SHA-256 2cbec3792f348efcf20f20f0b17db4e7be207a1ddf7be5d34a92adddfc5c1f76.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/TRACING.json:1 — 31 lignes; SHA-256 95cb7f20cc5a4088f9ea00ede472c92b714f4bf5ddc5379d2115753bb0d45a7c.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/UNRESOLVED.csv:1 — 11 lignes; SHA-256 97e533f04ad28adf8bdc37e61b1e9e8ac5191b198d34f8494a06924375953b1b.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/VALIDATION.json:1 — 4581 lignes; SHA-256 7187e46b8c74fa9e363281b46246e95820ad7a2525015a3428718ada79f7abdd.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/WORK.md:1 — 41 lignes; SHA-256 a8ae02a487dda5838337c431a36455b517d5efce54b1a2a4ea1e53974dd1eda2.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/ALIGNMENT.json:1 — 97 lignes; SHA-256 adbe8669671599a5f2787532457fc502b6ac6054fc879b797bde407624947bba.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 def2d60ad89bd864899e50741e4afa356adbf8a56b038764291b1337dd5b03ec.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/GEOMETRY.json:1 — 8648 lignes; SHA-256 d222907160893c8aaa7d2511919627c1a06236a409e8ced96d966eb2590e9f5c.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/IMPERIAL_FILES.json:1 — 79 lignes; SHA-256 52af5af2c695d103383b4a531294a3a240d42e428029275d880dcac6c5849bf9.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/IMPERIAL_PARTS.json:1 — 22 lignes; SHA-256 ff7ce81617fe7f4612fcc0898983edd6f9f445ab7a3644001ffa068bea986d0c.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/NON_REGRESSION.json:1 — 135 lignes; SHA-256 53da4697c84f5a286d7d453c20674f4de6a579923e9d96c28c5fc9e4b77a2925.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/PLAN.json:1 — 310 lignes; SHA-256 f52970dc5aab5293e8cc797a1460e3c8736f4b90dbaba864c615acacf24423d3.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/POPULATION_VALIDATION.csv:1 — 72 lignes; SHA-256 04721d11c2dedf52db7ca1f4469e73d038c6f49aeaa7d02bca1eabb19341e996.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/REPORT.md:1 — 125 lignes; SHA-256 a0a2a7683e9420798967137a271d0e0c6f4b0d557dba725550562946464e31a8.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/TRACING.json:1 — 34 lignes; SHA-256 3e64bf4571810038999845e66fabc762aaa6f7d505e237c76f6d0f32246151af.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/VALIDATION.json:1 — 5666 lignes; SHA-256 663060210f275d7b1c1d9f2c291d6f2cf66dcf03e28159890644cc4fa50a6523.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/ALIGNMENT.json:1 — 93 lignes; SHA-256 08abd0e689cd07f99204cdb6ca4ff558c6508b6b9342eed9de3efb36057167ab.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 7d38b672d082be38c9b6ce84b15e7856784a53f78e5b5691df41ec4e77df605c.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/GEOMETRY.json:1 — 6484 lignes; SHA-256 be27fd1359f023a653d49a528e9bf13ee876108d4a8b0ca85a8eacdf6060750a.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/IMPERIAL_FILES.json:1 — 79 lignes; SHA-256 52af5af2c695d103383b4a531294a3a240d42e428029275d880dcac6c5849bf9.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/IMPERIAL_PARTS.json:1 — 23 lignes; SHA-256 15cb5c0abe29e770bb63a8e19e7746dec8b1552e5866cc87ddaef8af256ea58c.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/NON_REGRESSION.json:1 — 168 lignes; SHA-256 dc4b8f3888436bd067cba6929253e1b5708f7c25b9ecf94486ad82ff0949c35d.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/PLAN.json:1 — 215 lignes; SHA-256 de19ae73a5c98254aad963d26dc578c344763ebac71cbfbe0afd5b7cb14e7411.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/POPULATION_VALIDATION.csv:1 — 55 lignes; SHA-256 d1ebf89f27c0de652aac2b0400e2e36eb24f148d5b2573b00e54212d0b3e57cb.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/REPORT.md:1 — 81 lignes; SHA-256 0f24469822e94b14f46798e421acbe0e3304d3c5b94852242affa970ab1345da.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/TRACING.json:1 — 16 lignes; SHA-256 827da91ed53a36e61c975005ec630f69f54d03382633efd92d85e3d5db7ba4f6.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/UNRESOLVED.csv:1 — 15 lignes; SHA-256 5be97ab2802b7caf96fe0524ad91978f8b0e16836c943e97c0cc9243293e5041.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/VALIDATION.json:1 — 4381 lignes; SHA-256 dd29ce9b0a0a2c0cd2ed5547e6cd43727d9a41fa2fee48b74fd0b320994538f8.
+- docs/reports/map/MAP2L/SWABIA/ALIGNMENT.json:1 — 104 lignes; SHA-256 d9d2e2e2c7707276b6d6684d6e12f397c291345a3f313abfcf0c8d747ca8ed44.
+- docs/reports/map/MAP2L/SWABIA/CANDIDATE_INTERSECTIONS.json:1 — 93 lignes; SHA-256 53e05571773afe5a35297e93fb9094a3958680eef786e82d7b1e862b5cff08af.
+- docs/reports/map/MAP2L/SWABIA/COLGREP_METRICS.json:1 — 19 lignes; SHA-256 24290d48598f81d10da01edfaca304385cb84218fddbc288a7c0b42e8d61e773.
+- docs/reports/map/MAP2L/SWABIA/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 cf4125592e3434ad54ddd529fbaf2275bd998f089ede7e464953ce6fddef9f8d.
+- docs/reports/map/MAP2L/SWABIA/GEOMETRY.json:1 — 9907 lignes; SHA-256 d8a1c9cb703c8db5f8b8deb04ac9c2a19bf472d4dea030de957e93ae6cc6a19d.
+- docs/reports/map/MAP2L/SWABIA/HOMANN_SOURCE.json:1 — 147 lignes; SHA-256 4dd7d49a1afc1c6677e06bb2116a9c53936aa4e419d8b306c11cfb7cfa0cc15f.
+- docs/reports/map/MAP2L/SWABIA/IMPERIAL_FILES.json:1 — 82 lignes; SHA-256 2fd0a2b0d30fdab388f8588a989514bf6305a85d7607ce0d09b280e8ee6c1718.
+- docs/reports/map/MAP2L/SWABIA/IMPERIAL_PARTS.json:1 — 24 lignes; SHA-256 1cac2d8f925ffade435fa9d905d643842fa9fc9b6224acd54912b4f207b861a4.
+- docs/reports/map/MAP2L/SWABIA/NON_REGRESSION.json:1 — 177 lignes; SHA-256 8e299d1187ad3a382efe71a3e6b1505213fb0f6d09310effe69334d9f2dba70e.
+- docs/reports/map/MAP2L/SWABIA/PLAN.json:1 — 490 lignes; SHA-256 65cd052ea9150dfea7318e70c575ad11368cf7b350f9db21e2cccc99d442a67b.
+- docs/reports/map/MAP2L/SWABIA/POPULATION_VALIDATION.csv:1 — 49 lignes; SHA-256 fc08ef3fa92b6bb629a2951b0f1598d16b9d7ca312cf2b28a4414bf20650d909.
+- docs/reports/map/MAP2L/SWABIA/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/SWABIA/REGISTRY_MIGRATION.json:1 — 903 lignes; SHA-256 5bbd0d949a6a9f41d37eb01df2238b4c6188d677188da03b18e3b74ade53f9d8.
+- docs/reports/map/MAP2L/SWABIA/REPORT.md:1 — 98 lignes; SHA-256 b78ca4439448475d5ecd5a21122df752d832cbc808111f9165b00c9db29dcf9a.
+- docs/reports/map/MAP2L/SWABIA/SOURCE_ENVELOPE_COUNTS.json:1 — 11 lignes; SHA-256 cff665e3bfadc199b228b8119f2b20e4e6d999d192571cab20b0dfbef07d2c1b.
+- docs/reports/map/MAP2L/SWABIA/TERRITORIAL_CHANGES.csv:1 — 23 lignes; SHA-256 f8f7ec70c212815bcbaefb0b024bb7fb4e9f37fe5cab0a14f1574182af22303e.
+- docs/reports/map/MAP2L/SWABIA/TRACING.json:1 — 19 lignes; SHA-256 3436ac06fcc7c238a3bb9eb48ec62d189b4402b3f7dabc029fab101d0bf07817.
+- docs/reports/map/MAP2L/SWABIA/UNRESOLVED.csv:1 — 16 lignes; SHA-256 07f36163265daec593285a6a7b72b9cb070bd419f48483b811e90114924c9ef9.
+- docs/reports/map/MAP2L/SWABIA/VALIDATION.json:1 — 4170 lignes; SHA-256 f8c1eea7088ef3eb3a6b51125e325b6139bb56b255bea3b2caa980afac2deee3.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/CANDIDATE_INTERSECTIONS.json:1 — 74 lignes; SHA-256 44761fec0352e986e67adb9d575f8527c97afcf3311d3d7c8416d0397ae9c6d3.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/COLGREP_METRICS.json:1 — 25 lignes; SHA-256 826734691524384f4145b1b03e98dde9d3df486f7230aefb303c09e716a92271.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/CUMULATIVE_RUN.json:1 — 98 lignes; SHA-256 57f2b4323d30b997e3bb94abd8c13c85e89b190bfc877e0b957404e17217a7c1.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 43a40de69d60814f95342e1f586e608bdbebd7d9c868617f9c5c2c44a270e28a.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/FINAL_RUNTIME_FILES.json:1 — 245 lignes; SHA-256 4df289b4149367eaf7b082d0ad5a7a8ce9e51d86cc99537d8806043acc6cdb7b.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/IMPERIAL_FILES.json:1 — 79 lignes; SHA-256 52af5af2c695d103383b4a531294a3a240d42e428029275d880dcac6c5849bf9.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/IMPERIAL_PARTS.json:1 — 23 lignes; SHA-256 c557d2ae51281485f5ad46fc3338114d20bb8c3db690e55b95d6fabbf643b710.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/NON_REGRESSION.json:1 — 203 lignes; SHA-256 79e1abc732244aeccfe196fcda587a5833fb1837a49cddbb0eb817c0676cfb32.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/PLAN.json:1 — 517 lignes; SHA-256 0c31b207f7793908c2c3a5fa89fdd07588c42c5c797c58e9ad37198ae28901d1.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/PRE_ADDON_RUNTIME_FINGERPRINTS.json:1 — 40 lignes; SHA-256 7870c44f5d59039480a16e28ce06ff032c504b307aeaa3a805e83393667957f3.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/REGISTRY_MIGRATION.json:1 — 1323 lignes; SHA-256 4509c04ca9d21eee2eab1400184751d75028ba8c7bea0dc7b10f1240177cf0c4.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/REPORT.md:1 — 98 lignes; SHA-256 84c49c4bb8e554ffc3ea3e2dc0ddd77fb947f1f3a416c3d72e032059f00193ec.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/TERRITORIAL_CHANGES.csv:1 — 19 lignes; SHA-256 fcbabe40a1385d88eb8013c361a463ae9ac42b0faaf3e516048f025c4a6a0f9c.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/TRACING.json:1 — 646 lignes; SHA-256 65ce56ad2e3d2d06091d0c2fe3dd31376e83cdc0aa83bec5eca9dcf52994e6a2.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/UNRESOLVED.csv:1 — 12 lignes; SHA-256 eb3a7925834410a5d041a6f99ba995e059664ad934428bd00892f62288b3a90c.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/VALIDATION.json:1 — 3057 lignes; SHA-256 e4ce3b9bbc86e61d8af0b5c366ba02b10996b6f8a04dcc326958688026678393.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/ALIGNMENT.json:1 — 104 lignes; SHA-256 e0043ad0c1b26f6d1b828b4607b6a9a9ff0ffd7678c63c4a22fe35a48d16ac9c.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/COLGREP_METRICS.json:1 — 15 lignes; SHA-256 b2fe4fb4347eb254c53c30f5911c7753a98756a48dd4e60d22f1da740a9af7a4.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 03278bfb1bd156fec4115ebb8c2bbb704111c2cb3bfbc247e3e88105e9267336.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/GEOMETRY.json:1 — 6861 lignes; SHA-256 2fea37b2a7e95a964f0894e891ecc7bcf9de14a813777def7f1bc1a2fe3445f6.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/IMPERIAL_FILES.json:1 — 97 lignes; SHA-256 41934197272877b4e2fb07878c9fea37929da1bdcce162d6c576c6a3e1597a15.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/IMPERIAL_PARTS.json:1 — 22 lignes; SHA-256 acc9d0f596a7233e072078229df37aa04ad3814d22e062592712f5b0807e33f0.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/NATIVE_ANCHORS.json:1 — 226 lignes; SHA-256 34fa8e8a4ed3793de629bca98914658c4d3988ad93e104879e3cc5bc8cbcf0a2.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/NON_REGRESSION.json:1 — 185 lignes; SHA-256 0da6e24589764d556e99819c1ddd89594e0f2455cc7126b7857aeb3b96dcee11.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/PLAN.json:1 — 477 lignes; SHA-256 bfc00d2147cf1fa480321032ad4e02a9ec16a5de79b9a3b6ce074fbba9afe7ba.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/POPULATION_VALIDATION.csv:1 — 37 lignes; SHA-256 10a5fc09068a8dbf2b4473f1f3da8814e142b2ef7aabd9ac0992c80fbc7558f4.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/REGISTRY_MIGRATION.json:1 — 1627 lignes; SHA-256 a00c5e891a7579249fc440b1f53f128eb228a781dddc9744c3d8450e0f2e1385.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/REPORT.md:1 — 83 lignes; SHA-256 6a0b953b23e10c8c19499403d927f2d002e57e9739d845d936a2ceeb20588fae.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/TERRITORIAL_CHANGES.csv:1 — 19 lignes; SHA-256 6da93b677e63c8d076d82cd82bba658c329322098878a6ca4496cc107deba017.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/TRACING.json:1 — 20 lignes; SHA-256 9329d1a7c535ad58855d2d22025ceea8a45050dfe83f0c7a8c2678c573bdb25a.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/UNRESOLVED.csv:1 — 13 lignes; SHA-256 fc0127a2825461239ef5b12112d29c5ce48bba206b6195eb876826fe98d3920c.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/VALIDATION.json:1 — 3535 lignes; SHA-256 272f01a4fa3da85b9ce8b682a7d25213fdfe9725e5441b7716c2f9f3072021cd.
+- docs/reports/map/MAP2L/SWABIA_FINISH/CUMULATIVE_RUN.json:1 — 92 lignes; SHA-256 5d82f0e98fbe561caf79fc82f0827ac0b690037e1e21d60571da7fc9780b074b.
+- docs/reports/map/MAP2L/SWABIA_FINISH/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 d46ef14a7603f0a9cc95e3421b89f4ecb21d8e39e1c97fe9d353b8763b6f5b7c.
+- docs/reports/map/MAP2L/SWABIA_FINISH/IMPERIAL_FILES.json:1 — 79 lignes; SHA-256 52af5af2c695d103383b4a531294a3a240d42e428029275d880dcac6c5849bf9.
+- docs/reports/map/MAP2L/SWABIA_FINISH/IMPERIAL_PARTS.json:1 — 24 lignes; SHA-256 1d5c06a616ec1f2310b60ab8e58c7805a6aaadf598fadd88172fb4a6c1a5e3d0.
+- docs/reports/map/MAP2L/SWABIA_FINISH/NON_REGRESSION.json:1 — 194 lignes; SHA-256 e13bd3cd9d13a8db2f0b963b6d3c1352402eee067ef5bf9250c5800d6078cfd1.
+- docs/reports/map/MAP2L/SWABIA_FINISH/PLAN.json:1 — 463 lignes; SHA-256 91d4245c72fa63b3762d9adfd1eea8caee04d3e1488306d2493188b51fba0b5a.
+- docs/reports/map/MAP2L/SWABIA_FINISH/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2L/SWABIA_FINISH/QA_RECHECKS.json:1 — 15 lignes; SHA-256 7069e8088eab4ab8d70d8ad73ccb9a86b64d636fdf5c8c0061280f901791420f.
+- docs/reports/map/MAP2L/SWABIA_FINISH/REGISTRY_MIGRATION.json:1 — 1143 lignes; SHA-256 05d96c18a9db6c5fdc253205354e7f7187976d3de0e32de2d0e1e251891b151d.
+- docs/reports/map/MAP2L/SWABIA_FINISH/REPORT.md:1 — 68 lignes; SHA-256 173c1e144085c5bcd88031b3755fb05239d8ebbebb0169e99bbff2b299e22078.
+- docs/reports/map/MAP2L/SWABIA_FINISH/UNRESOLVED.csv:1 — 13 lignes; SHA-256 498230404546584c8c01ce84a68942fe534cefc91ffb9db82ee9f343401ebecb.
+- docs/reports/map/MAP2L/SWABIA_FINISH/VALIDATION.json:1 — 3307 lignes; SHA-256 60d0c560f9fca5426b95c185d16b13ba42f612e4074adb78af056fd5fc69322c.
+- docs/reports/map/MAP2L/BELGIUM/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 b41fe8403415692c90715edfe20e1e98b6f209388db00f1b87b2e6e603cd3298.
+- docs/reports/map/MAP2L/DUCHY_WESTPHALIA/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 6c2184efbfaf208df0ddb43cc2aed006827a86c656e3a1d90e11b387203a0ec0.
+- docs/reports/map/MAP2L/ERFURT_EICHSFELD/LOCAL_RECALIBRATION/PLACEMENT_ESTIMATES.json:1 — 129 lignes; SHA-256 42985513ecf6556ecf6de0765798f1ddbfd59291ae0db6a931c6becff654734f.
+- docs/reports/map/MAP2L/ERFURT_EICHSFELD/LOCAL_RECALIBRATION/REPORT.md:1 — 90 lignes; SHA-256 d23b16d9a2aeb77ae2bf3ad07547980752069a2b5f0e0dfddce4bc3ae517f842.
+- docs/reports/map/MAP2L/ERFURT_EICHSFELD/LOCAL_RECALIBRATION/RUNTIME_BASELINE.json:1 — 2093 lignes; SHA-256 61b8ce2c160abe46a92c9275ff399053bed668c0f781021a5d105afa3ef4e7b7.
+- docs/reports/map/MAP2L/FRANCONIA/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 32dba9aa7b9b1cc440d3e8d6f46577b4088e1c75e457055d578af8183344e422.
+- docs/reports/map/MAP2L/FRANCONIA_CONTINUATION/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 7934e4fbf8bfc9e6dbb5890a96bd936f149da79457fa512af2f9caf4bb168da6.
+- docs/reports/map/MAP2L/MAINZ_COMPLETION/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 cedd23366809ed58f0183b9c1c1691513f8f654fcf469e149055bfe3fd488d9b.
+- docs/reports/map/MAP2L/MAINZ_ESTATES/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 b09a7bf5bb8c640dd669d4be1ea9c2867af610332eb2834d565482a3087a8d31.
+- docs/reports/map/MAP2L/MAINZ_PALATINATE/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 b28c92474fb94392ba5ea9f930f996fb4c8741ec9004b63c5117d541032fd156.
+- docs/reports/map/MAP2L/MILAN_CREMONESE/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 0e77e90b1457f358315a49bbe9fd0d9d32714ff49958b8696876f6b2178705af.
+- docs/reports/map/MAP2L/MINDEN_RAVENSBERG/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 aa66c03a6c1dcfa5ac3a948d0c887fc424dd38bb58eb706cf0bb33205032310c.
+- docs/reports/map/MAP2L/PIEDMONT/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 fe0d5a3ff249f9f4f499eebce062daa958d40a8835b28fbae12237ed2af1b0b1.
+- docs/reports/map/MAP2L/PRUSSIAN_BORDERS/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 90b649379eb28bad712f0c82cc39859bbe17a12e800432a08ec7649fa5f6b215.
+- docs/reports/map/MAP2L/RHINE_CENTRAL/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 d5337bd626c26238e69a747cab21f2445b4eb5a03f8cba7f0c3bc01aef99e68d.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 e4b948b6f5e3228af6ba704e789fa7d93aadc58d474aa804e521e8499dbccc0a.
+- docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 94eea68b79283ec982ed21e5c9602acf9a78a06013aad2150f291a87a355a870.
+- docs/reports/map/MAP2L/SWABIA/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 287ff863fdb426a79ff6230caf4da5e51fe3b47f1f3238107cac4e3ff98307c9.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 a0bd8278c605d98b895a0bd7b5a347240b016476ecccfa4341c98713abfdc2fe.
+- docs/reports/map/MAP2L/SWABIA_COMPLETION/PRUSSIAN_INDUSTRY_ADDON/VALIDATION.json:1 — 9086 lignes; SHA-256 fdd4d6484942c0e28ca4267adaad4f737194637707408d1f071f90ec1a08904e.
+- docs/reports/map/MAP2L/SWABIA_CONTINUATION/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 c49085f56074da17638d63a07889f3b56c5a6fdea41ea4ca3818816a4c39c769.
+- docs/reports/map/MAP2L/SWABIA_FINISH/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 d7b04f5da38aeb7053d9772ed9686aee5ec5f6842e9eb2696337342c6a8faa51.
+- docs/reports/map/MAP2M/R2/EXPECTED_TEXT.json:1 — 7 lignes; SHA-256 7a0dbc76b844b93fac3b3004377641b780b64f7ec864795e33e0b66ad1990fc3.
+- docs/reports/map/MAP2M/R2/LEGACY_SOURCE_CHECKS.json:1 — 66 lignes; SHA-256 6ab101e34be1ef54db2ed20c59116c74cbc6ddbe2396b7a7bbb6bf400b6f47e9.
+- docs/reports/map/MAP2M/R2/ORIGINAL_TEXT.json:1 — 7 lignes; SHA-256 8b356d2af61160f13829708fd45c58c09832ef48408fad138e6039060a00ba2f.
+- docs/reports/map/MAP2M/R2/REGISTRY_MIGRATION.json:1 — 1026 lignes; SHA-256 64b806cac91161a3b406eaba6af1d3de56cdbeb5e20e0eeef4e89ed7641afd8d.
+- docs/reports/map/MAP2M/R2/VALIDATION.json:1 — 300 lignes; SHA-256 554728a486cc7f597d9af9fe2eef44eaf391f1c86db7d21cc7fb204be0df0325.
+- docs/reports/map/MAP2M/R3/EXPECTED_TEXT.json:1 — 3 lignes; SHA-256 a62527ac3ec014be1c49ce398f6c7ba59d965ef881cd51c6a27b7c8f4fb7cbb4.
+- docs/reports/map/MAP2M/R3/ORIGINAL_TEXT.json:1 — 3 lignes; SHA-256 b0ebbce40ea6ee5b4658ad397dd2b676991f9ed2e6947da73155845461359c58.
+- docs/reports/map/MAP2M/R3/REPORT.md:1 — 118 lignes; SHA-256 91b21715032404b6b3faf55529c7016b26125e1f5c75059e0a2804029aabbd09.
+- docs/reports/map/MAP2M/R3/TESTS.json:1 — 18 lignes; SHA-256 9253ca93f3c85c9bb0f5f668ba55d62524e7388fdf47349f34814397fb708658.
+- docs/reports/map/MAP2M/R3/VALIDATION.json:1 — 283 lignes; SHA-256 bddfc634065357baf52a8d4aa57d9a889d8196050bd2efbc6cdbf41d589045a4.
+- docs/reports/map/MAP2M/R6/BASELINE.json:1 — 2443 lignes; SHA-256 52ea36fc84d55e01cd69649ddc38fed7be07a325b8aeefdc1b7116a7751647bb.
+- docs/reports/map/MAP2M/R7/BASELINE.json:1 — 2485 lignes; SHA-256 67c93b507dbacde94b5bb0358076f526820a6dbdfd18d27f5cc3f39c6d527a16.
+- docs/reports/map/MAP2M/R8/EXPECTED_TEXT.json:1 — 3 lignes; SHA-256 f87f1f988c9d37aa99fbb045043abeb650ebc7d0efdc32c13024ccce15567364.
+- docs/reports/map/MAP2M/R8/ORIGINAL_TEXT.json:1 — 3 lignes; SHA-256 a62527ac3ec014be1c49ce398f6c7ba59d965ef881cd51c6a27b7c8f4fb7cbb4.
+- docs/reports/map/MAP2M/R8/THORN_AUDIT.md:1 — 86 lignes; SHA-256 c3ea7805b402e686a08ba83f6d8de8eacddccd3b20ef50f99fe585ba5f24623c.
+- docs/reports/map/MAP2M/R8/VALIDATION.json:1 — 362 lignes; SHA-256 b4742ad253e52ffcf5c34c3417694be4af616e47fe123035ed0fd7be4cc1c437.
+- docs/reports/map/MAP2M/R9/EXPECTED_TEXT.json:1 — 3 lignes; SHA-256 325ec5cfef2b7a7d72582c22ed8f8b177c6329493a28fc8316c39b66981cb4ed.
+- docs/reports/map/MAP2M/R9/HRE_REGIONS_INVENTORY.csv:1 — 39 lignes; SHA-256 bbfeb614e4ac1ef3f71e58fcebee78cf801bd0f218e012f7c3e9eaf4ed929e5f.
+- docs/reports/map/MAP2M/R9/HRE_REGIONS_PROGRESS.md:1 — 402 lignes; SHA-256 75f9f2aceb5a9af369b7e7dcfc4ace715c3217a32d6c995a5ba16b45d553a488.
+- docs/reports/map/MAP2M/R9/MANIFEST.json:1 — 53 lignes; SHA-256 1ecefa99c0fa5b74c22ee41ee105f0dbb7227b0ca3bf59f354216d69e7d6d092.
+- docs/reports/map/MAP2M/R9/MANUAL_RECEIPTS_INDEX.json:1 — 158 lignes; SHA-256 656a2e271e9f81520d895b73dd84596842468da92b3b93ef0371c15bc4f4bb0c.
+- docs/reports/map/MAP2M/R9/ORIGINAL_TEXT.json:1 — 3 lignes; SHA-256 f87f1f988c9d37aa99fbb045043abeb650ebc7d0efdc32c13024ccce15567364.
+- docs/reports/map/MAP2M/R9/PRUSSIAN_HRE_BORDERS_AUDIT.md:1 — 42 lignes; SHA-256 1847b3aadbeb15e6dac32b4816b3272b58bdf3e5a84484903b7968d66c3d36af.
+- docs/reports/map/MAP2M/R9/R2_REUSED_FINDINGS.csv:1 — 42 lignes; SHA-256 5ba799987074dd84660b6da0345e7f671401aa3a22cb8be5d53f5afb9e0daac7.
+- docs/reports/map/MAP2M/R9/REGION_CLASSIFICATION.json:1 — 30 lignes; SHA-256 19b6e7fe8fab488035c81108bf293466555a9bf9734729e72616af5f640f5289.
+- docs/reports/map/MAP2M/R9/REPORT.md:1 — 61 lignes; SHA-256 f8a4651dc994bad8fa902df1d9839e4d27e70dc0ac524b4c96e7cab4918b6205.
+- docs/reports/map/MAP2M/R9/STATE_OWNER_PIXEL_INVENTORY.csv:1 — 120 lignes; SHA-256 60ac35eb7951b33e11d5540ec0ac9cf397dfd984c38f54328b3f13b5d5962c2d.
+- docs/reports/map/MAP2M/R9/UNRESOLVED.csv:1 — 16 lignes; SHA-256 d67adae7986d981a05ac4bd831d8188b92d886f8a3de8333cf0f083bffcab678.
+- docs/reports/map/MAP2M/R9/VALIDATION.json:1 — 269 lignes; SHA-256 7a30f09aca4163a2d2b74ae62bade51af3985923f80b37343b01d57b38a47d01.
+- docs/reports/map/MAP2N/COMPLETION/EXPECTED_TEXT.json:1 — 7 lignes; SHA-256 f8a4a51ab96b29a85cec56d2190cf977e79b5552544a73f9a4db5988f3fd7efa.
+- docs/reports/map/MAP2N/COMPLETION/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 1d44a573285cdfba799b3942df3f4c563b223d21bf476bc351623f05232b5254.
+- docs/reports/map/MAP2N/COMPLETION/INSTALLED_MANIFEST.json:1 — 23 lignes; SHA-256 ceb8803a4c7175d582871df7f15d31e8de1589326a1be28f93ca2ed0bc968920.
+- docs/reports/map/MAP2N/COMPLETION/ORIGINAL_TEXT.json:1 — 7 lignes; SHA-256 b9442afb1fd52170b85a5544aa811a3d8b5466c995924e7d268b90f760c0e6be.
+- docs/reports/map/MAP2N/COMPLETION/PLAN.json:1 — 306 lignes; SHA-256 87ce8b3ebff9e14041073f5751cfbc6199a495d6efc8f89cc6a06a39d717ca65.
+- docs/reports/map/MAP2N/COMPLETION/POEL_STAGE_VALIDATION.json:1 — 1012 lignes; SHA-256 0748d25da1b07da5a6fa51c0ca0db060672f9f2ed3c515434fcef8879cf4a4cb.
+- docs/reports/map/MAP2N/COMPLETION/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2N/COMPLETION/REGISTRY_MIGRATION.json:1 — 242 lignes; SHA-256 154dceab1b8e832a69636f997197e7b2c0ab128205bc4a79e9e13ec49abbb21a.
+- docs/reports/map/MAP2N/COMPLETION/VALIDATION.json:1 — 658 lignes; SHA-256 296581f50c27d9189dee816efb6bf3027353591963198073ff54581e5a11de8a.
+- docs/reports/map/MAP2N/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 454136905780119466d210eef84200a67c54ec11a61913064c4f40c430e7f595.
+- docs/reports/map/MAP2N/COMPLETION/MAIN_MAP/VALIDATION.json:1 — 99 lignes; SHA-256 af1b8f40bbd3f7cf35bc7bbb7fbce07563c8118f7682250036b4af569ea50e71.
+- docs/reports/map/MAP2O/COMPILER_CHECK/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2Q/CONTINUATION_R1/RECHECK_INSTALLED_MANIFEST.json:1 — 37 lignes; SHA-256 f2931090fb7c28c763b7d464ee133a93878d51b822a7bf408fe3fe26cc918681.
+- docs/reports/map/MAP2Q/CONTINUATION_R1/RECHECK_VALIDATION.json:1 — 1012 lignes; SHA-256 455c4e6744919d26a381c53112676b479657376421bb937104a7f63e059d16ad.
+- docs/reports/map/MAP2Q/CONTINUATION_R1/VERIFICATION.json:1 — 64 lignes; SHA-256 1b4096c2c278faf027af3dbe325c179e939952eea810313f50f110821a72352a.
+- docs/reports/map/MAP2Q/CONTINUATION_R2/EXPECTED_POPULATION.json:1 — 37 lignes; SHA-256 9e486f3543aedd105c46cc8ad3b9a3cf3ae87cb19a41b6478b93434397bd93d5.
+- docs/reports/map/MAP2Q/CONTINUATION_R2/PRE_R2_INSTALLED_MANIFEST.json:1 — 37 lignes; SHA-256 f2931090fb7c28c763b7d464ee133a93878d51b822a7bf408fe3fe26cc918681.
+- docs/reports/map/MAP2Q/CONTINUATION_R2/PRE_R2_VALIDATION.json:1 — 1012 lignes; SHA-256 455c4e6744919d26a381c53112676b479657376421bb937104a7f63e059d16ad.
+- docs/reports/map/MAP2Q/CONTINUATION_R2/PRE_R2_VALIDATOR.py:1 — 600 lignes; SHA-256 6494ae49e472b72c37d326e9a10f865107494fea10689949f66a62396fa28c2a.
+- docs/reports/map/MAP2Q/CONTINUATION_R2/VALIDATION.json:1 — 200 lignes; SHA-256 6bcf658042de51091f482fa01979f2def4b089973a288a188926b3a79a772266.
+- docs/reports/map/MAP2Q/R3/COMPILER_BEFORE.json:1 — 234 lignes; SHA-256 d7803a81c3bee68f858f3aebabba3a753f0a888082a0bc8144f571abcaae7557.
+- docs/reports/map/MAP2Q/R3/CSV_TABLES.json:1 — 824 lignes; SHA-256 aca7d7488f900dfb270495e13d669a7d6c1b9af791815ae633db103802cbe6a5.
+- docs/reports/map/MAP2Q/R3/CSV_VALIDATION.json:1 — 35 lignes; SHA-256 00aadf356459d1292c3fcd4d8e4096225339a6154af51cc9e7cdb93524bb8c40.
+- docs/reports/map/MAP2Q/R3/DELIVERY_VALIDATION.json:1 — 99 lignes; SHA-256 eec3239a77e2123591b0883b237208da7108ab2109f05b9424107140c96302e5.
+- docs/reports/map/MAP2Q/R3/EXPECTED_TEXT.json:1 — 8 lignes; SHA-256 ff323af0c13f51aeeada1c3bc8532060669ea8eb27357c479e521c3376b4e6aa.
+- docs/reports/map/MAP2Q/R3/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 6cf8a5f8001c004190236e724422cd68e296c73c495739be2b4d7b068c872576.
+- docs/reports/map/MAP2Q/R3/HRE_REGIONS_INVENTORY_UPDATED.csv:1 — 39 lignes; SHA-256 10a0b6f3abb22490dc931a1e9a729958991b3b623345db0bab26f03ee41f7ea1.
+- docs/reports/map/MAP2Q/R3/IMPERIAL_FILES.json:1 — 11 lignes; SHA-256 012ee9372db8a258fdb520b71cbdf80ff524addd350ecdb8ea90aed65624c37b.
+- docs/reports/map/MAP2Q/R3/INSTALLED_MANIFEST.json:1 — 44 lignes; SHA-256 09d36c4158bdae5919c69959e8c52a9edbda8c8c7a9810b6342eebbbd718db40.
+- docs/reports/map/MAP2Q/R3/NEXT_REGION_RECOMMENDATION.md:1 — 13 lignes; SHA-256 ba2c58332d506d2a3c9e376f9508d9f386cda33038b81d898a5f5cf556367907.
+- docs/reports/map/MAP2Q/R3/PLAN.json:1 — 31 lignes; SHA-256 826eddccef3cbf38c424e51cf2dce29fbd088e730655d129732b7a43745427ee.
+- docs/reports/map/MAP2Q/R3/PRE_R3_INSTALLED_MANIFEST.json:1 — 37 lignes; SHA-256 2ad2a0720b9d95dc13908587dd56758a2da853008312f51123e19e338c6e1913.
+- docs/reports/map/MAP2Q/R3/PRE_R3_REPORT.md:1 — 68 lignes; SHA-256 4adf681c27b84e4a9ed67bb40b14ca867d795b3bcf3241b8d6c5525eb06624ff.
+- docs/reports/map/MAP2Q/R3/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2Q/R3/REPORT.md:1 — 64 lignes; SHA-256 7c9c5b3ce360fc44b10d651c926c9fd934b370b41eaf486bc5996b7bb3e353be.
+- docs/reports/map/MAP2Q/R3/RUNTIME_USER_VALIDATION.json:1 — 27 lignes; SHA-256 c35590c1844fcd97e1d20eb9852c09809867e7d246b5cef77e785d6cf6b90f26.
+- docs/reports/map/MAP2Q/R3/TRACING.json:1 — 159 lignes; SHA-256 5207645ce426b016b30a413eb45f2b230fd391ca0218eeb564717de85833b891.
+- docs/reports/map/MAP2Q/R3/VALIDATION.json:1 — 3149 lignes; SHA-256 231c4db6cf4904b06e1e510ceb06be16daa12b6abd51b1e254cba0dc0d97d599.
+- docs/reports/map/MAP2W/R2/COMPILER_BEFORE.json:1 — 298 lignes; SHA-256 289de7a8800bd9d6a08f09ff4bb92f744e7f6f82a04efc7448b98c41aead0662.
+- docs/reports/map/MAP2W/R2/EXPECTED_TEXT.json:1 — 21 lignes; SHA-256 87e4abf344564a426bed8aa8dba990843f329ba0063477af54c048615744b325.
+- docs/reports/map/MAP2W/R2/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 c1356f193a6c03314a1b34f0d15480e4097d48d818ee226b7044ba9eb9c14fa4.
+- docs/reports/map/MAP2W/R2/HISTORICAL_EVIDENCE_R2.md:1 — 33 lignes; SHA-256 e1d43c3d542178da1b28c5da07187fc971e35f3e4c8acfa5f68f7bde1e45b471.
+- docs/reports/map/MAP2W/R2/IMPERIAL_FILES.json:1 — 21 lignes; SHA-256 6d30779a06ba18bf9c80a5c28f00347c79421bfa796de89719419255a01d8ab8.
+- docs/reports/map/MAP2W/R2/INSTALLED_MANIFEST.json:1 — 54 lignes; SHA-256 bb6ea5efc1b98f25c13abee8b56be465b5045bec6a36afabb8c0a57f760f6121.
+- docs/reports/map/MAP2W/R2/INVENTORY_PHASE.json:1 — 205 lignes; SHA-256 cff514ff47639f3a86d2369ad9604648d82bfe4fbd8d15b0f6f890657a8bbd57.
+- docs/reports/map/MAP2W/R2/PLAN.json:1 — 56 lignes; SHA-256 b486cfc3cdfe8a9773e64ef3fe7fa048dab545139bde17dba0b71e94f412fd7c.
+- docs/reports/map/MAP2W/R2/PREINSTALL_HASHES.json:1 — 2260 lignes; SHA-256 b490ad3177d987e1e8f8d9fa51ca47a102e3a743981dd75926fbe525dd55cbc0.
+- docs/reports/map/MAP2W/R2/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2W/R2/REPORT.md:1 — 134 lignes; SHA-256 a014b829bb360ebc722e52e4a3be328813ac17cd00ac17da1c08878db3a66afc.
+- docs/reports/map/MAP2W/R2/RUNTIME_TEST_PLAN.md:1 — 16 lignes; SHA-256 acdd259a9cbd016746dc3393a9505dd90ce6cb20916f7274cbca370cad0de044.
+- docs/reports/map/MAP2W/R2/UNIT_TESTS_R2.json:1 — 83 lignes; SHA-256 d997b1d86c08f1af4cc64aedf0a8586d6be595c810d16f9214486243da3745c0.
+- docs/reports/map/MAP2W/R2/VALIDATION_R2.json:1 — 8430 lignes; SHA-256 09dfcbc368dbb0de9dd705bd09a46b77ae27a3c832e1f4bbd22973596210324f.
+- docs/reports/map/MAP2W/R2B/COMPILER_BEFORE.json:1 — 298 lignes; SHA-256 289de7a8800bd9d6a08f09ff4bb92f744e7f6f82a04efc7448b98c41aead0662.
+- docs/reports/map/MAP2W/R2B/CSV_TABLES.json:1 — 1270 lignes; SHA-256 66411f3c6be8533bc8d906fdff74a1a797bbacd3771dc87c5a90fa625149f0de.
+- docs/reports/map/MAP2W/R2B/EXPECTED_TEXT.json:1 — 15 lignes; SHA-256 b027eef9d0e14b3de65b24dc72f0f88bffc3f15368eb1bc8110284ea7f533c2f.
+- docs/reports/map/MAP2W/R2B/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 7f1476fbbf854d042d181c79bd698ad7eaabce8236bc65ffe58b77d2df226f02.
+- docs/reports/map/MAP2W/R2B/HISTORICAL_EVIDENCE_R2B.md:1 — 41 lignes; SHA-256 f49d4b3959c3b311a79120347725e6668a2e947108e55c843e7691266b978814.
+- docs/reports/map/MAP2W/R2B/IMPERIAL_FILES.json:1 — 21 lignes; SHA-256 6d30779a06ba18bf9c80a5c28f00347c79421bfa796de89719419255a01d8ab8.
+- docs/reports/map/MAP2W/R2B/IMPERIAL_PATCHES.json:1 — 19 lignes; SHA-256 9e91b915777ee914fa367eff0f45a1b2e4e7b0eb1ebff552716e8483d8b27f94.
+- docs/reports/map/MAP2W/R2B/INSTALLED_MANIFEST.json:1 — 71 lignes; SHA-256 60e895a2f2077b805966729871d8c354b4c685ee26aaa1c825cfc68bd9e36516.
+- docs/reports/map/MAP2W/R2B/INVENTORY_RECEIPT.json:1 — 12 lignes; SHA-256 4d7972f525a7976f5ab696e501ea112a4b838645750f6d1d4940ef888df9d4e1.
+- docs/reports/map/MAP2W/R2B/NEXT_SEQUENCE.md:1 — 33 lignes; SHA-256 b55bc7caf3e31ed67590e622e26d6042c865e3db5a5e6a7d6031c2aedda7f367.
+- docs/reports/map/MAP2W/R2B/PLAN.json:1 — 142 lignes; SHA-256 ab4931e132bd5e9c9e12bff56f4254e3953ca608ab8f524524357823eecb7eb5.
+- docs/reports/map/MAP2W/R2B/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2W/R2B/REPORT.md:1 — 85 lignes; SHA-256 e74f59ad128d3c3cd2bc177a656692b776d54f0ca3694284bf8bbfa312f2419b.
+- docs/reports/map/MAP2W/R2B/RUNTIME_TEST_PLAN.md:1 — 22 lignes; SHA-256 6f8ca26352696f7bd17819ee657890066150f7f746426021a161ce7015a80ac0.
+- docs/reports/map/MAP2W/R2B/TESTS_R2B.json:1 — 58 lignes; SHA-256 30a43db8051e8477ef8744b6c5fc2799ec1e9e686e79fcbb2946fed6c51d7005.
+- docs/reports/map/MAP2W/R2B/UNRESOLVED_R2B.csv:1 — 12 lignes; SHA-256 27ffa4e30312fd78f9e6e1e1d0e7809708e9a8548668295a7bcc6b038b199721.
+- docs/reports/map/MAP2W/R2B/VALIDATION_R2B.json:1 — 8563 lignes; SHA-256 6e612af5cb97512a3834f3c7599d08e3fc468b175577c43b9b0f6e5afd77509c.
+- docs/reports/map/MAP2W/R3/ALLOCATION.json:1 — 89 lignes; SHA-256 6e2f42c674ec6fe1d4c2155dcc698d99f6226973f45c4a95cae9a22ae28e8d94.
+- docs/reports/map/MAP2W/R3/CANDIDATE_INSTALLED_MANIFEST.json:1 — 41 lignes; SHA-256 80f3a0c1b01b8b633bddbdb6001754eba0f420c99084b3fa558a5fa845dacd9f.
+- docs/reports/map/MAP2W/R3/CANDIDATE_REPORT_WITHDRAWN.md:1 — 82 lignes; SHA-256 8000059d8a307372801c0e77fd1f202d5259327bd13024a189db23c0994b6cb8.
+- docs/reports/map/MAP2W/R3/CANDIDATE_STATIC_VALIDATION.json:1 — 8257 lignes; SHA-256 0f5806d2f6b61cd7509d5ccde5ab2a880264a5b76893b9ebf0d73a2d1148d630.
+- docs/reports/map/MAP2W/R3/CANDIDATE_TESTS.json:1 — 70 lignes; SHA-256 cfed533a474e017fd7f8ad6aac2fe6b873bf18b54255ed0c8fb0d50842b0b959.
+- docs/reports/map/MAP2W/R3/CANDIDATE_TEST_SOURCE_WITHDRAWN.py:1 — 52 lignes; SHA-256 60b69a0e818dbf2cd6de833f394344aff356f7cbc397ac799525a8946117bba1.
+- docs/reports/map/MAP2W/R3/CITY_DIAGNOSTIC.json:1 — 226 lignes; SHA-256 1db0305a5753028a7a2e126078844b231e5c661b25e7be988a1b614bc49b7e86.
+- docs/reports/map/MAP2W/R3/COMPILER_BEFORE.json:1 — 298 lignes; SHA-256 289de7a8800bd9d6a08f09ff4bb92f744e7f6f82a04efc7448b98c41aead0662.
+- docs/reports/map/MAP2W/R3/CSV_TABLES.json:1 — 546 lignes; SHA-256 05581e11c8fc4ca42e058a3d199808c7321ff9f0f84ef2f67c6457599e0941ee.
+- docs/reports/map/MAP2W/R3/DISCREPANCIES.csv:1 — 20 lignes; SHA-256 68ab9a1b20237c74c75e6c1ecd154bc330e6f12a8393eb875b23c738223b00c9.
+- docs/reports/map/MAP2W/R3/EXPECTED_TEXT.json:1 — 18 lignes; SHA-256 b4e3ec07ef5091408f3c58c49cfccecd0014f5974a8b17123ef0ee01366de0f5.
+- docs/reports/map/MAP2W/R3/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 7f1476fbbf854d042d181c79bd698ad7eaabce8236bc65ffe58b77d2df226f02.
+- docs/reports/map/MAP2W/R3/GEOMETRY.json:1 — 6776 lignes; SHA-256 501819c7dae37ffd1049f67d9388adc164a7f16d2de3d8f3cffde2c3664b417f.
+- docs/reports/map/MAP2W/R3/HISTORICAL_EVIDENCE.md:1 — 39 lignes; SHA-256 5f2f7d1a77d8602b89d8f1c893f4fb7d3c6a6239f3cd03c96c9d1dd795522f5a.
+- docs/reports/map/MAP2W/R3/IMPERIAL_FILES.json:1 — 21 lignes; SHA-256 6d30779a06ba18bf9c80a5c28f00347c79421bfa796de89719419255a01d8ab8.
+- docs/reports/map/MAP2W/R3/IMPERIAL_PATCHES.json:1 — 19 lignes; SHA-256 9e91b915777ee914fa367eff0f45a1b2e4e7b0eb1ebff552716e8483d8b27f94.
+- docs/reports/map/MAP2W/R3/INVENTORY_1776.csv:1 — 20 lignes; SHA-256 bc05986513b81b3e111fa1309176735dfb0d096f65b984447a6c540a624354fe.
+- docs/reports/map/MAP2W/R3/NATIVE_REFERENCE_CONTRADICTION.json:1 — 73 lignes; SHA-256 d3c61e8e23002c8d185e5494aed9953f837a48b6b4db430b2bf56a68343fd867.
+- docs/reports/map/MAP2W/R3/PLAN.json:1 — 35 lignes; SHA-256 ccbb740d72b963d125b4832f79e4de18175959c282e5ea0161e2840ac6f61f4e.
+- docs/reports/map/MAP2W/R3/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2W/R3/PROPOSED_REGISTRY_MIGRATION.json:1 — 667 lignes; SHA-256 78dad671dd16de6f2f3507b7a35d70fc2d01f9795f5ce645ccc2b57be3383cfb.
+- docs/reports/map/MAP2W/R3/REFERENCE_VALIDATION.json:1 — 41 lignes; SHA-256 6116e0b03dd42693cdaf8fec4e5d54ea3e880b37b28a7702098811464525a188.
+- docs/reports/map/MAP2W/R3/REPORT.md:1 — 49 lignes; SHA-256 d77d412c9a091106774fb78433e04819050e20796a19034d403c9c09ae58f981.
+- docs/reports/map/MAP2W/R3/SOURCE_VECTOR.json:1 — 19366 lignes; SHA-256 a02c84b17c22d9963279dbcf9635be41eccfa1f1413ddfa36a924ffbb704066d.
+- docs/reports/map/MAP2W/R3/TERRITORIAL_CHANGES.csv:1 — 2 lignes; SHA-256 80fad0cd7f1de112fc328b077615ab32e1cbb411a1814818e58babe4a911ee18.
+- docs/reports/map/MAP2W/R3/TESTS.json:1 — 68 lignes; SHA-256 30ba0b60dc00bd1fbfef526bc7dce22023bb4bf13734fea546d23ba2fb45625c.
+- docs/reports/map/MAP2W/R3/UNRESOLVED.csv:1 — 20 lignes; SHA-256 e4522050017d5f662bbe3c4ee494d48b37af72ecedc8ae991504dbafd017a293.
+- docs/reports/map/MAP2W/R3/WITHDRAWAL_PLAN.json:1 — 53 lignes; SHA-256 6685f7f1df4438bfd30914f53cfb574f5e37991051030660012e49fed9377bb4.
+- docs/reports/map/MAP2W/R4/CALIBRATION.md:1 — 39 lignes; SHA-256 4be3f48eb3aa146406c6b3475fe7c2bd9a3464aa96e2cf26be2c1545d145bec1.
+- docs/reports/map/MAP2W/R4/CURRENT_OWNERS.json:1 — 770 lignes; SHA-256 cecd5b307063ca4cc2826f3a1d9a0849685811540fdfb984556abbfa80a6ef98.
+- docs/reports/map/MAP2W/R4/GEOGRAPHIC_ASSESSMENT.json:1 — 265 lignes; SHA-256 b5c87a7a32f52b6dabc4d62fef04afcf5def316f0a2f051a7e090f183a09f42f.
+- docs/reports/map/MAP2W/R4/HISTORICAL_INVENTORY.md:1 — 24 lignes; SHA-256 94d57f89e9cade7c06710a40d71555c215958383b1d495a5ce5f36ef2f2245c7.
+- docs/reports/map/MAP2W/R4/REPORT.md:1 — 69 lignes; SHA-256 7b9edac68db9be53a0ac372db9f103ed78ffe91bfe18eaa01bc5036e41f7380d.
+- docs/reports/map/MAP2W/R4/SOURCES.md:1 — 42 lignes; SHA-256 d158853d2f2d76619e2a55306a4fa255538e52340e121e4b57db038f366a6b34.
+- docs/reports/map/MAP2W/R4/TESTS.json:1 — 22 lignes; SHA-256 52934ade457fb53355d0655bf2f269c22a9a93578d0960df6d78bf8eed975d6c.
+- docs/reports/map/MAP2W/R4/UNRESOLVED.md:1 — 15 lignes; SHA-256 d6b7d6e6d76b836d9880b85a6d6ef0422fcf5a649268f075c5ba45c94af6c7e9.
+- docs/reports/map/MAP2W/R4/VALIDATION.json:1 — 138 lignes; SHA-256 ab8a55ed1db1e0c9659f25ae0f80184808352bc814a987d62d132ec2d0dfde00.
+- docs/reports/map/MAP2W/R3/CALIBRATION/ALTERNATIVES.md:1 — 10 lignes; SHA-256 2dacf8b38137f5cf83e99f08e212d545b39efdeed4f1f31c7c79951c86db1b58.
+- docs/reports/map/MAP2W/R3/CALIBRATION/BASELINE.json:1 — 2337 lignes; SHA-256 f2c378e0b3c51c0ed82687f26f558d9ff3098466680541e5f37d7b09f30ebf52.
+- docs/reports/map/MAP2W/R3/CALIBRATION/DELIVERY_MANIFEST.json:1 — 33 lignes; SHA-256 042556be985e1055425010d0b73eb7d918e18ea7c35a618c0fa231e7b265dc16.
+- docs/reports/map/MAP2W/R3/CALIBRATION/REFERENCE_ORIGINS.json:1 — 436 lignes; SHA-256 7724e4ce625119c277f90972d6f93f3690c783e667f1dd2e7ec2bbe42a2f1868.
+- docs/reports/map/MAP2W/R3/CALIBRATION/REPORT.md:1 — 112 lignes; SHA-256 552d22c914d18a3dd47acd0927ee0ceb1a61245dbac246f79b270a44c08a4992.
+- docs/reports/map/MAP2W/R3/CALIBRATION/VALIDATION.json:1 — 80 lignes; SHA-256 31809c7d4f53e96f68f5a9dc3f60f6ff5f3f76e33c9f768214447d87e6ba12eb.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/CANDIDATES.json:1 — 1151 lignes; SHA-256 994c07ec3028e0a27fd869f54c462dd57e87122569bea914309d442cf4f50226.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/DELIVERY_MANIFEST.json:1 — 672 lignes; SHA-256 efeaea98d6983bb237ce000a771a2f690d222ec29ed35902c3fb448a8a2cf78b.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/EXPECTED_TEXT.json:1 — 21 lignes; SHA-256 2cce993bb1c956605830f37cddf7add4367fab34130732fed7185caa6875b3fa.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 f7e9c8a65f6d68cb476993a1b7a135628fbd0ee7489dafffdab0cb69fb81ad1c.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/FILES_MODIFIED.json:1 — 51 lignes; SHA-256 2a5ae56739ad3700b3095fe70e7b22892f2ffeddd31454055d9e38bdaa7ac998.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/IMPERIAL_PATCHES.json:1 — 19 lignes; SHA-256 9e91b915777ee914fa367eff0f45a1b2e4e7b0eb1ebff552716e8483d8b27f94.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/NATIVE_AUDIT.json:1 — 779 lignes; SHA-256 13b1cb71aa198513b49ebbc87b96cc542a90f6886f816dadbffce22c05841e6f.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/POLITICAL_CHOICES.json:1 — 13 lignes; SHA-256 41588872001c0217fc7a960247ff56e82ec1e7809fd3d4ab3eeba8c37f2ac1e0.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/REPORT.md:1 — 80 lignes; SHA-256 b4121fad0e162dca9fcdd46eeec92b9abecbda4076cae7bd9bcbb067d356822d.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/SOURCES.md:1 — 39 lignes; SHA-256 dee9ddaaee3201fcfd676f558a4d6a407008fb325a6c041dd150849b8fc9e81a.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/TESTS.json:1 — 41 lignes; SHA-256 9f639363791b30dba9d8b473602368e199d07d6be53ca6fa3b2502d4241b672c.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/TEXT_BEFORE.json:1 — 6 lignes; SHA-256 87ff79c1caab85c9ccbc07cbf01bcc14a87f7da62c353eb213e496e5c485e2fa.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/UNRESOLVED.md:1 — 18 lignes; SHA-256 04bfbfd9722dce2a1136b51c194e8305f533df7d6abc835a896972522c0219fc.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/VALIDATION.json:1 — 1236 lignes; SHA-256 554b916bc4b326898cd6c20bdc876f800f480c453d288c378b2558ab246a390f.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/COMPILER_BEFORE.json:1 — 298 lignes; SHA-256 259822a218c59062ac19ed4f05cc1e10efe563e934ec7584058641124129017b.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/DELIVERY_MANIFEST.json:1 — 502 lignes; SHA-256 e677cebb515c03f739dcac13fba371582a1349f31408eccea2f3dacbcc187837.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/EXPECTED_TEXT.json:1 — 16 lignes; SHA-256 26544f8a1d4f38db040f40a90b4b22afe3cd3bb6206d31386982387b4262adc2.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/FEEDBACK_MAP_VALIDATION.json:1 — 15 lignes; SHA-256 f7701b3623f541383bbfec7b690f688f86ff9f019cd4f5dccf7e087530813127.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/FILES_MODIFIED.json:1 — 47 lignes; SHA-256 a7f6d6361fffa685c89c4adbd2415ca5f2ba073dab5f3ae8b3018fa6726205e7.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/IMPERIAL_PATCHES.json:1 — 19 lignes; SHA-256 9e91b915777ee914fa367eff0f45a1b2e4e7b0eb1ebff552716e8483d8b27f94.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/PRINCIPLE_SNAPSHOT_SCHEMA.json:1 — 218 lignes; SHA-256 87b6a09ccb14f3945326c17e40997e613d9f058866c20e1879a6050042a7ac2d.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/REGISTRY_MIGRATION.json:1 — 452 lignes; SHA-256 a4f304d9cd46de6aa866d863f0908c00f9e7660d3b53b6d0871fbaa959e3eccb.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/TESTS.json:1 — 22 lignes; SHA-256 c657baa1e2d3a876ddc7de60f3f8f0991d67b0d6b30cf28b81eafa5dbea60184.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/TEXT_BEFORE.json:1 — 6 lignes; SHA-256 1653f1cc4509d97abf0fc28af8238609921bf86b77acd5cea16849ab264c743e.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/UNRESOLVED.md:1 — 14 lignes; SHA-256 57bbb2d826e15d889fcc837da02ba56c2fb7ad449f3488c704a63cb0c4e6fc00.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU/VALIDATION.json:1 — 1134 lignes; SHA-256 855e7252b0d5fa47cbe0677cfd4af7ddad460794fba022bdc08377d553fd3c79.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/R4B/REGISTRY_MIGRATION.json:1 — 464 lignes; SHA-256 89a74f416da3c2d9e5d9d4ce3a842164ccd1d20f527e5ae21b2a178b828e1570.
+- docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/R4C/REGISTRY_MIGRATION.json:1 — 510 lignes; SHA-256 5f855b187b7f9caccfd5047e4c8dbebf95f97847ed4617c8f57e6d9e474a6922.
+- docs/reports/military/AMERICAN_REVOLUTION_R2/MANIFEST.json:1 — 272 lignes; SHA-256 70b2db4dd30e889f02aee4d98e6be022562c1ab9920f04ddab595809facdbf15.
+- docs/reports/military/AMERICAN_REVOLUTION_R4/ASSETS.md:1 — 38 lignes; SHA-256 7f7641025e3d3aa69d020898d059504431c8e4de6f2a17547d83ae4467ed40ce.
+- docs/reports/military/AMERICAN_REVOLUTION_R4/MANIFEST.json:1 — 151 lignes; SHA-256 576a1d6b8d53eb7f9c360e9ec1dec5b543911707cd67f2dc0db6472a4c6aeafe.
+- docs/reports/military/CHINA_LANCERS_2026_10_15/BASELINE.json:1 — 2283 lignes; SHA-256 6925cc1c24b6b724eb35af868f9bcd8cc8e5dd43fc34ac31f571faa23c32c882.
+- docs/reports/military/CONTENT-USA-MINUTEMEN-REFORM/BASELINE.json:1 — 1605 lignes; SHA-256 21bb32ffc263e12acae7e70eef682d88a7c1f0935774a5d846a7aff5434e6a0e.
+- docs/reports/military/MIL_START_AUDIT/BEFORE.json:1 — 811 lignes; SHA-256 da5413a6174446922dc6c051258a2ed66d808245b5464e2a8a040b1e57013941.
+- docs/reports/military/MIL_USA_1776/BASELINE.json:1 — 1396 lignes; SHA-256 67d82a32e1927ed1ccb7175828a6b271a274e59f0a84e2306bf3c58e82b2c9ce.
+- docs/reports/technology/popular_sovereignty_2026-10-03/baseline.json:1 — 1223 lignes; SHA-256 557f68be362ed96e380a56f9a12903fbe7e2f87a8d29521425101338aa90f104.
+- docs/reports/technology/recherche régional/TECH_START_1776_CENTRAL_EUROPE_GERMAN_ITALY_MATRIX.csv:1 — 480 lignes; SHA-256 87a5ba638352c3161cbcb0f371628e3611da484fa453a4878d93a61983bebb11.
+- docs/reports/technology/recherche régional/TECH_START_1776_CENTRAL_EUROPE_GERMAN_ITALY_RESEARCH.md:1 — 759 lignes; SHA-256 c1a912b442c3a2af7ca58dfac9b3bd114cf94513242013f13c108c8d09438618.
+- docs/reports/technology/recherche régional/TECH_START_1776_CENTRAL_EUROPE_GERMAN_ITALY_SECOND_PASS_FULL.md:1 — 1771 lignes; SHA-256 3502c4d4d76371ccb56dcd58e137d79a6773201bd2cc3bcf25ab956ed1811828.
+- docs/reports/technology/recherche régional/TECH_START_1776_EAST_ASIA_SE_ASIA_MATRIX.csv:1 — 426 lignes; SHA-256 a493b1d470811c213877f0050a349130514c348e31c6f3d3e058e171d1ed86bb.
+- docs/reports/technology/recherche régional/TECH_START_1776_EAST_ASIA_SE_ASIA_RESEARCH.md:1 — 758 lignes; SHA-256 a514fc4849c4e224f6a6f49280bc8899da928eb31b2376ec5ecfcb6d2e947c4e.
+- docs/reports/technology/recherche régional/TECH_START_1776_EAST_ASIA_SE_ASIA_SECOND_PASS_FULL.csv:1 — 3737 lignes; SHA-256 28f176c7a976295f0bd9c3cec4ebbdbce3b38498648f45c06dd731fe08f8159c.
+- docs/reports/technology/recherche régional/TECH_START_1776_WESTERN_EUROPE_MATRIX.csv:1 — 227 lignes; SHA-256 10f5c80facfa38ca2020ba57027632b08056e93a4964639c5d396c43e7b7fa0b.
+- docs/reports/technology/recherche régional/TECH_START_1776_WESTERN_EUROPE_SECOND_PASS_FULL.csv:1 — 639 lignes; SHA-256 03dc7d9693b1e48d5127577caf10959576f77f8ef330df2ec6b3a08398d97ba3.
+- docs/reports/workshop/frontend/PREP1/WORKSHOP_PREP_1_FRONTEND_MUSIC_AND_OBJECTIVES.md:1 — 169 lignes; SHA-256 f9a48cd6899d02b8b394d9b524a80bbaa5960c8e6c97dc6ec71c69f1aeec5ce8.
+- docs/reports/workshop/frontend/PREP1B/WORKSHOP_PREP_1B_LOADING_SCREEN_OBJECTIVE_ART_AND_REMEDIATION_RUNTIME_QA.md:1 — 133 lignes; SHA-256 18455c02bbb77cc8a66f574a75d22230937cea174a9919093d36533cd97d3f25.
+- docs/reports/workshop/frontend/PREP1B/WORKSHOP_PREP_1B_RUNTIME_RESULTS.csv:1 — 25 lignes; SHA-256 76f4560fd436e041dfc02cf89754b57bf76f922af8050d3837d4ef9c09c435a9.
+- docs/reports/workshop/frontend/PREP1B/WORKSHOP_PREP_1B_RUNTIME_TEST_MATRIX.csv:1 — 25 lignes; SHA-256 7815ec151218f18b147930fb20b3f6664792b00aa8ac83535d4576ee91ddeafc.
+- docs/reports/workshop/frontend/PREP1C/WORKSHOP_PREP_1C_OBJECTIVE_NARRATIVE_ENRICHMENT_AND_SECOND_RUNTIME_QA.md:1 — 109 lignes; SHA-256 933ad88c4a340cbe96bec7939982220ce594e7717d02a6d671befdf3c0e82227.
+- docs/reports/workshop/frontend/PREP1C/WORKSHOP_PREP_1C_RUNTIME_RESULTS.csv:1 — 34 lignes; SHA-256 d69758e0605d0879efd82f601435a5b9957ece6cb2e1dc5f27490f85f499bcaa.
+- docs/reports/workshop/frontend/PREP1C/WORKSHOP_PREP_1C_RUNTIME_TEST_MATRIX.csv:1 — 34 lignes; SHA-256 ffd115f368cd0bfdb91bfc9c10a86328df4bf672fd14a93b8222e3b85b1b1711.
+- docs/reports/workshop/frontend/PREP1D/WORKSHOP_PREP_1D_RUNTIME_RESULTS.csv:1 — 38 lignes; SHA-256 1cc1365f236e01d9a0e9d3892e6bdef3f86df8c4ca04dd4fa328329c50624d7c.
+- docs/reports/workshop/frontend/PREP1D/WORKSHOP_PREP_1D_RUNTIME_TEST_MATRIX.csv:1 — 38 lignes; SHA-256 54df27ee17ab42f2ac96b4885bb8c7d6362a9c49c657735ba713d2827bae3179.
+- docs/reports/workshop/publication/PREP2/WORKSHOP_PREP_2_THUMBNAIL_METADATA_DESCRIPTION_AND_PUBLICATION_PACKET.md:1 — 290 lignes; SHA-256 d8a569210f896b8857b6c1f267a3760e30eed112d201b66975f2684006e86641.
+- docs/research/characters/EUROPE_1776_REMAINING_RULER_RESEARCH_QUEUE.csv:1 — 20 lignes; SHA-256 a3e856ede2be33c0381dfdade986ea31fbff994b30df33afc0d75b8cf1adda97.
+- docs/research/characters/RULERS_1776_BATCH2_EUROPE_MASTER.csv:1 — 29 lignes; SHA-256 127b72bde26e3c95b1f9abe5f78833a05f686ffe43368ba2ce93627abb1b091a.
+- docs/research/characters/RULERS_1776_BATCH2_EUROPE_SOURCES.md:1 — 159 lignes; SHA-256 aba17931f066549d9c0556816bb5546e2ef24b3ddf2bcc05be85f3727a165ad1.
+- docs/research/characters/RULERS_1776_EUROPE_RESIDUAL_CONSTITUTIONAL_NOTES.md:1 — 251 lignes; SHA-256 fefac87d27cff8c9995ccea02c210718396c4fdac3e34b790071305be685d71a.
+- docs/research/characters/RULERS_1776_EUROPE_RESIDUAL_IMPLEMENTATION_RESULT.csv:1 — 21 lignes; SHA-256 5f7cf9e073484a3d339fb47008a3c41544eeb14ec38f55a67a864e2bf57ca083.
+- docs/research/characters/RULERS_1776_EUROPE_RESIDUAL_MASTER.csv:1 — 21 lignes; SHA-256 0fc7fc98da22a9ec9aa8c58ded8a4ad2fe3b7b6ad2d4f03380508bda6a95b393.
+- docs/research/characters/RULERS_1776_EUROPE_RESIDUAL_SOURCES.md:1 — 207 lignes; SHA-256 a705038f7dfe7b2819bfc750b45cd8b7c2175caddb48273672756ad65c7909ae.
+- docs/research/characters/RULERS_1776_MASTER.csv:1 — 24 lignes; SHA-256 387c59e4181e16bfbb5a128a15760550f40a1ff6fc0aa226284c2ffdf63ef958.
+- docs/research/characters/RULERS_1776_NON_EUROPE_MASTER.csv:1 — 141 lignes; SHA-256 6e0c9cc2f88bade24db56705694825c1dd038508ae4f500e42a403c92e779189.
+- docs/research/characters/STARTING_CHARACTERS_1776_AUDIT.csv:1 — 817 lignes; SHA-256 bf1a04e63b7d7856f0d0b99f9dede027224c50297523e945d39c595ae6e6c7b1.
+- docs/research/economy/CLEANUP2E3_TRADE_CENTER_1776_COMPARISON.csv:1 — 9 lignes; SHA-256 502d4493ae501f9b1a4c154684e41d577811d666ae544be0c996aa737ac87909.
+- docs/research/military/CLEANUP2D0_FORMATION_LEVEL_AUDIT_1776.csv:1 — 198 lignes; SHA-256 73cd31620f8406f3851b419b2c774d025d59c5b1f2bc0d725618b4b8121c7b29.
+- docs/research/military/CLEANUP2D0_WORLD_MILITARY_NAVAL_BASELINE_1776.csv:1 — 211 lignes; SHA-256 b81434fd2999c8404fded8f76ac08128b6f45e944470c25070bbdb5a4b5e9a38.
+- docs/research/military/CLEANUP2D1_CURRENT_VS_HISTORICAL_GAP_ANALYSIS.csv:1 — 211 lignes; SHA-256 0778a0601d0afe30186b36951dce373e8930fc57de6d558adc5dd05ac747bbb8.
+- docs/research/military/CLEANUP2D1_WORLD_LAND_FORCES_1776_MASTER.csv:1 — 211 lignes; SHA-256 bfa0e832eba81411158192e9b8d7cd808aab3025cec1742fd0b2be1c49ca5e13.
+- docs/research/military/CLEANUP2D1_WORLD_NAVAL_FORCES_1776_MASTER.csv:1 — 211 lignes; SHA-256 1cc2680e256c8075d5f3965627fff1dbba354728794b5659b82f8ec3d5dc848e.
+- docs/research/military/CLEANUP2D2_FORMATION_RECONSTRUCTION_PLAN_1776.csv:1 — 260 lignes; SHA-256 4364d4c619486261ec0036b9810c7c38e33213a94a440bc8486847dfb73a4b09.
+- docs/research/military/CLEANUP2D2_IMPERIAL_AND_COMPANY_FORCE_ALLOCATION.csv:1 — 32 lignes; SHA-256 310a67ab0482a3a26b1f7096dc9b8f46c20d36b53db5907dcd092963403824da.
+- docs/research/military/CLEANUP2D2_STRUCTURAL_FIX_PLAN.csv:1 — 38 lignes; SHA-256 8e3c29575167df3a052f3339c31a5b4dbe37ed4f77ba3d16241f430c757be2ce.
+- docs/research/military/CLEANUP2D2_WORLD_LAND_CONVERSION_TARGETS_1776.csv:1 — 211 lignes; SHA-256 50adcb9766d6f28fb54ceb7ffae8940616cec788b181ce8f2ea288b5f30af12f.
+- docs/research/military/CLEANUP2D2_WORLD_NAVAL_CONVERSION_TARGETS_1776.csv:1 — 211 lignes; SHA-256 71b6f4ebef6b26e0050a23147632698f51b46e5573bd06cb7391ad2f42b16e9e.
+- docs/research/military/CLEANUP2D3B_FORMATION_IMPLEMENTATION_RESULT.csv:1 — 260 lignes; SHA-256 a3163d28142b11023558f97b4157507ab17f308a5646b44223d827293f6b33b2.
+- docs/research/military/CLEANUP2D3D_MOBILIZATION_STATE_ALLOCATION_1776.csv:1 — 369 lignes; SHA-256 77e9925916938125e3e885b19b70653773cb075d158a494c5ff3d520cc0e2435.
+- docs/research/military/CLEANUP2D3D_NATIVE_CONSCRIPTION_CAPACITY_AUDIT.csv:1 — 741 lignes; SHA-256 7e9586deb54741a8729d58c15d776f25fc79e139100e8ed4a41135fda8b588f5.
+- docs/research/military/CLEANUP2D3E_R1_CONSCRIPTION_TRUE_NATIVE_CAPACITY.csv:1 — 741 lignes; SHA-256 f552f963b551edb208d0dfb5e4f54e048a1dc007aab6604e545bc8edb8faad5d.
+- docs/research/military/CLEANUP2D3E_R1_FORMATION_NAMING_AUDIT.csv:1 — 256 lignes; SHA-256 bb8b9e8ef2761c6d63e91ab4da8a2f1ad98b6e87011fbc0427cf5d106ed8a985.
+- docs/research/military/CLEANUP2D3E_R1_FORMATION_RUNTIME_RECONCILIATION.csv:1 — 256 lignes; SHA-256 81db2a0287c2c3c9fe929e278036de1a0923e0b35b095d45fec6ae3a5275c822.
+- docs/research/military/CLEANUP2D3E_R2F_CONSCRIPT_MATERIALIZATION.csv:1 — 741 lignes; SHA-256 7ac341ca27fd5fd1bcdb8ae6f49775fee4b83ea54320ddd630ba0a1230aeeb62.
+- docs/research/military/CLEANUP2D3E_R2F_EFFECTIVE_CONSCRIPTION_CAPACITY.csv:1 — 741 lignes; SHA-256 1e2ab28502dfc81841dde9ab6270ffc6dec3b96e8a9a3abd7df78da07fba464d.
+- docs/research/military/CLEANUP2D3E_R2F_REGULAR_MATERIALIZATION.csv:1 — 501 lignes; SHA-256 c5c9ae29ff0a72ed2c21bf94a333c34411c43ee1cb86a9b29c686863fb04f55d.
+- docs/research/military/CLEANUP2D3E_R2F_RUNTIME_EMPTY_FORMATION_AUDIT.csv:1 — 215 lignes; SHA-256 4aed601bcb537e38e2cacb703c952c5d4252783317f5b80a31507678ee7cbe21.
+- docs/research/military/CLEANUP2D5O_STARTING_GENERAL_COMMAND_RANK_AUDIT.csv:1 — 215 lignes; SHA-256 cac88edabc889763de551624eb477fff2df41b273e035c96472a443d2950f27c.
+- docs/research/military/CLEANUP2D5_DUPLICATE_PERSON_REUSE_AUDIT.csv:1 — 80 lignes; SHA-256 7102e3bc8211a0597e99fbde034520a7d648cf4b4b6b51f23d4424a499e0bdcd.
+- docs/research/military/CLEANUP2D5_GLOBAL_RECONCILIATION_MATRIX.csv:1 — 215 lignes; SHA-256 6f1301097a79c8c59e89df7bb11f9c0dad30a8314b502f7f0248bdf8e94bb73a.
+- docs/research/military/GENERALS_1776_IMPLEMENTATION_MATRIX.csv:1 — 215 lignes; SHA-256 30812c2c18eb16b6fe3fd7ab35f9b611b62558c5007437f610715de7d09921f5.
+- docs/research/military/GENERALS_1776_MASTER.csv:1 — 215 lignes; SHA-256 38c0d800e944f18e079e2a266c81a3ede82b1808e341a945bacfdc5cba31e8d7.
+- docs/research/military/GENERALS_1776_SOURCES.md:1 — 202 lignes; SHA-256 61a6b3460f8edab20286aaa4efb75f5b9be8c35cbe4902c60d93006bc8742fbd.
+- docs/research/population/POPULATION_1776_BASELINE.csv:1 — 1049 lignes; SHA-256 d3873628d05946e3636a1a6cabf8a66ebcb7fe27d71a8ee9b4e35fbc82f32c19.
+- docs/research/population/POPULATION_1776_STATE_TARGETS.csv:1 — 1047 lignes; SHA-256 5f45f614d37fbf84bf44ed46a998ce255a5d19e0dbf72b92befead22387aa918.
+- docs/research/technology/TECH1A_VANILLA_REFERENCE_INDEX.csv:1 — 3477 lignes; SHA-256 aa7aa200721190100953f05d8caaf3a4dc542ed8a650a39c5aa6ccde7f5b967a.
+- docs/research/technology/TECH1A_VANILLA_TECH_AUDIT.md:1 — 929 lignes; SHA-256 487a7d4b62fbac7547e2884cf1e97e4aaf0a47d032e5fe4c15127c9c7acefa47.
+- docs/research/technology/TECH1A_VANILLA_TECH_UNLOCK_INDEX.csv:1 — 1237 lignes; SHA-256 7eb24d02f6438b69330f589f0e05829c29c350cecbe20697ce60bd28ce2b7e68.
+- docs/research/technology/TECH1C_TECH_RES_CHAIN_INDEX.csv:1 — 1448 lignes; SHA-256 01a0c899afb904c3847529b43eb5838e19da1bac1bd861c752aa418f7f242be6.
+- docs/research/technology/TECH1C_TECH_RES_OBJECT_INDEX.csv:1 — 83 lignes; SHA-256 3f175b3972fefada03df58df9c4e947212c760ba91b7bc5d8237cafb740919d9.
+- docs/research/military/cleanup2d5_regional_sources/CLEANUP2D5C_CENTRAL_EUROPE_HISTORICAL_GENERALS.md:1 — 442 lignes; SHA-256 d3dad9e2359b84caf41e5f54cc062c145e1206d797829e7ca79ea9d4e5d48fc1.
+- docs/research/military/cleanup2d5_regional_sources/CLEANUP2D5E_SOUTH_AMERICA_HISTORICAL_GENERALS.md:1 — 433 lignes; SHA-256 5bced3414360b161218f25350479b5f0ffdc6865f628f1630761a1da4ecaa944.
+- docs/research/military/cleanup2d5_regional_sources/CLEANUP2D5F_AFRICA_HISTORICAL_GENERALS.md:1 — 368 lignes; SHA-256 5226a1623958f67af9372d140ec721a2c1ff98d04142212152b6f084acdbe1c2.
+- docs/research/military/cleanup2d5_regional_sources/CLEANUP2D5H_SOUTH_ASIA_HISTORICAL_GENERALS.md:1 — 533 lignes; SHA-256 bcb2dc102772a86907723c0417bdfcf7c3750929c4816c624310987867339ae2.
+- docs/research/military/cleanup2d5_regional_sources/CLEANUP2D5I_CENTRAL_ASIA_HISTORICAL_GENERALS.md:1 — 698 lignes; SHA-256 60702e068cae8560b8597a8a7c98bc8db6513f152ae90aabe9d135d6aa8ec208.
+- docs/research/military/cleanup2d5_regional_sources/GENERALS_1776_AFRICA_IMPLEMENTATION.csv:1 — 42 lignes; SHA-256 1f748cbb09ec4f47acb81aa1fa87f1df1e072fcabb32134b625e168e10c19bf6.
+- docs/research/military/cleanup2d5_regional_sources/GENERALS_1776_CENTRAL_ASIA_IMPLEMENTATION.csv:1 — 6 lignes; SHA-256 48303d994ccd752bd1f9e62813cf1b2021e55666927f62ddecb9b1bc551351cc.
+- docs/research/military/cleanup2d5_regional_sources/GENERALS_1776_CENTRAL_EUROPE_IMPLEMENTATION.csv:1 — 47 lignes; SHA-256 60433c483d034ca4ac28023d5e1f1d483a719f4f720d8ef4c1167a0b3c226e12.
+- docs/research/military/cleanup2d5_regional_sources/GENERALS_1776_EAST_ASIA_IMPLEMENTATION.csv:1 — 15 lignes; SHA-256 872dac510561146bbe643bcd985fb86d0780c54a242dc5eb0590ae0d1db3712f.
+- docs/research/military/cleanup2d5_regional_sources/GENERALS_1776_NORTHERN_EASTERN_EUROPE_IMPLEMENTATION.csv:1 — 18 lignes; SHA-256 ba409593f36cbd1512911b09e528bbfbcd4393b2de743332b26bd78c734421a4.
+- docs/research/military/cleanup2d5_regional_sources/GENERALS_1776_RESEARCH_COVERAGE_GAPS_IMPLEMENTATION.csv:1 — 10 lignes; SHA-256 7edb6b89c73a54d3e96dd00071673a45598fa4cde22ef3d3b57ea21923422e36.
+- docs/research/military/cleanup2d5_regional_sources/GENERALS_1776_SOUTHEAST_ASIA_IMPLEMENTATION.csv:1 — 31 lignes; SHA-256 0c3ddb380eb9e8705149fbaa3159f9e9fe0c3245203cbe2a3d286cdc8937a311.
+- docs/research/military/cleanup2d5_regional_sources/GENERALS_1776_SOUTH_AMERICA_IMPLEMENTATION.csv:1 — 6 lignes; SHA-256 2b6f61466fec98564a7c335256811e3e9b37a203824566459330cadec1c1448a.
+- docs/research/military/cleanup2d5_regional_sources/GENERALS_1776_SOUTH_ASIA_IMPLEMENTATION.csv:1 — 26 lignes; SHA-256 06311c1304c7aadf33b8f13a95c2abfb348ff0a9b812952dd047f33555c6f416.

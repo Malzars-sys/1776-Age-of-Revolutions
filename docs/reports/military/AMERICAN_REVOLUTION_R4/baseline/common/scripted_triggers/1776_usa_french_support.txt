@@ -1,0 +1,78 @@
+# Country scope; shared with the existing independence journal and echoes.
+aor1776_usa_independence_war_active = {
+ exists = c:USA
+ exists = c:GBR
+ c:USA = { has_war_with = c:GBR NOT = { has_variable = us_revolt } }
+}
+
+aor1776_french_support_relationship_valid = {
+ exists = c:USA
+ exists = c:FRA
+ aor1776_usa_independence_war_active = yes
+ game_date < 1783.9.4
+ c:FRA = {
+  NOR = { has_war_with = c:USA is_diplomatic_play_enemy_of = c:USA }
+  relations:c:USA >= -25
+ }
+}
+
+aor1776_french_support_finances_available = {
+ c:FRA = { gold_reserves >= 84000 in_default = no }
+}
+
+aor1776_french_support_can_request = {
+ custom_tooltip = { text = aor1776_r3_journal_open_tt c:USA = { has_variable = aor1776_r3_journal_open } }
+ custom_tooltip = { text = aor1776_r3_relationship_tt aor1776_french_support_relationship_valid = yes }
+ custom_tooltip = {
+  text = aor1776_r3_negotiations_available_tt
+  c:USA = {
+   NOR = {
+    has_variable = aor1776_support_active
+    has_variable = aor1776_support_cooldown
+    has_variable = aor1776_support_request_pending
+    has_variable = aor1776_support_offer
+    has_variable = aor1776_debt_creditor
+   }
+  }
+ }
+}
+
+aor1776_french_support_can_offer = {
+ custom_tooltip = {
+  text = aor1776_r3_offer_still_valid_tt
+  aor1776_french_support_relationship_valid = yes
+  aor1776_french_support_finances_available = yes
+  c:USA = {
+   has_variable = aor1776_support_request_pending
+   NOT = { has_variable = aor1776_debt_creditor }
+   NOT = { has_variable = aor1776_support_active }
+  }
+ }
+}
+
+aor1776_french_support_can_accept = {
+ custom_tooltip = {
+  text = aor1776_r3_offer_still_valid_tt
+  has_variable = aor1776_support_offer
+  aor1776_french_support_relationship_valid = yes
+  aor1776_french_support_finances_available = yes
+  NOT = { has_variable = aor1776_debt_creditor }
+  NOT = { has_variable = aor1776_support_active }
+ }
+}
+
+# Borrower scope. Every actual advance passes this guard.
+aor1776_war_credit_can_advance = {
+ c:USA ?= this
+ has_variable = aor1776_debt_creditor
+ var:aor1776_debt_creditor = c:FRA
+ has_variable = aor1776_support_active
+ var:aor1776_weekly_credit > 0
+ NOT = { has_variable = aor1776_credit_paid_this_week }
+ aor1776_french_support_relationship_valid = yes
+ c:FRA = {
+  in_default = no
+  gold_reserves >= c:USA.var:aor1776_weekly_credit
+  has_diplomatic_pact = { who = c:USA type = aor1776_deferred_debt }
+ }
+}

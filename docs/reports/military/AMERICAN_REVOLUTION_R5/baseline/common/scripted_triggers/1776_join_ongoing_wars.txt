@@ -1,0 +1,36 @@
+﻿# Adapted from Join Ongoing Wars (The Lizerd King); native 1.13 war scopes.
+aor1776_can_intervene_trigger = {
+ $ACTOR$ = {
+  NOT = { is_country_type = decentralized }
+  is_revolutionary = no is_secessionist = no
+  aggressive_diplomatic_plays_permitted = yes
+  NOT = { has_war_with = $FRIEND$ }
+  NOT = { has_truce_with = $FRIEND$ }
+ }
+ $FRIEND$ = {
+  NOT = { is_country_type = decentralized }
+  is_at_war = yes
+  OR = {
+   aggressive_diplomatic_plays_permitted = yes
+   is_subject_of = $ACTOR$
+   AND = { c:USA ?= this aor1776_usa_independence_war_active = yes }
+  }
+  OR = {
+   has_strategic_adjacency = $ACTOR$
+   AND = { any_scope_state = { is_coastal = yes } $ACTOR$ = { any_scope_state = { is_coastal = yes } } }
+  }
+  any_scope_war = {
+   OR = {
+    is_warleader = $FRIEND$
+    $ACTOR$ = { any_scope_treaty = { binds = $FRIEND$ any_scope_article = { has_type = alliance } } }
+   }
+   NOT = { is_war_participant = $ACTOR$ }
+  }
+ }
+ NOT = { any_country = { has_war_with = $FRIEND$ has_truce_with = $ACTOR$ } }
+}
+aor1776_revolution_intervention_eligible = {
+ aor1776_usa_independence_war_active = yes
+ NOT = { has_war_with = c:GBR }
+ aor1776_can_intervene_trigger = { ACTOR = $ACTOR$ FRIEND = c:USA }
+}

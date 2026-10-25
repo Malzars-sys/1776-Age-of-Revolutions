@@ -1,0 +1,56 @@
+# Converted merchant hull; original caravel statistics retained. MIL-NAV-USA-1776.
+ship_type_aor1776_armed_merchantman = {
+    ship_group = ship_group_capital_ships
+    use_modifications = yes
+    modification_construction_cost = 1
+    base_construction_cost = 5
+    can_be_flagship = yes
+    modifier = {
+        ship_construction_progress_max_add = 15
+        ship_hit_points_max_add = 450
+        ship_crew_max_add = 200
+        ship_movement_speed_add = 3
+        ship_supply_capacity_add = 6
+        ship_hull_damage_add = 12
+        ship_crew_damage_add = 2
+        ship_armor_add = 3
+        ship_critical_hit_chance_add = 0.03
+        ship_critical_hit_multiplier_add = 0.1
+        ship_vulnerability_add = 3
+        ship_screening_add = 10
+        ship_readiness_gain_add = 10
+        ship_accuracy_add = 4
+        ship_visibility_add = 5
+        ship_detection_add = 10
+        ship_blockade_strength_add = 15
+        ship_carrying_capacity_add = 0.1
+        ship_marine_capacity_add = 0.05
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 72
+        goods_input_fabric_add = 43
+    }
+    materiel_goods = {
+        goods_input_grain_add = 0.2
+        goods_input_hardwood_add = 0.02
+    }
+    icon = "gfx/interface/icons/ships/ship_category/ship_group_capital_ships.dds"
+    profile_texture = "gfx/interface/icons/ships/ship_types/1776_silhouette_caravel.dds"
+    ai_weight = 0
+
+    unlocking_technologies = { organized_workshops }
+    modifications = {
+        ship_mod_slot_armor = { aor1776_merchant_1 }
+        ship_mod_slot_guns = { aor1776_merchant_2 }
+        ship_mod_slot_propulsion = { aor1776_merchant_3 }
+        ship_mod_slot_range = { aor1776_merchant_4 }
+        ship_mod_slot_utility_1 = { aor1776_merchant_5 }
+    }
+    default_modifications = {
+        ship_mod_slot_armor = aor1776_merchant_1
+        ship_mod_slot_guns = aor1776_merchant_2
+        ship_mod_slot_propulsion = aor1776_merchant_3
+        ship_mod_slot_range = aor1776_merchant_4
+        ship_mod_slot_utility_1 = aor1776_merchant_5
+    }
+}

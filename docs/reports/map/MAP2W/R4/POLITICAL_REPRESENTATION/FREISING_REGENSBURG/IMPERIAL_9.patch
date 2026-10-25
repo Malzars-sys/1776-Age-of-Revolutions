@@ -1,0 +1,58 @@
+*** Begin Patch
+*** Update File: C:\Users\simeo\Documents\Paradox Interactive\Victoria 3\mod\1776_Age_of_Revolutions_fork\events\1776_imperial_constitution_events.txt
+@@
+ aor1776_hre_tally_ballot = yes
+ ai_chance = { base = 0 }
+ }
+ option = {
+ name = aor1776_hre.vote_NSB
+ trigger = { c:NSB ?= { aor1776_hre_ballot_candidate = yes } }
+ c:NSB = { save_scope_as = hre_vote_choice }
+ aor1776_hre_cast_vote = yes
+ aor1776_hre_tally_ballot = yes
+ ai_chance = { base = 0 }
+ }
+ option = {
+ name = aor1776_hre.vote_PAS
+ trigger = { c:PAS ?= { aor1776_hre_ballot_candidate = yes } }
+ c:PAS = { save_scope_as = hre_vote_choice }
++aor1776_hre_cast_vote = yes
++aor1776_hre_tally_ballot = yes
++ai_chance = { base = 0 }
++}
++option = {
++name = aor1776_hre.vote_FSI
++trigger = { c:FSI ?= { aor1776_hre_ballot_candidate = yes } }
++c:FSI = { save_scope_as = hre_vote_choice }
++aor1776_hre_cast_vote = yes
++aor1776_hre_tally_ballot = yes
++ai_chance = { base = 0 }
++}
++option = {
++name = aor1776_hre.vote_RBI
++trigger = { c:RBI ?= { aor1776_hre_ballot_candidate = yes } }
++c:RBI = { save_scope_as = hre_vote_choice }
++aor1776_hre_cast_vote = yes
++aor1776_hre_tally_ballot = yes
++ai_chance = { base = 0 }
++}
++option = {
++name = aor1776_hre.vote_RCI
++trigger = { c:RCI ?= { aor1776_hre_ballot_candidate = yes } }
++c:RCI = { save_scope_as = hre_vote_choice }
+ aor1776_hre_cast_vote = yes
+ aor1776_hre_tally_ballot = yes
+ ai_chance = { base = 0 }
+ }
+ 
+ 
+ }
+ aor1776_hre.2 = {
+ type = country_event
+ hidden = yes
+ immediate = { aor1776_hre_open_election = yes }
+ 
+ }
+ aor1776_hre.20 = {
+ 
+*** End Patch

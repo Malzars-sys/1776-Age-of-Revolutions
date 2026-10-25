@@ -1,0 +1,10 @@
+je_aor1776_revolutionary_spirit = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+	group = je_group_internal_affairs
+	is_shown_when_inactive = { c:USA ?= this NOT = { has_variable = us_revolt } }
+	possible = { c:USA ?= this aor1776_usa_independence_war_active = yes }
+	immediate = { aor1776_content_initialize_effect = yes aor1776_fervour_refresh_effect = yes }
+	complete = { has_variable = us_revolt }
+	on_complete = { aor1776_content_finish_effect = yes }
+	weight = 900
+}

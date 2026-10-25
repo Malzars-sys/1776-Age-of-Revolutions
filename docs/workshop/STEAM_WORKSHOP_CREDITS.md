@@ -1,5 +1,11 @@
 # Steam Workshop credits
 
+## Integrated gameplay contribution
+
+- **Join Ongoing Wars**, by **The Lizerd King**: [original Workshop item](https://steamcommunity.com/sharedfiles/filedetails/?id=3015811655).
+- The author publicly permits reuse and integration. This fork adapts its intervention action and treaty article and includes its original intervention icon.
+- [Permission, attribution and adaptation notes](../credits/JOIN_ONGOING_WARS.md).
+
 ## Original mod
 
 - Original project: [1776 - Age of Revolutions, Total Conversion Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3617930953)
