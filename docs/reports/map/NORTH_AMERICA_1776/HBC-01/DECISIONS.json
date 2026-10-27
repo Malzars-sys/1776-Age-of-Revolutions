@@ -1,0 +1,138 @@
+{
+  "historical_date": "1776-01-01",
+  "scope": "HBC holdings in five northern North American State Regions",
+  "status": "AUDITED_HISTORICAL_CLASSIFICATION_READY_GEOMETRY_PENDING",
+  "authorization": "Latest direct player request 2026-10-25; does not validate or advance the separate Balkan/SERG trackers",
+  "axes": [
+    "effective_controller",
+    "colonial_claim",
+    "geographic_knowledge",
+    "local_political_community"
+  ],
+  "rules": [
+    {
+      "id": "PLAYER_POST_CONNECTIVITY",
+      "decision": "No isolated outposts: connect every retained post to the main territory through a narrow continuous corridor of same-country provinces, and verify actual market access and supply in game",
+      "source": "Direct player instruction 2026-10-25",
+      "historical_status": "Gameplay representation constraint, not evidence of historical control along the corridor",
+      "boundary_status": "CORRIDOR_MAPPING_AND_ENGINE_VALIDATION_REQUIRED",
+      "reference": "../GAMEPLAY_CONSTRAINTS.md"
+    },
+    {
+      "id": "HBC_CONTROL",
+      "decision": "Localized posts and directly held installations, not the entire drainage basin",
+      "boundary_status": "MAPPING_REQUIRED"
+    },
+    {
+      "id": "CHARTER",
+      "decision": "Record territorial and governing claims as well as exclusive commerce; do not infer effective control",
+      "boundary_status": "DRAINAGE_AND_TEXTUAL_SCOPE_TO_VERIFY"
+    },
+    {
+      "id": "INDIGENOUS",
+      "decision": "Represent local societies; no automatic empty territory or single centralized Inuit polity",
+      "boundary_status": "LOCAL_COMMUNITIES_AND_AGGREGATIONS_TO_MAP"
+    },
+    {
+      "id": "INCOGNITA",
+      "decision": "European geographic uncertainty is independent of ownership, occupation and claims",
+      "boundary_status": "NO_AUTOMATIC_OWNER_REMOVAL"
+    }
+  ],
+  "sectors": [
+    {
+      "state": "STATE_NUNAVUT",
+      "decision": "Reject whole-state effective HBC administration inferred from charter",
+      "candidate_holders": "Inuit communities and other local peoples in southern parts of this game State Region",
+      "do_not_do": "Do not simply transfer all provinces to existing centralized NNV or to ATB",
+      "rgb_transfers": []
+    },
+    {
+      "state": "STATE_MANITOBA",
+      "decision": "Separate York/Churchill post nuclei from Indigenous hinterlands; do not retroject Red River Colony 1812",
+      "rgb_transfers": []
+    },
+    {
+      "state": "STATE_SASKATCHEWAN",
+      "decision": "Keep Cumberland House as localized HBC establishment; map Cree/Assiniboine and other local territories separately",
+      "rgb_transfers": []
+    },
+    {
+      "state": "STATE_ONTARIO",
+      "decision": "Localize Moose/Albany/Henley and other confirmed posts; distinguish hinterlands and Quebec jurisdictions",
+      "rgb_transfers": []
+    },
+    {
+      "state": "STATE_QUEBEC",
+      "decision": "Localize Eastmain and other confirmed eastern James Bay establishments; resolve Rupert House reopening in 1776",
+      "rgb_transfers": []
+    }
+  ],
+  "posts": [
+    {
+      "name": "York Factory",
+      "active_at_start": "SUPPORTED",
+      "basis": "Parks Canada; post since 1684, 1770s depiction",
+      "mapping_status": "UNRESOLVED"
+    },
+    {
+      "name": "Prince of Wales / Churchill",
+      "active_at_start": "SUPPORTED",
+      "basis": "Parks Canada stone fort chronology beginning 1732",
+      "mapping_status": "UNRESOLVED"
+    },
+    {
+      "name": "Moose Factory",
+      "active_at_start": "SUPPORTED",
+      "basis": "Parks Canada designation: reoccupied 1730 and supplying posts in 1770s",
+      "mapping_status": "UNRESOLVED"
+    },
+    {
+      "name": "Cumberland House",
+      "active_at_start": "SUPPORTED",
+      "basis": "Parks Canada: founded 1774; no intervening closure established",
+      "mapping_status": "UNRESOLVED"
+    },
+    {
+      "name": "Albany",
+      "active_at_start": "TARGETED_JOURNAL_CHECK_PENDING",
+      "basis": "Existing old post and HBCA fonds B.3; not a verified 1776 perimeter",
+      "mapping_status": "UNRESOLVED"
+    },
+    {
+      "name": "Henley House",
+      "active_at_start": "PROBABLE_PRE_1776_POST_CONTINUITY_TO_CHECK",
+      "basis": "Compiled reference to 1774 journals; conflicting foundation/rebuilding years; direct journal not read",
+      "mapping_status": "UNRESOLVED"
+    },
+    {
+      "name": "Eastmain",
+      "active_at_start": "PROBABLE_JOURNAL_CHECK_PENDING",
+      "basis": "MG20-B59 journal series 1736-1908; range not proof of every year",
+      "mapping_status": "UNRESOLVED"
+    },
+    {
+      "name": "Severn",
+      "active_at_start": "JOURNAL_CHECK_PENDING",
+      "basis": "HBCA B.198 identification; multi-period map does not prove 1776 operation",
+      "mapping_status": "UNRESOLVED"
+    },
+    {
+      "name": "Rupert House / Waskaganish",
+      "active_at_start": "UNRESOLVED_REOCCUPATION_DURING_1776",
+      "basis": "Federal community sheet indexed excerpt gives 1776; exact opening date missing",
+      "do_not_do": "Do not automatically initialize active HBC post on January 1 based on 1668 foundation",
+      "mapping_status": "UNRESOLVED"
+    }
+  ],
+  "geometry_blockers": [
+    "No historically validated post-to-RGB correspondence in reused R8 dossiers",
+    "Existing MAP1 pixel atlas has no established GPS/historical georeferencing",
+    "European georeferencing default controls do not independently validate northern Canada",
+    "Post control footprint and Indigenous political allocations cannot be derived from a point radius",
+    "State-wide native add_claim does not express fine watershed boundaries"
+  ],
+  "implementation_applied": false,
+  "runtime_tested": false,
+  "human_validated": false
+}

@@ -1,0 +1,50 @@
+# B05: two provincial households within the existing Ottoman framework.
+# Existing regular units moved from Rumelia, not additional troop estimates.
+# Gjeli 2018 pp.35-41: Mustafa heads Scutari in 1776, not Mahmud.
+# Inbasi 2019 p.149: Kurd Ahmed holds Avlonya during 1774-1778.
+MILITARY_FORMATIONS = {
+ c:TUR ?= {
+  create_military_formation = {
+   type = army hq_region = sr:region_balkans
+   name = aor1776_b05_scutari_household
+   combat_unit = {
+    type = unit_type:combat_unit_type_irregular_infantry
+    state_region = s:STATE_ALBANIA count = 2
+   }
+   save_scope_as = aor1776_b05_scutari_formation
+  }
+  create_military_formation = {
+   type = army hq_region = sr:region_balkans
+   name = aor1776_b05_avlonya_contingent
+   combat_unit = {
+    type = unit_type:combat_unit_type_hussars
+    state_region = s:STATE_ALBANIA count = 2
+   }
+   save_scope_as = aor1776_b05_avlonya_formation
+  }
+  # Ages are technical generation estimates, not verified birth years.
+  # IG and ideology are qualitative gameplay representations of household rule.
+  create_character = {
+   first_name = aor1776_b05_mustafa last_name = aor1776_b05_bushati
+   historical = yes culture = albanian religion = rel:sunni age = 40
+   is_general = yes commander_rank = commander_rank_1
+   interest_group = ig_landowners ideology = ideology_traditionalist
+   traits = { aor1776_b05_scutari_head }
+   save_scope_as = aor1776_b05_mustafa_character
+  }
+  scope:aor1776_b05_mustafa_character = {
+   transfer_to_formation = scope:aor1776_b05_scutari_formation
+  }
+  create_character = {
+   first_name = aor1776_b05_ahmed last_name = aor1776_b05_kurt
+   historical = yes culture = albanian religion = rel:sunni age = 55
+   is_general = yes commander_rank = commander_rank_1
+   interest_group = ig_landowners ideology = ideology_traditionalist
+   traits = { aor1776_b05_avlonya_governor }
+   save_scope_as = aor1776_b05_ahmed_character
+  }
+  scope:aor1776_b05_ahmed_character = {
+   transfer_to_formation = scope:aor1776_b05_avlonya_formation
+  }
+ }
+}

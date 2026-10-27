@@ -1,0 +1,36 @@
+# Sources et nature du scénario — 26 octobre 2026
+
+Le contour HBC-05 est approuvé par le joueur. Les dernières instructions autorisent explicitement une population autochtone extrêmement nombreuse et anachronique, des revendications HBC et un découpage régional en plusieurs peuples. **Les 2 400 000 personnes ajoutées sont des valeurs de gameplay, jamais une estimation historique.** Les anciens 108 626 habitants HBC sont conservés, ventilations culturelles/religieuses et patrimoine économique compris.
+
+Les recherches R8 et HBC-01 à HBC-05 sont réutilisées. Les lectures ciblées suivantes complètent uniquement les identités et grands espaces ; elles ne fournissent aucun cadastre politique au 1er janvier 1776.
+
+| Source consultée | Passage effectivement lu / apport | Limite |
+|---|---|---|
+| [Nation naskapie, Past](https://naskapi.ca/people/past/) | Sections Precontact, 1600s, 1700s : occupation nomade Québec–Labrador ; mentions de 1733 et Eastmain 1740. | Ne pas importer la bande administrative de 1984 ni la ville actuelle. |
+| [Grand Conseil des Cris, Eeyou Istchee](https://cngov.ca/community-culture/communities/) | Introduction et communautés : rive orientale de James et sud-est d'Hudson, occupation historique en Ontario. | Source contemporaine de territoire traditionnel, pas frontière exclusive de 1776. |
+| [Attawapiskat, History](https://attawapiskatdevelopmentcorporation.org/history/) | Mushkegowuk Homeland : rivière Attawapiskat, côte ouest de James, arrière-pays et côte d'Hudson. | Ne pas projeter la réserve ni le traité de 1930. |
+| [Nishnawbe Aski, Who We Are](https://www.nan.ca/about/history/) | Répartition linguistique : cri/algonquin à l'est, oji-cri à l'ouest, ojibwé au centre-sud. | L'organisation date de 1973 et n'est pas initialisée dans le mod. |
+| [Union of Ontario Indians, présentation aux archives d'Ontario](https://www.archives.gov.on.ca/en/e_records/ipperwash/policy_part/projects/pdf/Chiefs_of_Ontario-Union_of_Ontario_Indians_Presentation.pdf) | Extrait indexé : Ojibway, Odawa et Potawatomi, alliances antérieures au contact. | Extrait seulement ; pas une lecture intégrale du PDF ni preuve de limites précises. |
+| [Commission royale, déplacement des Sayisi Dene](https://central.bac-lac.canada.ca/.item/?app=rcap&id=rcap-148&op=pdf) | Résumé exécutif indexé p. 1 : Caribou Eaters, terres au-delà du 60e parallèle et lacs Henik, rapport avec Churchill au XVIIIe siècle. | PDF non lu intégralement ; pas la réserve issue d'une réinstallation contemporaine. |
+| [Michael Payne, Prince of Wales's Fort](https://www.mhs.mb.ca/docs/transactions/3/princeofwalesfort.shtml) | Paragraphes sur environnement, Cree/Chipewyan/Inuit, distinction Cris des marais / Cris de l'intérieur ; petits groupes de chasse. | Agrégations du scénario beaucoup plus larges que les bandes historiques. |
+| [Parcs Canada, Igloolik](https://www.pc.gc.ca/apps/dfhd/page_nhs_eng.aspx?id=329) | Description et valeur patrimoniale : Foxe Basin, Melville, occupations anciennes Dorset/Thule. | Aucun poste HBC de 1776 ni ville moderne ajouté. |
+| [Arvia'juaq, Caribou Inuit](https://aina.ucalgary.ca/arviajuaq/Caribou_Inuit.html) | Location et Name : Kivalliq et rive ouest d'Hudson, pluralité de groupes ; nom Caribou Inuit forgé en 1921–24. | Nom joueur régional « Inuit du Kivalliq », sans prétendre à un État centralisé. |
+| [Gouvernement des TNO, Tuktu and Nogak](https://www.gov.nt.ca/sites/ecc/files/wkss_tuktu_nogak_2001.pdf) | Extrait indexé §5.1.1 p. 28 : Qitirmiut, parcours traditionnels, postes surtout après 1910. | Ne date pas les frontières Netsilik de 1776. Attribution occidentale approximative. |
+| [Gouvernement du Québec, Inuit](https://www.quebec.ca/en/government/quebec-at-a-glance/first-nations-and-inuit/profile-of-the-nations/inuit) | Introduction : nord du Québec, rives Hudson/Ungava/détroit. | Distribution moderne, utilisée comme repère régional seulement. |
+| [HBC Heritage, Royal Charter](https://s3-us-west-2.amazonaws.com/hbcheritage/hbcimages/HBC%20Royal%20Charter_Final%202022_English.pdf) | Texte extrait, p. 5 : bassin versant d'Hudson, revendications sans consentement autochtone ; Cumberland 1774. | Support pédagogique, pas levé hydrologique ou titre autochtone reconnu. |
+
+## Traduction en provinces du jeu
+
+Les 1 959 RGB quittant HBC sans passer à ONT sont seuls partagés entre 13 nouveaux TAGs décentralisés. Les terres IRC/ATB, colonies voisines et autres pays restent inchangés. Les centres régionaux sont projetés avec le modèle empirique HBC-02 ; propagation par arêtes de provinces et distance entre centres, puis rattachement régional des îles. Le modèle extrapole dans l'Arctique : **précision cadastrale non établie**. Les frontières sont des approximations de grands ensembles ethnolinguistiques, pas des traités ni des États souverains modernes. Les noms inuit de Baffin/Nunavik/Kivalliq sont des agrégations descriptives. Les cultures existantes sont réutilisées : notamment `cree` agrège les Naskapis et `algonquian` les Anishinabeg, sans prétendre à une équivalence linguistique parfaite.
+
+## Revendications de la compagnie
+
+Le moteur représente `add_claim` à l'échelle de la State Region. Les revendications couvrent ici Saskatchewan, Manitoba, Ontario et Québec, donc **une approximation plus large que le bassin exact** dans les États partagés. La revendication préexistante sur tout Nunavut est retirée : elle incluait des terres arctiques qui ne relèvent pas du bassin d'Hudson. La portion méridionale du bassin dans cet État reste sans revendication distincte, faute de division administrative fine. Ni le reste de l'Alberta ni les territoires américains ne sont modifiés par ce lot. Une restitution exacte de toute la concession de Rupert reste ouverte, sans confondre ces claims avec un contrôle HBC ou une légitimité autochtone.
+
+## Population et viabilité
+
+Ajouts : Nunavut 300 000 ; Manitoba 250 000 ; Saskatchewan 250 000 ; Ontario 800 000 ; Québec 800 000. Répartition technique entre pays d'une même région au prorata des provinces, **jamais déduction d'une démographie historique par la surface**. Ces ajouts ne prélèvent ni ne clonent une commande POP existante. L'ancienne population HBC du Nunavut, 17 362, est déplacée verbatim dans sa portion du Manitoba pour la conservation de gameplay autorisée : aucune migration historique alléguée. Les réserves de terres arables, ressources et bâtiments existants ne changent pas. Le fonctionnement réel de la subsistance, le marché et l'effet d'une population aussi forte doivent être observés en jeu ; aucune absence de famine n'est certifiée par la lecture des fichiers.
+
+## Profils nationaux
+
+L'installation utilise les lois tribales natives explicitement, sans le rappel générique qui entraînait une demande conditionnelle de mercantilisme. La conscription décentralisée native reste activée. Les Cris et Anishinabeg reçoivent le nœud existant de préparation traditionnelle des aliments ; les profils dénés et inuit ne reçoivent aucun nœud industriel ou militaire européen. Ils n'ont aucun bâtiment industriel ou formation régulière initialisé nécessitant ces nœuds. Un profil de savoir traditionnel n'est pas une absence de savoir historique : l'arbre industriel du jeu est une représentation partielle. Les bannières sont procédurales et décoratives, sans authenticité historique revendiquée.

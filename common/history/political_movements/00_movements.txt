@@ -210,29 +210,7 @@
 		create_political_movement = { type = movement_radical }
 	}
 
-	# brewing rebellions of 1837
-	c:ONT ?= {
-		create_political_movement = { type = movement_radical }
-		random_political_movement = {
-			limit = {
-				is_political_movement_type = movement_radical
-			}
-			add_modifier = {
-				name = can_reformer_movement_fury
-				days = very_long_modifier_time
-			}
-		}
-	}
-	c:QUE ?= {
-		create_political_movement = { type = movement_radical }
-		random_political_movement = {
-			limit = {
-				is_political_movement_type = movement_radical
-			}
-			add_modifier = {
-				name = can_reformer_movement_fury
-				days = very_long_modifier_time
-			}
-		}
-	}
+	# The 1837 Canadian reform movements are not initialized in 1776.
+	
+	
 }

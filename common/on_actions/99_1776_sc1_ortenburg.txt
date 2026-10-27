@@ -1,0 +1,6 @@
+on_game_started = { on_actions = { aor1776_ortenburg_names_initialize } }
+on_game_started_after_lobby = { on_actions = { aor1776_ortenburg_names_initialize } }
+on_state_created = { on_actions = { aor1776_ortenburg_state_changed } }
+on_state_owner_change = { on_actions = { aor1776_ortenburg_state_changed } }
+aor1776_ortenburg_names_initialize = { effect = { every_state = { assign_aor1776_ortenburg_names = yes } } }
+aor1776_ortenburg_state_changed = { effect = { assign_aor1776_ortenburg_names = yes } }

@@ -1,0 +1,115 @@
+# SERG TERRITORIAL 1.0 — CAMPAGNE DE LEVÉE DES BLOCAGES
+
+## Nouvelle priorité
+
+Nous suspendons temporairement la création systématique de nouveaux territoires.
+
+L'objectif est désormais de **terminer les tâches existantes pour faire progresser les 235 points de la feuille de route**, tout en conservant les exigences de rigueur historique et de validation humaine.
+
+Lire `AGENTS.md`, les instructions spécialisées `.agents/` et les fichiers canoniques `SERG_CLOSURE`.
+
+## 1. Vérifier les travaux déjà réalisés
+
+Commence par rapprocher les tâches `BLOCKED`, les travaux réellement installés et les anciennes validations.
+
+Attention particulière à Teschen :
+
+- MAP2A a déjà corrigé la souveraineté et le scope de `x9061E0` dans `STATE_WEST_GALICIA`.
+- La population technique de 135 753 habitants, les bâtiments et le recrutement avaient déjà été redistribués.
+- L'audit `SC2-AUSTRIAN-SILESIA` a déjà reçu une décision de conservation sans modification.
+- La passe récente `TE-R-CORE` a ajouté les droits impériaux sur les 179 cellules, sans recréer le territoire.
+
+Ne refais aucune de ces corrections.
+
+Le joueur indique avoir vérifié le résultat en jeu. Consigne cette information à sa portée réelle, mais ne prétends pas qu'elle couvre automatiquement le mois de simulation, la sauvegarde/rechargement ou toutes les corrections MAP2A si ces éléments ne sont pas explicitement attestés.
+
+Utilise les fichiers actuels du workspace comme référence, plutôt qu'une version GitHub éventuellement antérieure.
+
+## 2. Première priorité : les tâches déjà installées
+
+Audite les huit tâches `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` :
+
+- `SC2-MAP2A-VALIDATION`
+- `SC2-LUXEMBOURG-VALIDATION`
+- `SC4-MILAN-VALIDATION`
+- `SC4-PIEDMONT-VALIDATION`
+- `SC5-MINDEN-VALIDATION`
+- `SC5-COLOGNE-VALIDATION`
+- `SC5-MAINZ-VALIDATION`
+- `SC6-SWABIA-CONTINUATION-VALIDATION`
+
+Pour chacune :
+
+1. Confirmer que le correctif est toujours présent.
+2. Vérifier qu'aucune évolution concurrente ne l'a invalidé.
+3. Rechercher les reçus humains antérieurs et déterminer précisément leur portée.
+4. Si les preuves et les critères sont déjà suffisants, enregistrer la clôture justifiée.
+5. Sinon, préparer un protocole joueur groupé couvrant uniquement les contrôles manquants.
+
+Ne jamais étendre artificiellement un ancien reçu.
+
+Ne pas reconstruire un territoire uniquement pour obtenir une nouvelle attestation.
+
+## 3. Deuxième priorité : les tâches BLOCKED
+
+Établir une matrice des tâches `BLOCKED P0/P1`, avec :
+
+- Poids dans les 235 points.
+- Corrections déjà installées.
+- Obligations historiques réellement non satisfaites.
+- Sources déjà disponibles.
+- Corrections techniques restantes.
+- Test humain restant.
+- Risque de conflit avec les autres agents.
+- Prochaine action concrète permettant une clôture.
+
+Distinguer les véritables lacunes des simples réserves de précision cadastrale ou des améliorations facultatives P2.
+
+Une approximation politique B suffisamment justifiée peut satisfaire une tâche si elle respecte ses critères d'acceptation ; l'absence d'un cadastre parfait ne doit pas devenir un blocage artificiel.
+
+Inversement, ne pas déclarer complète une tâche dont des souverainetés ou populations importantes restent sans justification.
+
+## 4. Implémentation de clôture
+
+Sélectionne **une seule tâche BLOCKED présentant une voie de clôture réaliste**, après l'audit des tâches installées.
+
+Privilégie la réutilisation des noyaux déjà validés.
+
+Travaille exclusivement sur les obligations restantes.
+
+Si une correction fonctionnelle est nécessaire, implémente-la, teste-la statiquement et prépare le test joueur. Si aucune correction supplémentaire n'est nécessaire, documente pourquoi et applique la procédure de décision sans changement prévue par la feuille de route.
+
+Ne ferme une tâche que si tous ses critères terminaux sont réellement remplis.
+
+Ne lance pas automatiquement `SC3-HOLSTEIN` ni un autre nouveau chantier territorial.
+
+## 5. Progression et conservation
+
+Conserver :
+
+- Périmètre `SERG TERRITORIAL 1.0`.
+- 81 tâches.
+- 235 points.
+- Toutes les validations antérieures.
+- Les rapports et preuves historiques.
+- Les travaux concurrents WORLD, TECH, ECON et autres.
+
+Actualiser la progression uniquement après clôture justifiée et réussite du validateur canonique.
+
+Aucune écriture Git, aucune modification du vanilla, aucune restauration d'ancienne baseline.
+
+## 6. Rapport attendu
+
+Présente :
+
+1. Progression avant/après.
+2. Liste des tâches déjà terminées mais non encore créditées, s'il en existe.
+3. Huit validations en attente et leurs besoins exacts.
+4. Classement des blocages par facilité de clôture et points récupérables.
+5. Une tâche BLOCKED effectivement traitée.
+6. Corrections installées ou décision sans modification.
+7. Tests exécutés et limites.
+8. Protocoles joueur restants.
+9. Prochaine tâche de clôture recommandée.
+
+**Objectif : transformer les travaux existants en tâches réellement terminées, et non produire une nouvelle accumulation de sous-lots partiels.**

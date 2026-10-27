@@ -1,0 +1,72 @@
+{
+  "status": "PASS_STATIC_READY_FOR_PLAYER",
+  "passed": 9,
+  "total": 9,
+  "failed": [],
+  "checks": [
+    {
+      "name": "Geometry validation 17/17",
+      "passed": true
+    },
+    {
+      "name": "No new trailing-whitespace lines",
+      "passed": true
+    },
+    {
+      "name": "Only requested owned-province edits in shared state file",
+      "passed": true
+    },
+    {
+      "name": "All other WORLD lot records untouched",
+      "passed": true
+    },
+    {
+      "name": "WORLD progress criteria phases unchanged",
+      "passed": true
+    },
+    {
+      "name": "All previous protected reports receipts SERG intact",
+      "passed": true
+    },
+    {
+      "name": "Git HEAD branch index unchanged",
+      "passed": true
+    },
+    {
+      "name": "No extra functional write observed",
+      "passed": true
+    },
+    {
+      "name": "Reference vanilla state untouched",
+      "passed": true
+    }
+  ],
+  "whitespace": {
+    "command": "git diff --check -- common/history/states/00_states.txt",
+    "returncode": 2,
+    "stdout": "common/history/states/00_states.txt:30: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:44: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:322: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:323: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:414: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:429: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:473: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:505: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:508: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:512: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:536: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:538: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:540: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:544: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:550: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:569: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:571: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:575: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:612: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:622: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:634: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:644: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:648: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:667: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:671: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:689: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:695: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:711: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:713: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:714: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:717: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:721: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:743: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:756: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:794: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:869: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:931: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:945: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:982: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:1008: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:1009: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:1012: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:1204: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:1261: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:1326: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:1371: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:1606: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:1617: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:3546: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:3637: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:3660: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:3777: trailing whitespace.\n+\t\t\ncommon/history/states/00_states.txt:5191: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:5223: trailing whitespace.\n+\t\ncommon/history/states/00_states.txt:9063: trailing whitespace.\n+\t\n",
+    "stderr": "warning: in the working copy of 'common/history/states/00_states.txt', LF will be replaced by CRLF the next time Git touches it\n",
+    "new_bad_lines": [],
+    "classification": "Preexisting whitespace retained; no broad cleanup of shared file"
+  },
+  "external_runtime_changes": {},
+  "git_before": {
+    "head": "7ed0f5748482695d13fa2996ea23a0faf9338378",
+    "branch": "main",
+    "index": "dd8f321b3bc939074f73a515c0864dd7543b7153ee9c34016c0302578905241c"
+  },
+  "git_after": {
+    "head": "7ed0f5748482695d13fa2996ea23a0faf9338378",
+    "branch": "main",
+    "index": "dd8f321b3bc939074f73a515c0864dd7543b7153ee9c34016c0302578905241c"
+  },
+  "WORLD_progress": {
+    "technical_verified": 10,
+    "criteria_total": 320,
+    "runtime_user_validated": 0,
+    "technical_percent": 3.13,
+    "user_validated_percent": 0
+  },
+  "runtime_validation": "NOT_RUN",
+  "automated_engine_test": false
+}

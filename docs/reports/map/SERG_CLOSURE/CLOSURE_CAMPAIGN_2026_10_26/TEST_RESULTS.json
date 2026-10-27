@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-26",
+  "strict_installed_audit": {
+    "passed": 133,
+    "total": 135,
+    "status": "FAIL",
+    "failed": [
+      {
+        "task_id": "SC2-LUXEMBOURG-VALIDATION",
+        "name": "Luxembourg building declarations common/history/buildings/00_west_europe.txt",
+        "passed": false
+      },
+      {
+        "task_id": "SC2-LUXEMBOURG-VALIDATION",
+        "name": "Luxembourg building declarations common/history/buildings/98_build_start_1776_world_redistribution.txt",
+        "passed": false
+      }
+    ]
+  },
+  "teschen_conservation": {
+    "passed": 12,
+    "total": 13,
+    "status": "FAIL",
+    "failed_classification": "Whole-workspace hash comparison detects concurrent WORLD changes; scoped checks and complementary imperial-region comparisons retained separately."
+  },
+  "campaign_contracts": {
+    "status": "PASS",
+    "total": 16,
+    "passed": 16,
+    "failed": [],
+    "skipped": [],
+    "automated_engine_test": false,
+    "command": "python -B -X utf8; unittest.defaultTestLoader.loadTestsFromName('test_serg_closure_campaign_20261026'), TextTestRunner(verbosity=2)",
+    "test_module_sha256": "ea7c204cdf5a6bb029f8f36dc1a3767efa2819fdf33fbedbd303c46b06ed0305",
+    "tracker_tool_sha256": "a706fb4b601e5469ccbc564ab97aa671dceb89cbf7ec6ec6eaa223b266b59c76",
+    "campaign_tool_sha256": "73ee32970e4060f848a1adeea1118579831d2268270370d5838ce010f8313d5f"
+  },
+  "tracker_regression": {
+    "status": "PASS",
+    "total": 28,
+    "passed": 27,
+    "failed": [],
+    "skipped": [
+      {
+        "id": "test_protection_runtime_git_and_audit (test_serg_closure_roadmap.RoadmapTests.test_protection_runtime_git_and_audit)",
+        "reason": "Initial no-edit check only; future authorized edits must not fail old snapshots"
+      }
+    ],
+    "automated_engine_test": false,
+    "command": "python -B -X utf8; unittest.defaultTestLoader.loadTestsFromName('test_serg_closure_roadmap'), TextTestRunner(verbosity=2)",
+    "test_module_sha256": "7554fa8f49e6a54ab9c2dd48455d8fd10808ababc4c62a5e6e244c1a05c58b6c",
+    "tracker_tool_sha256": "a706fb4b601e5469ccbc564ab97aa671dceb89cbf7ec6ec6eaa223b266b59c76",
+    "campaign_tool_sha256": "73ee32970e4060f848a1adeea1118579831d2268270370d5838ce010f8313d5f"
+  },
+  "automated_engine_test": false,
+  "previous_530_test_suite_reexecuted": false
+}

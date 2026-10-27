@@ -462,19 +462,13 @@ BUILDINGS={
 		}
 	}
 	s:STATE_TENNESSEE={
-		region_state:COM={
-
-		}
+		
 	}
 	s:STATE_MISSISSIPPI={
-		region_state:COM={
-
-		}
+		
 	}
 	s:STATE_ALABAMA={
-		region_state:COM={
-
-		}
+		
 	}
 	s:STATE_FLORIDA={
 		region_state:GBR={
@@ -1727,67 +1721,10 @@ BUILDINGS={
 			}
 
 		}
-		region_state:ONT={
-
-
-
-
-
-			create_building={
-				building="building_barrack"
-				add_ownership={
-					country={
-						country="c:ONT"
-						levels=5
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_no_organization" }
-			}
-		}
+		
 	}
 	s:STATE_NEW_BRUNSWICK={
-		region_state:NBS={
-
-			create_building={
-				building="building_logging_camp"
-				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:NBS"
-						levels=1
-						region="STATE_NEW_BRUNSWICK"
-					}
-				}
-				reserves=1
-				activate_production_methods = { "pm_simple_forestry" "pm_hardwood" "pm_no_equipment" "pm_road_carts" }
-			}
-			create_building={
-				building="building_barrack"
-				add_ownership={
-					country={
-						country="c:NBS"
-						levels=2
-					}
-				}
-				reserves=1
-				activate_production_methods={ "pm_no_organization" }
-			}
-			create_building={
-				building="building_railway"
-				add_ownership={
-					building={
-						type="building_financial_district"
-						country="c:NBS"
-						levels=1
-						region="STATE_NEW_BRUNSWICK"
-					}
-				}
-				reserves=1
-				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
-			}
-
-		}
+		
 		region_state:NVS={
 			create_building={
 				building="building_trade_center"
@@ -1820,7 +1757,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:NVS"
-						levels=3
+						levels = 5
 					}
 				}
 				reserves=1
@@ -1843,7 +1780,7 @@ BUILDINGS={
 					building={
 						type="building_financial_district"
 						country="c:NVS"
-						levels=2
+						levels = 3
 						region="STATE_NEW_BRUNSWICK"
 					}
 				}
@@ -1875,7 +1812,21 @@ BUILDINGS={
 							activate_production_methods = { "pm_basic_shipbuilding" "pm_no_copper_sheathing_building_shipyard" }
 						}
 
-		}
+		
+create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:NVS"
+						levels=1
+						region="STATE_NEW_BRUNSWICK"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_simple_forestry" "pm_hardwood" "pm_no_equipment" "pm_road_carts" }
+			}
+}
 	}
 	s:STATE_QUEBEC={
 		region_state:QUE={
@@ -1927,7 +1878,7 @@ BUILDINGS={
 				add_ownership={
 					country={
 						country="c:QUE"
-						levels=5
+						levels = 10
 					}
 				}
 				reserves=1

@@ -1,8 +1,20 @@
 # Feuille de route canonique — clôture territoriale du SERG
 
-**SERG TERRITORIAL 1.0 — PROGRESSION : 34,89 %**
+**SERG TERRITORIAL 1.0 — PROGRESSION : 35,32 %**
 
 Périmètre `1.0.0` — référence historique : 1er janvier 1776. Indicateur de jalons acceptés, pas pourcentage de frontières exactes.
+
+## Résolution actuelle — Luxembourg administratif
+
+Un niveau ordinaire BEO/Wallonie installé, trois niveaux flamands conservés ; contrat BUILD réconcilié. Rapport : [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/REPORT.md>). Statut : `PASS_RUNTIME_USER_VALIDATED`. Reçu humain limité à cette tâche : [RUNTIME_USER_ATTESTATION_2026_10_26.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json>).
+
+Prochaine action limitée aux validations groupées : [PLAYER_TEST_PROTOCOL_GROUPED.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/PLAYER_TEST_PROTOCOL_GROUPED.md>). La matrice antérieure reste une archive ; aucun nouveau territoire autorisé.
+
+## Priorité actuelle — campagne de levée des blocages
+
+Création systématique de nouveaux territoires suspendue selon [USER_MISSION.txt](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/USER_MISSION.txt>). Auditer et clore les installations existantes avant toute nouvelle expansion. Aucun changement du périmètre, des 81 tâches ou des 235 points.
+
+Audit des huit installations : [INSTALLED_VALIDATIONS.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md>). Matrice des blocages : [BLOCKED_MATRIX.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/BLOCKED_MATRIX.md>). Tâche de clôture traitée : `SC2-TESCHEN` ; décision proposée, aucune approbation présumée.
 
 ## Protocole obligatoire de chaque passe SERG
 
@@ -17,7 +29,7 @@ La mission d’initialisation (`SERG_CLOSURE_ROADMAP_INITIALIZED`) n’a install
 
 ## Socle initial et calcul courant
 
-État courant : 24 jalons justifiés; **82 / 235 points**, 81 tâches définies dans une liste finie. 8 tâches installées attendent un reçu spécifique.
+État courant : 25 jalons justifiés; **83 / 235 points**, 81 tâches définies dans une liste finie. 7 tâches installées attendent un reçu spécifique.
 
 À l’initialisation : 19 noyaux/jalons antérieurs acceptés, 60/235 points = 25,53 %. Indicateur auparavant absent; aucune nouvelle correction ni validation humaine pendant cette seule mission. L’historique conserve ensuite les évolutions.
 
@@ -34,7 +46,7 @@ Arrondi à deux décimales, demi vers le haut; un arrondi numérique ne peut aff
 | Phase | Tâches | Points acceptés / total | Origine audit |
 | --- | ---: | ---: | --- |
 | 1 — Salzbourg et principautés ecclésiastiques alpines | 12 | 14 / 32 | CL1 : juridictions alpines et périphéries R4 |
-| 2 — Possessions impériales des Habsbourg | 11 | 21 / 37 | CL1 : territoires habsbourgeois et Teschen |
+| 2 — Possessions impériales des Habsbourg | 11 | 22 / 37 | CL1 : territoires habsbourgeois et Teschen |
 | 3 — Allemagne septentrionale et juridictions manquantes | 14 | 18 / 44 | CL3; socles MAP2N/Q/R/T/U |
 | 4 — Italie impériale | 8 | 0 / 23 | CL2; le rang change, pas le contenu historique |
 | 5 — Corrections occidentales et centrales restantes | 18 | 14 / 45 | CL4 + CL5; Montbéliard/Oettingen de CL6 |
@@ -171,7 +183,7 @@ Source de départ : [docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING
 
 #### SC1-ORTENBURG — Arbitrage d’Ortenbourg
 
-P1 · poids 1 · `NOT_STARTED` · profil `territorial`.
+P1 · poids 1 · `BLOCKED` · profil `territorial`.
 
 Région/périmètre : Bavière et enclaves restantes. Dépendances : aucune.
 
@@ -264,7 +276,7 @@ Source de départ : [docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/REGIONAL_COVERAG
 
 #### SC2-TESCHEN — Teschen et registre x9061E0
 
-P1 · poids 2 · `NOT_STARTED` · profil `territorial`.
+P1 · poids 2 · `BLOCKED` · profil `territorial`.
 
 Région/périmètre : Moravie et Silésie autrichienne. Dépendances : aucune.
 
@@ -284,11 +296,11 @@ Source de départ : [docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/COMPLETED_LOTS.c
 
 #### SC2-LUXEMBOURG-VALIDATION — Portée manuelle Luxembourg sous BEO
 
-P1 · poids 1 · `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` · profil `runtime_only`.
+P1 · poids 1 · `PASS_RUNTIME_USER_VALIDATED` · profil `runtime_only`.
 
 Région/périmètre : Luxembourg : intégration à BEO. Dépendances : aucune.
 
-Acceptation : Ancien LUX xD001A0, habitants/bâtiments/unités transférés; pas nouveau tracé luxembourgeois.
+Acceptation : Transfert xD001A0 BEO, quatre groupes et 137881 habitants historiques de transfert, formation/général conservés ; une administration BEO/Wallonie unique dans le contrat BUILD réconcilié, trois niveaux flamands conservés, aucun nouveau tracé.
 
 Source de départ : [docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/COMPLETED_LOTS.csv:1](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/COMPLETED_LOTS.csv>). Rapports, autres sources et incertitudes : fiche JSON du même ID.
 

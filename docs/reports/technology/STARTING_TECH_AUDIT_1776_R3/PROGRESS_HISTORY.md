@@ -7,3 +7,5 @@
 - 2026-10-24 — R3-005 : WORLD/Raguse et ECON/alliages-ustensiles conservés ; aucune écriture territoriale. Réparation documentée de vues dérivées, sources gelées préservées.
 - 2026-10-24 — R3-006 : 66/66 statiques, 41/41 ciblés, 596/609 cumulatifs ; 12 assertions classées, 1 exclusion. Protocole prêt ; R3 attend le joueur.
 - 2026-10-24 — R3-007 : évolution externe Quincaillerie d’ECON conservée ; aucun fichier TECH modifié. Contrôle de coexistence, 66 statiques et 41 ciblés réexécutés ; suite cumulative précédente conservée avec son instantané, sans nouvelle prétention d’exécution.
+
+- 2026-10-25 — R3-008 : retour utilisateur « Le test joueur passe. » ; PASS_RUNTIME_USER_VALIDATED enregistré pour la livraison R3-P/R3-T/R3-A inchangée (8/8 empreintes). Aucun détail moteur ni date effective inventé. Aucun reçu territorial ou économique étendu ; retour au SERG demandé, aucun R4 commencé.

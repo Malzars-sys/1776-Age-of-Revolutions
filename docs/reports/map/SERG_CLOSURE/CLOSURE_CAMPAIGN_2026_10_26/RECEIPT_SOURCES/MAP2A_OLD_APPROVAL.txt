@@ -1,0 +1,327 @@
+# CODEX — MAP-2A : Intégration des corrections cartographiques de 1776
+
+## Contexte
+
+Projet : Victoria 3 — 1776 Age of Revolutions  
+Date historique : 1er janvier 1776  
+Branche principale : `main`  
+Branche du collaborateur : `georg3mx-map-rework`
+
+Les phases MAP-0, MAP-1, MAP-1B et MAP-1C ont établi l'inventaire technique, les recherches historiques et les principaux problèmes cartographiques.
+
+Nous avons désormais décidé de changer de méthode.
+
+**L'objectif est de corriger effectivement la carte, et non de poursuivre indéfiniment les audits.**
+
+Les frontières doivent être historiquement crédibles à l'échelle des provinces existantes de Victoria 3. Une approximation raisonnable est acceptable lorsqu'elle est documentée et n'introduit pas d'anachronisme majeur.
+
+Ne pas exiger une superposition géographique parfaite pour chaque province.
+
+---
+
+## 1. Préserver le correctif luxembourgeois
+
+Le Luxembourg a déjà été intégré aux Pays-Bas autrichiens.
+
+Cette modification est approuvée et ne doit pas être annulée.
+
+Conserver impérativement :
+
+- Province `xD001A0` appartenant à `BEO`.
+- Les 137 881 anciens habitants de LUX, sans perte ni duplication.
+- La composition culturelle et religieuse de ces populations.
+- Les administrations transférées à BEO.
+- Les trois unités permanentes et leur général transférés.
+- Le statut de terre de la Couronne autrichienne de BEO.
+- L'absence de Luxembourg indépendant en 1776.
+
+Le correctif figure dans `docs/reports/map/LUX_BEO_INTEGRATION_2026-10-10/`.
+
+Exécuter son validateur avant et après les modifications MAP-2A.
+
+Si un nouveau chargement natif du jeu est possible, vérifier ce correctif dans une nouvelle campagne avant d'ajouter les autres modifications. Sinon, signaler explicitement que la vérification reste à effectuer par le joueur, sans prétendre l'avoir réalisée.
+
+---
+
+## 2. Reprendre le travail de georg3mx
+
+Examiner les commits réellement nouveaux de `georg3mx-map-rework` et comparer leurs changements aux fichiers actuels de `main`.
+
+Ne pas fusionner automatiquement toute la branche : certaines corrections ont déjà été intégrées et d'autres présentent des problèmes.
+
+Préserver les modifications précédemment approuvées lorsqu'elles sont cohérentes.
+
+Réexaminer le lot cartographique du collaborateur :
+
+- Dobroudja.
+- Bessarabie.
+- Suisse orientale.
+- Grand Caucase.
+- Lombardie austro-vénitienne.
+- Istrie.
+- Tyrol du Sud.
+- Nunavut.
+
+Les territoires qui sont déjà correctement modifiés dans `main` ne doivent pas être réécrits inutilement.
+
+**La nouvelle attribution du Luxembourg à BEO prévaut systématiquement sur toute ancienne proposition du collaborateur concernant LUX.**
+
+Ne jamais réintroduire les pertes démographiques antérieures.
+
+---
+
+## 3. Corriger les anomalies techniques connues
+
+### Bessarabie
+
+Retirer les commandes Git accidentellement insérées dans les scripts historiques du candidat collaborateur.
+
+Conserver les propriétaires historiquement retenus, sauf contradiction sérieuse identifiée dans les recherches R2/R3.
+
+Ne pas confondre correction syntaxique et changement de souveraineté.
+
+### Lombardie
+
+Supprimer les doubles attributions territoriales AUS/VEN, notamment le conflit concernant `x867A90`.
+
+Réexaminer `x9AC196` à partir :
+
+- Des recherches R1/R2.
+- Des conclusions MAP-1C.
+- Des modifications de georg3mx.
+- Des divisions historiques entre Milan, Bergame, Brescia, Crema, Mantoue et les territoires des Trois Ligues.
+
+Privilégier une attribution raisonnable aux provinces existantes.
+
+Si une province chevauche plusieurs territoires historiques, choisir une approximation explicitement documentée lorsque les éléments disponibles sont suffisants.
+
+Ne pas inventer de nouveau pays uniquement pour résoudre une petite enclave.
+
+### Haute et Basse Silésie
+
+Corriger les éventuelles contradictions de propriété et références aux mauvaises State Regions.
+
+Examiner notamment :
+
+- `x71E080`
+- `xF0E080`
+- `x9061E0`
+
+Distinguer les erreurs de scopes techniques des désaccords historiques.
+
+La répartition austro-prussienne doit être crédible en 1776, sans nécessiter une reconstruction cadastrale complète.
+
+### Istrie et Tyrol du Sud
+
+Vérifier la cohérence des partages déjà introduits par le collaborateur.
+
+Conserver les dénominations historiques ou géographiques appropriées.
+
+Vérifier les historiques de populations, bâtiments et propriétaires économiques.
+
+---
+
+## 4. Étendre le lot si les recherches permettent des corrections simples
+
+Une fois les problèmes du collaborateur réglés, examiner les autres recommandations prioritaires des régions R1 et R2.
+
+Sources à exploiter :
+
+- `WORLD_BORDERS_1776_MASTER.csv`
+- `WORLD_BORDERS_1776_SOURCES.csv`
+- `WORLD_BORDERS_1776_CONFLICTS.csv`
+- `MAP1_PRIORITY_ARBITRATION.csv`
+- Les livrables R1 et R2.
+- Les dossiers MAP-1B et MAP-1C.
+
+Sélectionner les corrections qui remplissent les trois critères suivants :
+
+1. Les sources disponibles soutiennent raisonnablement l'attribution historique proposée.
+2. La correction est réalisable avec les provinces existantes.
+3. Les dépendances démographiques, économiques et militaires sont gérables.
+
+Ne pas limiter artificiellement le lot à trois provinces. Traiter plusieurs États lorsqu'ils relèvent d'un même problème territorial.
+
+En revanche, ne pas modifier arbitrairement les territoires dont la souveraineté reste fortement contestée.
+
+Ne pas créer de nouveaux TAGs ni modifier la géométrie du bitmap dans cette phase.
+
+Les cas trop incertains sont simplement reportés au lot suivant, sans déclencher automatiquement un nouvel audit approfondi.
+
+---
+
+## 5. Conserver les populations
+
+**Aucune population ne doit disparaître ou être dupliquée à cause d'un transfert territorial.**
+
+Pour chaque State Region modifiée :
+
+- Relever les populations avant modification.
+- Identifier les groupes culturels et religieux.
+- Vérifier leurs propriétaires initiaux.
+- Effectuer les transferts vers les nouveaux propriétaires.
+- Conserver les effectifs globaux.
+- Conserver les compositions culturelles et religieuses.
+- Vérifier qu'aucun groupe n'est oublié ou dupliqué.
+
+Lorsque la ventilation historique exacte est inconnue, employer une répartition prudente et documentée, en conservant strictement les totaux.
+
+Ne pas utiliser systématiquement le nombre de provinces comme approximation démographique si des éléments de population plus pertinents sont disponibles.
+
+Respecter les historiques spécifiques des territoires vénitiens et génois.
+
+---
+
+## 6. Corriger les dépendances du gameplay
+
+Pour chaque territoire effectivement modifié, contrôler :
+
+**Économie**
+- Bâtiments.
+- Niveaux et méthodes de production.
+- Propriétaires économiques.
+- Infrastructures.
+- Ressources et ports.
+
+**Militaire**
+- Casernes et conscription.
+- Recrutement des unités.
+- Quartiers généraux.
+- Formations et commandants.
+
+**Politique**
+- Capitales.
+- Sujets et dépendances.
+- Traités.
+- Relations diplomatiques.
+- États incorporés ou non incorporés.
+
+**Technique**
+- Validité des State Regions.
+- Propriétés des provinces.
+- Localisations.
+- Triggers historiques.
+- Décisions et entrées de journal.
+
+Une correction cartographique ne doit pas provoquer la disparition silencieuse de bâtiments ou d'unités.
+
+Ne pas transférer la propriété économique d'un bâtiment étranger simplement parce que la souveraineté politique change.
+
+---
+
+## 7. Politique concernant les colonies
+
+Pour ce premier lot, ne pas entreprendre une redistribution générale des territoires coloniaux.
+
+Les modifications préexistantes du Nunavut ou d'autres territoires extra-européens du collaborateur doivent être conservées lorsqu'elles sont cohérentes.
+
+Pour les futurs lots mondiaux, appliquer le principe suivant :
+
+- Conserver par défaut les approximations coloniales existantes lorsqu'elles restent plausibles.
+- Distinguer souveraineté revendiquée et contrôle administratif réel.
+- Préserver les souverainetés autochtones suffisamment documentées.
+- Ne pas considérer automatiquement qu'une State Region non incorporée était entièrement administrée par sa métropole.
+- Ne pas créer de nombreuses entités politiques inutiles uniquement pour représenter des zones de faible contrôle.
+
+Les corrections importantes devront privilégier la cohérence historique et la jouabilité plutôt qu'une fragmentation excessive.
+
+---
+
+## 8. Protection des développements en cours
+
+Le dépôt comporte déjà de nombreuses modifications locales non commitées.
+
+Ne jamais utiliser `git reset --hard` ou une opération destructrice.
+
+Préserver :
+
+- Les réformes ottomanes.
+- Le dernier correctif du Luxembourg.
+- Les modifications économiques.
+- Les technologies et leurs assets.
+- Les développements MAP-1C.
+- Les travaux en cours sur le comportement économique de l'IA.
+
+Si un autre processus Codex modifie actuellement les fichiers d'infrastructure ou d'IA, ne pas intervenir simultanément sur ses fichiers et ne pas écraser son travail.
+
+Ne modifier que les éléments nécessaires au lot cartographique.
+
+---
+
+## 9. Tests obligatoires
+
+Créer un validateur spécifique MAP-2A.
+
+Avant et après les modifications, comparer :
+
+- Le nombre total de provinces et leurs propriétaires.
+- Les doublons de propriétaires.
+- Le total des populations.
+- Les populations par culture et religion.
+- Les bâtiments et leurs niveaux.
+- Les unités militaires.
+- Les États et pays existants.
+- Les capitales.
+- Les relations de sujet.
+- Les références devenues invalides.
+
+**Ne pas considérer toutes les anomalies préexistantes comme des régressions du nouveau lot.**
+
+Les distinguer explicitement des nouvelles erreurs.
+
+Refuser toute modification introduisant une nouvelle attribution incompatible, une perte démographique ou une référence critique orpheline.
+
+Si le jeu peut être lancé, créer une partie de test au 1er janvier 1776 et vérifier le chargement, puis l'évolution après un mois.
+
+Si aucun test natif n'est possible, fournir des instructions de vérification au joueur et préciser que la validation est seulement statique.
+
+---
+
+## 10. Livrables
+
+Créer :
+
+`docs/reports/map/MAP2A/`
+
+Avec les fichiers suivants :
+
+- `MAP2A_EXECUTIVE_SUMMARY.md` — résumé des changements réellement intégrés.
+- `MAP2A_TERRITORIAL_CHANGES.csv` — anciennes et nouvelles attributions.
+- `MAP2A_POPULATION_VALIDATION.csv` — contrôle démographique.
+- `MAP2A_DEPENDENCIES.md` — bâtiments, armées et diplomatie.
+- `MAP2A_UNRESOLVED.csv` — corrections reportées.
+- `MAP2A_VALIDATION.json` — résultats des validations.
+- `MAP2A_NEXT_REGIONS.md` — proposition d'ordre de traitement du reste du monde.
+
+Le rapport doit indiquer clairement :
+
+- Le nombre de provinces réellement corrigées.
+- Le nombre d'États concernés.
+- Le travail nouveau du collaborateur intégré.
+- Les anomalies techniques supprimées.
+- Les approximations historiques retenues.
+- Les problèmes non résolus.
+- Les populations et bâtiments conservés.
+- Les tests réussis et les tests non effectués.
+
+---
+
+## 11. Critère de réussite
+
+MAP-2A doit produire **de véritables changements dans les fichiers historiques du mod**, dans les limites des preuves disponibles.
+
+Ne pas recréer les 410 dossiers de MAP-1.
+
+Ne pas refaire une quatrième étude complète du Luxembourg.
+
+Ne pas demander de démonstration géométrique au pixel près pour chaque province.
+
+Privilégier les corrections réelles, avec des contrôles stricts d'intégrité.
+
+Si certaines provinces demeurent impossibles à attribuer raisonnablement, les reporter sans bloquer le reste du lot.
+
+**Autorisation : modifier localement les fichiers historiques nécessaires au lot MAP-2A.**
+
+Aucun commit, merge ou push automatique.
+
+À la fin, fournir un rapport concis et attendre la validation du joueur avant de passer au lot suivant.

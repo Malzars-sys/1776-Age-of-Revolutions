@@ -1,6 +1,6 @@
 # Registre des P2 et abstractions non bloquantes
 
-**SERG TERRITORIAL 1.0 — PROGRESSION : 34,89 %**
+**SERG TERRITORIAL 1.0 — PROGRESSION : 35,32 %**
 
 Périmètre `1.0.0` — référence historique : 1er janvier 1776. Indicateur de jalons acceptés, pas pourcentage de frontières exactes.
 

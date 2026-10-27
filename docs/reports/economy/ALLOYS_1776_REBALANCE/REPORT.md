@@ -53,7 +53,9 @@ Voir [BALANCE_REVIEW.md](BALANCE_REVIEW.md), `HARDWARE_PM_MATRIX.csv`, `HARDWARE
 
 ## Image, fichiers et localisations
 
-L'image du joueur est détourée avec imagegen intégré : fond et cadre retirés, transparence réelle autour et entre les objets, notamment dans l'anse. PNG maître : `workshop_assets/source/aor1776_hardware_transparent.png`. Texture de jeu : `gfx/interface/icons/goods_icons/aor1776_hardware.dds`, 256 × 256, BGRA8 natif, neuf mipmaps, alpha conservé. Le premier PM réutilise aussi cette icône. [Aperçu](HARDWARE_ICON.png), [prompt et provenance](ARTWORK.md).
+L'image du joueur est détourée avec imagegen intégré : fond et cadre retirés, transparence réelle autour et entre les objets, notamment dans l'anse. PNG maître : `workshop_assets/source/aor1776_hardware_transparent.png`. Texture du bien : `gfx/interface/icons/goods_icons/aor1776_hardware.dds`, 256 × 256, BGRA8 natif, neuf mipmaps, alpha conservé. [Aperçu du bien](HARDWARE_ICON.png), [prompt et provenance](ARTWORK.md).
+
+Le 25 octobre 2026, les quatre PM actifs ont reçu des icônes distinctes rouges, inspirées des silhouettes vanilla et de la palette des canaux. Le neutre reprend exactement `unused/disabled.dds`, comme les canaux. L'icône du bien reste distincte. Détails et aperçu : [HARDWARE_PM_ICONS](../../assets/HARDWARE_PM_ICONS/REPORT.md). Les recettes ne changent pas.
 
 Créations de cette révision : définition du bien dans `common/goods/1776_hardware.txt`, quatre types de modificateurs dans `common/modifier_type_definitions/1776_hardware.txt`, symbole dans `gui/1776_hardware_texticons.gui`, PNG/DDS et `tools/build_hardware_icon.py`.
 

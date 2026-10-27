@@ -1,0 +1,98 @@
+{
+  "static_validation": {
+    "status": "PASS",
+    "passed": 23,
+    "total": 23,
+    "failed": [],
+    "command": "python -B -X utf8 tools/serg_luxembourg_admin_resolution.py validate --write-report"
+  },
+  "tracker_regression": {
+    "status": "PASS",
+    "total": 28,
+    "passed": 27,
+    "failed": [],
+    "skipped": [
+      {
+        "id": "test_protection_runtime_git_and_audit (test_serg_closure_roadmap.RoadmapTests.test_protection_runtime_git_and_audit)",
+        "reason": "Initial no-edit check only; future authorized edits must not fail old snapshots"
+      }
+    ],
+    "command": "python -B -X utf8; unittest loader test_serg_closure_roadmap and TextTestRunner(verbosity=2)",
+    "tracker_sha256": "81c7c98507d97d1874375f4547181ef463ed836b107b24ffc3a5fe1786b0b418",
+    "automated_engine_test": false
+  },
+  "technology_delta": {
+    "status": "PASS",
+    "scope": "Only added BEO/Wallonia building and BEO finding delta; no global technology repair",
+    "command": "validate_starting_technology_1776.audit_country(BEO, collect_snapshot(), {}), with read-only preimage injection for before comparison",
+    "before_status": "FAIL_STATIC",
+    "after_status": "FAIL_STATIC",
+    "new_findings": [],
+    "added_administration": {
+      "state": "STATE_WALLONIA",
+      "building": "building_government_administration",
+      "explicit_declarations": 1,
+      "selected_PM_by_group": {
+        "pmg_base_building_government_administration": "pm_simple_organization",
+        "pmg_government_administration_bureaucrat_professionalism": "pm_hereditary_bureaucrats",
+        "pmg_government_administration_religious_administration": "pm_religious_bureaucrats",
+        "pmg_1776_administrative_data_reporting": "pm_1776_no_organized_data_reporting"
+      },
+      "construction_missing": [],
+      "PM_missing": {
+        "pm_simple_organization": [],
+        "pm_hereditary_bureaucrats": [],
+        "pm_religious_bureaucrats": [],
+        "pm_1776_no_organized_data_reporting": []
+      }
+    },
+    "automated_engine_test": false
+  },
+  "legacy_build_parser": {
+    "status": "PREEXISTING_PARSER_INCOMPATIBILITY",
+    "command": "build_start_1776_world_apply.all_placements(HISTORY)",
+    "error": "Cannot resolve state/owner context in C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\common\\history\\buildings\\1776_sc1_berchtesgaden.txt:53",
+    "unchanged_file": "common/history/buildings/1776_sc1_berchtesgaden.txt",
+    "unchanged": true,
+    "before_sha256": "0d58de0e8c9439a961aa6109e24785746f77ea67686f9a33efaa70a46542332e",
+    "after_sha256": "0d58de0e8c9439a961aa6109e24785746f77ea67686f9a33efaa70a46542332e",
+    "writes": false,
+    "scope": "Whole-world BUILD parser not adapted to compact historical statements; bounded structural non-regression uses existing Clausewitz parser instead."
+  },
+  "old_tests_and_raw_results_rewritten": false,
+  "automated_engine_test": false,
+  "build_scoped_regression": {
+    "status": "PASS",
+    "passed": 6,
+    "total": 6,
+    "checks": [
+      {
+        "name": "Legacy BUILD parser accepts both affected regional files",
+        "passed": true
+      },
+      {
+        "name": "Only one new ordinary BEO Wallonia level in legacy BUILD semantics",
+        "passed": true
+      },
+      {
+        "name": "Flanders three levels preserved under legacy BUILD parser",
+        "passed": true
+      },
+      {
+        "name": "LGE declarations preserved separately",
+        "passed": true
+      },
+      {
+        "name": "Later redistribution overlay untouched",
+        "passed": true
+      },
+      {
+        "name": "No LUX administration declaration introduced",
+        "passed": true
+      }
+    ],
+    "scope": "Legacy BUILD parser on 00_west_europe and 98 overlay only; global compact-file incompatibility remains separately recorded.",
+    "command": "build_start_1776_world_apply.parse_file on affected regional history and existing overlay, before/after structural and placement comparison",
+    "automated_engine_test": false
+  }
+}

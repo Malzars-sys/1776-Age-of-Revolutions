@@ -1,6 +1,6 @@
 # Historique additif des décisions et validations
 
-**SERG TERRITORIAL 1.0 — PROGRESSION : 34,89 %**
+**SERG TERRITORIAL 1.0 — PROGRESSION : 35,32 %**
 
 Périmètre `1.0.0` — référence historique : 1er janvier 1776. Indicateur de jalons acceptés, pas pourcentage de frontières exactes.
 
@@ -373,6 +373,152 @@ Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC1-BERCHTESGADEN/
 Supprime dans le blocage actuel BGT la formule héritée « aucun reçu humain » : le reçu concerne BG-I-CORE original, seule la mine ordinaire ultérieure reste à tester. Six obligations territoriales inchangées. Aucun travail géographique ou moteur supplémentaire.
 
 Progression : 34.89 → 34.89 %.
+
+## SERG-RM-0039 — 2026-10-25 — SCOPED_REGRENSBURG_USER_VALIDATION
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC1-REGENSBURG-DEMOGRAPHY/RUNTIME_USER_ATTESTATION_2026_10_25.json.
+
+RG-D-CITY validé par le joueur le 25 octobre (date de réception) : seuls les 11000 habitants municipaux RCI et la correction livrée sont couverts. Région BLOCKED P1 pour les autres ressorts et preuves historiques ; zéro point régional. Aucune observation supplémentaire inventée.
+
+Progression : 34.89 → 34.89 %.
+
+
+- SC1-REGENSBURG-DEMOGRAPHY : `BLOCKED` → `BLOCKED`.
+## SERG-RM-0040 — 2026-10-25 — ORTENBURG_SCOPED_SOVEREIGN_NUCLEUS_PENDING_RUNTIME
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/USER_AUTHORIZATION.txt.
+
+OR-I-CORE installé : ORT, quatre cellules xEDC100 depuis BAV x8C26DD, 1000 protestants transférés sans variation mondiale, Karl III et comté héréditaire, neuf technologies et chancellerie 100 postes. Région BLOCKED P1 pour périphéries et démographie comparables ; noyau seul en attente du joueur, zéro point.
+
+Progression : 34.89 → 34.89 %.
+
+
+- SC1-ORTENBURG : `NOT_STARTED` → `BLOCKED`.
+## SERG-RM-0041 — 2026-10-25 — ORTENBURG_FINAL_STATIC_AND_TEST_REVIEW
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/TEST_REVIEW.json.
+
+146/146 contrôles statiques, 16/16 ciblés et 497/512 cumulatifs ; quatorze assertions historiques classées (dix snapshots de registre, quatre absences de reçus humains), une exclusion héritée. Aucun échec inexpliqué, aucun moteur lancé. OR-I-CORE seul attend le joueur ; région BLOCKED P1, zéro point. SC2-TESCHEN seulement identifié.
+
+Progression : 34.89 → 34.89 %.
+
+## SERG-RM-0042 — 2026-10-25 — SCOPED_ORTENBURG_RUNTIME_USER_VALIDATION
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/RUNTIME_USER_ATTESTATION_2026_10_25.json.
+
+OR-I-CORE seul PASS_RUNTIME_USER_VALIDATED selon protocole intégral explicite : ORT/xEDC100/quatre cellules/1000 habitants, Karl III, comté protestant héréditaire, neuf technologies, chancellerie 100 postes, droits impériaux sans électorat supplémentaire, voisins, un mois et sauvegarde/rechargement réussis. Région BLOCKED P1 ; obligations rurales et démographiques inchangées, zéro point régional. Aucune date effective ou mesure supplémentaire inventée.
+
+Progression : 34.89 → 34.89 %.
+
+
+- SC1-ORTENBURG : `BLOCKED` → `BLOCKED`.
+## SERG-RM-0043 — 2026-10-25 — TESCHEN_REGISTRY_ONLY_IMPLEMENTATION_WITH_REGIONAL_BLOCK
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/REPORT.md.
+
+TE-R-CORE installé : x9061E0, 179 cellules AUS conservées dans WEST_GALICIA, un droit impérial explicite ajouté (580→581), aucun pays ni électeur nouveau. Bitmap, souverainetés, POPs, bâtiments, ressources, unités et technologies conservés. Seul le registre attend le joueur ; région BLOCKED P1 pour correspondance territoriale/démographique, zéro point. Le total régional 112850 en 1770–1771 n’est pas assimilé automatiquement au pool technique 135753.
+
+Progression : 34.89 → 34.89 %.
+
+
+- SC2-TESCHEN : `NOT_STARTED` → `BLOCKED`.
+## SERG-RM-0044 — 2026-10-25 — TESCHEN_FINAL_STATIC_AND_TEST_REVIEW
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/TEST_REVIEW.json.
+
+Teschen : 123/123 contrôles statiques, 18/18 ciblés, suite cumulative brute 510/530 avec 19 échecs classés et une exclusion héritée. Quatorze assertions déjà classées ; cinq nouveaux écarts expliqués par couche/reçu/autorisation explicites et 41 pixels externes antérieurs à la capture Teschen. Garde négatif Ortenbourg recontrôlé, aucun ancien test modifié, aucun échec inexpliqué. TE-R-CORE seul en attente du joueur ; région BLOCKED P1 et 82/235=34,89 % inchangés. SC3-HOLSTEIN seulement identifiée.
+
+Progression : 34.89 → 34.89 %.
+
+## SERG-RM-0045 — 2026-10-26 — CLOSURE_CAMPAIGN_INSTALLED_LOTS_AUDITED
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md.
+
+Campagne autorisée par le joueur : huit installations auditées, 133/135 contrôles stricts ; deux écarts administratifs Luxembourg expliqués par un recalibrage BUILD ultérieur, à réconcilier avant clôture. Aucun reçu complet suffisant pour créditer une nouvelle tâche ; onze points restent conditionnels. Création systématique suspendue, aucun chantier SC3-HOLSTEIN commencé.
+
+Progression : 34.89 → 34.89 %.
+
+## SERG-RM-0046 — 2026-10-26 — TESCHEN_LIMITED_USER_OBSERVATION_RECORDED
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_USER_OBSERVATION.json.
+
+Vérification du résultat en jeu rapportée par le joueur ; aucun mois, sauvegarde/rechargement, nouvelle partie ou contrôle global MAP2A ajouté. Aucun nouveau PASS, statut BLOCKED P1 et zéro point conservés.
+
+Progression : 34.89 → 34.89 %.
+
+
+- SC2-TESCHEN : `BLOCKED` → `BLOCKED`.
+## SERG-RM-0047 — 2026-10-26 — TESCHEN_CLOSURE_REVIEW_WITHOUT_ADDITIONAL_INSTALLATION
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_CLOSURE_REVIEW.md.
+
+Une seule tâche BLOCKED traitée, Teschen : territoire, POPs, bâtiments et registre déjà livrés conservés. Décision B concrète soumise, non approuvée ; précision cadastrale distinguée de la réserve démographique substantielle. Pas de nouveau sous-lot fonctionnel ni de faux NOT_APPLICABLE pour contourner le test. Matrice des 23 blocages et protocole groupé prêts.
+
+Progression : 34.89 → 34.89 %.
+
+
+- SC2-TESCHEN : `BLOCKED` → `BLOCKED`.
+## SERG-RM-0048 — 2026-10-26 — LUXEMBOURG_RUNTIME_VALIDATION_SCOPE_CONFLICT_EXPOSED
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/LUXEMBOURG_SCOPE_RECONCILIATION.json.
+
+Audit des huit installations approfondi : la matrice runtime finale maintient un objectif LUX sans État initial, tandis que BEO/Wallonie est à zéro administration. L’ancienne conservation de bâtiments ne peut être certifiée. Validation Luxembourg reclassée BLOCKED P1 pour réconciliation de portée ; aucune correction fonctionnelle, aucun reçu ou point. Sept autres tâches runtime restent en attente. Teschen reste l’unique revue de clôture traitée ; Luxembourg seulement recommandé ensuite.
+
+Progression : 34.89 → 34.89 %.
+
+
+- SC2-LUXEMBOURG-VALIDATION : `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` → `BLOCKED`.
+## SERG-RM-0049 — 2026-10-26 — CLOSURE_CAMPAIGN_FINAL_AUDIT_AND_NONREGRESSION
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/FINAL_CHECKS.json.
+
+Campagne bornée livrée : 133/135 contrôles des huit installations (deux écarts Luxembourg documentés), 16/16 contrats, 27 tests de suivi réussis et un ancien test désactivé. Vérifications Teschen et régions impériales conservées ; modifications concurrentes WORLD exposées et non restaurées. Aucune nouvelle clôture ou validation humaine complète. Teschen seul examiné en clôture ; Luxembourg à réconcilier ensuite.
+
+Progression : 34.89 → 34.89 %.
+
+## SERG-RM-0050 — 2026-10-26 — LUXEMBOURG_ADMIN_R1_SCOPE_RECONCILED_AND_INSTALLED
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/REPORT.md.
+
+Conflit administratif réparé : un niveau ordinaire BEO/Wallonie, cible BUILD inactive LUX réaffectée à BEO ; trois niveaux flamands et autres déclarations conservés. Organisation simple, bureaucrates héréditaires compatibles avec la loi demandée de diètes provinciales, administration religieuse, rapport organisé désactivé. Aucun changement territorial/démographique ou militaire. Test spécifique requis avant clôture ; aucun reçu, aucun point.
+
+Progression : 34.89 → 34.89 %.
+
+
+- SC2-LUXEMBOURG-VALIDATION : `BLOCKED` → `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`.
+## SERG-RM-0051 — 2026-10-26 — LUXEMBOURG_ADMIN_R1_TARGETED_VALIDATION_COMPLETE
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/FINAL_CHECKS.json.
+
+23/23 contrôles ciblés, 6/6 contrôles BUILD bornés, 27 tests du suivi réussis et un ancien test désactivé. Aucun nouvel écart TECH BEO ; dette antérieure et incompatibilité du parseur global BUILD conservées et documentées. Conflit administratif réparé ; Luxembourg attend sa validation joueur, sans clôture ni point. Liste groupée seule actualisée ; aucune deuxième tâche traitée.
+
+Progression : 34.89 → 34.89 %.
+
+## SERG-RM-0052 — 2026-10-26 — LUXEMBOURG_EXPLICIT_FULL_USER_VALIDATION
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json.
+
+Protocole Luxembourg intégral personnellement réussi et explicitement attesté : nouvelle partie 1776, administration BEO/Wallonie niveau 1, trois niveaux flamands, PM et fonctionnement/recrutement, intégration BEO sans LUX indépendant, populations et unités conservées, un mois sans anomalie, sauvegarde/rechargement. Reçu distinct limité à cette tâche ; aucun contrôle des autres tâches acquis.
+
+Progression : 34.89 → 35.32 %.
+
+
+- SC2-LUXEMBOURG-VALIDATION : `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` → `PASS_RUNTIME_USER_VALIDATED`.
+## SERG-RM-0053 — 2026-10-26 — LUXEMBOURG_RECEPTION_FINAL_CHECKS
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/FINAL_CHECKS.json.
+
+Réception Luxembourg seule : conservation bornée 26/26, tests canoniques 27 réussis et un ancien test désactivé avant et après réception. Échec brut global 22/23 conservé et expliqué par le port concurrent de Floride occidentale, hors périmètre. Aucun reçu existant ou fichier fonctionnel modifié ; sept autres validations restent ouvertes.
+
+Progression : 35.32 → 35.32 %.
+
+## SERG-RM-0054 — 2026-10-26 — LUXEMBOURG_RECEPTION_CONCURRENT_CHANGES_CLASSIFIED
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/FINAL_CHECKS.json.
+
+Trois changements externes nord-américains conservés pendant la réception : populations, journaux et événements de Floride. Versions fonctionnelles dépendantes du Luxembourg et contrat BUILD inchangés ; premier constat global archivé, contre-vérification bornée réussie. Aucune modification fonctionnelle par cet agent. Le reçu Luxembourg et ses 83/235 points restent les seuls nouveaux acquis.
+
+Progression : 35.32 → 35.32 %.
 
 
 ## Socle importé, sans duplication des passes incrémentales

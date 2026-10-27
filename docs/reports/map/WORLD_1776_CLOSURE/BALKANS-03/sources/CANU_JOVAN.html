@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="sr"><head>
+<meta charset="UTF-8">
+<meta name="author" content="Miloš Daković" >
+<meta name="Description" content="Leksikoni - CANU - Leksikon diplomatije Crne Gore">
+<meta name="keywords" content="leksikon, diplomatija, Crna Gora, CANU">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link href="leksweb.css" rel="stylesheet" type="text/css">
+<title>LDCG</title>
+<script src="mark.min.js"></script>
+</head>
+<body>
+<div id="okvir">
+<div id="MDmenu">
+<ul>
+<li><a href="/web/ldcg.php"> Početak</a>
+<li><a href="/web/ldcg.php?Slovo=sve"> Abecedar</a>
+<li><form class="trazi" method="GET" action="/web/ldcg.php" accept-charset="utf-8" >
+<input type="search" id="trazi" name="trazi" value="" autocomplete="off" spellcheck="false">
+<input type="submit" value="Traži">
+</form>
+<li> <a href="ldcg0.php">Leksikon diplomatije Crne Gore</a></ul>
+</div>
+<div style="clear:both;"></div>
+<div class="prikazclanka" id="clanak"><p><span class="nazivOdr">Radonjić, Jovan</span> (Njeguši, 1747 – Njeguši, 1803), crnogorski guvernadur. Bio je guvernadur od 1764. do 1803. godine. Na zahtjev <span class="uput"><a  href="?OID=2993" >→&nbsp;Šćepana Malog</a></span>, mitropolit <span class="uput"><a  href="?OID=2863" >→&nbsp;Sava Petrović Njegoš</a></span> izdao je 1770. potvrdu Jovanu Radonjiću, kojom se priznaje nasljednost guvernadurske titule u njegovoj porodici. Nakon smrti Šćepana Malog, postaje najuticajnija politička ličnost u Crnoj Gori. Zastupao je proaustrijsku spoljnopolitičku orijentaciju Crne Gore. Sa arhimandritom <span class="uput"><a  href="?OID=2862" >→&nbsp;Petrom I Petrovićem Njegošem</a></span> i serdarom Ivanom Petrovićem činio je delegaciju koja je 1777. otputovala u Sankt Peterburg sa ciljem da od Rusije traži pokroviteljstvo nad Crnom Gorom. Pošto u tome nije uspjela, delegacija se u Beču 1779. obratila austrijskoj carici <span class="uput"><a  href="?OID=2743" >→&nbsp;Mariji Tereziji Habzburg-Loren</a></span>, tražeći političko pokroviteljstvo nad Crnom Gorom. Radonjić je bio na čelu delegacije koja je 1781. otišla u Beč. Prilikom ove posjete, pored pokroviteljstva, tražena su i finansijska sredstva koja bi se iskoristila za zavođenje reda i borbu protiv anarhije u crnogorskom društvu. Kao zagovornik oslona Crne Gore na Austriju, januara 1798. iskazao je spremnost da prihvati austrijsko pokroviteljstvo nad Crnom Gorom, ali su u Beču ocijenili da je njegov uticaj u zemlji neznatan.</p><div class="literatura"><p>Literatura: G. Stanojević, <i>Crna Gora pred stvaranje države</i>, Beograd, 1962; <i>Istorija Crne Gore</i>, knj. 3, Titograd, 1975; B. Pavićević, <i>Petar I Petrović Njegoš</i>, Podgorica, 1997; <i>Istorijski leksikon Crne Gore</i>, knj. 5, Podgorica, 2006.</p><p>M. Kadić</p></div><div style="clear:both"></div></div>
+<script>
+var Clanak = new Mark(document.getElementById("clanak"));
+var Trazi = document.getElementById("trazi");
+
+function Markiraj() {
+  var tekst = Trazi.value;
+  var options = {"accuracy": "complementary"};
+  Clanak.unmark({
+  	done: function(){
+		var ta = tekst.split(" ");
+		for (var i = 0; i < ta.length; i++) {
+		    r = ta[i];
+		    if (r.length>2) {
+		    	Clanak.mark(r, {"accuracy": "complementary"});
+		    }
+		    else if (r.length>1)  {
+		    	Clanak.mark(r, {"accuracy": "exactly"});
+		    }
+		}  	
+  	
+//  		if (tekst.length>2) {
+//	    	Clanak.mark(tekst, options); };
+  	  }})
+};
+
+Trazi.addEventListener("input", Markiraj);
+</script>
+
+<div style="clear:both"></div>
+<div id="Footer">Copyright © CANU, 2021-2026, Miloš Daković, 2021-2026. </div></div>
+</body>
+</html>

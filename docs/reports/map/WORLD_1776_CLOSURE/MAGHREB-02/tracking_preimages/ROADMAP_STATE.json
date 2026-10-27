@@ -1,0 +1,1891 @@
+{
+  "schema_version": 1,
+  "scope_version": "1.0.0",
+  "historical_date": "1776-01-01",
+  "initialized_on": "2026-10-24",
+  "current_phase": "P4",
+  "progress_model": {
+    "technical_formula": "100 * STATIC_VERIFIED criteria / 320 fixed region-criteria; partial checks receive 0",
+    "runtime_formula": "100 * USER_VALIDATED criteria / 320; no automatic human credit",
+    "units": "40 management subregions x 8 criteria, not area, population or count of reports",
+    "scope_change_rule": "Any scope extension/removal requires a new version and additive history; SERG denominator never modified"
+  },
+  "criteria": {
+    "O": "Souveraineté et géométrie au niveau des cellules",
+    "I": "Dirigeants, lois et institutions datés",
+    "D": "Démographie historique et conservation",
+    "E": "Économie, ressources, bâtiments et emploi",
+    "T": "Technologies initiales et compatibilité des PM",
+    "R": "Armées et relations diplomatiques",
+    "S": "Contrôles statiques et non-régression",
+    "V": "Validation explicite du joueur : nouvelle partie, mois, sauvegarde/rechargement"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "name": "Balkans",
+      "status": "CARTOGRAPHIC_REVIEW_FINISHED_WITH_BASEMAP_LIMITATIONS",
+      "subregions": [
+        {
+          "id": "P1-01",
+          "name": "Principautés danubiennes",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-01/REPORT.md",
+              "completed": "Règlement organique et fonctionnaires élus retirés du lancement",
+              "remaining": "Nominations phanariotes, successions et statut tributaire natif à approfondir"
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P1-02",
+          "name": "Cyclades et Égée occidentale",
+          "criteria": {
+            "O": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-01/TERRITORIAL_CHANGES.json + GEOGRAPHIC_CROSSWALK.json + SOURCES.md",
+              "runtime": "NOT_RUN",
+              "scope": "Two existing STATE_WEST_AEGEAN_ISLANDS RGBs and their transferred assets only"
+            },
+            "I": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-01/REPORT.md",
+              "remaining": "Autonomies et fiscalité communales non reconstituées"
+            },
+            "D": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-01/REPORT.md",
+              "remaining": "Conservation vérifiée, démographie historique complète non établie"
+            },
+            "E": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-01/REPORT.md",
+              "remaining": "Biens conservés, trait Hermoupolis et économie historique encore à examiner"
+            },
+            "T": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-01/STARTING_TECH_CHECK.json",
+              "runtime": "NOT_RUN",
+              "scope": "Two existing STATE_WEST_AEGEAN_ISLANDS RGBs and their transferred assets only"
+            },
+            "R": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-01/REPORT.md",
+              "remaining": "Armées et pactes inchangés, étude historique des obligations locales incomplète"
+            },
+            "S": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-01/VALIDATION.json",
+              "runtime": "NOT_RUN",
+              "scope": "Two existing STATE_WEST_AEGEAN_ISLANDS RGBs and their transferred assets only"
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P1-03",
+          "name": "Îles ioniennes et places vénitiennes de l’Épire",
+          "criteria": {
+            "O": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-04/REPORT.md",
+              "remaining": "Noyaux des postes approximatifs ; petites îles et limites des juridictions ouvertes."
+            },
+            "I": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-04/REPORT.md",
+              "remaining": "Dépendance VEN confirmée ; offices locaux et titulaires de janvier non simulés."
+            },
+            "D": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-04/REPORT.md",
+              "remaining": "Conservation vérifiée ; chiffres datés exacts et minorités non reconstitués."
+            },
+            "E": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-04/REPORT.md",
+              "remaining": "Ressources/hubs régionaux partagés ; marché, qualifications et budget non testés."
+            },
+            "T": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-04/STARTING_TECH_CHECK.json",
+              "runtime": "NOT_RUN",
+              "scope": "Installed four coastal cores, existing Kythera island and explicit starting assets only; no cadastral or regional historical closure."
+            },
+            "R": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-04/REPORT.md",
+              "remaining": "Armées et pactes préservés ; garnisons historiques complètes et obligations locales non quantifiées."
+            },
+            "S": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-04/VALIDATION.json",
+              "runtime": "NOT_RUN",
+              "scope": "Installed four coastal cores, existing Kythera island and explicit starting assets only; no cadastral or regional historical closure."
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": "BALKANS-04/GROUPED_RUNTIME_ITEMS.md",
+              "test_timing": "END_OF_BALKANS"
+            }
+          }
+        },
+        {
+          "id": "P1-04",
+          "name": "Monténégro",
+          "criteria": {
+            "O": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-03/GEOGRAPHIC_CROSSWALK.md",
+              "scope": "Noyau MON et interface conservée de Cattaro ; aucune certification cadastrale ou moteur.",
+              "remaining": "Noyau MON et Cattaro conservés ; limites exactes des quatre nahije et revendication régionale non closes."
+            },
+            "I": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-03/INSTITUTIONS.md",
+              "scope": "Noyau MON et interface conservée de Cattaro ; aucune certification cadastrale ou moteur.",
+              "remaining": "Sava, coadjuteur et guvernadur corrigés ; modèle des clans, fiscalité et succession ultérieure approximatifs."
+            },
+            "D": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-03/POPULATION_LEDGER.json",
+              "scope": "Noyau MON et interface conservée de Cattaro ; aucune certification cadastrale ou moteur.",
+              "remaining": "Conservation démontrée ; population de 1776 non reconstituée."
+            },
+            "E": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-03/REPORT.md",
+              "scope": "Noyau MON et interface conservée de Cattaro ; aucune certification cadastrale ou moteur.",
+              "remaining": "Assets et ressources conservés ; budget et hubs non validés en moteur."
+            },
+            "T": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-03/STARTING_TECH_CHECK.json",
+              "scope": "Noyau MON et interface conservée de Cattaro ; aucune certification cadastrale ou moteur.",
+              "note": "Profil initial MON de neuf technologies, prérequis fermés, réserve compatible, aucun PM nouveau."
+            },
+            "R": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-03/INSTITUTIONS.md",
+              "scope": "Noyau MON et interface conservée de Cattaro ; aucune certification cadastrale ou moteur.",
+              "remaining": "Réguliers supprimés et levée conservée ; effectifs exhaustifs et obligations ottomanes non quantifiés."
+            },
+            "S": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-03/VALIDATION.json",
+              "scope": "Noyau MON et interface conservée de Cattaro ; aucune certification cadastrale ou moteur.",
+              "note": "113 contrôles propres + 36 de réconciliation ; limites du rejeu historique documentées."
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": "BALKANS-03/GROUPED_RUNTIME_ITEMS.md",
+              "scope": "Noyau MON et interface conservée de Cattaro ; aucune certification cadastrale ou moteur.",
+              "remaining": "Test groupé en fin des travaux techniquement réalisables ; aucune attestation nouvelle.",
+              "test_timing": "END_OF_BALKANS"
+            }
+          }
+        },
+        {
+          "id": "P1-05",
+          "name": "Albanie et Épire ottomanes",
+          "criteria": {
+            "O": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-05/REPORT.md",
+              "remaining": "Frontières conservées ; juridictions provinciales et contrôle fin non clos."
+            },
+            "I": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-05/REPORT.md",
+              "remaining": "Deux maisons identifiées, représentation par officiers ; autonomie fiscale, autres titulaires et clans incomplets."
+            },
+            "D": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-05/REPORT.md",
+              "remaining": "Conservation technique démontrée ; démographie historique non reconstituée."
+            },
+            "E": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-05/REPORT.md",
+              "remaining": "Bâtiments/PM/ressources conservés ; budget des commandants et économie provinciale non simulés."
+            },
+            "T": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-05/REPORT.md",
+              "remaining": "Trois constats TUR préexistants, dont le gate horse_artillery des hussards ; aucune incompatibilité nouvelle."
+            },
+            "R": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-05/REPORT.md",
+              "remaining": "Quatre bataillons réaffectés ; effectifs historiques et obligations complètes non certifiés."
+            },
+            "S": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-05/VALIDATION.json",
+              "runtime": "NOT_RUN",
+              "scope": "Bounded household representation and conservation only; pre-existing tech debt reported separately, no regional historical closure."
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": "BALKANS-05/GROUPED_RUNTIME_ITEMS.md",
+              "test_timing": "END_OF_BALKANS"
+            }
+          }
+        },
+        {
+          "id": "P1-06",
+          "name": "Grèce continentale, Péloponnèse et Crète",
+          "criteria": {
+            "O": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-06/REPORT.md",
+              "remaining": "Souveraineté agrégée conservée ; Magne et limites locales ouverts, Crète hors lot.",
+              "runtime": "NOT_RUN"
+            },
+            "I": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-06/REPORT.md",
+              "remaining": "Voïvode athénien représenté civilement ; pas de gouvernement provincial fonctionnel, autres titulaires et Crète ouverts.",
+              "runtime": "NOT_RUN"
+            },
+            "D": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-06/REPORT.md",
+              "remaining": "Conservation vérifiée ; démographie historique et minorités non reconstituées, Crète hors lot.",
+              "runtime": "NOT_RUN"
+            },
+            "E": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-06/REPORT.md",
+              "remaining": "Deux capacités côtières ajoutées ; budget, qualification, marché, ressources historiques et Crète ouverts.",
+              "runtime": "NOT_RUN"
+            },
+            "T": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-06/REPORT.md",
+              "remaining": "Deux forts compatibles ; trois constats impériaux hérités, profil régional complet/Crète non vérifié.",
+              "runtime": "NOT_RUN"
+            },
+            "R": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-06/REPORT.md",
+              "remaining": "Armées/diplomatie conservées ; bandes, garnisons et obligations locales non reconstituées, Crète hors lot.",
+              "runtime": "NOT_RUN"
+            },
+            "S": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-06/REPORT.md",
+              "remaining": "55 contrôles du noyau installé ; ni clôture statique régionale complète ni couverture de la Crète.",
+              "runtime": "NOT_RUN"
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": "BALKANS-06/GROUPED_RUNTIME_ITEMS.md",
+              "test_timing": "END_OF_BALKANS"
+            }
+          }
+        },
+        {
+          "id": "P1-07",
+          "name": "Bulgarie, Macédoine et Thrace",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P1-08",
+          "name": "Serbie et Kosovo",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P1-09",
+          "name": "Bosnie et Herzégovine",
+          "criteria": {
+            "O": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-02/GEOGRAPHIC_CROSSWALK.json",
+              "remaining": "Neum/Klek et Sutorina installés approximativement ; autres limites bosniennes non traitées."
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P1-10",
+          "name": "Dalmatie et Raguse hors réserves SERG",
+          "criteria": {
+            "O": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-02/REPORT.md",
+              "remaining": "Tracé approximatif ; séparation insulaire native, Lastovo et revue géographique fine restent ouverts."
+            },
+            "I": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-02/REPORT.md",
+              "remaining": "Recteur du 1er janvier non identifié ; personnage procédural, rotation des offices non simulée."
+            },
+            "D": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-02/REPORT.md",
+              "remaining": "30 000 réaffectés sans variation mondiale ; chiffre de 1776, minorités et passages à préciser."
+            },
+            "E": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-02/REPORT.md",
+              "remaining": "Installation minimale cohérente ; région, ressources et trait Krka partagés, budget et hubs à reprendre."
+            },
+            "T": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-02/STARTING_TECH_CHECK.json",
+              "runtime": "NOT_RUN",
+              "scope": "Installed Ragusan nucleus and explicit local assets only; historical territorial closure not claimed"
+            },
+            "R": {
+              "status": "PARTIAL",
+              "evidence": "BALKANS-02/REPORT.md",
+              "remaining": "Lien autonome et marché propre installés ; tribut de jeu à 5 %, calendrier et forces historiques non reconstitués."
+            },
+            "S": {
+              "status": "STATIC_VERIFIED",
+              "evidence": "BALKANS-02/VALIDATION.json",
+              "runtime": "NOT_RUN",
+              "scope": "Installed Ragusan nucleus and explicit local assets only; historical territorial closure not claimed"
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": "BALKANS-02/PLAYER_TEST_PROTOCOL.md",
+              "timing": "END_OF_BALKANS_PER_USER"
+            }
+          }
+        }
+      ],
+      "progress": {
+        "technical_verified": 10,
+        "criteria_total": 80,
+        "runtime_user_validated": 0,
+        "technical_percent": 12.5
+      }
+    },
+    {
+      "id": "P2",
+      "name": "Italie méridionale",
+      "status": "NOT_STARTED",
+      "subregions": [
+        {
+          "id": "P2-01",
+          "name": "Naples, Campanie et Abruzzes-Molise",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P2-02",
+          "name": "Calabre et Basilicate",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P2-03",
+          "name": "Pouilles",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P2-04",
+          "name": "Sicile et îles associées",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P2-05",
+          "name": "Bénévent, Pontecorvo et autres enclaves méridionales",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        }
+      ],
+      "progress": {
+        "technical_verified": 0,
+        "criteria_total": 40,
+        "runtime_user_validated": 0,
+        "technical_percent": 0.0
+      }
+    },
+    {
+      "id": "P3",
+      "name": "Afrique subsaharienne",
+      "status": "NOT_STARTED",
+      "subregions": [
+        {
+          "id": "P3-01",
+          "name": "Sénégambie",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P3-02",
+          "name": "Haute-Guinée et espaces sahéliens R7",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P3-03",
+          "name": "Côte de Guinée, Bénin et golfe de Guinée",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P3-04",
+          "name": "Niger et lac Tchad R7",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P3-05",
+          "name": "Congo et Angola",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P3-06",
+          "name": "Afrique orientale et Corne R7",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P3-07",
+          "name": "Grands Lacs",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P3-08",
+          "name": "Afrique australe",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P3-09",
+          "name": "Madagascar",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P3-10",
+          "name": "Îles et établissements de l’océan Indien R7",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        }
+      ],
+      "progress": {
+        "technical_verified": 0,
+        "criteria_total": 80,
+        "runtime_user_validated": 0,
+        "technical_percent": 0.0
+      }
+    },
+    {
+      "id": "P4",
+      "name": "Maghreb",
+      "status": "CARTOGRAPHIC_AUDIT_IN_PROGRESS",
+      "subregions": [
+        {
+          "id": "P4-01",
+          "name": "Maroc et présides",
+          "criteria": {
+            "O": {
+              "status": "PARTIAL",
+              "evidence": "MAGHREB-01/REPORT.md",
+              "remaining": "Noyaux côtiers seulement ; autres présides et frontières régionales non closes."
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "PARTIAL",
+              "evidence": "MAGHREB-01/VALIDATION.json",
+              "remaining": "35 contrôles sur le lot seulement, pas de couverture régionale complète.",
+              "runtime": "NOT_RUN"
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P4-02",
+          "name": "Régence d’Alger",
+          "criteria": {
+            "O": {
+              "status": "PARTIAL",
+              "evidence": "MAGHREB-01/REPORT.md",
+              "remaining": "Noyaux côtiers seulement ; autres présides et frontières régionales non closes."
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "PARTIAL",
+              "evidence": "MAGHREB-01/VALIDATION.json",
+              "remaining": "35 contrôles sur le lot seulement, pas de couverture régionale complète.",
+              "runtime": "NOT_RUN"
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P4-03",
+          "name": "Régence de Tunis",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P4-04",
+          "name": "Régence de Tripoli",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P4-05",
+          "name": "Cyrénaïque",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P4-06",
+          "name": "Interfaces sahariennes, routes et oasis R3",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        }
+      ],
+      "progress": {
+        "technical_verified": 0,
+        "criteria_total": 48,
+        "runtime_user_validated": 0,
+        "technical_percent": 0.0
+      }
+    },
+    {
+      "id": "P5",
+      "name": "Amériques",
+      "status": "NOT_STARTED",
+      "subregions": [
+        {
+          "id": "P5-01",
+          "name": "Canada, colonies du Nord et espaces arctiques",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P5-02",
+          "name": "Treize Colonies et nations de l’Est",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P5-03",
+          "name": "Nations des plaines et de l’Ouest nord-américain",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P5-04",
+          "name": "Mexique et Amérique centrale",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P5-05",
+          "name": "Caraïbes",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P5-06",
+          "name": "Vice-royautés et espaces andins du Nord",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P5-07",
+          "name": "Espaces coloniaux du Sud et chronologie du Río de la Plata",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P5-08",
+          "name": "Brésil et Guyanes",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        },
+        {
+          "id": "P5-09",
+          "name": "Souverainetés autochtones d’Amazonie et de Patagonie",
+          "criteria": {
+            "O": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "I": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "D": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "E": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "T": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "R": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "S": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            },
+            "V": {
+              "status": "NOT_STARTED",
+              "evidence": null
+            }
+          }
+        }
+      ],
+      "progress": {
+        "technical_verified": 0,
+        "criteria_total": 72,
+        "runtime_user_validated": 0,
+        "technical_percent": 0.0
+      }
+    }
+  ],
+  "lots": [
+    {
+      "id": "BALKANS-01",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "scope": [
+        "STATE_WEST_AEGEAN_ISLANDS",
+        "MOL law setup",
+        "WAL law setup",
+        "MON read-only decision"
+      ],
+      "runtime": "NOT_RUN",
+      "files_modified": 5,
+      "political_RGBs_transferred": 2,
+      "new_RGBs": 0,
+      "new_tags": 0,
+      "people_transferred": 80404,
+      "world_population_delta": 0,
+      "receipt": "BALKANS-01/FILES_MODIFIED.json",
+      "protocol": "BALKANS-01/PLAYER_TEST_PROTOCOL.md",
+      "historical_research_status": "REGION_INCOMPLETE"
+    },
+    {
+      "id": "BALKANS-02",
+      "status": "IMPLEMENTED_STATIC_VERIFIED_WITH_HISTORICAL_OBLIGATIONS",
+      "scope": [
+        "Ragusa / Dubrovnik",
+        "Venetian Adriatic and Ottoman contact passages, excluding SERG reservations"
+      ],
+      "runtime": "NOT_RUN",
+      "test_timing": "END_OF_BALKANS",
+      "files_modified": 21,
+      "new_RGBs": 3,
+      "new_tags": 1,
+      "pixels_recolored": 122,
+      "people_transferred": 30000,
+      "world_population_delta": 0,
+      "receipt": "BALKANS-02/FILES_MODIFIED.json",
+      "protocol": "BALKANS-02/PLAYER_TEST_PROTOCOL.md",
+      "historical_research_status": "REGION_INCOMPLETE"
+    },
+    {
+      "id": "BALKANS-03",
+      "status": "IMPLEMENTED_STATIC_VERIFIED_WITH_HISTORICAL_OBLIGATIONS",
+      "scope": [
+        "MON institutions and initial clan muster",
+        "Cattaro / four nahije interface, no territorial transfer"
+      ],
+      "runtime": "NOT_RUN",
+      "test_timing": "END_OF_BALKANS",
+      "files_modified": 8,
+      "new_RGBs": 0,
+      "new_tags": 0,
+      "pixels_recolored": 0,
+      "people_transferred": 0,
+      "world_population_delta": 0,
+      "receipt": "BALKANS-03/FILES_MODIFIED.json",
+      "protocol": "BALKANS-03/GROUPED_RUNTIME_ITEMS.md",
+      "historical_research_status": "REGION_INCOMPLETE"
+    },
+    {
+      "id": "BALKANS-04",
+      "status": "IMPLEMENTED_STATIC_VERIFIED_WITH_HISTORICAL_OBLIGATIONS",
+      "scope": [
+        "Four Venetian Epirote coastal posts",
+        "Existing Kythera island / Cerigo",
+        "Corfu defensive capacity"
+      ],
+      "runtime": "NOT_RUN",
+      "test_timing": "END_OF_BALKANS",
+      "files_modified": 6,
+      "new_RGBs": 5,
+      "new_tags": 0,
+      "pixels_recolored": 41,
+      "people_transferred": 13700,
+      "world_population_delta": 0,
+      "receipt": "BALKANS-04/FILES_MODIFIED.json",
+      "protocol": "BALKANS-04/GROUPED_RUNTIME_ITEMS.md",
+      "historical_research_status": "REGION_INCOMPLETE"
+    },
+    {
+      "id": "BALKANS-05",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "scope": [
+        "Scutari household under Mustafa Bushati",
+        "Avlonya contingent under Ahmed Kurt",
+        "Ottoman framework retained; no territorial transfer"
+      ],
+      "runtime": "NOT_RUN",
+      "test_timing": "END_OF_BALKANS",
+      "files_modified": 5,
+      "new_RGBs": 0,
+      "new_tags": 0,
+      "pixels_recolored": 0,
+      "people_transferred": 0,
+      "world_population_delta": 0,
+      "units_reassigned": 4,
+      "new_generals": 2,
+      "receipt": "BALKANS-05/FILES_MODIFIED.json",
+      "protocol": "BALKANS-05/GROUPED_RUNTIME_ITEMS.md",
+      "historical_research_status": "REGION_INCOMPLETE"
+    },
+    {
+      "id": "BALKANS-06",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "scope": [
+        "Mainland Greece and Peloponnese only",
+        "Athenian voivode civil representation",
+        "Two Ottoman coastal defence capacities"
+      ],
+      "excluded": [
+        "Crete"
+      ],
+      "runtime": "NOT_RUN",
+      "test_timing": "END_OF_BALKANS",
+      "files_modified": 5,
+      "new_RGBs": 0,
+      "new_tags": 0,
+      "people_transferred": 0,
+      "world_population_delta": 0,
+      "new_combat_units": 0,
+      "new_politicians": 1,
+      "receipt": "BALKANS-06/FILES_MODIFIED.json",
+      "protocol": "BALKANS-06/GROUPED_RUNTIME_ITEMS.md",
+      "historical_research_status": "REGION_INCOMPLETE",
+      "credited_criteria": []
+    },
+    {
+      "id": "BALKANS-07-CARTOGRAPHY",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "scope": [
+        "Targeted Adriatic and Ionian ownership review",
+        "One existing Elaphite island cell VEN to RAG"
+      ],
+      "files_modified": 1,
+      "new_RGBs": 0,
+      "pixels_recolored": 1,
+      "people_transferred": 0,
+      "world_population_delta": 0,
+      "runtime": "NOT_RUN",
+      "receipt": "BALKANS-07-CARTOGRAPHY/FILES_MODIFIED.json",
+      "historical_research_status": "BASEMAP_LIMITATIONS_DOCUMENTED",
+      "credited_criteria": []
+    },
+    {
+      "id": "MAGHREB-01",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "scope": [
+        "Ceuta/Melilla coastal cores and removal of duplicate MOR/SPA assignments",
+        "Spanish Oran–Mers el-Kebir core"
+      ],
+      "runtime": "NOT_RUN",
+      "files_modified": 4,
+      "new_RGBs": 3,
+      "pixels_recolored": 4,
+      "world_population_delta": 0,
+      "new_tags": 0,
+      "people_transferred": 0,
+      "receipt": "MAGHREB-01/FILES_MODIFIED.json",
+      "historical_research_status": "REGION_INCOMPLETE",
+      "credited_criteria": []
+    },
+    {
+      "id": "MAGHREB-01-GIBRALTAR",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "scope": [
+        "Gibraltar African endpoint on existing Spanish Ceuta RGB xE8D231"
+      ],
+      "runtime": "NOT_RUN",
+      "files_modified": 1,
+      "new_RGBs": 0,
+      "pixels_recolored": 0,
+      "world_population_delta": 0,
+      "people_transferred": 0,
+      "receipt": "MAGHREB-01-GIBRALTAR/FILES_MODIFIED.json",
+      "credited_criteria": []
+    }
+  ],
+  "progress": {
+    "technical_verified": 10,
+    "criteria_total": 320,
+    "runtime_user_validated": 0,
+    "technical_percent": 3.12,
+    "user_validated_percent": 0
+  },
+  "phase_transition_gate": {
+    "source": "Explicit user steering, 2026-10-26",
+    "rule": "User authorizes direct transition to Maghreb after targeted Balkan cartographic checks. Flavour work is deferred. No runtime validation is inferred.",
+    "partial_lot_tests_requested": false,
+    "runtime_validation_timing": "END_OF_BALKANS",
+    "next_region_requires_explicit_user_confirmation": true,
+    "authorized_next_phase": "P4",
+    "explicit_transition_authorized": true,
+    "authorization_is_runtime_validation": false,
+    "supersedes_previous_Balkans_runtime_gate_for_this_transition_only": true
+  },
+  "active_work_scope": "TERRITORIAL_CARTOGRAPHY_ONLY",
+  "deferred_content_domains": [
+    "Characters",
+    "Buildings and production refinement",
+    "Provincial institution flavour"
+  ]
+}

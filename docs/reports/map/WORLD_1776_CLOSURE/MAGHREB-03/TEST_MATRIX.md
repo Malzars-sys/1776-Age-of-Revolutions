@@ -1,0 +1,9 @@
+# Commandes et résultats
+
+- `python tools/world1776_maghreb03.py --apply --validate` : installation unique sur les versions courantes. Un premier garde a refusé avant écriture des identifiants cités non normalisés ; normalisation corrigée, puis installation. Le premier résultat 41/42 comprenait une assertion trop large sur les doublons mondiaux, hors mission. Trace VALIDATION_RUN01.json conservée ; doublons américains hérités explicitement recensés dans le résultat courant.
+- `python tools/validate_starting_technology_1776.py --tag FZN --expectations docs/reports/map/WORLD_1776_CLOSURE/MAGHREB-03/TECH_EXPECTATIONS.json --output docs/reports/map/WORLD_1776_CLOSURE/MAGHREB-03/STARTING_TECH_CHECK.json` : premier constat de loi héritée dépendant de l'assurance commerciale, conservé dans STARTING_TECH_CHECK_BEFORE_COMPATIBILITY.json ; après correction propre à FZN, **PASS_STATIC_ONLY, six technologies, aucun constat**. Graphe et recettes communs inchangés.
+- `python tools/world1776_maghreb03.py --validate` : **50/50, sortie 0** après composition documentée des changements américains extérieurs. Une exécution intermédiaire 45/49 avait détecté cette concurrence ; aucun de ses fichiers n'a été restauré. EXTERNAL_REVIEW.json conserve les versions et les limites de la vérification.
+
+Couverture : patchs bornés exacts ; vingt résolutions d'attributions natives ; onze conflits supprimés dans le périmètre ; conservation des conflits hérités ailleurs ; connexion de toutes les provinces FZN à Murzuq et à TRI ; absence de provinces infranchissables ; continuité de Siwa en EGY ; connexion des deux provinces TRI au territoire principal ; populations et cohortes conservées ; carte, régions, terrains, anciennes preuves, technologie/PM communs et Git/index protégés.
+
+Ce résultat n'est ni un chargement moteur, ni une certification cadastrale, ni une mesure de budget. Test joueur groupé encore **NOT_RUN**.

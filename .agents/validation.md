@@ -1,0 +1,11 @@
+# Contrôles, preuves et validation
+
+Lire ce document uniquement pour le périmètre indiqué dans `AGENTS.md`. Il ne lance aucune mission.
+
+- **V01.** Exécuter les contrôles adaptés au changement sur la version réellement présente. Consigner commande, périmètre, version/empreintes et résultats effectifs ; ne pas réutiliser les chiffres d’une ancienne exécution comme nouveaux résultats. Vérifier l’interface et les effets d’écriture des outils avant de les lancer.
+- **V02.** Distinguer incompatibilité de scripts, restriction de construction, incertitude historique, effet économique théorique et panne observée en jeu. Un contrôle statique ne prouve ni chargement moteur, ni rentabilité, ni rendu, ni validation humaine. Séparer erreurs nouvelles, dette préexistante et assertions devenues obsolètes, sans supprimer les tests pour afficher une suite verte.
+- **V03.** Pour une nouvelle installation fonctionnelle en attente de test joueur, utiliser `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` lorsque c’est le statut du suivi. Préparer un protocole borné à la version livrée : nouvelle partie en 1776, objets modifiés et témoins de non-régression, simulation et sauvegarde/rechargement selon les critères du chantier. Ne jamais créer `PASS_RUNTIME_USER_VALIDATED` sans confirmation explicite.
+- **V04.** Un reçu humain cite la confirmation et sa source, le sous-lot et la version concernés. N’ajouter aucune durée, date, mesure ou observation non attestée ; une validation partielle ne ferme pas une région. Si le schéma réclame un détail absent, conserver l’incertitude et demander ce seul détail avant de le certifier. Préserver les reçus hérités sans leur inventer de contrôles.
+- **V05.** Dans une passe autorisée de chantier, mettre à jour ses seules tâches et preuves, ajouter l’historique sans effacer les événements, puis recalculer la progression avec le validateur et le dénominateur canonique. Aucun point pour une simple lecture ou un noyau partiel hors critères. Tout changement de périmètre doit être explicite, versionné et justifié ; ne pas retirer une tâche pour améliorer le score. Ne pas mettre à jour un suivi hors mission.
+
+Traçabilité de chaque règle : [inventaire et sources](../docs/reports/agents/PERMANENT_RULES_AUDIT.md).

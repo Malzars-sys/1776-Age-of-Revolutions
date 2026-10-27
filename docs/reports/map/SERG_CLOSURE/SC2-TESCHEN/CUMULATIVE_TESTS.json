@@ -1,0 +1,94 @@
+{
+  "task_ids": [
+    "SC2-TESCHEN"
+  ],
+  "status": "FAIL",
+  "total": 530,
+  "passed": 510,
+  "failed": [
+    {
+      "id": "test_map2w_r2b_completion.HesseNassauCompletion.test_registry_guard_accepts_current_layer",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2w_r2b_completion.py\", line 58, in test_registry_guard_accepts_current_layer\n    self.assertEqual(layers[layers.index(w.OUT)+1:],expected)\nAssertionError: Lists differ: [Wind[152 chars]SAU'), WindowsPath('C:/Users/simeo/Documents/P[1512 chars]EN')] != [Wind[152 chars]SAU')]\n\nFirst list contains 10 additional elements.\nFirst extra element 1:\nWindowsPath('C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/R4B')\n\nDiff is 2253 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_map2w_r4_political.PassauPoliticalPilot.test_registry_current_layer",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2w_r4_political.py\", line 66, in test_registry_current_layer\n    def test_registry_current_layer(self):self.assertEqual(reg.approved_lot_dirs()[-1],w.OUT)\n                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Windo[93 chars]ork/docs/reports/map/SERG_CLOSURE/SC2-TESCHEN') != Windo[93 chars]ork/docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU')\n"
+    },
+    {
+      "id": "test_map2w_r4bc.FreisingRegensburg.test_current_cumulative_tail_not_previous_last",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_map2w_r4bc.py\", line 53, in test_current_cumulative_tail_not_previous_last\n    def test_current_cumulative_tail_not_previous_last(self):self.assertEqual(reg.approved_lot_dirs()[-3:],[w.pas.OUT,w.OUT/'R4B',w.OUT/'R4C'])\n                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [Wind[110 chars]/map/SERG_CLOSURE/SC1-PASSAU-OUTLIERS'), Windo[285 chars]EN')] != [Wind[110 chars]/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU'[357 chars]4C')]\n\nFirst differing element 0:\nWindo[93 chars]ork/docs/reports/map/SERG_CLOSURE/SC1-PASSAU-OUTLIERS')\nWindo[93 chars]ork/docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU')\n\nDiff is 1958 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc1_salzburg.SalzburgContracts.test_exact_cumulative_tail",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_salzburg.py\", line 31, in test_exact_cumulative_tail\n    self.assertEqual(reg.approved_lot_dirs()[-4:],[lot.prior.pas.OUT,lot.prior.OUT/'R4B',lot.prior.OUT/'R4C',lot.OUT])\nAssertionError: Lists differ: [Wind[110 chars]/map/SERG_CLOSURE/SC1-BERCHTESGADEN'), Windows[438 chars]EN')] != [Wind[110 chars]/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU'[505 chars]RG')]\n\nFirst differing element 0:\nWindo[93 chars]ork/docs/reports/map/SERG_CLOSURE/SC1-BERCHTESGADEN')\nWindo[93 chars]ork/docs/reports/map/MAP2W/R4/POLITICAL_REPRESENTATION/PASSAU')\n\nDiff is 1917 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc4_massa_carrara.MassaCarraraContracts.test_current_chain_retains_salzburg_before_massa",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc4_massa_carrara.py\", line 28, in test_current_chain_retains_salzburg_before_massa\n    self.assertEqual(lot.reg.approved_lot_dirs()[-2:],[lot.rm.OUT/'SC1-SALZBURG',lot.OUT])\nAssertionError: Lists differ: [Wind[127 chars]/SC1-ORTENBURG'), WindowsPath('C:/Users/simeo/[113 chars]EN')] != [Wind[127 chars]/SC1-SALZBURG'), WindowsPath('C:/Users/simeo/D[118 chars]RA')]\n\nFirst differing element 0:\nWindo[79 chars]_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG')\nWindo[79 chars]_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC1-SALZBURG')\n\nDiff is 1202 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc1_trento.TrentoContracts.test_current_chain_retains_both_user_validated_nuclei",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_trento.py\", line 39, in test_current_chain_retains_both_user_validated_nuclei\n    self.assertEqual(lot.reg.approved_lot_dirs()[-3:],[lot.rm.OUT/'SC1-SALZBURG',lot.prior.OUT,lot.OUT])\nAssertionError: Lists differ: [Wind[127 chars]/SC1-PASSAU-OUTLIERS'), WindowsPath('C:/Users/[268 chars]EN')] != [Wind[127 chars]/SC1-SALZBURG'), WindowsPath('C:/Users/simeo/D[264 chars]TO')]\n\nFirst differing element 0:\nWindo[85 chars]utions_fork/docs/reports/map/SERG_CLOSURE/SC1-PASSAU-OUTLIERS')\nWindo[85 chars]utions_fork/docs/reports/map/SERG_CLOSURE/SC1-SALZBURG')\n\nDiff is 1500 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc1_brixen.BrixenContracts.test_current_cumulative_tail",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_brixen.py\", line 33, in test_current_cumulative_tail\n    self.assertEqual(lot.reg.approved_lot_dirs()[-4:],[lot.rm.OUT/'SC1-SALZBURG',lot.prior.prior.OUT,lot.prior.OUT,lot.OUT])\nAssertionError: Lists differ: [Wind[127 chars]/SC1-BERCHTESGADEN'), WindowsPath('C:/Users/si[421 chars]EN')] != [Wind[127 chars]/SC1-SALZBURG'), WindowsPath('C:/Users/simeo/D[410 chars]EN')]\n\nFirst differing element 0:\nWindo[83 chars]olutions_fork/docs/reports/map/SERG_CLOSURE/SC1-BERCHTESGADEN')\nWindo[83 chars]olutions_fork/docs/reports/map/SERG_CLOSURE/SC1-SALZBURG')\n\nDiff is 2420 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc1_brixen.BrixenContracts.test_no_brixen_human_receipt_no_credit",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_brixen.py\", line 43, in test_no_brixen_human_receipt_no_credit\n    self.assertFalse(lot.rm.terminal_evidence(t,s));self.assertFalse(list(lot.OUT.glob('RUNTIME_USER_ATTESTATION*')));self.assertEqual(lot.rm.progress(s)['earned_weight'],82)\n                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: [WindowsPath('C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC1-BRIXEN/RUNTIME_USER_ATTESTATION_2026_10_23.json')] is not false\n"
+    },
+    {
+      "id": "test_serg_sc1_berchtesgaden.BerchtesgadenContracts.test_current_cumulative_tail",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_berchtesgaden.py\", line 30, in test_current_cumulative_tail\n    self.assertEqual(lot.reg.approved_lot_dirs()[-5:],[lot.rm.OUT/'SC1-SALZBURG',lot.rm.OUT/'SC4-MASSA-CARRARA',lot.rm.OUT/'SC1-TRENTO',lot.prior.OUT,lot.OUT])\nAssertionError: Lists differ: [Wind[127 chars]/SC1-BRIXEN'), WindowsPath('C:/Users/simeo/Doc[567 chars]EN')] != [Wind[127 chars]/SC1-SALZBURG'), WindowsPath('C:/Users/simeo/D[563 chars]EN')]\n\nFirst differing element 0:\nWindo[78 chars]f_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC1-BRIXEN')\nWindo[78 chars]f_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC1-SALZBURG')\n\nDiff is 1850 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc1_berchtesgaden.BerchtesgadenContracts.test_pending_new_core_gains_no_credit",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_berchtesgaden.py\", line 35, in test_pending_new_core_gains_no_credit\n    s=copy.deepcopy(lot.load(lot.OUT/'BASELINE.json')['roadmap']);t=next(t for t in s['tasks'] if t['id']==lot.TASK);t['status']='PASS_RUNTIME_USER_VALIDATED';self.assertFalse(lot.rm.terminal_evidence(t,s));self.assertEqual(lot.rm.progress(s)['earned_weight'],82);self.assertFalse(list(lot.OUT.glob('RUNTIME_USER_ATTESTATION*')))\n                                                                                                                                                                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: [WindowsPath('C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC1-BERCHTESGADEN/RUNTIME_USER_ATTESTATION_2026_10_24.json')] is not false\n"
+    },
+    {
+      "id": "test_serg_sc1_passau_outliers.PassauOutlierContracts.test_current_tail",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_passau_outliers.py\", line 21, in test_current_tail\n    def test_current_tail(self):self.assertEqual(lot.reg.approved_lot_dirs()[-2:],[lot.prior.OUT,lot.OUT])\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [Wind[127 chars]/SC1-ORTENBURG'), WindowsPath('C:/Users/simeo/[113 chars]EN')] != [Wind[127 chars]/SC1-BERCHTESGADEN'), WindowsPath('C:/Users/si[125 chars]RS')]\n\nFirst differing element 0:\nWindo[83 chars]olutions_fork/docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG')\nWindo[83 chars]olutions_fork/docs/reports/map/SERG_CLOSURE/SC1-BERCHTESGADEN')\n\nDiff is 1222 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc1_passau_outliers.PassauOutlierContracts.test_no_fabricated_acceptance_or_regional_credit",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_passau_outliers.py\", line 28, in test_no_fabricated_acceptance_or_regional_credit\n    t=next(t for t in s['tasks'] if t['id']==id);self.assertIsNone(t['runtime_validation']['attestation'])\n                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'docs/reports/map/SERG_CLOSURE/SC1-PASSAU-OUTLIERS/RUNTIME_USER_ATTESTATION_2026_10_24.json' is not None\n"
+    },
+    {
+      "id": "test_serg_sc1_regensburg_demography.RegensburgDemography.test_current_registry_tail_and_nine_electors",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_regensburg_demography.py\", line 51, in test_current_registry_tail_and_nine_electors\n    self.assertEqual(lot.load(lot.reg.active_registry_path()),self.b['registry'])\nAssertionError: Lists differ: [{'rg[27144 chars] 'x9061E0', 'state': 'STATE_WEST_GALICIA', 'be[78218 chars]im'}] != [{'rg[27144 chars] 'x908060', 'state': 'STATE_WURTTEMBERG', 'ben[77817 chars]im'}]\n\nFirst differing element 163:\n{'rgb': 'x9061E0', 'state': 'STATE_WEST_GALICIA', 'be[183 chars]rs.'}\n{'rgb': 'x908060', 'state': 'STATE_WURTTEMBERG', 'ben[133 chars]md.'}\n\nFirst list contains 2 additional elements.\nFirst extra element 579:\n{'rgb': 'xFE59E7', 'state': 'STATE_BAVARIA', 'beneficiary': 'BAV', 'basis': 'MAP2W-R4C: documented political nucleus B, not cadastral; see R4/POLITICAL_REPRESENTATION/FREISING_REGENSBURG/REPORT.md'}\n\nDiff is 124533 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc1_regensburg_demography.RegensburgDemography.test_old_receipts_do_not_approve_this_demography",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_regensburg_demography.py\", line 48, in test_old_receipts_do_not_approve_this_demography\n    self.assertIsNone(t['runtime_validation']['attestation']);self.assertFalse(lot.rm.qualifications(s)[lot.TASK])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'docs/reports/map/SERG_CLOSURE/SC1-REGENSBURG-DEMOGRAPHY/RUNTIME_USER_ATTESTATION_2026_10_25.json' is not None\n"
+    },
+    {
+      "id": "test_serg_sc1_ortenburg.OrtenburgContracts.test_only_four_exact_pixels_change",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_ortenburg.py\", line 14, in test_only_four_exact_pixels_change\n    ys,xs=a.np.where(self.old!=self.now);self.assertEqual(sorted([[int(x),int(y)] for x,y in zip(xs,ys)]),a.CELLS)\n                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [[439[41 chars] 902], [4553, 1147], [4553, 1148], [4559, 1158[529 chars]241]] != [[439[41 chars] 902]]\n\nFirst list contains 41 additional elements.\nFirst extra element 4:\n[4553, 1147]\n\nDiff is 816 characters long. Set self.maxDiff to None to see it.\n"
+    },
+    {
+      "id": "test_serg_sc1_ortenburg.OrtenburgContracts.test_only_reviewed_new_registry_title",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_ortenburg.py\", line 26, in test_only_reviewed_new_registry_title\n    rows=a.load(a.reg.active_registry_path());self.assertEqual(len(rows),580)\n                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 581 != 580\n"
+    },
+    {
+      "id": "test_serg_sc1_ortenburg.OrtenburgContracts.test_ortenburg_not_human_validated",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_ortenburg.py\", line 54, in test_ortenburg_not_human_validated\n    self.assertFalse(list(a.OUT.glob('RUNTIME_USER_ATTESTATION*')));self.assertIsNone(a.load(a.OUT/'FILES_MODIFIED.json')['human_validation'])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: [WindowsPath('C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/RUNTIME_USER_ATTESTATION_2026_10_25.json')] is not false\n"
+    },
+    {
+      "id": "test_serg_sc1_ortenburg.OrtenburgContracts.test_progress_and_no_second_task",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_ortenburg.py\", line 56, in test_progress_and_no_second_task\n    p=a.rm.progress(self.state);self.assertEqual((p['earned_weight'],p['total_weight'],p['qualified_tasks']),(82,235,24));self.assertEqual(p['next_task'],a.TASK)\n                                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'SC2-TESCHEN' != 'SC1-ORTENBURG'\n- SC2-TESCHEN\n+ SC1-ORTENBURG\n\n"
+    },
+    {
+      "id": "test_serg_sc1_ortenburg.OrtenburgContracts.test_tail_guard_rejects_wrong_country_or_coordinate",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc1_ortenburg.py\", line 30, in test_tail_guard_rejects_wrong_country_or_coordinate\n    m=a.load(a.OUT/'REGISTRY_MIGRATION.json');self.assertEqual(m,a.reg.approved_territorial_migrations()[-1]);self.assertEqual(m['new_members'],['ORT']);self.assertFalse(m['free_cities'])\n                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'rep[19 chars]TATE_BAVARIA'], 'previous': [{'rgb': 'x010AD7'[16927 chars]]]'}} != {'rep[19 chars]TATE_WEST_GALICIA'], 'previous': [], 'updated'[2889 chars]S'}]}\nDiff is 34921 characters long. Set self.maxDiff to None to see it.\n"
+    }
+  ],
+  "skipped": [
+    {
+      "id": "test_serg_closure_roadmap.RoadmapTests.test_protection_runtime_git_and_audit",
+      "reason": "Initial no-edit check only; future authorized edits must not fail old snapshots"
+    }
+  ],
+  "old_tests_not_modified": true,
+  "automated_engine_test": false
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "Only added BEO/Wallonia building and BEO finding delta; no global technology repair",
+  "command": "validate_starting_technology_1776.audit_country(BEO, collect_snapshot(), {}), with read-only preimage injection for before comparison",
+  "before_status": "FAIL_STATIC",
+  "after_status": "FAIL_STATIC",
+  "new_findings": [],
+  "added_administration": {
+    "state": "STATE_WALLONIA",
+    "building": "building_government_administration",
+    "explicit_declarations": 1,
+    "selected_PM_by_group": {
+      "pmg_base_building_government_administration": "pm_simple_organization",
+      "pmg_government_administration_bureaucrat_professionalism": "pm_hereditary_bureaucrats",
+      "pmg_government_administration_religious_administration": "pm_religious_bureaucrats",
+      "pmg_1776_administrative_data_reporting": "pm_1776_no_organized_data_reporting"
+    },
+    "construction_missing": [],
+    "PM_missing": {
+      "pm_simple_organization": [],
+      "pm_hereditary_bureaucrats": [],
+      "pm_religious_bureaucrats": [],
+      "pm_1776_no_organized_data_reporting": []
+    }
+  },
+  "automated_engine_test": false
+}

@@ -1,0 +1,13 @@
+QUE = {
+ dynamic_country_name = {
+  name = aor1776_province_quebec
+  adjective = QUE_ADJ
+  is_main_tag_only = yes
+  priority = 100
+  trigger = {
+   NOT = { exists = c:ONT }
+   exists = c:GBR
+   c:GBR ?= { has_diplomatic_pact = { who = c:QUE type = colony is_initiator = yes } }
+  }
+ }
+}

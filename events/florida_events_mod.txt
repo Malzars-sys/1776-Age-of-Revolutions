@@ -54,9 +54,9 @@ florida.1 = {
 			trigger_event = { id = florida.2 days = 0 popup = yes }
 		}
 		show_as_tooltip = {
-			random_state = {
+			every_state = {
 				limit = {
-					state_region = s:STATE_FLORIDA
+					OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
 					owner = {
 						OR = {
 							this = scope:florida_seller
@@ -155,9 +155,9 @@ florida.2 = {
 #			}
 #		}
 #		else = {
-			random_state = {
+			every_state = {
 				limit = {
-					state_region = s:STATE_FLORIDA
+					OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
 					owner = {
 						OR = {
 							this = scope:florida_seller
@@ -211,6 +211,9 @@ florida.3 = {
 		s:STATE_FLORIDA = {
 			add_claim = ROOT
 		}
+s:STATE_WEST_FLORIDA = {
+			add_claim = ROOT
+		}
 		change_relations = {
 			country = scope:florida_seller
 			value = -20
@@ -254,12 +257,15 @@ florida.4 = {
 		}
 		random_state = {
 			limit = {
-				state_region = s:STATE_FLORIDA
+				OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
 				owner = {
 					NOT = {
 						is_country_type = decentralized
 					}
-				}
+				
+ NOT = { this = root }
+ NOT = { is_subject_of = root }
+}
 			}
 			save_scope_as = florida_scope
 			if = { 
@@ -267,7 +273,7 @@ florida.4 = {
 					owner = {
 						is_subject = yes
 						capital = {
-							state_region = s:STATE_FLORIDA
+							OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
 						}
 					}
 				}

@@ -1,0 +1,566 @@
+# CODEX — MAP-2F : Reconstruction territoriale du sous-continent indien en 1776
+
+## 1. Mission
+
+Poursuivre les corrections historiques de la carte du mod **Victoria 3 — 1776 Age of Revolutions**.
+
+**Date de référence impérative : 1er janvier 1776.**
+
+MAP-2A, MAP-2B, MAP-2C, MAP-2D et MAP-2E sont intégrés localement et ont été testés en jeu.
+
+Le dernier correctif de MAP-2E a réparti les garnisons persanes afin de supprimer le déficit d'infrastructure de Tabriz. Le joueur confirme que les pénuries ont disparu.
+
+**Le périmètre de MAP-2F est R4_SOUTH_ASIA**, conformément aux inventaires régionaux précédemment établis.
+
+Tu es autorisé à effectuer directement les modifications cartographiques et historiques nécessaires.
+
+Il s'agit d'un **lot d'intégration**, pas d'une nouvelle mission de recherche sans modification.
+
+## 2. Réutiliser les recherches existantes
+
+Commencer par retrouver :
+
+- `MAP_1776_BASELINE.csv`
+- `MAP_1776_9_REGIONS.csv`
+- `MAP_1776_RESEARCH_SCHEMA.md`
+- `MAP_1776_KNOWN_ISSUES.csv`
+- Les rapports et recommandations R4_SOUTH_ASIA.
+- Les travaux MAP-0, MAP-1 et leurs suites.
+- Les éventuelles modifications pertinentes du collaborateur `georg3mx`.
+
+Utiliser les seuls États et provinces du périmètre R4 comme base de travail.
+
+Les lignes d'un même State_ID appartenant à plusieurs Owner_TAG doivent rester distinctes.
+
+**Les RGB correspondent aux identifiants réels du bitmap**, pas à des numéros arbitraires.
+
+Les propriétaires actuels du mod ne constituent pas une preuve historique.
+
+Ne pas refaire une étude complète du sous-continent : les recherches antérieures doivent permettre de passer rapidement à l'intégration.
+
+N'effectuer des recherches supplémentaires que pour les contradictions importantes.
+
+## 3. Objectif historique général
+
+La carte au 1er janvier 1776 doit distinguer :
+
+- Les territoires effectivement contrôlés par la Compagnie britannique des Indes orientales.
+- Les possessions et comptoirs des autres puissances européennes.
+- Les territoires des Marathes et de leurs différentes autorités.
+- Les possessions de Mysore.
+- Les États dépendant des Nizams d'Hyderabad.
+- Les possessions du royaume d'Awadh.
+- L'Empire moghol et ses territoires réellement contrôlés.
+- Les États rajputs et autres principautés indépendantes ou autonomes.
+- Les confédérations sikhes.
+- Les États du Pendjab et les possessions de l'Empire durrani.
+- Les royaumes et principautés du Népal, du Bhoutan et de l'Himalaya.
+- Les territoires du Baloutchistan relevant du périmètre R4.
+- Ceylan, avec ses territoires néerlandais et le royaume de Kandy.
+
+Il faut distinguer les possessions directes, les dépendances, les zones d'influence et les revendications.
+
+**Ne pas attribuer automatiquement un territoire à la Compagnie britannique simplement parce qu'il est britannique en 1836.**
+
+## 4. Compagnie britannique des Indes orientales
+
+Vérifier précisément les possessions de la Compagnie en 1776.
+
+### Bengale, Bihar et Odisha
+
+La Compagnie détient les droits de Diwani du Bengale, du Bihar et de l'Odisha depuis 1765.
+
+Cependant, la présence d'administrations indiennes et le maintien de formes de souveraineté nominale doivent être pris en compte.
+
+Examiner :
+
+- Bengale occidental et oriental.
+- Bihar.
+- Odisha.
+- Calcutta.
+- Territoires associés aux accords de 1765.
+- Relations entre la Compagnie, le pouvoir moghol et les autorités locales.
+
+Représenter l'autorité britannique effective sans supprimer arbitrairement les structures politiques locales si elles peuvent être conservées dans le gameplay.
+
+### Bombay et côte occidentale
+
+Examiner :
+
+- Bombay.
+- Salsette.
+- Les ports et îles associés.
+- Surat.
+- Les établissements britanniques existants.
+- Les territoires marathes voisins.
+
+Bombay est déjà une possession de la Compagnie avant 1776.
+
+La situation de Salsette est liée aux événements de 1774–1775 et au conflit anglo-marathe en cours.
+
+**Ne pas appliquer rétroactivement les règlements diplomatiques conclus après le 1er janvier 1776.**
+
+Ne pas attribuer à la Compagnie tout le littoral autour de Bombay sans justification.
+
+### Madras et côte de Coromandel
+
+Examiner :
+
+- Madras.
+- Fort St. George.
+- Territoires effectivement administrés par la Compagnie.
+- Carnatic et Nawab d'Arcot.
+- Comptoirs et possessions côtières.
+- Interfaces avec Mysore et Hyderabad.
+
+La présence militaire ou commerciale britannique ne signifie pas nécessairement une souveraineté territoriale directe.
+
+### Guntur et Northern Circars
+
+Vérifier attentivement la chronologie.
+
+**Ne pas attribuer prématurément Guntur à la Compagnie britannique sur la base des acquisitions de la fin des années 1780.**
+
+Distinguer les différents districts et les accords déjà applicables en 1776.
+
+Utiliser les recherches R4 existantes sur ce point.
+
+## 5. Empire marathe
+
+Reconstituer la situation politique des Marathes au 1er janvier 1776.
+
+Examiner :
+
+- Pune et le pouvoir du Peshwa.
+- Maharashtra.
+- Gujarat et territoires marathes.
+- Malwa.
+- Bundelkhand.
+- Territoires des maisons Scindia, Holkar, Gaekwad et Bhonsle.
+- Interfaces avec les Britanniques, Hyderabad, Mysore et les États rajputs.
+
+### Attention à la chronologie
+
+La première guerre anglo-marathe a commencé en 1775.
+
+Les rivalités autour de la succession du Peshwa sont déjà importantes.
+
+Ne pas représenter la Confédération marathe comme un État uniformément centralisé si les mécanismes natifs permettent une meilleure distinction.
+
+Cependant, ne pas créer artificiellement une dizaine de pays supplémentaires si cela rend le mod instable.
+
+Réutiliser en priorité les TAGs disponibles.
+
+Les différentes maisons peuvent être représentées par des États, sujets ou relations politiques lorsque cela est historiquement pertinent et techniquement réalisable.
+
+Ne pas appliquer les frontières de l'époque de la domination britannique du XIXe siècle.
+
+## 6. Mysore et Hyderabad
+
+### Mysore
+
+En 1776, Hyder Ali dirige effectivement Mysore.
+
+Vérifier les possessions du royaume, notamment :
+
+- Plateau de Mysore.
+- Régions conquises avant 1776.
+- Interfaces avec le Malabar.
+- Territoires disputés avec les Marathes.
+- Frontière avec le Carnatic.
+
+**Ne pas appliquer les pertes territoriales des guerres anglo-mysoriennes postérieures à 1776.**
+
+Ne pas placer Tipu Sultan au pouvoir avant la date appropriée.
+
+### Hyderabad
+
+Examiner les territoires des Nizams, avec Nizam Ali Khan au pouvoir.
+
+Distinguer :
+
+- Possessions directement contrôlées.
+- Territoires dépendants.
+- Northern Circars.
+- Guntur.
+- Frontières marathes.
+- Interfaces avec Mysore et le Carnatic.
+
+Ne pas confondre alliance ou traité avec administration directe par la Compagnie britannique.
+
+## 7. Empire moghol et États du nord de l'Inde
+
+### Empire moghol
+
+Shah Alam II est empereur en 1776.
+
+Mais l'autorité impériale effective est très réduite par rapport à celle du début du XVIIIe siècle.
+
+Examiner :
+
+- Delhi.
+- Agra.
+- Territoires directement contrôlés.
+- États reconnaissant nominalement le pouvoir impérial.
+- Zones passées sous autorité marathe ou régionale.
+
+Ne pas représenter tous les anciens territoires moghols comme des provinces directement administrées par l'empereur.
+
+### Awadh
+
+Vérifier :
+
+- Lucknow.
+- Faizabad.
+- Allahabad.
+- Frontières avec le Bengale et les possessions britanniques.
+- Territoires rohilas.
+- Relations avec la Compagnie.
+
+Asaf-ud-Daula règne sur Awadh depuis 1775.
+
+Ne pas confondre son État avec une possession directement britannique.
+
+### Rajasthan et Inde centrale
+
+Examiner notamment :
+
+- Jaipur.
+- Jodhpur.
+- Udaipur / Mewar.
+- Bikaner.
+- Jaisalmer.
+- Kota.
+- Bundi.
+- Bharatpur.
+- États régionaux du centre de l'Inde.
+
+Conserver les autonomies locales lorsqu'elles sont historiquement justifiées.
+
+Ne pas attribuer automatiquement les États rajputs à l'Empire marathe ou moghol.
+
+## 8. Pendjab, Sikhs et Empire durrani
+
+La situation de 1776 ne doit pas être confondue avec celle de l'Empire sikh du XIXe siècle.
+
+Examiner :
+
+- Confédérations et misls sikhes.
+- Amritsar.
+- Lahore.
+- Multan.
+- Cachemire.
+- Territoires de l'Empire durrani.
+- Frontières afghanes et interfaces avec les Marathes.
+
+**Ne pas créer prématurément l'Empire sikh unifié de Ranjit Singh.**
+
+Distinguer l'autonomie effective des misls, les places contrôlées par les Afghans et les autres autorités régionales.
+
+Si les provinces disponibles imposent un regroupement, employer une approximation historiquement plausible et documentée.
+
+Ne pas affecter tout le Pendjab à un seul pouvoir sans justification.
+
+## 9. Himalaya, Népal et Bhoutan
+
+Examiner :
+
+- Népal et territoires conquis avant 1776.
+- Bhoutan.
+- Sikkim.
+- Interfaces avec le Tibet.
+- Cachemire et Ladakh lorsque présents dans R4.
+
+Ne pas importer des frontières modernes ni les acquisitions britanniques postérieures.
+
+Les territoires attribués à R5 ou R6 doivent rester hors du lot, sauf correction d'interface indispensable.
+
+Toute modification transrégionale doit être limitée, explicitement justifiée et tracée.
+
+## 10. Ceylan
+
+Ceylan doit être traité selon la situation de 1776.
+
+Distinguer :
+
+- Possessions côtières néerlandaises.
+- Comptoirs et ports européens.
+- Royaume de Kandy et son contrôle de l'intérieur.
+- Espaces locaux effectivement autonomes.
+
+**Ne pas représenter toute l'île comme britannique en 1776.**
+
+Ne pas attribuer automatiquement toute l'île aux Néerlandais si les provinces permettent de conserver Kandy.
+
+Vérifier les ports, les bâtiments et les propriétaires économiques.
+
+## 11. Autres puissances européennes
+
+Examiner uniquement leurs possessions indiennes réellement établies avant 1776.
+
+### Portugal
+
+Vérifier notamment Goa, Daman et Diu.
+
+### France
+
+Vérifier Pondichéry, Chandernagor, Mahé, Karikal et Yanaon selon leurs possessions effectivement détenues en 1776.
+
+### Pays-Bas
+
+Examiner les comptoirs et possessions littorales, ainsi que leur contrôle côtier à Ceylan.
+
+### Danemark
+
+Examiner Tranquebar et les autres établissements danois de l'époque.
+
+Ne pas confondre comptoir commercial, port fortifié, influence économique et souveraineté territoriale sur un vaste arrière-pays.
+
+Lorsque la province RGB est trop grande pour représenter un comptoir, envisager une petite retouche géométrique ciblée seulement si elle apporte une amélioration significative.
+
+Ne pas créer une colonie européenne occupant des millions d'habitants pour représenter un simple comptoir.
+
+## 12. Intégration cartographique
+
+Comparer les historiques actuels avec les résultats de la recherche R4.
+
+Pour chaque contradiction importante :
+
+1. Identifier les RGB concernés.
+2. Vérifier leur localisation.
+3. Identifier le propriétaire actuel.
+4. Déterminer le contrôle territorial plausible au 1er janvier 1776.
+5. Appliquer le transfert nécessaire.
+6. Corriger les historiques dépendants.
+7. Documenter les compromis.
+
+Tu peux modifier :
+
+- `common/history/states/`
+- `common/history/pops/`
+- `common/history/buildings/`
+- Les historiques de recrutement et formations.
+- Les définitions et historiques des pays si nécessaire.
+- Les capitales et les relations diplomatiques directement concernées.
+- Les hubs et locators si leur rattachement devient invalide.
+- Les localisations françaises et anglaises.
+- Le bitmap des provinces uniquement lorsque le problème ne peut pas être raisonnablement corrigé autrement.
+
+### Règle de géométrie
+
+Privilégier les transferts de RGB existants.
+
+Si une retouche du bitmap est nécessaire :
+
+- Ne pas créer de nouveaux RGB involontaires.
+- Respecter les contraintes de résolution et de format.
+- Préserver les côtes et les connexions géographiques.
+- Éviter les pixels isolés.
+- Vérifier les locators.
+- Fournir une comparaison avant/après.
+
+Ne pas chercher une précision cadastrale impossible.
+
+## 13. Populations, bâtiments et militaires
+
+La population mondiale de référence est :
+
+**835 804 980 habitants.**
+
+Chaque modification territoriale doit conserver :
+
+- La population mondiale totale.
+- Les cultures et religions.
+- Les statuts sociaux existants.
+- Les groupes de population autochtones.
+- Les bâtiments et leurs niveaux.
+- Les propriétaires économiques, y compris étrangers.
+- Les méthodes de production et réserves.
+- Les unités militaires, leurs types et leurs formations.
+- Les généraux, commandants et flottes.
+
+Les États historiques étant souvent partagés entre plusieurs propriétaires, vérifier chaque subdivision séparément.
+
+Les bâtiments présents dans les historiques de base et dans les overlays doivent être traités ensemble.
+
+Ne pas créer artificiellement des habitants pour employer les bâtiments.
+
+Si un transfert territorial conduit à une concentration militaire ou industrielle incohérente, étudier une redistribution des recrutements ou des bâtiments, sans réduire arbitrairement les effectifs nationaux.
+
+Les répartitions de populations par superficie sont autorisées comme approximation technique lorsque les données manquent, mais ne doivent pas être présentées comme des estimations démographiques historiques.
+
+## 14. États et dépendances
+
+Ne pas transformer automatiquement tous les États indiens en pays indépendants sans relations diplomatiques.
+
+Vérifier les situations de :
+
+- Tribut.
+- Suzeraineté nominale.
+- Sujet autonome.
+- Protectorat.
+- Alliance.
+- Influence commerciale.
+- Administration directe.
+
+Réutiliser les mécanismes natifs disponibles.
+
+Ne pas inventer de protectorats britanniques qui correspondent à des traités postérieurs à 1776.
+
+Ne pas inventer de grandes alliances marathes ou mogholes simplement pour stabiliser artificiellement la carte.
+
+Lorsque plusieurs solutions diplomatiques sont possibles, choisir celle qui représente le mieux l'autonomie politique réelle tout en maintenant un gameplay fonctionnel.
+
+## 15. Préserver les travaux précédents
+
+Ne pas modifier :
+
+- Les corrections de MAP-2A à MAP-2E.
+- Le Luxembourg et BEO.
+- Avignon et le Comtat Venaissin.
+- Les frontières du Frioul et les noms vénitiens.
+- Les droits de transit franco-pontificaux.
+- La situation du Budjak, de Kerch, Kinburn et de la Crimée.
+- Les relations russes avec PLC et CRI.
+- Les nouveaux pays du Caucase.
+- Le correctif de répartition des garnisons persanes.
+- Les réformes ottomanes et les sujets égyptiens.
+- La révision du recrutement régional.
+- Les correctifs IA et d'infrastructure.
+- Les technologies, biens, bâtiments et assets non concernés.
+
+Ne pas rouvrir le chantier de raccordement commercial des enclaves pendant MAP-2F.
+
+Ne pas modifier le gameplay d'autres continents sous prétexte de corriger l'Inde.
+
+## 16. Validation
+
+Avant de modifier les fichiers, établir une baseline de l'état local réel, y compris les modifications non commitées.
+
+Après intégration, vérifier :
+
+- Aucune province perdue.
+- Aucun RGB invalide.
+- Aucune nouvelle double attribution.
+- Correction des doublons existants dans le périmètre si leur propriétaire est clairement identifiable.
+- Absence de nouvelles références orphelines.
+- Capitales valides et effectivement possédées.
+- Conservation démographique mondiale et régionale.
+- Conservation des cultures, religions et statuts.
+- Conservation des bâtiments et propriétaires économiques.
+- Conservation des unités nationales et du recrutement.
+- Chargement plausible des pays créés ou modifiés.
+- Cohérence des relations de dépendance.
+- Absence de modification hors périmètre.
+- Non-régression des travaux MAP précédents.
+
+Après MAP-2E, le nombre de doubles attributions mondiales de référence est **53**, sous réserve de vérifier la baseline actuelle.
+
+Ne pas bloquer les corrections indiennes au motif que des anomalies héritées subsistent ailleurs.
+
+### Test natif
+
+Si le moteur Victoria 3 est accessible, lancer une nouvelle partie au 1er janvier 1776, puis laisser tourner un mois.
+
+Sinon, préparer une courte liste de contrôles pour le joueur :
+
+- Carte politique de l'Inde.
+- Pays et capitales.
+- Bengale et possessions britanniques.
+- Confédération marathe.
+- Mysore et Hyderabad.
+- Rajputs et Sikhs.
+- Ceylan et comptoirs européens.
+- Populations, infrastructures et recrutement.
+- Éventuelles erreurs critiques dans les logs.
+
+## 17. Livrables
+
+Créer :
+
+`docs/reports/map/MAP2F/`
+
+Avec :
+
+- `MAP2F_EXECUTIVE_SUMMARY.md`
+- `MAP2F_TERRITORIAL_CHANGES.csv`
+- `MAP2F_POPULATION_VALIDATION.csv`
+- `MAP2F_UNRESOLVED.csv`
+- `MAP2F_VALIDATION.json`
+- Comparatifs cartographiques uniquement si nécessaires.
+
+Le résumé doit indiquer :
+
+1. Nombre de provinces effectivement modifiées.
+2. Pays créés ou réutilisés.
+3. Changements britanniques.
+4. Changements marathes.
+5. Modifications de Mysore et Hyderabad.
+6. Situation moghole et États du nord.
+7. Corrections des possessions européennes.
+8. Situation de Ceylan.
+9. Effets démographiques, économiques et militaires.
+10. Validations et limites historiques.
+
+Ne pas créer un nouvel atlas mondial ni des centaines de dossiers supplémentaires.
+
+Produire un rapport opérationnel, permettant au joueur de tester rapidement le lot.
+
+## 18. Sauvegarde et GitHub
+
+MAP-2E a été validé en jeu, y compris après la redistribution des unités persanes.
+
+La branche distante `backup/1776-checkpoints` est dédiée aux points de restauration.
+
+Avant MAP-2F :
+
+1. Vérifier la branche distante et le dernier checkpoint disponible.
+2. Sauvegarder l'état complet actuellement validé de MAP-2E, y compris le correctif militaire perse, dans un nouveau commit de cette branche.
+3. Préparer cette opération dans une copie Git indépendante ou un worktree de sauvegarde isolé pour ne pas perturber le workspace principal.
+4. Vérifier la restauration des fichiers modifiés, y compris les fichiers binaires et non suivis.
+5. Ne pas transférer d'archives ZIP volumineuses.
+6. Après vérification du checkpoint distant, supprimer uniquement les copies temporaires redondantes.
+7. Conserver les rapports et les preuves légères.
+
+Pour MAP-2F, utiliser des sauvegardes différentielles et éviter de multiplier les copies intégrales du mod.
+
+Les pushes sont autorisés uniquement sur `backup/1776-checkpoints`.
+
+**Aucun push vers `main`, aucun merge et aucun force-push.**
+
+Ne pas supprimer de branche distante.
+
+## 19. Priorités et rythme de travail
+
+MAP-2F est un périmètre vaste.
+
+Traiter les corrections dans l'ordre suivant :
+
+1. Possessions européennes et Compagnie britannique.
+2. Marathes, Mysore, Hyderabad et Carnatic.
+3. Moghols, Awadh, Rajputs et États du nord.
+4. Pendjab et puissances sikhes.
+5. Himalaya.
+6. Ceylan.
+
+Dans chaque zone, appliquer directement les corrections suffisamment établies.
+
+Ne pas rester bloqué plusieurs heures sur une enclave, un fort ou un village.
+
+Lorsqu'une incertitude est trop importante, documenter le cas puis continuer les autres régions.
+
+Il n'est pas nécessaire de corriger chaque frontière secondaire pour considérer le lot terminé.
+
+**Le succès se mesure au nombre d'anomalies historiques importantes corrigées sans régression technique, pas au volume des documents de recherche.**
+
+## 20. Autorisation finale
+
+Tu es autorisé à modifier localement les fichiers du mod pour intégrer MAP-2F.
+
+Ne commence pas automatiquement un autre lot.
+
+Aucun commit dans le workspace principal, aucun merge ni push vers `main`.
+
+À la fin, fournis les changements territoriaux intégrés, les problèmes encore ouverts et une liste courte des vérifications à effectuer dans une nouvelle partie.
+
+**Objectif final : produire une représentation historiquement crédible de l'Inde et de Ceylan au 1er janvier 1776, avec des frontières politiques cohérentes, sans revenir aux erreurs coloniales de la carte de 1836.**

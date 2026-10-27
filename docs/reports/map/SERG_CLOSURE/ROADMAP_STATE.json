@@ -4,7 +4,7 @@
   "historical_date": "1776-01-01",
   "initialized_on": "2026-10-18",
   "canonical_roadmap": "docs/reports/map/SERG_CLOSURE/ROADMAP.md",
-  "mission_status": "TWO_REAL_SCOPED_RECEIPTS_RECORDED_REGENSBURG_CITY_DEMOGRAPHY_PENDING_RUNTIME",
+  "mission_status": "LUXEMBOURG_USER_VALIDATED_REMAINING_GROUPED_TESTS_PENDING",
   "territorial_status": "INCOMPLETE",
   "initialization": {
     "territorial_changes": 0,
@@ -2181,10 +2181,10 @@
       },
       "runtime_validation": {
         "required": true,
-        "status": "NOT_RUN",
-        "attestation": null,
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC1-REGENSBURG-DEMOGRAPHY/RUNTIME_USER_ATTESTATION_2026_10_25.json",
         "protocol": "docs/reports/map/SERG_CLOSURE/SC1-REGENSBURG-DEMOGRAPHY/PLAYER_TEST_PROTOCOL.md",
-        "scope": "RG-D-CITY only; no human result yet",
+        "scope": "RG-D-CITY only; positive user report, no additional measurements invented",
         "new_details_invented": false
       },
       "decision": null,
@@ -2200,17 +2200,17 @@
       "identified_problem": [
         "Ratisbonne : 713 habitants techniques, confession héritée"
       ],
-      "installed_delivery_status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "installed_delivery_status": "PASS_RUNTIME_USER_VALIDATED",
       "installed_sub_lots": [
         {
           "id": "RG-D-CITY",
-          "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
           "scope": "RCI municipal population only; 11000 approximation B; no complete urban or episcopal reconstruction.",
-          "attestation": null
+          "attestation": "docs/reports/map/SERG_CLOSURE/SC1-REGENSBURG-DEMOGRAPHY/RUNTIME_USER_ATTESTATION_2026_10_25.json"
         }
       ],
       "blocking_reason": "RG-D-CITY corrige seulement le ressort municipal RCI. Populations comparables des noyaux RBI Donaustauf/Wörth, immunités St-Emmeram/Obermünster/Niedermünster et ambassades, ventilation confessionnelle exacte de 1776 et minorités demeurent non résolues. Le total urbain de 22000 n’est ni le ressort municipal ni le total RBI ; aucune clôture régionale par ce seul test.",
-      "current_delivery_note": "RG-D-CITY installé : RCI 713→11000, dont 6000 sud-germaniques protestants, 4998 catholiques et deux ashkénazes hérités inchangés ; approximation politique et démographique B tirée du ressort municipal tardif, pas recensement de 1776. RBI 4993 et tous autres propriétaires inchangés, monde 834926252→834936539 (+10287), sans compensation. Seules deux tailles de POP modifiées ; carte, institutions, bâtiments, professions et registre 579/neuf électeurs conservés. Sous-lot en attente de validation humaine ; région BLOCKED P1, zéro point.",
+      "current_delivery_note": "RG-D-CITY validé par le joueur le 25 octobre (date de réception) : seuls les 11000 habitants municipaux RCI et la correction livrée sont couverts. Région BLOCKED P1 pour les autres ressorts et preuves historiques ; zéro point régional. Aucune observation supplémentaire inventée.",
       "delivered_scope": {
         "classification": "B_PARTIAL_MUNICIPAL_DEMOGRAPHY",
         "sub_lots": [
@@ -2254,7 +2254,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "territorial",
-      "status": "NOT_STARTED",
+      "status": "BLOCKED",
       "sectors": [
         "F04"
       ],
@@ -2263,7 +2263,8 @@
       ],
       "historical_sources": [
         "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/HISTORICAL_GAPS.md:1",
-        "docs/reports/map/MAP2W/R4/HISTORICAL_INVENTORY.md:1"
+        "docs/reports/map/MAP2W/R4/HISTORICAL_INVENTORY.md:1",
+        "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/SOURCES.md:1"
       ],
       "before": "Pays BAV préservé; pas preuve globale des résidus, Ortenbourg/Berchtesgaden manquent de représentation distincte.",
       "expected": "Confirmer souveraineté, noyau représentable et distinction des possessions médiates avant toute création.",
@@ -2272,21 +2273,29 @@
       "acceptance": [
         "Confirmer souveraineté, noyau représentable et distinction des possessions médiates avant toute création."
       ],
-      "implementation_report": [],
-      "installed_lots": [],
+      "implementation_report": [
+        "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/SOURCES.md"
+      ],
+      "installed_lots": [
+        "SERG_CLOSURE/SC1-ORTENBURG"
+      ],
       "static_tests": {
-        "status": "NOT_RUN",
-        "evidence": []
+        "status": "PASS",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/VALIDATION.json"
+        ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "NOT_RUN",
-        "attestation": null,
-        "scope": null,
-        "new_details_invented": false
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/RUNTIME_USER_ATTESTATION_2026_10_25.json",
+        "scope": "OR-I-CORE uniquement; protocole intégral explicitement confirmé",
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/PLAYER_TEST_PROTOCOL.md"
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Noyau B testé ; limites rurales souveraines et population comparable de 1776 restent non démontrées, distinctes des possessions médiates.",
       "mandatory_1_0": true,
       "historical_region": [
         "Bavière et enclaves restantes"
@@ -2297,7 +2306,56 @@
       "jurisdiction": "Arbitrage d’Ortenbourg",
       "identified_problem": [
         "Berchtesgaden et Ortenbourg"
-      ]
+      ],
+      "installed_delivery_status": "PASS_RUNTIME_USER_VALIDATED",
+      "installed_sub_lots": [
+        {
+          "id": "OR-I-CORE",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "scope": "Four-cell market/castle sovereign nucleus B and 1000 residents only",
+          "attestation": "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/RUNTIME_USER_ATTESTATION_2026_10_25.json"
+        }
+      ],
+      "delivered_scope": {
+        "classification": "B_PARTIAL_SOVEREIGN_RESIDENCE",
+        "sub_lots": [
+          "OR-I-CORE"
+        ],
+        "full_regional_coverage": false,
+        "cells": [
+          [
+            4392,
+            901
+          ],
+          [
+            4392,
+            902
+          ],
+          [
+            4393,
+            901
+          ],
+          [
+            4393,
+            902
+          ]
+        ],
+        "population": 1000
+      },
+      "remaining_territorial_obligations": [
+        {
+          "id": "OR-RURAL-PERIMETER",
+          "status": "OPEN_NOT_VALIDATED",
+          "scope": "Dated mapping of sovereign rural villages and immediate versus mediate lordships beyond market/castle nucleus"
+        },
+        {
+          "id": "OR-1776-DEMOGRAPHY",
+          "status": "OPEN_NOT_VALIDATED",
+          "scope": "Comparable near-1776 market and sovereign rural population; dated confessional counts"
+        }
+      ],
+      "blocking_reason": "Seul OR-I-CORE, marché/résidence souverains, est représenté en B. Les villages du ressort immédiat et leur population comparable de 1776 restent à établir, distincts des Hofmarken bavaroises. Le repère de 1840 ne clôture pas cette démographie ; aucun transfert des possessions médiates ni de toute la commune actuelle.",
+      "current_delivery_note": "OR-I-CORE seul PASS_RUNTIME_USER_VALIDATED selon protocole intégral explicite : ORT/xEDC100/quatre cellules/1000 habitants, Karl III, comté protestant héréditaire, neuf technologies, chancellerie 100 postes, droits impériaux sans électorat supplémentaire, voisins, un mois et sauvegarde/rechargement réussis. Région BLOCKED P1 ; obligations rurales et démographiques inchangées, zéro point régional. Aucune date effective ou mesure supplémentaire inventée."
     },
     {
       "id": "SC2-BOHEMIA",
@@ -2853,7 +2911,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "territorial",
-      "status": "NOT_STARTED",
+      "status": "BLOCKED",
       "sectors": [
         "H02"
       ],
@@ -2862,7 +2920,8 @@
       ],
       "historical_sources": [
         "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/SUPPLEMENTAL_CHECKS.json:1",
-        "docs/reports/map/MAP2A/MAP2A_EXECUTIVE_SUMMARY.md:1"
+        "docs/reports/map/MAP2A/MAP2A_EXECUTIVE_SUMMARY.md:1",
+        "docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/SOURCES.md:1"
       ],
       "before": "Deux doubles propriétaires corrigés et Teschen rescopé; reste de la région non certifié.",
       "expected": "179 cellules AUS en WEST_GALICIA hors registre; établir la portion impériale sans intégrer toute la Galicie.",
@@ -2871,21 +2930,32 @@
       "acceptance": [
         "179 cellules AUS en WEST_GALICIA hors registre; établir la portion impériale sans intégrer toute la Galicie."
       ],
-      "implementation_report": [],
-      "installed_lots": [],
+      "implementation_report": [
+        "docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/SOURCES.md"
+      ],
+      "installed_lots": [
+        "SERG_CLOSURE/SC2-TESCHEN"
+      ],
       "static_tests": {
-        "status": "NOT_RUN",
-        "evidence": []
+        "status": "PASS",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/VALIDATION.json"
+        ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "NOT_RUN",
+        "status": "INCOMPLETE_USER_REPORT",
         "attestation": null,
-        "scope": null,
-        "new_details_invented": false
+        "scope": "TE-R-CORE only",
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/PLAYER_TEST_PROTOCOL.md",
+        "observations": [
+          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_USER_OBSERVATION.json"
+        ]
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Existing political B representation; historical jurisdictional and census coverage incomplete. No runtime test of Teschen by the agent or user yet.",
       "mandatory_1_0": true,
       "historical_region": [
         "Moravie et Silésie autrichienne"
@@ -2896,7 +2966,38 @@
       "jurisdiction": "Teschen et registre x9061E0",
       "identified_problem": [
         "Écart de couverture impériale de x9061E0 (Teschen technique)"
-      ]
+      ],
+      "installed_delivery_status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "installed_sub_lots": [
+        {
+          "id": "TE-R-CORE",
+          "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "scope": "Existing x9061E0, 179 AUS cells: imperial registry only; no physical or population change",
+          "attestation": null
+        }
+      ],
+      "blocking_reason": "Le défaut de registre des 179 cellules existantes est réparé en B ; correspondance d’ensemble du ressort historique et des seigneuries distinctes avec le RGB technique, puis démographie comparable de 1776 restent à établir. Le dénombrement régional 1770–1771 ne justifie pas automatiquement de remplacer le pool actuel. Aucun cadastre parfait exigé ni correction artificielle installée.",
+      "remaining_territorial_obligations": [
+        {
+          "id": "TE-HISTORICAL-PERIMETER",
+          "status": "OPEN_NOT_VALIDATED",
+          "scope": "Comparable overall territorial coverage, distinct ducal/domain jurisdictions and excluded neighbors; no claim that Albert owns all local estates"
+        },
+        {
+          "id": "TE-1776-DEMOGRAPHY",
+          "status": "OPEN_NOT_VALIDATED",
+          "scope": "Match the 1770–1771 regional census and its coverage to the existing 179-cell representation before any justified demographic correction"
+        }
+      ],
+      "current_delivery_note": "TE-R-CORE installé : x9061E0, 179 cellules AUS conservées dans WEST_GALICIA, un droit impérial explicite ajouté (580→581), aucun pays ni électeur nouveau. Bitmap, souverainetés, POPs, bâtiments, ressources, unités et technologies conservés. Seul le registre attend le joueur ; région BLOCKED P1 pour correspondance territoriale/démographique, zéro point. Le total régional 112850 en 1770–1771 n’est pas assimilé automatiquement au pool technique 135753. Le 26 octobre, le joueur rapporte une vérification en jeu, sans durée, nouvelle partie ou sauvegarde/rechargement explicitement attestés. Observation séparée, aucun PASS supplémentaire. Revue de clôture B proposée sans réinstallation ; obligations et points inchangés.",
+      "closure_review": {
+        "status": "PROPOSED_NOT_USER_APPROVED",
+        "date": "2026-10-26",
+        "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_CLOSURE_REVIEW.md",
+        "decision": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_PROPOSED_CLOSURE_DECISION.json",
+        "no_new_functional_installation": true,
+        "points_awarded": 0
+      }
     },
     {
       "id": "SC2-MAP2A-VALIDATION",
@@ -2933,16 +3034,16 @@
         "MAP2A"
       ],
       "static_tests": {
-        "status": "VERIFIED_AT_IMPORT",
+        "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC2-MAP2A-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
         "status": "PENDING",
         "attestation": null,
-        "scope": null,
+        "scope": "Four original MAP2A RGBs and related histories; TE-R-CORE is separate",
         "new_details_invented": false
       },
       "decision": null,
@@ -2959,7 +3060,19 @@
       "jurisdiction": "Portée manuelle des corrections MAP2A",
       "identified_problem": [
         "Portée manuelle manquante pour couches installées"
-      ]
+      ],
+      "closure_audit": {
+        "date": "2026-10-26",
+        "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+        "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
+        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
+        "remaining_controls": [
+          "périmètre des quatre RGB en nouvelle partie 1776",
+          "bâtiments et recrutement associés",
+          "un mois complet sur ce périmètre"
+        ],
+        "new_points": 0
+      }
     },
     {
       "id": "SC2-LUXEMBOURG-VALIDATION",
@@ -2969,7 +3082,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "pending_runtime",
-      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
       "sectors": [
         "I02"
       ],
@@ -2981,33 +3094,40 @@
         "docs/reports/map/LUX_BEO_INTEGRATION_2026-10-10/REPORT.md:1"
       ],
       "before": "xD001A0 présent BEO; aucun reçu propre à tout le périmètre luxembourgeois.",
-      "expected": "Ancien LUX xD001A0, habitants/bâtiments/unités transférés; pas nouveau tracé luxembourgeois.",
+      "expected": "Transfert xD001A0 BEO, quatre groupes et 137881 habitants historiques de transfert, formation/général conservés ; une administration BEO/Wallonie unique dans le contrat BUILD réconcilié, trois niveaux flamands conservés, aucun nouveau tracé.",
       "depends_on": [],
       "acceptance_profile": "runtime_only",
       "acceptance": [
-        "Ancien LUX xD001A0, habitants/bâtiments/unités transférés; pas nouveau tracé luxembourgeois."
+        "Ancien LUX xD001A0, habitants/bâtiments/unités transférés; pas nouveau tracé luxembourgeois.",
+        "Contrat administratif R1 : un niveau BEO/Wallonie unique, LUX sans cible administrative initiale, trois niveaux flamands conservés ; tous les autres bâtiments, PM et propriétaires préservés.",
+        "Nouvelle partie 1776, présence et PM actifs, transfert et formation contrôlés, un mois puis sauvegarde/rechargement attestés pour la version R1."
       ],
       "implementation_report": [
-        "docs/reports/map/LUX_BEO_INTEGRATION_2026-10-10/REPORT.md"
+        "docs/reports/map/LUX_BEO_INTEGRATION_2026-10-10/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/REPORT.md"
       ],
       "installed_lots": [
         "LUX_BEO_INTEGRATION_2026-10-10"
       ],
       "static_tests": {
-        "status": "VERIFIED_AT_IMPORT",
+        "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/ACCEPTANCE_CHECKS.json"
         ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "PENDING",
-        "attestation": null,
-        "scope": null,
-        "new_details_invented": false
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json",
+        "scope": "Luxembourg integration and LUX-ADMIN-R1 current version only",
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/PLAYER_TEST_PROTOCOL.md",
+        "new_details_invented": false,
+        "recorded_on": "2026-10-26"
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Validation humaine limitée au protocole Luxembourg et à sa version R1 conservée. Date effective, captures et mesures économiques/emploi non fournies ; aucune exactitude cadastrale ou démographique supplémentaire certifiée.",
       "mandatory_1_0": true,
       "historical_region": [
         "Luxembourg : intégration à BEO"
@@ -3018,6 +3138,56 @@
       "jurisdiction": "Portée manuelle Luxembourg sous BEO",
       "identified_problem": [
         "Portée manuelle manquante pour couches installées"
+      ],
+      "closure_audit": {
+        "date": "2026-10-26",
+        "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+        "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
+        "status": "TASK_CLOSED_USER_VALIDATED",
+        "remaining_controls": [],
+        "new_points": 1,
+        "scope_reconciliation": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/LUXEMBOURG_SCOPE_RECONCILIATION.json",
+        "resolution": {
+          "date": "2026-10-26",
+          "report": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/REPORT.md",
+          "static": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/STATIC_VALIDATION.json",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "new_points": 0,
+          "attestation": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json"
+        },
+        "user_acceptance": {
+          "source": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json",
+          "checks": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/ACCEPTANCE_CHECKS.json",
+          "status": "TASK_CLOSED_USER_VALIDATED"
+        },
+        "historical_audit_status_before_acceptance": "BLOCKED_LATER_ADMIN_SCOPE_CONFLICT",
+        "historical_audit_new_points": 0
+      },
+      "blocking_reason": null,
+      "remaining_technical_obligations": [
+        {
+          "id": "LUX-ADMIN-SCOPE-RECONCILIATION",
+          "status": "RESOLVED_USER_VALIDATED",
+          "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/LUXEMBOURG_SCOPE_RECONCILIATION.json",
+          "resolution": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/BUILD_TARGET_AMENDMENT.json",
+          "attestation": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json"
+        }
+      ],
+      "historical_static_tests_before_admin_r1": {
+        "status": "SCOPE_REVIEW_REQUIRED",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC2-LUXEMBOURG-VALIDATION.json"
+        ]
+      },
+      "installed_delivery_status": "PASS_RUNTIME_USER_VALIDATED",
+      "current_delivery_note": "Protocole Luxembourg intégral personnellement réussi et explicitement attesté : nouvelle partie 1776, administration BEO/Wallonie niveau 1, trois niveaux flamands, PM et fonctionnement/recrutement, intégration BEO sans LUX indépendant, populations et unités conservées, un mois sans anomalie, sauvegarde/rechargement. Reçu distinct limité à cette tâche ; aucun contrôle des autres tâches acquis.",
+      "installed_sub_lots": [
+        {
+          "id": "LUX-ADMIN-R1",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "scope": "One ordinary BEO government administration level in existing Wallonia portion; all four PMs explicit; no new territory or residents",
+          "attestation": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json"
+        }
       ]
     },
     {
@@ -4088,16 +4258,16 @@
         "MAP2L/MILAN_CREMONESE"
       ],
       "static_tests": {
-        "status": "VERIFIED_AT_IMPORT",
+        "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC4-MILAN-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
         "status": "PENDING",
         "attestation": null,
-        "scope": null,
+        "scope": "64-cell Austrian connection xEDA701",
         "new_details_invented": false
       },
       "decision": null,
@@ -4112,7 +4282,18 @@
       "jurisdiction": "Portée manuelle Milanais–Crémonais",
       "identified_problem": [
         "Portée manuelle manquante pour couches installées"
-      ]
+      ],
+      "closure_audit": {
+        "date": "2026-10-26",
+        "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+        "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
+        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
+        "remaining_controls": [
+          "raccord AUS de 64 cellules et voisins VEN/SWI",
+          "nouvelle partie et un mois"
+        ],
+        "new_points": 0
+      }
     },
     {
       "id": "SC4-PIEDMONT-VALIDATION",
@@ -4147,16 +4328,16 @@
         "MAP2L/PIEDMONT"
       ],
       "static_tests": {
-        "status": "VERIFIED_AT_IMPORT",
+        "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC4-PIEDMONT-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
         "status": "PENDING",
         "attestation": null,
-        "scope": null,
+        "scope": "Nine Piedmont SAR titles, Sardinia excluded",
         "new_details_invented": false
       },
       "decision": null,
@@ -4171,7 +4352,18 @@
       "jurisdiction": "Portée manuelle de l’inclusion piémontaise",
       "identified_problem": [
         "Portée manuelle manquante pour couches installées"
-      ]
+      ],
+      "closure_audit": {
+        "date": "2026-10-26",
+        "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+        "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
+        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
+        "remaining_controls": [
+          "SAR membre, neuf RGB piémontais reconnus et Sardaigne exclue",
+          "nouvelle partie et un mois"
+        ],
+        "new_points": 0
+      }
     },
     {
       "id": "SC5-PRUSSIAN-WEST",
@@ -4735,16 +4927,16 @@
         "MAP2L/MINDEN_RAVENSBERG"
       ],
       "static_tests": {
-        "status": "VERIFIED_AT_IMPORT",
+        "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC5-MINDEN-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
         "status": "PENDING",
         "attestation": null,
-        "scope": null,
+        "scope": "Minden 76 cellules, Ravensberg séparé",
         "new_details_invented": false
       },
       "decision": null,
@@ -4759,7 +4951,18 @@
       "jurisdiction": "Portée manuelle Minden",
       "identified_problem": [
         "Portée manuelle manquante pour couches installées"
-      ]
+      ],
+      "closure_audit": {
+        "date": "2026-10-26",
+        "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+        "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
+        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
+        "remaining_controls": [
+          "propriétaires, noyaux et mécanismes impériaux du lot nommé",
+          "nouvelle partie et un mois"
+        ],
+        "new_points": 0
+      }
     },
     {
       "id": "SC5-COLOGNE-VALIDATION",
@@ -4794,16 +4997,16 @@
         "MAP2L/DUCHY_WESTPHALIA"
       ],
       "static_tests": {
-        "status": "VERIFIED_AT_IMPORT",
+        "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC5-COLOGNE-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
         "status": "PENDING",
         "attestation": null,
-        "scope": null,
+        "scope": "Duché et Vest, 84 cellules KCL",
         "new_details_invented": false
       },
       "decision": null,
@@ -4818,7 +5021,18 @@
       "jurisdiction": "Portée manuelle duché de Westphalie/Vest",
       "identified_problem": [
         "Portée manuelle manquante pour couches installées"
-      ]
+      ],
+      "closure_audit": {
+        "date": "2026-10-26",
+        "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+        "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
+        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
+        "remaining_controls": [
+          "propriétaires, noyaux et mécanismes impériaux du lot nommé",
+          "nouvelle partie et un mois"
+        ],
+        "new_points": 0
+      }
     },
     {
       "id": "SC5-MAINZ-VALIDATION",
@@ -4857,16 +5071,16 @@
         "MAP2L/MAINZ_COMPLETION"
       ],
       "static_tests": {
-        "status": "VERIFIED_AT_IMPORT",
+        "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC5-MAINZ-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
         "status": "PENDING",
         "attestation": null,
-        "scope": null,
+        "scope": "Trois couches Mayence ; Erfurt exclue",
         "new_details_invented": false
       },
       "decision": null,
@@ -4881,7 +5095,18 @@
       "jurisdiction": "Portée manuelle des trois couches Mayence",
       "identified_problem": [
         "Portée manuelle manquante pour couches installées"
-      ]
+      ],
+      "closure_audit": {
+        "date": "2026-10-26",
+        "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+        "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
+        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
+        "remaining_controls": [
+          "propriétaires, noyaux et mécanismes impériaux du lot nommé",
+          "nouvelle partie et un mois"
+        ],
+        "new_points": 0
+      }
     },
     {
       "id": "SC6-HOHENLOHE",
@@ -5188,16 +5413,16 @@
         "MAP2L/SWABIA_CONTINUATION"
       ],
       "static_tests": {
-        "status": "VERIFIED_AT_IMPORT",
+        "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC6-SWABIA-CONTINUATION-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
         "status": "PENDING",
         "attestation": null,
-        "scope": null,
+        "scope": "Noyaux Fürstenberg/Ellwangen",
         "new_details_invented": false
       },
       "decision": null,
@@ -5212,7 +5437,18 @@
       "jurisdiction": "Portée manuelle Fürstenberg/Ellwangen",
       "identified_problem": [
         "Portée manuelle manquante pour couches installées"
-      ]
+      ],
+      "closure_audit": {
+        "date": "2026-10-26",
+        "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+        "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
+        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
+        "remaining_controls": [
+          "propriétaires, noyaux et mécanismes impériaux du lot nommé",
+          "nouvelle partie et un mois"
+        ],
+        "new_points": 0
+      }
     },
     {
       "id": "SC7-MEMBERS-ELECTORS",
@@ -7077,18 +7313,350 @@
       "before_percent": "34.89",
       "after_percent": "34.89",
       "note": "Supprime dans le blocage actuel BGT la formule héritée « aucun reçu humain » : le reçu concerne BG-I-CORE original, seule la mine ordinaire ultérieure reste à tester. Six obligations territoriales inchangées. Aucun travail géographique ou moteur supplémentaire."
+    },
+    {
+      "id": "SERG-RM-0039",
+      "date": "2026-10-25",
+      "kind": "SCOPED_REGRENSBURG_USER_VALIDATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC1-REGENSBURG-DEMOGRAPHY/RUNTIME_USER_ATTESTATION_2026_10_25.json",
+      "changes": [
+        {
+          "task_id": "SC1-REGENSBURG-DEMOGRAPHY",
+          "before": "BLOCKED",
+          "after": "BLOCKED"
+        }
+      ],
+      "sub_lot_changes": [
+        {
+          "id": "RG-D-CITY",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        }
+      ],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "RG-D-CITY validé par le joueur le 25 octobre (date de réception) : seuls les 11000 habitants municipaux RCI et la correction livrée sont couverts. Région BLOCKED P1 pour les autres ressorts et preuves historiques ; zéro point régional. Aucune observation supplémentaire inventée."
+    },
+    {
+      "id": "SERG-RM-0040",
+      "date": "2026-10-25",
+      "kind": "ORTENBURG_SCOPED_SOVEREIGN_NUCLEUS_PENDING_RUNTIME",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/USER_AUTHORIZATION.txt",
+      "changes": [
+        {
+          "task_id": "SC1-ORTENBURG",
+          "before": "NOT_STARTED",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/REPORT.md"
+      ],
+      "note": "OR-I-CORE installé : ORT, quatre cellules xEDC100 depuis BAV x8C26DD, 1000 protestants transférés sans variation mondiale, Karl III et comté héréditaire, neuf technologies et chancellerie 100 postes. Région BLOCKED P1 pour périphéries et démographie comparables ; noyau seul en attente du joueur, zéro point."
+    },
+    {
+      "id": "SERG-RM-0041",
+      "date": "2026-10-25",
+      "kind": "ORTENBURG_FINAL_STATIC_AND_TEST_REVIEW",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/TEST_REVIEW.json",
+      "changes": [],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "146/146 contrôles statiques, 16/16 ciblés et 497/512 cumulatifs ; quatorze assertions historiques classées (dix snapshots de registre, quatre absences de reçus humains), une exclusion héritée. Aucun échec inexpliqué, aucun moteur lancé. OR-I-CORE seul attend le joueur ; région BLOCKED P1, zéro point. SC2-TESCHEN seulement identifié."
+    },
+    {
+      "id": "SERG-RM-0042",
+      "date": "2026-10-25",
+      "kind": "SCOPED_ORTENBURG_RUNTIME_USER_VALIDATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG/RUNTIME_USER_ATTESTATION_2026_10_25.json",
+      "changes": [
+        {
+          "task_id": "SC1-ORTENBURG",
+          "before": "BLOCKED",
+          "after": "BLOCKED"
+        }
+      ],
+      "sub_lot_changes": [
+        {
+          "id": "OR-I-CORE",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        }
+      ],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "OR-I-CORE seul PASS_RUNTIME_USER_VALIDATED selon protocole intégral explicite : ORT/xEDC100/quatre cellules/1000 habitants, Karl III, comté protestant héréditaire, neuf technologies, chancellerie 100 postes, droits impériaux sans électorat supplémentaire, voisins, un mois et sauvegarde/rechargement réussis. Région BLOCKED P1 ; obligations rurales et démographiques inchangées, zéro point régional. Aucune date effective ou mesure supplémentaire inventée."
+    },
+    {
+      "id": "SERG-RM-0043",
+      "date": "2026-10-25",
+      "kind": "TESCHEN_REGISTRY_ONLY_IMPLEMENTATION_WITH_REGIONAL_BLOCK",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC2-TESCHEN",
+          "before": "NOT_STARTED",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "TE-R-CORE installé : x9061E0, 179 cellules AUS conservées dans WEST_GALICIA, un droit impérial explicite ajouté (580→581), aucun pays ni électeur nouveau. Bitmap, souverainetés, POPs, bâtiments, ressources, unités et technologies conservés. Seul le registre attend le joueur ; région BLOCKED P1 pour correspondance territoriale/démographique, zéro point. Le total régional 112850 en 1770–1771 n’est pas assimilé automatiquement au pool technique 135753."
+    },
+    {
+      "id": "SERG-RM-0044",
+      "date": "2026-10-25",
+      "kind": "TESCHEN_FINAL_STATIC_AND_TEST_REVIEW",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/TEST_REVIEW.json",
+      "changes": [],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "Teschen : 123/123 contrôles statiques, 18/18 ciblés, suite cumulative brute 510/530 avec 19 échecs classés et une exclusion héritée. Quatorze assertions déjà classées ; cinq nouveaux écarts expliqués par couche/reçu/autorisation explicites et 41 pixels externes antérieurs à la capture Teschen. Garde négatif Ortenbourg recontrôlé, aucun ancien test modifié, aucun échec inexpliqué. TE-R-CORE seul en attente du joueur ; région BLOCKED P1 et 82/235=34,89 % inchangés. SC3-HOLSTEIN seulement identifiée."
+    },
+    {
+      "id": "SERG-RM-0045",
+      "date": "2026-10-26",
+      "kind": "CLOSURE_CAMPAIGN_INSTALLED_LOTS_AUDITED",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+      "changes": [],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "Campagne autorisée par le joueur : huit installations auditées, 133/135 contrôles stricts ; deux écarts administratifs Luxembourg expliqués par un recalibrage BUILD ultérieur, à réconcilier avant clôture. Aucun reçu complet suffisant pour créditer une nouvelle tâche ; onze points restent conditionnels. Création systématique suspendue, aucun chantier SC3-HOLSTEIN commencé."
+    },
+    {
+      "id": "SERG-RM-0046",
+      "date": "2026-10-26",
+      "kind": "TESCHEN_LIMITED_USER_OBSERVATION_RECORDED",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_USER_OBSERVATION.json",
+      "changes": [
+        {
+          "task_id": "SC2-TESCHEN",
+          "before": "BLOCKED",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "Vérification du résultat en jeu rapportée par le joueur ; aucun mois, sauvegarde/rechargement, nouvelle partie ou contrôle global MAP2A ajouté. Aucun nouveau PASS, statut BLOCKED P1 et zéro point conservés."
+    },
+    {
+      "id": "SERG-RM-0047",
+      "date": "2026-10-26",
+      "kind": "TESCHEN_CLOSURE_REVIEW_WITHOUT_ADDITIONAL_INSTALLATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_CLOSURE_REVIEW.md",
+      "changes": [
+        {
+          "task_id": "SC2-TESCHEN",
+          "before": "BLOCKED",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "Une seule tâche BLOCKED traitée, Teschen : territoire, POPs, bâtiments et registre déjà livrés conservés. Décision B concrète soumise, non approuvée ; précision cadastrale distinguée de la réserve démographique substantielle. Pas de nouveau sous-lot fonctionnel ni de faux NOT_APPLICABLE pour contourner le test. Matrice des 23 blocages et protocole groupé prêts."
+    },
+    {
+      "id": "SERG-RM-0048",
+      "date": "2026-10-26",
+      "kind": "LUXEMBOURG_RUNTIME_VALIDATION_SCOPE_CONFLICT_EXPOSED",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/LUXEMBOURG_SCOPE_RECONCILIATION.json",
+      "changes": [
+        {
+          "task_id": "SC2-LUXEMBOURG-VALIDATION",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "Audit des huit installations approfondi : la matrice runtime finale maintient un objectif LUX sans État initial, tandis que BEO/Wallonie est à zéro administration. L’ancienne conservation de bâtiments ne peut être certifiée. Validation Luxembourg reclassée BLOCKED P1 pour réconciliation de portée ; aucune correction fonctionnelle, aucun reçu ou point. Sept autres tâches runtime restent en attente. Teschen reste l’unique revue de clôture traitée ; Luxembourg seulement recommandé ensuite."
+    },
+    {
+      "id": "SERG-RM-0049",
+      "date": "2026-10-26",
+      "kind": "CLOSURE_CAMPAIGN_FINAL_AUDIT_AND_NONREGRESSION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/FINAL_CHECKS.json",
+      "changes": [],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "Campagne bornée livrée : 133/135 contrôles des huit installations (deux écarts Luxembourg documentés), 16/16 contrats, 27 tests de suivi réussis et un ancien test désactivé. Vérifications Teschen et régions impériales conservées ; modifications concurrentes WORLD exposées et non restaurées. Aucune nouvelle clôture ou validation humaine complète. Teschen seul examiné en clôture ; Luxembourg à réconcilier ensuite."
+    },
+    {
+      "id": "SERG-RM-0050",
+      "date": "2026-10-26",
+      "kind": "LUXEMBOURG_ADMIN_R1_SCOPE_RECONCILED_AND_INSTALLED",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC2-LUXEMBOURG-VALIDATION",
+          "before": "BLOCKED",
+          "after": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION"
+        }
+      ],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "Conflit administratif réparé : un niveau ordinaire BEO/Wallonie, cible BUILD inactive LUX réaffectée à BEO ; trois niveaux flamands et autres déclarations conservés. Organisation simple, bureaucrates héréditaires compatibles avec la loi demandée de diètes provinciales, administration religieuse, rapport organisé désactivé. Aucun changement territorial/démographique ou militaire. Test spécifique requis avant clôture ; aucun reçu, aucun point."
+    },
+    {
+      "id": "SERG-RM-0051",
+      "date": "2026-10-26",
+      "kind": "LUXEMBOURG_ADMIN_R1_TARGETED_VALIDATION_COMPLETE",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/FINAL_CHECKS.json",
+      "changes": [],
+      "before_weight": 82,
+      "after_weight": 82,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "34.89",
+      "note": "23/23 contrôles ciblés, 6/6 contrôles BUILD bornés, 27 tests du suivi réussis et un ancien test désactivé. Aucun nouvel écart TECH BEO ; dette antérieure et incompatibilité du parseur global BUILD conservées et documentées. Conflit administratif réparé ; Luxembourg attend sa validation joueur, sans clôture ni point. Liste groupée seule actualisée ; aucune deuxième tâche traitée."
+    },
+    {
+      "id": "SERG-RM-0052",
+      "date": "2026-10-26",
+      "kind": "LUXEMBOURG_EXPLICIT_FULL_USER_VALIDATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json",
+      "changes": [
+        {
+          "task_id": "SC2-LUXEMBOURG-VALIDATION",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        }
+      ],
+      "before_weight": 82,
+      "after_weight": 83,
+      "total_weight": 235,
+      "before_percent": "34.89",
+      "after_percent": "35.32",
+      "note": "Protocole Luxembourg intégral personnellement réussi et explicitement attesté : nouvelle partie 1776, administration BEO/Wallonie niveau 1, trois niveaux flamands, PM et fonctionnement/recrutement, intégration BEO sans LUX indépendant, populations et unités conservées, un mois sans anomalie, sauvegarde/rechargement. Reçu distinct limité à cette tâche ; aucun contrôle des autres tâches acquis."
+    },
+    {
+      "id": "SERG-RM-0053",
+      "date": "2026-10-26",
+      "kind": "LUXEMBOURG_RECEPTION_FINAL_CHECKS",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/FINAL_CHECKS.json",
+      "changes": [],
+      "before_weight": 83,
+      "after_weight": 83,
+      "total_weight": 235,
+      "before_percent": "35.32",
+      "after_percent": "35.32",
+      "note": "Réception Luxembourg seule : conservation bornée 26/26, tests canoniques 27 réussis et un ancien test désactivé avant et après réception. Échec brut global 22/23 conservé et expliqué par le port concurrent de Floride occidentale, hors périmètre. Aucun reçu existant ou fichier fonctionnel modifié ; sept autres validations restent ouvertes."
+    },
+    {
+      "id": "SERG-RM-0054",
+      "date": "2026-10-26",
+      "kind": "LUXEMBOURG_RECEPTION_CONCURRENT_CHANGES_CLASSIFIED",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/FINAL_CHECKS.json",
+      "changes": [],
+      "before_weight": 83,
+      "after_weight": 83,
+      "total_weight": 235,
+      "before_percent": "35.32",
+      "after_percent": "35.32",
+      "note": "Trois changements externes nord-américains conservés pendant la réception : populations, journaux et événements de Floride. Versions fonctionnelles dépendantes du Luxembourg et contrat BUILD inchangés ; premier constat global archivé, contre-vérification bornée réussie. Aucune modification fonctionnelle par cet agent. Le reçu Luxembourg et ses 83/235 points restent les seuls nouveaux acquis."
     }
   ],
   "runtime_validation_hold": {
-    "task_id": "SC1-REGENSBURG-DEMOGRAPHY",
+    "task_id": "SC2-MAP2A-VALIDATION",
     "pending_task_ids": [
-      "SC1-REGENSBURG-DEMOGRAPHY",
-      "SC1-BERCHTESGADEN"
+      "SC2-MAP2A-VALIDATION",
+      "SC4-MILAN-VALIDATION",
+      "SC4-PIEDMONT-VALIDATION",
+      "SC5-MINDEN-VALIDATION",
+      "SC5-COLOGNE-VALIDATION",
+      "SC5-MAINZ-VALIDATION",
+      "SC6-SWABIA-CONTINUATION-VALIDATION"
     ],
-    "protocol": "docs/reports/map/SERG_CLOSURE/SC1-REGENSBURG-DEMOGRAPHY/PLAYER_TEST_PROTOCOL.md",
-    "next_implementation_candidate": "SC1-ORTENBURG",
-    "reason": "Une seule nouvelle étape autorisée effectuée ; attendre les résultats réels du joueur.",
-    "test_summary": "Nouvelle partie 1776 : RCI 11000 et RBI 4993 distincts, cultures/religions, emploi et finances, carte et droits impériaux conservés. Vérifier aussi la mine ordinaire BGT ultérieure seule encore non validée. Un mois, sauvegarde/rechargement, résultats séparés.",
-    "scope_note": "BG-I-CORE original avec ancienne saline et PS-OB-CORE validés par deux reçus distincts. Mine ordinaire BGT non couverte ; Berchtesgaden, Passau-périphéries et Ratisbonne-démographie restent BLOCKED P1. Les autres blocages et chantiers sont conservés. La candidate suivante est seulement identifiée."
+    "protocol": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/PLAYER_TEST_PROTOCOL_GROUPED.md",
+    "next_implementation_candidate": "SC3-HOLSTEIN",
+    "reason": "Luxembourg clôturé ; seules les validations déjà installées sont recommandées, sans nouvelle installation.",
+    "test_summary": "Nouvelle partie 1776 : contrôler les quatre corrections MAP2A et leurs habitants/bâtiments/recrutement, puis un mois ; autres lignes possibles dans la même session. Luxembourg ne doit pas être retesté.",
+    "scope_note": "Les tâches restent inchangées hors Luxembourg. Teschen et mine de sel sont distincts ; aucun nouveau territoire ni sous-lot.",
+    "suspended_new_territory_candidate_by_campaign": true
+  },
+  "closure_campaign": {
+    "status": "ACTIVE",
+    "pass_status": "LUXEMBOURG_HUMAN_ACCEPTED",
+    "date": "2026-10-26",
+    "source": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/USER_MISSION.txt",
+    "suspend_new_territories": true,
+    "selected_blocked_task": "SC2-TESCHEN",
+    "installed_audit": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
+    "blocked_matrix": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/BLOCKED_MATRIX.md",
+    "grouped_protocol": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/PLAYER_TEST_PROTOCOL_GROUPED.md",
+    "selected_review": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_CLOSURE_REVIEW.md",
+    "user_observation": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_USER_OBSERVATION.json",
+    "next_closure_candidate": "SC2-LUXEMBOURG-VALIDATION",
+    "potential_runtime_points": 11,
+    "final_checks": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/FINAL_CHECKS.json",
+    "test_results": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TEST_RESULTS.json",
+    "luxembourg_resolution": {
+      "date": "2026-10-26",
+      "task_id": "SC2-LUXEMBOURG-VALIDATION",
+      "report": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/REPORT.md",
+      "protocol": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/PLAYER_TEST_PROTOCOL.md",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
+      "final_checks": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/FINAL_CHECKS.json",
+      "attestation": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json",
+      "acceptance_report": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/REPORT.md",
+      "reception_final_checks": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/FINAL_CHECKS.json"
+    },
+    "current_resolution_task": "SC2-LUXEMBOURG-VALIDATION",
+    "remaining_grouped_runtime_points": 10
   }
 }

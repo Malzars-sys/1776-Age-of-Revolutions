@@ -1,0 +1,22 @@
+{
+  "attempts": 2,
+  "successful_local_agent_calls": 1,
+  "cache_lock_failure_before_search": 1,
+  "successful_exit_code": 0,
+  "model_configured_per_installed_instructions": "colgrep-agent-2B-Q8_0.gguf",
+  "model_and_gpu_independently_instrumented": false,
+  "command": "& 'C:/Users/simeo/.cargo/bin/colgrep.exe' --agent 'Locate existing tooling or documented coordinate controls for mapping North American historical places (Hudson Bay, York Factory, Churchill, James Bay, Cumberland House) onto the current provinces.png bitmap. Also locate province adjacency or connected-component tooling and Indigenous country initial ownership dependencies useful for a minimal Hudson Bay correction. Prior R8 research and HBC-01 audit are already known: do not summarize them again. Return a few precise file paths and line ranges only; do not modify files.' .",
+  "verified_leads": [
+    "tools/map2m_r8.py:269-284",
+    "common/history/countries/hbc - hudson bay company.txt:1-56"
+  ],
+  "imprecisions": [
+    "Returned already-known regional dossiers despite request to avoid repetition",
+    "Leading tool is about Pomerania: its generic coordinate extraction is reusable, its territorial evidence is irrelevant"
+  ],
+  "elapsed_local_inference_seconds": null,
+  "classical_retrieval_count": null,
+  "codex_tokens": null,
+  "exact_savings": null,
+  "index_rebuilt": false
+}

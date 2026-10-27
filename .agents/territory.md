@@ -1,0 +1,11 @@
+# Territoires et démographie
+
+Lire ce document uniquement pour le périmètre indiqué dans `AGENTS.md`. Il ne lance aucune mission.
+
+- **T01.** Avant un transfert ou découpage, rapprocher cartes historiques et géométrie actuelle. Documenter avant/après et contrôler cellules/RGB, unicité des attributions, références, propriétaires, capitales, terrains, hubs/locators concernés et limites des territoires voisins. Ne pas inventer une île ou un État pour combler une lacune de correspondance. Préserver les pixels et blocs extérieurs au lot.
+- **T02.** Distinguer redistribution technique et correction démographique historique. Un transfert pur conserve ses effectifs et ventilations ; une correction historique justifiée, dans une mission qui l’autorise, publie les écarts locaux et mondiaux sans compensation artificielle dans un autre pays. Pour le Saint-Empire, appliquer explicitement `MAP_POPULATION_POLICY.md`, qui remplace l’ancienne conservation mondiale absolue dans ce périmètre.
+- **T03.** Comparer des populations de périmètres compatibles (ville, territoire, Amt, chapitre, possessions incluses/exclues). Dater les observations, expliciter interpolation, arrondis et hypothèses culturelles/religieuses ; éviter doubles comptes, coefficients arbitraires et assimilation de pixels à des habitants historiques. Une estimation acceptée reste une estimation.
+- **T04.** Pour tout nouveau TAG, initialiser explicitement un profil technologique historiquement défendable et contrôler les prérequis des bâtiments, PM et unités réellement installés ; aucune copie uniforme d’un voisin ou de sa métropole. Vérifier aussi définition/histoire nationale, institutions, lois effectives, localisation, population, économie, propriété et relations nécessaires. Lire `technology.md` et `economy.md` pour ces dépendances.
+- **T05.** Ne pas déduire désincorporation ou changement politique de la seule population, distance ou optimisation fiscale. Vérifier l’intégration administrative historique, l’autonomie et le mode de gouvernement. Un classement diagnostique de candidats n’autorise pas leur installation.
+
+Traçabilité de chaque règle : [inventaire et sources](../docs/reports/agents/PERMANENT_RULES_AUDIT.md).

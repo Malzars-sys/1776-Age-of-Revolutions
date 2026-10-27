@@ -402,11 +402,18 @@ je_cuba_independencia = { # viva cuba
             trigger_if = {
                 limit = {
                     exists = c:CSA
-                    s:STATE_FLORIDA = {
+                    OR = {
+s:STATE_FLORIDA = {
                         any_scope_state = {
                             owner = c:CSA
                         }
                     }
+s:STATE_WEST_FLORIDA = {
+                        any_scope_state = {
+                            owner = c:CSA
+                        }
+                    }
+}
                 }
                 custom_tooltip = {
                     text = je_cuba_has_joined_csa

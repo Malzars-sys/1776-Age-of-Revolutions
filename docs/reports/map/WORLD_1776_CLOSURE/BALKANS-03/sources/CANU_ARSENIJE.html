@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="sr"><head>
+<meta charset="UTF-8">
+<meta name="author" content="Miloš Daković" >
+<meta name="Description" content="Leksikoni - CANU - Leksikon crnogorskih dinastija">
+<meta name="keywords" content="leksikon, dinastija, Crna Gora, CANU">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link href="leksweb.css" rel="stylesheet" type="text/css">
+<title>LCD</title>
+<script src="mark.min.js"></script>
+</head>
+<body>
+<div id="okvir">
+<div id="MDmenu">
+<ul>
+<li><a href="/web/lcd.php"> Početak</a>
+<li><a href="/web/lcd.php?Slovo=sve"> Abecedar</a>
+<li><form class="trazi" method="GET" action="/web/lcd.php" accept-charset="utf-8" >
+<input type="search" id="trazi" name="trazi" value="" autocomplete="off" spellcheck="false">
+<input type="submit" value="Traži">
+</form>
+<li> <a href="lcd0.php">Leksikon crnogorskih dinastija</a></ul>
+</div>
+<div style="clear:both;"></div>
+<div class="prikazclanka" id="clanak"><p><span class="nazivOdr">Arsenije Plamenac</span> (Crmnica, početak XVIII vijeka – Brčeli, 1784), crnogorski vladar i mitropolit. Izabrao ga je za nasljednika mitropolit <span class="uput"><a  href="?OID=4582" >→&nbsp;Sava Petrović Njegoš</a></span>, njegov ujak. Za episkopa je hirotonisan 1767. godine. Kao episkop i koadjutor mitropolita Save, Plamenac je poslao delegaciju u Beč 1779, tražeći od cara <span class="uput"><a  href="?OID=4709" >→&nbsp;Josifa II Habzburg-Lorena</a></span>, savladara carice <span class="uput"><a  href="?OID=4711" >→&nbsp;Marije Terezije Habzburg-Loren</a></span>, da pošalje u Crnu Goru „učitelje za djecu” i dajući mu obećanje da će Crnogorci biti pouzdani saveznici kada Austrija bude ratovala. Bio je organizator otpora protiv politike guvernadura Jovana Radonjića (<span class="uput"><a  href="?OID=6237" >→&nbsp;Crnogorski guvernaduri</a></span>), a sukobljavao se i sa pristalicama dinastije Petrović Njegoš (<span class="uput"><a  href="?OID=4636" >→&nbsp;Petrovići Njegoši</a></span>), čiji je dinastički kontinuitet na čelu <span class="uput"><a  href="?OID=4639" >→&nbsp;Cetinjske mitropolije</a></span> bio nakratko prekinut tokom njegove vladavine. Učestvovao je u izmirenju sukobljenih plemena Njeguša, Rišnjana i Krtoljana i posredovao u trgovačkim sporovima. U Manastiru Stanjevići (<span class="uput"><a  href="?OID=4643" >→&nbsp;Stanjevićka rezidencija</a></span>) susreo se sa izaslanikom cara Josifa II, pukovnikom Paulićem, koji ga je opisao kao čovjeka „odanog austrijskom skiptru”. Lošeg zdravlja i već u poznim godinama, mitropolit Arsenije nije stolovao na <span class="uput"><a  href="?OID=4637" >→&nbsp;Cetinju</a></span> nego u Crmnici.</p><div class="literatura"><p>Literatura: <i>Istorijski leksikon Crne Gore</i>, knj. 1, Podgorica, 2006; <i>Istorija Crne Gore</i>, knj. 3, Titograd, 1975; B. Pavićević, <i>Petar I Petrović Njegoš</i>, Podgorica, 1997; Ž. Šćepanović, <i>Kratka istorija Crne Gore</i>, Podgorica, 2002.</p><p>B. Vukićević</p></div><div style="clear:both"></div></div>
+<script>
+var Clanak = new Mark(document.getElementById("clanak"));
+var Trazi = document.getElementById("trazi");
+
+function Markiraj() {
+  var tekst = Trazi.value;
+  var options = {"accuracy": "complementary"};
+  Clanak.unmark({
+  	done: function(){
+		var ta = tekst.split(" ");
+		for (var i = 0; i < ta.length; i++) {
+		    r = ta[i];
+		    if (r.length>2) {
+		    	Clanak.mark(r, {"accuracy": "complementary"});
+		    }
+		    else if (r.length>1)  {
+		    	Clanak.mark(r, {"accuracy": "exactly"});
+		    }
+		}  	
+  	
+//  		if (tekst.length>2) {
+//	    	Clanak.mark(tekst, options); };
+  	  }})
+};
+
+Trazi.addEventListener("input", Markiraj);
+</script>
+
+<div style="clear:both"></div>
+<div id="Footer">Copyright © CANU, 2021-2026, Miloš Daković, 2021-2026. </div></div>
+</body>
+</html>

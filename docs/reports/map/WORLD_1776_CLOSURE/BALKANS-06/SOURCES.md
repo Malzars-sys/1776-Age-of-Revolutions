@@ -1,0 +1,21 @@
+# B06 — Sources et décisions datées
+
+Référence : 1er janvier 1776. Consultation : 26 octobre 2026. Aucun catalogue non lu n’est utilisé comme preuve. Copies, empreintes et échecs HTTP/DNS : SOURCE_MANIFEST.json.
+
+| Source réellement consultée | Localisation et fait retenu | Limite |
+| --- | --- | --- |
+| [Özer Küpeli, « Bir Voyvodanın Serencamı: Atina Voyvodası Haseki Ali Ağa », *Osmanlı İdaresinde Balkanlar*, I, 2020, pp.461–483](https://isamveri.org/pdfsbv/D292434/2020/2020_KUPELO.pdf) | PDF archivé, notamment pp.464–465 (PDF 6–7) : origine à Burdur, première voïvodie 1775–1776, examen critique de Benizelos et Skouzes ; références COA Cevdet Maliye 268/10972 et 268/10985. P.465 rendue et relue visuellement. | Registres originaux non consultés. L’auteur signale l’incertitude du jour d’arrivée et conteste le récit amoureux avec Esma ; aucune telle relation n’est installée. Achat de malikâne et délégation de voïvode ne sont pas confondus. |
+| [Yusuf Ziya Karabıçak, *Local Patriots and Ecumenical Ottomans*, thèse McGill/EHESS, 2020](https://www.academia.edu/130311996/Local_Patriots_and_Ecumenical_Ottomans_The_Orthodox_Patriarchate_of_Constantinople_in_the_Ottoman_Configuration_of_Power_1768_1828) | Transcription publique de l’auteur, pp.80–85 : négociations locales, effets de la révolte et règlement du Magne ; note 538 : copie BOA A.DVN 2370/11 du 7 mars 1804 d’un ferman daté du 1–11 janvier 1777. | PDF original non archivé ; dépôt McGill bloqué. L’original BOA n’est pas consulté directement. Le règlement de Koutifaris ne justifie pas de le préinstaller le 1er janvier 1776 ; l’autonomie antérieure des clans reste à représenter plus finement. |
+| [Ministère grec de la Culture, Palamidi](https://castleroute.culture.gov.gr/en/palamidi/) | Notice HTML archivée : construction commencée en 1711, reprise ottomane de Nauplie en 1715, place maintenue durant la seconde période ottomane. | Pas de nombre de soldats ou de pièces en 1776 ; un niveau régional est une calibration de capacité, pas un recensement des bastions. |
+| [Ministère grec de la Culture, Antirrio](https://castleroute.culture.gov.gr/en/antirrio/) | Notice HTML archivée : ouvrage contrôlant l’entrée du golfe avec Rio, retour ottoman en 1701 et maintien jusqu’en 1829. | Les travaux tardifs apparentés à ceux d’Ali Pacha ne sont pas préinstallés en 1776. |
+| [Ministère grec de la Culture, Nafpaktos](https://castleroute.culture.gov.gr/en/nafpaktos/) | Notice HTML archivée : retour ottoman après Karlowitz, arsenal/port fortifié, déclin commercial au XVIIIe siècle. | Aucun essor urbain moderne ni population nouvelle déduit de l’ancien rôle naval. |
+
+La recherche Anastasopoulos 2007 a fourni une piste sur les bandes albanaises mais son PDF n’a pas été récupéré : échec conservé, aucune lecture intégrale prétendue. William Miller, 1907, et les résumés donnant 1776 pour les beys du Magne sont des repères contradictoires ; le ferman daté rapporté par Karabıçak prévaut pour éviter une rétroprojection. Aucun décompte militaire de bandes n’est transformé en armée ottomane loyale.
+
+Les recommandations MAP1 R2-0065/0075/0077 ont été relues : simples revues macroscopiques, pas des frontières certifiées. Le bitmap actuel a été examiné pour le Péloponnèse ; les RGB agrégés ne suffisent pas à tracer la juridiction du Magne. Aucun découpage politique arbitraire n’est installé.
+
+## Choix d’implémentation
+
+Deux capacités côtières agrégées utilisent le bâtiment/PM déjà communs : ATTICA pour Lépante–Antirrio, PELOPONNESE pour Nauplie/Palamidi. Le moteur les place sur les hubs natifs et applique ses effets régionaux : ils ne garantissent ni maillage à chaque site ni verrou naval de toutes les passes réelles. La garnison de 1 000 emplois par niveau et ses intrants viennent du PM existant, pas d’un chiffre de source.
+
+Haseki est un civil dans le vivier de personnages TUR, avec un trait d’office descriptif sans bonus ; le jeu n’acquiert pas de système de gouverneurs provinciaux par cet ajout. Âge 45 : calibration technique d’adulte, naissance inconnue. Groupe des propriétaires et idéologie traditionaliste : interprétations qualitatives. Aucun commandement militaire, leadership national ou relation romanesque ne lui est attribué.

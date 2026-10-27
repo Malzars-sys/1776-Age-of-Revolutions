@@ -48,9 +48,9 @@
 
 	possible = {
 		OR = {
-			has_state_in_state_region = STATE_FLORIDA
+			OR = { has_state_in_state_region = STATE_FLORIDA has_state_in_state_region = STATE_WEST_FLORIDA }
 			any_subject_or_below = {
-				has_state_in_state_region = STATE_FLORIDA
+				OR = { has_state_in_state_region = STATE_FLORIDA has_state_in_state_region = STATE_WEST_FLORIDA }
 			}
 		}
 		custom_tooltip = {
@@ -104,7 +104,8 @@ je_buy_florida_button = {
 
 	possible = {
 		is_subject = no
-		s:STATE_FLORIDA = {
+		OR = {
+s:STATE_FLORIDA = {
 			any_scope_state = {
 				owner = {
 					NOT = {
@@ -112,7 +113,7 @@ je_buy_florida_button = {
 						AND = {
 							is_subject_of = root
 							capital = {
-								state_region = s:STATE_FLORIDA
+								OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
 							}
 						}
 						is_country_type = decentralized
@@ -133,6 +134,36 @@ je_buy_florida_button = {
 				}
 			}
 		}
+s:STATE_WEST_FLORIDA = {
+			any_scope_state = {
+				owner = {
+					NOT = {
+						root = this
+						AND = {
+							is_subject_of = root
+							capital = {
+								OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
+							}
+						}
+						is_country_type = decentralized
+					}
+					relations:root >= 0
+					OR = {
+						custom_tooltip = {
+							text = unfriendly_nation_with_interest_in_florida_tt
+							any_country = {
+								country_rank >= prev.country_rank
+								NOT = { this = prev }
+								has_interest_marker_in_region = sr:region_atlantic_coast
+								relations:prev < relations_threshold:cordial
+							}
+						}
+						scaled_debt > 0
+					}
+				}
+			}
+		}
+}
 	}
 
 	effect = {

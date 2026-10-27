@@ -737,6 +737,14 @@ aor1776_hre_cast_vote = yes
 aor1776_hre_tally_ballot = yes
 ai_chance = { base = 0 }
 }
+option = {
+name = aor1776_hre.vote_ORT
+trigger = { c:ORT ?= { aor1776_hre_ballot_candidate = yes } }
+c:ORT = { save_scope_as = hre_vote_choice }
+aor1776_hre_cast_vote = yes
+aor1776_hre_tally_ballot = yes
+ai_chance = { base = 0 }
+}
 
 
 }

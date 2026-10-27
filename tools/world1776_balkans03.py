@@ -20,7 +20,7 @@ COUNTRY='common/history/countries/mon - montenegro.txt'
 ARMY='common/history/military_formations/00_military_formations_europe.txt'
 STATES='common/history/states/00_states.txt'
 GOV='common/government_types/04_theocracies.txt'
-OWN=[COUNTRY,ARMY,STATES]
+OWN=[COUNTRY,ARMY]
 SID='STATE_MONTENEGRO'
 PREFIX='1776_world_b03_montenegro'
 
@@ -59,37 +59,6 @@ aor1776_mon_guvernadur = {
  possible = { always = no }
  character_modifier = {} command_modifier = {} country_modifier = {}
 }''')
-    add('common/buildings','''# Existing metropolitan household; capacity abstraction, not an archival staff list.
-building_aor1776_cetinje_metropolitan_house = {
- building_group = bg_bureaucracy city_type = city levels_per_mesh = 50
- expandable = no buildable = no downsizeable = no
- potential = { state_region = s:STATE_MONTENEGRO owner = { c:MON ?= this } }
- production_method_groups = { pmg_aor1776_cetinje_metropolitan_house }
- icon = "gfx/interface/icons/building_icons/building_government_administration.dds"
- required_construction = construction_cost_very_low
- background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
-}''')
-    add('common/production_method_groups','''pmg_aor1776_cetinje_metropolitan_house = {
- production_methods = { pm_aor1776_cetinje_metropolitan_house }
-}''')
-    add('common/production_methods','''pm_aor1776_cetinje_metropolitan_house = {
- texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
- country_modifiers = { workforce_scaled = { country_bureaucracy_add = 2 } }
- state_modifiers = { workforce_scaled = { state_tax_capacity_add = 1 } }
- building_modifiers = {
-  workforce_scaled = { goods_input_paper_add = 1 }
-  level_scaled = {
-   building_employment_clergymen_add = 100 building_employment_clerks_add = 50
-   building_employment_bureaucrats_add = 25 building_employment_aristocrats_add = 25
-  }
- }
-}''')
-    add('common/history/buildings','''BUILDINGS = { s:STATE_MONTENEGRO = { region_state:MON = {
- create_building = { building = "building_aor1776_cetinje_metropolitan_house"
-  add_ownership = { country = { country = "c:MON" levels = 1 } }
-  reserves = 1 activate_production_methods = { "pm_aor1776_cetinje_metropolitan_house" }
- }
-} } }''')
     add('common/history/diplomacy','''# Qualitative calibration of continuing border mediation, not a formal alliance.
 DIPLOMACY = { c:MON ?= { set_relations = { country = c:VEN value = 20 } } }''',filename='zz_'+PREFIX+'.txt')
     loc={
@@ -101,10 +70,7 @@ DIPLOMACY = { c:MON ?= { set_relations = { country = c:VEN value = 20 } } }''',f
        'aor1776_mon_arsenije':'Arsenije','aor1776_mon_plamenac':'Plamenac',
        'aor1776_mon_guvernadur':'Guvernadur',
        'aor1776_mon_guvernadur_desc':'Le guvernadur représente les chefs laïcs et participe à la conduite des affaires et des levées du pays. Il entretient les contacts avec les autorités voisines.',
-       'aor1776_mon_clan_muster':'Levée des clans',
-       'building_aor1776_cetinje_metropolitan_house':'Maison de la métropole de Cetinje',
-       'pmg_aor1776_cetinje_metropolitan_house':'Administration de la métropole',
-       'pm_aor1776_cetinje_metropolitan_house':'Offices monastiques'},
+       'aor1776_mon_clan_muster':'Levée des clans'},
       'english':{
        'gov_prince_bishopric':'Government of the Vladika',
        'gov_prince_bishopric_desc':'The vladika heads the metropolitanate and shares public affairs with the guvernadur and the clan chiefs. Local assemblies retain their authority; the coadjutor is the metropolitan’s designated successor.',
@@ -113,10 +79,7 @@ DIPLOMACY = { c:MON ?= { set_relations = { country = c:VEN value = 20 } } }''',f
        'aor1776_mon_arsenije':'Arsenije','aor1776_mon_plamenac':'Plamenac',
        'aor1776_mon_guvernadur':'Guvernadur',
        'aor1776_mon_guvernadur_desc':'The guvernadur represents the lay chiefs and takes part in the country’s public affairs and musters. He maintains contacts with neighbouring authorities.',
-       'aor1776_mon_clan_muster':'Clan Muster',
-       'building_aor1776_cetinje_metropolitan_house':'Cetinje Metropolitan Household',
-       'pmg_aor1776_cetinje_metropolitan_house':'Metropolitan Administration',
-       'pm_aor1776_cetinje_metropolitan_house':'Monastic Offices'}}
+       'aor1776_mon_clan_muster':'Clan Muster'}}
     for lang,strings in loc.items():
         files[f'localization/{lang}/replace/{PREFIX}_l_{lang}.yml']='l_'+lang+':\n'+''.join(' '+k+':0 "'+v+'"\n' for k,v in strings.items())
     return files
@@ -126,11 +89,8 @@ def transform(originals):
     text=originals[COUNTRY];n=one(text,'c:MON');rule=n.children('set_ruling_interest_groups')[0]
     assert a.ids(n,'set_ruling_interest_groups')==['ig_landowners']
     law=next(x for x in n.children('activate_law') if x.value=='law_type:law_theocracy')
-    out[COUNTRY]=edits(text,[(rule.end-1,rule.end-1,' ig_devout '),
+    out[COUNTRY]=edits(text,[(rule.start,rule.end,'set_ruling_interest_groups = {\n\t\t\tig_landowners\n\t\t\tig_devout\n\t\t}'),
         (law.end,law.end,'\n\t\tactivate_law = law_type:law_oligarchy\n\t\tactivate_law = law_type:law_peasant_levies')])
-    text=originals[STATES];n=one(text,'s:'+SID)
-    claims=[x for x in n.children('add_claim') if x.value=='c:MON'];assert len(claims)==1
-    out[STATES]=edits(text,[(claims[0].start,claims[0].end,'# No blanket Montenegrin political claim on Venetian Cattaro or Ottoman districts.')])
     text=originals[ARMY];n=one(text,'c:MON');formation=n.children('create_military_formation')[0]
     units=formation.children('combat_unit');regular=[u for u in units if u.one('service_type')!='conscript']
     reserve=[u for u in units if u.one('service_type')=='conscript']
@@ -174,7 +134,7 @@ def apply():
     assert not (LOT/'BASELINE.json').exists(),'Already installed; use --validate.'
     news=new_files();assert all(not (ROOT/r).exists() for r in news)
     original={r:a.raw(ROOT/r) for r in OWN};updated=transform(original)
-    baseline={'owned':{r:a.sha(ROOT/r) for r in OWN},'protected':{},'serg':{},'new':list(news),
+    baseline={'owned':{r:a.sha(ROOT/r) for r in OWN},'protected':{},'serg':{},'prior_proofs':{},'new':list(news),
               'before':inventory(),'vanilla_government_sha256':a.sha(a.GAME/GOV)}
     for folder in ['common','events','gui','gfx','localization','map_data']:
         for p in (ROOT/folder).rglob('*'):
@@ -183,6 +143,9 @@ def apply():
                 if r not in OWN:baseline['protected'][r]=a.sha(p)
     for p in (ROOT/'docs/reports/map/SERG_CLOSURE').rglob('*'):
         if p.is_file():baseline['serg'][p.relative_to(ROOT).as_posix()]=a.sha(p)
+    for folder in [OUT/'BALKANS-01',OUT/'BALKANS-02',ROOT/'docs/reports/technology/STARTING_TECH_AUDIT_1776_R3_REVIEW_2026_10_25']:
+        for p in folder.rglob('*'):
+            if p.is_file():baseline['prior_proofs'][p.relative_to(ROOT).as_posix()]=a.sha(p)
     for r in OWN:
         dest=LOT/'patch_inputs'/r;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/r,dest)
     source=LOT/'native_reference'/GOV;source.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(a.GAME/GOV,source)
@@ -201,12 +164,21 @@ def apply():
 def validate():
     base=json.loads((LOT/'BASELINE.json').read_text(encoding='utf8'));after=inventory();checks=[]
     def check(key,value,details=None):checks.append({'check':key,'passed':bool(value),'detail':details})
+    external_receipt=LOT/'EXTERNAL_ORTENBURG_UPDATE.json'
+    peer_map=json.loads(external_receipt.read_text('utf8')) if external_receipt.exists() else {}
+    peer_files=peer_map.get('files',{})
+    valid_map=bool(peer_map.get('verified')) and all(
+        e['before']==base['protected'][r] and e['after']==a.sha(ROOT/r)
+        for r,e in peer_files.items())
+    valid_map=valid_map and all(a.sha(LOT/r)==h for r,h in peer_map.get('archived_evidence',{}).items())
+    observations_file=LOT/'EXTERNAL_GAMEPLAY_OBSERVATIONS.json'
+    observations=json.loads(observations_file.read_text('utf8')) if observations_file.exists() else {}
     old={r:a.raw(LOT/'patch_inputs'/r) for r in OWN};expected=transform(old);news=new_files()
     for r,t in {**expected,**news}.items():
         check('exact_scoped_text.'+r,a.raw(ROOT/r)==t)
         if r.endswith('.txt'):check('parse.'+r,bool(parse(t)))
     for r in OWN:
-        key='s:'+SID if r==STATES else 'c:MON'
+        key='c:MON'
         before_node=one(old[r],key);after_node=one(a.raw(ROOT/r),key)
         def exterior(t,n):return t[:n.start]+'<SCOPED_NODE>'+t[n.end:]
         check('outside_MON_block_identical.'+r,exterior(old[r],before_node)==exterior(a.raw(ROOT/r),after_node))
@@ -217,9 +189,12 @@ def validate():
     gov=one(a.raw(ROOT/GOV),'gov_prince_bishopric')
     check('government_still_hereditary',gov.one('transfer_of_power')=='hereditary')
     check('MON_only_government_scope','c:MON = ROOT' in a.raw(ROOT/GOV)[gov.start:gov.end])
-    check('no_ownership_changes',after['owners']==base['before']['owners'])
+    expected_owners=dict(base['before']['owners'])
+    if valid_map:expected_owners.update(peer_map['owner_additions'])
+    check('no_ownership_changes_except_verified_external_Ortenburg',after['owners']==expected_owners)
     check('population_world_conserved',after['world_population']==base['before']['world_population'],after['world_population'])
-    check('local_POPs_cultures_religions_professions_identical',after['pops']==base['before']['pops'])
+    check('local_POPs_cultures_religions_professions_identical',json.loads(json.dumps(after['pops']))==base['before']['pops'])
+    check('local_buildings_and_ownership_identical',json.loads(json.dumps(after['assets']))==base['before']['assets'])
     check('nine_technologies_preserved',after['technologies']==base['before']['technologies'] and len(after['technologies'])==9)
     objects,_,_=tech.objects('common/technology/technologies');grants=set(after['technologies'])
     check('technology_ids_resolve',grants<=set(objects))
@@ -238,7 +213,7 @@ def validate():
         check('unit_tech_eligible.'+key,set(a.ids(un,'unlocking_technologies'))<=grants)
         check('unit_levy_eligible.'+key,un.one('conscript_peasant_levies')=='yes')
     regional=one(a.raw(ROOT/STATES),'s:'+SID)
-    check('blanket_MON_claim_removed',not any(n.value=='c:MON' for n in regional.children('add_claim')))
+    check('inherited_claim_not_silently_reinterpreted',any(n.value=='c:MON' for n in regional.children('add_claim')))
     check('Cattaro_remains_Venetian',after['owners'].get('x90A0E0')==[[SID,'VEN']])
     check('core_MON_preserved',after['owners'].get('x8C6292')==[[SID,'MON']])
     military=one(a.raw(ROOT/ARMY),'c:MON');j=military.children('create_character')[0]
@@ -251,11 +226,6 @@ def validate():
     trait=one(news['common/character_traits/'+PREFIX+'.txt'],'aor1776_mon_guvernadur')
     check('office_trait_has_no_bonuses',all(not n.children() for n in trait.children() if n.key.endswith('_modifier')))
     check('office_not_random',trait.children('possible')[0].one('always')=='no')
-    jobs=a.recipe(a.catalog('common/production_methods')['pm_aor1776_cetinje_metropolitan_house'][0])
-    check('administration_positive_jobs',all(float(x)>=0 for x in jobs['jobs'].values()) and sum(map(float,jobs['jobs'].values()))==200)
-    pmg=a.catalog('common/production_method_groups')['pmg_aor1776_cetinje_metropolitan_house'][0]
-    check('new_PM_registered',a.ids(pmg,'production_methods')==['pm_aor1776_cetinje_metropolitan_house'])
-    check('new_PM_no_unmet_gate',not jobs['gates'])
     for lang in ['french','english']:
         p=ROOT/f'localization/{lang}/replace/{PREFIX}_l_{lang}.yml'
         check('BOM.'+lang,p.read_bytes().startswith(b'\xef\xbb\xbf'))
@@ -265,18 +235,38 @@ def validate():
     check('icon_exists',(a.GAME/'gfx/interface/icons/character_trait_icons/basic_political_operator.dds').exists())
     external={r:{'before':h,'observed_now':a.sha(ROOT/r) if (ROOT/r).exists() else None} for r,h in base['protected'].items() if not (ROOT/r).exists() or a.sha(ROOT/r)!=h}
     serg=[r for r,h in base['serg'].items() if not (ROOT/r).exists() or a.sha(ROOT/r)!=h]
-    check('protected_gameplay_unchanged',not external,list(external))
-    check('SERG_proofs_unchanged',not serg,serg)
+    observed=observations.get('files',{})
+    recorded=(set(observed)==set(external) and all(
+        e['before']==base['protected'][r] and e['after']==a.sha(ROOT/r) for r,e in observed.items()))
+    check('external_gameplay_recorded_without_own_scope_collision',not external or (
+        valid_map and set(peer_files)<=set(external) and recorded and not set(external)&set(OWN)),list(external))
+    # Other chats may legitimately update their own SERG records. Never undo
+    # these writes or silently reset the entry hashes: require a reviewed,
+    # immutable before/after receipt in this lot for the precise changed paths.
+    peerfile=LOT/'EXTERNAL_SERG_UPDATE.json'
+    peer=json.loads(peerfile.read_text('utf8')) if peerfile.exists() else {}
+    accounted=peer.get('files',{})
+    valid_peer=(set(serg)==set(accounted) and all(
+        e['before']==base['serg'][r] and e['after']==a.sha(ROOT/r)
+        for r,e in accounted.items()))
+    check('SERG_proofs_preserved_or_reviewed_external_update',not serg or valid_peer,serg)
+    oldproofs=[r for r,h in base['prior_proofs'].items() if not (ROOT/r).exists() or a.sha(ROOT/r)!=h]
+    check('prior_lot_and_concurrent_tech_review_proofs_unchanged',not oldproofs,oldproofs)
     check('git_unchanged',after['git']==base['before']['git'])
+    # B02 legitimately superseded B01's shared state/POP/building files. Compare
+    # the latest installed receipt for each path, never restore an older baseline.
+    latest={}
     for lot in ['BALKANS-01','BALKANS-02']:
         manifest=json.loads((OUT/lot/'FILES_MODIFIED.json').read_text(encoding='utf8'))
-        # Shared state history intentionally changes; other owned files must survive.
-        for e in manifest:
-            r=e['file']
-            if r in OWN:continue
-            check('prior_lot_preserved.'+lot+'.'+r,a.sha(ROOT/r)==e['after'])
-    dump('CONCURRENT_CHANGES.json',{'external_gameplay':external,'SERG_proofs':serg,'shared_files':'Three current MON scopes only; no restoration from old lot baselines.'})
-    dump('STARTING_TECH_CHECK.json',{'tag':'MON','technologies':after['technologies'],'count':9,'units_before':base['before']['units'],'units_after':after['units'],'new_PM':jobs,'runtime':'NOT_RUN'})
+        entries=([{'file':r,**e} for r,e in manifest['files'].items()]
+                 if isinstance(manifest,dict) else manifest)
+        for e in entries:latest[e['file']]={**e,'lot':lot}
+    for r,e in latest.items():
+        if r in OWN:continue
+        preserved=(a.sha(ROOT/r)==e['after'] or (valid_map and r in peer_files and peer_files[r]['before']==e['after']))
+        check('prior_lot_latest_receipt.'+e['lot']+'.'+r,preserved)
+    dump('CONCURRENT_CHANGES.json',{'external_gameplay':external,'external_territorial_receipt':'EXTERNAL_ORTENBURG_UPDATE.json' if external else None,'SERG_proofs_changed_externally':serg,'SERG_external_receipt':'EXTERNAL_SERG_UPDATE.json' if serg else None,'prior_proofs':oldproofs,'shared_files':'Two current MON scopes only; no restoration from old lot baselines.'})
+    dump('STARTING_TECH_CHECK.json',{'tag':'MON','technologies':after['technologies'],'count':9,'units_before':base['before']['units'],'units_after':after['units'],'new_PM':None,'runtime':'NOT_RUN'})
     result={'status':'PASS' if all(c['passed'] for c in checks) else 'FAIL','passed':sum(c['passed'] for c in checks),'total':len(checks),'checks':checks,'runtime':'NOT_RUN','historical_boundaries':'NOT_CERTIFIED_NO_PIXEL_TRANSFER'}
     dump('VALIDATION.json',result)
     print(json.dumps({k:v for k,v in result.items() if k!='checks'}));print([c for c in checks if not c['passed']])

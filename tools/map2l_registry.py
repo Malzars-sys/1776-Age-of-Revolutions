@@ -371,7 +371,48 @@ def approved_lot_dirs():
         assert old['xFDA6CB']['beneficiary']==new['xFDA6CB']['beneficiary']=='AUS'
         assert new['xEDC000']['beneficiary']=='PAS'
         result.append(passau_outliers)
+    ortenburg=ROOT/'docs/reports/map/SERG_CLOSURE/SC1-ORTENBURG'
+    if (ortenburg/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((ortenburg/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        geo=json.loads((ortenburg/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert passau_outliers in result
+        assert m['replaced_regions']==['STATE_BAVARIA'] and m['new_members']==['ORT'] and m['free_cities']==[]
+        assert not m['extent_added_cells'] and not m['extent_removed_cells'] and m['region_reference_changes']==geo['hub_rebindings']==[]
+        assert geo['parents']==['x8C26DD'] and geo['selected_option']=='ORTENBURG_MARKET_CASTLE_CORE'
+        assert geo['classification']=='B_POLITICAL_APPROXIMATION' and not geo['historical_cadastral_precision']
+        assert m['new_provinces']==geo['new_provinces']==[{'rgb':'xEDC100','parent_rgb':'x8C26DD'}]
+        assert {(r['rgb'],r['owner'],r['pixels']) for r in geo['assignments']}=={('x8C26DD','BAV',272),('xEDC100','ORT',4)}
+        assert next(r['cells'] for r in geo['assignments'] if r['owner']=='ORT')==[[4392,901],[4392,902],[4393,901],[4393,902]]
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(new)==set(old)|{'xEDC100'} and all(new[k]==v for k,v in old.items())
+        assert old['x8C26DD']['beneficiary']==new['x8C26DD']['beneficiary']=='BAV' and new['xEDC100']['beneficiary']=='ORT'
+        assert set(m['country_additions'])=={'ORT'}
+        result.append(ortenburg)
+    teschen=ROOT/'docs/reports/map/SERG_CLOSURE/SC2-TESCHEN'
+    if (teschen/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((teschen/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        g=json.loads((teschen/'GEOMETRY.json').read_text(encoding='utf8'))
+        native=json.loads((teschen/'NATIVE_INVENTORY.json').read_text(encoding='utf8'))
+        assert ortenburg in result
+        assert m['replaced_regions']==['STATE_WEST_GALICIA'] and m['previous']==[]
+        assert len(m['updated'])==1
+        row=m['updated'][0]
+        assert (row['rgb'],row['state'],row['beneficiary'])==('x9061E0','STATE_WEST_GALICIA','AUS')
+        assert m['new_members']==m['free_cities']==m['new_provinces']==m['region_reference_changes']==[]
+        assert m['country_additions']=={} and m['ownership_previous']==m['ownership_updated']==[]
+        assert m['extent_removed_cells']==[]
+        assert len(m['extent_added_cells'])==179 and len({tuple(p) for p in m['extent_added_cells']})==179
+        assert m['extent_added_cells']==native['cells']==g['registry_extent_cells']
+        assert native['target']=='x9061E0' and native['state']=='STATE_WEST_GALICIA' and native['owner']=='AUS'
+        assert g['classification']=='B_EXISTING_POLITICAL_REPRESENTATION_REGISTRY_ONLY' and g['physical_map_changed'] is False
+        assert not g['historical_cadastral_precision'] and g['parents']==g['new_provinces']==g['assignments']==g['hub_rebindings']==[]
+        assert m['province_membership_overrides']==[dict(rgb='x9061E0',state='STATE_WEST_GALICIA',owner='AUS')]
+        result.append(teschen)
     return result
+
+def provincial_membership_overrides():
+    """Exact reviewed RGB exceptions, never a whole State Region inclusion."""
+    return {(r['rgb'],r['state'],r['owner']) for m in approved_territorial_migrations() for r in m.get('province_membership_overrides',[])}
 
 def reviewed_core_exception_owner(point,previous_owner,later_dirs):
     """Only the human-approved Kempten municipal cell, never a broad waiver."""

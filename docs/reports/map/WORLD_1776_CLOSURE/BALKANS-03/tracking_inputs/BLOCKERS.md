@@ -1,0 +1,12 @@
+# Obligations et blocages ouverts
+
+- **Interfaces habsbourgeoises** : attribution au chantier SERG à respecter avant tout transfert en Croatie, Slavonie, Frontière militaire, Banat, Transylvanie, Istrie ou Adriatique de contact. Ne bloque pas le lot des Cyclades.
+- **Monténégro** : sources attestant Sava et une autorité locale à Cetinje consultées ; rapports entre vladika, guvernadur et clans, fiscalité et prétentions ottomanes, limites des quatre nahije et portion exacte de `x8C6292` à approfondir. Le statut ecclésiastique confirmé par berat ne vaut pas une preuve de gouvernement provincial direct. L'absence de reconnaissance internationale avant 1878 ne suffit pas à supprimer l'autonomie locale. Aucune annexion installée.
+- **Raguse** : noyau RAG installé par BALKANS-02. Tracé approximatif, contact insulaire artificiel hérité, Lastovo non représenté ; recteur exact de janvier non identifié (personnage procédural). Population de 30 000 calibrée et réaffectée, sans hausse mondiale ; passages et minorités à préciser. Région/ressources/trait Krka partagés, hubs minoritaires et budget à contrôler. Tribut natif spécifique à 5 % abstrait, non reproduction de la somme triennale en ducats. Ces obligations empêchent de déclarer l’Adriatique historiquement complète.
+- **Cyclades** : transfert de souveraineté et conservation technique ciblés ; les communautés catholiques, autonomies fiscales et chiffres démographiques de 1776 ne sont pas reconstitués par ce premier transfert. Le trait économique préexistant Hermoupolis appelle un examen chronologique distinct. Les noms de hubs vanilla ne sont pas des preuves historiques.
+- **Principautés danubiennes** : conserver les corrections MAP2D, distinguer le statut tributaire du protectorat natif utilisé comme approximation. Les successions phanariotes et nominations par la Porte ne sont pas simulées dans ce premier lot de lois initiales.
+- **Moteur** : aucun test natif ou reçu humain nouveau. Les corrections installées devront rester `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` jusqu'au test du joueur.
+
+Ces obligations sont localisées. Elles n'interdisent pas les autres recherches et implémentations indépendantes de la phase Balkans. Les phases 2 à 5 restent non commencées jusqu'au bilan de la phase précédente.
+
+- **Consigne de test prioritaire** : test groupé à la fin des Balkans ; aucune transition régionale sans confirmation explicite du joueur, même si les premiers lots ont passé les contrôles statiques.

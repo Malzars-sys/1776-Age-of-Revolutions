@@ -1,0 +1,638 @@
+# CODEX — MAP-2I : Reconstruction territoriale de la Perse et de ses frontières en 1776
+
+## 1. Mission
+
+Poursuivre la reconstruction historique de la carte du mod **Victoria 3 — 1776 Age of Revolutions**.
+
+**Date de référence obligatoire : 1er janvier 1776.**
+
+Les lots MAP-2A à MAP-2H ont été intégrés localement et validés en jeu par le joueur. La dernière finition de MAP-2H a corrigé les gouvernements et noms anachroniques de l'Océanie et de l'Indonésie.
+
+Le nouveau lot est consacré principalement à :
+
+- La Perse de Karim Khan Zand.
+- Le Khorassan afsharide.
+- Les territoires qajars et les autorités locales du nord de l'Iran.
+- Le Sistan, le Baloutchistan et les frontières afghanes.
+- Le Khuzestan, le golfe Persique et les pouvoirs locaux.
+- Les frontières occidentales avec l'Irak et l'Empire ottoman.
+- La situation militaire de Bassora en janvier 1776.
+
+Utiliser le périmètre correspondant de **R3_MIDDLE_EAST_NORTH_AFRICA_CAUCASUS_CENTRAL_ASIA**.
+
+Cette mission est une **intégration cartographique effective**, pas une nouvelle étude historique générale.
+
+L'Arabie intérieure, le Levant, l'Afrique du Nord et les autres secteurs de R3 non nécessaires à ces interfaces seront traités dans des lots distincts.
+
+## 2. Recherches existantes
+
+Commencer par retrouver :
+
+- `MAP_1776_BASELINE.csv`
+- `MAP_1776_9_REGIONS.csv`
+- `MAP_1776_RESEARCH_SCHEMA.md`
+- `MAP_1776_KNOWN_ISSUES.csv`
+- Les recherches originales R3.
+- Les rapports MAP-0 et MAP-1.
+- Les travaux MAP-2D et MAP-2E concernant la Crimée et le Caucase.
+- Les éventuelles corrections pertinentes de `georg3mx-map-rework`.
+
+Les propriétaires actuels du mod ne constituent pas des conclusions historiques.
+
+Ne pas relancer un audit mondial ni tenter de géoréférencer au pixel près toutes les frontières anciennes.
+
+Examiner les recherches existantes, identifier les erreurs importantes et appliquer directement les corrections historiquement suffisamment établies.
+
+## 3. Perse zand — Karim Khan
+
+### Situation historique
+
+En 1776, Karim Khan Zand gouverne une grande partie de l'Iran occidental, central et méridional.
+
+Son autorité est centrée sur **Chiraz**, où il réside et gouverne.
+
+Il ne se fait pas couronner shah. Il utilise notamment le titre de *Vakil al-Ra'aya*, représentant ou régent du peuple.
+
+L'Empire iranien ne doit donc pas être assimilé à l'État qajar du XIXe siècle, ni à la Perse safavide de son apogée.
+
+Source principale : https://www.iranicaonline.org/articles/zand-dynasty/
+
+### Vérifications territoriales
+
+Examiner en priorité :
+
+- Fars et Chiraz.
+- Ispahan.
+- Yazd.
+- Kerman.
+- Luristan.
+- Kurdistan iranien.
+- Hamadan.
+- Irak-e Ajam.
+- Azerbaïdjan iranien, sans modifier les khanats caucasiens déjà corrigés.
+- Khuzestan.
+- Provinces de la côte du golfe Persique.
+- Régions caspiennes et leurs autorités locales.
+
+Distinguer le territoire directement gouverné par les Zand de celui des dynasties et chefs régionaux seulement soumis, alliés ou tributaires.
+
+**Ne pas fragmenter artificiellement tout le domaine zand.** Il s'agit bien d'un pouvoir majeur contrôlant une grande partie de l'Iran en 1776.
+
+En revanche, les grandes régions où subsiste une autorité indépendante ou semi-indépendante doivent pouvoir être représentées.
+
+### Capitale
+
+Vérifier impérativement la capitale de `PER`.
+
+Dans une version publiée du mod, sa définition contenait :
+
+`capital = STATE_IRAKAJEMI`
+
+Or Karim Khan gouverne depuis Chiraz.
+
+Corriger la capitale en utilisant `STATE_FARS` si cette région est effectivement possédée par PER et que le moteur permet d'y représenter correctement Chiraz.
+
+Vérifier les effets de ce changement sur les bâtiments administratifs, les investissements, les formations militaires, les marchés et les locators.
+
+Ne pas retirer des bâtiments pour déplacer artificiellement la capitale.
+
+### Noms et dirigeants
+
+Vérifier que Karim Khan est le dirigeant initial et que son titre ne le présente pas historiquement comme un shah couronné.
+
+Utiliser un nom dynamique convenable pour son État, par exemple « Perse zand » ou une autre appellation historiquement défendable.
+
+Conserver le TAG `PER` si possible afin de protéger les systèmes et événements qui le référencent.
+
+Ne pas renommer automatiquement toute l'histoire ultérieure de la Perse : le nom dynastique doit dépendre du contexte approprié.
+
+## 4. Khorassan — Afsharides de Machhad
+
+**Priorité territoriale majeure.**
+
+En 1776, le Khorassan n'appartient pas directement à Karim Khan Zand.
+
+**Shahrokh Afshar gouverne encore depuis Machhad.**
+
+Il reste un pouvoir afsharide distinct, même si son autorité et ses relations avec les puissances voisines sont complexes.
+
+Source : https://www.iranicaonline.org/articles/afsharids-dynasty/
+
+### Travail demandé
+
+Examiner :
+
+- Machhad.
+- Nishapur.
+- Sabzevar.
+- Tus.
+- Nord et sud du Khorassan.
+- Interfaces avec Herat.
+- Frontières avec les territoires turkmènes.
+- Interfaces avec le Sistan et les possessions durranies.
+
+Identifier les RGB appartenant actuellement à PER qui devraient relever des Afsharides.
+
+Si un TAG afsharide existe déjà, le réutiliser.
+
+Sinon, créer un seul TAG régional adapté, sans multiplier les petits pays artificiels.
+
+Vérifier :
+
+- Capitale à Machhad.
+- Dirigeant Shahrokh Afshar.
+- Lois et technologies de départ.
+- Culture et religion.
+- Drapeau et couleur distincts.
+- Localisations françaises et anglaises.
+- Possession effective de sa capitale.
+
+### Rapports avec l'Afghanistan
+
+Les Afsharides ont subi l'influence et les interventions des Durrani.
+
+Cependant, cela ne permet pas de supposer automatiquement une vassalité politique moderne et permanente.
+
+Établir la relation la plus plausible au **1er janvier 1776**, en tenant compte du règne de Timur Shah Durrani.
+
+N'introduire un tributariat, une dépendance ou une alliance que si la situation historique et le gameplay le justifient.
+
+Ne pas transférer mécaniquement tout le Khorassan aux Afghans.
+
+## 5. Qajars et régions caspiennes
+
+Examiner notamment :
+
+- Astarabad / Gorgan.
+- Mazandaran.
+- Gilan.
+- Littoral méridional de la Caspienne.
+- Territoires des différentes branches qajares.
+
+### Attention chronologique
+
+Agha Mohammad Khan Qajar n'est pas encore le souverain d'un Iran unifié en 1776.
+
+Il est retenu auprès de la cour de Karim Khan Zand pendant cette période.
+
+La montée en puissance des Qajars après la mort de Karim Khan en 1779 ne doit pas être anticipée.
+
+Distinguer :
+
+1. Les territoires effectivement contrôlés par les Zand.
+2. Les territoires relevant de chefs qajars locaux.
+3. Les zones de pouvoir contesté.
+4. Les territoires soumis à une autorité nominale ou à des alliances.
+
+Si une entité qajare régionale est justifiée, utiliser un TAG existant lorsqu'il convient.
+
+Ne pas créer un Empire qajar de 1776.
+
+Ne pas attribuer arbitrairement tout le Mazandaran ou tout le Gorgan à un seul pouvoir sans vérification.
+
+## 6. Afghanistan — Empire durrani
+
+### Situation initiale
+
+**Timur Shah Durrani** règne depuis 1772.
+
+Examiner :
+
+- Kandahar.
+- Kaboul.
+- Herat.
+- Ghazni.
+- Farah.
+- Sistan.
+- Territoires afghans du nord.
+- Interfaces avec les pouvoirs ouzbeks et turkmènes.
+- Frontières du Khorassan afsharide.
+- Frontières du Baloutchistan.
+
+Ne pas appliquer automatiquement les frontières modernes de l'Afghanistan.
+
+Vérifier le contrôle réel de chaque territoire par les Durrani et les pouvoirs locaux.
+
+### Important
+
+Les territoires de l'Empire durrani relevant déjà du périmètre R4 et corrigés dans MAP-2F doivent rester protégés.
+
+Ne pas rouvrir les frontières de l'Inde ou du Pendjab sans contradiction historique majeure.
+
+Les relations avec le Khorassan doivent être examinées en fonction de la situation de 1776, pas de celle des années 1790.
+
+## 7. Sistan et Baloutchistan
+
+Examiner :
+
+- Sistan.
+- Makran.
+- Kalat.
+- Régions baloutches du sud-est iranien.
+- Littoral entre le golfe d'Oman et les frontières afghanes.
+- Territoires contrôlés par des chefs baloutches.
+- Interfaces avec les possessions omanaises.
+
+Ne pas attribuer uniformément toutes ces régions aux Zand ou aux Durrani simplement parce qu'elles figurent dans leurs zones d'influence.
+
+Distinguer les autorités locales, les États tributaires et les possessions directes.
+
+### Gwadar
+
+MAP-2F a déjà corrigé Gwadar afin de ne pas anticiper son passage à Oman en 1784.
+
+**Préserver intégralement cette correction.**
+
+Ne pas réintroduire un contrôle omanais de Gwadar en janvier 1776.
+
+Les territoires relevant de R4 restent protégés, sauf correction d'interface indispensable et documentée.
+
+## 8. Khuzestan et Arabistan
+
+Examiner :
+
+- Ahvaz.
+- Mohammerah / Khorramshahr.
+- Abadan.
+- Bassin du Karoun.
+- Régions des Banu Ka'b.
+- Frontières avec Bassora.
+- Relations avec les Zand et les Ottomans.
+
+La présence d'autorités arabes locales doit être distinguée de la souveraineté revendiquée par les grands États.
+
+Ne pas annexer automatiquement tout l'Arabistan directement à PER sans justification.
+
+Ne pas en faire non plus un État parfaitement indépendant si les relations historiques indiquent une dépendance ou une influence zand.
+
+Dans les fichiers existants, le TAG `ARB` est déjà impliqué dans les historiques diplomatiques de la région.
+
+Vérifier sa définition, ses territoires, son gouvernement et ses relations avant toute modification.
+
+## 9. Bassora et frontière irakienne
+
+**Point historique et technique prioritaire.**
+
+### Situation au 1er janvier 1776
+
+Les Zand ont commencé leur campagne contre Bassora en 1775.
+
+Au début de 1776, **Bassora résiste encore au siège de Sadeq Khan Zand**.
+
+La prise intervient en avril 1776.
+
+En conséquence :
+
+- Bassora ne doit pas déjà être une possession zand au 1er janvier.
+- Une occupation militaire ou un siège peut être représenté si le moteur le permet.
+- Ne pas confondre la ville assiégée avec une province politiquement annexée.
+- Les événements d'avril ne doivent pas être appliqués au démarrage.
+
+Source : https://www.iranicaonline.org/articles/iraq-v-afsharids-to-the-end-of-the-qajars/
+
+### Système existant à protéger et vérifier
+
+Le mod contient déjà, dans une version publiée :
+
+`common/history/diplomatic_plays/00_otto_iraqi_persia_war.txt`
+
+Ce fichier crée un coup diplomatique avec :
+
+- `PER` comme initiateur.
+- `IR1` comme défenseur de Bassora.
+- `OMA` comme soutien du défenseur.
+- Des objectifs concernant Bassora, le Khuzestan et le Fars.
+- `war = no` dans la version consultée.
+
+Vérifier **le contenu réellement présent dans le workspace actuel**.
+
+Ne pas remplacer ou supprimer ce système par inadvertance.
+
+Il faut déterminer :
+
+1. Si le coup diplomatique est toujours chargé.
+2. S'il représente réellement le siège ou seulement une crise préliminaire.
+3. S'il entre en contradiction avec la date du 1er janvier 1776.
+4. Si les participants et objectifs de guerre sont corrects.
+5. Si sa progression dans le moteur est historiquement et techniquement cohérente.
+
+Si une correction est nécessaire, la limiter au conflit concerné.
+
+Ne pas créer une deuxième guerre entre les mêmes protagonistes.
+
+Ne pas garantir artificiellement une victoire zand à une date précise si cela nécessite un événement déterministe disproportionné.
+
+Une évolution historique plausible mais non garantie est préférable à une guerre scriptée impossible à modifier.
+
+### Irak ottoman
+
+Examiner uniquement les interfaces pertinentes :
+
+- Bassora.
+- Bagdad.
+- Mossoul, si nécessaire.
+- Kurdistan frontalier.
+- Régions des autorités mameloukes et des pachas ottomans.
+
+Distinguer contrôle ottoman nominal, administrations provinciales et puissances locales.
+
+Ne pas réorganiser toute la Mésopotamie dans ce lot.
+
+Préserver les sujets ottomans et les mécanismes politiques déjà existants.
+
+## 10. Golfe Persique et pouvoirs locaux
+
+Examiner :
+
+- Bushehr.
+- Bandar Abbas.
+- Hormuz.
+- Bandar Lengeh.
+- Côte du Fars.
+- Littoral du Khuzestan.
+- Bahreïn.
+- Interfaces avec les territoires omanais et les cheikhs locaux.
+
+### Bahreïn
+
+Ne pas anticiper la conquête de Bahreïn par les Al Khalifa en 1783.
+
+Examiner son rattachement aux autorités locales, notamment celles liées à Bushehr, et à la sphère politique zand.
+
+Ne pas confondre autorité indirecte et administration directe par Chiraz.
+
+### Commerce européen
+
+Les établissements commerciaux britanniques ou néerlandais ne doivent pas être assimilés automatiquement à des colonies territoriales.
+
+Conserver les traités et droits commerciaux existants lorsqu'ils sont compatibles avec la situation de 1776.
+
+Ne pas créer artificiellement de ports de traité occupant tout un grand territoire.
+
+### Oman
+
+Préserver les corrections omanaises des lots précédents, notamment les recrutements transférés et les frontières avec le Baloutchistan.
+
+Les enjeux diplomatiques autour de Bassora peuvent être vérifiés, mais ne doivent pas provoquer une refonte de tout Oman.
+
+## 11. Répartition territoriale
+
+Pour chaque correction :
+
+1. Identifier la State Region.
+2. Identifier les RGB natifs.
+3. Vérifier leurs propriétaires actuels.
+4. Vérifier les locators et les principales villes.
+5. Établir l'autorité la plus plausible en janvier 1776.
+6. Appliquer les changements.
+7. Adapter les historiques dépendants.
+8. Vérifier les conséquences.
+
+Privilégier les transferts de provinces existantes.
+
+Une retouche locale du bitmap est autorisée lorsqu'une province mélange manifestement deux territoires politiques et que la correction améliore réellement la carte.
+
+Si nécessaire :
+
+- Conserver la résolution native.
+- Ne pas créer de RGB involontaires.
+- Préserver les côtes et frontières physiques.
+- Éviter les pixels isolés.
+- Vérifier les locators, ressources et hubs.
+- Produire un comparatif avant/après.
+
+Ne pas redessiner toute la Perse pour atteindre des frontières géographiques parfaites.
+
+## 12. Populations, bâtiments et armées
+
+Population mondiale de référence, sous réserve de vérification de la baseline locale :
+
+**835 804 980 habitants.**
+
+Conserver :
+
+- Population mondiale totale.
+- Groupes culturels.
+- Religions.
+- Statuts sociaux.
+- Populations locales et minoritaires.
+- Qualifications et alphabétisation déclarées.
+- Bâtiments et niveaux.
+- PM.
+- Propriétaires économiques.
+- Réserves financières.
+- Unités militaires.
+- Formations et commandants.
+- Flottes et conscrits.
+
+Pour les États divisés, répartir les populations sans perte ni duplication.
+
+Ne pas utiliser systématiquement la superficie comme substitut à une estimation historique lorsqu'une meilleure méthode est disponible.
+
+Les répartitions surfaciques sont acceptées comme approximations techniques, mais ne constituent pas des recensements.
+
+### Attention aux garnisons
+
+Lors de MAP-2E, les recrutements persans ont dû être redistribués pour éviter une concentration excessive à Tabriz.
+
+Cette correction a été validée en jeu.
+
+**Ne pas la rétablir à son ancienne version.**
+
+Si des territoires PER deviennent Afsharides ou passent à un autre pays, vérifier que les recrutements et casernes persans possèdent encore des emplacements valides.
+
+Ne pas concentrer toutes les unités déplacées à Chiraz ou Ispahan.
+
+Répartir les garnisons dans des territoires cohérents avec les capacités démographiques et les infrastructures.
+
+Ne pas créer artificiellement de population pour remplir les casernes.
+
+## 13. Gouvernements et diplomatie
+
+Les nouveaux pouvoirs doivent avoir :
+
+- Un dirigeant historique lorsque son identité est suffisamment connue.
+- Une capitale réellement possédée.
+- Des lois compatibles avec leur organisation politique.
+- Des technologies initiales raisonnables.
+- Une couleur distincte des voisins.
+- Des noms français et anglais corrects.
+- Un statut diplomatique cohérent.
+
+Ne pas créer automatiquement un vassal zand pour chaque chef tribal.
+
+Les relations historiques peuvent parfois être mieux représentées par l'indépendance, le tribut ou une influence diplomatique qu'une annexion.
+
+Ne pas donner artificiellement au khanat du Khorassan une indépendance totale si la situation de 1776 révèle une dépendance pertinente, mais ne pas forcer non plus une tutelle durranie non démontrée pour cette date.
+
+Ne pas créer de mécanismes diplomatiques mondiaux nouveaux.
+
+## 14. Protection des lots précédents
+
+Préserver intégralement :
+
+- MAP-2A à MAP-2H.
+- Luxembourg et BEO.
+- Avignon et les territoires vénitiens.
+- Les traités commerciaux franco-pontificaux.
+- Le Budjak, Kerch, Kinburn et le khanat de Crimée.
+- Les relations de la Russie avec la Pologne-Lituanie.
+- Les frontières caucasiennes et les nouveaux khanats d'Azerbaïdjan.
+- Les États géorgiens.
+- Les recrutements persans déjà corrigés.
+- Les réglages économiques de Tabriz.
+- Les corrections indiennes et la situation de Gwadar.
+- Les administrations Qing et leurs corrections frontalières.
+- La nouvelle carte de l'Asie du Sud-Est et du Pacifique.
+- Les gouvernements kaurna et les noms indonésiens corrigés.
+- Les deux journaux de réforme ottomane.
+- Les dépendances ottomanes et égyptiennes.
+- Les correctifs IA et infrastructures.
+- Les technologies, biens et assets.
+
+Les territoires caucasiens déjà modifiés par MAP-2E ne doivent pas être réattribués à PER sous prétexte d'une influence iranienne historique.
+
+Si une erreur importante d'interface apparaît, la documenter et proposer un correctif limité.
+
+## 15. Validations
+
+Avant modification, établir une baseline légère de l'état local actuel, y compris les changements non committés.
+
+Après modification, vérifier :
+
+1. Conservation des provinces et RGB.
+2. Aucune nouvelle double attribution.
+3. Aucun territoire devenu sans propriétaire par accident.
+4. Capitales réellement possédées.
+5. TAGs valides.
+6. Gouvernements et dirigeants initialisés.
+7. Populations conservées mondialement et régionalement.
+8. Cultures, religions et statuts sociaux préservés.
+9. Bâtiments, niveaux, PM et propriétaires économiques conservés.
+10. Unités militaires et recrutements valides.
+11. Hubs et locators corrects.
+12. Scripts diplomatiques toujours valides.
+13. Absence de régression des autres lots MAP.
+14. Absence de nouvelle pénurie structurelle évidente résultant d'un regroupement militaire disproportionné.
+15. Réussite des validateurs ottomans et des tests d'infrastructure existants.
+
+Le dernier nombre connu de doubles attributions mondiales est de **44 après MAP-2H**, à confirmer sur le workspace réel.
+
+Les anciennes anomalies extérieures au périmètre ne doivent pas bloquer le travail.
+
+Distinguer résultats statiques et résultats réellement observés dans le moteur.
+
+## 16. Test en jeu
+
+Le joueur effectuera lui-même les tests natifs.
+
+Ne pas lancer Victoria 3 sans demande explicite.
+
+Fournir une courte liste de contrôles :
+
+- PER et sa capitale Chiraz.
+- Khorassan afsharide, Machhad et Shahrokh.
+- Territoires qajars et régions caspiennes.
+- Frontière avec les Durrani.
+- Sistan et Baloutchistan.
+- Khuzestan et Arabistan.
+- Bassora, son siège ou coup diplomatique et ses participants.
+- Littoral du golfe Persique et Bahreïn.
+- Recrutement des unités persanes.
+- Accès aux marchés et budgets des États créés.
+
+Vérifier une nouvelle partie au 1er janvier, puis après un mois.
+
+Si le système de Bassora évolue au cours du printemps, comparer également la situation à celle d'avril 1776, en distinguant une issue historique plausible d'un résultat garanti.
+
+## 17. Livrables
+
+Créer :
+
+`docs/reports/map/MAP2I/`
+
+Fournir :
+
+- `MAP2I_EXECUTIVE_SUMMARY.md`
+- `MAP2I_TERRITORIAL_CHANGES.csv`
+- `MAP2I_POPULATION_VALIDATION.csv`
+- `MAP2I_UNRESOLVED.csv`
+- `MAP2I_VALIDATION.json`
+
+Ajouter un aperçu des nouvelles frontières si cela facilite la vérification.
+
+Le rapport principal doit indiquer :
+
+1. Provinces réellement transférées.
+2. Pays créés ou réactivés.
+3. Répartition entre Zand et Afsharides.
+4. Corrections des territoires qajars.
+5. Modifications des frontières afghanes.
+6. Changements dans le Sistan et le Baloutchistan.
+7. Situation du Khuzestan et du golfe.
+8. Bassora et les mécanismes diplomatiques existants.
+9. Populations et bâtiments transférés.
+10. Recrutements militaires ajustés.
+11. Limites historiques conservées.
+12. Contrôles réalisés et tests en jeu à effectuer.
+
+Ne pas créer un nouvel atlas mondial ou plusieurs centaines de documents.
+
+Le rapport doit permettre une vérification rapide par le joueur.
+
+## 18. Sauvegarde GitHub
+
+MAP-2H et son correctif final ont été validés en jeu par le joueur.
+
+Avant MAP-2I :
+
+1. Vérifier `backup/1776-checkpoints`.
+2. Enregistrer un checkpoint correspondant à l'état complet validé de MAP-2H.
+3. Inclure les dernières corrections de Kaurna, des gouvernements autochtones et des noms indonésiens.
+4. Préparer le checkpoint dans une copie Git indépendante.
+5. Ne pas modifier le HEAD ni l'index du workspace principal.
+6. Vérifier une restauration fraîche et les empreintes des fichiers.
+7. Supprimer les copies temporaires redondantes uniquement après validation de leur restauration.
+8. Conserver les rapports légers et manifestes.
+
+Aucune nouvelle archive ZIP intégrale du mod.
+
+Les pushes sont autorisés uniquement vers la branche distante `backup/1776-checkpoints`.
+
+**Aucun commit dans le workspace principal, aucun merge, aucun push vers `main`, aucun force-push ni suppression de branche distante.**
+
+MAP-2I restera local jusqu'à validation en jeu.
+
+## 19. Priorités d'exécution
+
+Ordre recommandé :
+
+1. Perse zand : capitale, frontières et gouvernement.
+2. Khorassan afsharide et relations durranies.
+3. Territoires qajars et régions caspiennes.
+4. Sistan, Baloutchistan et frontière afghane.
+5. Khuzestan, golfe Persique et Bassora.
+6. Contrôles démographiques, économiques et militaires.
+7. Préparation des tests en jeu.
+
+Ne pas consacrer plusieurs heures à une petite enclave secondaire.
+
+Ne pas créer de nouveaux pays lorsqu'une attribution existante est déjà correcte.
+
+Ne pas reconstituer des provinces historiques en utilisant artificiellement des frontières de 1836.
+
+**Le résultat doit comporter des corrections territoriales effectives, pas uniquement un audit.**
+
+## 20. Autorisation finale
+
+Tu es autorisé à modifier directement les fichiers locaux nécessaires à MAP-2I.
+
+Ne commence pas automatiquement MAP-2J.
+
+Préserve tous les changements des lots précédents.
+
+Aucun merge ni push vers `main`.
+
+À la fin, présente les modifications réellement intégrées, les limites et les vérifications nécessaires dans une nouvelle partie.
+
+**Objectif : représenter la Perse de 1776 sous Karim Khan Zand, en distinguant le Khorassan afsharide, les autorités qajares, les pouvoirs périphériques et les relations avec les Ottomans et les Durrani, sans anticiper l'Iran qajar du XIXe siècle.**

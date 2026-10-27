@@ -484,6 +484,16 @@ def render():
       '', 'Le renvoi court de `AGENTS.md` est limité aux futures passes SERG. La [documentation officielle des instructions de dépôt](https://learn.chatgpt.com/docs/agent-configuration/agents-md) décrit leur chargement au démarrage d’une session, selon leur portée et les éventuels overrides; ce n’est pas un hook d’exécution. Aucun nouveau lancement de session n’a été testé ici. Ligne de démarrage de secours à inclure dans tout nouveau prompt SERG :',
       '', '> Lis `docs/reports/map/SERG_CLOSURE/ROADMAP.md`, puis `ROADMAP_STATE.json`, `NEXT_ACTION.md` et `BLOCKERS.md`; vérifie le workspace et les anciennes passes avant de choisir le sous-lot autorisé; actualise le suivi et les preuves à la fin, sans refaire les noyaux validés.',
       '', 'Liens : '+ ' · '.join(link(OUT/n) for n in ('PROGRESS_HISTORY.md','CLOSURE_CHECKLIST.md','DEFERRED_P2.md','BLOCKERS.md','NEXT_ACTION.md','INITIAL_STATE.json'))+'.']
+    campaign=state.get('closure_campaign',{})
+    if campaign.get('status')=='ACTIVE':
+        lines[6:6]=['## Priorité actuelle — campagne de levée des blocages','',
+            'Création systématique de nouveaux territoires suspendue selon '+link(campaign['source'])+'. Auditer et clore les installations existantes avant toute nouvelle expansion. Aucun changement du périmètre, des 81 tâches ou des 235 points.',
+            '', 'Audit des huit installations : '+link(campaign['installed_audit'])+'. Matrice des blocages : '+link(campaign['blocked_matrix'])+'. Tâche de clôture traitée : `'+campaign['selected_blocked_task']+'` ; décision proposée, aucune approbation présumée.','']
+    resolution=campaign.get('luxembourg_resolution')
+    if resolution:
+        lines[6:6]=['## Résolution actuelle — Luxembourg administratif','',
+            'Un niveau ordinaire BEO/Wallonie installé, trois niveaux flamands conservés ; contrat BUILD réconcilié. Rapport : '+link(resolution['report'])+'. Statut : `'+byid['SC2-LUXEMBOURG-VALIDATION']['status']+'`. '+('Reçu humain limité à cette tâche : '+link(resolution['attestation'])+'.' if resolution.get('attestation') else 'Aucun reçu humain ajouté.'),'',
+            'Prochaine action limitée aux validations groupées : '+link(campaign['grouped_protocol'])+'. La matrice antérieure reste une archive ; aucun nouveau territoire autorisé.','']
     md('ROADMAP.md',lines)
     lines=['# Historique additif des décisions et validations','',*common,
       'Les anciens reçus ne sont pas remplacés. Leur import ne constitue ni un nouveau test du moteur ni une certification historique. Aucun indicateur antérieur comparable : avant = non défini; après initialisation = '+initial_progress['percent'].replace('.',',')+' % sur le périmètre initial. Avancement territorial produit par la mission d’initialisation : zéro.','']
@@ -549,6 +559,34 @@ def render():
     lines += ['', '## Installations antérieures en attente de reçu spécifique','',
               'Ces lacunes peuvent être testées séparément sans reconstruire les territoires ni étendre les attestations voisines.','',
               *['- '+id+' — '+byid[id]['title']+'.' for id in p['awaiting_runtime'] if id!=state.get('runtime_validation_hold',{}).get('task_id')]]
+    if campaign.get('status')=='ACTIVE':
+        lines=['# Prochaine action — campagne de levée des blocages','',*common,
+            'La création systématique de nouveaux territoires est suspendue. `SC3-HOLSTEIN` ne doit pas être lancé automatiquement. Source : '+link(campaign['source'])+'.','',
+            '## Huit installations : contrôles manquants uniquement','',
+            'Protocole groupé : '+link(campaign['grouped_protocol'])+'. Audit : '+link(campaign['installed_audit'])+'. Onze points possibles, aucun crédit sans preuves terminales suffisantes. Le changement de portée administrative au Luxembourg doit être réconcilié explicitement.','',
+            '## '+campaign['selected_blocked_task']+' — décision de clôture à examiner','',
+            'Dossier : '+link(campaign['selected_review'])+'. Observation utilisateur limitée : '+link(campaign['user_observation'])+'. Aucun mois, sauvegarde/rechargement ou validation globale MAP2A n’est ajouté à cette observation.','',
+            'La proposition de conservation B ne vaut pas approbation et ne contourne pas le test du registre déjà installé. Aucun nouveau sous-lot fonctionnel dans cette passe.','',
+            'Classement des autres blocages : '+link(campaign['blocked_matrix'])+'. Candidate de clôture suivante : `'+campaign['next_closure_candidate']+'`, seulement recommandée, non commencée. Les anciens tests partiels et obligations restent dans BLOCKERS.md et les fiches canoniques.']
+    if resolution:
+        lines=['# Prochaine action — validations SERG groupées','',*common,
+            '## Luxembourg R1 — priorité de validation','',
+            'Le conflit administratif est réparé. Un niveau BEO/Wallonie est installé, les trois niveaux flamands sont conservés ; aucun changement de frontière ou de population. Rapport : '+link(resolution['report'])+'.','',
+            'Protocole limité : '+link(resolution['protocol'])+'. Statut : `'+byid['SC2-LUXEMBOURG-VALIDATION']['status']+'` ; aucun point avant reçu explicite et validation des critères.','',
+            '## Une même session pour les installations encore en attente','',
+            'Liste et contrôles : '+link(campaign['grouped_protocol'])+'. Huit tâches représentent onze points conditionnels. Les éléments manquants des sous-lots Teschen et de la mine de sel sont séparés, sans clôture régionale automatique.','',
+            *['- '+id+' — '+byid[id]['title']+'.' for id in p['awaiting_runtime']],
+            '', 'La vérification en jeu déjà rapportée pour Teschen reste à sa portée réelle. Aucun nouveau test, accord de conservation ou reçu n’est inventé. Aucun nouveau territoire, aucune tâche de clôture supplémentaire et aucun lancement de SC3-HOLSTEIN.']
+    if resolution and resolution.get('attestation'):
+        pending=p['awaiting_runtime'];pending_weight=sum(byid[id]['weight'] for id in pending)
+        lines=['# Prochaine action — validations SERG restantes','',*common,
+            '## Luxembourg reçu et clôturé','',
+            '`SC2-LUXEMBOURG-VALIDATION` : `'+byid['SC2-LUXEMBOURG-VALIDATION']['status']+'`. Reçu : '+link(resolution['attestation'])+'. Bilan de réception : '+link(resolution['acceptance_report'])+'. Aucun contrôle Luxembourg à refaire.','',
+            '## Prochaine validation joueur recommandée','',
+            ('`'+pending[0]+'` ; les autres lots peuvent être contrôlés dans la même session.' if pending else 'Aucune des validations groupées initiales ne reste ouverte.'),'',
+            'Liste et contrôles : '+link(campaign['grouped_protocol'])+'. '+str(len(pending))+' tâches installées, '+str(pending_weight)+' points conditionnels. Aucun statut des autres tâches n’est modifié par le reçu Luxembourg.','',
+            *['- '+id+' — '+byid[id]['title']+'.' for id in pending],
+            '', 'Les sous-lots Teschen et de la mine de sel restent distincts selon le protocole groupé. Aucun reçu ou accord supplémentaire n’est présumé. Aucun nouveau territoire, aucune installation et aucun lancement de SC3-HOLSTEIN.']
     md('NEXT_ACTION.md',lines)
     lines=['# Critères bloquants de clôture territoriale 1.0','',*common,
       'La présence d’un document ou l’achèvement d’une recherche ne coche pas un critère territorial. Chaque état terminal doit être justifié; les étapes documentaires/techniques peuvent être validées sans faux test du moteur.','']
@@ -595,6 +633,11 @@ def render():
     if accepted_partial:
         lines += ['', '## Validations partielles sans clôture territoriale','',
             *['- '+t['id']+' : '+str(len(t['installed_sub_lots']))+' sous-lots installés validés selon '+link(t['runtime_validation']['attestation'])+'. Le blocage régional demeure; aucun point attribué.' for t in accepted_partial]]
+    if campaign.get('status')=='ACTIVE':
+        lines += ['', '## Campagne de levée des blocages en cours','',
+            'Matrice des lacunes essentielles, réserves B/P2 et actions de clôture : '+link(campaign['blocked_matrix'])+'. Les obligations historiques ne sont pas effacées pour augmenter le pourcentage.','',
+            'Huit installations initiales : '+link(campaign['installed_audit'])+'. '+('Luxembourg : reçu humain enregistré, tâche clôturée selon '+link(resolution['attestation'])+'. ' if resolution and resolution.get('attestation') else 'Luxembourg : conflit administratif réparé, test joueur requis selon '+link(resolution['report'])+'. ' if resolution else 'Luxembourg : évolution administrative ultérieure à réconcilier, pas restauration automatique. ')+'Protocole groupé : '+link(campaign['grouped_protocol'])+'.','',
+            'Teschen : vérification en jeu rapportée selon '+link(campaign['user_observation'])+', sans nouveau reçu de protocole complet. Décision proposée : '+link(campaign['selected_review'])+'. Les critères humains manquants et la réserve démographique restent explicites.']
     md('BLOCKERS.md',lines)
     write_json(OUT/'PROGRESS_SNAPSHOT.json',p)
     print(json.dumps(p,ensure_ascii=False,indent=2))

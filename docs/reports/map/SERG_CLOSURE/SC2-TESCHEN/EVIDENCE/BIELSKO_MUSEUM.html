@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Slawomir Goliasz - POL1KV" />
+		<meta name="robots" content="index, follow" />
+		<meta name="description" content="Strona internetowa Muzeum Historycznego w Bielsku-Białej" />
+		<meta name="keywords" content=""/>
+		<meta name="deklaracja-dostępności" content="https://muzeum.bielsko.pl/pl/deklaracja-dostepnosci">
+		<link rel="shortcut icon" href="https://muzeum.bielsko.pl/images/favicon.ico" type="image/x-icon">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			
+		<!-- Bootstrap -->
+		<link href="https://muzeum.bielsko.pl/dodatki/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		
+		<!-- Bootstrap accessibility -->
+		<link href="https://muzeum.bielsko.pl/dodatki/bootstrap_accessibility/bootstrap-accessibility.css" rel="stylesheet">
+		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+		<script src="https://muzeum.bielsko.pl/dodatki/jquery/jquery.min.js"></script> <!-- v 1.11.1 -->
+		
+		<!-- jQuery cookie plugin -->
+		<script src="https://muzeum.bielsko.pl/dodatki/jquery/jquery.cookie.js"></script>
+		
+		<!-- jQuery easing plugin -->
+		<script src="https://muzeum.bielsko.pl/dodatki/easing/jquery.easing.1.3.min.js"></script>
+		<script src="https://muzeum.bielsko.pl/dodatki/easing/jquery.easing.compatibility.js"></script>
+
+		<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+		<link href="https://muzeum.bielsko.pl/dodatki/bootstrap/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+
+		<!--CSS3 Animate it-->
+		<link href="https://muzeum.bielsko.pl/dodatki/css3-animate-it-master/css/animations.css" rel="stylesheet">
+		
+		<!-- Justified Gallery -->
+		<link rel="stylesheet" href="https://muzeum.bielsko.pl/dodatki/justifiedGallery/justifiedGallery.min.css" />
+		
+		<!-- Galeria - photoswipe - http://photoswipe.com/ -->
+			<!-- Core CSS file -->
+			<link rel="stylesheet" href="https://muzeum.bielsko.pl/dodatki/PhotoSwipe-master/dist/photoswipe.css"> 
+
+			<!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+				 In the folder of skin CSS file there are also:
+				 - .png and .svg icons sprite, 
+				 - preloader.gif (for browsers that do not support CSS animations) -->
+			<link rel="stylesheet" href="https://muzeum.bielsko.pl/dodatki/PhotoSwipe-master/dist/default-skin/default-skin.css"> 
+
+
+		<!-- colorbox -->
+				
+		<!-- iHover -->
+		<link rel="stylesheet" href="https://muzeum.bielsko.pl/dodatki/iHover/styles/ihover.css" />
+		
+		<!-- bxSlider -->
+		<!--
+		<script src="https://muzeum.bielsko.pl/dodatki/bxSlider/jquery.bxslider.min.js"></script>
+		<link href="https://muzeum.bielsko.pl/dodatki/bxSlider/jquery.bxslider.css" rel="stylesheet" />
+		-->
+		
+		<!--fonty Awesome-->
+		<!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">-->
+		<link href="https://muzeum.bielsko.pl/css/font-awesome.min.css" rel="stylesheet">
+
+		<!--fonty Ionicons-->
+		<!--<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">-->
+		
+		<!-- Fonty ionicons -->
+		<link rel="stylesheet" href="https://muzeum.bielsko.pl/dodatki/bootstrap-iconpicker-master/icon-fonts/ionicons-1.5.2/css/ionicons.min.css"/>
+
+
+		<!-- jQuery - plugin form -->
+		<!--<script src="https://malsup.github.com/jquery.form.js"></script> nie działa z SSL-->
+		<script src="https://cdn.jsdelivr.net/jquery.form/4.2.1/jquery.form.min.js"></script>
+		
+		<script>
+			//ładuj pliki CSS (główny i pliki css modułów)
+			var tabCSS = {"0":"main","1":"css_menu_0","3":"css_mainbanner_1 z przewijaczem roboczy","4":"css_mainbanner_ekslibris_0","5":"css_mainbanner_hp_1","7":"css_mainbanner_hp_5","9":"css_mainbanner_parallax_1","11":"css_mainbanner_podstrony_1","13":"css_artykul_1","15":"css_artykul_komunikat","17":"css_artykul_warto_zobaczyc","19":"css_lista_artykulow_1","21":"css_lista_artykulow_komunikaty_hp","23":"css_lista_artykulow_plakaty_1","25":"css_lista_artykulow_wydarzenia_hp","27":"css_galeria_0","29":"css_pliki_1"};
+			$.each(tabCSS, function(index, value) {
+				if ($.cookie("kontrast") == 1) {
+					$("head").append( $("<link rel='stylesheet' type='text/css' />").attr("href", "https://muzeum.bielsko.pl/css/"+value+"-k.css"));
+				}
+				else {
+					$("head").append( $("<link rel='stylesheet' type='text/css' />").attr("href", "https://muzeum.bielsko.pl/css/"+value+".css"));
+				}
+			})
+			
+			//płynny scroll do kotwic
+			$(function() {
+				
+				//płynny scroll do kotwic
+				$('a[href*=#]:not([href=#]).menugorne, .goDownLink').click(function() {
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+						if (target.length) {
+
+							if (window.innerWidth < 768) {
+								$(".navbar-collapse").collapse('hide');	//zwinięcie menu po kliknięciu (dla mobile)
+							}
+
+							$('html,body').animate({
+								scrollTop: target.offset().top-100
+							}, 1000, 'easeInOutCubic');
+							return false;
+						}
+					}
+				});
+				
+				
+				//showaj navbar (potrzebne przy płynnym scrollu do kotwic, jesli nie zrobi się tego to pierwsze kliknięcie (po załadowaniu strony)
+				//w link do kotwicy powoduje rowinięcie się navbaru )
+				$(".navbar-collapse").collapse('hide');
+				
+			});
+		</script>
+
+		<title>Zamek Książąt Sułkowskich – historia</title>
+		
+		<!--Google Analytics-->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-3038160-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+		
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3038160-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-3038160-1');
+		</script>
+
+		
+	</head>
+	
+	<body>
+<script>
+	//zmiana koloru logo menu po najechaniu na menu
+	$(document).ready(function() {
+		$(".navbar").mouseover(function() {
+			$(".menuBrand").css({"transition" : "all 0.8s", "filter": "brightness(0) invert(1)", "-webkit-filter": "brightness(0) invert(1)"});
+		});
+		$(".navbar").mouseout(function() {
+			$(".menuBrand").css({"filter": "none", "-webkit-filter": "none"});
+		});
+	});
+</script>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+		<h1 class="sr-only">Menu główne</h1>
+		
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+<!--			
+			<a class="menugorne navbar-ikona btn btn-default navbar-btn" role="button" href="https://muzeum.bielsko.pl/pl/strona_glowna">
+				<img src="https://muzeum.bielsko.pl//images/ikona_logo.png" alt="Logo Muzeum Historycznego w Bielsku-Białej" />
+			</a>		
+-->
+			<a href="https://muzeum.bielsko.pl/pl/strona_glowna">
+				<img class="menuBrand" src="https://muzeum.bielsko.pl//images/logo_brand_czerwony.png" alt="Logo Muzeum Historycznego w Bielsku-Białej" />
+			</a>
+
+		</div>
+		
+		<!-- menu -->
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/deklaracja-dostepnosci'>
+							Deklaracja dostępności
+						</a>
+</li>
+<li>
+						<a href=''>
+							Zwiedzanie
+						</a>
+
+<ul class='dropdown-menu'>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/godziny_otwarcia'>
+							Godziny otwarcia
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/bilety'>
+							Bilety
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/plan_wydarzen'>
+							Plan wystaw i wydarzeń
+						</a>
+</li>
+<li>
+						<a href=''>
+							Ekspozycje stałe
+						</a>
+
+<ul class='dropdown-menu'>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/ekspozycje-stale-zamek'>
+							Zamek Książąt Sułkowskich
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/ekspozycje-stale-dom-tkacza'>
+							Dom Tkacza
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/ekspozycje-stale-falatowka'>
+							Fałatówka
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/ekspozycje-stale-stara-fabryka'>
+							Stara Fabryka
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/kaplica'>
+							Kaplica Zamkowa Św. Anny
+						</a>
+</li>
+</ul>
+</li>
+<li>
+						<a href=''>
+							Ekspozycje czasowe
+						</a>
+
+<ul class='dropdown-menu'>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/ekspozycje_czasowe_zamek'>
+							Zamek Książąt Sułkowskich
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/ekspozycje_czasowe_stara_fabryka'>
+							Stara Fabryka
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/ekspozycje-czasowe-falatowka'>
+							Fałatówka
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/zlap-kontakt-ze-sztuka'>
+							Złap Kontakt ze sztuką
+						</a>
+</li>
+</ul>
+</li>
+<li>
+						<a href=''>
+							Wirtualny spacer
+						</a>
+
+<ul class='dropdown-menu'>
+<li>
+						<a class='menugorne' href='http://www.muzeum.bielsko.pl/panoramy/zamek2/'>
+							Zamek
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='http://www.muzeum.bielsko.pl/panoramy/falatowka/'>
+							Fałatówka
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='http://www.muzeum.bielsko.pl/panoramy/patio/'>
+							Atrium
+						</a>
+</li>
+<li>
+						<a href=''>
+							Ekspozycja czasowa
+						</a>
+
+<ul class='dropdown-menu'>
+<li class='dropdown-header'>Aktualne</li>
+<li>
+						<a class='menugorne' href='http://www.muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/4-plener-malarski/'>
+							IV Międzynarodowy Plener Malarski im. Juliana Fała
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='http://www.muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/wlokniarze/'>
+							Wł&oacute;kniarze. Propaganda, rytuał, dziedzictwo
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='http://www.muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/z-archiwum-z/'>
+							Z Archiwum Z
+						</a>
+</li>
+<li class='divider'></li>
+<li class='dropdown-header'>Wcześniejsze</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/przy-ksiazecym-stole/'>
+							Przy książęcym stole
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/anatol-martyniuk'>
+							Anatol Martyniuk &ndash; Tuligłowy
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/pawel-kotowicz-mniej-oficjalnie/'>
+							Paweł Kotowicz, Mniej oficjalnie
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/acquerello-janusz-motylski/'>
+							Janusz Motylski ‒ krajobrazy
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/batalie-i-konflikty'>
+							Batalie i konflikty
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/szopki'>
+							Szopki &ndash; tradycja w miniaturze
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/splecione-swiaty'>
+							Splecione światy. 80 lat ZPAP w Bielsku-Białej.
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/barokowa-kobieta/'>
+							Barokowa kobieta
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/panoramy/ekspozycje_czasowe/kulturalne-plakaty-wiesława-łysakowskiego/'>
+							Kulturalne plakaty Wiesława Łysakowskiego
+						</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/regulaminy-zwiedzania'>
+							Regulaminy zwiedzania
+						</a>
+</li>
+</ul>
+</li>
+<li>
+						<a href=''>
+							Muzeum
+						</a>
+
+<ul class='dropdown-menu'>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/misja_muzeum'>
+							Misja Muzeum
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/zakres-dzialalnosci'>
+							Zakres działalności
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/historia'>
+							Historia
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/kolekcje'>
+							Kolekcje
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/nagrody_i_wyroznienia'>
+							Nagrody i wyróżnienia
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/przetargi'>
+							Przetargi
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://mhbb.bip.gov.pl/plany/'>
+							Plany zam&oacute;wień
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/wolontariat'>
+							Wolontariat
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/kontakt'>
+							Dane kontaktowe
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/rodo'>
+							RODO
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/standardy-ochrony-maloletnich'>
+							Standardy ochrony małoletnich
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/dla-prasy'>
+							Dla prasy
+						</a>
+</li>
+</ul>
+</li>
+<li>
+						<a href=''>
+							Działalność naukowa
+						</a>
+
+<ul class='dropdown-menu'>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/kwerendy'>
+							Kwerendy
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/wydawnictwa'>
+							Wydawnictwa
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/muzealne-wiadomosci'>
+							Muzealne Wiadomości
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/wystawnik'>
+							Wystawnik
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/widziane-spod-ziemi'>
+							Widziane spod ziemi
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/magistrae-artis-w-falatowce-2'>
+							Magistrae Artis
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/pleciemy-z-o-naszych-80-lat-zpap'>
+							Pleciemy z/o naszych. 80 lat ZPAP
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/acquerello-goscinnie-u-falata'>
+							Acquerello gościnnie u Fałata
+						</a>
+</li>
+</ul>
+</li>
+<li>
+						<a href=''>
+							Edukacja
+						</a>
+
+<ul class='dropdown-menu'>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/edukacja'>
+							Oferta edukacyjna
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/edukacja/edu/rezygnacja'>
+							Rezygnacja z zajęć
+						</a>
+</li>
+</ul>
+</li>
+<li>
+						<a href=''>
+							Usługi
+						</a>
+
+<ul class='dropdown-menu'>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/sluby_na_zamku'>
+							Śluby w Zamku
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/wynajem_sal'>
+							Wynajem sal
+						</a>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/oplaty_za_uslugi_dodatkowe'>
+							Informacje dotyczące usług
+						</a>
+</li>
+</ul>
+</li>
+<li>
+						<a class='menugorne' href='https://muzeum.bielsko.pl/pl/kontakt'>
+							Kontakt
+						</a>
+</li>
+			</ul>
+
+			<!-- przyciski rozmiaru czcionek i zmiany kontrastu -->
+			<div class="menu_gorne_btns navbar-right">
+				
+<script>
+	//jesli kliknięto button zmień ciasteczko informujące o wybranym kontraście CSS
+	$(document).ready(function(){
+		
+		$("#kontrast").click(function(){
+			if ($.cookie('kontrast') == 0 || $.cookie('kontrast') === undefined )
+				$.cookie('kontrast', '1', {domain: 'muzeum.bielsko.pl', path: '/'});
+			else 
+				$.cookie('kontrast', '0', {domain: 'muzeum.bielsko.pl', path: '/'});
+				
+			location.reload();
+		});
+	});
+</script>
+
+<div class="btn-group" role="group" aria-label="...">
+
+	<!-- ikona ucho -->
+	
+	<a href='tlumacz-jezyka-migowego' role="button" class="btn btn-default navbar-btn ikona-ucho" title="Tłumacz języka migowego">
+		<span class="sr-only">Tłumacz języka migowego</span>
+		<img src="https://muzeum.bielsko.pl//images/ikona_ucho-30x30.png" height="24px;" alt="Tłumacz języka migowego">
+	</a>
+
+	<!-- ikona kontrast -->
+	<button type="button" id="kontrast" class="btn btn-default navbar-btn" title="Kontrast">
+		<span class="sr-only">Kontrast</span>
+		<span class="glyphicon glyphicon-adjust" aria-hidden="true"></span>
+	</button>
+
+</div>
+				
+<script>
+	//zależnie od klikniętego buttona ustaw ciasteczko informujące o rozmiarze czcionki
+	$(document).ready(function(){
+		$("#font_reset").click(function(){
+			$.cookie('font-size', '0', {domain: 'muzeum.bielsko.pl', path: '/'});
+			location.reload();
+		});
+		$("#font_plus").click(function(){
+			$.cookie('font-size', '1', {domain: 'muzeum.bielsko.pl', path: '/'});
+			location.reload();
+		});
+		$("#font_plus_plus").click(function(){
+			$.cookie('font-size', '2', {domain: 'muzeum.bielsko.pl', path: '/'});
+			location.reload();
+		});
+	});
+</script>
+
+<!-- ikony rozmiaru czcionki A, A+, A++ -->
+<div class="btn-group" role="group" aria-label="...">
+	
+	<button type="button" id="font_plus_plus" class="btn btn-default navbar-btn" title="Duży rozmiar czcionki">
+		<span class="sr-only">Duży rozmiar czcionki</span>
+		<span class="glyphicon glyphicon-font" aria-hidden="true"></span>++
+	</button>
+	<button type="button" id="font_plus" class="btn btn-default navbar-btn" title="Średni rozmiar czcionki">
+		<span class="sr-only">Średni rozmiar czcionki</span>
+		<span class="glyphicon glyphicon-font" aria-hidden="true"></span>+
+	</button>
+	<button type="button" id="font_reset" class="btn btn-default navbar-btn" title="Normalny rozmiar czcionki">
+		<span class="sr-only">Normalny rozmiar czcionki</span>
+		<span class="glyphicon glyphicon-font" aria-hidden="true"></span>
+	</button>
+	
+</div>
+				
+<!-- przycisk języki -->
+<div class="btn-group" role="group" aria-label="...">
+
+	<a href='https://muzeum.bielsko.pl/pl/historia/tekst/historia-muzeum-zamek' role="button" class="btn btn-default" title="Polski">
+		<span class="sr-only">Polski</span>
+		<img src="https://muzeum.bielsko.pl//images/flagi_Poland.png" height="18px;" alt="Polski">
+	</a>
+
+	<a href='https://muzeum.bielsko.pl/en/historia/tekst/historia-muzeum-zamek' role="button" class="btn btn-default" title="English">
+		<span class="sr-only">English</span>
+		<img src="https://muzeum.bielsko.pl//images/flagi_United-Kingdom.png" height="18px;" alt="English">
+	</a>
+	
+	<a href='https://muzeum.bielsko.pl/cz/historia/tekst/historia-muzeum-zamek' role="button" class="btn btn-default" title="Czech">
+		<span class="sr-only">Czech</span>
+		<img src="https://muzeum.bielsko.pl//images/flagi_Czech-Republic.png" height="18px;" alt="Czech">
+	</a>
+	
+</div>
+			</div>
+
+		</div>
+	</div>
+</nav>
+
+
+<div class="mainbanner_podstrony_1">
+	<div class="mainbanner_podstrony_1_tlo_pic hidden-print" style="background-image: url('https://muzeum.bielsko.pl/images/mainbanner/67082-zelazka.jpg');">
+		
+		<div class="container mainbanner_podstrony_1_tresc">
+
+			<a href="https://muzeum.bielsko.pl/pl/strona_glowna">
+				<h1 class="text-center nazwa_firmy">Muzeum Historyczne w Bielsku-Białej</h1>
+			</a>
+			<p class="text-center nazwa_firmy2">Jednostka kultury Samorządu Województwa Śląskiego</p>
+			<!--<img class="logo center-block" src="https://muzeum.bielsko.pl//images/logo_zcieniem.png" alt="Logo Muzeum Historycznego w Bielsku-Białej" />-->
+
+		</div> <!-- container -->
+		
+	</div> <!-- mainbanner_podstrony_1_tlo_pic -->
+</div>
+<article class="artykul_1">
+	
+	<header>
+		
+<div class="tytul_podstrony">
+	<div class='panel_tytulu'>
+		<div class='panel_tytuluDown'>
+			
+<div class="container">
+<h1>Zamek Książąt Sułkowskich – historia</h1>
+
+</div> <!-- container -->
+		</div>
+	</div>
+</div>
+		
+		
+		<div class='odstep_tytulowy'></div>
+
+		
+<div class="container">
+
+				
+				
+				
+		<div class="clearfix"></div>
+
+
+		
+			
+												
+</div> <!-- container -->
+	</header>
+				
+<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class='tekst'><p>Wznoszący się w centrum Bielska-Białej zamek jest najstarszą i największą zabytkową budowlą na terenie historycznego miasta Bielska. Według legendy w jego miejscu znajdował się niegdyś gr&oacute;dek rozb&oacute;jnik&oacute;w napadających na podr&oacute;żujących kupc&oacute;w. Książę opolski Kazimierz (&dagger;1229/30) miał zdobyć ową fortalicję i wytępić zb&oacute;jc&oacute;w, a w miejscu tym wystawić dw&oacute;r myśliwski, kt&oacute;ry z czasem rozbudowano do postaci okazałego zamku, przy kt&oacute;rym rozwinęło się miasto.</p>
+
+<p>W każdej legendzie kryje się ziarno prawdy. Badania archeologiczne potwierdzają, że w miejscu dzisiejszego zamku w XIII wieku prawdopodobnie istniał drewniany gr&oacute;dek. Pełnił on rolę strażnicy strzegącej przeprawy przez rzekę Białą oraz skrzyżowania ważnych dr&oacute;g handlowych: szlaku solnego z Krakowa do Cieszyna, na Morawy i do Czech oraz traktu z G&oacute;rnego Śląska przez Żywiec na Węgry. W drugiej połowie XIV wieku zniszczoną przez pożar strażnicę zastąpił zamek murowany, wzniesiony przez księcia cieszyńskiego Przemysław I Noszaka (&dagger;1410). Budowla, od początku włączona w system fortyfikacji Bielska, będąca najsilniejszym elementem jego obwarowań, reprezentowała typ tzw. zamku miejskiego. Pełniła jedocześnie ważną rolę śląskiej warowni granicznej: płynąca w pobliżu rzeka Biała od 1316 roku rozdzielała księstwa dzielnicowe cieszyńskie i oświęcimskie, w połowie XV wieku stała się czesko-polską granicą państwową, a w latach 1526&ndash;1772 oddzielała monarchię austriackich Habsburg&oacute;w od Rzeczpospolitej.</p>
+
+<p>Bielski zamek, z biegiem czasu stopniowo rozbudowywany i przekształcany, przez ponad dwa stulecia służył jako jedna z siedzib Piast&oacute;w cieszyńskich. W 1572 roku stał się centrum administracyjno-gospodarczym samodzielnego bielskiego państwa stanowego (łac. <em>status minor</em>), kt&oacute;rym władali przedstawiciele szlacheckich rodzin Promnitz&oacute;w (1572&ndash;1582), Schaffgotsch&oacute;w (1582&ndash;1592), Sunnegh&oacute;w (1592&ndash;1724), Solms&oacute;w (1728&ndash;1742) i Haugwitz&oacute;w (1742&ndash;1752). Od końca XVI wieku przeistaczał się coraz bardziej w szlachecką rezydencję, nie tracąc jednak walor&oacute;w obronnych: mimo spalenia przez Szwed&oacute;w pod koniec wojny trzydziestoletniej (1646) jeszcze w 1689 roku zaliczano go do najznaczniejszych na Śląsku.</p>
+
+<p>W 1752 roku bielskie państwo stanowe przeszło w ręce polskiej magnackiej familii Sułkowskich i zostało podniesione przez cesarzową Marię Teresę oraz jej męża Franciszka Stefana do rzędu księstw (niem. <em>F&uuml;rstentum</em>, od 1754 roku: <em>Herzogtum</em>). Zamek, zniszczony podczas wielkich pożar&oacute;w miasta w 1753, 1808 i 1836 roku, przebudowano do dzisiejszej eklektycznej postaci w latach 50. i 60. XIX wieku z inicjatywy księcia Ludwika (&dagger;1879). W 1881 roku przesłonił ją od p&oacute;łnocy piętrowy budynek mieszkalno-sklepowy, wystawiony w miejscu gorzelni i browaru. Z kolei w 1899 roku od strony wschodniej wystawiono ciąg pawilon&oacute;w handlowych, zwanych bazarami, tworzących efektowną podbudowę architektoniczną dla bryły zamku i kaplicy św. Anny.</p>
+
+<p>Sułkowscy rezydowali w Bielsku do 1945 roku. Po II wojnie światowej w zamku przejętym przez Państwo Polskie ulokowano kilka instytucji kulturalnych, w tym muzeum, kt&oacute;re od 1983 roku jest jedynym użytkownikiem historycznej budowli. W 1973 roku, podczas przebudowy układu komunikacyjnego centrum miasta, wyburzono zesp&oacute;ł budynk&oacute;w podzamcza, odsłaniając zamek od wschodu i p&oacute;łnocy. Odnowione w&oacute;wczas elewacje poddano ponownej renowacji trzy dekady p&oacute;źniej (2006&ndash;2008), wkr&oacute;tce wyremontowano też i nakryto przeszklonym dachem dziedziniec wewnętrzny (2012&ndash;2014). Ostatnim etapem prac było odnowienie kaplicy św. Anny, miejsca spoczynku książęcego rodu Sułkowskich (2019&ndash;2021). Zamek, kt&oacute;remu po wielu latach przywr&oacute;cono dawną świetność, należy dzisiaj do najlepiej rozpoznawalnych obiekt&oacute;w miasta, będąc jedną z jego wizyt&oacute;wek.</p>
+
+<p>Polecamy r&oacute;wnież nasze publikacje:</p>
+
+<ul>
+	<li>P. Kenig, G. Madej, <a href="/pl/wydawnictwa"><em>Bielscy książęta Sułkowscy, jakich nie znacie</em></a>, Bielsko-Biała 2015</li>
+	<li><a href="/pl/wydawnictwa"><em>Zeszyty Sułkowskich III</em></a>, Bielsko-Biała 2016</li>
+	<li>G. Madej, <a href="/pl/wydawnictwa"><em>Bielska Linia Książęcego Rodu Sułkowskich (1786-1918)</em></a>, Bielsko-Biała 2018</li>
+</ul>
+
+<p></p>
+
+<p style="text-align: center;">&nbsp; <a class="btnWystawyStale" href="/pl/ekspozycje-stale-zamek">Zamek Książąt Sułkowskich &ndash; ekspozycje stałe</a></p>
+</div>
+					</div>
+					<div class="col-md-6">
+						
+
+<script>
+	$(function() {
+		//włącz Justified Gallery - kafelki
+		$("#galeria_tekst").justifiedGallery({
+								margins:4,
+								border:0,
+								rowHeight:150,
+								selector: 'figure, div:not(.spinner)',
+							});
+	});
+</script>
+
+
+	<div id="galeria_tekst" class="galeria zdjecia" itemscope itemtype="http://schema.org/ImageGallery">
+								
+		
+					<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+						<a href="https://muzeum.bielsko.pl/images/galeria/b06f7-zamek_21.jpg" class="group_galeria_tekst" data-size="530x456" >
+							<img alt="" title="" src="https://muzeum.bielsko.pl/images/galeria/b06f7-zamek_21.jpg" itemprop="thumbnail"/>
+						</a>
+						<div class="caption">
+							<figcaption itemprop="caption description"></figcaption>
+						</div>
+					</figure>
+
+								
+		
+					<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+						<a href="https://muzeum.bielsko.pl/images/galeria/0f47a-zamek_22.jpg" class="group_galeria_tekst" data-size="530x376" >
+							<img alt="" title="" src="https://muzeum.bielsko.pl/images/galeria/0f47a-zamek_22.jpg" itemprop="thumbnail"/>
+						</a>
+						<div class="caption">
+							<figcaption itemprop="caption description"></figcaption>
+						</div>
+					</figure>
+
+								
+		
+					<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+						<a href="https://muzeum.bielsko.pl/images/galeria/602e3-zamek_24.jpg" class="group_galeria_tekst" data-size="530x373" >
+							<img alt="" title="" src="https://muzeum.bielsko.pl/images/galeria/602e3-zamek_24.jpg" itemprop="thumbnail"/>
+						</a>
+						<div class="caption">
+							<figcaption itemprop="caption description"></figcaption>
+						</div>
+					</figure>
+
+								
+		
+					<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+						<a href="https://muzeum.bielsko.pl/images/galeria/8f4fc-patio_01.jpg" class="group_galeria_tekst" data-size="530x522" >
+							<img alt="" title="" src="https://muzeum.bielsko.pl/images/galeria/8f4fc-patio_01.jpg" itemprop="thumbnail"/>
+						</a>
+						<div class="caption">
+							<figcaption itemprop="caption description"></figcaption>
+						</div>
+					</figure>
+
+								
+		
+					<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+						<a href="https://muzeum.bielsko.pl/images/galeria/7240e-patio_03.jpg" class="group_galeria_tekst" data-size="530x795" >
+							<img alt="" title="" src="https://muzeum.bielsko.pl/images/galeria/7240e-patio_03.jpg" itemprop="thumbnail"/>
+						</a>
+						<div class="caption">
+							<figcaption itemprop="caption description"></figcaption>
+						</div>
+					</figure>
+
+								
+		
+					<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+						<a href="https://muzeum.bielsko.pl/images/galeria/98839-zamek_20.jpg" class="group_galeria_tekst" data-size="530x476" >
+							<img alt="" title="" src="https://muzeum.bielsko.pl/images/galeria/98839-zamek_20.jpg" itemprop="thumbnail"/>
+						</a>
+						<div class="caption">
+							<figcaption itemprop="caption description"></figcaption>
+						</div>
+					</figure>
+
+								
+		
+					<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+						<a href="https://muzeum.bielsko.pl/images/galeria/df6cc-patio_02.jpg" class="group_galeria_tekst" data-size="530x353" >
+							<img alt="" title="" src="https://muzeum.bielsko.pl/images/galeria/df6cc-patio_02.jpg" itemprop="thumbnail"/>
+						</a>
+						<div class="caption">
+							<figcaption itemprop="caption description"></figcaption>
+						</div>
+					</figure>
+
+								
+		
+					<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+						<a href="https://muzeum.bielsko.pl/images/galeria/7d60a-zamek_12.jpg" class="group_galeria_tekst" data-size="530x345" >
+							<img alt="" title="" src="https://muzeum.bielsko.pl/images/galeria/7d60a-zamek_12.jpg" itemprop="thumbnail"/>
+						</a>
+						<div class="caption">
+							<figcaption itemprop="caption description"></figcaption>
+						</div>
+					</figure>
+
+			</div>
+	
+
+
+	<!-- Root element of PhotoSwipe. Must have class pswp. -->
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+		<!-- Background of PhotoSwipe. 
+			 It's a separate element, as animating opacity is faster than rgba(). -->
+		<div class="pswp__bg"></div>
+
+		<!-- Slides wrapper with overflow:hidden. -->
+		<div class="pswp__scroll-wrap">
+
+			<!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+			<!-- don't modify these 3 pswp__item elements, data is added later on. -->
+			<div class="pswp__container">
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+
+			<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+			<div class="pswp__ui pswp__ui--hidden">
+
+				<div class="pswp__top-bar">
+
+					<!--  Controls are self-explanatory. Order can be changed. -->
+
+					<div class="pswp__counter"></div>
+
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+					<button class="pswp__button pswp__button--share" title="Share"></button>
+
+					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+					<!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+					<!-- element will get class pswp__preloader--active when preloader is running -->
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+						  <div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						  </div>
+						</div>
+					</div>
+				</div>
+
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div> 
+				</div>
+
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+				</button>
+
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+				</button>
+
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+
+			  </div>
+
+			</div>
+
+	</div>  
+	
+	
+	<script>
+		var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+			// parse slide data (url, title, size ...) from DOM elements 
+			// (children of gallerySelector)
+			var parseThumbnailElements = function(el) {
+				var thumbElements = el.childNodes,
+					numNodes = thumbElements.length,
+					items = [],
+					figureEl,
+					linkEl,
+					size,
+					item;
+
+				for(var i = 0; i < numNodes; i++) {
+
+					figureEl = thumbElements[i]; // <figure> element
+
+					// include only element nodes 
+					if(figureEl.nodeType !== 1) {
+						continue;
+					}
+
+					linkEl = figureEl.children[0]; // <a> element
+
+					size = linkEl.getAttribute('data-size').split('x');
+
+					// create slide object
+					item = {
+						src: linkEl.getAttribute('href'),
+						w: parseInt(size[0], 10),
+						h: parseInt(size[1], 10)
+					};
+
+
+
+					if(figureEl.children.length > 1) {
+						// <figcaption> content
+						item.title = figureEl.children[1].innerHTML; 
+					}
+
+					if(linkEl.children.length > 0) {
+						// <img> thumbnail element, retrieving thumbnail url
+						item.msrc = linkEl.children[0].getAttribute('src');
+					} 
+
+					item.el = figureEl; // save link to element for getThumbBoundsFn
+					items.push(item);
+				}
+
+				return items;
+			};
+
+			// find nearest parent element
+			var closest = function closest(el, fn) {
+				return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+			};
+
+			// triggers when user clicks on thumbnail
+			var onThumbnailsClick = function(e) {
+				e = e || window.event;
+				e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+				var eTarget = e.target || e.srcElement;
+
+				// find root element of slide
+				var clickedListItem = closest(eTarget, function(el) {
+					return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+				});
+
+				if(!clickedListItem) {
+					return;
+				}
+
+				// find index of clicked item by looping through all child nodes
+				// alternatively, you may define index via data- attribute
+				var clickedGallery = clickedListItem.parentNode,
+					childNodes = clickedListItem.parentNode.childNodes,
+					numChildNodes = childNodes.length,
+					nodeIndex = 0,
+					index;
+
+				for (var i = 0; i < numChildNodes; i++) {
+					if(childNodes[i].nodeType !== 1) { 
+						continue; 
+					}
+
+					if(childNodes[i] === clickedListItem) {
+						index = nodeIndex;
+						break;
+					}
+					nodeIndex++;
+				}
+
+
+
+				if(index >= 0) {
+					// open PhotoSwipe if valid index found
+					openPhotoSwipe( index, clickedGallery );
+				}
+				return false;
+			};
+
+			// parse picture index and gallery index from URL (#&pid=1&gid=2)
+			var photoswipeParseHash = function() {
+				var hash = window.location.hash.substring(1),
+				params = {};
+
+				if(hash.length < 5) {
+					return params;
+				}
+
+				var vars = hash.split('&');
+				for (var i = 0; i < vars.length; i++) {
+					if(!vars[i]) {
+						continue;
+					}
+					var pair = vars[i].split('=');  
+					if(pair.length < 2) {
+						continue;
+					}           
+					params[pair[0]] = pair[1];
+				}
+
+				if(params.gid) {
+					params.gid = parseInt(params.gid, 10);
+				}
+
+				return params;
+			};
+
+			var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+				var pswpElement = document.querySelectorAll('.pswp')[0],
+					gallery,
+					options,
+					items;
+
+				items = parseThumbnailElements(galleryElement);
+
+				// define options (if needed)
+				options = {
+
+					// define gallery index (for URL)
+					galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+					getThumbBoundsFn: function(index) {
+						// See Options -> getThumbBoundsFn section of documentation for more info
+						var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+							pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+							rect = thumbnail.getBoundingClientRect(); 
+
+						return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+					}
+
+				};
+
+				// PhotoSwipe opened from URL
+				if(fromURL) {
+					if(options.galleryPIDs) {
+						// parse real index when custom PIDs are used 
+						// http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+						for(var j = 0; j < items.length; j++) {
+							if(items[j].pid == index) {
+								options.index = j;
+								break;
+							}
+						}
+					} else {
+						// in URL indexes start from 1
+						options.index = parseInt(index, 10) - 1;
+					}
+				} else {
+					options.index = parseInt(index, 10);
+				}
+
+				// exit if index not found
+				if( isNaN(options.index) ) {
+					return;
+				}
+
+				if(disableAnimation) {
+					options.showAnimationDuration = 0;
+				}
+
+				// Pass data to PhotoSwipe and initialize it
+				gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+				gallery.init();
+			};
+
+			// loop through all gallery elements and bind events
+			var galleryElements = document.querySelectorAll( gallerySelector );
+
+			for(var i = 0, l = galleryElements.length; i < l; i++) {
+				galleryElements[i].setAttribute('data-pswp-uid', i+1);
+				galleryElements[i].onclick = onThumbnailsClick;
+			}
+
+			// Parse URL and open gallery if it contains #&pid=3&gid=1
+			var hashData = photoswipeParseHash();
+			if(hashData.pid && hashData.gid) {
+				openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+			}
+		};
+
+		// execute above function
+		initPhotoSwipeFromDOM('.zdjecia');
+</script>
+
+
+					</div>
+				</div>
+				
+</div> <!-- container -->
+		
+			
+			
+		
+
+		
+
+	<!-- lista artykułów -->
+			
+<div class="container">
+<div class="listaArt_1">
+
+	
+	
+		
+	
+		
+</div>
+
+</div> <!-- container -->
+		
+</article>
+<script>
+$(function () {
+ 
+	$('#ikona_slaskie').hover(
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_slaskie.png');
+		},
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_slaskie_white.png');
+		}
+	);
+	
+	/*
+	$('#ikona_szlak').hover(
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_szlak_120px.png');
+		},
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_szlak_120px_white.png');
+		}
+	);
+
+	$('#ikona_bip').hover(
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_bip_120px.png');
+		},
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_bip_120px_white.png');
+		}
+	);*/
+
+
+	$('#ikona_fb').hover(
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_facebook_120px.png');
+		},
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_facebook_120px_white.png');
+		}
+	);
+
+	/*
+	$('#ikona_blogger').hover(
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_blogger_120px.png');
+		},
+		function() {
+			$(this).attr('src', 'https://muzeum.bielsko.pl//images/ikona_blogger_120px_white.png');
+		}
+	);
+	*/
+
+})
+</script>
+
+	
+<div class="containerBlokUp3">
+	<div class="containerBlokDown3">
+	
+<div class="container">
+		<footer class="stopka">
+			
+			<h1 class="sr-only">
+				Stopka strony			</h1>
+			
+			<div class="row">
+				
+				<div class="col-md-4" style="border:0px solid red;">
+					<address>
+						<div class="nazwaFirmy">
+							Muzeum Historyczne w Bielsku-Białej							<br />
+													</div>
+
+						<i class="fa fa-map-marker fa-2x ico_glyphicon text-center"></i>		<span class="sr-only">adres</span> ul. Wzgórze 16,
+																							43-300 Bielsko-Biała <br />
+						<i class="fa fa-phone fa-2x ico_glyphicon text-center"></i>			<span class="sr-only">telefon</span> kasa / zwiedzanie / przewodnik: 33 817 13 61 <br />
+						<i class="fa fa-at fa-2x ico_glyphicon text-center"></i>			<span class="sr-only">e-mail</span> sekretariat@muzeum.bielsko.pl <br />
+						<i class="fa fa-desktop fa-2x ico_glyphicon text-center"></i>		<span class="sr-only">strona www</span> www.muzeum.bielsko.pl <br />
+						Sekretariat czynny: 9:00 - 14:00					</address>
+				</div>
+				
+				<div class="col-md-6 col-md-offset-2 text-center" style="border:0px solid red;">
+					
+					<a href="https://www.slaskie.pl/" target="_blank">
+						<img id="ikona_slaskie"	class="ikona_link_big white-color" src="https://muzeum.bielsko.pl//images/ikona_slaskie_white.png" alt="Województwo Śląskie"  title="Województwo Śląskie" />
+					</a>
+					<a href="https://www.zabytkitechniki.pl/" target="_blank" class="ikona_link">
+						<img id="ikona_szlak" 	class="ikona_link white-color" src="https://muzeum.bielsko.pl//images/ikona_szlak_120px.png" alt="Szlak Zabytków Techniki" title="Szlak Zabytków Techniki" />
+					</a>
+					<a href="https://sulkowski.muzeum.bielsko.pl/" target="_blank" class="ikona_link">
+						<img id="ikona_sulk"	class="ikona_link white-color" src="https://muzeum.bielsko.pl//images/ikona_kaplica_120px.png" alt="Stowarzyszenie na rzecz odnowienia kaplicy zamkowej w Bielsku-Białej"  title="Stowarzyszenie na rzecz odnowienia kaplicy zamkowej w Bielsku-Białej" />
+					</a>
+					<a href="https://www.facebook.com/muzeum.historyczne.bielsko" target="_blank" class="ikona_link">
+						<img id="ikona_fb"	class="ikona_link white-color" src="https://muzeum.bielsko.pl//images/ikona_facebook_120px_white.png" alt="Facebook Muzeum Historycznego w Bielsku-Białej" title="Facebook Muzeum Historycznego w Bielsku-Białej" />
+					</a>
+					<a href="https://www.instagram.com/muzeumbielsko/" target="_blank" class="ikona_link">
+						<img id="ikona_inst"	class="ikona_link white-color" src="https://muzeum.bielsko.pl//images/ikona_instagram_120px.png" alt="Instagram" title="Instagram" />
+					</a>
+					<img id=""	class="ikona_link white-color" src="https://muzeum.bielsko.pl//images/ikona_60plus_120px.png" alt="Śląskie Dla Seniora"  title="Śląskie Dla Seniora" />
+					<a href="https://muzeumbielsko-bip.slaskie.pl/" target="_blank" class="ikona_link">
+						<img id="ikona_bip"		class="ikona_link white-color" src="https://muzeum.bielsko.pl//images/ikona_bip_120px.png" alt="Biuletyn Informacji Publicznej"  title="Biuletyn Informacji Publicznej"/>
+					</a>
+					
+				</div>
+				
+			</div>
+			
+			<!-- Prawa autorskie -->
+			<div class="row">
+				<small>
+					
+<div class="col-md-6">
+<p style="text-align: justify;"><strong>Prawa autorskie</strong>. W braku odmiennego zastrzeżenia, prawa autorskie do treści niniejszej strony internetowej posiada Muzeum Historyczne w Bielsku Białej. Żadne materiały, poza materiałami określonymi jako materiały do pobrania, znajdujące się na niniejszej stronie internetowej nie mogą być reprodukowane lub przesyłane w jakiejkolwiek formie i w jakikolwiek spos&oacute;b bez pisemnego zezwolenia jej Właściciela. Treści w materiałach do pobrania nie mogą być w żaden spos&oacute;b modyfikowane bez pisemnej zgody Właściciela tej strony internetowej.</p>
+
+<p style="text-align: justify;"><a href="rodo">RODO</a></p>
+</div>
+
+<div class="col-md-6">
+<p style="text-align: justify;"><strong>Zastrzeżenia prawne</strong>. Właścicielem i operatorem niniejszej strony internetowej&nbsp;jest Muzeum Historyczne w Bielsku &ndash; Białej z siedziba przy ulicy Wzg&oacute;rze 16, 43-300 Bielsko - Biała. Publikowane na stronie internetowej informacje i cenniki nie stanowią oferty handlowej w&nbsp;rozumieniu art. 66 Kodeksu Cywilnego. Muzeum Historyczne w Bielsku &ndash; Białej dokłada wszelkich należytych starań w celu zapewnienia rzetelności prezentowanych informacji. Istnieje jednak zawsze ryzyko pojawienia się pewnych nieścisłości.</p>
+</div>
+
+				</small>
+			</div>
+
+			<div class="sition">
+				<div class="row">
+					<div class="col-md-6">
+						<p class="copyright">
+							© Copyright by Muzeum Historyczne w Bielsku-Białej<br/>
+							Wszelkie prawa zastrzeżone
+						</p>
+					</div>
+					<div class="col-md-6">
+						<a class="sitionLink" href="http://sition.pl" target="_blank">
+							<div class="copyright">Realizacja: SITION<br />Wersja: 2.017-026</div>
+							<img class="sitionLogo" alt="" src="/images/sition-logo-bez-tla.png" />
+						</a>
+				</div>
+			</div>
+
+		</footer>
+	
+</div> <!-- container -->
+	
+	</div> <!-- containerBlokDown -->
+</div> <!-- containerBlokUp -->
+		
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="https://muzeum.bielsko.pl/dodatki/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Bootstrap accessibility -->
+		<script src="https://muzeum.bielsko.pl/dodatki/bootstrap_accessibility/bootstrap-accessibility.min.js"></script>
+
+		<!-- SmartMenus jQuery plugin -->
+		<script type="text/javascript" src="https://muzeum.bielsko.pl/dodatki/bootstrap/js/jquery.smartmenus.js"></script>
+		<!-- SmartMenus jQuery Bootstrap Addon -->
+		<script type="text/javascript" src="https://muzeum.bielsko.pl/dodatki/bootstrap/js/jquery.smartmenus.bootstrap.js"></script>
+
+		<!--modern-slide-in-->
+		<script src="https://muzeum.bielsko.pl/dodatki/modern-slide-in/scripts/jquery.sequence-min.js"></script>
+		<script src="https://muzeum.bielsko.pl/dodatki/modern-slide-in/sequencejs-options.modern-slide-in.js"></script>
+
+		<!--scrollme-master-->
+		<script src="https://muzeum.bielsko.pl/dodatki/scrollme-master/jquery.scrollme.min.js"></script>
+		
+		<!--CSS3 Animate it-->
+		<script type="text/javascript" src="https://muzeum.bielsko.pl/dodatki/css3-animate-it-master/js/css3-animate-it.js"></script>
+
+		<!-- Justified Gallery -->
+		<script src="https://muzeum.bielsko.pl/dodatki/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+		
+		<!-- Galeria - photoswipe -->
+			<!-- Core JS file -->
+			<script src="https://muzeum.bielsko.pl/dodatki/PhotoSwipe-master/dist/photoswipe.min.js"></script> 
+
+			<!-- UI JS file -->
+			<script src="https://muzeum.bielsko.pl/dodatki/PhotoSwipe-master/dist/photoswipe-ui-default.min.js"></script> 
+
+		<!-- colorbox -->
+				
+								<script src="https://muzeum.bielsko.pl/dodatki/ScrollMagic-master/js/lib/greensock/TweenMax.min.js"></script>
+
+						<script src="https://muzeum.bielsko.pl/dodatki/ScrollMagic-master/scrollmagic/minified/ScrollMagic.min.js"></script>
+			<script src="https://muzeum.bielsko.pl/dodatki/ScrollMagic-master/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+			<script src="https://muzeum.bielsko.pl/dodatki/ScrollMagic-master/scrollmagic/minified/plugins/animation.velocity.min.js"></script>
+			<script src="https://muzeum.bielsko.pl/dodatki/ScrollMagic-master/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+
+		<!-- Ładuj pliki JS modułów -->
+				
+		<!--skrypt do komunikatu o cookies na stronie -->
+		<script type='text/javascript' src='https://muzeum.bielsko.pl/dodatki/cookies-info/whcookies.js'></script>		
+		<!-- Ustawienie rozmiaru czcionki -->
+		<script src="https://muzeum.bielsko.pl/js/font_size.js"></script>
+
+	</body>
+	
+</html>

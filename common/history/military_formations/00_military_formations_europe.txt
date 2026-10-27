@@ -3286,22 +3286,10 @@ MILITARY_FORMATIONS = {
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_balkans
-			name = Montengrin_Raiders
+			name = aor1776_mon_clan_muster
 
-			combat_unit = {
-
-				type = unit_type:combat_unit_type_hussars
-
-				state_region = s:STATE_MONTENEGRO
-
-				count = 1
-
-			}
-			combat_unit = {
-				type = unit_type:combat_unit_type_line_infantry
-				state_region = s:STATE_MONTENEGRO
-				count = 5
-			}
+			
+			
 
 			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
 			combat_unit = {
@@ -3316,12 +3304,14 @@ MILITARY_FORMATIONS = {
 }
 
 		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
-		# GEN1776-052 — Montengrin_Raiders — PROCEDURAL_ALLOWED
+		# GEN1776-052 — Clan muster — HISTORICAL_JOVAN_RADONJIC
 		create_character = {
-			template = default
-			is_general = yes
-			save_scope_as = cleanup2d4_general_052
-		}
+            first_name = aor1776_mon_jovan last_name = aor1776_mon_radonjic
+            historical = yes culture = serb religion = rel:orthodox age = 29
+            is_general = yes ig_leader = yes interest_group = ig_landowners
+            ideology = ideology_traditionalist traits = { aor1776_mon_guvernadur }
+            save_scope_as = cleanup2d4_general_052
+        }
 		scope:cleanup2d4_general_052 = {
 			transfer_to_formation = scope:cleanup2d4_formation_052
 		}

@@ -366,20 +366,7 @@ MILITARY_FORMATIONS = {
 	}
 
 
-	c:ONT ?= {
-		create_military_formation = {
-			type = army
-			hq_region = sr:region_canada
-			supply_hub = s:STATE_ONTARIO
-			name = aor_ont_garrison
-
-			combat_unit = {
-				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_ONTARIO
-				count = 5
-			}
-		}
-	}
+	
 
 	c:QUE ?= {
 		create_military_formation = {
@@ -394,22 +381,22 @@ MILITARY_FORMATIONS = {
 				count = 5
 			}
 		}
-	}
-
-	c:NBS ?= {
+	
 		create_military_formation = {
 			type = army
 			hq_region = sr:region_canada
-			supply_hub = s:STATE_NEW_BRUNSWICK
-			name = aor_nbs_garrison
+			supply_hub = s:STATE_ONTARIO
+			name = aor1776_quebec_west_garrison
 
 			combat_unit = {
 				type = unit_type:combat_unit_type_irregular_infantry
-				state_region = s:STATE_NEW_BRUNSWICK
-				count = 2
+				state_region = s:STATE_QUEBEC
+				count = 5
 			}
 		}
 	}
+
+	
 
 	c:NVS ?= {
 		create_military_formation = {
@@ -424,5 +411,20 @@ MILITARY_FORMATIONS = {
 				count = 3
 			}
 		}
-	}
+	
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_canada
+			supply_hub = s:STATE_NEW_BRUNSWICK
+			name = aor_nbs_garrison
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_NEW_BRUNSWICK
+				count = 2
+			}
+		}
+	
+}
 }
