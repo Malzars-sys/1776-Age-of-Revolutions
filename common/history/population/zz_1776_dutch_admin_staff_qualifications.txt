@@ -1,0 +1,31 @@
+# Targeted staffing qualification at the 1776 start. Newly classified bureaucrat
+# POPs in VOC Java/Ceylon and the Netherlands can fill the existing administration.
+# This never alters culture, religion, population size or other professions.
+# A literacy floor for bureaucrats only; not a province-wide education increase.
+POPULATION = {
+	c:DEI ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+				literacy_rate < 0.55
+				state = {
+					OR = {
+						state_region = s:STATE_WEST_JAVA
+						state_region = s:STATE_CEYLON
+					}
+				}
+			}
+			set_pop_literacy = { literacy_rate = 0.55 }
+		}
+	}
+	c:NET ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+				literacy_rate < 0.55
+				state = { state_region = s:STATE_HOLLAND }
+			}
+			set_pop_literacy = { literacy_rate = 0.55 }
+		}
+	}
+}
