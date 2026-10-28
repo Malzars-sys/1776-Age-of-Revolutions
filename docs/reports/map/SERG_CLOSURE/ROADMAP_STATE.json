@@ -4,7 +4,7 @@
   "historical_date": "1776-01-01",
   "initialized_on": "2026-10-18",
   "canonical_roadmap": "docs/reports/map/SERG_CLOSURE/ROADMAP.md",
-  "mission_status": "LUXEMBOURG_USER_VALIDATED_REMAINING_GROUPED_TESTS_PENDING",
+  "mission_status": "SIX_GROUPED_TASKS_USER_VALIDATED_CLOSURE_PREPARATION_ONLY",
   "territorial_status": "INCOMPLETE",
   "initialization": {
     "territorial_changes": 0,
@@ -3007,7 +3007,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "pending_runtime",
-      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
       "sectors": [
         "H02",
         "J01"
@@ -3036,18 +3036,19 @@
       "static_tests": {
         "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC2-MAP2A-VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/ACCEPTANCE_CHECKS.json"
         ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "PENDING",
-        "attestation": null,
-        "scope": "Four original MAP2A RGBs and related histories; TE-R-CORE is separate",
-        "new_details_invented": false
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
+        "scope": "Four original MAP2A corrections and associated preserved populations/buildings/PM/military only; excludes TE-R-CORE and every other task",
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/PLAYER_TEST_PROTOCOL_GROUPED.md"
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Approximation politique conservée ; aucune précision cadastrale générale ni clôture de SC2-TESCHEN ou de SC4-MILAN-VALIDATION par ce reçu.",
       "mandatory_1_0": true,
       "historical_region": [
         "Moravie et Silésie autrichienne",
@@ -3065,14 +3066,12 @@
         "date": "2026-10-26",
         "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
         "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
-        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
-        "remaining_controls": [
-          "périmètre des quatre RGB en nouvelle partie 1776",
-          "bâtiments et recrutement associés",
-          "un mois complet sur ce périmètre"
-        ],
-        "new_points": 0
-      }
+        "status": "TASK_CLOSED_USER_VALIDATED",
+        "remaining_controls": [],
+        "new_points": 2,
+        "reception_report": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/REPORT.md"
+      },
+      "current_delivery_note": "Protocole MAP2A intégral explicitement réussi : quatre corrections et Bergame, populations, bâtiments/PM et recrutement conservés, nouvelle partie 1776, un mois, sauvegarde/rechargement. Reçu limité à SC2-MAP2A-VALIDATION ; Teschen/TE-R-CORE et les six autres validations restent distincts."
     },
     {
       "id": "SC2-LUXEMBOURG-VALIDATION",
@@ -4233,7 +4232,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "pending_runtime",
-      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
       "sectors": [
         "J01"
       ],
@@ -4260,18 +4259,19 @@
       "static_tests": {
         "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC4-MILAN-VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/AT_RECEPTION_VALIDATION_SC4-MILAN-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "PENDING",
-        "attestation": null,
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC4-MILAN-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
         "scope": "64-cell Austrian connection xEDA701",
-        "new_details_invented": false
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/PLAYER_TEST_PROTOCOL_GROUPED.md"
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Noyaux et mécanismes nommés uniquement ; franges non homologuées et précision cadastrale restent hors reçu. Aucun autre dossier clôturé.",
       "mandatory_1_0": true,
       "historical_region": [
         "Milanais–Crémonais et Trois Ligues"
@@ -4287,13 +4287,12 @@
         "date": "2026-10-26",
         "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
         "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
-        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
-        "remaining_controls": [
-          "raccord AUS de 64 cellules et voisins VEN/SWI",
-          "nouvelle partie et un mois"
-        ],
-        "new_points": 0
-      }
+        "status": "TASK_CLOSED_USER_VALIDATED",
+        "remaining_controls": [],
+        "new_points": 2,
+        "reception_report": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md"
+      },
+      "current_delivery_note": "Protocole propre intégral explicitement réussi par le joueur : Raccord Milanais–Crémonais correctement attribué à l'Autriche.; Conservation des territoires vénitiens voisins.; Conservation des territoires suisses voisins.; Aucune anomalie dans le fonctionnement et les frontières inspectées. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC4-MILAN-VALIDATION ; aucune extension aux autres tâches ou sous-lots."
     },
     {
       "id": "SC4-PIEDMONT-VALIDATION",
@@ -4303,7 +4302,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "pending_runtime",
-      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
       "sectors": [
         "J02"
       ],
@@ -4330,18 +4329,19 @@
       "static_tests": {
         "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC4-PIEDMONT-VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/AT_RECEPTION_VALIDATION_SC4-PIEDMONT-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "PENDING",
-        "attestation": null,
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC4-PIEDMONT-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
         "scope": "Nine Piedmont SAR titles, Sardinia excluded",
-        "new_details_invented": false
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/PLAYER_TEST_PROTOCOL_GROUPED.md"
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Noyaux et mécanismes nommés uniquement ; franges non homologuées et précision cadastrale restent hors reçu. Aucun autre dossier clôturé.",
       "mandatory_1_0": true,
       "historical_region": [
         "Piémont : inclusion impériale limitée"
@@ -4357,13 +4357,12 @@
         "date": "2026-10-26",
         "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
         "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
-        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
-        "remaining_controls": [
-          "SAR membre, neuf RGB piémontais reconnus et Sardaigne exclue",
-          "nouvelle partie et un mois"
-        ],
-        "new_points": 0
-      }
+        "status": "TASK_CLOSED_USER_VALIDATED",
+        "remaining_controls": [],
+        "new_points": 1,
+        "reception_report": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md"
+      },
+      "current_delivery_note": "Protocole propre intégral explicitement réussi par le joueur : `SAR` correctement représenté dans le bloc impérial.; Neuf portions piémontaises reconnues.; Île de Sardaigne exclue de l'emprise impériale.; Fonctionnement des droits impériaux concernés sans anomalie. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC4-PIEDMONT-VALIDATION ; aucune extension aux autres tâches ou sous-lots."
     },
     {
       "id": "SC5-PRUSSIAN-WEST",
@@ -4902,7 +4901,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "pending_runtime",
-      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
       "sectors": [
         "B03"
       ],
@@ -4929,18 +4928,19 @@
       "static_tests": {
         "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC5-MINDEN-VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/AT_RECEPTION_VALIDATION_SC5-MINDEN-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "PENDING",
-        "attestation": null,
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC5-MINDEN-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
         "scope": "Minden 76 cellules, Ravensberg séparé",
-        "new_details_invented": false
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/PLAYER_TEST_PROTOCOL_GROUPED.md"
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Noyaux et mécanismes nommés uniquement ; franges non homologuées et précision cadastrale restent hors reçu. Aucun autre dossier clôturé.",
       "mandatory_1_0": true,
       "historical_region": [
         "Minden : correction de 76 cellules"
@@ -4956,13 +4956,12 @@
         "date": "2026-10-26",
         "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
         "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
-        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
-        "remaining_controls": [
-          "propriétaires, noyaux et mécanismes impériaux du lot nommé",
-          "nouvelle partie et un mois"
-        ],
-        "new_points": 0
-      }
+        "status": "TASK_CLOSED_USER_VALIDATED",
+        "remaining_controls": [],
+        "new_points": 1,
+        "reception_report": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md"
+      },
+      "current_delivery_note": "Protocole propre intégral explicitement réussi par le joueur : Noyau de Minden sous souveraineté prussienne (`PRU`).; Voisinage et propriétaires conservés.; Mécanismes impériaux fonctionnels.; Périmètre de Minden correctement distingué de Ravensberg. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC5-MINDEN-VALIDATION ; aucune extension aux autres tâches ou sous-lots."
     },
     {
       "id": "SC5-COLOGNE-VALIDATION",
@@ -4972,7 +4971,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "pending_runtime",
-      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
       "sectors": [
         "B04"
       ],
@@ -4999,18 +4998,19 @@
       "static_tests": {
         "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC5-COLOGNE-VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/AT_RECEPTION_VALIDATION_SC5-COLOGNE-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "PENDING",
-        "attestation": null,
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC5-COLOGNE-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
         "scope": "Duché et Vest, 84 cellules KCL",
-        "new_details_invented": false
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/PLAYER_TEST_PROTOCOL_GROUPED.md"
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Noyaux et mécanismes nommés uniquement ; franges non homologuées et précision cadastrale restent hors reçu. Aucun autre dossier clôturé.",
       "mandatory_1_0": true,
       "historical_region": [
         "Duché de Westphalie et Vest de Cologne"
@@ -5026,13 +5026,12 @@
         "date": "2026-10-26",
         "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
         "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
-        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
-        "remaining_controls": [
-          "propriétaires, noyaux et mécanismes impériaux du lot nommé",
-          "nouvelle partie et un mois"
-        ],
-        "new_points": 0
-      }
+        "status": "TASK_CLOSED_USER_VALIDATED",
+        "remaining_controls": [],
+        "new_points": 1,
+        "reception_report": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md"
+      },
+      "current_delivery_note": "Protocole propre intégral explicitement réussi par le joueur : Duché de Westphalie et Vest correctement représentés sous `KCL`.; Territoires voisins préservés.; Fonctionnement des droits impériaux concernés.; Absence de restitution abusive de toute la Westphalie à Cologne. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC5-COLOGNE-VALIDATION ; aucune extension aux autres tâches ou sous-lots."
     },
     {
       "id": "SC5-MAINZ-VALIDATION",
@@ -5042,7 +5041,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "pending_runtime",
-      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
       "sectors": [
         "C02"
       ],
@@ -5073,18 +5072,19 @@
       "static_tests": {
         "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC5-MAINZ-VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/AT_RECEPTION_VALIDATION_SC5-MAINZ-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "PENDING",
-        "attestation": null,
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC5-MAINZ-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
         "scope": "Trois couches Mayence ; Erfurt exclue",
-        "new_details_invented": false
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/PLAYER_TEST_PROTOCOL_GROUPED.md"
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Noyaux et mécanismes nommés uniquement ; franges non homologuées et précision cadastrale restent hors reçu. Aucun autre dossier clôturé.",
       "mandatory_1_0": true,
       "historical_region": [
         "Mayence Rheingau–Bergstraße–Spessart–Tauber"
@@ -5100,13 +5100,12 @@
         "date": "2026-10-26",
         "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
         "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
-        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
-        "remaining_controls": [
-          "propriétaires, noyaux et mécanismes impériaux du lot nommé",
-          "nouvelle partie et un mois"
-        ],
-        "new_points": 0
-      }
+        "status": "TASK_CLOSED_USER_VALIDATED",
+        "remaining_controls": [],
+        "new_points": 2,
+        "reception_report": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md"
+      },
+      "current_delivery_note": "Protocole propre intégral explicitement réussi par le joueur : Première couche : Rheingau et Spessart.; Deuxième couche : Bergstraße.; Troisième couche : Tauber.; Propriétaires et mécanismes impériaux corrects.; Erfurt exclue de ces trois couches. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC5-MAINZ-VALIDATION ; aucune extension aux autres tâches ou sous-lots."
     },
     {
       "id": "SC6-HOHENLOHE",
@@ -5388,7 +5387,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "pending_runtime",
-      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
       "sectors": [
         "E02"
       ],
@@ -5415,18 +5414,19 @@
       "static_tests": {
         "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/VALIDATION_SC6-SWABIA-CONTINUATION-VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/AT_RECEPTION_VALIDATION_SC6-SWABIA-CONTINUATION-VALIDATION.json"
         ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "PENDING",
-        "attestation": null,
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/SC6-SWABIA-CONTINUATION-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
         "scope": "Noyaux Fürstenberg/Ellwangen",
-        "new_details_invented": false
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/PLAYER_TEST_PROTOCOL_GROUPED.md"
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Noyaux et mécanismes nommés uniquement ; franges non homologuées et précision cadastrale restent hors reçu. Aucun autre dossier clôturé.",
       "mandatory_1_0": true,
       "historical_region": [
         "Fürstenberg et Ellwangen : continuation"
@@ -5442,13 +5442,12 @@
         "date": "2026-10-26",
         "report": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
         "evidence": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATION_AUDIT.json",
-        "status": "PRESERVED_PENDING_HUMAN_SCOPE",
-        "remaining_controls": [
-          "propriétaires, noyaux et mécanismes impériaux du lot nommé",
-          "nouvelle partie et un mois"
-        ],
-        "new_points": 0
-      }
+        "status": "TASK_CLOSED_USER_VALIDATED",
+        "remaining_controls": [],
+        "new_points": 1,
+        "reception_report": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md"
+      },
+      "current_delivery_note": "Protocole propre intégral explicitement réussi par le joueur : Fürstenberg (`SFU`) : territoires, propriétaire et capitale corrects.; Ellwangen (`SEW`) : territoires, propriétaire et capitale corrects.; Voisinage préservé.; Fonctionnement en jeu sans anomalie. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC6-SWABIA-CONTINUATION-VALIDATION ; aucune extension aux autres tâches ou sous-lots."
     },
     {
       "id": "SC7-MEMBERS-ELECTORS",
@@ -7609,39 +7608,124 @@
       "before_percent": "35.32",
       "after_percent": "35.32",
       "note": "Trois changements externes nord-américains conservés pendant la réception : populations, journaux et événements de Floride. Versions fonctionnelles dépendantes du Luxembourg et contrat BUILD inchangés ; premier constat global archivé, contre-vérification bornée réussie. Aucune modification fonctionnelle par cet agent. Le reçu Luxembourg et ses 83/235 points restent les seuls nouveaux acquis."
+    },
+    {
+      "id": "SERG-RM-0055",
+      "date": "2026-10-27",
+      "kind": "MAP2A_EXPLICIT_FULL_USER_VALIDATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
+      "changes": [
+        {
+          "task_id": "SC2-MAP2A-VALIDATION",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        }
+      ],
+      "before_weight": 83,
+      "after_weight": 85,
+      "total_weight": 235,
+      "before_percent": "35.32",
+      "after_percent": "36.17",
+      "note": "Protocole MAP2A intégral explicitement réussi : quatre corrections et Bergame, populations, bâtiments/PM et recrutement conservés, nouvelle partie 1776, un mois, sauvegarde/rechargement. Reçu limité à SC2-MAP2A-VALIDATION ; Teschen/TE-R-CORE et les six autres validations restent distincts."
+    },
+    {
+      "id": "SERG-RM-0056",
+      "date": "2026-10-27",
+      "kind": "MAP2A_RECEPTION_FINAL_CHECKS",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/FINAL_CHECKS.json",
+      "changes": [],
+      "before_weight": 85,
+      "after_weight": 85,
+      "total_weight": 235,
+      "before_percent": "36.17",
+      "after_percent": "36.17",
+      "note": "Réception MAP2A seule ; conservation 29/29, suivi 27 réussis et 1 test historique désactivé. Échec global MAP2A ancien archivé et classé hors périmètre. Six validations installées restent ouvertes (8 points) ; Teschen/TE-R-CORE et mine de sel séparés. Aucun fichier fonctionnel ni ancien reçu modifié."
+    },
+    {
+      "id": "SERG-RM-0057",
+      "date": "2026-10-27",
+      "kind": "SIX_SCOPED_TASKS_EXPLICIT_HUMAN_RECEPTION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/USER_ATTESTATION.md",
+      "changes": [
+        {
+          "task_id": "SC4-MILAN-VALIDATION",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        },
+        {
+          "task_id": "SC4-PIEDMONT-VALIDATION",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        },
+        {
+          "task_id": "SC5-MINDEN-VALIDATION",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        },
+        {
+          "task_id": "SC5-COLOGNE-VALIDATION",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        },
+        {
+          "task_id": "SC5-MAINZ-VALIDATION",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        },
+        {
+          "task_id": "SC6-SWABIA-CONTINUATION-VALIDATION",
+          "before": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "after": "PASS_RUNTIME_USER_VALIDATED"
+        }
+      ],
+      "before_weight": 85,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "36.17",
+      "after_percent": "39.57",
+      "note": "Six protocoles distincts personnellement et intégralement confirmés : nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement ; reçus séparés et limites propres. Aucune date effective, capture ou mesure économique inventée. Aucun point pour les tâches BLOCKED ; aucune nouvelle installation."
+    },
+    {
+      "id": "SERG-RM-0058",
+      "date": "2026-10-27",
+      "kind": "SIX_RECEIPTS_FINAL_CHECKS_AND_CLOSURE_PREPARATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/FINAL_CHECKS.json",
+      "changes": [],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Six reçus indépendants ; conservation finale 290/290 ; 86 tests réussis et 1 contrôle initial désactivé. Ancien validateur des réformes : assertion de structure et StopIteration archivés, dépendances antérieures inchangées, contrats actuels réussis. Les 23 blocages sont conservés ; Teschen, Frise méridionale et Ortenbourg seulement proposés. Aucun nouveau sous-lot ni fichier fonctionnel modifié."
     }
   ],
   "runtime_validation_hold": {
-    "task_id": "SC2-MAP2A-VALIDATION",
-    "pending_task_ids": [
-      "SC2-MAP2A-VALIDATION",
-      "SC4-MILAN-VALIDATION",
-      "SC4-PIEDMONT-VALIDATION",
-      "SC5-MINDEN-VALIDATION",
-      "SC5-COLOGNE-VALIDATION",
-      "SC5-MAINZ-VALIDATION",
-      "SC6-SWABIA-CONTINUATION-VALIDATION"
-    ],
-    "protocol": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/PLAYER_TEST_PROTOCOL_GROUPED.md",
+    "task_id": "SC2-TESCHEN",
+    "pending_task_ids": [],
+    "protocol": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md",
     "next_implementation_candidate": "SC3-HOLSTEIN",
-    "reason": "Luxembourg clôturé ; seules les validations déjà installées sont recommandées, sans nouvelle installation.",
-    "test_summary": "Nouvelle partie 1776 : contrôler les quatre corrections MAP2A et leurs habitants/bâtiments/recrutement, puis un mois ; autres lignes possibles dans la même session. Luxembourg ne doit pas être retesté.",
-    "scope_note": "Les tâches restent inchangées hors Luxembourg. Teschen et mine de sel sont distincts ; aucun nouveau territoire ni sous-lot.",
+    "reason": "Réception des installations terminée selon les seuls reçus distincts ; préparer les clôtures sans commencer de chantier.",
+    "test_summary": "TE-R-CORE et BG-E-SALT-NATIVE-R1 restent à valider séparément ; aucune extension des six reçus. Une décision explicite est encore nécessaire pour la portée régionale de Teschen.",
+    "scope_note": "Les 23 tâches BLOCKED restent inchangées. Les trois voies proposées sont préparatoires ; SC3-HOLSTEIN reste suspendu.",
     "suspended_new_territory_candidate_by_campaign": true
   },
   "closure_campaign": {
     "status": "ACTIVE",
-    "pass_status": "LUXEMBOURG_HUMAN_ACCEPTED",
+    "pass_status": "SIX_GROUPED_HUMAN_RECEIPTS_RECORDED",
     "date": "2026-10-26",
     "source": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/USER_MISSION.txt",
     "suspend_new_territories": true,
     "selected_blocked_task": "SC2-TESCHEN",
     "installed_audit": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md",
     "blocked_matrix": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/BLOCKED_MATRIX.md",
-    "grouped_protocol": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/PLAYER_TEST_PROTOCOL_GROUPED.md",
+    "grouped_protocol": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md",
     "selected_review": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_CLOSURE_REVIEW.md",
     "user_observation": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_USER_OBSERVATION.json",
-    "next_closure_candidate": "SC2-LUXEMBOURG-VALIDATION",
+    "next_closure_candidate": "SC2-TESCHEN",
     "potential_runtime_points": 11,
     "final_checks": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/FINAL_CHECKS.json",
     "test_results": "docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TEST_RESULTS.json",
@@ -7656,7 +7740,53 @@
       "acceptance_report": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/REPORT.md",
       "reception_final_checks": "docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/FINAL_CHECKS.json"
     },
-    "current_resolution_task": "SC2-LUXEMBOURG-VALIDATION",
-    "remaining_grouped_runtime_points": 10
+    "current_resolution_task": null,
+    "remaining_grouped_runtime_points": 0,
+    "map2a_reception": {
+      "date": "2026-10-27",
+      "task_id": "SC2-MAP2A-VALIDATION",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
+      "attestation": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
+      "report": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/REPORT.md",
+      "checks": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/ACCEPTANCE_CHECKS.json",
+      "final_checks": "docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/FINAL_CHECKS.json"
+    },
+    "current_reception_tasks": [
+      "SC4-MILAN-VALIDATION",
+      "SC4-PIEDMONT-VALIDATION",
+      "SC5-MINDEN-VALIDATION",
+      "SC5-COLOGNE-VALIDATION",
+      "SC5-MAINZ-VALIDATION",
+      "SC6-SWABIA-CONTINUATION-VALIDATION"
+    ],
+    "grouped_reception": {
+      "date": "2026-10-27",
+      "task_ids": [
+        "SC4-MILAN-VALIDATION",
+        "SC4-PIEDMONT-VALIDATION",
+        "SC5-MINDEN-VALIDATION",
+        "SC5-COLOGNE-VALIDATION",
+        "SC5-MAINZ-VALIDATION",
+        "SC6-SWABIA-CONTINUATION-VALIDATION"
+      ],
+      "source": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/USER_ATTESTATION.md",
+      "report": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md",
+      "receipts": {
+        "SC4-MILAN-VALIDATION": "docs/reports/map/SERG_CLOSURE/SC4-MILAN-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
+        "SC4-PIEDMONT-VALIDATION": "docs/reports/map/SERG_CLOSURE/SC4-PIEDMONT-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
+        "SC5-MINDEN-VALIDATION": "docs/reports/map/SERG_CLOSURE/SC5-MINDEN-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
+        "SC5-COLOGNE-VALIDATION": "docs/reports/map/SERG_CLOSURE/SC5-COLOGNE-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
+        "SC5-MAINZ-VALIDATION": "docs/reports/map/SERG_CLOSURE/SC5-MAINZ-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json",
+        "SC6-SWABIA-CONTINUATION-VALIDATION": "docs/reports/map/SERG_CLOSURE/SC6-SWABIA-CONTINUATION-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json"
+      },
+      "readiness": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/CLOSURE_READINESS.md",
+      "blocked_matrix": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/BLOCKED_CURRENT_MATRIX.json",
+      "protocol": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md",
+      "next_recommendations": [
+        "SC2-TESCHEN",
+        "SC5-EAST-FRISIA-SOUTH",
+        "SC1-ORTENBURG"
+      ]
+    }
   }
 }

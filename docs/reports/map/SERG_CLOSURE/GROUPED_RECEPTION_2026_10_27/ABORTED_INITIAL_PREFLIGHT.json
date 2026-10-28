@@ -1,0 +1,35 @@
+{
+  "status": "ABORTED_BEFORE_ANY_RECEIPT",
+  "command": "python -B -X utf8 tools/serg_six_receptions_20261027.py prepare",
+  "observed_checks": {
+    "SC4-MILAN-VALIDATION": [
+      15,
+      16
+    ],
+    "SC4-PIEDMONT-VALIDATION": [
+      40,
+      49
+    ],
+    "SC5-MINDEN-VALIDATION": [
+      23,
+      26
+    ],
+    "SC5-COLOGNE-VALIDATION": [
+      34,
+      40
+    ],
+    "SC5-MAINZ-VALIDATION": [
+      74,
+      90
+    ],
+    "SC6-SWABIA-CONTINUATION-VALIDATION": [
+      58,
+      69
+    ]
+  },
+  "raw_terminal_exception": "AssertionError: Concurrent runtime change; reread before any reception",
+  "classification": "First attempt stopped on external runtime evolution before persisting its in-memory baseline or receipts. The new reception checker also needed recursive traversal of region-nested restitution clauses; all non-restitution checks passed. No old validator or game file was changed.",
+  "superseded_by": "Fresh current-workspace prepare with recursive exact RGB/State Region/country checks",
+  "initial_in_memory_snapshot_not_persisted": true,
+  "receipts_created": false
+}

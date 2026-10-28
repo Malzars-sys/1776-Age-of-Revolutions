@@ -490,10 +490,20 @@ def render():
             'Création systématique de nouveaux territoires suspendue selon '+link(campaign['source'])+'. Auditer et clore les installations existantes avant toute nouvelle expansion. Aucun changement du périmètre, des 81 tâches ou des 235 points.',
             '', 'Audit des huit installations : '+link(campaign['installed_audit'])+'. Matrice des blocages : '+link(campaign['blocked_matrix'])+'. Tâche de clôture traitée : `'+campaign['selected_blocked_task']+'` ; décision proposée, aucune approbation présumée.','']
     resolution=campaign.get('luxembourg_resolution')
+    map2a_reception=campaign.get('map2a_reception')
+    grouped_reception=campaign.get('grouped_reception')
     if resolution:
-        lines[6:6]=['## Résolution actuelle — Luxembourg administratif','',
+        lines[6:6]=['## '+('Réception antérieure' if grouped_reception else 'Résolution actuelle')+' — Luxembourg administratif','',
             'Un niveau ordinaire BEO/Wallonie installé, trois niveaux flamands conservés ; contrat BUILD réconcilié. Rapport : '+link(resolution['report'])+'. Statut : `'+byid['SC2-LUXEMBOURG-VALIDATION']['status']+'`. '+('Reçu humain limité à cette tâche : '+link(resolution['attestation'])+'.' if resolution.get('attestation') else 'Aucun reçu humain ajouté.'),'',
             'Prochaine action limitée aux validations groupées : '+link(campaign['grouped_protocol'])+'. La matrice antérieure reste une archive ; aucun nouveau territoire autorisé.','']
+    if map2a_reception:
+        lines[6:6]=['## Réception '+('antérieure' if grouped_reception else 'actuelle')+' — MAP2A','',
+            '`SC2-MAP2A-VALIDATION` : `'+byid['SC2-MAP2A-VALIDATION']['status']+'`. Reçu limité aux quatre corrections et à leurs dépendances inspectées : '+link(map2a_reception['attestation'])+'. Rapport : '+link(map2a_reception['report'])+'.','',
+            'Luxembourg reste reçu. SC2-TESCHEN, TE-R-CORE, la mine de sel et les autres tâches ne sont pas validés par MAP2A. Seules les validations installées restantes sont proposées selon '+link(campaign['grouped_protocol'])+'. Aucun nouveau territoire commencé.','']
+    if grouped_reception:
+        lines[6:6]=['## Réception groupée — '+str(len(grouped_reception['task_ids']))+' tâches','',
+            'Protocoles intégralement confirmés par le joueur, reçus distincts : '+', '.join('`'+id+'`' for id in grouped_reception['task_ids'])+'. Rapport : '+link(grouped_reception['report'])+'.','',
+            'Les '+str(len(p['blocked']))+' tâches BLOCKED restent inchangées. TE-R-CORE et BG-E-SALT-NATIVE-R1 attendent leurs confirmations propres selon '+link(grouped_reception['protocol'])+'. Préparation des trois voies de clôture, sans nouveau chantier : '+link(grouped_reception['readiness'])+'.','']
     md('ROADMAP.md',lines)
     lines=['# Historique additif des décisions et validations','',*common,
       'Les anciens reçus ne sont pas remplacés. Leur import ne constitue ni un nouveau test du moteur ni une certification historique. Aucun indicateur antérieur comparable : avant = non défini; après initialisation = '+initial_progress['percent'].replace('.',',')+' % sur le périmètre initial. Avancement territorial produit par la mission d’initialisation : zéro.','']
@@ -584,16 +594,34 @@ def render():
             '`SC2-LUXEMBOURG-VALIDATION` : `'+byid['SC2-LUXEMBOURG-VALIDATION']['status']+'`. Reçu : '+link(resolution['attestation'])+'. Bilan de réception : '+link(resolution['acceptance_report'])+'. Aucun contrôle Luxembourg à refaire.','',
             '## Prochaine validation joueur recommandée','',
             ('`'+pending[0]+'` ; les autres lots peuvent être contrôlés dans la même session.' if pending else 'Aucune des validations groupées initiales ne reste ouverte.'),'',
-            'Liste et contrôles : '+link(campaign['grouped_protocol'])+'. '+str(len(pending))+' tâches installées, '+str(pending_weight)+' points conditionnels. Aucun statut des autres tâches n’est modifié par le reçu Luxembourg.','',
+            'Liste et contrôles : '+link(campaign['grouped_protocol'])+'. '+str(len(pending))+' tâches installées, '+str(pending_weight)+' points conditionnels. Aucun statut des autres tâches n’est modifié par les reçus nommés ci-dessus.','',
             *['- '+id+' — '+byid[id]['title']+'.' for id in pending],
             '', 'Les sous-lots Teschen et de la mine de sel restent distincts selon le protocole groupé. Aucun reçu ou accord supplémentaire n’est présumé. Aucun nouveau territoire, aucune installation et aucun lancement de SC3-HOLSTEIN.']
+    if map2a_reception:
+        at=lines.index('## Prochaine validation joueur recommandée')
+        lines[at:at]=['## MAP2A reçu et clôturé','',
+            '`SC2-MAP2A-VALIDATION` : `'+byid['SC2-MAP2A-VALIDATION']['status']+'`. Reçu : '+link(map2a_reception['attestation'])+'. Conservation : '+link(map2a_reception['checks'])+'. Aucun contrôle MAP2A à refaire ; TE-R-CORE demeure distinct.','']
+    if grouped_reception:
+        lines=['# Prochaine action — préparation des clôtures SERG','',*common,
+            '## Réception groupée enregistrée','',
+            *['- `'+id+'` : `'+byid[id]['status']+'` ; '+link(grouped_reception['receipts'][id])+'.' for id in grouped_reception['task_ids']],
+            '', 'Luxembourg et MAP2A restent reçus. Rapport : '+link(grouped_reception['report'])+'. Aucun reçu historique remplacé.',
+            '', ('Aucun des huit protocoles complets initiaux ne reste en attente.' if not p['awaiting_runtime'] else 'Protocoles complets encore ouverts : '+', '.join(p['awaiting_runtime'])+'.'),
+            '', '## Deux sous-lots restent à confirmer séparément','',
+            'Teschen `TE-R-CORE` et Berchtesgaden `BG-E-SALT-NATIVE-R1` : '+link(grouped_reception['protocol'])+'. Les six reçus ne les valident pas. Leurs tâches régionales restent BLOCKED.',
+            '', '## Trois voies de clôture recommandées, sans démarrage','',
+            '1. `SC2-TESCHEN` : protocole propre du registre, puis décision explicite sur la portée B territoriale et démographique.',
+            '2. `SC5-EAST-FRISIA-SOUTH` : arbitrage B ou report P1 non bloquant explicitement approuvé, sans conformité positive inventée.',
+            '3. `SC1-ORTENBURG` : noyau reçu ; villages souverains et population rurale comparable encore à établir. Clôture non acquise.',
+            '', 'Justifications, obligations essentielles et réserves de précision : '+link(grouped_reception['readiness'])+'. Matrice actuelle : '+link(grouped_reception['blocked_matrix'])+'.',
+            '', 'Aucune de ces tâches n’est clôturée par cette préparation. Les P0/P1 substantiels restent ouverts ; aucune reclassification artificielle en P2. Aucun nouveau territoire, aucun sous-lot fonctionnel et aucun lancement de SC3-HOLSTEIN.']
     md('NEXT_ACTION.md',lines)
     lines=['# Critères bloquants de clôture territoriale 1.0','',*common,
       'La présence d’un document ou l’achèvement d’une recherche ne coche pas un critère territorial. Chaque état terminal doit être justifié; les étapes documentaires/techniques peuvent être validées sans faux test du moteur.','']
     gates=[('Tous les jalons obligatoires terminaux justifiés',all(done.values())),
       ('Aucun P0 non résolu, y compris couverture des Habsbourg et de l’Italie',all(done[t['id']] for t in tasks if t['priority']=='P0')),
       ('Tous les P1 traités ou reports non bloquants explicitement autorisés',all(done[t['id']] for t in tasks if t['priority']=='P1')),
-      ('Tous les contrôles manuels spécifiques manquants reçus',all(done[id] for id in [t['id'] for t in tasks if t['kind']=='pending_runtime'])),
+      ('Protocoles complets des huit installations initiales reçus (hors révisions partielles)',all(done[id] for id in [t['id'] for t in tasks if t['kind']=='pending_runtime'])),
       ('Membres/neuf électeurs/statuts et gouvernements contrôlés',done['SC7-MEMBERS-ELECTORS']),
       ('Registre impérial final validé',done['SC7-REGISTRY']),
       ('Relations, successions et transitions actives vérifiées',done['SC7-INSTITUTIONS']),
@@ -638,6 +666,14 @@ def render():
             'Matrice des lacunes essentielles, réserves B/P2 et actions de clôture : '+link(campaign['blocked_matrix'])+'. Les obligations historiques ne sont pas effacées pour augmenter le pourcentage.','',
             'Huit installations initiales : '+link(campaign['installed_audit'])+'. '+('Luxembourg : reçu humain enregistré, tâche clôturée selon '+link(resolution['attestation'])+'. ' if resolution and resolution.get('attestation') else 'Luxembourg : conflit administratif réparé, test joueur requis selon '+link(resolution['report'])+'. ' if resolution else 'Luxembourg : évolution administrative ultérieure à réconcilier, pas restauration automatique. ')+'Protocole groupé : '+link(campaign['grouped_protocol'])+'.','',
             'Teschen : vérification en jeu rapportée selon '+link(campaign['user_observation'])+', sans nouveau reçu de protocole complet. Décision proposée : '+link(campaign['selected_review'])+'. Les critères humains manquants et la réserve démographique restent explicites.']
+    if map2a_reception:
+        lines += ['', '## Réception MAP2A sans extension à Teschen','',
+            '`SC2-MAP2A-VALIDATION` clôturée selon '+link(map2a_reception['attestation'])+'. Les quatre corrections et leurs dépendances inspectées sont reçues ; la précision cadastrale générale, SC2-TESCHEN et TE-R-CORE restent hors reçu. Luxembourg reste clôturé.','',
+            (str(len(p['awaiting_runtime']))+' autres validations installées restent ouvertes' if p['awaiting_runtime'] else 'Aucune autre validation complète des huit installations initiales ne reste ouverte')+' selon '+link(campaign['grouped_protocol'])+'. Les blocages régionaux, le test du registre Teschen et celui de la mine de sel sont conservés ; aucun nouveau territoire commencé.']
+    if grouped_reception:
+        lines += ['', '## Six réceptions distinctes ; blocages régionaux conservés','',
+            'Reçus et contrôles : '+link(grouped_reception['report'])+'. Les '+str(len(p['blocked']))+' tâches BLOCKED restent inchangées. État des installations déjà testées et obligations historiques restantes : '+link(grouped_reception['blocked_matrix'])+'.','',
+            'Trois voies préparées uniquement : '+link(grouped_reception['readiness'])+'. Les vérifications propres à Teschen et à la mine ordinaire restent ouvertes selon '+link(grouped_reception['protocol'])+'. Aucun point supplémentaire de clôture régionale ni report P1 approuvé.']
     md('BLOCKERS.md',lines)
     write_json(OUT/'PROGRESS_SNAPSHOT.json',p)
     print(json.dumps(p,ensure_ascii=False,indent=2))

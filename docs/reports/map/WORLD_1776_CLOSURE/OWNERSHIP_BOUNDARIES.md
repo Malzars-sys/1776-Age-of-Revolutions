@@ -90,3 +90,31 @@ Audit en lecture seule des vingt régions listées dans MAGHREB-02/TERRITORIAL_I
 ## SAHEL-01 — 27 octobre 2026
 
 Seuls nœuds STATE_SENEGAL des historiques d’états/POPs et de la région native, cinq pixels existants et deux terrains hérités. Six fichiers nouveaux propres à WAA (définition, histoire, effet, loi et FR/EN). Aucun autre pays, région, ressource, hub, recette ou territoire SERG écrit. 00_states courant composé sur le contour Fezzan de 78 provinces et les changements américains présents, y compris la retouche Arkansas/Texas survenue après notre application ; reçus et version exacte archivés dans EXTERNAL_COMPOSITION_REVIEW.json. Aucune restauration d’une baseline antérieure. Le corridor autorisé traverse P3-01/02/04/06 et ses interfaces R3 ; aucune autre région subsaharienne lancée par cette demande.
+
+## SAHEL-02-05 — 27 octobre 2026
+
+Seuls huit nœuds régionaux Senegal/Eastern Mali/Timbuktu/Hausaland/Outer Hausaland/East Hausaland/Nigeria/North Cameroon des états, POPs et bâtiments listés dans FILES_DELIVERED.json ; c:MSN militaire (une référence de recrutement), c:CAY/JLF/BND/SRR/KBU politique et c:HAU (unique grant de capacité militaire traditionnelle). Définitions SGU/MSN et cinq autres royaumes dans une surcharge propre, 16 nouveaux TAG et GAO réactivé. Aucune frontière BOR/BRG/BMM, aucun pixel/terrain/hub/ressource, recette commune, graphe TECH ou suivi SERG écrit. Les versions courantes Fezzan/Siwa/Gibraltar, Balkans et Amérique du Nord sont protégées ; pas de reprise d'ancienne baseline. Ensemble de RGB exact : SAHEL-02-05/PLAN.json.
+
+### SAHEL-02-05 — composition concurrente vérifiée
+
+NORTHWEST-01 a installé 23 sorties pendant la clôture de ce lot, dont 16 nœuds d’états américains et un changement de pixels limité à l’Alaska. Entrées/sorties rapprochées des manifestes courants ; huit nœuds africains et pixels africains conservés. Aucune écriture fonctionnelle de réconciliation. Preuve : SAHEL-02-05/EXTERNAL_COMPOSITION_REVIEW.json. Contrôle courant 1613/1613, dont les vérifications de composition ; 460 contrôles antérieurs du noyau conservés. Aucun point ou reçu humain nouveau.
+
+## SAHEL-06-07 — Tchad/Nil
+
+Sept nœuds d'états BORNU/CHAD/WADDAI/EGYPTIAN_DESERT/DONGOLA/KORDOFAN/BLUE_NILE et leurs seules portions POP/bâtiments listées dans PROPOSED_SCOPES.json. Une référence conscrite WAD de WADDAI à CHAD ; capitale régionale WAD vers CHAD dans surcharge propre. 11 nouveaux TAG, SRA activé, trois liens tributaires. Aucune géométrie bitmap, hub/locator, terrain, ressource, recette commune, graphe TECH, caractère ou suivi SERG écrit. Les autres portions Bornou et la totalité de DFR/TUR/ETH restent identiques. Énumération canonique : SAHEL-06-07/PLAN.json ; entrées immédiates apply_inputs, version livrée FILES_DELIVERED.json.
+
+## HORN-01 — périmètre installé
+
+Cinq nœuds ERITREA/GONDER/AMHARA/OROMIA/SOMALILAND des états et leurs seules portions POP/bâtiments listées dans SCOPES.json. c:ETH militaire : trois références régionales vers GONDER, comptes/types/services conservés. Administrations ETH à total constant vers la cour. Treize histoires de TAG natifs réactivés ciblées ; cinq histoires nouvelles, définitions propres, effets/loi, trois liens tributaires, sept neutralisations de modèles de personnages 1836, noms FR/EN. Aucun nouveau personnage, province, pixel, terrain, ressource, locator ou recette commune. KENYA non écrit. Anciennes preuves et mises à jour américaines courantes préservées ; aucun suivi SERG ni vanilla ni Git écrit. Énumération canonique HORN-01/PLAN.json, reçus FILES_DELIVERED.json et réparations séparées.
+
+## CONGO-01 — périmètre installé, 28 octobre
+
+Six nœuds d'états/POPs CONGO/BAS_CONGO/NORTH_ANGOLA/SOUTH_ANGOLA/EAST_ANGOLA/GABON, portions de bâtiments SCOPES.json, seuls c:KSN/LNG/TKE/YKA d'histoire nationale ; définitions privées incluant seule capitale KON. Neuf TAG propres, loi/effet et FR/EN. Aucun pixel, terrain, locator, recette commune, militaire ou suiviSERG écrit. Versions américaines courantes préservées, dont retouche de libellé Sacramento rapprochée en EXTERNAL_COMPOSITION_REVIEW.json. Reçu initial FILES_MODIFIED.json et correction technique COMPATIBILITY_AND_LABEL_REPAIR.json conservés ; version finale FILES_DELIVERED.json.
+
+## INTERIOR-01 — périmètre installé,28octobre2026
+
+Onze nœuds d'états EAST_ANGOLA/KASAI/KATANGA/KAZEMBE/ZAMBIA/CONGO_ORIENTALE/UGANDA/TANGANYIKA/MOCAMBIQUE/ZAMBEZIA/LOURENCO_MARQUES, portions POP/bâtiments SCOPES.json. Huit nœuds d'histoire nationale existants ciblés, BMB natif surchargé dans son propre fichier, 23nouveaux TAG et5profils natifs activés, définitions/effets/loi propres,2pactes tributaires et FR/EN. Liste exhaustive PLAN.json ; entrées immédiates apply_inputs/, réparation séparée COMPATIBILITY_REPAIR.json, version finale FILES_DELIVERED.json. Aucun pixel, terrain, ressource, locator, personnage, recette commune, graphe TECH, militaire ou suiviSERG écrit. Kenya/Rift/Zanzibar et noyaux côtiers Congo-01 conservés. Les cellules Maseko et la portion TSW du Mozambique seulement sont concernées ; Botswana/Zimbabwe/Rozvi/sud restent à la passe australe. Travaux américains et autres portions partagées conservés.
+
+## MADAGASCAR-01-AUDIT
+
+Lecture seule des deux nœuds NORTH/SOUTH_MADAGASCAR, de MAD, de ses POP et de son nom dynamique. Aucune cellule, POP, technologie, loi, bâtiment, personnage, localisation ou relation écrit. Seuls les rapports de ce lot et le suivi WORLD sont actualisés. SERG/TECH/ECON/Amériques et lots africains conservés.

@@ -68,3 +68,27 @@ Le noyau en ruban de neuf provinces de MAGHREB-03 est remplacé par 78 provinces
 ## SAHEL-01 — 27 octobre 2026
 
 Gorée est un proxy côtier d’un pixel, pas une île physiquement séparée. Tracé Waalo/Fouta par provinces natives, répartition de population résiduelle technique et composition des cohortes héritée. Capitales/hubs générés, lois et budgets du nouveau WAA à observer au contrôle groupé, sans demande intermédiaire. Les royaumes au sud, l’administration SIL en Gambie, MSN au Mali, SOK avant 1804 et SD1/Funj restent ouverts dans SAHEL-01/TERRITORIAL_QUEUE.json. Aucun de ces constats n’autorise un partage arbitraire. Le reçu Maghreb borne les mots réellement prononcés ; durée/version/sauvegarde non attestées.
+
+## SAHEL-02-05 — 27 octobre 2026
+
+Noyaux territoriaux installés, pas clôture régionale. Gambie SIL et limites fines Galam/Khasso, Sine/Saloum, franges des royaumes et zones touarègues restent approximatives. Proxies culturels pour les identifiants absents ; pas de recensement historique reconstruit. Bâtiments/POPs redistribués à total constant ; hubs, ressources par portion, lois effectives et budgets non validés en moteur. Les dettes de lois des profils existants restent héritées, aucune nouvelle incompatibilité P0/P1. Contrôle joueur groupé, aucune demande intermédiaire. Tchad/Darfour/Nil différés par la dernière consigne ; ne pas lancer une autre région ou du flavor pour combler les limites du fond.
+
+## SAHEL-06-07 — Tchad/Nil
+
+Consigne ultérieure autorisant ces secteurs exécutée. Restent : confins Kanem/Borkou et royautés du Tchad non cadastrés, dates/liens de Dar Sila/Fitri, consolidation de Taqali et vassalage Funj contestés, ressorts héréditaires nubiens et frontières pastorales. SD1 conserve les périphéries non attribuables. Proxies culturels et répartition démographique technique documentés ; hubs, ressources partagées, lois effectives, drapeaux et budgets à observer dans le test groupé. Aucune nouvelle incompatibilité P0/P1 des pays existants ; dettes héritées conservées sans refonte TECH/ECON. Pas de nouvelle région ni flavor automatique.
+
+## HORN-01 — limites ouvertes
+
+Autonomies provinciales 1776 traduites par liens tributaires, sans certification de tous les tributs/règlements. Interfaces Semien/Tigré/Wollo, hauts/bas-pays de l'Ouest, noyaux méridionaux et affiliations somalies approximatifs. Merca/Barawe restent dans l'agrégat de communautés locales, pas des juridictions urbaines séparées certifiées. Afgooye/Mogadishu proches dans le maillage ; AFR agrège des pouvoirs disjoints. Deux conflits KENYA x9A78B7/x5C1ADA hérités, hors des cinq nœuds de ce lot, à examiner historiquement dans la suite orientale. Cartes c.1700/c.1800 ne valent pas cadastre 1776. Proxies culturels/religieux et démographie technique, capitales/hubs/flags, lois effectives, emploi/budgets à vérifier au test groupé. Les courbes sont délibérément reportées, pas déclarées conformes. Aucun verrou humain nouveau ni test intermédiaire demandé ; Congo et suite australe déjà autorisés.
+
+## CONGO-01 — limites ouvertes, 28 octobre
+
+Corridors et noyaux sur cellules natives, pas cadastre1776 ; contrôle portugais discontinu traduit par corridor à cause de la règle joueur, largeur supérieure aux garnisons. Kongo provincial, sobados, arrière-pays Tio/Yaka, cultures proxys et chefferies côtières agrégées restent approximatifs. Luba/Lunda/Kuba/Kazembe et Congo intérieur non clôturés. Budget, marchés, chargement/lois/capitales/hubs, fronts et sauvegarde à vérifier au test africain groupé, NOT_RUN. Aucun critère V/point nouveau. Dettes techniques héritées des pays témoins conservées, pas de grant pour les masquer.
+
+## INTERIOR-01 — limites ouvertes,28octobre2026
+
+Contours natifs, corridors et agrégats pluriels non cadastraux ; chronologies Buddu/Jjunju contradictoires, subdivisions Maputo/Tembe ouvertes. Noyau luyana conservé avec catégorie moteur décentralisée pour éviter une nouvelle enclave ; cultures nationales parfois proxys, POP inchangés. Exacte empreinte des prazos et uniformité du contrôle portugais non certifiées. Locator Inhambane/hubs/capitales/drapeaux, lois effectives, marchés, budgets, fronts et sauvegarde à vérifier au test africain groupé. Anciennes dettes techniques explicites des témoins maintenues, pas de grant industriel pour les masquer. P3-05/06/07 restent partiels ; Afrique australe non traitée par ce lot. Aucun point ou reçu humain nouveau.
+
+## Madagascar — audit28octobre2026
+
+M01–M04 dans MADAGASCAR-01-AUDIT/FINDINGS.json. Le découpage politique précis et les différences d’autonomie restent à installer. Pas de passage à l’Afrique australe sur la seule base du précédent NEXT_ACTION ; suivre la nouvelle consigne directe. Aucun nouveau test moteur/joueur ni crédit.

@@ -60,3 +60,7 @@ Le joueur approuve HBC-05 et autorise explicitement une très forte population a
 ## 26 octobre 2026 — succession de l’interface canadienne
 
 La réunification demandée des deux Canadas remplace ONT par QUE au départ. Les 103 anciennes provinces ONT, dont le passage réservé, restent dans le même ensemble colonial ; chaîne protégée HBC–QUE–USA. HBC et le scénario autochtone restent intacts. La calibration de 90 000 personnes concerne uniquement la colonie réunifiée ; elle ne révoque aucune protection de population HBC.
+
+## 27 octobre 2026 — exception maritime pour les comptoirs insulaires russes
+
+À la question sur l'impossibilité de relier les comptoirs aléoutiens par terre sans inventer un pont, le joueur répond explicitement : **« Oui, exception maritime pour les îles »**. NORTHWEST-01 applique cette exception à Unalaska : port et dépendance russe, sans corridor terrestre fictif. L'emploi du port, ses approvisionnements et l'accès effectif au marché russe restent à vérifier en jeu. Cette exception insulaire ne supprime pas la règle des corridors terrestres pour les postes continentaux.

@@ -115,10 +115,7 @@
 			country = c:LOU
 			type = colony
 		}
-		create_diplomatic_pact = {
-			country = c:IQU
-			type = colony
-		}
+		# R9-01: Iquicha is not a separate colony in January 1776.
 		create_diplomatic_pact = {
 			country = c:PAR
 			type = protectorate
@@ -138,7 +135,7 @@
 		}
 		create_diplomatic_pact = {
 			country = c:ALK
-			type = chartered_company
+			type = colony
 		}
 		create_diplomatic_pact = {
 			country = c:KZH
@@ -285,7 +282,10 @@
 			country = c:MKT
 			type = protectorate
 		}
-	}
+	
+ # CENTRAL-02: 1773 settlement, internal autonomy under British suzerainty.
+ create_diplomatic_pact = { country = c:C81 type = protectorate }
+}
 	c:DAI ?= {
 		# MAP2H: remove later suzerainty / no pre-Lanfang Qing tribute.
 	}

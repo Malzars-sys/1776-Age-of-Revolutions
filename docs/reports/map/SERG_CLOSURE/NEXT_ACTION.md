@@ -1,25 +1,32 @@
-# Prochaine action — validations SERG restantes
+# Prochaine action — préparation des clôtures SERG
 
-**SERG TERRITORIAL 1.0 — PROGRESSION : 35,32 %**
+**SERG TERRITORIAL 1.0 — PROGRESSION : 39,57 %**
 
 Périmètre `1.0.0` — référence historique : 1er janvier 1776. Indicateur de jalons acceptés, pas pourcentage de frontières exactes.
 
-## Luxembourg reçu et clôturé
+## Réception groupée enregistrée
 
-`SC2-LUXEMBOURG-VALIDATION` : `PASS_RUNTIME_USER_VALIDATED`. Reçu : [RUNTIME_USER_ATTESTATION_2026_10_26.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json>). Bilan de réception : [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/REPORT.md>). Aucun contrôle Luxembourg à refaire.
+- `SC4-MILAN-VALIDATION` : `PASS_RUNTIME_USER_VALIDATED` ; [RUNTIME_USER_ATTESTATION_2026_10_27.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC4-MILAN-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json>).
+- `SC4-PIEDMONT-VALIDATION` : `PASS_RUNTIME_USER_VALIDATED` ; [RUNTIME_USER_ATTESTATION_2026_10_27.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC4-PIEDMONT-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json>).
+- `SC5-MINDEN-VALIDATION` : `PASS_RUNTIME_USER_VALIDATED` ; [RUNTIME_USER_ATTESTATION_2026_10_27.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC5-MINDEN-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json>).
+- `SC5-COLOGNE-VALIDATION` : `PASS_RUNTIME_USER_VALIDATED` ; [RUNTIME_USER_ATTESTATION_2026_10_27.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC5-COLOGNE-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json>).
+- `SC5-MAINZ-VALIDATION` : `PASS_RUNTIME_USER_VALIDATED` ; [RUNTIME_USER_ATTESTATION_2026_10_27.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC5-MAINZ-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json>).
+- `SC6-SWABIA-CONTINUATION-VALIDATION` : `PASS_RUNTIME_USER_VALIDATED` ; [RUNTIME_USER_ATTESTATION_2026_10_27.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC6-SWABIA-CONTINUATION-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json>).
 
-## Prochaine validation joueur recommandée
+Luxembourg et MAP2A restent reçus. Rapport : [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md>). Aucun reçu historique remplacé.
 
-`SC2-MAP2A-VALIDATION` ; les autres lots peuvent être contrôlés dans la même session.
+Aucun des huit protocoles complets initiaux ne reste en attente.
 
-Liste et contrôles : [PLAYER_TEST_PROTOCOL_GROUPED.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/PLAYER_TEST_PROTOCOL_GROUPED.md>). 7 tâches installées, 10 points conditionnels. Aucun statut des autres tâches n’est modifié par le reçu Luxembourg.
+## Deux sous-lots restent à confirmer séparément
 
-- SC2-MAP2A-VALIDATION — Portée manuelle des corrections MAP2A.
-- SC4-MILAN-VALIDATION — Portée manuelle Milanais–Crémonais.
-- SC4-PIEDMONT-VALIDATION — Portée manuelle de l’inclusion piémontaise.
-- SC5-MINDEN-VALIDATION — Portée manuelle Minden.
-- SC5-COLOGNE-VALIDATION — Portée manuelle duché de Westphalie/Vest.
-- SC5-MAINZ-VALIDATION — Portée manuelle des trois couches Mayence.
-- SC6-SWABIA-CONTINUATION-VALIDATION — Portée manuelle Fürstenberg/Ellwangen.
+Teschen `TE-R-CORE` et Berchtesgaden `BG-E-SALT-NATIVE-R1` : [PLAYER_TEST_PROTOCOL_REMAINING.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md>). Les six reçus ne les valident pas. Leurs tâches régionales restent BLOCKED.
 
-Les sous-lots Teschen et de la mine de sel restent distincts selon le protocole groupé. Aucun reçu ou accord supplémentaire n’est présumé. Aucun nouveau territoire, aucune installation et aucun lancement de SC3-HOLSTEIN.
+## Trois voies de clôture recommandées, sans démarrage
+
+1. `SC2-TESCHEN` : protocole propre du registre, puis décision explicite sur la portée B territoriale et démographique.
+2. `SC5-EAST-FRISIA-SOUTH` : arbitrage B ou report P1 non bloquant explicitement approuvé, sans conformité positive inventée.
+3. `SC1-ORTENBURG` : noyau reçu ; villages souverains et population rurale comparable encore à établir. Clôture non acquise.
+
+Justifications, obligations essentielles et réserves de précision : [CLOSURE_READINESS.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/CLOSURE_READINESS.md>). Matrice actuelle : [BLOCKED_CURRENT_MATRIX.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/BLOCKED_CURRENT_MATRIX.json>).
+
+Aucune de ces tâches n’est clôturée par cette préparation. Les P0/P1 substantiels restent ouverts ; aucune reclassification artificielle en P2. Aucun nouveau territoire, aucun sous-lot fonctionnel et aucun lancement de SC3-HOLSTEIN.

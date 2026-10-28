@@ -1,6 +1,6 @@
 # Blocages et couverture restant à traiter
 
-**SERG TERRITORIAL 1.0 — PROGRESSION : 35,32 %**
+**SERG TERRITORIAL 1.0 — PROGRESSION : 39,57 %**
 
 Périmètre `1.0.0` — référence historique : 1er janvier 1776. Indicateur de jalons acceptés, pas pourcentage de frontières exactes.
 
@@ -206,11 +206,25 @@ Preuve : [docs/reports/map/MAP2L/SWABIA_COMPLETION/UNRESOLVED.csv:1](<C:/Users/s
 
 Action bornée héritée : Contrôle groupé des seules couches non couvertes; pas extrapolation des reçus voisins.
 
-Tâches : SC2-MAP2A-VALIDATION `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`; SC2-LUXEMBOURG-VALIDATION `PASS_RUNTIME_USER_VALIDATED`; SC4-MILAN-VALIDATION `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`; SC4-PIEDMONT-VALIDATION `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`; SC5-MINDEN-VALIDATION `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`; SC5-COLOGNE-VALIDATION `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`; SC5-MAINZ-VALIDATION `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`; SC6-SWABIA-CONTINUATION-VALIDATION `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION`; SC7-FINAL-APPROVAL `NOT_STARTED`.
+Tâches : SC2-MAP2A-VALIDATION `PASS_RUNTIME_USER_VALIDATED`; SC2-LUXEMBOURG-VALIDATION `PASS_RUNTIME_USER_VALIDATED`; SC4-MILAN-VALIDATION `PASS_RUNTIME_USER_VALIDATED`; SC4-PIEDMONT-VALIDATION `PASS_RUNTIME_USER_VALIDATED`; SC5-MINDEN-VALIDATION `PASS_RUNTIME_USER_VALIDATED`; SC5-COLOGNE-VALIDATION `PASS_RUNTIME_USER_VALIDATED`; SC5-MAINZ-VALIDATION `PASS_RUNTIME_USER_VALIDATED`; SC6-SWABIA-CONTINUATION-VALIDATION `PASS_RUNTIME_USER_VALIDATED`; SC7-FINAL-APPROVAL `NOT_STARTED`.
 
 Preuve : [docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/COMPLETED_LOTS.csv:1](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/COMPLETED_LOTS.csv>).
 
+État actuel SC2-MAP2A-VALIDATION : Protocole MAP2A intégral explicitement réussi : quatre corrections et Bergame, populations, bâtiments/PM et recrutement conservés, nouvelle partie 1776, un mois, sauvegarde/rechargement. Reçu limité à SC2-MAP2A-VALIDATION ; Teschen/TE-R-CORE et les six autres validations restent distincts. [MAP2A_EXECUTIVE_SUMMARY.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2A/MAP2A_EXECUTIVE_SUMMARY.md>).
+
 État actuel SC2-LUXEMBOURG-VALIDATION : Protocole Luxembourg intégral personnellement réussi et explicitement attesté : nouvelle partie 1776, administration BEO/Wallonie niveau 1, trois niveaux flamands, PM et fonctionnement/recrutement, intégration BEO sans LUX indépendant, populations et unités conservées, un mois sans anomalie, sauvegarde/rechargement. Reçu distinct limité à cette tâche ; aucun contrôle des autres tâches acquis. [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/LUX_BEO_INTEGRATION_2026-10-10/REPORT.md>), [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/REPORT.md>), [SOURCES.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/SOURCES.md>), [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/REPORT.md>).
+
+État actuel SC4-MILAN-VALIDATION : Protocole propre intégral explicitement réussi par le joueur : Raccord Milanais–Crémonais correctement attribué à l'Autriche.; Conservation des territoires vénitiens voisins.; Conservation des territoires suisses voisins.; Aucune anomalie dans le fonctionnement et les frontières inspectées. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC4-MILAN-VALIDATION ; aucune extension aux autres tâches ou sous-lots. [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2L/MILAN_CREMONESE/REPORT.md>).
+
+État actuel SC4-PIEDMONT-VALIDATION : Protocole propre intégral explicitement réussi par le joueur : `SAR` correctement représenté dans le bloc impérial.; Neuf portions piémontaises reconnues.; Île de Sardaigne exclue de l'emprise impériale.; Fonctionnement des droits impériaux concernés sans anomalie. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC4-PIEDMONT-VALIDATION ; aucune extension aux autres tâches ou sous-lots. [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2L/PIEDMONT/REPORT.md>).
+
+État actuel SC5-MINDEN-VALIDATION : Protocole propre intégral explicitement réussi par le joueur : Noyau de Minden sous souveraineté prussienne (`PRU`).; Voisinage et propriétaires conservés.; Mécanismes impériaux fonctionnels.; Périmètre de Minden correctement distingué de Ravensberg. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC5-MINDEN-VALIDATION ; aucune extension aux autres tâches ou sous-lots. [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2L/MINDEN_RAVENSBERG/REPORT.md>).
+
+État actuel SC5-COLOGNE-VALIDATION : Protocole propre intégral explicitement réussi par le joueur : Duché de Westphalie et Vest correctement représentés sous `KCL`.; Territoires voisins préservés.; Fonctionnement des droits impériaux concernés.; Absence de restitution abusive de toute la Westphalie à Cologne. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC5-COLOGNE-VALIDATION ; aucune extension aux autres tâches ou sous-lots. [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2L/DUCHY_WESTPHALIA/REPORT.md>).
+
+État actuel SC5-MAINZ-VALIDATION : Protocole propre intégral explicitement réussi par le joueur : Première couche : Rheingau et Spessart.; Deuxième couche : Bergstraße.; Troisième couche : Tauber.; Propriétaires et mécanismes impériaux corrects.; Erfurt exclue de ces trois couches. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC5-MAINZ-VALIDATION ; aucune extension aux autres tâches ou sous-lots. [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2L/MAINZ_PALATINATE/REPORT.md>), [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2L/MAINZ_ESTATES/REPORT.md>), [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2L/MAINZ_COMPLETION/REPORT.md>).
+
+État actuel SC6-SWABIA-CONTINUATION-VALIDATION : Protocole propre intégral explicitement réussi par le joueur : Fürstenberg (`SFU`) : territoires, propriétaire et capitale corrects.; Ellwangen (`SEW`) : territoires, propriétaire et capitale corrects.; Voisinage préservé.; Fonctionnement en jeu sans anomalie. Nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement. Reçu distinct limité à SC6-SWABIA-CONTINUATION-VALIDATION ; aucune extension aux autres tâches ou sous-lots. [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2L/SWABIA_CONTINUATION/REPORT.md>).
 
 ## R22 — P1 — Transitions et succession des sujets impériaux natifs
 
@@ -268,13 +282,6 @@ Les dépendances alpines sont calculées depuis les reçus acquis : Salzbourg va
 
 ## Tests non encore attestés
 
-- SC2-MAP2A-VALIDATION: Portée manuelle des corrections MAP2A
-- SC4-MILAN-VALIDATION: Portée manuelle Milanais–Crémonais
-- SC4-PIEDMONT-VALIDATION: Portée manuelle de l’inclusion piémontaise
-- SC5-MINDEN-VALIDATION: Portée manuelle Minden
-- SC5-COLOGNE-VALIDATION: Portée manuelle duché de Westphalie/Vest
-- SC5-MAINZ-VALIDATION: Portée manuelle des trois couches Mayence
-- SC6-SWABIA-CONTINUATION-VALIDATION: Portée manuelle Fürstenberg/Ellwangen
 
 Pas de relance d’Erfurt sur les mêmes points, pas de translation 7,20 px; Hohenlohe reste catégorie C, candidats retirés. Les locators ne constituent pas des vérités géographiques.
 
@@ -300,6 +307,18 @@ Pas de relance d’Erfurt sur les mêmes points, pas de translation 7,20 px; Hoh
 
 Matrice des lacunes essentielles, réserves B/P2 et actions de clôture : [BLOCKED_MATRIX.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/BLOCKED_MATRIX.md>). Les obligations historiques ne sont pas effacées pour augmenter le pourcentage.
 
-Huit installations initiales : [INSTALLED_VALIDATIONS.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md>). Luxembourg : reçu humain enregistré, tâche clôturée selon [RUNTIME_USER_ATTESTATION_2026_10_26.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json>). Protocole groupé : [PLAYER_TEST_PROTOCOL_GROUPED.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/PLAYER_TEST_PROTOCOL_GROUPED.md>).
+Huit installations initiales : [INSTALLED_VALIDATIONS.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/INSTALLED_VALIDATIONS.md>). Luxembourg : reçu humain enregistré, tâche clôturée selon [RUNTIME_USER_ATTESTATION_2026_10_26.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json>). Protocole groupé : [PLAYER_TEST_PROTOCOL_REMAINING.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md>).
 
 Teschen : vérification en jeu rapportée selon [TESCHEN_USER_OBSERVATION.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_USER_OBSERVATION.json>), sans nouveau reçu de protocole complet. Décision proposée : [TESCHEN_CLOSURE_REVIEW.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_CLOSURE_REVIEW.md>). Les critères humains manquants et la réserve démographique restent explicites.
+
+## Réception MAP2A sans extension à Teschen
+
+`SC2-MAP2A-VALIDATION` clôturée selon [RUNTIME_USER_ATTESTATION_2026_10_27.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json>). Les quatre corrections et leurs dépendances inspectées sont reçues ; la précision cadastrale générale, SC2-TESCHEN et TE-R-CORE restent hors reçu. Luxembourg reste clôturé.
+
+Aucune autre validation complète des huit installations initiales ne reste ouverte selon [PLAYER_TEST_PROTOCOL_REMAINING.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md>). Les blocages régionaux, le test du registre Teschen et celui de la mine de sel sont conservés ; aucun nouveau territoire commencé.
+
+## Six réceptions distinctes ; blocages régionaux conservés
+
+Reçus et contrôles : [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md>). Les 23 tâches BLOCKED restent inchangées. État des installations déjà testées et obligations historiques restantes : [BLOCKED_CURRENT_MATRIX.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/BLOCKED_CURRENT_MATRIX.json>).
+
+Trois voies préparées uniquement : [CLOSURE_READINESS.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/CLOSURE_READINESS.md>). Les vérifications propres à Teschen et à la mine ordinaire restent ouvertes selon [PLAYER_TEST_PROTOCOL_REMAINING.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md>). Aucun point supplémentaire de clôture régionale ni report P1 approuvé.

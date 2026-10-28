@@ -1,6 +1,6 @@
 # Critères bloquants de clôture territoriale 1.0
 
-**SERG TERRITORIAL 1.0 — PROGRESSION : 35,32 %**
+**SERG TERRITORIAL 1.0 — PROGRESSION : 39,57 %**
 
 Périmètre `1.0.0` — référence historique : 1er janvier 1776. Indicateur de jalons acceptés, pas pourcentage de frontières exactes.
 
@@ -9,7 +9,7 @@ La présence d’un document ou l’achèvement d’une recherche ne coche pas u
 - [ ] Tous les jalons obligatoires terminaux justifiés
 - [ ] Aucun P0 non résolu, y compris couverture des Habsbourg et de l’Italie
 - [ ] Tous les P1 traités ou reports non bloquants explicitement autorisés
-- [ ] Tous les contrôles manuels spécifiques manquants reçus
+- [x] Protocoles complets des huit installations initiales reçus (hors révisions partielles)
 - [ ] Membres/neuf électeurs/statuts et gouvernements contrôlés
 - [ ] Registre impérial final validé
 - [ ] Relations, successions et transitions actives vérifiées

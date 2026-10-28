@@ -1,0 +1,171 @@
+tools\hbc02_coastal_fill.py:20-92  main
+    20  def main():
+    21      before=runtime()
+    22      expected=next(r['sha256'] for r in load('INPUTS.json') if r['path']=='map_data/provinces.png')
+    23      assert sha(ROOT/'map_data/provinces.png')==expected,'Bitmap changed: refresh the base proposal first.'
+    24      original=load('CORRIDOR_CANDIDATE.json');posts=load('POST_CANDIDATES.json')
+    25      rows=list(csv.DictReader((OUT.parent/'HBC-01/HBC_PROVINCE_REGISTER.csv').open(encoding='utf-8-sig')))
+    26      hbc={int(r['Province_RGB'][1:],16):r for r in rows}
+    27      assert all(r['Distinct_owners']=='HBC' for r in rows)
+    28      b=np.asarray(Image.open(ROOT/'map_data/provinces.png').convert('RGB'),dtype=np.uint32)
+    29      a=(b[:,:,0]<<16)|(b[:,:,1]<<8)|b[:,:,2]
+    30      rel=Path('map_data/state_regions/99_seas.txt')
+    31      sea_path=ROOT/rel if (ROOT/rel).exists() else GAME/rel
+    32      hudson=next(n for n in parse(sea_path.read_text(encoding='utf-8-sig')) if n.key=='STATE_HUDSON_BAY')
+    33      water={int(scalar(v.value)[1:],16) for n in hudson.children('provinces') for v in n.children()}
+    34      base={int(rgb[1:],16) for rgb in original['rgb']}
+    35      # The player's complete line is the inland boundary, including the
+    36      # Cumberland branch: fill its coastward side, never its inland side.
+    37      coastal=set(base)
+    38      spine=np.isin(a,sorted(coastal));owned=np.isin(a,sorted(hbc));bay=np.isin(a,sorted(water))
+    39      selected=set(base);slices=[]
+    40      for y in np.where(np.any(spine,axis=1))[0]:
+    41          left=int(np.flatnonzero(spine[y])[0])
+    42          east=np.flatnonzero(bay[y,left:])
+    43          if not len(east):continue
+    44          right=left+int(east[0])
+    45          if right<=left:continue
+    46          candidates={int(v) for v in np.unique(a[y,left:right][owned[y,left:right]])}
+    47          selected.update(candidates)
+    48          slices.append(dict(y=int(y),corridor_inland_x=left,first_hudson_water_x=right,rgb_count=len(candidates)))
+    49      mask=np.isin(a,sorted(selected));added=selected-base
+    50      root_labels,component_sizes,_=pixel_components(mask,[p['diagnostic_cell'] for p in posts])
+    51      filled=all(np.all(mask[r['y'],r['corridor_inland_x']:r['first_hudson_water_x']][owned[r['y'],r['corridor_inland_x']:r['first_hudson_water_x']]]) for r in slices)
+    52      # Re-read current declarations for the selected provinces: do not rely
+    53      # on the older audit when collaborators may have edited shared files.
+    54      from audit_hbc_1776 import effective,provs
+    55      from validate_diplomacy_ottoman_1776 import walk
+    56      current={}
+    57      for path in effective('common/history/states'):
+    58          for n in walk(parse(path.read_text(encoding='utf-8-sig'))):
+    59              if n.key!='create_state':continue
+        … 33 more lines (to line 92)
+
+tools\colonies01_core.py:1-100  prepare
+    56  def prepare():
+    57      OUT.mkdir(parents=True,exist_ok=True);initial=runtime();files={}
+    58      raw=text(ROOT/US);patch=[]
+    59      for n in walk(parse(raw)):
+    60          if n.key=='activate_law' and scalar(n.value)=='law_type:law_frontier_colonization':patch.append((n.start,n.end,'activate_law = law_type:law_no_colonial_affairs'))
+    61          if n.key=='set_institution_investment_level' and scalar(n.one('institution'))=='institution_colonial_affairs':patch.append((n.start,n.end,''))
+    62      assert len(patch)==2;files[US]=encoded(ROOT/US,edit(raw,patch))
+    63      p=ROOT/LAW if (ROOT/LAW).exists() else GAME/LAW;raw=text(p);patch=[]
+    64      laws=[n for n in parse(raw) if scalar(n.one('group'))=='lawgroup_colonization'];assert len(laws)==4
+    65      guard='\n custom_tooltip = { text = aor1776_proclamation_independence_tt NOT = { '+TRIGGER+' = yes } }\n'
+    66      for n in laws:
+    67          if n.key=='law_no_colonial_affairs':continue
+    68          enact=n.children('can_enact')
+    69          if enact:patch.append((enact[0].end-1,enact[0].end-1,guard))
+    70          else:patch.append((n.end-1,n.end-1,'\n can_enact = {'+guard+'}\n'))
+    71          impose=n.children('can_impose');assert len(impose)==1
+    72          patch.append((impose[0].end-1,impose[0].end-1,'\n scope:target_country = {'+guard+'}\n'))
+    73      files[LAW]=encoded(p,edit(raw,patch))
+    74      files['common/scripted_triggers/1776_usa_colonial_expansion.txt']=(TRIGGER+' = { this = c:USA OR = { is_subject = yes aor1776_usa_independence_war_active = yes } }\n').encode()
+    75      for lang in ['french','english']:
+    76          sentence=('Les restrictions coloniales restent en vigueur tant que nous dépendons d’une autre puissance. L’indépendance nous permettra de choisir notre politique de colonisation.' if lang=='french' else 'Colonial restrictions remain in force while we are subject to another power. Independence will allow us to choose our own colonization policy.')
+    77          state='Nouvelle-Écosse' if lang=='french' else 'Nova Scotia'
+    78          files[f'localization/{lang}/replace/1776_colonies_l_{lang}.yml']=b'\xef\xbb\xbf'+(f'l_{lang}:\n aor1776_proclamation_independence_tt:0 "{sentence}"\n STATE_NEW_BRUNSWICK:0 "{state}"\n').encode('utf8')
+    79      raw=text(ROOT/ST);s=state_nodes(raw)['STATE_NEW_BRUNSWICK'];src=next(n for n in s.children('create_state') if n.one('country')=='c:NBS');dst=next(n for n in s.children('create_state') if n.one('country')=='c:NVS')
+    80      cells=set(provs(src,'owned_provinces'))|set(provs(dst,'owned_provinces'));assert len(cells)==40
+    81      node=dst.children('owned_provinces')[0]
+    82      files[ST]=encoded(ROOT/ST,edit(raw,[(src.start,src.end,''),(node.start,node.end,'owned_provinces = '+rgb_block(cells))]))
+    83      raw=text(ROOT/PP);s=state_nodes(raw)['STATE_NEW_BRUNSWICK'];src=s.children('region_state:NBS')[0];dst=s.children('region_state:NVS')[0]
+    84      files[PP]=encoded(ROOT/PP,edit(raw,[(src.start,src.end,''),(dst.end-1,dst.end-1,'\n'+body(raw,src)+'\n')]))
+    85      raw=text(ROOT/BB);s=state_nodes(raw)['STATE_NEW_BRUNSWICK'];src=s.children('region_state:NBS')[0];dst=s.children('region_state:NVS')[0];patch=[];append=[]
+    86      existing={scalar(n.one('building')):n for n in dst.children('create_building')}
+    87      for n in src.children('create_building'):
+    88          kind=scalar(n.one('building'));new=raw[n.start:n.end].replace('c:NBS','c:NVS')
+    89          if kind not in existing:append.append(new)
+    90          else:
+    91              old=existing[kind];assert signature(old)==signature(n),'Different PM/ownership/reserve needs separate treatment: '+kind
+    92              levels=[v for v in walk(old.children()) if v.key=='levels'];assert len(levels)==1
+    93              patch.append((levels[0].start,levels[0].end,'levels = '+str(level(n)+level(old))))
+    94      patch += [(src.start,src.end,''),(dst.end-1,dst.end-1,'\n'+'\n'.join(append)+'\n')]
+    95      files[BB]=encoded(ROOT/BB,edit(raw,patch))
+        … 7 more lines (to line 102)
+
+tools\northwest01.py:21-294  prepare
+   108  def prepare():
+   109   assert not (OUT/'APPLIED.json').exists();base=runtime();own=owners();a=bitmap();model=load(OUT/'SOUTHWEST_MODEL.json');rows=load(OUT/'PROVINCES.json');defs={n.key:n for p in effective('map_data/state_regions') for n in parse(text(p))}
+   110   assert base['map_data/provinces.png']==load(OUT/'GEOMETRY_INPUTS.json')['bitmap_sha256']
+   111   # Baseline includes known overlaps; choose the historical representation by
+   112   # position, never simply treat both owners as valid sovereigns.
+   113   desired={};meta={r['rgb']:r for r in rows if r['state'] in TARGET};positions={int(r['rgb'][1:],16):r['pixel'] for r in rows}
+   114   for r,v in meta.items():
+   115    before=own[r];prior='SC1' if any(t=='SC1' for s,t in before) else sorted(t for s,t in before)[0]
+   116    desired[r]=(v['state'],natives(v['state'],*v['geo'],prior))
+   117   desired['xC00000']=(AK,'A71') # This native RGB wraps along the Aleutian chain.
+   118   # Recolor only the existing island component: no new coastline or sea bridge.
+   119   island=load(OUT/'UNALASKA_COMPONENT_CANDIDATE.json');pixels=island['pixels'];newrgb=0xC00001
+   120   assert newrgb not in set(map(int,np.unique(a)));assert all(a[y,x]==0xC00000 for x,y in pixels)
+   121   for x,y in pixels:a[y,x]=newrgb
+   122   rgb=f'x{newrgb:06X}';desired[rgb]=(POST,'ALK');positions[newrgb]=list(np.mean(pixels,axis=0))
+   123   port_candidate=min(pixels,key=lambda p:(p[0]-309)**2+(p[1]-734)**2);px,py=port_candidate
+   124   # Choose a true coastal point on the component near Unalaska Bay.
+   125   seas={int(r[1:],16):int(n.one('id')) for p in effective('map_data/state_regions') if 'sea' in p.name for n in parse(text(p)) for r in provs(n,'provinces')}
+   126   coast=[]
+   127   for x,y in pixels:
+   128    water=[seas.get(int(a[y+dy,x+dx])) for dx,dy in [(1,0),(-1,0),(0,1),(0,-1)] if 0<=x+dx<a.shape[1] and 0<=y+dy<a.shape[0]]
+   129    water=[v for v in water if v is not None]
+   130    if water:coast.append((float((x-309)**2+(y-734)**2),x,y,water[0]))
+   131   assert coast;_,px,py,naval=min(coast)
+   132   used={int(n.one('id')) for n in defs.values()};newid=next(v for v in range(3160,9000) if v not in used)
+   133   # Land adjacency respects side contacts and explicit impassable rules.
+   134   outside_core={int(r[1:],16) for r,v in own.items() if any(t=='SC1' for s,t in v) and r not in meta}
+   135   colors={int(r[1:],16) for r in meta if meta[r]['state']!=AK}|outside_core
+   136   yy,xx=np.where(np.isin(a,sorted(outside_core)));ids,inv,cnt=np.unique(a[yy,xx],return_inverse=True,return_counts=True);sx=np.bincount(inv,weights=xx);sy=np.bincount(inv,weights=yy)
+   137   positions.update({int(v):[float(sx[i]/cnt[i]),float(sy[i]/cnt[i])] for i,v in enumerate(ids)})
+   138   adj=graph(a,sorted(colors));imp={int(r[1:],16) for n in defs.values() for r in provs(n,'impassable')};blocked=set()
+   139   ap=ROOT/'map_data/adjacencies.csv';ap=ap if ap.exists() else GAME/'map_data/adjacencies.csv'
+   140   for z in csv.DictReader(ap.open(encoding='utf-8-sig'),delimiter=';'):
+   141    if all(z.get(k,'').startswith('x') for k in ['From','To']) and (z.get('Type') in ['sea','impassable'] or z.get('adjacency_rule_name','').strip()):blocked.add(pair(int(z['From'][1:],16),int(z['To'][1:],16)))
+   142   adj={u:{v:c for v,c in vs.items() if v not in imp and pair(u,v) not in blocked} for u,vs in adj.items() if u not in imp}
+   143   # Every post joins the same capital-connected mainland, not whichever
+   144   # disconnected Spanish remnant happens to be nearest.
+   145   initial_spanish={int(r[1:],16) for r,(s,t) in desired.items() if t=='SC1'}|outside_core
+   146   capital=int(scalar(defs['STATE_MEXICO'].one('city'))[1:],16)
+   147   def closure(cells):
+        … 147 more lines (to line 294)
+
+map_data\state_regions\06_central_america.txt:1-390
+     1  ﻿STATE_SAN_SALVADOR = {
+     2      id = 338
+     3      subsistence_building = "building_subsistence_farm"
+     4      provinces = { "x107040" "x3DB036" "xB0D0C7" "xCC1FCA" }
+     5      traits = { "state_trait_central_american_cordilleras" }
+     6      city = "xB0D0C7"
+     7      port = "xB0D0C7"
+     8      farm = "xB0D0C7"
+     9      mine = "xB0D0C7"
+    10      wood = "x107040"
+    11      arable_land = 25
+    12      arable_resources = { "building_maize_farm" "building_livestock_ranch" "building_coffee_plantation" "building_dye_plantation" "building_tobacco_plantation" "building_sugar_plantation" "building_banana_plantation" }
+    13      capped_resources = {
+    14          building_logging_camp = 7
+    15          building_fishing_wharf = 4
+    16          building_salt_pan = 20
+    17          building_limestone_quarry = 28
+    18      }
+    19      resource = {
+    20          type = "building_rubber_plantation"
+    21          undiscovered_amount = 10
+    22      }
+    23      naval_exit_id = 3155
+    24  }
+    25  
+    26  STATE_GUATEMALA = {
+    27      id = 339
+    28      subsistence_building = "building_subsistence_farm"
+    29      provinces = { "x011E0F" "x02073E" "x0F5049" "x2D4EB6" "x30E01C" "x42124E" "x464F6A" "x50B040" "x50B0C0" "x5449D0" "x65C19A" "x6D71DA" "x702CD9" "x78C465" "x7D333F" "xA9090A" "xB2E11E" "xBD8628" "xC67219" "xD030C0" "xD0B040" "xD176F3" "xD9BEFE" "xDEC8D3" "xFA4B41" }
+    30      traits = { "state_trait_central_american_cordilleras" }
+    31      city = "xDEC8D3"
+    32      port = "x02073E"
+    33      farm = "x65C19A"
+    34      mine = "x50B040"
+    35      wood = "xFA4B41"
+    36      arable_land = 40
+    37      arable_resources = { "building_maize_farm" "building_livestock_ranch" "building_coffee_plantation" "building_cotton_plantation" "building_dye_plantation" "building_tobacco_plantation" "building_sugar_plantation" "building_banana_plantation" "building_spice_plantation" }
+    38      capped_resources = {
+    39          building_iron_mine = 30
+    40          building_logging_camp = 17
+        … 350 more lines (to line 390)

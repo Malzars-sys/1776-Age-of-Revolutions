@@ -1,0 +1,1751 @@
+BUILDINGS={
+	s:STATE_IVORY_COAST={
+		region_state:FRA={
+
+		}
+		region_state:BLE={
+		}
+		region_state:KNG={
+		}
+		region_state:AYI={
+		}
+	}
+	s:STATE_WINDWARD_COAST={
+		region_state:KBD={
+		}
+		region_state:BLE={
+		}
+		region_state:KRU={
+		}
+	}
+	s:STATE_SENEGAL={
+		region_state:FRA={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:FRA"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:SIL={
+			create_building = {
+				building = "building_trade_center"
+				add_ownership = {
+					country = {
+						country = "c:SIL"
+						levels = 2
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+			}
+			create_building = {
+				building = "building_port"
+				add_ownership = {
+					building = {
+						type = "building_port"
+						country = "c:SIL"
+						levels = 1
+						region = "STATE_SENEGAL"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_anchorage" }
+			}
+			create_building = {
+				building = "building_railway"
+				add_ownership = {
+					building = {
+						type = "building_railway"
+						country = "c:SIL"
+						levels = 16
+						region = "STATE_SENEGAL"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+			create_building = {
+				building = "building_salt_pan"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:GBR"
+						levels = 24
+						region = "STATE_SENEGAL"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "default_building_salt_pan" }
+			}
+
+		}
+		
+		region_state:CAY={
+		}
+		region_state:FTR={
+
+		}
+	}
+	s:STATE_SIERRA_LEONE={
+		region_state:SIL={
+
+
+
+
+		}
+	}
+	s:STATE_VOLTA={
+		region_state:MOS={
+		}
+		region_state:KNG={
+		}
+	}
+	s:STATE_LIBERIA={
+		region_state:MDK={
+		}
+	}
+	s:STATE_HAUSALAND={
+		
+		region_state:BRG={
+
+		}
+	
+region_state:HAU = {
+create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:HAU"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			}
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:HAU"
+						levels = 3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:HAU"
+						levels = 1
+						region="STATE_HAUSALAND"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+}
+
+region_state:KEB = {
+create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:KEB"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			}
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:KEB"
+						levels = 3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+
+region_state:NUP = {
+create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:NUP"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			}
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:NUP"
+						levels = 5
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:NUP"
+						levels = 1
+						region="STATE_HAUSALAND"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+}
+
+region_state:ZAM = {
+create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:ZAM"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			}
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:ZAM"
+						levels = 7
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:ZAM"
+						levels = 1
+						region="STATE_HAUSALAND"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+}
+
+region_state:ZAZ = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:ZAZ"
+						levels = 2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+}
+	s:STATE_BENIN={
+		region_state:BEN={
+
+
+		}
+	}
+	s:STATE_YORUBA_STATES={
+		region_state:OYO={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:OYO"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+	}
+	s:STATE_NIGER_DELTA={
+		region_state:IBO={
+		}
+	}
+	s:STATE_OUTER_HAUSALAND={
+		
+		
+		region_state:BOR={
+
+		}
+	
+region_state:HAU = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:HAU"
+						levels = 2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+
+region_state:ZRM = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:ZRM"
+						levels = 3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+}
+	s:STATE_BORNU={
+		region_state:BOR={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:BOR"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+	}
+	s:STATE_NIGERIA={
+		
+	
+region_state:BCH = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:BCH"
+						levels = 12
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BCH"
+						levels = 1
+						region="STATE_NIGERIA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+}
+
+region_state:BTA = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:BTA"
+						levels = 2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+
+region_state:GWR = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:GWR"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+}
+	s:STATE_EAST_HAUSALAND={
+		
+	
+region_state:DAU = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:DAU"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+
+region_state:GWR = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:GWR"
+						levels = 6
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+
+region_state:KNN = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:KNN"
+						levels = 8
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:KNN"
+						levels = 1
+						region="STATE_EAST_HAUSALAND"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+}
+
+region_state:KTS = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:KTS"
+						levels = 1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+
+region_state:ZAZ = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:ZAZ"
+						levels = 4
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+}
+}
+	s:STATE_GUINEA={
+		region_state:POR={
+
+
+		}
+		region_state:MDK={
+		}
+		region_state:SSU={
+		}
+		region_state:FTJ={
+
+		}
+	}
+	s:STATE_GOLD_COAST={
+		region_state:SIL={
+
+
+
+		}
+		region_state:NET={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:NET"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:DENNOR={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:DENNOR"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:ASH={
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:ASH"
+						levels=1
+						region="STATE_GOLD_COAST"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_gold_mine"
+							add_ownership={
+								country={
+									country="c:ASH"
+									levels=1
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_picks_and_shovels_building_gold_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_gold_mine" "pm_no_mine_ventilation" }
+						}
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:ASH"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+	}
+	s:STATE_TOGO={
+		region_state:ASH={
+		}
+		region_state:EWE={
+		}
+	}
+	s:STATE_DAHOMEY={
+		region_state:DAH={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:DAH"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:BRG={
+
+		}
+	}
+	s:STATE_LINDI={
+		region_state:HHE={
+		}
+		region_state:GGO={
+		}
+		region_state:SNG={
+		}
+	}
+	s:STATE_ZANZIBAR={
+		region_state:OMA={
+
+
+			create_building={
+				building="building_logging_camp"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:OMA"
+						levels=2
+						region="STATE_OMAN"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts"  }
+			}
+
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:OMA"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:OMA"
+						levels=1
+						region="STATE_ZANZIBAR"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:OMA"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+	}
+	s:STATE_TANGANYIKA={
+		region_state:NYM={
+		}
+		region_state:MSI={
+		}
+		region_state:KRG={
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:KRG"
+						levels=1
+						region="STATE_TANGANYIKA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:KRG"
+									levels=1
+									region="STATE_TANGANYIKA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+						create_building={
+							building="building_millet_farm"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:KRG"
+									levels=1
+									region="STATE_TANGANYIKA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" }
+						}
+
+		}
+		region_state:RWD={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:RWD"
+						levels=1
+						region="STATE_TANGANYIKA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated"  }
+			}
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:RWD"
+						levels=1
+						region="STATE_TANGANYIKA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_millet_farm"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:RWD"
+									levels=1
+									region="STATE_TANGANYIKA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" }
+						}
+
+		}
+		region_state:BRD={
+						create_building={
+							building="building_millet_farm"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:BRD"
+									levels=1
+									region="STATE_TANGANYIKA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" }
+						}
+
+		}
+	}
+	s:STATE_KENYA={
+		region_state:KKY={
+		}
+		region_state:OMA={
+						create_building={
+							building="building_port"
+							add_ownership={
+								country={
+									country="c:OMA"
+									levels=1
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_anchorage" }
+						}
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:OMA"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:WTU={
+
+
+			create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:WTU"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+		}
+		region_state:MBS={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:MBS"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:AJR={
+		}
+		region_state:AUL={
+		}
+	}
+	s:STATE_RIFT_VALLEY={
+		region_state:MSI={
+		}
+		region_state:LUO={
+		}
+		region_state:TRK={
+		}
+	}
+	s:STATE_OROMIA={
+		region_state:ETH={
+
+
+
+
+		}
+	}
+	s:STATE_AMHARA={
+		region_state:ETH={
+			create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:ETH"
+						levels=3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			}
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:ETH"
+						levels=1
+						region="STATE_AMHARA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+
+		}
+	}
+	s:STATE_GONDER={
+			create_building={
+				building="building_government_administration"
+				add_ownership={
+					country={
+						country="c:ETH"
+						levels=3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			}
+		region_state:ETH={
+						create_building={
+							building="building_government_administration"
+							add_ownership={
+								country={
+									country="c:ETH"
+									levels=1
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+						}
+
+		}
+	}
+	s:STATE_KAZEMBE={
+		region_state:BMB={
+		}
+		region_state:KZM={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:KZM"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:MRV={
+		}
+	}
+	s:STATE_SOMALILAND={
+		region_state:ISQ={
+
+
+		}
+		region_state:WSG={
+
+
+		}
+		region_state:GLD={
+
+
+		}
+		region_state:MJT={
+
+
+		}
+	}
+	s:STATE_SOUTH_MADAGASCAR={
+		region_state:MAD={
+
+
+
+		}
+	}
+	s:STATE_NORTH_MADAGASCAR={
+		region_state:MAD={
+
+
+
+		}
+	}
+	s:STATE_UGANDA={
+		region_state:BUG={
+			create_building={
+				building="building_millet_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:BUG"
+						levels=1
+						region="STATE_UGANDA"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming"  "pm_tools_disabled" "pm_fig_orchards" }
+			}
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BUG"
+						levels=1
+						region="STATE_UGANDA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:BUG"
+									levels=1
+									region="STATE_UGANDA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+
+		}
+		region_state:BNY={
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BNY"
+						levels=1
+						region="STATE_UGANDA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:BNY"
+									levels=1
+									region="STATE_UGANDA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+						create_building={
+							building="building_millet_farm"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:BNY"
+									levels=1
+									region="STATE_UGANDA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled" }
+						}
+
+		}
+		region_state:ANK={
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:ANK"
+									levels=1
+									region="STATE_UGANDA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+
+		}
+	}
+	s:STATE_EQUATORIA={
+		region_state:DNK={
+		}
+		region_state:NUE={
+		}
+		region_state:DFT={
+		}
+		region_state:TPS={
+		}
+	}
+	s:STATE_MOCAMBIQUE={
+		region_state:POR={
+
+			create_building={
+				building="building_port"
+				add_ownership={
+					country={
+						country="c:POR"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_anchorage" }
+			}
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:POR"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:TGI={
+
+		}
+		region_state:MRV={
+		}
+	}
+	s:STATE_WADDAI={
+		region_state:WAD={
+
+		}
+		region_state:BGI={
+		}
+		region_state:BOR={
+		}
+	}
+	s:STATE_NORTH_CAMEROON={
+		
+		region_state:BMM={
+		}
+	
+region_state:BTA = {
+create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:BTA"
+						levels = 10
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:BTA"
+						levels = 1
+						region="STATE_NORTH_CAMEROON"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+}
+}
+	s:STATE_SOUTH_CAMEROON={
+		region_state:SIL={
+
+
+		}
+		region_state:POR={
+
+
+		}
+		region_state:FNG={
+		}
+		region_state:DLA={
+		}
+	}
+	s:STATE_UBANGI_SHARI={
+		region_state:DAK={
+		}
+		region_state:ZND={
+		}
+	}
+	s:STATE_CONGO={
+		region_state:BOB={
+		}
+		region_state:LNG={
+		}
+		region_state:TKE={
+		}
+	}
+	s:STATE_CONGO_ORIENTALE={
+		region_state:MNB={
+		}
+		region_state:ZND={
+		}
+		region_state:LGA={
+		}
+		region_state:HMB={
+		}
+		region_state:LBA={
+		}
+	}
+	s:STATE_KASAI={
+		region_state:KBA={
+		}
+		region_state:LBA={
+		}
+	}
+	s:STATE_BAS_CONGO={
+		region_state:KON={
+
+		}
+		region_state:YKA={
+		}
+	}
+	s:STATE_EQUATEUR={
+		region_state:BNG={
+		}
+		region_state:BOB={
+		}
+	}
+	s:STATE_NORTH_ANGOLA={
+		region_state:POR={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:POR"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+	}
+	s:STATE_SOUTH_ANGOLA={
+		region_state:POR={
+
+
+		}
+		region_state:OVM={
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:OVM"
+									levels=1
+									region="STATE_SOUTH_ANGOLA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+
+		}
+		region_state:HRO = {
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:HRO"
+									levels=1
+									region="STATE_SOUTH_ANGOLA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+		}
+		region_state:OVB = {
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:OVB"
+									levels=1
+									region="STATE_SOUTH_ANGOLA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+		}
+	}
+	s:STATE_EAST_ANGOLA={
+		region_state:CHK={
+		}
+		region_state:LND={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:LND"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:KSN={
+		}
+		region_state:LZO={
+		}
+	}
+	s:STATE_KATANGA={
+		region_state:KZM={
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:KZM"
+						levels=1
+						region="STATE_KATANGA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_copper_mine"
+							add_ownership={
+								building={
+									type="building_copper_mine"
+									country="c:KZM"
+									levels=1
+									region="STATE_KATANGA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_picks_and_shovels_building_copper_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_copper_mine" "pm_no_mine_ventilation" }
+						}
+
+		}
+		region_state:LND={
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:LND"
+						levels=1
+						region="STATE_KATANGA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_copper_mine"
+							add_ownership={
+								building={
+									type="building_copper_mine"
+									country="c:LND"
+									levels=1
+									region="STATE_KATANGA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_picks_and_shovels_building_copper_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_copper_mine" "pm_no_mine_ventilation" }
+						}
+
+		}
+		region_state:LBA={
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:LBA"
+						levels=1
+						region="STATE_KATANGA"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_copper_mine"
+							add_ownership={
+								building={
+									type="building_copper_mine"
+									country="c:LBA"
+									levels=1
+									region="STATE_KATANGA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_picks_and_shovels_building_copper_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_copper_mine" "pm_no_mine_ventilation" }
+						}
+
+		}
+	}
+	s:STATE_GABON={
+		region_state:FNG={
+		}
+		region_state:LNG={
+		}
+	}
+	s:STATE_ZAMBIA={
+		region_state:LZO={
+		}
+		region_state:BMB={
+		}
+	}
+	s:STATE_ZAMBEZIA={
+		region_state:POR={
+						create_building={
+							building="building_trade_center"
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							add_ownership={
+								country={
+									country="c:POR"
+									levels=1
+								}
+							}
+							reserves=1
+						}
+
+		}
+		region_state:MSK={
+		}
+		region_state:MNC={
+		}
+	}
+	s:STATE_ZAMBEZI={
+		region_state:MSH={
+		}
+		region_state:MNC={
+		}
+	}
+	s:STATE_NAMAQUALAND={
+		region_state:NAM={
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:NAM"
+									levels=1
+									region="STATE_NAMAQUALAND"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+
+		}
+	}
+	s:STATE_HEREROLAND={
+		region_state:HRO={
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:HRO"
+									levels=1
+									region="STATE_HEREROLAND"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+
+		}
+		region_state:OVB={
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:OVB"
+									levels=1
+									region="STATE_HEREROLAND"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+
+		}
+	}
+	s:STATE_ZULULAND={
+		region_state:BST={
+
+		}
+	}
+	s:STATE_VRYSTAAT={
+		region_state:ORA={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:ORA"
+						levels=1
+						region="STATE_VRYSTAAT"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated"  }
+			}
+			create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:ORA"
+						levels=2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:ORA"
+						levels=1
+						region="STATE_VRYSTAAT"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+
+		}
+		region_state:PHL={
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:PHL"
+						levels=1
+						region="STATE_VRYSTAAT"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated"  }
+			}
+			create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:PHL"
+						levels=1
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:PHL"
+						levels=1
+						region="STATE_VRYSTAAT"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+
+		}
+		region_state:BST = {
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:BST"
+						levels=1
+						region="STATE_VRYSTAAT"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated"  }
+			}
+		}
+	}
+	s:STATE_TRANSVAAL={
+		region_state:TRN={
+
+
+			create_building={
+				building="building_barrack"
+				add_ownership={
+					country={
+						country="c:TRN"
+						levels=3
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_no_organization" }
+			}
+		}
+
+		region_state:MTB = {
+		}
+		region_state:SWZ = {
+
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:SWZ"
+						levels=1
+						region="STATE_TRANSVAAL"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated"  }
+			}
+		}
+		region_state:VND = {
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:VND"
+									levels=1
+									region="STATE_TRANSVAAL"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+		}
+	}
+	s:STATE_EASTERN_CAPE={
+		region_state:DEI={
+
+			create_building={
+				building="building_livestock_ranch"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:DEI"
+						levels=1
+						region="STATE_EASTERN_CAPE"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated"  }
+			}
+		}
+		region_state:XHO = {
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:XHO"
+									levels=1
+									region="STATE_EASTERN_CAPE"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+
+		}
+	}
+	s:STATE_CAPE_COLONY={
+		region_state:DEI={
+			create_building={
+				building="building_wheat_farm"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:DEI"
+						levels=2
+						region="STATE_CAPE_COLONY"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_simple_farming" "pm_no_secondary" "pm_tools_disabled"  }
+			}
+			create_building={
+				building="building_vineyard"
+				add_ownership={
+					building={
+						type="building_manor_house"
+						country="c:DEI"
+						levels=2
+						region="STATE_CAPE_COLONY"
+					}
+				}
+				reserves=1
+				activate_production_methods={ "default_building_vineyard" "pm_road_carts"  }
+			}
+			create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:DEI"
+						levels=2
+						region="STATE_CAPE_COLONY"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:DEI"
+									levels=1
+									region="STATE_CAPE_COLONY"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+
+		}
+	}
+	s:STATE_NORTHERN_CAPE={
+		region_state:TSW={
+		}
+		region_state:WBL={
+
+		}
+	}
+	s:STATE_BOTSWANA={
+		region_state:TSW={
+						create_building={
+							building="building_livestock_ranch"
+							add_ownership={
+								building={
+									type="building_manor_house"
+									country="c:TSW"
+									levels=1
+									region="STATE_BOTSWANA"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+						}
+
+		}
+		region_state:LZO={
+		}
+	}
+	s:STATE_LOURENCO_MARQUES={
+		region_state:POR={
+
+		}
+	}
+}

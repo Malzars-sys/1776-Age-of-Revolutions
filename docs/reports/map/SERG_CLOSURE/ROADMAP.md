@@ -1,14 +1,26 @@
 # Feuille de route canonique — clôture territoriale du SERG
 
-**SERG TERRITORIAL 1.0 — PROGRESSION : 35,32 %**
+**SERG TERRITORIAL 1.0 — PROGRESSION : 39,57 %**
 
 Périmètre `1.0.0` — référence historique : 1er janvier 1776. Indicateur de jalons acceptés, pas pourcentage de frontières exactes.
 
-## Résolution actuelle — Luxembourg administratif
+## Réception groupée — 6 tâches
+
+Protocoles intégralement confirmés par le joueur, reçus distincts : `SC4-MILAN-VALIDATION`, `SC4-PIEDMONT-VALIDATION`, `SC5-MINDEN-VALIDATION`, `SC5-COLOGNE-VALIDATION`, `SC5-MAINZ-VALIDATION`, `SC6-SWABIA-CONTINUATION-VALIDATION`. Rapport : [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/REPORT.md>).
+
+Les 23 tâches BLOCKED restent inchangées. TE-R-CORE et BG-E-SALT-NATIVE-R1 attendent leurs confirmations propres selon [PLAYER_TEST_PROTOCOL_REMAINING.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md>). Préparation des trois voies de clôture, sans nouveau chantier : [CLOSURE_READINESS.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/CLOSURE_READINESS.md>).
+
+## Réception antérieure — MAP2A
+
+`SC2-MAP2A-VALIDATION` : `PASS_RUNTIME_USER_VALIDATED`. Reçu limité aux quatre corrections et à leurs dépendances inspectées : [RUNTIME_USER_ATTESTATION_2026_10_27.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json>). Rapport : [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/REPORT.md>).
+
+Luxembourg reste reçu. SC2-TESCHEN, TE-R-CORE, la mine de sel et les autres tâches ne sont pas validés par MAP2A. Seules les validations installées restantes sont proposées selon [PLAYER_TEST_PROTOCOL_REMAINING.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md>). Aucun nouveau territoire commencé.
+
+## Réception antérieure — Luxembourg administratif
 
 Un niveau ordinaire BEO/Wallonie installé, trois niveaux flamands conservés ; contrat BUILD réconcilié. Rapport : [REPORT.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ADMIN_R1_2026_10_26/REPORT.md>). Statut : `PASS_RUNTIME_USER_VALIDATED`. Reçu humain limité à cette tâche : [RUNTIME_USER_ATTESTATION_2026_10_26.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_26.json>).
 
-Prochaine action limitée aux validations groupées : [PLAYER_TEST_PROTOCOL_GROUPED.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VALIDATION/ACCEPTANCE_2026_10_26/PLAYER_TEST_PROTOCOL_GROUPED.md>). La matrice antérieure reste une archive ; aucun nouveau territoire autorisé.
+Prochaine action limitée aux validations groupées : [PLAYER_TEST_PROTOCOL_REMAINING.md](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md>). La matrice antérieure reste une archive ; aucun nouveau territoire autorisé.
 
 ## Priorité actuelle — campagne de levée des blocages
 
@@ -29,7 +41,7 @@ La mission d’initialisation (`SERG_CLOSURE_ROADMAP_INITIALIZED`) n’a install
 
 ## Socle initial et calcul courant
 
-État courant : 25 jalons justifiés; **83 / 235 points**, 81 tâches définies dans une liste finie. 7 tâches installées attendent un reçu spécifique.
+État courant : 32 jalons justifiés; **93 / 235 points**, 81 tâches définies dans une liste finie. 0 tâches installées attendent un reçu spécifique.
 
 À l’initialisation : 19 noyaux/jalons antérieurs acceptés, 60/235 points = 25,53 %. Indicateur auparavant absent; aucune nouvelle correction ni validation humaine pendant cette seule mission. L’historique conserve ensuite les évolutions.
 
@@ -46,11 +58,11 @@ Arrondi à deux décimales, demi vers le haut; un arrondi numérique ne peut aff
 | Phase | Tâches | Points acceptés / total | Origine audit |
 | --- | ---: | ---: | --- |
 | 1 — Salzbourg et principautés ecclésiastiques alpines | 12 | 14 / 32 | CL1 : juridictions alpines et périphéries R4 |
-| 2 — Possessions impériales des Habsbourg | 11 | 22 / 37 | CL1 : territoires habsbourgeois et Teschen |
+| 2 — Possessions impériales des Habsbourg | 11 | 24 / 37 | CL1 : territoires habsbourgeois et Teschen |
 | 3 — Allemagne septentrionale et juridictions manquantes | 14 | 18 / 44 | CL3; socles MAP2N/Q/R/T/U |
-| 4 — Italie impériale | 8 | 0 / 23 | CL2; le rang change, pas le contenu historique |
-| 5 — Corrections occidentales et centrales restantes | 18 | 14 / 45 | CL4 + CL5; Montbéliard/Oettingen de CL6 |
-| 6 — Petites juridictions significatives et arbitrages | 10 | 15 / 29 | CL6 hors Montbéliard/Oettingen; Goslar de CL3 |
+| 4 — Italie impériale | 8 | 3 / 23 | CL2; le rang change, pas le contenu historique |
+| 5 — Corrections occidentales et centrales restantes | 18 | 18 / 45 | CL4 + CL5; Montbéliard/Oettingen de CL6 |
+| 6 — Petites juridictions significatives et arbitrages | 10 | 16 / 29 | CL6 hors Montbéliard/Oettingen; Goslar de CL3 |
 | 7 — Cohérence impériale et validation finale | 8 | 0 / 25 | CL7; pas développement obligatoire de mécaniques futures |
 
 L’ordre demandé prévaut : l’ancien CL1 est scindé entre phases 1 et 2; CL2 devient phase 4; CL3 devient phase 3 (Goslar en 6); CL4/CL5 deviennent phase 5; Montbéliard/Oettingen de CL6 passent en 5, le reste en 6; CL7 devient 7. Le contenu de couverture n’est pas supprimé par ce réordonnancement.
@@ -286,7 +298,7 @@ Source de départ : [docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/SUPPLEMENTAL_CHE
 
 #### SC2-MAP2A-VALIDATION — Portée manuelle des corrections MAP2A
 
-P1 · poids 2 · `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` · profil `runtime_only`.
+P1 · poids 2 · `PASS_RUNTIME_USER_VALIDATED` · profil `runtime_only`.
 
 Région/périmètre : Moravie et Silésie autrichienne; Milanais–Crémonais et Trois Ligues. Dépendances : aucune.
 
@@ -512,7 +524,7 @@ Source de départ : [docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/HISTORICAL_GAPS.
 
 #### SC4-MILAN-VALIDATION — Portée manuelle Milanais–Crémonais
 
-P1 · poids 2 · `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` · profil `runtime_only`.
+P1 · poids 2 · `PASS_RUNTIME_USER_VALIDATED` · profil `runtime_only`.
 
 Région/périmètre : Milanais–Crémonais et Trois Ligues. Dépendances : aucune.
 
@@ -522,7 +534,7 @@ Source de départ : [docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/COMPLETED_LOTS.c
 
 #### SC4-PIEDMONT-VALIDATION — Portée manuelle de l’inclusion piémontaise
 
-P1 · poids 1 · `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` · profil `runtime_only`.
+P1 · poids 1 · `PASS_RUNTIME_USER_VALIDATED` · profil `runtime_only`.
 
 Région/périmètre : Piémont : inclusion impériale limitée. Dépendances : aucune.
 
@@ -685,7 +697,7 @@ Source de départ : [docs/reports/map/MAP2L/ERFURT_EICHSFELD/REPORT.md:1](<C:/Us
 
 #### SC5-MINDEN-VALIDATION — Portée manuelle Minden
 
-P1 · poids 1 · `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` · profil `runtime_only`.
+P1 · poids 1 · `PASS_RUNTIME_USER_VALIDATED` · profil `runtime_only`.
 
 Région/périmètre : Minden : correction de 76 cellules. Dépendances : aucune.
 
@@ -695,7 +707,7 @@ Source de départ : [docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/COMPLETED_LOTS.c
 
 #### SC5-COLOGNE-VALIDATION — Portée manuelle duché de Westphalie/Vest
 
-P1 · poids 1 · `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` · profil `runtime_only`.
+P1 · poids 1 · `PASS_RUNTIME_USER_VALIDATED` · profil `runtime_only`.
 
 Région/périmètre : Duché de Westphalie et Vest de Cologne. Dépendances : aucune.
 
@@ -705,7 +717,7 @@ Source de départ : [docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/COMPLETED_LOTS.c
 
 #### SC5-MAINZ-VALIDATION — Portée manuelle des trois couches Mayence
 
-P1 · poids 2 · `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` · profil `runtime_only`.
+P1 · poids 2 · `PASS_RUNTIME_USER_VALIDATED` · profil `runtime_only`.
 
 Région/périmètre : Mayence Rheingau–Bergstraße–Spessart–Tauber. Dépendances : aucune.
 
@@ -808,7 +820,7 @@ Source de départ : [docs/reports/map/MAP2L/SWABIA_COMPLETION/UNRESOLVED.csv:1](
 
 #### SC6-SWABIA-CONTINUATION-VALIDATION — Portée manuelle Fürstenberg/Ellwangen
 
-P1 · poids 1 · `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` · profil `runtime_only`.
+P1 · poids 1 · `PASS_RUNTIME_USER_VALIDATED` · profil `runtime_only`.
 
 Région/périmètre : Fürstenberg et Ellwangen : continuation. Dépendances : aucune.
 

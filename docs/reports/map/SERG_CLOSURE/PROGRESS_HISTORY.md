@@ -1,6 +1,6 @@
 # Historique additif des décisions et validations
 
-**SERG TERRITORIAL 1.0 — PROGRESSION : 35,32 %**
+**SERG TERRITORIAL 1.0 — PROGRESSION : 39,57 %**
 
 Périmètre `1.0.0` — référence historique : 1er janvier 1776. Indicateur de jalons acceptés, pas pourcentage de frontières exactes.
 
@@ -519,6 +519,47 @@ Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-LUXEMBOURG-VAL
 Trois changements externes nord-américains conservés pendant la réception : populations, journaux et événements de Floride. Versions fonctionnelles dépendantes du Luxembourg et contrat BUILD inchangés ; premier constat global archivé, contre-vérification bornée réussie. Aucune modification fonctionnelle par cet agent. Le reçu Luxembourg et ses 83/235 points restent les seuls nouveaux acquis.
 
 Progression : 35.32 → 35.32 %.
+
+## SERG-RM-0055 — 2026-10-27 — MAP2A_EXPLICIT_FULL_USER_VALIDATION
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/RUNTIME_USER_ATTESTATION_2026_10_27.json.
+
+Protocole MAP2A intégral explicitement réussi : quatre corrections et Bergame, populations, bâtiments/PM et recrutement conservés, nouvelle partie 1776, un mois, sauvegarde/rechargement. Reçu limité à SC2-MAP2A-VALIDATION ; Teschen/TE-R-CORE et les six autres validations restent distincts.
+
+Progression : 35.32 → 36.17 %.
+
+
+- SC2-MAP2A-VALIDATION : `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` → `PASS_RUNTIME_USER_VALIDATED`.
+## SERG-RM-0056 — 2026-10-27 — MAP2A_RECEPTION_FINAL_CHECKS
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/SC2-MAP2A-VALIDATION/ACCEPTANCE_2026_10_27/FINAL_CHECKS.json.
+
+Réception MAP2A seule ; conservation 29/29, suivi 27 réussis et 1 test historique désactivé. Échec global MAP2A ancien archivé et classé hors périmètre. Six validations installées restent ouvertes (8 points) ; Teschen/TE-R-CORE et mine de sel séparés. Aucun fichier fonctionnel ni ancien reçu modifié.
+
+Progression : 36.17 → 36.17 %.
+
+## SERG-RM-0057 — 2026-10-27 — SIX_SCOPED_TASKS_EXPLICIT_HUMAN_RECEPTION
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/USER_ATTESTATION.md.
+
+Six protocoles distincts personnellement et intégralement confirmés : nouvelle partie 1776, mois complet sans anomalie, sauvegarde/rechargement ; reçus séparés et limites propres. Aucune date effective, capture ou mesure économique inventée. Aucun point pour les tâches BLOCKED ; aucune nouvelle installation.
+
+Progression : 36.17 → 39.57 %.
+
+
+- SC4-MILAN-VALIDATION : `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` → `PASS_RUNTIME_USER_VALIDATED`.
+- SC4-PIEDMONT-VALIDATION : `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` → `PASS_RUNTIME_USER_VALIDATED`.
+- SC5-MINDEN-VALIDATION : `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` → `PASS_RUNTIME_USER_VALIDATED`.
+- SC5-COLOGNE-VALIDATION : `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` → `PASS_RUNTIME_USER_VALIDATED`.
+- SC5-MAINZ-VALIDATION : `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` → `PASS_RUNTIME_USER_VALIDATED`.
+- SC6-SWABIA-CONTINUATION-VALIDATION : `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` → `PASS_RUNTIME_USER_VALIDATED`.
+## SERG-RM-0058 — 2026-10-27 — SIX_RECEIPTS_FINAL_CHECKS_AND_CLOSURE_PREPARATION
+
+Périmètre : `1.0.0`. Source : docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/FINAL_CHECKS.json.
+
+Six reçus indépendants ; conservation finale 290/290 ; 86 tests réussis et 1 contrôle initial désactivé. Ancien validateur des réformes : assertion de structure et StopIteration archivés, dépendances antérieures inchangées, contrats actuels réussis. Les 23 blocages sont conservés ; Teschen, Frise méridionale et Ortenbourg seulement proposés. Aucun nouveau sous-lot ni fichier fonctionnel modifié.
+
+Progression : 39.57 → 39.57 %.
 
 
 ## Socle importé, sans duplication des passes incrémentales
