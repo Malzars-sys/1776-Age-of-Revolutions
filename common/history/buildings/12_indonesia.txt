@@ -515,7 +515,7 @@ create_building={
 					building={
 						type="building_financial_district"
 						country="c:DEI"
-						levels=2
+						levels=3
 						region="STATE_CENTRAL_JAVA"
 					}
 				}
@@ -913,8 +913,13 @@ create_building={
 
 		}
 		region_state:DEI={
-
-
+			# A minimal VOC harbor connects the eastern Sunda holding to maritime trade.
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:DEI" levels = 1 } }
+				reserves = 1
+				activate_production_methods = { "pm_anchorage" }
+			}
 		}
 	}
 	s:STATE_MINDANAO={
