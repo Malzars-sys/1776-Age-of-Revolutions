@@ -24,7 +24,7 @@ A new `pm_1776_artisanal_shipbuilding` comes **first** in `pmg_base_building_shi
 
 | Level | Localized French label | Inputs, at full employment | Outputs | Employment | Naval construction |
 |---|---|---|---|---|---|
-| New | Construction navale artisanale | **20 wood + 10 fabric** | **20 clippers** | 500 shopkeepers + 2,000 laborers | +5 (same as former start PM) |
+| New | Construction navale artisanale | **25 wood + 10 fabric** | **20 clippers** | 500 shopkeepers + 2,000 laborers | +5 (same as former start PM) |
 | Former `pm_basic_shipbuilding` | Trois-mâts à voiles carrées | 40 wood + 20 fabric | 40 clippers | Former existing composition, **unlocked by scientific_naval_architecture (era 2)** | +5 |
 | Former `pm_complex_shipbuilding` | Navires renforcés à propulsion auxiliaire | 20 wood + 20 hardwood + 20 fabric + 5 engines | 70 clippers | Former existing composition | +10 |
 
@@ -57,7 +57,7 @@ Historical entries are changed only within the affected `create_building` shipya
 ## Static verification
 
 - Cape DEI has exactly one added port, owner DEI, `pm_anchorage`.
-- New PM's only material inputs: 20 wood, 10 fabric. Only goods output: 20 clippers.
+- New PM's only material inputs: 25 wood, 10 fabric. Only goods output: 20 clippers.
 - `gfx/error_deer.dds` placeholder bound; 2,500 baseline jobs in new method (2,000 laborers + 500 shopkeepers).
 - `country_ship_construction_add=5` avoids an unintended naval construction penalty at the new initial setting.
 - New PM listed before four existing methods; `ai_selection=most_profitable`.
@@ -72,3 +72,7 @@ Historical entries are changed only within the affected `create_building` shipya
 - Tooltip icon and translations in the current game version, one-month simulation and save/reload.
 
 Test on a **new 1776 game**; do not merge before player validation.
+
+## Follow-up wood input rebalance
+
+Artisanal shipbuilding now consumes **25 wood** instead of 20, retains **10 fabric** and outputs **20 clippers**. At full employment it therefore requires **1.25 wood per clipper**, versus **1.0** for the square-rigged three-master PM (40 wood / 40 clippers). All other PM modifiers remain unchanged. This is a targeted balance adjustment; verify profitability in game.
