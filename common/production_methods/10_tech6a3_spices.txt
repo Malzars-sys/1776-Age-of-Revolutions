@@ -40,6 +40,75 @@ pm_mechanized_spice_cultivation = {
 	}
 }
 
+# The non-coercive labor PM is always available, even under slave-trade laws.
+# Unlike generic default_labour, it does not exclude law_slave_trade.
+pm_spice_standard_labour = {
+	texture = "gfx/interface/icons/production_method_icons/standard_labor.dds"
+}
+
+# Mirrors other plantation exploitation PMs; not available where slavery is banned.
+pm_spice_abusive_practices = {
+	texture = "gfx/interface/icons/production_method_icons/exploitative_practices.dds"
+
+	disallowing_laws = {
+		law_slavery_banned
+		law_right_to_associate
+		law_corporatized_unions
+		law_factory_councils
+		law_guaranteed_liberties
+		law_regulatory_bodies
+		law_worker_protections
+		law_collectivized_agriculture
+		law_homesteading
+		law_peasant_proprietorship
+		law_multicultural
+		law_wage_subsidies
+		law_old_age_pension
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_spices_add = 5
+		}
+		unscaled = {
+			building_laborers_mortality_mult = 0.10
+			building_slaves_standard_of_living_add = -1
+			building_laborers_job_attractiveness_mult = -0.25
+			building_minimum_wage_mult = -0.20
+		}
+	}
+}
+
+# Harsh coerced labor follows the same slave-law exclusions as coffee/sugar.
+pm_spice_violent_treatment = {
+	texture = "gfx/interface/icons/production_method_icons/violent_treatment.dds"
+
+	disallowing_laws = {
+		law_slavery_banned
+		law_colonial_slavery
+		law_debt_slavery
+	}
+
+	state_modifiers = {
+		unscaled = {
+			state_slave_import_mult = 0.1
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_spices_add = 10
+		}
+		unscaled = {
+			building_laborers_mortality_mult = 0.20
+			building_slaves_mortality_mult = 0.15
+			building_laborers_job_attractiveness_mult = -0.75
+			building_slaves_standard_of_living_add = -2.5
+			building_minimum_wage_mult = -0.25
+		}
+	}
+}
+
 pm_no_spiced_food = {
 	texture = "gfx/interface/icons/production_method_icons/no_fine_food_preparations.dds"
 }
