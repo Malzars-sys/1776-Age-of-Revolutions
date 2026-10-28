@@ -49,3 +49,23 @@ Références :
 - Prix et pénurie de sel, café, vin, épices et autres intrants ; vérifier rentabilité **après 1–4 semaines** ; le sel ne garantit pas à lui seul la rentabilité.
 - Comparer les modifications de Hollande avec celles de la PR #10 avant fusion, puisque les deux touchent des segments différents d'un même fichier d'historique.
 - Aucun test moteur, recrutement, profits, ni mise à jour d'anciennes sauvegardes n'a été effectué.
+
+
+## Extension du lot : commerce et sylviculture néerlandaise
+
+Modification demandée après création de la PR #12, appliquée dans la même branche sans fusion.
+
+| État contrôlé par NET | Centre de commerce (avant → après) | Camp de bûcherons (avant → après) | Limite forestière existante |
+| --- | --- | --- | --- |
+| Hollande | 4 → **6** (+2) | 0 → **2** (+2) | 4 |
+| Frise | inchangé | 1 → **2** (+1) | 2 |
+| Gueldre | inchangé | 1 → **3** (+2) | 9 |
+| **TOTAL supplémentaires** | **+2** | **+5** | Tous les plafonds respectés |
+
+- Les deux niveaux supplémentaires de `building_trade_center` restent dans le district financier de `NET` en `STATE_HOLLAND`, avec `pm_trade_center_trade_quantity_normal` inchangé.
+- Les deux camps de Hollande sont ajoutés au district financier local de `NET`, avec `pm_simple_forestry`, `pm_hardwood`, `pm_no_equipment`, `pm_road_carts`, et `reserves=1`.
+- Les camps déjà présents de Frise et Gueldre sont renforcés respectivement de 1 et 2 niveaux, sans changer leurs propriétaires ou méthodes de production.
+- Aucun changement de potentiel forestier, de pays, de POPs, de ressources ou de recettes générales ; seule l'histoire de construction de `common/history/buildings/00_west_europe.txt` est modifiée pour cette extension.
+- Après chargement, vérifier la création et l'emploi des cinq nouveaux niveaux forestiers, la quantité de bois produite et la productivité des centres de commerce. Le moteur peut recalculer la taille des centres de commerce en fonction des routes commerciales et conditions du marché.
+
+Attention aux conflits de modifications de fichier avec la PR #10 (administration hollandaise) si les deux branches sont fusionnées à des moments différents. Les modifications concernent des blocs distincts et doivent être conservées lors de la résolution du conflit.
