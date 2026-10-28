@@ -242,7 +242,8 @@ pmg_automation_building_motor_industry = {
 
 pmg_base_building_shipyard = {
 	texture = "gfx/interface/icons/generic_icons/1776_mixed_icon_production_yellow.dds"
-	ai_selection = most_productive
+	# Select shipbuilding by expected building profitability, not maximum output.
+	ai_selection = most_profitable
 
 	production_methods = {
 		pm_1776_artisanal_shipbuilding
