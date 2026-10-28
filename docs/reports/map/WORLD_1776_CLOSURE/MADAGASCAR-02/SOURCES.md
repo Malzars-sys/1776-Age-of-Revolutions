@@ -1,0 +1,15 @@
+# Sources consultées — MADAGASCAR-02
+
+Référence1janvier1776 ; consultation28octobre2026. Les noms ethniques sont des aides de localisation, jamais une preuve suffisante de souveraineté ou de frontières.
+
+1. **R.K.Kent**, «Madagascar et les îles de l'océan Indien», Histoire générale de l'Afrique,V,ch.28,p.921–967. [PDF public](https://bokundoli.org/wp-content/uploads/2021/12/T5-30.pdf), copie intégrale/extraction sources/UNESCO_KENT_MADAGASCAR.pdf/.txt. Passages ciblés effectivement lus dans : p.921–923,932–938,939–960 et960–962 ; pas de lecture intégrale du volume revendiquée. Carte28.1,p.922/PDF2 rendue et examinée dans MAP_28_1_ETHNIC_CONTEXT.png : localisation/coastlines seulement, **carte ethnique, pas cadastre1776**.
+
+Repères vérifiables : p.944–947, cours sakalava/antankarana, autonomie tsimihety et tribut de1775 ; p.947–951, formations betsileo et cours merina avant consolidation ; p.951–953, Alaotra/Ankay et centre royal d'Ikongo ; p.955–960, pouvoirs de l'est et du sud ; p.960–962, sultanats des Comores. Ces pages motivent les noyaux et leurs différences de statut, pas des polygones exacts. Les hégémonies et chronologies dynastiques incertaines ne deviennent pas des dates ou annexion automatiques.
+
+2. **Gerald M.Berg**, «Sacred Acquisition: Andrianampoinimerina at Ambohimanga,1777–1790», Journal of African History29(2),1988,p.191–211. [Extrait public Cambridge](https://www.cambridge.org/core/journals/journal-of-african-history/article/abs/sacred-acquisition-andrianampoinimerina-at-ambohimanga-17771790/EBA65FD0322C0EA8D5B77EBE801598F8), consulté lors de MADAGASCAR-01-AUDIT, réutilisé ; article intégral non lu. Son analyse place une première réussite politique à Ambohimanga en1783. Les datations1783,1777–1778 et1787 selon les études ne sont pas arbitrairement unifiées. Aucune arrivée au pouvoir datée ni personne nouvelle installée.
+
+3. **UNESCO/ICOMOS**, [évaluation patrimoniale Ambohimanga2001](https://whc.unesco.org/document/1118), et [fiche officielle](https://whc.unesco.org/en/list/950/), passages historiques consultés à l'audit : existence des cours/fortifications, pas limites provinciales. Le nom natif du jeu «Royaume Mérina» est analysé comme un consommateur de localisation, non comme une source historique.
+
+4. MAP1/R7 dossiers0111 et0144, audit MADAGASCAR-01-AUDIT, ancienne bibliographie Ellis2007 et notice Larousse : pistes et reçus conservés ; aucun propriétaire ancien ou catalogue non consulté utilisé comme baseline. Ellis intégral non lu ; aucun découpage1776 dérivé du seul titre1715–1750. La notice Larousse comporte une chronologie incohérente et n'a pas servi à attribuer un souverain. BASELINE.json/APPLY_BEFORE.json et apply_inputs enregistrent le vrai workspace.
+
+Le modèle 1776 installé est une **interprétation politique bornée** de ces lectures et des provinces disponibles. Les champs basis de COUNTRY_PROFILES.json et historical_basis de PLAN.json rattachent chaque choix à ses passages. Le pays décentralisé CMO regroupe plusieurs cours faute de subdivision native : aucune union comorienne sous un sultan unique n'est affirmée.

@@ -149,10 +149,7 @@ POPS = {
 				culture = north_andean
 				size = 170844
 			}
-			create_pop = {
-				culture = guajiro
-				size = 7600
-			}
+			
 			create_pop = {
 				culture = afro_caribeno
 				size = 102584
@@ -168,6 +165,11 @@ POPS = {
 				size = 20266
 			}
 		}
+	
+		region_state:WYU = { create_pop = {
+				culture = guajiro
+				size = 7600
+			} }
 	}
 	s:STATE_GUAVIARE = {
 		region_state:SC2 = {
@@ -637,10 +639,7 @@ create_pop = {
 	}
 	s:STATE_RIO_NEGRO = {
 		region_state:SC4 = {
-			create_pop = {
-				culture = patagonian
-				size = 3815
-			}
+			
 			create_pop = {
 				culture = platinean
 				size = 3381
@@ -664,7 +663,12 @@ create_pop = {
 				culture = platinean
 				size = 10008
 			}
-		}
+		
+create_pop = {
+				culture = patagonian
+				size = 3815
+			}
+}
 	}
 	s:STATE_LA_PAMPA = {
 		region_state:SC4 = {
@@ -681,11 +685,13 @@ create_pop = {
 				culture = afro_caribeno
 				size = 34
 			}
-			create_pop = {
+			
+		}
+	
+		region_state:PAT = { create_pop = {
 				culture = patagonian
 				size = 8871
-			}
-		}
+			} }
 	}
 	s:STATE_SANTA_FE = {
 		region_state:SC4 = {
@@ -841,6 +847,8 @@ create_pop = {
 				size = 10469
 			}
 		}
+	
+		region_state:SC4 = { create_pop = { culture = spanish religion = catholic size = 115 } }
 	}
 	s:STATE_ACRE={
 		region_state:AP7 = { # sources indicate existence of small numbers of both peruvians and brazilians

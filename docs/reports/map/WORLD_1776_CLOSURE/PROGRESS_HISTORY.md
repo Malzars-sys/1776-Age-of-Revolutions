@@ -115,3 +115,7 @@ Congo intérieur, Grands Lacs et Mozambique : 369 RGB natifs/40 groupes/11 régi
 ## MADAGASCAR-01-AUDIT —28octobre2026
 
 Consigne directe : vérifier Madagascar avant l’Afrique australe. Audit achevé,4problèmes territoriaux/classification documentés ;122RGB examinés,aucun transfert ni écriture fonctionnelle. Noms dynamiques et populations lus sur version courante, preuves MADAGASCAR-01-AUDIT/REPORT.md et VALIDATION.json. Corrections cartographiques encore à installer, frontière précise non certifiée. Aucun point entier ni reçu humain ; WORLD10/320(3,13%). Suite australe différée derrière ce point.
+
+## MADAGASCAR-02 —28octobre2026
+
+Correction autorisée après l’audit :120RGB natifs réattribués,2conservés par MAD/Antananarivo ;26TAG nouveaux, trois noyaux merina distincts et pouvoirs royaux/autonomes différenciés. Une province native couvre les Comores : agrégat autonome séparé de MAD, sans union moderne affirmée. Un lien tributaire Antankarana–Boina, aucune annexion des autres tributaires incertains.5fichiers existants ciblés+33ajouts ;26profilsPASS_STATIC_ONLY,311contrôles statiques. Populations/cohortes/armées conservées, référence conscrite déplacée vers le nord encore possédé ; modèle de personnage1836 neutralisé sans nouveau personnage. Rapports/sources/limites MADAGASCAR-02/REPORT.md. Aucun pixel/ressource/hub/recette commune/Git/vanilla/suiviSERG écrit. Test africain groupéNOT_RUN, aucun point ou reçu humain nouveau ; WORLD10/320(3,13%). Suite australe/VOC non lancée ici.

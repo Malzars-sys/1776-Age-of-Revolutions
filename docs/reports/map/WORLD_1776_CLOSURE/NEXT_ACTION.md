@@ -1,5 +1,7 @@
-# Prochaine action — après MADAGASCAR-01-AUDIT
+# Prochaine action — après MADAGASCAR-02
 
-Audit demandé avant l’Afrique australe achevé : lire MADAGASCAR-01-AUDIT/REPORT.md, SOURCES.md, BASELINE.json, FINDINGS.json et VALIDATION.json. Aucune correction fonctionnelle installée par l’audit. Préparer la restauration territoriale de Madagascar en distinguant pouvoirs organisés et communautés autonomes ; établir les correspondances RGB à partir des noyaux historiques, sans frontière arbitraire.
+Correction Madagascar installée sur demande directe. Lire MADAGASCAR-02/REPORT.md, SOURCES.md, GEOGRAPHIC_LIMITATIONS.md, PLAN.json, AUDIT_RESOLUTION.json, VALIDATION.json, TECH_NON_REGRESSION.json et FILES_DELIVERED.json. Les cours proches et les agrégats locaux ne sont pas des frontières cadastrales certifiées ; les reçus de l’audit restent historiques.
 
-L’Afrique australe/VOC vient ensuite. Préserver INTERIOR-01 et les autres lots, TECH/ECON, SERG et Amériques ; aucune ancienne baseline à réinstaller. Aucun flavor ni lissage cosmétique lancé. Tests africains groupés, aucun test intermédiaire demandé ni reçu humain ajouté. WORLD10/320(3,13%).
+Suite demandée : Afrique australe et établissements néerlandais/VOC, dans une passe depuis le workspace courant. Aucun autre secteur lancé ici. Préserver Madagascar, INTERIOR-01, Congo/Corne/Nil/Sahel/Maghreb/Balkans, SERG, TECH/ECON et Amériques. Frontières et initialisation nécessaire uniquement ; aucun flavor ou lissage cosmétique automatique.
+
+Test africain groupé, aucun test intermédiaire demandé, aucune validation humaine inventée. WORLD10/320(3,13%), aucun critère entier nouveau.

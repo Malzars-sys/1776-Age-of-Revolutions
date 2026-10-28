@@ -1,0 +1,6 @@
+on_game_started = { on_actions = { aor1776_r907_malvinas_initialize } }
+on_game_started_after_lobby = { on_actions = { aor1776_r907_malvinas_initialize } }
+on_state_created = { on_actions = { aor1776_r907_malvinas_update } }
+on_state_owner_change = { on_actions = { aor1776_r907_malvinas_update } }
+aor1776_r907_malvinas_initialize = { effect = { every_state = { aor1776_r907_malvinas_names = yes } } }
+aor1776_r907_malvinas_update = { effect = { aor1776_r907_malvinas_names = yes } }

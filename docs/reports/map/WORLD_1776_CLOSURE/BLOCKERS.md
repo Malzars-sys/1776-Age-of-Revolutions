@@ -92,3 +92,7 @@ Contours natifs, corridors et agrégats pluriels non cadastraux ; chronologies B
 ## Madagascar — audit28octobre2026
 
 M01–M04 dans MADAGASCAR-01-AUDIT/FINDINGS.json. Le découpage politique précis et les différences d’autonomie restent à installer. Pas de passage à l’Afrique australe sur la seule base du précédent NEXT_ACTION ; suivre la nouvelle consigne directe. Aucun nouveau test moteur/joueur ni crédit.
+
+## MADAGASCAR-02 — limites après correction
+
+Les attributions unifiées de l’audit sont remplacées par les noyaux documentés dans MADAGASCAR-02 ; ses anciens reçus restent historiques. Courbes natives, collines royales plus petites que les provinces, hubs natifs mal placés et frontières internes des agrégats non clos. CMO reste un agrégat de cours insulaires, pas un royaume centralisé moderne. Tributs restants, densités, manpower/budgets, capitales/lois effectives et simulation/sauvegarde à vérifier au test africain groupé. Aucun point entier ni reçu humain.

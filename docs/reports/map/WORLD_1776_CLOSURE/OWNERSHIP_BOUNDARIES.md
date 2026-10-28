@@ -118,3 +118,7 @@ Onze nœuds d'états EAST_ANGOLA/KASAI/KATANGA/KAZEMBE/ZAMBIA/CONGO_ORIENTALE/UG
 ## MADAGASCAR-01-AUDIT
 
 Lecture seule des deux nœuds NORTH/SOUTH_MADAGASCAR, de MAD, de ses POP et de son nom dynamique. Aucune cellule, POP, technologie, loi, bâtiment, personnage, localisation ou relation écrit. Seuls les rapports de ce lot et le suivi WORLD sont actualisés. SERG/TECH/ECON/Amériques et lots africains conservés.
+
+## MADAGASCAR-02 — périmètre installé
+
+Seuls deux nœuds NORTH/SOUTH_MADAGASCAR des états et POP ; c:MAD de l’histoire nationale et militaire (une référence conscrite), MAD des noms dynamiques.26nouveauxTAG, définitions/effets/loi propres, lien BOI→ATK, FR/EN et surcharge native de personnage MAD. Aucun niveau bâti ni PM ni pixel/terrain/ressource/locator modifié. Liste RGB PLAN.json ; entrées immédiates apply_inputs/ ; FILES_DELIVERED.json référence finale. Autres pays des fichiers partagés, WORLD antérieur, SERG, TECH/ECON et Amériques conservés sans retour à une baseline.
