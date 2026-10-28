@@ -1,0 +1,52 @@
+# SC3: targeted initial qualifications for staff of existing and expanded colonial administrations.
+# No new population and no cultural assimilation; only the South-Andean office cohorts.
+# Literacy floors are profession-specific and state-scoped, not an education policy for the country.
+POPULATION = {
+	c:SC3 ?= {
+		every_scope_pop = {
+			limit = {
+				is_pop_type = bureaucrats
+				culture = cu:south_andean
+				literacy_rate < 0.55
+				state = {
+					OR = {
+						state_region = s:STATE_LIMA
+						state_region = s:STATE_POTOSI
+						state_region = s:STATE_SANTIAGO
+					}
+				}
+			}
+			set_pop_literacy = { literacy_rate = 0.55 }
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = clerks
+				culture = cu:south_andean
+				literacy_rate < 0.40
+				state = {
+					OR = {
+						state_region = s:STATE_LIMA
+						state_region = s:STATE_POTOSI
+						state_region = s:STATE_SANTIAGO
+					}
+				}
+			}
+			set_pop_literacy = { literacy_rate = 0.40 }
+		}
+		every_scope_pop = {
+			limit = {
+				is_pop_type = clergymen
+				culture = cu:south_andean
+				literacy_rate < 0.40
+				state = {
+					OR = {
+						state_region = s:STATE_LIMA
+						state_region = s:STATE_POTOSI
+						state_region = s:STATE_SANTIAGO
+					}
+				}
+			}
+			set_pop_literacy = { literacy_rate = 0.40 }
+		}
+	}
+}
