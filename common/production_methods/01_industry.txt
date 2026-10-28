@@ -2114,8 +2114,38 @@ pm_assembly_lines_building_automotive_industry = {
 	required_input_goods = electricity
 }
 
+# 1776 lower-throughput shipbuilding: lighter merchant hulls and small craft.
+# Distinct from the existing large square-rigged ship method; reduces
+# clipper surplus at start without deleting historical yards.
+pm_1776_artisanal_shipbuilding = {
+	texture = "gfx/error_deer.dds" # TEMP: replace when an approved icon is ready
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_ship_construction_add = 5
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wood_add = 25
+			goods_input_fabric_add = 10
+			goods_output_clippers_add = 20
+		}
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 2000
+		}
+	}
+}
+
 pm_basic_shipbuilding = {
 	texture = "gfx/interface/icons/production_method_icons/wooden_ships.dds"
+
+	# Organised construction of large square-rigged hulls; not the invention of three-masted ships.
+	unlocking_technologies = {
+		scientific_naval_architecture
+	}
 
 	country_modifiers = {
 		workforce_scaled = {
