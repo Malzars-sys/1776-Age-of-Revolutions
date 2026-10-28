@@ -20,17 +20,17 @@ Dutch and other European shipbuilding already had large, three-masted square-rig
 In `common/history/buildings/04_subsaharan_africa.txt`, **`s:STATE_CAPE_COLONY.region_state:DEI`** receives 1 government-owned `building_port`, using `pm_anchorage` and `reserves=1`. No existing farms, roads, livestock ranches, POPs or state ownership were modified.
 
 ### Shipyard PM progression
-A new `pm_1776_artisanal_shipbuilding` comes **first** in `pmg_base_building_shipyard`, before `pm_basic_shipbuilding`, `pm_complex_shipbuilding`, `pm_metal_shipbuilding` and `pm_arc_welding_shipbuilding`. The original PMs' recipes, technology gates, icons and IDs are unchanged.
+A new `pm_1776_artisanal_shipbuilding` comes **first** in `pmg_base_building_shipyard`, before `pm_basic_shipbuilding`, `pm_complex_shipbuilding`, `pm_metal_shipbuilding` and `pm_arc_welding_shipbuilding`. The original PMs' recipes, icons and IDs are unchanged; the only added unlock is **scientific_naval_architecture** for `pm_basic_shipbuilding` (the square-rigged three-master tier).
 
 | Level | Localized French label | Inputs, at full employment | Outputs | Employment | Naval construction |
 |---|---|---|---|---|---|
 | New | Construction navale artisanale | **20 wood + 10 fabric** | **20 clippers** | 500 shopkeepers + 2,000 laborers | +5 (same as former start PM) |
-| Former `pm_basic_shipbuilding` | Trois-mâts à voiles carrées | 40 wood + 20 fabric | 40 clippers | Former existing composition | +5 |
+| Former `pm_basic_shipbuilding` | Trois-mâts à voiles carrées | 40 wood + 20 fabric | 40 clippers | Former existing composition, **unlocked by scientific_naval_architecture (era 2)** | +5 |
 | Former `pm_complex_shipbuilding` | Navires renforcés à propulsion auxiliaire | 20 wood + 20 hardwood + 20 fabric + 5 engines | 70 clippers | Former existing composition | +10 |
 
 New PM uses the existing `gfx/error_deer.dds` placeholder, as requested. Future artwork may replace it. New localizations cover French and English.
 
-New low-output PM has **no tech unlock gate**; shipyards themselves retain the existing `state_dockyard_systems` building unlock. The two later PMs remain gated as before.
+New low-output PM has **no tech unlock gate**; shipyards themselves retain the existing `state_dockyard_systems` building unlock. The square-rigged PM is now gated by **scientific_naval_architecture**, an existing naval technology in **era 2** after **state_dockyard_systems**. Major maritime countries including **NET**, GBR, FRA, POR, and SPA already possess it at start, so the gate represents organized naval-architecture know-how rather than inventing three-masted sailing ships in 1776. Other countries retain the lower-output artisanal choice until research. More advanced wooden/auxiliary and later steam PMs retain their original gates.
 
 The base shipyard group now uses `ai_selection = most_profitable` instead of `most_productive`. This is deliberate: when clipper demand is too low, AI should consider profit instead of automatically chasing output. The engine's actual choice still needs runtime confirmation.
 
@@ -61,6 +61,7 @@ Historical entries are changed only within the affected `create_building` shipya
 - `gfx/error_deer.dds` placeholder bound; 2,500 baseline jobs in new method (2,000 laborers + 500 shopkeepers).
 - `country_ship_construction_add=5` avoids an unintended naval construction penalty at the new initial setting.
 - New PM listed before four existing methods; `ai_selection=most_profitable`.
+- `pm_basic_shipbuilding` now has exactly one `unlocking_technologies = { scientific_naval_architecture }` block; first artisanal PM stays ungated. Technology exists in the mod's naval tech tree and is researched by NET in 1776.
 - All 76 targeted historic shipyards migrated, with IDs and owners unchanged.
 - French/English names available for all three discussed methods; braces balanced in modified script files.
 
