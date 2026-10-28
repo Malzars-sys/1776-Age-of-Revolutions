@@ -4014,6 +4014,23 @@ BUILDINGS={
 				reserves=1
 				activate_production_methods = { "pm_craftsman_sewing" "pm_handsewn_clothes" "pm_traditional_looms" }
 			}
+
+			# Coastal salt boiling / refining industry (Holland and Zeeland, 1776).
+			# These two levels abstract domestic evaporation plus refining of imported coarse salt.
+			create_building = {
+				building = "building_salt_pan"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:NET"
+						region = "STATE_HOLLAND"
+						levels = 2
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "default_building_salt_pan" }
+			}
+
 			create_building={
 				building="building_food_industry"
 				add_ownership={
@@ -4025,7 +4042,7 @@ BUILDINGS={
 					}
 				}
 				reserves=1
-				activate_production_methods={ "pm_sweeteners" "pm_disabled_canning" "pm_disabled_distillery" "pm_manual_dough_processing"  }
+				activate_production_methods={ "pm_sweeteners" "pm_disabled_canning" "pm_disabled_distillery" "pm_spiced_food_preparations" "pm_manual_dough_processing" }
 			}
 
 
@@ -4188,7 +4205,7 @@ BUILDINGS={
 								}
 							}
 							reserves=1
-							activate_production_methods = { "pm_bakery" "pm_disabled_canning" "pm_disabled_distillery" "pm_no_spiced_food" "pm_manual_dough_processing" }
+							activate_production_methods = { "pm_bakery" "pm_disabled_canning" "pm_disabled_distillery" "pm_spiced_food_preparations" "pm_manual_dough_processing" }
 						}
 						create_building={
 							building="building_livestock_ranch"
