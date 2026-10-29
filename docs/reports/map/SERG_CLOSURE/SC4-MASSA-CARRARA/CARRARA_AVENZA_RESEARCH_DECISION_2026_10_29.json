@@ -1,0 +1,234 @@
+{
+  "mission": "SERG TERRITORIAL 1.0 / SC4-MASSA-CARRARA",
+  "date": "2026-10-29",
+  "historical_reference": "1776-01-01",
+  "status": "TARGETED_RESEARCH_NOT_FUNCTIONALLY_INSTALLED",
+  "task_status_unchanged": "BLOCKED",
+  "priority_unchanged": "P0",
+  "conditional_points_unawarded": 3,
+  "baseline": {
+    "country": "MCA",
+    "installed_sub_lot": "MC-I-CORE",
+    "core_rgb": "xEDBC00",
+    "core_cells": 8,
+    "population_MCA": 10000,
+    "population_MOD_in_Emilia": 495752,
+    "donor_parent_rgb": "xF08021",
+    "donor_parent_cells": 108,
+    "core_runtime_validation": "PASS_RUNTIME_USER_VALIDATED"
+  },
+  "archival_scope": {
+    "source": "https://siusa-archivi.cultura.gov.it/cgi-bin/siusa/pagina.pl?Chiave=2257&RicExtInquisizione=on&RicLin=en&TipoPag=prodente",
+    "date_scope": "Principality established in 1663; compare to 1776",
+    "named_places": [
+      "Carrara",
+      "Avenza",
+      "Bedizzano",
+      "Castelpoggio",
+      "Codena",
+      "Colonnata",
+      "Fontia",
+      "Fossola",
+      "Moneta",
+      "Gragnana",
+      "Noceto",
+      "Miseglia",
+      "Sorgnano",
+      "Torano"
+    ],
+    "exclusions": [
+      "Sarzana",
+      "Lerici",
+      "Montignoso",
+      "Pietrasanta",
+      "Seravezza",
+      "Garfagnana",
+      "other unnamed Malaspina fiefs"
+    ]
+  },
+  "population_evidence": [
+    {
+      "source_author": "Emilio Lazzoni",
+      "source_title": "Carrara e la sua Accademia di belle arti",
+      "publication_year": 1869,
+      "reference_year": 1775,
+      "scope": "Carrara city",
+      "value": 3700,
+      "subset_of": "Carrara comune",
+      "confidence": "SECONDARY_RETROSPECTIVE_INDEX_EXTRACT_NEEDS_VISUAL_CHECK"
+    },
+    {
+      "source_author": "Emilio Lazzoni",
+      "source_title": "Carrara e la sua Accademia di belle arti",
+      "publication_year": 1869,
+      "reference_year": 1775,
+      "scope": "Carrara comune",
+      "value": 8010,
+      "includes_city": true,
+      "confidence": "SECONDARY_RETROSPECTIVE_INDEX_EXTRACT_NEEDS_VISUAL_CHECK",
+      "url": "https://commons.wikimedia.org/wiki/File%3ACarrara_e_la_sua_Accademia_di_belle_arti._Riassunto_storico_%28IA_carraraelasuaacc1869lazz%29.pdf"
+    },
+    {
+      "source_title": "Una famiglia Cella tra Carrara e Massa",
+      "reference_year": 1779,
+      "scope": "Avenza",
+      "value": 836,
+      "probable_subset_of": "Carrara comune",
+      "confidence": "LOCAL_SECONDARY_PARISH_READING",
+      "url": "https://www.valdaveto.net/pdf/Una_famiglia_Cella_tra_Carrara_e_Massa.pdf"
+    }
+  ],
+  "proposed_conservative_reallocation_only_if_approved": {
+    "amount": 8010,
+    "donor_country": "MOD",
+    "recipient_country": "MCA",
+    "projected_MCA": 18010,
+    "projected_MOD_Emilia": 487742,
+    "world_population_delta": 0,
+    "not_a_1776_exact_census": true,
+    "requires_historical_population_scope_check": true
+  },
+  "geometry_screening": {
+    "basis": "SC4-MASSA-CARRARA/GEOMETRY.json",
+    "method": "4-connected component count on archived cell lists",
+    "unsafe_original_three": {
+      "cells": [
+        [
+          4324,
+          1028
+        ],
+        [
+          4325,
+          1028
+        ],
+        [
+          4326,
+          1028
+        ]
+      ],
+      "remaining_MOD_components": [
+        104,
+        1
+      ],
+      "result_MCA_cells": 11,
+      "action": "DO_NOT_INSTALL"
+    },
+    "topology_only_candidates": [
+      {
+        "id": "A",
+        "cells": [
+          [
+            4325,
+            1028
+          ],
+          [
+            4326,
+            1028
+          ]
+        ],
+        "remaining_MOD_cells": 106,
+        "result_MCA_cells": 10,
+        "remaining_MOD_components": [
+          106
+        ],
+        "MCA_components": [
+          10
+        ]
+      },
+      {
+        "id": "B",
+        "cells": [
+          [
+            4325,
+            1028
+          ],
+          [
+            4326,
+            1028
+          ],
+          [
+            4325,
+            1027
+          ],
+          [
+            4324,
+            1027
+          ],
+          [
+            4324,
+            1026
+          ]
+        ],
+        "remaining_MOD_cells": 103,
+        "result_MCA_cells": 13,
+        "remaining_MOD_components": [
+          103
+        ],
+        "MCA_components": [
+          13
+        ]
+      },
+      {
+        "id": "C",
+        "cells": [
+          [
+            4325,
+            1028
+          ],
+          [
+            4326,
+            1028
+          ],
+          [
+            4325,
+            1027
+          ],
+          [
+            4324,
+            1027
+          ],
+          [
+            4326,
+            1027
+          ],
+          [
+            4324,
+            1026
+          ],
+          [
+            4325,
+            1026
+          ]
+        ],
+        "remaining_MOD_cells": 101,
+        "result_MCA_cells": 15,
+        "remaining_MOD_components": [
+          101
+        ],
+        "MCA_components": [
+          15
+        ]
+      }
+    ],
+    "cadastral_confirmation": false,
+    "historical_locality_to_cell_overlay_done": false,
+    "proposed_commit_authorized": false
+  },
+  "next_dependency": "Verify 1775 table visually, comparable commune/province coverage, historical map alignment of Carrara/Avenza to a connected candidate. Then propose one functional extension and player test.",
+  "protected": [
+    "MC-I-CORE",
+    "LUC",
+    "GEN",
+    "TUS",
+    "MOD residual",
+    "PAR",
+    "imperial registers",
+    "nine electors",
+    "roadmap canonical files",
+    "other SERG tasks"
+  ],
+  "runtime_test_run": false,
+  "human_approval_recorded": false,
+  "state_tracker_written": false,
+  "gameplay_files_written": false
+}
