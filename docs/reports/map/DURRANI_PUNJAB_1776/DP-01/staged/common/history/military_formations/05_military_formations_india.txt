@@ -1,0 +1,1161 @@
+MILITARY_FORMATIONS = {
+	c:PAN ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = FaujiKhas
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_PUNJAB
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_dragoons
+				state_region = s:STATE_PUNJAB
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_PUNJAB
+				count = 14
+			}
+			save_scope_as = qawaid_army
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_PUNJAB
+				count = 13
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+ combat_unit = { type = unit_type:combat_unit_type_irregular_infantry service_type = conscript state_region = s:STATE_HILL_PUNJAB count = 8 }
+}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = FaujiAin
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_PUNJAB
+
+				count = 1
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_cuirassiers
+				state_region = s:STATE_PUNJAB
+				count = 7
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_PUNJAB
+				count = 14
+			}
+
+			save_scope_as = cleanup2d4_formation_119
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-118 — Jassa Singh Ahluwalia — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_118 = {
+			transfer_to_formation = scope:qawaid_army
+		}
+		# GEN1776-119 — FaujiAin — PROCEDURAL_REQUIRED_COLLECTIVE_STRUCTURE
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_119
+		}
+		scope:cleanup2d4_general_119 = {
+			transfer_to_formation = scope:cleanup2d4_formation_119
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+	c:BIC ?= {
+
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = cleanup2d3b_bic_land_2
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CIRCARS
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CIRCARS
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CIRCARS
+				count = 12
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_EAST_BENGAL
+				count = 45
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_120
+}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = cleanup2d3b_bic_land_3
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CIRCARS
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CIRCARS
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CIRCARS
+				count = 7
+			}
+
+			save_scope_as = cleanup2d4_formation_121
+		}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = Bengal_Army
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_AWADH
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_AWADH
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_AWADH
+				count = 23
+			}
+			save_scope_as = bengal_army
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-120 — Robert Fletcher — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_120
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			age = 37 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_120
+		}
+		scope:cleanup2d4_general_120 = {
+			transfer_to_formation = scope:cleanup2d4_formation_120
+		}
+		# GEN1776-121 — James Stuart — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_121
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:scottish
+			religion = rel:protestant
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_121
+		}
+		scope:cleanup2d4_general_121 = {
+			transfer_to_formation = scope:cleanup2d4_formation_121
+		}
+		# GEN1776-122 — John Clavering — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_122
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:british
+			religion = rel:protestant
+			age = 53 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_122
+		}
+		scope:cleanup2d4_general_122 = {
+			transfer_to_formation = scope:bengal_army
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:HYD ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = sarf_e_khas
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_HYDERABAD
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_HYDERABAD
+				count = 8
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_HYDERABAD
+				count = 18
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_HYDERABAD
+				count = 13
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_123
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-123 — sarf_e_khas — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_123
+		}
+		scope:cleanup2d4_general_123 = {
+			transfer_to_formation = scope:cleanup2d4_formation_123
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:AWA ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = OudhRoyalArmy
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_AWADH
+
+				count = 3
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_AWADH
+				count = 9
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_AWADH
+				count = 24
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_AWADH
+				count = 7
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_124
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-124 — OudhRoyalArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			commander_rank = commander_rank_2
+			save_scope_as = cleanup2d4_general_124
+		}
+		scope:cleanup2d4_general_124 = {
+			transfer_to_formation = scope:cleanup2d4_formation_124
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:MARATH ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = cleanup2d3b_marath_land_2
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_BOMBAY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_BOMBAY
+				count = 13
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_BOMBAY
+				count = 7
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_AGRA
+				count = 25
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_BOMBAY
+				count = 25
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_BUNDELKHAND
+				count = 20
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_MALWA
+				count = 5
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 4
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_125
+}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = cleanup2d3b_marath_land_1
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_AGRA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_AGRA
+				count = 14
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_AGRA
+				count = 8
+			}
+
+			save_scope_as = cleanup2d4_formation_126
+		}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_south_india
+			name = Konkan_Flotilla
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 2
+			}
+			save_scope_as = konkan_flotilla
+		}
+
+		create_character = {
+			template = MARATH_anandrao_dhulap
+			save_scope_as = anandrao_dhulap_admiral
+		}
+
+		scope:anandrao_dhulap_admiral = {
+			transfer_to_formation = scope:konkan_flotilla
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-125 — Haripant Phadke — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_125
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:marathi
+			religion = rel:hindu
+			age = 46 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_125
+		}
+		scope:cleanup2d4_general_125 = {
+			transfer_to_formation = scope:cleanup2d4_formation_125
+		}
+		# GEN1776-126 — Tukoji Holkar — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_126
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:marathi
+			religion = rel:hindu
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_126
+		}
+		scope:cleanup2d4_general_126 = {
+			transfer_to_formation = scope:cleanup2d4_formation_126
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:GWA ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = GwaliorArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_MALWA
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_MALWA
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MALWA
+				count = 18
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_RAJPUTANA
+				count = 13
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_MALWA
+				count = 4
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_127
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-127 — Mahadji Shinde — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_127 = {
+			transfer_to_formation = scope:cleanup2d4_formation_127
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:NAG ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = NagpurArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 10
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 4
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_CENTRAL_PROVINCES
+				count = 9
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_ORISSA
+				count = 3
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_128
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-128 — Mudhoji Bhonsle — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_128 = {
+			transfer_to_formation = scope:cleanup2d4_formation_128
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:MYS ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = cleanup2d3b_mys_land_2
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_MYSORE
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_MYSORE
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MYSORE
+				count = 11
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_MYSORE
+				count = 10
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_129
+}
+
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = cleanup2d3b_mys_land_1
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_MYSORE
+
+				count = 2
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_MYSORE
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_MYSORE
+				count = 11
+			}
+
+			save_scope_as = cleanup2d4_formation_130
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-129 — Hyder Ali — CLEANUP-2D-5
+		scope:cleanup2d5_reuse_129 = {
+			transfer_to_formation = scope:cleanup2d4_formation_129
+		}
+		# GEN1776-130 — Tipu Sultan — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_130
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:deccani
+			religion = rel:sunni
+			home_region = STATE_MYSORE
+			birth_date = 1750.11.20
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_130
+		}
+		scope:cleanup2d4_general_130 = {
+			transfer_to_formation = scope:cleanup2d4_formation_130
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:COO ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = CoochBeharArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_WEST_BENGAL
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_WEST_BENGAL
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_131
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-131 — CoochBeharArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_131
+		}
+		scope:cleanup2d4_general_131 = {
+			transfer_to_formation = scope:cleanup2d4_formation_131
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:GAR ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = GarhwalArmy
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_irregular_infantry
+
+				state_region = s:STATE_AGRA
+
+				count = 1
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_AGRA
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_132
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-132 — GarhwalArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_132
+		}
+		scope:cleanup2d4_general_132 = {
+			transfer_to_formation = scope:cleanup2d4_formation_132
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:SAT ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = SataraArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_BOMBAY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BOMBAY
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_BOMBAY
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_133
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-133 — SataraArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_133
+		}
+		scope:cleanup2d4_general_133 = {
+			transfer_to_formation = scope:cleanup2d4_formation_133
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:KHP ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = KolhapurArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_BOMBAY
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_BOMBAY
+				count = 3
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_BOMBAY
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_134
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-134 — KolhapurArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_134
+		}
+		scope:cleanup2d4_general_134 = {
+			transfer_to_formation = scope:cleanup2d4_formation_134
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:KNO ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = KurnoolArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_KURNOOL
+				count = 3
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_KURNOOL
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_KURNOOL
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_KURNOOL
+				count = 2
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_135
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-135 — KurnoolArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_135
+		}
+		scope:cleanup2d4_general_135 = {
+			transfer_to_formation = scope:cleanup2d4_formation_135
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:BHV ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = BhavnagarArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_GUJARAT
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_GUJARAT
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_GUJARAT
+				count = 4
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_136
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-136 — BhavnagarArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_136
+		}
+		scope:cleanup2d4_general_136 = {
+			transfer_to_formation = scope:cleanup2d4_formation_136
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:PUD ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = PudukottaiArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_MADRAS
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_MADRAS
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_MADRAS
+				count = 3
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_137
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-137 — PudukottaiArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_137
+		}
+		scope:cleanup2d4_general_137 = {
+			transfer_to_formation = scope:cleanup2d4_formation_137
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:JEY ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = JeyporeArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_CIRCARS
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_CIRCARS
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_138
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-138 — JeyporeArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_138
+		}
+		scope:cleanup2d4_general_138 = {
+			transfer_to_formation = scope:cleanup2d4_formation_138
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:COC ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = CochinArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_TRAVANCORE
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TRAVANCORE
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_TRAVANCORE
+				count = 1
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_139
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-139 — CochinArmy — PROCEDURAL_ALLOWED_PENDING_STRUCTURE_REWORK
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_139
+		}
+		scope:cleanup2d4_general_139 = {
+			transfer_to_formation = scope:cleanup2d4_formation_139
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:TRA ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_south_india
+			name = TravancoreArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_cannon_artillery
+				state_region = s:STATE_TRAVANCORE
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_TRAVANCORE
+				count = 2
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				state_region = s:STATE_TRAVANCORE
+				count = 4
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_line_infantry
+				service_type = conscript
+				state_region = s:STATE_TRAVANCORE
+				count = 2
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_140
+}
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_south_india
+			name = TravancoreNavy
+
+			ship = {
+				type = ship_type:ship_type_caravel
+				count = 1
+			}
+		}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-140 — Eustachius De Lannoy — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_140
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:flemish
+			religion = rel:catholic
+			age = 60 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_140
+		}
+		scope:cleanup2d4_general_140 = {
+			transfer_to_formation = scope:cleanup2d4_formation_140
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:SIN ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = SindhArmy
+
+			combat_unit = {
+
+				type = unit_type:combat_unit_type_cannon_artillery
+
+				state_region = s:STATE_SINDH
+
+				count = 1
+
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_SINDH
+				count = 11
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_lancers
+				state_region = s:STATE_SINDH
+				count = 5
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_SINDH
+				count = 12
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_141
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-141 — SindhArmy — PROCEDURAL_ALLOWED
+		create_character = {
+			template = default
+			is_general = yes
+			save_scope_as = cleanup2d4_general_141
+		}
+		scope:cleanup2d4_general_141 = {
+			transfer_to_formation = scope:cleanup2d4_formation_141
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+	c:MUG ?= {
+		create_military_formation = {
+			type = army
+			hq_region = sr:region_north_india
+			name = MughalArmy
+
+			combat_unit = {
+				type = unit_type:combat_unit_type_hussars
+				state_region = s:STATE_DELHI
+				count = 1
+			}
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				state_region = s:STATE_DELHI
+				count = 1
+			}
+
+			# BEGIN CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+			combat_unit = {
+				type = unit_type:combat_unit_type_irregular_infantry
+				service_type = conscript
+				state_region = s:STATE_DELHI
+				count = 3
+			}
+			# END CLEANUP-2D-3E-R2F EFFECTIVE CONSCRIPTS
+
+			save_scope_as = cleanup2d4_formation_142
+}
+
+		# BEGIN CLEANUP-2D-4 STARTING GENERALS 1776
+		# GEN1776-142 — Mirza Najaf Khan — CLEANUP-2D-5
+		create_character = {
+			first_name = cleanup2d5_name_142
+			last_name = cleanup2d5_empty_name
+			historical = yes
+			culture = cu:persian
+			religion = rel:shiite
+			age = 52 # BIRTH_YEAR_ONLY / supported approximation; no fabricated month/day
+			interest_group = ig_armed_forces
+			is_general = yes
+			save_scope_as = cleanup2d4_general_142
+		}
+		scope:cleanup2d4_general_142 = {
+			transfer_to_formation = scope:cleanup2d4_formation_142
+		}
+		# END CLEANUP-2D-4 STARTING GENERALS 1776
+	}
+
+}

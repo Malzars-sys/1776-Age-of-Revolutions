@@ -96,3 +96,21 @@ M01–M04 dans MADAGASCAR-01-AUDIT/FINDINGS.json. Le découpage politique préci
 ## MADAGASCAR-02 — limites après correction
 
 Les attributions unifiées de l’audit sont remplacées par les noyaux documentés dans MADAGASCAR-02 ; ses anciens reçus restent historiques. Courbes natives, collines royales plus petites que les provinces, hubs natifs mal placés et frontières internes des agrégats non clos. CMO reste un agrégat de cours insulaires, pas un royaume centralisé moderne. Tributs restants, densités, manpower/budgets, capitales/lois effectives et simulation/sauvegarde à vérifier au test africain groupé. Aucun point entier ni reçu humain.
+
+## SOUTHERN-01 — limites restantes
+
+Installation cartographique partielle, pas de clôture P3-08. FrontièreVOC mouvante, marges rozvi, noyau Ngwane septentrional, contours internes des chefferies/agrégats, Xhosa/Thembu/Mpondo, Pedi/Venda et Chobe/Namibie non cadastrés. POPs hérités boers/griqua conservés techniquement sans attestation de peuplement1776. Hubs/capitales/drapeaux, lois effectives, budgets, mobilisation, fronts et sauvegarde attendent le test africain groupé. Écart mondial115antérieur à cette passe conservé, pas de compensation. Aucun point entier ni attestation humaine.
+
+## AFRICA-POLITY-FIX-01 — chargement à revérifier
+
+Signalement joueur : pays décentralisés avec tributaires ; correction des modes de remplacement installée, succès moteur non attesté. Kazembe désormais indépendant ; Kanyok reste tributaire du Luba centralisé. Les rangs et lois effectives ne sont pas certifiés par un parseur. Frontières et anciennes limites cartographiques inchangées ; poursuite du test africain groupé, pas de nouvelle attestation V.
+
+
+## 29 octobre2026 — actualisation Afrique/Scandinavie
+
+Les mentions antérieures «test africain en attente» décrivent leurs versions historiques. Le joueur accepte maintenant l’Afrique pour le moment, reçu NORDIC-01/AFRICA_USER_ACCEPTANCE.json ; aucune nouvelle permission de transition à demander. Les limites documentées et le contenu différé restent ouverts. NORDIC-01 est installé sans test moteur : rayon de Nyslott approximatif, fiscalités conjointes du nord non représentées par le propriétaire unique, petites limites/hubs et démographie héritée non certifiés. Aucun blocage artificiel pour reprendre du flavor ; test nordique groupé seulement.
+
+
+## CENTRAL-ASIA-01 — limites ouvertes
+
+Darvaz/Badakhshan réservé à l’interface durranie ; aucune nouvelle relation de vassalité pamirienne sans preuve1776. Limites de jüz, Qing, Hissar/Aral et petites oasis non cadastrales. SEMIRECHE interne ne signifie pas automatiquement Grande jüz ; Gouriev utilise le vrai port dessiné, son pointeur minier erroné reste une dette de locator non déplacé. Noms/capitales/drapeaux, lois effectives, emploi/budgets et simulation/sauvegarde attendent le contrôle groupé. Aucun test intermédiaire par pays, aucune reprise flavor ou autre région automatique. Scandinavie non attestée en moteur ; Afrique acceptée pour le moment inchangée.

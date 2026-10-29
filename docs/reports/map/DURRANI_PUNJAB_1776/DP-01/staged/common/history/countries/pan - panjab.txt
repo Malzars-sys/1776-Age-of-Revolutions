@@ -1,0 +1,51 @@
+﻿COUNTRIES = {
+	c:PAN ?= {
+		add_technology_researched = shaft_mining
+		add_technology_researched = advanced_crop_rotations
+		add_technology_researched = distillation
+		add_technology_researched = improved_agricultural_implements
+		add_technology_researched = improved_husbandry
+		add_technology_researched = international_relations
+		add_technology_researched = organized_textile_production
+		add_technology_researched = regulated_small_arms
+		add_technology_researched = scientific_fortification_siegecraft
+		add_technology_researched = sugar_refining
+		add_technology_researched = centralization
+		add_technology_researched = traditional_food_processing
+		add_technology_researched = organized_workshops
+		add_technology_researched = traditional_papermaking
+		add_technology_researched = organized_military_establishments
+		add_technology_researched = selective_breeding
+
+
+
+
+
+
+
+
+
+		effect_starting_politics_traditional = yes
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_migration_controls
+
+		add_taxed_goods = g:liquor
+		add_taxed_goods = g:tobacco
+
+		ig:ig_armed_forces ?= {
+			add_ruling_interest_group = yes
+		}
+		ig:ig_petty_bourgeoisie ?= {
+			add_ruling_interest_group = yes
+			add_modifier = {
+				name = modifier_favored_by_wazir
+				days = very_long_modifier_time
+				is_decaying = yes
+			}
+		}
+		# The 1839 maharaja succession journal is not initialized for the 1776 misl aggregate.
+	}
+}

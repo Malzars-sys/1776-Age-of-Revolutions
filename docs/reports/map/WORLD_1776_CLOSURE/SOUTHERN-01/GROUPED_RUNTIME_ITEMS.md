@@ -1,0 +1,3 @@
+# Éléments du test africain groupé — NOT_RUN
+
+Pas de test intermédiaire demandé. Lors du test africain groupé, sur nouvelle partie1776 : vérifier l'absence initiale d'ORA/TRN/PHL/WBL et la présence de NST/HVD/KQO ; communautés sotho/ndébélé, nom Ngwane, pouvoir rozvi et tribut Manyika. Contrôler les témoins Cap/VOC, Mutapa/Manyika, Tembe/Mozambique et Madagascar ; carte, capitales/hubs et drapeaux, lois effectives, casernes/PM transférés et absence d'enclave centralisée nouvelle. Observer marchés, mobilisation, fronts et budgets pendant une simulation adaptée, puis sauvegarder/recharger. Aucun résultat ni durée n'est prérempli.

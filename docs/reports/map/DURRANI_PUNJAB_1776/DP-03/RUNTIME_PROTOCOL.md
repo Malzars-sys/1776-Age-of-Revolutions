@@ -1,0 +1,13 @@
+# DP-03 — Contrôle joueur à effectuer
+
+Statut : **IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION**. Les contrôles statiques ne valident ni moteur, ni marché, ni rendu. Utiliser une **nouvelle partie au 1er janvier 1776**, mod principal courant ; les anciennes sauvegardes ne reprennent pas les nouvelles histoires territoriales.
+
+1. Chercher les **pays Gilgit et Skardu**, pas des villes inexistantes dans le moteur. Confirmer Guritham et Murad Khan II, un souverain chacun, drapeaux visibles, textes FR/EN sans clé brute. Gilgit a 34 533 habitants et Skardu 23 220 à l'initialisation technique : ces valeurs servent au contrôle de conservation, pas de recensement historique.
+2. Comparer les six cellules à `INSTALLED_MAP.png` et `PLAN.json` : noyaux de Chamba, Kullu et Rampur corrigés ; Kargil/Purig à Ladakh ; Gilgit et Skardu sous leur administration locale. Le diagnostic n'est pas une capture du jeu. Les points portant les noms de Chamba, Kullu, Rampur, Gilgit ou Skardu sur le diagnostic ne créent pas de nouveaux locators cherchables dans Victoria 3.
+3. Dans STATE_KASHMIR, contrôler **Srinagar** dans la vallée durranie et **Kargil** au Ladakh. La ville et le hub minier ID 463 ont été repositionnés ; inspecter terrain, affichage, bâtiments, routes/splines et absence de hub dans l'eau. Leh et les autres hubs sont des témoins inchangés. Gilgit/Skardu ne reçoivent pas artificiellement un State_ID propre pour obtenir une ville.
+4. Inspecter le pacte Skardu–DUR : gouvernement, couleur et forces propres, pas de versement régulier ; il représente une allégeance nominale, pas l'expédition de 1779. Gilgit ne doit pas être un sujet afghan. Vérifier aussi les pactes antérieurs Bahawalpur–DUR et Las Bela–Kalat sans changement.
+5. Contrôler nourriture, subsistances, accès au marché, fiscalité et absence d'effondrement manifeste sur plusieurs semaines. La conservation statique ne prouve pas que les petits pays ont une économie viable. Noter la date et la durée réellement testées, sans en inventer.
+6. Vérifier une unité de conscrits par nouveau pays et cinq conscrits du Cachemire dans la formation durranie concernée, sans nouveaux réguliers. Vérifier mobilisation et accès aux fronts en situation pertinente.
+7. Sauvegarder puis recharger ; vérifier les propriétaires, pays et locators. Ne pas conclure à une homologation mondiale ou à une frontière historique exacte à partir d'un seul contrôle de chargement.
+
+Témoins : Jammu, Kangra, Mandi, Sirmur, Garhwal, Bahawalpur, Makran, Kalat, Kharan, Las Bela et Patiala restent présents ; les corrections des Amériques, Arabie et des travaux concurrents ne sont pas des modifications de DP-03. Les protocoles DP-01/DP-02 restent conservés et leurs validations non réalisées ne sont pas réputées acquises.

@@ -1,0 +1,19 @@
+# Incertitudes et seuil de décision
+
+Ces catégories sont propres à ce dossier. Elles ne changent ni priorité canonique, ni règle permanente du projet.
+
+| ID | Classe | Constat / source | Conséquence et moyen de résolution |
+| --- | --- | --- | --- |
+| U01 | Réserve substantielle territoriale | Les 179 cellules sont techniquement exactes, mais les localités structurantes et les seigneuries ne sont pas appariées de façon probante. Échecs de calage documentés MAP1B/MAP1C. | Ne pas certifier la couverture historique d'ensemble. Une correspondance de grands ensembles/localités suffit ; pas d'exigence cadastrale. Ou arbitrage explicite de conservation politique avec cette réserve. |
+| U02 | Réserve substantielle démographique | 135 753 est un pool technique ; ni 112 850 ni 112 752 n'est démontré comparable au périmètre du RGB en 1776. | Aucun remplacement ni compensation vers un voisin. Établir couverture et catégories avant tout nouveau total, ou accepter expressément la réserve proposée. |
+| U03 | Différence de catégories démontrée | Le relevé politique inclut 680 Juifs ; S1 p. 283 exclut les Juifs du relevé ecclésiastique. | La proximité nominale des totaux ne vaut pas identité. Ne pas ajouter mécaniquement 680, ni choisir le plus grand chiffre par préférence. |
+| U04 | Contradiction arithmétique des sources | S2 p. 41 imprime une différence de 108, contre 98 calculés ; imprime 34 342 non-catholiques, contre 34 346 dans S1 p. 283. Les sommes diffèrent de quatre. | Préserver les deux lectures et leurs images. L'édition Adamus ou la pièce de base pourrait trancher ; aucune correction silencieuse de citation. Cela n'explique pas un écart de 22 903. |
+| U05 | Incertitude documentaire | Liste Adamus non consultée directement ; classement ecclésiastique remanié, bibliographie du volume variable dans les références. | Le tableau de localités reste partiel et non additif. Ne pas inventer un tableau exhaustif de 240 villages. |
+| U06 | Hypothèse écartée | Les dénombrements ne portent pas seulement sur la Chambre ducale : Bielsko, Frýdek et Fryštát apparaissent dans S1/S2. | Ne pas expliquer l'excédent du mod par l'ajout supposé de ces seigneuries aux totaux historiques. |
+| U07 | Incertitude de frontière datée | Contestation des versants méridionaux après la décision de 1766, S1 p. 14. | Ni limite du XIXe siècle ni frontière contemporaine adoptée automatiquement. Effet en cellules inconnu ; ne pas inventer une correction. |
+| U08 | Approximation politique acceptable sous réserve | Duché et seigneuries partagent le cadre supérieur habsbourgeois/bohémien, même quand leurs propriétaires fonciers diffèrent. | `AUS` ne démontre pas une erreur de souveraineté ; aucun TAG ducal nécessaire par défaut. Cette simplification institutionnelle ne résout pas U01/U02. |
+| U09 | Imprécision acceptable et bornée | Le nom technique `STATE_WEST_GALICIA` ne reproduit pas la juridiction historique. TE-R-CORE cible un seul RGB. | Pas de renommage artificiel ni de reconnaissance impériale de toute la Galicie ; contrôle provincial conservé. |
+| U10 | Imprécision non quantifiable | Croissance qualitative de 1772–1776, séries et catégories ultérieures non homogènes. | Ne pas fabriquer un taux pour atteindre 135 753. Aucun intervalle statistique ou seuil B de ±20 % n'est établi. |
+| U11 | Validation humaine encore ouverte | Observation antérieure partielle ; reçu MAP2A excluant explicitement TE-R-CORE. | Le sous-lot impérial reste en attente. Le test du registre ne résoudra pas U01/U02 et aucun reçu nouveau n'est produit. |
+
+La recommandation C repose sur U01 et U02. Les petites différences de quatre ou 98 personnes ne sont pas utilisées pour exiger une précision impossible ; elles montrent surtout la nécessité de distinguer les catégories. Les réserves substantielles ne sont pas reclassées en P2.

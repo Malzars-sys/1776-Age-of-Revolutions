@@ -1,0 +1,39 @@
+{
+  "recorded_on": "2026-10-29",
+  "suites": [
+    {
+      "module": "test_serg_sc2_teschen",
+      "executed": 18,
+      "passed": 16,
+      "failures": [
+        {
+          "test": "test_serg_sc2_teschen.TeschenContracts.test_physical_and_demographic_histories_unchanged",
+          "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc2_teschen.py\", line 46, in test_physical_and_demographic_histories_unchanged\n    self.assertEqual(a.sha(a.ROOT/p),self.b['hashes'][p],p)\nAssertionError: '95a81136a71e7559ff35b57a73c1dcb938551a151700ae8591d4c4fba44d83d9' != 'c91db6d223e61e6b00ab3a99cf5ed321a68c9cc97e38a0065c110b81a04aff4c'\n- 95a81136a71e7559ff35b57a73c1dcb938551a151700ae8591d4c4fba44d83d9\n+ c91db6d223e61e6b00ab3a99cf5ed321a68c9cc97e38a0065c110b81a04aff4c\n : map_data/provinces.png\n"
+        },
+        {
+          "test": "test_serg_sc2_teschen.TeschenContracts.test_progress_scope_and_next_candidate_are_bounded",
+          "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\test_serg_sc2_teschen.py\", line 84, in test_progress_scope_and_next_candidate_are_bounded\n    p=a.rm.progress(self.state);self.assertEqual((p['earned_weight'],p['total_weight'],p['qualified_tasks'],p['total_tasks']),(82,235,24,81))\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Tuples differ: (93, 235, 32, 81) != (82, 235, 24, 81)\n\nFirst differing element 0:\n93\n82\n\n- (93, 235, 32, 81)\n?  ^^       -\n\n+ (82, 235, 24, 81)\n?  ^^        +\n\n"
+        }
+      ],
+      "errors": [],
+      "skipped": [],
+      "successful": false
+    },
+    {
+      "module": "test_serg_closure_roadmap",
+      "executed": 28,
+      "passed": 27,
+      "failures": [],
+      "errors": [],
+      "skipped": [
+        {
+          "test": "test_serg_closure_roadmap.RoadmapTests.test_protection_runtime_git_and_audit",
+          "reason": "Initial no-edit check only; future authorized edits must not fail old snapshots"
+        }
+      ],
+      "successful": true
+    }
+  ],
+  "engine_executed": false,
+  "old_test_sources_modified": false
+}

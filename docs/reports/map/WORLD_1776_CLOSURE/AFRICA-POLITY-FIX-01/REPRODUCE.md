@@ -1,0 +1,1 @@
+Python runtime : tools/world1776_africa_polity_fix01.py --validate. Ne pas rejouer --apply. Les anciens validateurs WORLD utilisent une résolution implicite erronée ; les anciens reçus restent historiques, et ce correctif porte sa propre validation. Aucun résultat moteur n’est déduit des statiques.

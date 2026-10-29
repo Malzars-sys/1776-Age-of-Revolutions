@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "scope_version": "1.0.1",
+  "scope_version": "1.0.3",
   "historical_date": "1776-01-01",
   "initialized_on": "2026-10-24",
-  "current_phase": "P3",
+  "current_phase": "CENTRAL_ASIA_AUXILIARY",
   "progress_model": {
     "technical_formula": "100 * STATIC_VERIFIED criteria / 320 fixed region-criteria; partial checks receive 0",
     "runtime_formula": "100 * USER_VALIDATED criteria / 320; no automatic human credit",
@@ -694,7 +694,7 @@
     {
       "id": "P3",
       "name": "Afrique subsaharienne",
-      "status": "IN_PROGRESS_TERRITORIAL_CARTOGRAPHY_ONLY",
+      "status": "CARTOGRAPHIC_PASS_ACCEPTED_BY_USER_FOR_NOW",
       "subregions": [
         {
           "id": "P3-01",
@@ -1101,36 +1101,43 @@
           "name": "Afrique australe",
           "criteria": {
             "O": {
-              "status": "NOT_STARTED",
-              "evidence": null
+              "status": "PARTIAL",
+              "evidence": "SOUTHERN-01/REPORT.md",
+              "remaining": "126cellules et noyaux politiques installés ; frontièreVOC, subdivisions locales, démographie historique, institutions fines et moteur non clos. Aucun point entier."
             },
             "I": {
-              "status": "NOT_STARTED",
-              "evidence": null
+              "status": "PARTIAL",
+              "evidence": "SOUTHERN-01/REPORT.md",
+              "remaining": "126cellules et noyaux politiques installés ; frontièreVOC, subdivisions locales, démographie historique, institutions fines et moteur non clos. Aucun point entier."
             },
             "D": {
-              "status": "NOT_STARTED",
-              "evidence": null
+              "status": "PARTIAL",
+              "evidence": "SOUTHERN-01/REPORT.md",
+              "remaining": "126cellules et noyaux politiques installés ; frontièreVOC, subdivisions locales, démographie historique, institutions fines et moteur non clos. Aucun point entier."
             },
             "E": {
-              "status": "NOT_STARTED",
-              "evidence": null
+              "status": "PARTIAL",
+              "evidence": "SOUTHERN-01/REPORT.md",
+              "remaining": "126cellules et noyaux politiques installés ; frontièreVOC, subdivisions locales, démographie historique, institutions fines et moteur non clos. Aucun point entier."
             },
             "T": {
-              "status": "NOT_STARTED",
-              "evidence": null
+              "status": "PARTIAL",
+              "evidence": "SOUTHERN-01/REPORT.md",
+              "remaining": "126cellules et noyaux politiques installés ; frontièreVOC, subdivisions locales, démographie historique, institutions fines et moteur non clos. Aucun point entier."
             },
             "R": {
-              "status": "NOT_STARTED",
-              "evidence": null
+              "status": "PARTIAL",
+              "evidence": "SOUTHERN-01/REPORT.md",
+              "remaining": "126cellules et noyaux politiques installés ; frontièreVOC, subdivisions locales, démographie historique, institutions fines et moteur non clos. Aucun point entier."
             },
             "S": {
-              "status": "NOT_STARTED",
-              "evidence": null
+              "status": "PARTIAL",
+              "evidence": "SOUTHERN-01/REPORT.md",
+              "remaining": "126cellules et noyaux politiques installés ; frontièreVOC, subdivisions locales, démographie historique, institutions fines et moteur non clos. Aucun point entier."
             },
             "V": {
               "status": "NOT_STARTED",
-              "evidence": null
+              "evidence": "SOUTHERN-01/GROUPED_RUNTIME_ITEMS.md"
             }
           }
         },
@@ -1223,6 +1230,12 @@
         "criteria_total": 80,
         "runtime_user_validated": 0,
         "technical_percent": 0.0
+      },
+      "grouped_user_acceptance": {
+        "receipt": "NORDIC-01/AFRICA_USER_ACCEPTANCE.json",
+        "date": "2026-10-29",
+        "full_historical_closure": false,
+        "full_V_credit": false
       }
     },
     {
@@ -2250,6 +2263,63 @@
       "receipt": "MADAGASCAR-02/FILES_DELIVERED.json",
       "credited_criteria": [],
       "runtime": "NOT_RUN"
+    },
+    {
+      "id": "SOUTHERN-01",
+      "date": "2026-10-28",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "existing_files_modified": 10,
+      "new_files": 12,
+      "new_tags": 3,
+      "native_RGBs_transferred": 126,
+      "new_RGBs": 0,
+      "pixels_recolored": 0,
+      "world_population_delta": 0,
+      "receipt": "SOUTHERN-01/FILES_DELIVERED.json",
+      "credited_criteria": [],
+      "runtime": "NOT_RUN"
+    },
+    {
+      "id": "AFRICA-POLITY-FIX-01",
+      "date": "2026-10-29",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "country_entry_mode_repairs": 49,
+      "existing_files_modified": 8,
+      "territory_changes": 0,
+      "population_delta": 0,
+      "removed_pact": "LND->KZM",
+      "human_problem_reported": true,
+      "post_fix_runtime": "NOT_RUN",
+      "credited_criteria": [],
+      "receipt": "AFRICA-POLITY-FIX-01/FILES_MODIFIED.json"
+    },
+    {
+      "id": "NORDIC-01",
+      "date": "2026-10-29",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "auxiliary_scope_outside_legacy_denominator": true,
+      "native_RGBs_transferred": 5,
+      "existing_files_modified": 3,
+      "population_delta": 0,
+      "new_TAGs": 0,
+      "receipt": "NORDIC-01/FILES_DELIVERED.json",
+      "runtime": "NOT_RUN",
+      "credited_criteria": []
+    },
+    {
+      "id": "CENTRAL-ASIA-01",
+      "date": "2026-10-29",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "auxiliary_scope_outside_legacy_denominator": true,
+      "native_RGBs_transferred": 172,
+      "existing_files_modified": 7,
+      "new_files": 13,
+      "population_delta": 0,
+      "new_TAGs": 5,
+      "reactivated_TAGs": 1,
+      "receipt": "CENTRAL-ASIA-01/FILES_DELIVERED.json",
+      "runtime": "NOT_RUN",
+      "credited_criteria": []
     }
   ],
   "progress": {
@@ -2260,15 +2330,12 @@
     "user_validated_percent": 0
   },
   "phase_transition_gate": {
-    "source": "Direct user message, 2026-10-27, SAHEL-01/USER_REQUEST.txt",
-    "rule": "User reports prior Maghreb controls passed and explicitly requests Senegal/Mali to Red Sea. Territorial scope retained.",
-    "partial_lot_tests_requested": false,
-    "runtime_validation_timing": "GROUPED_SAHEL",
-    "next_region_requires_explicit_user_confirmation": true,
-    "authorized_next_phase": "P3",
+    "source": "CENTRAL-ASIA-01/USER_REQUEST.json",
     "explicit_transition_authorized": true,
-    "authorization_is_runtime_validation": false,
-    "supersedes_previous_Balkans_runtime_gate_for_this_transition_only": true
+    "authorized_next_phase": "CENTRAL_ASIA_AUXILIARY",
+    "rule": "Direct user request for Central Asia with Durrani concurrent work reserved.",
+    "authorization_is_full_canonical_V_validation": false,
+    "partial_lot_tests_requested": false
   },
   "active_work_scope": "TERRITORIAL_CARTOGRAPHY_ONLY",
   "deferred_content_domains": [
@@ -2283,17 +2350,29 @@
       "authority": "Current explicit user request: territorial checks of Maghreb through Egypt; subsaharan transition only if no further territorial work.",
       "change": "Documentary audit coverage through Egypt. Historical scoring denominator and criteria preserved; no complete-region credit from this screening.",
       "criteria_total_unchanged": 320
+    },
+    {
+      "version": "1.0.2",
+      "date": "2026-10-29",
+      "authority": "NORDIC-01/USER_REQUEST.json",
+      "change": "Explicit Scandinavian/Finnish territorial pass added as auxiliary scope outside the legacy five-phase scoring register; African grouped pass accepted for now.",
+      "criteria_total_unchanged": 320
+    },
+    {
+      "version": "1.0.3",
+      "date": "2026-10-29",
+      "authority": "CENTRAL-ASIA-01/USER_REQUEST.json",
+      "change": "Explicit Central Asian cartographic pass outside legacy regional scoring register; Durrani interfaces reserved.",
+      "criteria_total_unchanged": 320
     }
   ],
   "current_steering": {
-    "date": "2026-10-28",
-    "authority": "MADAGASCAR-02/USER_REQUEST.txt",
-    "last_lot": "MADAGASCAR-02",
-    "scope": "Madagascar political correction installed before southern Africa",
-    "next_pass": "Southern Africa and Dutch/VOC settlements, from current workspace",
-    "cosmetic_smoothing_deferred": true,
-    "autonomous_subjects_authorized": true,
-    "runtime_validation_timing": "GROUPED_AFRICA",
+    "date": "2026-10-29",
+    "authority": "CENTRAL-ASIA-01/USER_REQUEST.json",
+    "last_lot": "CENTRAL-ASIA-01",
+    "scope": "Central Asian territorial kernels, Durrani interface excluded",
+    "next_pass": "Grouped runtime checks; joint Darvaz/Badakhshan review only if explicitly assigned, no automatic new region",
+    "runtime_validation_timing": "GROUPED_CENTRAL_ASIA",
     "intermediate_player_tests_requested": false,
     "full_V_credit": false
   },
@@ -2395,6 +2474,50 @@
       "next_pass": "Resolve Malagasy political fragmentation and map native royal cores before resuming southern Africa",
       "cosmetic_smoothing_deferred": true,
       "runtime_validation_timing": "GROUPED_AFRICA",
+      "intermediate_player_tests_requested": false,
+      "full_V_credit": false
+    },
+    {
+      "date": "2026-10-28",
+      "authority": "MADAGASCAR-02/USER_REQUEST.txt",
+      "last_lot": "MADAGASCAR-02",
+      "scope": "Madagascar political correction installed before southern Africa",
+      "next_pass": "Southern Africa and Dutch/VOC settlements, from current workspace",
+      "cosmetic_smoothing_deferred": true,
+      "autonomous_subjects_authorized": true,
+      "runtime_validation_timing": "GROUPED_AFRICA",
+      "intermediate_player_tests_requested": false,
+      "full_V_credit": false
+    },
+    {
+      "date": "2026-10-28",
+      "authority": "SOUTHERN-01/USER_REQUEST.txt",
+      "last_lot": "SOUTHERN-01",
+      "scope": "Southern African territorial corrections installed, no cadastral closure claimed",
+      "next_pass": "Grouped African cartographic review; act on concrete findings, no automatic new region",
+      "cosmetic_smoothing_deferred": true,
+      "autonomous_subjects_authorized": true,
+      "runtime_validation_timing": "GROUPED_AFRICA",
+      "intermediate_player_tests_requested": false,
+      "full_V_credit": false
+    },
+    {
+      "date": "2026-10-29",
+      "authority": "AFRICA-POLITY-FIX-01/USER_FINDINGS.json",
+      "last_lot": "AFRICA-POLITY-FIX-01",
+      "scope": "Repair country database replacement modes and remove distant Kazembe subject pact",
+      "next_pass": "Continue grouped African player test; no automatic new region",
+      "runtime_validation_timing": "GROUPED_AFRICA",
+      "intermediate_player_tests_requested": false,
+      "full_V_credit": false
+    },
+    {
+      "date": "2026-10-29",
+      "authority": "NORDIC-01/USER_REQUEST.json",
+      "last_lot": "NORDIC-01",
+      "scope": "Scandinavia including Finland, territorial boundaries and necessary POP reassignment",
+      "next_pass": "Grouped Nordic runtime verification; documented fine-border limits only, no automatic new region",
+      "runtime_validation_timing": "GROUPED_NORDIC",
       "intermediate_player_tests_requested": false,
       "full_V_credit": false
     }

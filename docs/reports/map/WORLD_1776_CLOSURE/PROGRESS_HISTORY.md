@@ -119,3 +119,25 @@ Consigne directe : vérifier Madagascar avant l’Afrique australe. Audit achev�
 ## MADAGASCAR-02 —28octobre2026
 
 Correction autorisée après l’audit :120RGB natifs réattribués,2conservés par MAD/Antananarivo ;26TAG nouveaux, trois noyaux merina distincts et pouvoirs royaux/autonomes différenciés. Une province native couvre les Comores : agrégat autonome séparé de MAD, sans union moderne affirmée. Un lien tributaire Antankarana–Boina, aucune annexion des autres tributaires incertains.5fichiers existants ciblés+33ajouts ;26profilsPASS_STATIC_ONLY,311contrôles statiques. Populations/cohortes/armées conservées, référence conscrite déplacée vers le nord encore possédé ; modèle de personnage1836 neutralisé sans nouveau personnage. Rapports/sources/limites MADAGASCAR-02/REPORT.md. Aucun pixel/ressource/hub/recette commune/Git/vanilla/suiviSERG écrit. Test africain groupéNOT_RUN, aucun point ou reçu humain nouveau ; WORLD10/320(3,13%). Suite australe/VOC non lancée ici.
+
+## SOUTHERN-01 —28octobre2026
+
+Afrique australe autorisée directement :126RGB natifs réattribués dans4régions, aucun pixel nouveau. Républiques boers/Philippolis/Waterboer retirées du départ, communautés Orange/Haut-Veld/Nguni distinguées ; Karoo SAN, autorités sotho/ndébélé autonomes, noyau Ngwane et pouvoir rozvi/tribut Manyika. CapVOC conservé, frontières Xhosa et marges non certifiées.3TAG nouveaux,10fichiers ciblés+12ajouts,202statiques et3profilsPASS_STATIC_ONLY ; aucun P0/P1 introduit sur16témoins. Monde courant837328654inchangé, cohortes/niveaux/PM conservés ; un bataillonWBL du gouvernement ultérieur retiré, autres unités explicites conservées. Anciennes connaissances conservées, grants précoces bornés, pas de graphe/recette commune ni nouveau personnage. Sources/limites/repairs et reçus SOUTHERN-01/REPORT.md. Test africain groupéNOT_RUN, WORLD10/320(3,13%),aucun crédit humain. Aucun autre secteur lancé.
+
+## AFRICA-POLITY-FIX-01 —29 octobre2026
+
+Défauts joueur Kanyok/Luba et Lunda/Kazembe enregistrés, sans succès ou durée inventés.49redéfinitions africaines WORLD passent en remplacement explicite, corps identiques ; le validateur précédent masquait les doublons implicites. Pacte lointain LND→KZM retiré, LBA→KNY conservé.8fichiers fonctionnels ciblés, aucune géométrie/population/bâtiment/technologie/armée modifiée. Contrôles VALIDATION.json, application sur versions courantes et préimages ; anciens reçus conservés. Centralisation déclarée des royaumes enfin chargeable, communautés autonomes préservées. Reprise du test africain groupé après correction, aucun autre secteur lancé, WORLD10/320(3,13%) inchangé.
+
+
+## 29 octobre2026 — Afrique acceptée ; NORDIC-01 installé
+
+Le joueur déclare tous les contrôles africains passés, accepte l’Afrique pour le moment et autorise explicitement Scandinavie/Finlande. Reçu NORDIC-01/AFRICA_USER_ACCEPTANCE.json : aucun détail de version, durée ou rechargement ajouté. Les anciennes limites historiques et le lissage différé subsistent ; pas de V entier ou clôture flavor inventés.
+
+NORDIC-01 : Savonlinna suédoise→russe après la cession1743 ; quatre provinces des districts communs Neiden/Pasvik rattachées au propriétaire moteur russe pour la juridiction séculière/ecclésiastique, fiscalité danoise-norvégienne superposée non reproduite. Cinq RGB existants, trois fichiers ciblés,12058 habitants réaffectés sans variation mondiale (837328654). Ni pixel, nouveau pays, bâtiment, PM, technologie ni institution ajouté. Tracés natifs approximatifs, pas de souveraineté exclusive certifiée au nord. 33/33 statiques, aucun test moteur nordique ; DP-02 concurrent préservé et rapproché de ses manifestes.
+
+Extension documentaire1.0.2 pour ce secteur auxiliaire, hors du registre historique320 critères ; progression calculée10/320 inchangée. Rapport NORDIC-01/REPORT.md, carte CARTE_REPERES.png ; prochaine étape : contrôle nordique groupé, pas autre région automatique.
+
+
+## 29 octobre2026 — CENTRAL-ASIA-01 installé
+
+Asie centrale autorisée directement, interfaces durranies réservées.172RGB natifs,7régions : noyaux russes Samara/Yaïk/Irtych, réduction des extensions ultérieures de Kokand, cinq nouveaux noyaux politiques et clans kirghiz réactivés. OZH/UZH indépendants de RUS, KZH sous protection nominale sans prélèvement ni guerre automatique ; capitales régionales corrigées. Six profils PASS_STATIC_ONLY ; aucun nouveauP0/P1 sur10témoins, graphe/recettes communs conservés. Monde837328654 inchangé, cohortes/niveaux/unités conservés, deux déclarations commerciales transférées sur le PM limité compatible.7fichiers ciblés+13ajouts. DP-03 concurrent rapproché18sorties/6RGB, préimages courantes et autres lots préservés ; aucun suiviSERG/DP/Git/vanilla écrit. Réparation Gouriev distincte, preuves initiales conservées. 274/274statiques, aucun test moteur. Rapport CENTRAL-ASIA-01/REPORT.md ; frontières natives et Darvaz/Badakhshan/allégeances restent approximatifs. Portée auxiliaire1.0.3, WORLD10/320(3,13%) inchangé, aucun crédit humain.

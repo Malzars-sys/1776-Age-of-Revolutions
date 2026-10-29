@@ -1,0 +1,16 @@
+# Suite des passes — sans corrections automatiques
+
+**Agra :** le joueur a choisi et fait installer le correctif de gameplay **483 → 764 terres**. Il reste provisoire ; recherche historique et test en jeu après correction sont ouverts. La file initiale ci-dessous reste un relevé avant correction.
+
+
+La file `delivery/REVIEW_QUEUE.csv` couvre les portions d'État et se trie par priorité : crises observées d'abord, pression de capacité ensuite. Les champs historiques inconnus sont vides, jamais transformés en zéro ou en absence de famine. La sélection d'un lot demeure distincte de ce classement.
+
+1. **Agra :** raccorder les limites de STATE_AGRA aux juridictions/districts utilisés par les sources démographiques. Vérifier population régionale et date, pas seulement celle de la ville. Documenter une fourchette si la source ne permet pas mieux. Garder le calibrage de gameplay distinct si le joueur le choisit.
+2. **Famine et saturation :** parmi les 31 cas observés combinant les deux signaux, examiner population, terres, PM, revenus paysans, lois et prix. Le manque de terres est un candidat causal, pas une conclusion automatique. Marwar, Bombay marathe et les autres pays fortement touchés sont comparables à analyser, pas autorisés à être corrigés en masse.
+3. **Famine sans saturation démontrée :** 30 cas dans le relevé, dont Alxa. Chercher les marchés, prix, qualifications, revenus, production de base, parts d'emploi et effets de démarrage avant d'ajouter des terres ou des habitants.
+4. **Saturation sans crise :** 221 portions selon le modèle de capacité chargé, dont le Zhejiang et le Shandong. Les marchés, revenus, importations, transferts et autres mécanismes peuvent différer. Ne pas provoquer de fausse correction en considérant ces états comme forcément affamés.
+5. **Europe et économies commerciales :** compter toutes les exploitations et activités chargées, les PM, emplois et productions de marché. Une agriculture productive peut nourrir plus de personnes par terre, tout en employant moins de travailleurs. L'absence de production locale suffisante n'est pas une famine si les habitants ont les revenus et l'accès aux importations. Inversement, un excédent régional de grain n'assure pas l'accès des plus pauvres.
+
+Pour chaque lot : garder les valeurs avant, le périmètre historique et les sources ; comparer l'état courant plutôt qu'une vieille baseline ; documenter séparément correction démographique, correction de capacité, crise historique et règle de gameplay ; appliquer le plus petit changement justifié ; contrôler les autres valeurs partagées ; démarrer une nouvelle partie et relever à date fixe population, emplois, sécurité alimentaire, prix, niveau de vie, naissances et décès. Une observation du premier jour n'est pas une validation après un mois.
+
+Concordance avec la carte native : conserver date, version/empreinte de sauvegarde, State_ID et propriétaire. Comparer le marqueur de crise à `famine_manager` et les pourcentages à l'interface quand leurs caches ne sont pas fiables. Une couleur seule n'autorise pas un taux numérique précis. Les 11 captures fournies par le joueur sont un inventaire visuel, pas des recensements ni des preuves historiques de famine en 1776.

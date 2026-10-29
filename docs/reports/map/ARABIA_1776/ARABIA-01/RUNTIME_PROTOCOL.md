@@ -1,0 +1,14 @@
+# ARABIA-01 — Contrôles dans Victoria 3
+
+Statut initial : IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION. Nouvelle partie au **1er janvier 1776**, mod principal courant. Une ancienne sauvegarde peut conserver ses anciens propriétaires.
+
+1. À la sélection des pays, repérer **Émirat de Diriyah**, **Banu Khalid**, **Communautés du Qatar**, **Bahreïn**, **Yémen/Zaïdites** et le Hedjaz. Utiliser les pays ou les régions Nejd, Hail, Abu Dhabi et Yémen ; ne pas chercher des villes créées uniquement comme repères de documentation. Les noms d'État dynamiques peuvent varier selon leur propriétaire.
+2. Vérifier le petit noyau NEJ à Riyad/Diriyah au centre du Najd, A91 le long de Qatif/al-Hasa sur la côte du Golfe, BHN uniquement sur l'île au nord-ouest du Qatar, A92 sur la péninsule. Voir `INSTALLED_ARABIA.png` et les RGB exacts de `PLAN.json`. Ce dessin de travail n'est pas une capture du moteur.
+3. NEJ doit avoir Abdulaziz ben Muhammad ben Saoud, sans Faisal de 1836. A91 ne possède pas de chef personnel historiquement certifié ; un personnage généré n'est pas une preuve historique.
+4. Vérifier la relation PER → BHN et l'absence d'un Qatar BHN ; le Hedjaz reste dans son lien ottoman existant. Le littoral de Hodeida/Mokha appartient à ZAI, pas HDJ. Contrôler les îlots de frontières à plusieurs niveaux de zoom.
+5. Ouvrir les populations des portions : NEJ Nejd 53 000 ; A91 Nejd 29 700 et Hail 61 914 ; NBB Nejd 21 847 ; BHN Abu Dhabi 15 619 ; A92 Abu Dhabi 9 286. Vérifier les catégories d'habitants, pas seulement la somme mondiale. ZAI doit recevoir les 54 060 habitants du littoral sans disparition des autres habitants.
+6. Contrôler le ranch et la route de NEJ, le ranch côtier A91, la pêche A92, le café ZAI (3 niveaux), le port yéménite transféré et les deux ports commerciaux ajoutés A91/BHN. Vérifier les propriétaires financiers et l'absence de double plantation. Les doubles déclarations héritées dans les fichiers 08 et 98 ne prouvent pas un double niveau en jeu : contrôler la valeur effectivement chargée.
+7. Laisser tourner quelques semaines : marché et port de Bahreïn accessibles depuis la Perse, denrées et prix sans pénurie imputable à une rupture nouvelle ; routes/ports et emplois actifs. Le continent doit permettre des parcours continus dans les noyaux NEJ et A91. Pas de pont de terre vers Bahreïn. Vérifier que les deux levées irrégulières peuvent être mobilisées sans unités ni casernes dupliquées.
+8. Sauvegarder puis recharger ; mêmes propriétaires, populations cohérentes après évolution naturelle, relations conservées et absence de crash. Relever les nouvelles erreurs moteur séparément des erreurs préexistantes.
+
+Les réserves Koweït, Qawasim/Musandam et chronologies du Qasim restent ouvertes, même si tous ces contrôles passent. Aucun statut PASS_RUNTIME_USER_VALIDATED ne doit être attribué sans retour explicite du joueur sur la version livrée.

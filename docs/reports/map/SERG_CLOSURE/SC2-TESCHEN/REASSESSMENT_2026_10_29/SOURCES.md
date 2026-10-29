@@ -1,0 +1,26 @@
+# Sources de la réévaluation ciblée de Teschen
+
+Consultation : 29 octobre 2026. Cible historique : **1er janvier 1776**. Les pages ci-dessous sont les pages imprimées, sauf indication contraire. Les publications scientifiques sont des analyses ; elles ne remplacent pas un dépouillement des pièces originales citées.
+
+| ID | Référence et accès | Passages utilisés / portée |
+| --- | --- | --- |
+| S1 | Janusz Spyra, *Śląsk Cieszyński w okresie 1653–1848*, dans Idzi Panic (dir.), *Dzieje Śląska Cieszyńskiego od zarania do czasów współczesnych*, t. IV, Cieszyn, 2012, ISBN 978-83-935147-1-7. [PDF de diffusion institutionnelle](https://cieszynskie.travel/lfm/files/shares/upload/Blok04.pdf). Exemplaire déjà archivé : `../EVIDENCE/DUCAL_POLITICAL_HISTORY.pdf`. | pp. 13–16 : juridictions et frontières ; pp. 78–80 : fief de 1766 et domaines du couple ; pp. 197–200 : dénombrements ; p. 283 : catégories confessionnelles et exclusion des Juifs du relevé ecclésiastique. Extraits dans `EVIDENCE/SPYRA_EXTRACTS.txt`. |
+| S2 | Ludmila Nesládková, « Od konskripcí duší k prvnímu modernímu sčítání obyvatelstva v roce 1869. Nejen lidnatost Těšínska v zrcadle statistických šetření », *Těšínsko*, 59/2016/1, pp. 31–46. [PDF intégral du Muzeum Těšínska](https://www.muzeumct.cz/images/casopis-tesinsko/digiarchiv_pdf/Tesinsko_2016_1.pdf). | **Nouvelle source téléchargée, passages pertinents lus** : pp. 31–32 et 40–42, notes p. 46. Décalage PDF : +2 pages. Dénombrements, localités, méthodologie, puis limites des séries. PDF et extraits archivés dans `EVIDENCE/`. Deux incohérences imprimées p. 41 sont conservées, pas corrigées silencieusement. |
+| S3 | [Grand atlas historique de la Silésie tchèque](https://mapa.atlas-slezska.cz/en.html), chapitres 1.3, 1.5 et 5.8. Archive préexistante : `../EVIDENCE/SILESIAN_ATLAS.html`. | Partition politique et organisation ecclésiastique. Les découpages de 1782–1783 et les paroisses créées après 1776 ne sont pas rétroprojetés. L'atlas n'est pas un certificat géographique des pixels du mod. |
+| S4 | Matthäus Seutter, *Ducatus Teschinensis*, notice Ryhiner 4408:43, datation de catalogue 1740–1760. [e-rara / DOI](https://doi.org/10.3931/e-rara-122057). Carte Lotter 1758 et lecture MAP1B. | Images existantes réutilisées : `../../SC2-AUSTRIAN-SILESIA/SEUTTER_READING.png`, JPG original dans son `EVIDENCE/`, et `../../../MAP1B/MAP1B_GEOGRAPHIC_EVIDENCE/`. Seutter distingue visuellement Teschen, Bielitz, Friedek et Freystadt. Ni ses couleurs, ni une carte de guerre de 1758 ne prouvent seules la frontière souveraine au 01-01-1776. |
+| S5 | Muzeum Beskyd, [Historie](https://www.muzeumbeskyd.com/muzeum-beskyd/historie/), section consacrée aux Pražma. | Nouvelle vérification ciblée de la possession de Frýdek : Jan Nepomuk Pražma, prise de possession en 1746, vente en **1797** à Marie-Christine et Albert. Cette acquisition ne doit pas être anticipée à 1776. Consultation web, pas d'acte de vente original dépouillé. |
+| S6 | Muzeum Historyczne w Bielsku-Białej, [histoire du château](https://muzeum.bielsko.pl/pl/historia/tekst/historia-muzeum-zamek), [chapelle et princes Sułkowski](https://sulkowski.muzeum.bielsko.pl/kaplica.html), *Wystawnik* 3(32), septembre 2020, [p. 8](https://muzeum.bielsko.pl/download_file/file/150/name/nr32_-wrzesien-2020-.pdf). | Acquisition Sułkowski en 1752 ; rang princier en 1752 puis élévation Herzogtum en 1754 ; August Sułkowski, deuxième duc, mort en 1786. Sources du musée et de son site associé, concordantes sur la distinction d'avec Teschen. Pas de nouveau dépouillement des diplômes. |
+
+## Pièces originales identifiées mais non consultées directement
+
+- Dénombrement politique/militaire : Ch. d'Elvert, publication de 1856, no 9, pp. 70–71, cité par S1 p. 197. Pas de registre nominatif original consulté.
+- Statistique ecclésiastique : ZAO, KÚ, inv. 836, carton **627 selon S1**, et publication Alois Adamus, « K statistice Těšínska », *Černá země*, 1928, pp. 283/284–287 selon les citations. S2 note 31 donne vol. 5 ; d'autres références bibliographiques retrouvées donnent vol. 4, 1927–1928, nos 9–10. **L'édition Adamus elle-même n'a pas été obtenue** : la recherche ciblée ne produit pas une liste complète certifiée de villages. Aucun volume ni cote d'archive n'est corrigé par conjecture.
+- Acte du 31 mai 1766 : KCC/SZ, DD VIII 12/14, cité S1 p. 78. Hommages des 1er–2 octobre : références S1 p. 79, notamment APC, KC 2751, pp. 86–102. Consultation indirecte par l'étude, pas lecture paléographique des actes.
+
+## Contrôle matériel et limites
+
+Le PDF S2 a été téléchargé ; son SHA256 est `fdc4c6c72eb75050d76baf59e9c32da912843201d2a046a149380d27737998ed`. Le premier échec réseau et la reprise réussie restent dans `EVIDENCE/FETCH_RESULTS*.json`.
+
+Relecture visuelle : carte Seutter ; S1 pp. 13, 197, 200, 283 ; S2 pp. 41–42 (pages PDF 43–44). Les rendus sont des aides de lecture, sans tracé inventé. Les nombres contradictoires de S2 p. 41 figurent bien dans l'image imprimée. Les autres passages sont lus dans les textes extraits ; les pages sources restent accessibles.
+
+Les études S1 et S2 renvoient notamment au même corpus Adamus : leur accord ne constitue pas deux recensements indépendants supplémentaires. Les essais de recalage rejetés de MAP1B/MAP1C restent rejetés ; ils ne sont pas relancés.

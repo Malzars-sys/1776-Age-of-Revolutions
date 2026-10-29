@@ -122,3 +122,21 @@ Lecture seule des deux nœuds NORTH/SOUTH_MADAGASCAR, de MAD, de ses POP et de s
 ## MADAGASCAR-02 — périmètre installé
 
 Seuls deux nœuds NORTH/SOUTH_MADAGASCAR des états et POP ; c:MAD de l’histoire nationale et militaire (une référence conscrite), MAD des noms dynamiques.26nouveauxTAG, définitions/effets/loi propres, lien BOI→ATK, FR/EN et surcharge native de personnage MAD. Aucun niveau bâti ni PM ni pixel/terrain/ressource/locator modifié. Liste RGB PLAN.json ; entrées immédiates apply_inputs/ ; FILES_DELIVERED.json référence finale. Autres pays des fichiers partagés, WORLD antérieur, SERG, TECH/ECON et Amériques conservés sans retour à une baseline.
+
+## SOUTHERN-01 — périmètre installé
+
+126RGB natifs,4nœuds ZULULAND/VRYSTAAT/TRANSVAAL/NORTHERN_CAPE des états/POPs/bâtiments, plus TRANSVAAL redistribution bâtie. Histoires BST/MSH/SWZ et grant TSW ; c:WBL seul neutralisé dans les formations, relation GBR→ORA seule retirée.3TAG nouveaux,4définitions existantes surchargées, histoire nativeMTB et personnagesBST/MTB masqués par fichiers propres ; loi/effets/tributMSH→MNC/FR-EN propres. Pas de pixel, terrain, ressource, locator ou recette commune. FILES_DELIVERED.json et préimages immédiates font référence ; autres nœuds et travauxWORLD/SERG/TECH/ECON/Amériques/Madagascar préservés, aucune baseline restaurée.
+
+## AFRICA-POLITY-FIX-01 — périmètre
+
+Seulement49préfixes de clés dans7 fichiers country_definitions/1776_world africains, et suppression du seul pacte LND→KZM dans la diplomatie Interior. Aucun corps de définition ou fichier technique partagé modifié. Pas de frontière/pixel/corridor, démographie, graphe TECH, recettes, armée, vanilla, Git ou suiviSERG. PLAN.json et préimages font référence ; les changements concurrents sont conservés.
+
+
+## NORDIC-01 — périmètre installé,29 octobre2026
+
+Cinq RGB natifs : xB81268 en KUOPIO, x2495FE/xFEC50D/x7005BB/x6480A4 en NORTHERN_NORWAY, vers RUS. Seuls deux nœuds de00_states et les portions POP SWE/Kuopio et DENNOR/NorthernNorway sont ciblés ; cohortes/totaux conservés. Préimages immédiates et FILES_DELIVERED.json font référence, y compris l’installation DP-02 indienne concurrente. Aucun pixel, région native, ressource, locator, bâtiment, recette, PM, technologie, capitale, institution ou personnage écrit. Schleswig-Holstein, Poméranie/Wismar/Poel et suivi SERG restent réservés ; colonies/Groenland hors lot. Afrique et travaux concurrents préservés.
+
+
+## CENTRAL-ASIA-01 — périmètre installé
+
+PLAN.json :172RGB natifs dans7régions. Sept fichiers existants, seuls nœuds SCOPES.json ; seuls c:KZH/KOK militaires et c:RUS/OZH/UZH diplomatiques. Cinq TAG nouveaux, KYR activé, capitales OZH/UZH surcharges explicites ; effets/loi/relation/FR-EN privés. Aucun bitmap, terrain, ressource, locator, personnage ou recette/graphe commun. Portions DUR/DP et leurs rapports/suivis strictement réservés ; Darvaz principal exclu. Préimages immédiates/FILES_DELIVERED.json et réparation Gouriev séparée font foi. DP-03 présent dans la version appliquée, Afrique/Scandinavie/Amériques/SERG/TECH/ECON conservés. Aucun retour à une baseline antérieure.

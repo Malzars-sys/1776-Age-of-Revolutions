@@ -1,7 +1,7 @@
-# Prochaine action — après MADAGASCAR-02
+# Prochaine action — après CENTRAL-ASIA-01
 
-Correction Madagascar installée sur demande directe. Lire MADAGASCAR-02/REPORT.md, SOURCES.md, GEOGRAPHIC_LIMITATIONS.md, PLAN.json, AUDIT_RESOLUTION.json, VALIDATION.json, TECH_NON_REGRESSION.json et FILES_DELIVERED.json. Les cours proches et les agrégats locaux ne sont pas des frontières cadastrales certifiées ; les reçus de l’audit restent historiques.
+La consigne directe autorisait l’Asie centrale avec réserve de l’Empire durrani. Première passe territoriale livrée : lire CENTRAL-ASIA-01/REPORT.md, SOURCES.md, PLAN.json, GEOGRAPHIC_CROSSWALK.json, POPULATION_LEDGER.json, VALIDATION.json, FILES_DELIVERED.json et GURIEV_LOCATOR_REPAIR.json.
 
-Suite demandée : Afrique australe et établissements néerlandais/VOC, dans une passe depuis le workspace courant. Aucun autre secteur lancé ici. Préserver Madagascar, INTERIOR-01, Congo/Corne/Nil/Sahel/Maghreb/Balkans, SERG, TECH/ECON et Amériques. Frontières et initialisation nécessaire uniquement ; aucun flavor ou lissage cosmétique automatique.
+172RGB natifs, cinq nouveaux TAG et KYR réactivé ; populations/cohortes/niveaux et comptes militaires conservés. Test groupé futur suivant CARTE_REPERES.png et RUNTIME_PROTOCOL.md, aucun test par micro-lot. Pas de validation joueur fictive ni de clôture historique intégrale. Darvaz/Badakhshan et les allégeances pamiriennes restent réservés à une coordination avec le chantier durrani ; ne modifier aucun de ses nœuds ou suivis sur la seule base de cette prochaine action.
 
-Test africain groupé, aucun test intermédiaire demandé, aucune validation humaine inventée. WORLD10/320(3,13%), aucun critère entier nouveau.
+DP-03 concurrent préservé avec18sorties/6changements territoriaux rapprochés. Afrique reste acceptée pour le moment ; test moteur scandinave toujours non attesté. Lissage et contenu flavor différés. Aucun autre secteur lancé automatiquement, aucun suiviSERG écrit. Portée auxiliaire1.0.3, registre historique320critères inchangé.

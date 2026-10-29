@@ -1188,13 +1188,13 @@ add_ownership = {
 			}
 
 		}
-		region_state:DUR= {
+		region_state:BHW= {
 						create_building={
 							building="building_trade_center"
-							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
+							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_limited" }
 							add_ownership={
 								country={
-									country="c:DUR"
+									country="c:BHW"
 									levels=1
 								}
 							}
@@ -1204,33 +1204,80 @@ add_ownership = {
 		}
 	}
 	s:STATE_HILL_PUNJAB= {
-		region_state:DUR= {
-			create_building = {
+		region_state:D2K = { create_building = {
 				building = "building_government_administration"
 				add_ownership = {
 					country= {
-						country = "c:DUR"
-						levels = 5
+						country = "c:D2K"
+						levels = 1
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			} }
+region_state:D2M = { create_building = {
+				building = "building_government_administration"
+				add_ownership = {
+					country= {
+						country = "c:D2M"
+						levels = 1
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			} }
+region_state:PAN = {
+create_building = {
+				building = "building_government_administration"
+				add_ownership = {
+					country= {
+						country = "c:PAN"
+						levels = 2
 					}
 				}
 				reserves = 1
 				activate_production_methods = { "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
 			}
-			create_building={
+create_building={
 				building="building_railway"
 				add_ownership={
 					building={
 						type="building_financial_district"
-						country="c:DUR"
-						levels=2
+						country="c:PAN"
+						levels = 1
 						region="STATE_HILL_PUNJAB"
 					}
 				}
 				reserves=1
 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 			}
-
-		}
+ }
+region_state:PTA = {
+create_building = {
+				building = "building_government_administration"
+				add_ownership = {
+					country= {
+						country = "c:PTA"
+						levels = 1
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_simple_organization" "pm_hereditary_bureaucrats" "pm_religious_bureaucrats" }
+			}
+create_building={
+				building="building_railway"
+				add_ownership={
+					building={
+						type="building_financial_district"
+						country="c:PTA"
+						levels = 1
+						region="STATE_HILL_PUNJAB"
+					}
+				}
+				reserves=1
+				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
+			}
+ }
 	}
 	s:STATE_CENTRAL_PROVINCES= {
 		region_state:NAG= {

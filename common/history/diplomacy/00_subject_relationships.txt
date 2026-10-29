@@ -37,10 +37,7 @@
 			type = vassal
 		}
 
-		create_diplomatic_pact = {
-			country = c:GAR
-			type = vassal
-		}
+		# DP-02: Garhwal is not a Maratha dependency.
 		create_diplomatic_pact = {
 			country = c:GWA
 			type = vassal
@@ -139,22 +136,10 @@
 		}
 		create_diplomatic_pact = {
 			country = c:KZH
-			type = protectorate
+			type = aor1776_kazakh_nominal_protection
 		}
-		if = {
-			limit = { exists = c:UZH }
-			create_diplomatic_pact = {
-				country = c:UZH
-				type = protectorate
-			}
-		}
-		if = {
-			limit = { exists = c:OZH }
-			create_diplomatic_pact = {
-				country = c:OZH
-				type = protectorate
-			}
-		}
+		
+		
 	}
 	c:PRU ?= {
 		create_diplomatic_pact = {
@@ -431,12 +416,12 @@
 	}
 
 	c:OZH ?= {
-		add_liberty_desire = 10
+		
 	}
 
 
 	c:UZH ?= {
-		add_liberty_desire = 10
+		
 	}
 
 #	c:SEQ = {

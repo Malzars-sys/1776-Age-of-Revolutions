@@ -1,12 +1,12 @@
 BUILDINGS={
 	s:STATE_NEJD={
-		region_state:NBB = {
+		region_state:NEJ = {
 			create_building={
 				building="building_railway"
 				add_ownership={
 					building={
 						type="building_financial_district"
-						country="c:NBB"
+						country="c:NEJ"
 						levels=1
 						region="STATE_NEJD"
 					}
@@ -19,7 +19,7 @@ BUILDINGS={
 							add_ownership={
 								building={
 									type="building_manor_house"
-									country="c:NBB"
+									country="c:NEJ"
 									levels=2
 									region="STATE_NEJD"
 								}
@@ -149,19 +149,7 @@ BUILDINGS={
 				reserves=1
 				activate_production_methods = { "pm_traditional_road_network" "pm_no_canal_network" "pm_no_rail_network" "pm_no_passenger_trains" }
 			}
-						create_building={
-							building="building_fishing_wharf"
-							add_ownership={
-								building={
-									type="building_fishing_wharf"
-									country="c:BHN"
-									levels=1
-									region="STATE_ABU_DHABI"
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_simple_fishing" "pm_unrefrigerated" }
-						}
+
 						create_building={
 							building="building_trade_center"
 							activate_production_methods = { "pm_trade_center" "pm_trade_center_trade_quantity_normal" }
@@ -201,7 +189,23 @@ BUILDINGS={
 							activate_production_methods = { "pm_anchorage" }
 						}
 		}
-	}
+
+ region_state:A92 = {
+create_building={
+							building="building_fishing_wharf"
+							add_ownership={
+								building={
+									type="building_fishing_wharf"
+									country="c:A92"
+									levels=1
+									region="STATE_ABU_DHABI"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_simple_fishing" "pm_unrefrigerated" }
+						}
+ }
+}
 	s:STATE_YEMEN={
 		region_state:ZAI={
 
@@ -212,7 +216,7 @@ BUILDINGS={
 					building={
 						type="building_manor_house"
 						country="c:ZAI"
-						levels=2
+						levels=3
 						region="STATE_YEMEN"
 					}
 				}
@@ -257,34 +261,20 @@ BUILDINGS={
 							activate_production_methods = { "pm_handsewn_clothes" "pm_no_luxury_clothes" "pm_traditional_looms" }
 						}
 
-		}
-		region_state:HDJ={
-			create_building={
-				building="building_coffee_plantation"
-				add_ownership={
-					building={
-						type="building_manor_house"
-						country="c:HDJ"
-						levels=1
-						region="STATE_YEMEN"
-					}
-				}
-				reserves=1
-				activate_production_methods={ "coffee_plantation_dry_process" "pm_road_carts"  }
-			}
-						create_building={
+
+create_building={
 							building="building_port"
 							add_ownership={
 								country={
-									country="c:HDJ"
+									country="c:ZAI"
 									levels=1
 								}
 							}
 							reserves=1
 							activate_production_methods = { "pm_anchorage" }
 						}
+}
 
-		}
 		region_state:LAH={
 			create_building={
 				building="building_railway"
@@ -473,13 +463,13 @@ BUILDINGS={
 							activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
 						}
 		}
-		region_state:NBB = {
+		region_state:A91 = {
 						create_building={
 							building="building_livestock_ranch"
 							add_ownership={
 								building={
 									type="building_manor_house"
-									country="c:NBB"
+									country="c:A91"
 									levels=1
 									region="STATE_HAIL"
 								}

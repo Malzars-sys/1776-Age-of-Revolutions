@@ -1,0 +1,172 @@
+# MISSION AUTONOME — SERG TERRITORIAL 1.0 — SC2-TESCHEN
+
+## Objectif
+
+Tu es chargé de reprendre le dossier **SC2-TESCHEN**, dans le cadre du chantier territorial du Saint-Empire romain germanique pour le mod Victoria 3 **1776 Age of Revolutions**.
+
+Dépôt GitHub : `Malzars-sys/1776-Age-of-Revolutions`
+
+**Date historique de référence : 1er janvier 1776.**
+
+Ton objectif est de déterminer si la représentation territoriale et démographique actuelle de Teschen peut être considérée comme une approximation historique acceptable de catégorie B, ou si des corrections supplémentaires sont indispensables avant sa clôture.
+
+Travaille de manière autonome. Ne lance pas d'audit général du SERG.
+
+## 1. État initial à respecter
+
+Le dossier possède déjà les éléments suivants :
+
+- RGB `x9061E0` : 179 cellules appartenant à l'Autriche (`AUS`).
+- Région technique : `STATE_WEST_GALICIA`.
+- Population actuellement représentée : 135 753 habitants.
+- Correction impériale `TE-R-CORE` installée.
+- Registre impérial passé de 580 à 581 titres.
+- Neuf électeurs conservés.
+- Aucun nouveau pays, aucune nouvelle souveraineté ou frontière à créer par défaut.
+- 123 contrôles statiques réussis.
+- Statut régional : `BLOCKED P1`, deux points conditionnels non attribués.
+
+Le reçu de validation MAP2A ne constitue pas un reçu pour TE-R-CORE.
+
+Une observation antérieure du joueur indique que le résultat a été vérifié en jeu, mais ne confirme pas à elle seule le protocole complet.
+
+**Ne transforme aucune observation partielle en validation complète.**
+
+## 2. Documents à consulter obligatoirement
+
+Lis les fichiers actuels du dépôt, notamment :
+
+- `docs/reports/map/SERG_CLOSURE/ROADMAP_STATE.json`
+- `docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/SOURCES.md`
+- `docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/REPORT.md`
+- `docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/VALIDATION.json`
+- `docs/reports/map/SERG_CLOSURE/SC2-TESCHEN/PLAYER_TEST_PROTOCOL.md`
+- `docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_CLOSURE_REVIEW.md`
+- `docs/reports/map/SERG_CLOSURE/CLOSURE_CAMPAIGN_2026_10_26/TESCHEN_PROPOSED_CLOSURE_DECISION.json`
+- `docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md`
+
+Vérifie également si des travaux ultérieurs ont modifié les hypothèses de départ. Ne considère pas ces anciens rapports comme une vérité supérieure aux fichiers actuels ou aux sources historiques.
+
+## 3. Mission historique : territoire
+
+Reconstitue aussi précisément que possible le ressort politique du duché de Teschen au 1er janvier 1776.
+
+Distingue obligatoirement :
+
+1. Le duché central de Teschen/Cieszyn.
+2. Les seigneuries distinctes de Frýdek, Fryštát et Bielsko/Bielitz.
+3. Les domaines appartenant personnellement à Marie-Christine et Albert.
+4. Les territoires relevant politiquement des Habsbourg sans être leur propriété domaniale directe.
+5. Les territoires voisins qui ne doivent surtout pas être attribués à Teschen.
+
+Utilise prioritairement les travaux historiques déjà identifiés, notamment Janusz Spyra, le Grand atlas historique de la Silésie tchèque et les cartes anciennes Seutter/Lotter.
+
+Recherche de nouvelles sources uniquement lorsqu'elles peuvent résoudre une incertitude précise.
+
+Pour chaque territoire ou juridiction, identifie sa situation en 1776, son autorité politique, la source et son degré de certitude.
+
+Compare ensuite cette reconstruction avec les 179 cellules actuellement représentées.
+
+Ne confonds jamais frontières diocésaines, propriété foncière et souveraineté politique.
+
+## 4. Mission démographique : résoudre l'écart
+
+Deux dénombrements historiques ont été identifiés :
+
+- 112 850 habitants : recensement politique et militaire de 1770–1771.
+- 112 752 habitants : statistique ecclésiastique fondée sur des données de 1770, à vérifier dans l'étude de Ludmila Nesládková.
+
+Le mod utilise actuellement un pool technique de 135 753 habitants.
+
+**Ta priorité est de déterminer si ces chiffres décrivent réellement des périmètres comparables.**
+
+Étudie :
+
+- Les localités et paroisses couvertes par les dénombrements.
+- Les différences entre ressort ecclésiastique, administratif et politique.
+- L'inclusion éventuelle des seigneuries particulières.
+- Les territoires absents ou supplémentaires dans le RGB actuel.
+- Les changements démographiques raisonnablement documentables entre 1770 et 1776.
+
+Construis, si les sources le permettent, un tableau de correspondance entre territoires historiques, localités recensées et portions représentées dans le mod.
+
+Ne fais aucune correction de population par simple proportion de superficie.
+
+Ne considère pas automatiquement la différence de 22 903 habitants comme une erreur du mod.
+
+Si aucune correspondance suffisamment fiable n'est possible, explique pourquoi et formule une proposition de conservation B avec réserve démographique explicite.
+
+## 5. Vérification technique
+
+Examine les fichiers de carte, l'histoire des États et le registre impérial pour vérifier :
+
+- La propriété autrichienne des 179 cellules.
+- L'absence de reconnaissance impériale de toute la Galicie occidentale.
+- La bonne limitation des droits impériaux à `x9061E0`.
+- La conservation des neuf électeurs.
+- L'absence de transfert territorial ou démographique accidentel.
+- La cohérence du nombre de titres impériaux.
+
+Exécute les contrôles statiques ciblés existants lorsque l'environnement le permet.
+
+Les résultats doivent distinguer tests réellement exécutés, preuves antérieures consultées et vérifications qui nécessitent le moteur du jeu.
+
+N'affirme jamais avoir validé une partie de Victoria 3 sans l'avoir effectivement exécutée.
+
+## 6. Arbitrage de catégorie B
+
+À l'issue de la recherche, présente une recommandation argumentée parmi les possibilités suivantes :
+
+**Option A — Conserver la représentation actuelle.**
+
+Les 179 cellules et la population actuelle constituent une approximation politique suffisante pour cette tâche, malgré des limites historiques documentées.
+
+**Option B — Corriger certains éléments.**
+
+Des erreurs territoriales ou démographiques suffisamment démontrées exigent une correction précise. Fournis le périmètre, les preuves, les effets de population et les risques de régression avant toute installation.
+
+**Option C — Maintenir le blocage.**
+
+Les sources disponibles sont insuffisantes pour approuver A ou préparer B sans risque de créer une nouvelle erreur.
+
+Tu peux recommander A, B ou C, mais **tu n'es pas autorisé à approuver l'arbitrage à la place du joueur**.
+
+L'approbation explicite du joueur reste nécessaire avant toute clôture régionale.
+
+## 7. Restrictions
+
+- Ne modifie pas le bitmap, les frontières, les POPs, les propriétaires ou les fichiers de gameplay sans validation préalable.
+- Ne recrée pas un TAG indépendant pour Teschen.
+- Ne réinstalle pas TE-R-CORE.
+- Ne remplace pas une source de 1776 par des frontières du XIXe siècle sans justification.
+- Ne ferme aucune autre tâche du SERG.
+- Ne change ni les priorités P0/P1 ni les points de la feuille de route.
+- N'attribue pas les deux points conditionnels de Teschen.
+- Ne transforme pas les réserves substantielles en simples détails P2 sans démonstration.
+- Ne demande pas au joueur de refaire des contrôles en jeu déjà explicitement attestés pour le même sous-lot.
+- Ne fusionne aucune pull request.
+
+Tu peux produire de nouveaux fichiers de recherche et des propositions de décision dans une branche dédiée. Ne modifie pas le registre de progression canonique tant qu'aucune clôture n'est approuvée.
+
+## 8. Livrables attendus
+
+Prépare :
+
+1. **Un rapport territorial** décrivant les juridictions de Teschen en 1776 et leur correspondance avec les cellules du jeu.
+2. **Un rapport démographique** comparant les deux dénombrements historiques et les 135 753 habitants actuellement représentés.
+3. **Un tableau des incertitudes** distinguant omissions substantielles, imprécisions acceptables et contradictions des sources.
+4. **Une proposition d'arbitrage B** ou un plan de correction ciblé si des erreurs sont démontrées.
+5. **Un compte rendu de vérification technique**, avec résultats des contrôles réellement exécutés.
+6. **Une liste minimale de vérifications humaines restantes** pour TE-R-CORE, en distinguant ce qui est déjà attesté de ce qui ne l'est pas.
+
+Fournis les références historiques précises, avec pages et liens lorsqu'ils sont disponibles.
+
+## 9. Critère de réussite
+
+La mission est réussie lorsque le joueur dispose d'une réponse documentée à cette question :
+
+**« La représentation actuelle de Teschen en 1776 est-elle historiquement suffisamment défendable pour être conservée en catégorie B, ou faut-il la corriger ? »**
+
+Une recommandation claire accompagnée de réserves vérifiables est préférable à une nouvelle modification cartographique non justifiée.
+
+**Commence par consulter le dossier existant, puis mène les recherches manquantes de manière ciblée. Ne répète pas les audits déjà achevés.**
