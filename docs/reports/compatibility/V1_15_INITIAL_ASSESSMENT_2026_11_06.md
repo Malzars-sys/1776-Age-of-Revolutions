@@ -1,7 +1,7 @@
 # Victoria 3 1.15 — Évaluation initiale de compatibilité
 
 Date : 6 novembre 2026. Chantier : issue #20, coordination #19.
-Statut : analyse statique livrée ; protocole de lancement et comparaison à durée égale encore incomplets. **L’issue #20 doit rester ouverte.**
+Statut : analyse statique livrée et lancement vanilla sur la Russie confirmé par le joueur ; premier jour et lancement du mod encore à documenter. **L’issue #20 doit rester ouverte.**
 Aucune compatibilité en jeu n’est certifiée.
 
 ## 1. État de référence et protections
@@ -9,7 +9,7 @@ Aucune compatibilité en jeu n’est certifiée.
 - Installation canonique consultée en lecture seule : `C:\Games\Victoria 3\game`.
 - Build attesté par `code_revisions.log` : `release/1.15.0`, `6338547985dbc271523e149f362a6fd93dc62975`, construit le 3 novembre 2026 à 16:16:50 UTC. Le checksum visible en menu n’a pas été relevé.
 - State and Revolution : installé et activé selon l’utilisateur. Le `content_load.json` capturé indique `enabledMods: []`, `enabledUGC: []`, `disabledDLC: []`. La liste exhaustive des licences/DLC effectivement chargés n’a pas été certifiée.
-- Le lancement vanilla debug était encore en cours lors du message de l’utilisateur. Deux captures provisoires ont été conservées, sans interrompre le jeu. La seconde montre l’initialisation des pays dans `debug.log` ; elle ne prouve ni un premier jour simulé ni une observation humaine des écrans.
+- Après les deux captures provisoires, l’utilisateur a confirmé : « Le jeu s’est complètement lancé et je suis maintenant sur la Russie. » Une troisième capture, `vanilla_russia_loaded_03`, a immédiatement été préservée, avec le même build et aucun mod déclaré. Le lancement complet et l’arrivée sur la Russie sont attestés ; l’avancement du premier jour reste non attesté.
 - Workspace initial : `main`, HEAD `52c42808bdb0748e69fbde3423bb5004b5b1f20a`, avec **77 chemins suivis modifiés et 1 044 fichiers non suivis** dans le relevé détaillé. Ce HEAD seul ne reproduit donc pas l’installation locale.
 - Deux autres worktrees locaux existent : `codex/map-0-collaborator-integration` et `codex/sc4-massa-carrara-finalisation-20261031`. La branche distante historique `hotfix-dlc-audit` est un autre chantier, pas une preuve de migration 1.15.
 - Aucune modification locale de gameplay, de carte, de souveraineté, de POPs, de rapports SERG/WORLD ou de données de départ. Le travail de Sarah/Yekatarina sur `contrib/yekatarina` et #17 est exclu.
@@ -42,12 +42,13 @@ Les deux métadonnées du mod annoncent encore la 1.13 : `descriptor.mod:2` déc
 
 ## 3. Journaux préservés et attribution des erreurs
 
-Les captures `logs_provisional_01` et `logs_provisional_02` contiennent les journaux actifs et leurs rotations. Ce sont des copies successives de fichiers en cours d’écriture, pas des captures atomiques d’un lancement terminé. Les empreintes des fichiers livrés sont dans le manifeste de l’archive.
+Les captures `logs_provisional_01` et `logs_provisional_02`, puis `vanilla_russia_loaded_03`, contiennent les journaux actifs et leurs rotations. Ce sont des copies successives de fichiers pouvant être en cours d’écriture, pas des captures atomiques. La troisième est rattachée à la confirmation humaine du lancement complet sur la Russie. Les empreintes des fichiers livrés sont dans le manifeste de l’archive.
 
 | Échantillon | Résultat observé | Interprétation autorisée |
 | --- | --- | --- |
 | Vanilla 1.15 en cours, capture 01, error.log | 38 messages, 38 signatures exactes | Première étape de chargement seulement. |
 | Même lancement, capture 02, error.log | **219 messages, 209 signatures exactes** | Le chargement a avancé ; plusieurs erreurs de scripts/localisation sont aussi présentes sans mod déclaré. |
+| Vanilla 1.15 sur la Russie, capture 03, error.log | **350 messages, 340 signatures exactes** | Lancement complet attesté par le joueur ; premier jour et intégrité officielle de l’installation non certifiés. |
 | Ancien essai moddé 1.15, error.1.log de la capture 01 | 70 messages ; 8 présents à l’identique dans la capture vanilla 02, 62 autres | Essai très précoce, configuration historique et cause de sortie non certifiées ; pas un test complet. |
 | Anciens error.4.log / error.5.log | Nombreuses erreurs de parsing/références | Les révisions correspondantes indiquent **1.13.11, 15aa89ae42** ; ne pas les appeler régressions 1.15. |
 
@@ -114,7 +115,7 @@ Le correctif n’est **pas installé dans le workspace local actif** à cause de
 
 ## 7. Ordre de traitement proposé après revue
 
-1. **Terminer #20** : lancement vanilla debug achevé, écrans observés, nouvelle partie et premier jour ; capturer avant toute relance. Puis même protocole avec seulement le mod et les mêmes DLC. Conserver le manifeste exact du workspace.
+1. **Terminer #20** : lancement vanilla debug désormais confirmé sur la Russie et journal sauvegardé ; documenter encore le premier jour et le checksum. Puis même protocole avec seulement le mod et les mêmes DLC. Conserver le manifeste exact du workspace.
 2. **#21**, P0 : définitions de guerre puis commandes/liens/modificateurs retirés, par petits lots testables.
 3. **#24, partie journaux/initialisation**, P0 : migrer d’abord les journaux actifs en 1776 et leurs nettoyages, puis les surcharges héritées utilisées.
 4. **#22** : guerre américaine et second conflit ; soutien, application des objectifs, contre-objectifs et paix.
@@ -126,8 +127,8 @@ Tout blocage de lancement effectivement démontré remonte immédiatement avant 
 
 ## 8. Éléments encore nécessaires
 
-- Fin effective du lancement vanilla debug, observations menu/sélection/premier jour et checksum affiché.
-- Journal final vanilla sauvegardé avant le prochain lancement ; les copies actuelles restent provisoires.
+- Avancement effectif du premier jour vanilla et checksum affiché ; le lancement complet sur la Russie est désormais confirmé.
+- Journal vanilla après arrivée sur la Russie déjà sauvegardé avant tout prochain lancement ; renouveler uniquement si un test de simulation apporte de nouvelles observations.
 - Nouveau lancement **du mod** 1.15 debug, sans autre mod, log intégral, étape exacte atteinte et éventuel crash/gel.
 - Liste des DLC réellement chargés et identité du mod/du descripteur local utilisés pour ce test.
 - Confirmation visuelle ultérieure du rendu des deux icônes après installation du correctif.
@@ -140,3 +141,7 @@ Issues lues : [#19](https://github.com/Malzars-sys/1776-Age-of-Revolutions/issue
 [Annonces officielles Paradox sur Steam](https://steamcommunity.com/app/529340/announcements/) : journal de développement #196 du 5 novembre 2026, notes finales 1.15, section Modding ; #194 du 22 octobre, nouveau système de conclusions des journaux. Ces annonces confirment notamment la nouvelle échelle de soutien, l’application d’objectifs durant la guerre, les commandes remplacées et le cuivre natif. Les détails de migration de ce rapport sont aussi confrontés aux scripts et documentations **locaux** de la version installée.
 
 Preuves privées : captures brutes, manifestes SHA-256, inventaire des surcharges, localisations lexicales TSV, comparaison provisoire, utilitaire, validation cuivre et patch d’icônes. Les logs bruts ne sont pas publiés dans GitHub.
+
+## Mise à jour — lancement vanilla confirmé sur la Russie
+
+Le reçu humain exact est conservé dans `vanilla_russia_loaded_receipt.json`. La troisième capture contient **350 messages / 340 signatures exactes**. Elle inclut déjà des références de journaux invalides dans le contenu local sans mod déclaré, par exemple `je_consolidate_central_asia`, source `common/objective_subgoals/02_subgoals_player_objectives_great_game.txt:266`. Ce point est à distinguer des erreurs du mod ; l’origine officielle ou résiduelle de ces fichiers n’a pas été déterminée. Aucun premier jour simulé, aucune nouvelle partie mod 1.15 et aucun résultat de rendu des icônes n’ont encore été attestés.
