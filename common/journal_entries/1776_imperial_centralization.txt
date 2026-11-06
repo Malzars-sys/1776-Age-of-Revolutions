@@ -2,8 +2,24 @@ je_aor1776_hre_centralization = {
 icon = "gfx/interface/icons/central_identity_pillars_icons/aor1776_imperial_federation_v2.dds"
 is_shown_when_inactive = { aor1776_hre_emperor = yes aor1776_hre_four_pillars_max = yes NOT = { has_global_variable = aor1776_hre_unified } }
 possible = { aor1776_hre_four_pillars_max = yes }
-invalid = { aor1776_hre_emperor = no }
-complete = { has_global_variable = aor1776_hre_unified }
+outcome = {
+	flags = { hidden invalid_outcome }
+	conclusion_desc = je_standard_failure_conclusion_desc
+	trigger = {
+		aor1776_hre_emperor = no
+	}
+	effect = {}
+}
+outcome = {
+	header = je_standard_completion_header
+	effect_header = je_standard_on_completion_header
+	color = "gold_positive"
+	conclusion_desc = je_standard_completion_conclusion_desc
+	trigger = {
+		has_global_variable = aor1776_hre_unified
+	}
+	effect = {}
+}
 immediate = { set_variable = { name = aor1776_hre_reform_cooldown days = 730 } trigger_event = { id = aor1776_hre.60 popup = yes } }
 scripted_button = aor1776_hre_centralize_1
 scripted_button = aor1776_hre_centralize_2
