@@ -4,7 +4,17 @@ je_aor1776_revolutionary_spirit = {
 	is_shown_when_inactive = { c:USA ?= this NOT = { has_variable = us_revolt } }
 	possible = { c:USA ?= this aor1776_usa_independence_war_active = yes }
 	immediate = { aor1776_content_initialize_effect = yes aor1776_fervour_refresh_effect = yes }
-	complete = { custom_tooltip = { text = aor1776_independence_resolved_tt has_variable = us_revolt } }
-	on_complete = { aor1776_content_finish_effect = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = { text = aor1776_independence_resolved_tt has_variable = us_revolt }
+		}
+		effect = {
+			aor1776_content_finish_effect = yes
+		}
+	}
 	weight = 900
 }
