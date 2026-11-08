@@ -1,0 +1,62 @@
+[
+  {
+    "file": "events/agitators_events/revolution_events_01.txt",
+    "role": "revolution_option_a",
+    "before_line": 188,
+    "after_line": 188,
+    "native_line": 209,
+    "before": "add_war_exhaustion = {\r\n\t\t\t\t\t\ttarget = ROOT\r\n\t\t\t\t\t\tvalue = 10\r\n\t\t\t\t\t}",
+    "after": "add_war_support_change = {\r\n\t\t\t\t\t\ttarget = ROOT\r\n\t\t\t\t\t\tvalue = -5\r\n\t\t\t\t\t}",
+    "native_payload": "add_war_support_change = {\n\t\t\t\t\t\ttarget = ROOT\n\t\t\t\t\t\tvalue = -5\n\t\t\t\t\t}"
+  },
+  {
+    "file": "events/agitators_events/revolution_events_01.txt",
+    "role": "revolution_option_b",
+    "before_line": 213,
+    "after_line": 213,
+    "native_line": 234,
+    "before": "add_war_exhaustion = {\r\n\t\t\t\ttarget = ROOT\r\n\t\t\t\tvalue = 10\r\n\t\t\t}",
+    "after": "add_war_support_change = {\r\n\t\t\t\ttarget = ROOT\r\n\t\t\t\tvalue = -5\r\n\t\t\t}",
+    "native_payload": "add_war_support_change = {\n\t\t\t\ttarget = ROOT\n\t\t\t\tvalue = -5\n\t\t\t}"
+  },
+  {
+    "file": "events/agitators_events/revolution_events_01.txt",
+    "role": "revolution_trigger_level",
+    "before_line": 152,
+    "after_line": 152,
+    "native_line": 163,
+    "before": "has_war_support = {\r\n\t\t        target = ROOT\r\n\t\t        value < 10\r\n\t\t    }",
+    "after": "has_war_support = {\r\n\t\t        target = ROOT\r\n\t\t        value < 55\r\n\t\t    }",
+    "native_payload": "has_war_support = {\n\t\t        target = ROOT\n\t\t        value < 55\n\t\t    }"
+  },
+  {
+    "file": "events/agitators_events/revolution_events_01.txt",
+    "role": "revolution_selector_level",
+    "before_line": 172,
+    "after_line": 172,
+    "native_line": 183,
+    "before": "has_war_support = {\r\n\t\t\t        target = ROOT\r\n\t\t\t        value < 10\r\n\t\t\t    }",
+    "after": "has_war_support = {\r\n\t\t\t        target = ROOT\r\n\t\t\t        value < 55\r\n\t\t\t    }",
+    "native_payload": "has_war_support = {\n\t\t\t        target = ROOT\n\t\t\t        value < 55\n\t\t\t    }"
+  },
+  {
+    "file": "events/election_events/election_contextual_events.txt",
+    "role": "election_trigger",
+    "before_line": 253,
+    "after_line": 253,
+    "native_line": 261,
+    "before": "has_war_exhaustion = {\n\t\t        target = ROOT\n\t\t        value > 10\n\t\t    }",
+    "after": "has_war_support_change = {\n\t\t        target = ROOT\n\t\t        value < -5\n\t\t    }",
+    "native_payload": "has_war_support_change = {\n\t\t        target = ROOT\n\t\t        value < -5\n\t\t    }"
+  },
+  {
+    "file": "events/election_events/election_contextual_events.txt",
+    "role": "election_selector",
+    "before_line": 294,
+    "after_line": 294,
+    "native_line": 303,
+    "before": "has_war_exhaustion = {\n\t\t\t        target = ROOT\n\t\t\t        value > 10\n\t\t\t    }",
+    "after": "has_war_support_change = {\n\t\t\t        target = ROOT\n\t\t\t        value < -5\n\t\t\t    }",
+    "native_payload": "has_war_support_change = {\n\t\t\t        target = ROOT\n\t\t\t        value < -5\n\t\t\t    }"
+  }
+]
