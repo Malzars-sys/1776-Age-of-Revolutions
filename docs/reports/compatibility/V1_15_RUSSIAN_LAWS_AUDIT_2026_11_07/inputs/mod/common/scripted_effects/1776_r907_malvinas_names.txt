@@ -1,0 +1,10 @@
+# State scope: only the Spanish-owned split portion. No global hub override.
+aor1776_r907_malvinas_names = {
+ if = { limit = { state_region = s:STATE_SOUTH_ATLANTIC_ISLANDS owner = { c:SC4 ?= this } }
+  set_hub_name = { type = city name = aor1776_r907_malvinas_city }
+  set_hub_name = { type = port name = aor1776_r907_malvinas_port }
+  set_hub_name = { type = farm name = aor1776_r907_malvinas_farm }
+  set_hub_name = { type = mine name = aor1776_r907_malvinas_mine }
+  set_hub_name = { type = wood name = aor1776_r907_malvinas_wood }
+ }
+}

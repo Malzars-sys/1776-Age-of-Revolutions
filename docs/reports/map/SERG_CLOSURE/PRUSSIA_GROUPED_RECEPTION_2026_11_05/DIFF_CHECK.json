@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "method": "git diff --no-index --check against exact captured canonical preimages",
+  "reason": "Normal git diff --check returned fatal: this operation must be run in a work tree, despite rev-parse reporting the main working tree. No Git configuration changed. Direct file comparisons avoid modifying Git state.",
+  "normal_diff_attempt": {
+    "returncode": 128,
+    "stderr": "fatal: this operation must be run in a work tree"
+  },
+  "no_index_returncode_1": "Expected file differences; whitespace failure is checked separately in diagnostics.",
+  "files": [
+    {
+      "file": "ROADMAP_STATE.json",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "",
+      "whitespace_errors": [],
+      "passed": true
+    },
+    {
+      "file": "ROADMAP.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\docs\\reports\\map\\SERG_CLOSURE\\PRUSSIA_GROUPED_RECEPTION_2026_11_05\\before\\ROADMAP.md', LF will be replaced by CRLF the next time Git touches it\n",
+      "whitespace_errors": [],
+      "passed": true
+    },
+    {
+      "file": "NEXT_ACTION.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\docs\\reports\\map\\SERG_CLOSURE\\PRUSSIA_GROUPED_RECEPTION_2026_11_05\\before\\NEXT_ACTION.md', LF will be replaced by CRLF the next time Git touches it\n",
+      "whitespace_errors": [],
+      "passed": true
+    },
+    {
+      "file": "BLOCKERS.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\docs\\reports\\map\\SERG_CLOSURE\\PRUSSIA_GROUPED_RECEPTION_2026_11_05\\before\\BLOCKERS.md', LF will be replaced by CRLF the next time Git touches it\n",
+      "whitespace_errors": [],
+      "passed": true
+    },
+    {
+      "file": "PROGRESS_HISTORY.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\docs\\reports\\map\\SERG_CLOSURE\\PRUSSIA_GROUPED_RECEPTION_2026_11_05\\before\\PROGRESS_HISTORY.md', LF will be replaced by CRLF the next time Git touches it\n",
+      "whitespace_errors": [],
+      "passed": true
+    },
+    {
+      "file": "CLOSURE_CHECKLIST.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "",
+      "whitespace_errors": [],
+      "passed": true
+    }
+  ]
+}

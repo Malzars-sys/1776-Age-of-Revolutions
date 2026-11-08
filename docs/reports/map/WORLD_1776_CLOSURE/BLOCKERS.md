@@ -114,3 +114,8 @@ Les mentions antérieures «test africain en attente» décrivent leurs versions
 ## CENTRAL-ASIA-01 — limites ouvertes
 
 Darvaz/Badakhshan réservé à l’interface durranie ; aucune nouvelle relation de vassalité pamirienne sans preuve1776. Limites de jüz, Qing, Hissar/Aral et petites oasis non cadastrales. SEMIRECHE interne ne signifie pas automatiquement Grande jüz ; Gouriev utilise le vrai port dessiné, son pointeur minier erroné reste une dette de locator non déplacé. Noms/capitales/drapeaux, lois effectives, emploi/budgets et simulation/sauvegarde attendent le contrôle groupé. Aucun test intermédiaire par pays, aucune reprise flavor ou autre région automatique. Scandinavie non attestée en moteur ; Afrique acceptée pour le moment inchangée.
+
+
+## RUSSIA-01 — limites et moteur
+
+NNT est une approximation coloniale de communautés à contrôle impérial discontinu ; la sujétion et1746 ne sont pas niées. Tracé saisonnier/cadastral, petits hubs, chef/drapeau et budget non certifiés. Culture ugrian héritée, allocation indigène technique, pas nouveau recensement. Cosaques : emplois/arable/PM/croissance et petite portion d’Ouralsk attendent moteur ; lois et objets1.15 passent les contrôles statiques, pas une observation de chargement. Dettes préexistantes RUS/CKC publiées, aucune attribution abusive au lot. Test russe groupé, aucun test intermédiaire par pays ou transition automatique.

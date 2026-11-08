@@ -4,7 +4,7 @@
   "historical_date": "1776-01-01",
   "initialized_on": "2026-10-18",
   "canonical_roadmap": "docs/reports/map/SERG_CLOSURE/ROADMAP.md",
-  "mission_status": "SIX_GROUPED_TASKS_USER_VALIDATED_CLOSURE_PREPARATION_ONLY",
+  "mission_status": "WESTERN_RESERVES_ARBITRATED_DUTCH_CORES_INSTALLED_ENGINE_TESTS_DEFERRED",
   "territorial_status": "INCOMPLETE",
   "initialization": {
     "territorial_changes": 0,
@@ -2576,7 +2576,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P0",
       "kind": "territorial",
-      "status": "BLOCKED",
+      "status": "IN_PROGRESS",
       "sectors": [
         "H04"
       ],
@@ -2586,7 +2586,8 @@
       "historical_sources": [
         "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/REGIONAL_COVERAGE.csv:1",
         "docs/reports/map/MAP1/inputs/regional_originals/R2_NORTHERN_CENTRAL_EASTERN_EUROPE_RECOMMENDATIONS.csv:1",
-        "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/SOURCES.md:1"
+        "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/SOURCES.md:1",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/SOURCES.md"
       ],
       "before": "R2-0133/136/137: inventaire bibliographique seulement; limites natives non homologuées.",
       "expected": "Examen territorial indépendant des possessions intercalées et des limites extérieures à l’Empire.",
@@ -2596,35 +2597,41 @@
         "Examen territorial indépendant des possessions intercalées et des limites extérieures à l’Empire."
       ],
       "implementation_report": [
-        "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/REPORT.md"
+        "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/REPORT.md"
       ],
-      "installed_lots": [],
+      "installed_lots": [
+        "SERG_CLOSURE/BAVARIA_V1_2026_11_05"
+      ],
       "static_tests": {
         "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/VALIDATION.json"
         ]
       },
       "runtime_validation": {
-        "required": false,
+        "required": true,
         "status": "NOT_RUN",
         "attestation": null,
-        "scope": "No new functional installation. Optional conservation protocol does not resolve the historical mapping blocker.",
-        "new_details_invented": false
+        "scope": "BV-INNBAIERN-175 only: existing province xFDA6CB, 175 cells AUS to BAV, estimated 106900 people and scoped Innbaiern naming; no full regional approval.",
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PLAYER_TEST_PROTOCOL.md"
       },
       "decision": {
-        "classification": "HISTORICAL_GAP_PROVED_MAPPING_UNRESOLVED",
+        "classification": "B_POLITICAL_GENERALISATION_INSTALLED",
         "no_correction_required": false,
         "approved_by": null,
-        "reason": "Innviertel encore bavarois en 1776, acquis par l'Autriche en 1779; correspondance suffisante au bitmap non démontrée pour distinguer la portion à transférer des interfaces Salzbourg/Passau/Hausruck. Nouveau périmètre politique B étayé ou contrôle indépendant requis; pas de reprise du calage R4 non homologué.",
+        "authority": "User authorized Bavaria after approving the Prussian report; agent selected the documented B correction, no user runtime validation inferred.",
+        "reason": "Innbaiern is Bavarian at 1776 start. Existing 175-cell western province transferred without bitmap change; approved PAS/SLZ cores protected. Fine jurisdiction and region-wide criteria remain separate.",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/SOURCES.md",
-          "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/SECTOR_AUDIT.md",
-          "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/OPTIONS_REVIEW.json",
-          "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/BOUNDARY_AUDIT.json"
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/SOURCES.md",
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/GEOMETRY.json",
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/INSTALLATION.json",
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/VALIDATION.json"
         ]
       },
-      "residual_uncertainty": "P0 de couverture non clos : limites Innviertel/Hausruck et interfaces Salzburg/Passau non homologuées au bitmap, même pour un transfert politique B. Onze RGB/2523 cellules conservés; aucun cadastre, transfert ou point Autriche acquis. Ne pas confondre conservation technique avec conformité historique.",
+      "residual_uncertainty": "Innbaiern political B proxy installed, not a cadastral equivalence. Vichtenstein/Neuburg/Wernstein, Salzburg outlying jurisdictions and wider Austrian regional obligations remain unclosed; population estimate from 1771/81, not exact 1776 census. Market, naming and simulation require player validation.",
       "mandatory_1_0": true,
       "historical_region": [
         "Autriche, Styrie, Carinthie et Carniole"
@@ -2637,9 +2644,25 @@
         "Couverture insuffisante des grands territoires habsbourgeois",
         "Précision du défaut R02 dans le périmètre existant : Innviertel bavarois avant 1779, correspondance à la portion native à corriger non démontrée"
       ],
-      "blocking_reason": "Innviertel encore bavarois en 1776, acquis par l'Autriche en 1779; correspondance suffisante au bitmap non démontrée pour distinguer la portion à transférer des interfaces Salzbourg/Passau/Hausruck. Nouveau périmètre politique B étayé ou contrôle indépendant requis; pas de reprise du calage R4 non homologué.",
-      "current_delivery_note": "Blocage P0 expressément maintenu par le joueur le 19 octobre : Innviertel bavarois au 1er janvier 1776, cession en 1779. Conservation définitive de l'erreur potentielle non approuvée. Aucun test moteur supplémentaire requis pour le diagnostic sans installation; aucun PASS ni point. Reprise future par proposition politique B étayée sur cartes et voisins ou arbitrage explicite; pas de recyclage des anciens calages. Les autres P0 indépendants peuvent avancer.",
-      "user_acknowledgment": "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/USER_ACKNOWLEDGMENT_2026_10_19.json"
+      "blocking_reason": "Old western mapping blocker advanced by a bounded regional B installation; residual peripheral jurisdictions and full regional criteria remain explicit. No regional terminal status or points.",
+      "current_delivery_note": "Bavière V1 : 175 cellules existantes AUS→BAV, population estimée 106900 et nom Innbaiern. Bitmap, PAS/SLZ, bâtiments, unités et pays conservés ; 599 titres, un bénéficiaire changé. Sous-lot prêt au joueur, aucun nouveau PASS ni point Autriche.",
+      "user_acknowledgment": "docs/reports/map/SERG_CLOSURE/SC2-AUSTRIA/USER_ACKNOWLEDGMENT_2026_10_19.json",
+      "installed_delivery_status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "installed_sub_lots": [
+        {
+          "id": "BV-INNBAIERN-175",
+          "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "classification": "B_POLITICAL_GENERALISATION",
+          "cells": 175,
+          "rgb": "xFDA6CB",
+          "state": "STATE_AUSTRIA",
+          "previous_owner": "AUS",
+          "owner": "BAV",
+          "population": 106900,
+          "attestation": null,
+          "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PLAYER_TEST_PROTOCOL.md"
+        }
+      ]
     },
     {
       "id": "SC2-INNER-AUSTRIA",
@@ -3409,7 +3432,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "territorial",
-      "status": "NOT_STARTED",
+      "status": "DEFERRED_APPROVED",
       "sectors": [
         "A07"
       ],
@@ -3417,7 +3440,11 @@
         "R11"
       ],
       "historical_sources": [
-        "docs/reports/map/MAP2M/R9/PRUSSIAN_HRE_BORDERS_AUDIT.md:1"
+        "docs/reports/map/MAP2M/R9/PRUSSIAN_HRE_BORDERS_AUDIT.md:1",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/SOURCES.md"
       ],
       "before": "Audit macro; frontières Magdebourg/Halberstadt et franges non certifiées RGB par RGB.",
       "expected": "Possessions impériales de PRU seulement; conserver Anhalt/T/U et économie existante.",
@@ -3426,21 +3453,60 @@
       "acceptance": [
         "Possessions impériales de PRU seulement; conserver Anhalt/T/U et économie existante."
       ],
-      "implementation_report": [],
-      "installed_lots": [],
+      "implementation_report": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md"
+      ],
+      "installed_lots": [
+        "SERG_CLOSURE/PRUSSIA_V1_2026_11_02",
+        "SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05",
+        "SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05"
+      ],
       "static_tests": {
-        "status": "NOT_RUN",
-        "evidence": []
+        "status": "PASS",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/CURRENT_REVIEW_CHECKS.json"
+        ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "NOT_RUN",
-        "attestation": null,
-        "scope": null,
-        "new_details_invented": false
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-BRANDENBURG_RUNTIME_USER_ATTESTATION.json",
+        "scope": "PR-V1-LOWER-LUSATIA",
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md",
+        "previous_protocol": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/PLAYER_TEST_PROTOCOL.md",
+        "scopes": [
+          "PR-V1-LOWER-LUSATIA",
+          "NS1-KURKREIS",
+          "NS1-FLAMING-MEISSEN",
+          "MH-SAALE-CORE",
+          "MH-GOMMERN-CORE"
+        ],
+        "deferred_until_prussia_finished_by_user": false,
+        "scope_type": "INSTALLED_SUB_LOTS_ONLY",
+        "regional_closure_approved": false,
+        "protocol_completion_claimed": false
       },
-      "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "decision": {
+        "nonblocking_1_0": true,
+        "approved_by": "user",
+        "reason": "Accord explicite sur le gel Prusse V1 et le report des obligations résiduelles territoriales/démographiques de la proposition finale ; noyaux installés déjà reçus conservés.",
+        "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/DECISION_MATRIX.json"
+        ]
+      },
+      "residual_uncertainty": "Revue finale : aucune reprise de noyau Anhalt pour Barby sans attribution indépendante ; part magdebourgeoise de Mansfeld déjà sous suzeraineté PRU avant 1780, pas de transfert global justifié. Limites locales C et couverture démographique régionale restent ouvertes. Gel V1/report P1 approuvés explicitement.",
       "mandatory_1_0": true,
       "historical_region": [
         "Brandebourg, Neumark, Magdebourg–Halberstadt"
@@ -3451,7 +3517,64 @@
       "jurisdiction": "Brandebourg, Magdebourg et Halberstadt",
       "identified_problem": [
         "Magdebourg/Halberstadt, Lusaces et partition silésienne"
-      ]
+      ],
+      "installed_delivery_status": "PASS_RUNTIME_USER_VALIDATED",
+      "installed_sub_lots": [
+        {
+          "id": "PR-V1-LOWER-LUSATIA",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "scope": "Luckau/Lübben, Guben/Forst et raccord Neuzelle/Pforten ; Cottbus/Peitz PRU conservé",
+          "cells": 393,
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-BRANDENBURG_RUNTIME_USER_ATTESTATION.json"
+        },
+        {
+          "id": "NS1-KURKREIS",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "scope": "Wittenberg/Torgau/Annaburg, Bitterfeld/Duben/Delitzsch/Eilenburg, STATE_ANHALT",
+          "cells": 352,
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-BRANDENBURG_RUNTIME_USER_ATTESTATION.json"
+        },
+        {
+          "id": "NS1-FLAMING-MEISSEN",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "scope": "Belzig/Juterbog/Dahme/Baruth, Herzberg/Liebenwerda/Elsterwerda, STATE_BRANDENBURG",
+          "cells": 254,
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-BRANDENBURG_RUNTIME_USER_ATTESTATION.json"
+        },
+        {
+          "id": "MH-SAALE-CORE",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "cells": 69,
+          "classification": "B_POLITICAL_GENERALISATION",
+          "scope": "Mersebourg/Querfurt/Weißenfels/Naumbourg",
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-BRANDENBURG_RUNTIME_USER_ATTESTATION.json"
+        },
+        {
+          "id": "MH-GOMMERN-CORE",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "cells": 8,
+          "classification": "B_POLITICAL_GENERALISATION",
+          "scope": "Office de Gommern ; Barby non clôturé",
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-BRANDENBURG_RUNTIME_USER_ATTESTATION.json"
+        }
+      ],
+      "current_delivery_note": "Sous-lots cartographiques installés reçus explicitement par le joueur : un mois, sauvegarde/rechargement réussis. Aucun fichier fonctionnel changé dans cette réception.",
+      "next_bounded_action": "Prusse figée pour la V1 ; conserver réserves et noyaux reçus. Reprise distincte sur preuve nouvelle ou nouvelle instruction.",
+      "regional_closure_review": {
+        "status": "OPEN_NOT_A_RUNTIME_FAILURE",
+        "evidence": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/CLOSURE_REVIEW.json",
+        "reason": "Barby non délimité sans toucher Anhalt protégé ; parts de Mansfeld et succession de 1780 non résolues. Ventilation démographique technique, pas couverture historique régionale. Le test reçoit les cinq installations, pas ces obligations."
+      },
+      "v1_final_review": {
+        "status": "USER_APPROVED_V1_FREEZE_AND_RESIDUAL_DEFERRAL",
+        "report": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md",
+        "proposal": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+        "functional_changes": 0,
+        "proposed_status": "DEFERRED_APPROVED",
+        "proposed_status_applied": true,
+        "user_approved": true,
+        "approval": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json"
+      }
     },
     {
       "id": "SC3-SILESIA-LUSATIA",
@@ -3461,7 +3584,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "territorial",
-      "status": "NOT_STARTED",
+      "status": "DEFERRED_APPROVED",
       "sectors": [
         "H03"
       ],
@@ -3470,7 +3593,10 @@
       ],
       "historical_sources": [
         "docs/reports/map/MAP2M/R9/PRUSSIAN_HRE_BORDERS_AUDIT.md:1",
-        "docs/reports/map/MAP1B/MAP1B_GEOGRAPHIC_EVIDENCE/SILESIA_READING.md:1"
+        "docs/reports/map/MAP1B/MAP1B_GEOGRAPHIC_EVIDENCE/SILESIA_READING.md:1",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/SOURCES.md"
       ],
       "before": "Études et maintiens proposés, pas reconstruction complète de la frontière.",
       "expected": "Partition 1742/1763, pas acquisitions 1815; diagnostics MAP1B ne sont pas limites certifiées.",
@@ -3479,21 +3605,50 @@
       "acceptance": [
         "Partition 1742/1763, pas acquisitions 1815; diagnostics MAP1B ne sont pas limites certifiées."
       ],
-      "implementation_report": [],
-      "installed_lots": [],
+      "implementation_report": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md"
+      ],
+      "installed_lots": [
+        "SERG_CLOSURE/PRUSSIA_V1_2026_11_02"
+      ],
       "static_tests": {
-        "status": "NOT_RUN",
-        "evidence": []
+        "status": "PASS",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/CURRENT_REVIEW_CHECKS.json"
+        ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "NOT_RUN",
-        "attestation": null,
-        "scope": null,
-        "new_details_invented": false
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-SILESIA-LUSATIA_RUNTIME_USER_ATTESTATION.json",
+        "scope": "PR-V1-UPPER-LUSATIA",
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md",
+        "deferred_until_prussia_finished_by_user": false,
+        "scope_type": "INSTALLED_SUB_LOTS_ONLY",
+        "regional_closure_approved": false,
+        "scopes": [
+          "PR-V1-UPPER-LUSATIA"
+        ],
+        "protocol_completion_claimed": false
       },
-      "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "decision": {
+        "nonblocking_1_0": true,
+        "approved_by": "user",
+        "reason": "Accord explicite sur le gel Prusse V1 et le report des obligations résiduelles territoriales/démographiques de la proposition finale ; noyaux installés déjà reçus conservés.",
+        "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/DECISION_MATRIX.json"
+        ]
+      },
+      "residual_uncertainty": "Frontière Glatz/Silésie approuvée et noyau lusacien reçu, sans réouverture. Couverture démographique historique régionale non acquise ; report P1 résiduel pour gel V1 approuvé explicitement.",
       "mandatory_1_0": true,
       "historical_region": [
         "Silésie prussienne, Glatz et Lusaces"
@@ -3504,7 +3659,41 @@
       "jurisdiction": "Silésie prussienne, Glatz et Lusaces",
       "identified_problem": [
         "Magdebourg/Halberstadt, Lusaces et partition silésienne"
-      ]
+      ],
+      "installed_delivery_status": "PASS_RUNTIME_USER_VALIDATED",
+      "installed_sub_lots": [
+        {
+          "id": "PR-V1-UPPER-LUSATIA",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "scope": "Sorau, Hoyerswerda/Spremberg/Muskau, Görlitz/Lauban ; Sagan PRU conservé",
+          "cells": 418,
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-SILESIA-LUSATIA_RUNTIME_USER_ATTESTATION.json"
+        }
+      ],
+      "current_delivery_note": "Sous-lots cartographiques installés reçus explicitement par le joueur : un mois, sauvegarde/rechargement réussis. Aucun fichier fonctionnel changé dans cette réception.",
+      "boundary_review": {
+        "scope": "Glatz et frontière prusso-autrichienne silésienne, hors nouvelle intervention sur les Lusaces",
+        "status": "RETAIN_EXISTING_B_USER_APPROVED",
+        "decision": "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/DECISION_USER_APPROVED_2026_11_05.json",
+        "new_functional_changes": 0,
+        "human_approved": true
+      },
+      "next_bounded_action": "Prusse figée pour la V1 ; conserver réserves et noyaux reçus. Reprise distincte sur preuve nouvelle ou nouvelle instruction.",
+      "regional_closure_review": {
+        "status": "OPEN_NOT_A_RUNTIME_FAILURE",
+        "evidence": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/CLOSURE_REVIEW.json",
+        "reason": "Maintien Glatz/frontière silésienne déjà approuvé et noyau lusacien maintenant reçu. La couverture démographique au périmètre régional exigée par le profil territorial reste explicitement ouverte dans le rapport Glatz ; aucune population historique nouvelle ni dérogation approuvée dans cette réception."
+      },
+      "v1_final_review": {
+        "status": "USER_APPROVED_V1_FREEZE_AND_RESIDUAL_DEFERRAL",
+        "report": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md",
+        "proposal": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+        "functional_changes": 0,
+        "proposed_status": "DEFERRED_APPROVED",
+        "proposed_status_applied": true,
+        "user_approved": true,
+        "approval": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json"
+      }
     },
     {
       "id": "SC3-SWEDISH-DEPENDENCIES",
@@ -4060,7 +4249,9 @@
       ],
       "historical_sources": [
         "docs/reports/map/SERG_GLOBAL_CLOSURE_AUDIT/HISTORICAL_GAPS.md:1",
-        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/SOURCES.md:1"
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/SOURCES.md:1",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/SOURCES.md:1",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/SOURCES.md:1"
       ],
       "before": "MOD/PAR/TUS présents au registre gelé; aucune reconstruction territoriale dédiée retrouvée. Pas toute Italie impériale par défaut.",
       "expected": "Réutiliser R1-0024/0025; arbitrer mariage dynastique vs institutions territoriales, sans fusion automatique MOD.",
@@ -4072,7 +4263,14 @@
       "implementation_report": [
         "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/REPORT.md",
         "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/B_PROPOSAL.md",
-        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ACCEPTANCE_2026_10_23.md"
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ACCEPTANCE_2026_10_23.md",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/RESEARCH_DECISION.json",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/TECHNICAL_VERIFICATION.md",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/RESEARCH_DECISION.json"
       ],
       "installed_lots": [
         "SERG_CLOSURE/SC4-MASSA-CARRARA"
@@ -4080,7 +4278,9 @@
       "static_tests": {
         "status": "PASS",
         "evidence": [
-          "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/VALIDATION.json"
+          "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/SCOPED_STATIC_RESULTS.json",
+          "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/STATIC_RESULTS.json"
         ]
       },
       "runtime_validation": {
@@ -4092,7 +4292,7 @@
         "protocol": "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/PLAYER_TEST_PROTOCOL.md"
       },
       "decision": null,
-      "residual_uncertainty": "P0 : MC-I-CORE restitue la souveraineté de résidence de Massa-Carrare, mais huit cellules et 10000 habitants massais ne certifient pas le périmètre et la population complète de Carrare ou les possessions périphériques. Reprise concrète : depuis le détail Robert 1750 déjà lu et le noyau livré, examiner les cellules MOD au nord-ouest (notamment [4324,1028], [4325,1028], [4326,1028], candidats non attribués), distinguer Carrare/Avenza de Sarzana/Lerici, Montignoso LUC, Pietrasanta/Seravezza TUS et Garfagnana MOD ; établir un relevé démographique comparable avant extension B. Pas de transfert de province entière ou de nouvelle personnalité juridique nécessaire : MCA existe désormais. Capitale et institutions du seul MC-I-CORE validées en jeu par le joueur ; aucun nouveau hub Massa ou port industriel prétendu. Cette validation ne résout pas la couverture territoriale et démographique complète de Carrare.",
+      "residual_uncertainty": "P0 Carrare/Avenza — NO-GO du 1er novembre 2026 après lecture effective de Zatta 1783 (épreuve indépendante, référence Rumsey 11598.169 vérifiée au catalogue). Avenza et le relief sont mieux identifiés, mais aucune correspondance indépendante des principales localités aux cellules ne départage A/B/C ; les cours d’eau locaux sont absents du secteur natif examiné. Commune statistique de 8010 habitants non appariée au ressort représenté. Noyau MCA huit cellules/10000 habitants, MOD résiduel 108/495752 et reçu MC-I-CORE préservés. Aucun transfert, clôture ou point ; trois points conditionnels restent non attribués. Recherche active arrêtée à la borne de mission, suspension recommandée sans report P1/P2 approuvé. Reprise seulement après réception du dossier primaire communal de 1775 exploitable (plans Avenza b.84–86, Carrare b.87–88, légende/ressort/localités). Originaux non obtenus ; rubriques publiques d’accès numérique/reproduction HTTP 403. Demande préparée non envoyée ; aucune nouvelle recherche identique proposée.",
       "mandatory_1_0": true,
       "historical_region": [
         "Modène, Parme et Toscane"
@@ -4105,7 +4305,7 @@
         "Italie impériale et Savoie insuffisamment auditées",
         "Souveraineté Cybo-Malaspina omise et confondue avec MOD ; noyau restitué, couverture complète de Carrare et démographie périphérique distinctes."
       ],
-      "blocking_reason": "P0 : MC-I-CORE restitue la souveraineté de résidence de Massa-Carrare, mais huit cellules et 10000 habitants massais ne certifient pas le périmètre et la population complète de Carrare ou les possessions périphériques. Reprise concrète : depuis le détail Robert 1750 déjà lu et le noyau livré, examiner les cellules MOD au nord-ouest (notamment [4324,1028], [4325,1028], [4326,1028], candidats non attribués), distinguer Carrare/Avenza de Sarzana/Lerici, Montignoso LUC, Pietrasanta/Seravezza TUS et Garfagnana MOD ; établir un relevé démographique comparable avant extension B. Pas de transfert de province entière ou de nouvelle personnalité juridique nécessaire : MCA existe désormais. Capitale et institutions du seul MC-I-CORE validées en jeu par le joueur ; aucun nouveau hub Massa ou port industriel prétendu. Cette validation ne résout pas la couverture territoriale et démographique complète de Carrare.",
+      "blocking_reason": "P0 Carrare/Avenza — NO-GO du 1er novembre 2026 après lecture effective de Zatta 1783 (épreuve indépendante, référence Rumsey 11598.169 vérifiée au catalogue). Avenza et le relief sont mieux identifiés, mais aucune correspondance indépendante des principales localités aux cellules ne départage A/B/C ; les cours d’eau locaux sont absents du secteur natif examiné. Commune statistique de 8010 habitants non appariée au ressort représenté. Noyau MCA huit cellules/10000 habitants, MOD résiduel 108/495752 et reçu MC-I-CORE préservés. Aucun transfert, clôture ou point ; trois points conditionnels restent non attribués. Recherche active arrêtée à la borne de mission, suspension recommandée sans report P1/P2 approuvé. Reprise seulement après réception du dossier primaire communal de 1775 exploitable (plans Avenza b.84–86, Carrare b.87–88, légende/ressort/localités). Originaux non obtenus ; rubriques publiques d’accès numérique/reproduction HTTP 403. Demande préparée non envoyée ; aucune nouvelle recherche identique proposée.",
       "installed_delivery_status": "PASS_RUNTIME_USER_VALIDATED",
       "installed_sub_lots": [
         {
@@ -4155,7 +4355,7 @@
           "attestation": "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/RUNTIME_USER_ATTESTATION_2026_10_23.json"
         }
       ],
-      "current_delivery_note": "MC-I-CORE seul PASS_RUNTIME_USER_VALIDATED selon confirmation explicite du protocole intégral : MCA et huit cellules xEDBC00, 10000 habitants, Marie-Thérèse, capitale/institutions, administration et droits impériaux bornés, voisins et populations conservés, un mois sans anomalie, sauvegarde/rechargement réussis. Aucune date effective, capture, mesure moteur ou observation supplémentaire inventée. SC4-MASSA-CARRARA reste BLOCKED P0 pour Carrare et les périphéries ; aucun point régional.",
+      "current_delivery_note": "MC-I-CORE seul PASS_RUNTIME_USER_VALIDATED selon confirmation explicite du protocole intégral : MCA et huit cellules xEDBC00, 10000 habitants, Marie-Thérèse, capitale/institutions, administration et droits impériaux bornés, voisins et populations conservés, un mois sans anomalie, sauvegarde/rechargement réussis. Aucune date effective, capture, mesure moteur ou observation supplémentaire inventée. SC4-MASSA-CARRARA reste BLOCKED P0 pour Carrare et les périphéries ; aucun point régional. Recherche ciblee du 31 octobre : table 1775 confirmee directement, options non installees faute de correspondance d'ensemble suffisamment solide ; cotes des cartes contemporaines identifiees. Rapport : docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/REPORT.md. Dernière vérification Zatta du 1er novembre : NO-GO, aucune installation ; recherche arrêtée, suspension recommandée jusqu’à preuve primaire extérieure. docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/REPORT.md.",
       "delivered_scope": {
         "classification": "B_COASTAL_SOVEREIGN_RESIDENCE_NUCLEUS",
         "sub_lots": [
@@ -4169,6 +4369,25 @@
         "cadastral_validation": false,
         "world_population_unchanged": true,
         "imperial_physical_extent_unchanged": true
+      },
+      "targeted_research_2026_10_31": {
+        "status": "TABLE_VISUALLY_CONFIRMED_GEOGRAPHY_BLOCKED",
+        "report": "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/REPORT.md",
+        "functional_installation": false,
+        "proposed_population_transfer": 8010,
+        "actual_population_transfer": 0,
+        "actual_pixel_transfer": 0,
+        "human_receipt_created": false
+      },
+      "targeted_research_2026_11_01": {
+        "status": "NO_GO_RESEARCH_STOPPED",
+        "report": "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/REPORT.md",
+        "decision": "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/RESEARCH_DECISION.json",
+        "suspension_recommended": true,
+        "regional_deferral_approved": false,
+        "external_evidence_gate": "Receipt of an exploitable primary 1775 communal territorial dossier: Avenza b.84-86 and Carrara b.87-88 with legend/jurisdiction/localities, sufficient for independent map-to-bitmap and communal-coverage correspondence.",
+        "functional_installation": false,
+        "human_receipt_created": false
       }
     },
     {
@@ -4372,7 +4591,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "territorial",
-      "status": "NOT_STARTED",
+      "status": "DEFERRED_APPROVED",
       "sectors": [
         "B05"
       ],
@@ -4380,7 +4599,12 @@
         "R14"
       ],
       "historical_sources": [
-        "docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/UNRESOLVED.csv:1"
+        "docs/reports/map/MAP2L/RHINE_WESTPHALIA_COMPLETION/UNRESOLVED.csv:1",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/SOURCES_AND_ARBITRATION.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/SOURCES.md"
       ],
       "before": "Cœurs PRU maintenus; partage Gueldre et bordures non achevés.",
       "expected": "Partage de 1713 et limites importantes; Minden acquis conservé, pas acquisitions XIXe.",
@@ -4389,21 +4613,60 @@
       "acceptance": [
         "Partage de 1713 et limites importantes; Minden acquis conservé, pas acquisitions XIXe."
       ],
-      "implementation_report": [],
-      "installed_lots": [],
+      "implementation_report": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md"
+      ],
+      "installed_lots": [
+        "SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05",
+        "SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05",
+        "SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05"
+      ],
       "static_tests": {
-        "status": "NOT_RUN",
-        "evidence": []
+        "status": "PASS",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_2026_11_05/CONSERVATION_PRE_TRACKING.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_2026_11_05/BERG_HYPOTHESES.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/CURRENT_REVIEW_CHECKS.json"
+        ]
       },
       "runtime_validation": {
         "required": true,
-        "status": "NOT_RUN",
-        "attestation": null,
-        "scope": null,
-        "new_details_invented": false
+        "status": "PASS_RUNTIME_USER_VALIDATED",
+        "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC5-PRUSSIAN-WEST_RUNTIME_USER_ATTESTATION.json",
+        "scope": "PW-RAVENSBERG-B32",
+        "new_details_invented": false,
+        "protocol": "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md",
+        "deferred_until_prussia_finished_by_user": false,
+        "scopes": [
+          "PW-RAVENSBERG-B32",
+          "PW-GUELDRE-B53",
+          "PW-CLEVE-GUELDRE-NORTH-B19",
+          "PW-VENLO-NET-B4",
+          "PW-BEESEL-NET-B4"
+        ],
+        "scope_type": "INSTALLED_SUB_LOTS_ONLY",
+        "regional_closure_approved": false,
+        "protocol_completion_claimed": false
       },
-      "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "decision": {
+        "nonblocking_1_0": true,
+        "approved_by": "user",
+        "reason": "Accord explicite sur le gel Prusse V1 et le report des obligations résiduelles territoriales/démographiques de la proposition finale ; noyaux installés déjà reçus conservés.",
+        "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/DECISION_MATRIX.json"
+        ]
+      },
+      "residual_uncertainty": "Arbitrage V1 Clèves/Mark/Berg et cinq sous-lots reçus conservés. Aucune nouvelle correction défendable proposée ; intégralité des limites locales et couverture démographique restent des réserves de la tâche. Report P1 approuvé explicitement.",
       "mandatory_1_0": true,
       "historical_region": [
         "Clèves, Mark, Ravensberg et Gueldre prussienne"
@@ -4414,7 +4677,74 @@
       "jurisdiction": "Gueldre, Clèves, Mark et Ravensberg",
       "identified_problem": [
         "Gueldre prussienne et Clèves/Mark/Ravensberg"
-      ]
+      ],
+      "current_delivery_note": "Sous-lots cartographiques installés reçus explicitement par le joueur : un mois, sauvegarde/rechargement réussis. Aucun fichier fonctionnel changé dans cette réception.",
+      "investigation_status": "V1_ARBITRATION_RETAINED_INSTALLED_CORES_USER_VALIDATED_REGION_OPEN",
+      "next_bounded_action": "Prusse figée pour la V1 ; conserver réserves et noyaux reçus. Reprise distincte sur preuve nouvelle ou nouvelle instruction.",
+      "installed_delivery_status": "PASS_RUNTIME_USER_VALIDATED",
+      "installed_sub_lots": [
+        {
+          "id": "PW-RAVENSBERG-B32",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "cells": 32,
+          "classification": "B_POLITICAL_GENERALISATION",
+          "scope": "Noyau partiel : 9 SCM, 6 WPM et 17 HAN vers PRU ; WPO, Lippe et anciennes cellules PRU conservées",
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC5-PRUSSIAN-WEST_RUNTIME_USER_ATTESTATION.json"
+        },
+        {
+          "id": "PW-GUELDRE-B53",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "cells": 53,
+          "classification": "B_POLITICAL_GENERALISATION",
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC5-PRUSSIAN-WEST_RUNTIME_USER_ATTESTATION.json",
+          "scope": "Noyau Venray/Horst/Sevenum–Straelen/Kessel, BEO→PRU"
+        },
+        {
+          "id": "PW-CLEVE-GUELDRE-NORTH-B19",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "cells": 19,
+          "classification": "B_POLITICAL_GENERALISATION",
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC5-PRUSSIAN-WEST_RUNTIME_USER_ATTESTATION.json",
+          "scope": "Complément nord Gennep/Middelaar–Afferden/Well, BEO→PRU"
+        },
+        {
+          "id": "PW-VENLO-NET-B4",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "cells": 4,
+          "classification": "B_POLITICAL_GENERALISATION",
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC5-PRUSSIAN-WEST_RUNTIME_USER_ATTESTATION.json",
+          "scope": "Noyau néerlandais de Venlo, BEO→NET"
+        },
+        {
+          "id": "PW-BEESEL-NET-B4",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "cells": 4,
+          "classification": "B_POLITICAL_GENERALISATION",
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC5-PRUSSIAN-WEST_RUNTIME_USER_ATTESTATION.json",
+          "scope": "Bande néerlandaise Beesel/Belfeld, BEO→NET"
+        }
+      ],
+      "western_arbitration": {
+        "status": "AGENT_DECISION_UNDER_USER_DELEGATION",
+        "evidence": "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/ARBITRATION.json",
+        "runtime_human_attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC5-PRUSSIAN-WEST_RUNTIME_USER_ATTESTATION.json",
+        "terminal_approval": false
+      },
+      "regional_closure_review": {
+        "status": "OPEN_NOT_A_RUNTIME_FAILURE",
+        "evidence": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/CLOSURE_REVIEW.json",
+        "reason": "Arbitrage V1 Clèves/Mark/Berg acquis sous délégation, sans relancer sa précision. Les noyaux de Ravensberg/Gueldre et Venlo/Beesel sont reçus ; ils ne démontrent pas l’intégralité des ressorts régionaux ni leur couverture démographique. Le partage des grandes souverainetés est traité, le cadastre n’est pas requis."
+      },
+      "v1_final_review": {
+        "status": "USER_APPROVED_V1_FREEZE_AND_RESIDUAL_DEFERRAL",
+        "report": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md",
+        "proposal": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+        "functional_changes": 0,
+        "proposed_status": "DEFERRED_APPROVED",
+        "proposed_status_applied": true,
+        "user_approved": true,
+        "approval": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json"
+      }
     },
     {
       "id": "SC5-JEVER",
@@ -4476,7 +4806,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "territorial",
-      "status": "BLOCKED",
+      "status": "DEFERRED_APPROVED",
       "sectors": [
         "B09"
       ],
@@ -4485,7 +4815,8 @@
       ],
       "historical_sources": [
         "docs/reports/map/MAP2P/REPORT.md:1",
-        "docs/reports/map/MAP2S/JEVER_HISTORICAL_EVIDENCE.md:1"
+        "docs/reports/map/MAP2S/JEVER_HISTORICAL_EVIDENCE.md:1",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/SOURCES.md"
       ],
       "before": "Jever toujours OLD dans enveloppes candidates; attribution exacte non résolue. MAP2P n’a rien transféré.",
       "expected": "319 cellules Emden PRU conservées; nouvelles preuves d’intersection, pas 1240 erreurs supposées.",
@@ -4494,11 +4825,15 @@
       "acceptance": [
         "319 cellules Emden PRU conservées; nouvelles preuves d’intersection, pas 1240 erreurs supposées."
       ],
-      "implementation_report": [],
+      "implementation_report": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md"
+      ],
       "installed_lots": [],
       "static_tests": {
-        "status": "NOT_RUN",
-        "evidence": []
+        "status": "PASS",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/CURRENT_REVIEW_CHECKS.json"
+        ]
       },
       "runtime_validation": {
         "required": true,
@@ -4507,8 +4842,18 @@
         "scope": null,
         "new_details_invented": false
       },
-      "decision": null,
-      "residual_uncertainty": "Ancien blocage conservé; aucune nouvelle recherche ou installation dans cette mission",
+      "decision": {
+        "nonblocking_1_0": true,
+        "approved_by": "user",
+        "reason": "Accord explicite sur le gel Prusse V1 et le report des obligations résiduelles territoriales/démographiques de la proposition finale ; noyaux installés déjà reçus conservés.",
+        "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+          "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/DECISION_MATRIX.json"
+        ]
+      },
+      "residual_uncertainty": "319 cellules PRU conservées et supports voisins contrôlés : 107 HAN, 331 NET, pas des cellules erronées démontrées. Intersection Leer/Rheiderland encore C ; aucun sous-ensemble prêt ni souveraineté des voisins déclarée historiquement approuvée. Report P1 pour la V1 approuvé explicitement ; réserves historiques conservées.",
       "mandatory_1_0": true,
       "historical_region": [
         "Frise orientale méridionale et Jever"
@@ -4519,7 +4864,19 @@
       "jurisdiction": "Leer et Rheiderland",
       "identified_problem": [
         "Leer et Rheiderland : sud de Frise orientale"
-      ]
+      ],
+      "v1_final_review": {
+        "status": "USER_APPROVED_V1_FREEZE_AND_RESIDUAL_DEFERRAL",
+        "report": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md",
+        "proposal": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+        "functional_changes": 0,
+        "proposed_status": "DEFERRED_APPROVED",
+        "proposed_status_applied": true,
+        "user_approved": true,
+        "approval": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json"
+      },
+      "next_bounded_action": "Prusse figée pour la V1 ; conserver réserves et noyaux reçus. Reprise distincte sur preuve nouvelle ou nouvelle instruction.",
+      "blocking_reason": "319 cellules PRU conservées et supports voisins contrôlés : 107 HAN, 331 NET, pas des cellules erronées démontrées. Intersection Leer/Rheiderland encore C ; aucun sous-ensemble prêt ni souveraineté des voisins déclarée historiquement approuvée. Proposition de report P1 pour la V1, statut BLOCKED conservé jusqu’à accord explicite."
     },
     {
       "id": "SC5-WESTPHALIAN-ESTATES",
@@ -5327,7 +5684,7 @@
       "weight_basis": "Barème 1–6; enjeu/étendue du travail et dépendances, pas surface ni RGB",
       "priority": "P1",
       "kind": "territorial",
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "sectors": [
         "D03",
         "E05"
@@ -5339,7 +5696,10 @@
       ],
       "historical_sources": [
         "docs/reports/map/MAP2L/SWABIA_COMPLETION/UNRESOLVED.csv:1",
-        "docs/reports/map/MAP2L/FRANCONIA/UNRESOLVED.csv:1"
+        "docs/reports/map/MAP2L/FRANCONIA/UNRESOLVED.csv:1",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/SOURCES.md"
       ],
       "before": "662 cellules BAV était un chiffre initial, pas le résidu actuel après continuations.; Aucun transfert de Montbéliard; pas rétroprojection de 1786. Petits territoires et limites autrichiennes ouverts.",
       "expected": "Noyaux déjà validés protégés; micro-enclaves P2 reportées sans devenir des frontières historiquement corrigées.",
@@ -5348,21 +5708,34 @@
       "acceptance": [
         "Noyaux déjà validés protégés; micro-enclaves P2 reportées sans devenir des frontières historiquement corrigées."
       ],
-      "implementation_report": [],
-      "installed_lots": [],
+      "implementation_report": [
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md"
+      ],
+      "installed_lots": [
+        "SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05",
+        "SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05"
+      ],
       "static_tests": {
-        "status": "NOT_RUN",
-        "evidence": []
+        "status": "PASS",
+        "evidence": [
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/VALIDATION.json",
+          "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/VALIDATION.json"
+        ]
       },
       "runtime_validation": {
         "required": true,
         "status": "NOT_RUN",
         "attestation": null,
-        "scope": null,
-        "new_details_invented": false
+        "scope": "Six installed KPF cores only, including Schwandorf/Reichertshofen/Western Danube continuation; no full Franconian/Swabian or demographic approval.",
+        "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md",
+        "new_details_invented": false,
+        "deferred_by_user_until_bavaria_finished": true
       },
       "decision": null,
-      "residual_uncertainty": "Voir sources; pas de validation ni décision nouvelle présumée",
+      "residual_uncertainty": "Six KPF political B cores installed, no full regional closure. Hilpoltstein/Heideck/Allersberg: scoped arbitration rendered, current delivered geometry retained without transfer or historical-compliance claim; projected12 cells currently ANS11/NUR1, not an established correction mask. Western Sulzbach and jurisdictional fringes remain unclosed. Provisional population and confessional profiles need historical refinement. Unrelated Franconian/Swabian obligations and all protected cores preserved.",
       "mandatory_1_0": true,
       "historical_region": [
         "Franges franconiennes et possessions dispersées",
@@ -5377,6 +5750,99 @@
         "Montbéliard, Oettingen et grands raccords souabes",
         "Esslingen, Isny, Lindau, Kaufbeuren",
         "Waldburg, Salem et offices minuscules"
+      ],
+      "installed_delivery_status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "installed_sub_lots": [
+        {
+          "id": "BV-SULZBACH",
+          "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "classification": "B_POLITICAL_GENERALISATION",
+          "cells": 27,
+          "state": "STATE_BAVARIA",
+          "previous_owner": "BAV",
+          "owner": "KPF",
+          "attestation": null,
+          "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+        },
+        {
+          "id": "BV-NEUBURG-DONAU",
+          "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "classification": "B_POLITICAL_GENERALISATION",
+          "cells": 35,
+          "state": "STATE_BAVARIA",
+          "previous_owner": "BAV",
+          "owner": "KPF",
+          "attestation": null,
+          "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+        },
+        {
+          "id": "BV-BURGLENGENFELD",
+          "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "classification": "B_POLITICAL_GENERALISATION",
+          "cells": 94,
+          "state": "STATE_BAVARIA",
+          "previous_owner": "BAV",
+          "owner": "KPF",
+          "attestation": null,
+          "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+        },
+        {
+          "id": "BV-SCHWANDORF",
+          "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "classification": "B_POLITICAL_GENERALISATION",
+          "cells": 18,
+          "states": [
+            "STATE_BAVARIA"
+          ],
+          "previous_owners": {
+            "BAV": 18
+          },
+          "owner": "KPF",
+          "attestation": null,
+          "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+        },
+        {
+          "id": "BV-REICHERTSHOFEN",
+          "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "classification": "B_POLITICAL_GENERALISATION",
+          "cells": 11,
+          "states": [
+            "STATE_BAVARIA"
+          ],
+          "previous_owners": {
+            "BAV": 11
+          },
+          "owner": "KPF",
+          "attestation": null,
+          "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+        },
+        {
+          "id": "BV-DANUBE-WEST",
+          "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+          "classification": "B_POLITICAL_GENERALISATION",
+          "cells": 27,
+          "states": [
+            "STATE_BAVARIA",
+            "STATE_WURTTEMBERG"
+          ],
+          "previous_owners": {
+            "WUR": 20,
+            "BAV": 7
+          },
+          "owner": "KPF",
+          "attestation": null,
+          "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+        }
+      ],
+      "local_arbitrations": [
+        {
+          "id": "BV-HILPOLTSTEIN-HEIDECK-ALLERSBERG",
+          "status": "ARBITRATED_KEEP_CURRENT_DELIVERY",
+          "decision": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/ARBITRATION.json",
+          "functional_changes": 0,
+          "historical_compliance_demonstrated": false,
+          "user_terminal_approval": null
+        }
       ]
     },
     {
@@ -7701,17 +8167,561 @@
       "before_percent": "39.57",
       "after_percent": "39.57",
       "note": "Six reçus indépendants ; conservation finale 290/290 ; 86 tests réussis et 1 contrôle initial désactivé. Ancien validateur des réformes : assertion de structure et StopIteration archivés, dépendances antérieures inchangées, contrats actuels réussis. Les 23 blocages sont conservés ; Teschen, Frise méridionale et Ortenbourg seulement proposés. Aucun nouveau sous-lot ni fichier fonctionnel modifié."
+    },
+    {
+      "id": "SERG-RM-0059",
+      "date": "2026-10-31",
+      "kind": "MASSA_CARRARA_TARGETED_RESEARCH_NO_FUNCTIONAL_INSTALLATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC4-MASSA-CARRARA",
+          "before": "BLOCKED",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "P0 Carrare/Avenza : table Lazzoni 1775 visuellement confirmee (ville 3700 incluse dans commune 8010), mais couverture communale/principaute et correspondance des localites aux cellules non demontrees. Bitmap actuel confirme : MCA huit cellules, parent MOD 108 ; candidats A/B/C connexes, ancienne variante trois cellules rejetee (MOD 104+1). Cartes contemporaines precisement cotees AS Massa, Comune di Carrara I Serie b.84-86 Avenza 1775 et b.87-88 Carrara 1775 ; inventaire lu, images originales non consultees. Aucun transfert de pixels ou POPs, aucune cloture ou point. MC-I-CORE et son recu conserves ; pas de calage rejete relance ni cadastre parfait exige.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/SCOPED_STATIC_RESULTS.json",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/EVIDENCE/LAZZONI_PRINTED_P132.png",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/EVIDENCE/CARRARA_ARCHIVE_SERIES_I.pdf"
+      ]
+    },
+    {
+      "id": "SERG-RM-0060",
+      "date": "2026-11-01",
+      "kind": "MASSA_CARRARA_FINAL_ZATTA_NO_GO_RESEARCH_STOPPED",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC4-MASSA-CARRARA",
+          "before": "BLOCKED",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "P0 Carrare/Avenza — NO-GO du 1er novembre 2026 après lecture effective de Zatta 1783 (épreuve indépendante, référence Rumsey 11598.169 vérifiée au catalogue). Avenza et le relief sont mieux identifiés, mais aucune correspondance indépendante des principales localités aux cellules ne départage A/B/C ; les cours d’eau locaux sont absents du secteur natif examiné. Commune statistique de 8010 habitants non appariée au ressort représenté. Noyau MCA huit cellules/10000 habitants, MOD résiduel 108/495752 et reçu MC-I-CORE préservés. Aucun transfert, clôture ou point ; trois points conditionnels restent non attribués. Recherche active arrêtée à la borne de mission, suspension recommandée sans report P1/P2 approuvé. Reprise seulement après réception du dossier primaire communal de 1775 exploitable (plans Avenza b.84–86, Carrare b.87–88, légende/ressort/localités). Originaux non obtenus ; rubriques publiques d’accès numérique/reproduction HTTP 403. Demande préparée non envoyée ; aucune nouvelle recherche identique proposée.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/RESEARCH_DECISION.json",
+        "docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/STATIC_RESULTS.json"
+      ]
+    },
+    {
+      "id": "SERG-RM-0061",
+      "date": "2026-11-05",
+      "kind": "PRUSSIA_V1_LUSATIAN_CORRECTIONS_INSTALLED",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC3-BRANDENBURG",
+          "before": "NOT_STARTED",
+          "after": "BLOCKED"
+        },
+        {
+          "task_id": "SC3-SILESIA-LUSATIA",
+          "before": "NOT_STARTED",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Priorité utilisateur Prusse ; 811 cellules PRU→SAX, 393 Brandebourg et 418 Basse-Silésie ; Cottbus/Peitz/Sagan conservés. Sous-lots prêts à tester, deux régions BLOCKED, zéro reçu humain et zéro point supplémentaire. Micro-États hors file active sans effacement comptable ; aucune Bavière.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/PLAYER_TEST_PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0062",
+      "date": "2026-11-05",
+      "kind": "NORTH_SAXONY_1_INSTALLED",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC3-BRANDENBURG",
+          "before": "BLOCKED",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "606 cellules PRU→SAX supplémentaires, 352 Anhalt technique et 254 Brandebourg, deux sous-lots indépendamment testables. 811 cellules lusaciennes et preuves antérieures exactes, Cottbus/Peitz PRU conservé. Catégorie B ; aucun reçu humain, aucun point. Prochaine passe demandée : frontière polonaise, non commencée.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05/PLAYER_TEST_PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0063",
+      "date": "2026-11-05",
+      "kind": "PRUSSIA_POLAND_FRONTIER_INSTALLED_EXTERNAL_TO_HRE",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05/REPORT.md",
+      "changes": [],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "285 cellules modifiées : 222 PLC→PRU dans la Netze, 4 PRU→PLC à Thorn et 59 PRU→PLC en Dobrzyń. Seul le repère farm158 est déplacé vers le noyau polonais de rive nord. Catégorie B, hors SERG ; 592 titres et toutes les 81 fiches inchangés, aucun reçu humain ni point. Test groupé proposé ; aucune autre passe commencée.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05/PLAYER_TEST_PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0064",
+      "date": "2026-11-05",
+      "kind": "SILESIA_STATE_LAYOUT_COMPARISON_NO_INSTALL",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/SILESIA_STATE_LAYOUT_COMPARISON_2026_11_05/REPORT.md",
+      "changes": [],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Comparaison demandée du découpage actuel, d’une Haute-Silésie partagée PRU/AUS et d’une région autrichienne distincte. Multiplicateur de valeur territoriale IA vérifié, effet diplomatique non mesuré. Aucun changement fonctionnel, aucune nouvelle option approuvée ; 81 tâches et reçus conservés. Candidate occidentale identifiée sans lancement.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/SILESIA_STATE_LAYOUT_COMPARISON_2026_11_05/CURRENT_INVENTORY.json",
+        "docs/reports/map/SERG_CLOSURE/SILESIA_STATE_LAYOUT_COMPARISON_2026_11_05/AI_EVIDENCE.json",
+        "docs/reports/map/SERG_CLOSURE/SILESIA_STATE_LAYOUT_COMPARISON_2026_11_05/PLAYER_TEST_PLAN.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0065",
+      "date": "2026-11-05",
+      "kind": "PRUSSIAN_WEST_NATIVE_CORRESPONDENCE_BLOCKED",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_2026_11_05/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC5-PRUSSIAN-WEST",
+          "before": "NOT_STARTED",
+          "after": "BLOCKED"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Sources 1772 et 1793 obtenues, intérieur de Berg comparé sans modifier les modèles. R5 : 151 cellules déjà KPF ; Miller : 39 cellules PRU hypothétiques. Aucun correctif indépendant démontré ; aucune installation, attestation ou point. Minden, Lingen, Tecklenburg et les trois livraisons prussiennes conservés.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_2026_11_05/BERG_HYPOTHESES.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_2026_11_05/CONSERVATION_PRE_TRACKING.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_2026_11_05/PLAYER_TEST_PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0066",
+      "date": "2026-11-05",
+      "kind": "PRUSSIAN_WEST_PHYSICAL_READINGS_AND_B32_INSTALLATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC5-PRUSSIAN-WEST",
+          "before": "BLOCKED",
+          "after": "IN_PROGRESS"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Six repères physiques identifiés ; R5 retenu seulement pour une approximation B, nouvel affine rejeté sur ses témoins. 32 cellules SCM/WPM/HAN vers PRU, 11 559 habitants techniques conservés, 595 titres impériaux et même étendue. Noyau partiel prêt au moteur ; tests différés par le joueur à la fin de la Prusse, aucun point ou reçu humain. Glatz/Silésie candidate non commencée.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/PHYSICAL_ANCHORS.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/GEOMETRY.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0067",
+      "date": "2026-11-05",
+      "kind": "GLATZ_SILESIA_SCOPED_REVIEW_AND_B_RETENTION_PROPOSAL",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC3-SILESIA-LUSATIA",
+          "before": "BLOCKED",
+          "after": "IN_PROGRESS"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Glatz déjà prussien ; tracé méridional native/vanilla identique. Maintien politique B proposé, pas de nouveau recalage, transfert, État économique partagé ou reçu. Noyaux autrichiens et 418 cellules saxonnes préservés. Clôture régionale et test joueur encore ouverts ; aucun point. Tests moteur toujours différés jusqu’à la fin de la Prusse.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/BOUNDARY_ASSESSMENT.json",
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/VANILLA_CORRESPONDENCE.json",
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/PROPOSED_DECISION.json",
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0068",
+      "date": "2026-11-05",
+      "kind": "GLATZ_SILESIA_SCOPED_USER_MAINTENANCE_APPROVAL",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/DECISION_USER_APPROVED_2026_11_05.json",
+      "changes": [
+        {
+          "task_id": "SC3-SILESIA-LUSATIA",
+          "before": "IN_PROGRESS",
+          "after": "IN_PROGRESS",
+          "boundary_approval_before": false,
+          "boundary_approval_after": true
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Le joueur approuve le maintien du saillant et de la frontière silésienne actuelle. Accord B borné, sans changement fonctionnel, test moteur attesté ou clôture régionale. Magdebourg/Halberstadt et ses interfaces Saxe/Anhalt recommandés, non commencés. Tests moteur groupés à la fin de la Prusse.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/DECISION_USER_APPROVED_2026_11_05.json",
+        "docs/reports/map/SERG_CLOSURE/GLATZ_SILESIA_2026_11_05/APPROVAL_RECEPTION_2026_11_05/REPORT.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0069",
+      "date": "2026-11-05",
+      "kind": "MAGDEBURG_SAALE_GOMMERN_PARTIAL_B_INSTALLATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC3-BRANDENBURG",
+          "before": "BLOCKED",
+          "after": "IN_PROGRESS"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "77 cellules PRU→SAX, Saale 69 et Gommern 8 ; trois subdivisions, 595→598 titres et même étendue impériale. 23 202 habitants existants redistribués techniquement. Noyaux Anhalt/Saxe/Thuringe, Glatz/Silésie et autres corrections préservés. Deux sous-lots prêts au moteur, tests différés à la fin de la Prusse. Barby/Mansfeld et obligations régionales non clôturés ; aucun point ou reçu humain. Prochaine candidate occidentale identifiée, non commencée.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/GEOMETRY.json",
+        "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0070",
+      "date": "2026-11-05",
+      "kind": "CLEVE_GUELDRE_MARK_PARTIAL_B_INSTALLATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC5-PRUSSIAN-WEST",
+          "before": "IN_PROGRESS",
+          "after": "IN_PROGRESS"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "72 cellules BEO→PRU : Gueldre B53 et complément nord B19 ; 10548 habitants existants redistribués techniquement. Un RGB ajouté, 598→599 titres, même étendue impériale, mêmes membres et neuf électeurs. Mark, Clèves existantes, Ravensberg et toutes les installations antérieures préservés ; bâtiments/PM/unités/locators inchangés. Venlo/Beesel et franges non clôturés. Deux sous-lots prêts au moteur, aucun point ni reçu ; essais différés à la fin de la Prusse. Aucune autre étape lancée.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05/GEOMETRY.json",
+        "docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0071",
+      "date": "2026-11-05",
+      "kind": "WESTERN_RESERVES_ARBITRATION_DUTCH_CORES_INSTALLATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/REPORT.md",
+      "changes": [
+        {
+          "task_id": "SC5-PRUSSIAN-WEST",
+          "before": "IN_PROGRESS",
+          "after": "IN_PROGRESS"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Arbitrage délégué par le joueur : maintenir Clèves/Mark/Berg en B pour la V1 sans garantie cadastrale ; ne pas installer le candidat Berg non démontré. Venlo 4 et Beesel/Belfeld 4 cellules BEO→NET, 1 171 habitants existants redistribués ; aucun nouveau pays, titre NET ou membre impérial. 599 titres inchangés, domaine enregistré de restitution réduit exactement de 8 cellules pour ne pas restituer ces possessions néerlandaises à BEO. Tous les noyaux PRU et travaux antérieurs préservés. Deux nouveaux sous-lots prêts au moteur ; aucun reçu ou point, prochaine réception groupée uniquement.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/SOURCES_AND_ARBITRATION.md",
+        "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/ARBITRATION.json",
+        "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/GEOMETRY.json",
+        "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0072",
+      "date": "2026-11-05",
+      "kind": "THREE_WORKTREES_CONTENT_INTEGRATION_TO_ACTIVE_MAIN",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/integration/WORKTREES_TO_MAIN_2026_11_05/REPORT.md",
+      "changes": [],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Intégration technique vers la copie réellement chargée : apports Massa/Prusse réunis aux changements propres au principal. Les deux anciennes modifications fonctionnelles de Map-0 sont déjà dépassées par les versions humaines validées Luxembourg/MAP2A ; conservation de celles-ci. Aucun nouveau territoire, statut terminal, reçu humain ou point. Relancer le jeu et démarrer une nouvelle partie avant réception moteur groupée."
+    },
+    {
+      "id": "SERG-RM-0073",
+      "date": "2026-11-05",
+      "kind": "PRUSSIAN_INSTALLED_MAP_SUBLOTS_HUMAN_RECEPTION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/USER_ATTESTATION.md",
+      "changes": [],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Le joueur confirme tous les changements de carte, un mois, sauvegarde/rechargement. Onze sous-lots SERG et trois extérieurs reçus séparément ; aucune observation détaillée ni date de test inventée. Les trois tâches régionales restent IN_PROGRESS, sans point pour noyaux partiels. Arbitrages Glatz/Silésie et occidentaux préservés ; aucune correction ni nouveau lot commencé.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/CLOSURE_REVIEW.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/PRUSSIA_POLAND_RUNTIME_USER_ATTESTATION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-BRANDENBURG_RUNTIME_USER_ATTESTATION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC3-SILESIA-LUSATIA_RUNTIME_USER_ATTESTATION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/SC5-PRUSSIAN-WEST_RUNTIME_USER_ATTESTATION.json"
+      ]
+    },
+    {
+      "id": "SERG-RM-0074",
+      "date": "2026-11-05",
+      "kind": "PRUSSIAN_FINAL_V1_REVIEW_CONCRETE_FREEZE_PROPOSAL",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/AUTHORITY_AND_SCOPE.md",
+      "changes": [],
+      "before_weight": 93,
+      "after_weight": 93,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "39.57",
+      "note": "Revue finale bornée Barby/Mansfeld, Leer/Rheiderland, Netze/Thorn et maintiens déjà acquis. Aucun transfert supplémentaire suffisamment étayé ni fichier fonctionnel modifié. Proposition concrète : gel de la carte reçue et reports résiduels de quatre tâches P1, en attente d’accord explicite. Les 14 sous-lots restent reçus, aucun nouveau reçu/statut terminal/point. Projection après accord seulement 106/235,45,11%,36/81 ; aucune Bavière commencée.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/NATIVE_REVIEW.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/DECISION_MATRIX.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/CURRENT_REVIEW_CHECKS.json"
+      ]
+    },
+    {
+      "id": "SERG-RM-0075",
+      "date": "2026-11-05",
+      "kind": "USER_APPROVED_PRUSSIAN_V1_FREEZE_AND_FOUR_P1_DEFERRALS",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVAL.md",
+      "changes": [
+        {
+          "task_id": "SC3-BRANDENBURG",
+          "before": "IN_PROGRESS",
+          "after": "DEFERRED_APPROVED"
+        },
+        {
+          "task_id": "SC3-SILESIA-LUSATIA",
+          "before": "IN_PROGRESS",
+          "after": "DEFERRED_APPROVED"
+        },
+        {
+          "task_id": "SC5-PRUSSIAN-WEST",
+          "before": "IN_PROGRESS",
+          "after": "DEFERRED_APPROVED"
+        },
+        {
+          "task_id": "SC5-EAST-FRISIA-SOUTH",
+          "before": "BLOCKED",
+          "after": "DEFERRED_APPROVED"
+        }
+      ],
+      "before_weight": 93,
+      "after_weight": 106,
+      "total_weight": 235,
+      "before_percent": "39.57",
+      "after_percent": "45.11",
+      "note": "Accord explicite du joueur sur le rapport final et autorisation de passer à la Bavière. Quatre reports P1 DEFERRED_APPROVED, 13 points de gestion acquis sans nouvelle validation moteur ni certification des réserves. Les 14 sous-lots reçus et leurs preuves sont conservés. Bavière autorisée, priorité Innviertel/interface BAV-AUS.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json",
+        "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json"
+      ]
+    },
+    {
+      "id": "SERG-RM-0076",
+      "date": "2026-11-05",
+      "kind": "BAVARIA_V1_INNBAIERN_POLITICAL_B_INSTALLATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/SELECTION_AND_SCOPE.md",
+      "changes": [
+        {
+          "task_id": "SC2-AUSTRIA",
+          "before": "BLOCKED",
+          "after": "IN_PROGRESS"
+        }
+      ],
+      "before_weight": 106,
+      "after_weight": 106,
+      "total_weight": 235,
+      "before_percent": "45.11",
+      "after_percent": "45.11",
+      "note": "First Bavarian regional delivery: existing xFDA6CB175 cells AUS→BAV, estimated106900 people transferred, scoped Innbaiern name. Bitmap and protected PAS/SLZ unchanged; no building, PM, military or country change. Same599 imperial titles, only target beneficiary BAV. Ready for player validation; no regional closure or points. Candidate Upper Palatinate/Franconian major boundaries identified only.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/GEOMETRY.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PLAYER_TEST_PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0077",
+      "date": "2026-11-05",
+      "kind": "BAVARIA_UPPER_PALATINATE_FRANCONIAN_INTERFACES_POLITICAL_B_INSTALLATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/AUTHORITY_AND_SCOPE.md",
+      "changes": [
+        {
+          "task_id": "SC6-SWABIAN-ARBITRATIONS",
+          "before": "NOT_STARTED",
+          "after": "IN_PROGRESS"
+        }
+      ],
+      "before_weight": 106,
+      "after_weight": 106,
+      "total_weight": 235,
+      "before_percent": "45.11",
+      "after_percent": "45.11",
+      "note": "156 BAV→KPF cells in three independent cores27/35/94;55115 current inhabitants provisionally transferred, not a1776 census. Twelve RGB subdivisions,599→611 titles, same imperial footprint/members/nine electors; all prior non-BAV cores and Innbaiern175 preserved. Hilpoltstein and western Sulzbach overlap protected interpretations; no forced transfer. All buildings/PMs/units/countries/technologies unchanged. Player groups engine tests at the end of Bavaria; no receipt or points. Remaining visible Bavarian interfaces identified, not started.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/TRACING_REVIEWED.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/GEOMETRY.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0078",
+      "date": "2026-11-05",
+      "kind": "BAVARIA_SCHWANDORF_WESTERN_DANUBE_POLITICAL_B_CONTINUATION",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/AUTHORITY_AND_SCOPE.md",
+      "changes": [
+        {
+          "task_id": "SC6-SWABIAN-ARBITRATIONS",
+          "before": "IN_PROGRESS",
+          "after": "IN_PROGRESS"
+        }
+      ],
+      "before_weight": 106,
+      "after_weight": 106,
+      "total_weight": 235,
+      "before_percent": "45.11",
+      "after_percent": "45.11",
+      "note": "Clarification de dictée : continuation bavaroise, aucun Schleswig-Holstein/Danemark/Helgoland.56 cellules vers KPF : Schwandorf18, Reichertshofen11, Danube occidental27 (Rennertshofen/Burgheim, Höchstädt/Lauingen) ; donneurs BAV36 et frange WUR/x118060 non certifiée20.32447 habitants provisoirement transférés, profils conservés ;8 RGB,611→619 titres, même emprise et neuf électeurs. Passau40/Obernberg4, Innbaiern175, KPF156 et tous les noyaux souabes reçus conservés. Aucun bâtiment/PM/unité/pays/technologie changé. Trois sous-lots prêts, aucun reçu ni point ; test groupé différé. Arbitrage Hilpoltstein identifié seulement.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PASSAU_INTERFACE_REVIEW.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/GEOMETRY.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/INSTALLATION.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+      ]
+    },
+    {
+      "id": "SERG-RM-0079",
+      "date": "2026-11-06",
+      "kind": "BAVARIA_HILPOLTSTEIN_SCOPED_V1_ARBITRATION_NO_FUNCTIONAL_CHANGE",
+      "scope_version": "1.0.0",
+      "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/AUTHORITY_AND_SCOPE.md",
+      "changes": [
+        {
+          "task_id": "SC6-SWABIAN-ARBITRATIONS",
+          "before": "IN_PROGRESS",
+          "after": "IN_PROGRESS"
+        }
+      ],
+      "before_weight": 106,
+      "after_weight": 106,
+      "total_weight": 235,
+      "before_percent": "45.11",
+      "after_percent": "45.11",
+      "note": "Arbitrage délégué rendu pour Allersberg/Hilpoltstein/Heideck : maintien des contours livrés, sans conformité historique ni report terminal approuvé. Les12 cellules de projection sont ANS11/NUR1, aucune EIC/BAV ; aucune régression locale suffisamment démontrée pour retirer ces cellules aux noyaux reçus. Aucun recalage, transfert, population, bâtiment/PM/unité, registre ou fichier fonctionnel modifié. Sept installations bavaroises antérieures toujours prêtes, moteur groupé différé jusqu’à cette fin de passe. Aucun reçu ni point nouveau ;106/235,45,11%,36/81. Prochaine action : réception joueur groupée, aucun nouveau territoire.",
+      "evidence": [
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/SOURCES.md",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/ARBITRATION.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/GEOMETRY_DIAGNOSTIC.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/VALIDATION.json",
+        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/PLAYER_TEST_PROTOCOL_NOTE.md"
+      ]
     }
   ],
   "runtime_validation_hold": {
-    "task_id": "SC2-TESCHEN",
-    "pending_task_ids": [],
-    "protocol": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md",
-    "next_implementation_candidate": "SC3-HOLSTEIN",
-    "reason": "Réception des installations terminée selon les seuls reçus distincts ; préparer les clôtures sans commencer de chantier.",
-    "test_summary": "TE-R-CORE et BG-E-SALT-NATIVE-R1 restent à valider séparément ; aucune extension des six reçus. Une décision explicite est encore nécessaire pour la portée régionale de Teschen.",
-    "scope_note": "Les 23 tâches BLOCKED restent inchangées. Les trois voies proposées sont préparatoires ; SC3-HOLSTEIN reste suspendu.",
-    "suspended_new_territory_candidate_by_campaign": true
+    "task_id": "SC6-SWABIAN-ARBITRATIONS",
+    "pending_task_ids": [
+      "SC2-AUSTRIA",
+      "SC6-SWABIAN-ARBITRATIONS"
+    ],
+    "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md",
+    "reason": "Player explicitly groups engine testing at the end of Bavaria; these installations have no human receipt.",
+    "next_implementation_candidate": null,
+    "scope_note": "Seven installations pending: Innbaiern175, prior KPF156 and this KPF56 continuation; engine session grouped at end of Bavaria.",
+    "engine_tests_deferred_until_bavaria_finished": true,
+    "independent_authorized_bavarian_work_may_continue": true
   },
   "closure_campaign": {
     "status": "ACTIVE",
@@ -7788,5 +8798,157 @@
         "SC1-ORTENBURG"
       ]
     }
+  },
+  "release_focus": {
+    "authority": "Instruction explicite du joueur dans ce chat : Prusse visible avant les micro-États ; Bavière seulement ensuite si décision.",
+    "active_country": "BAV",
+    "started_on": "2026-11-02",
+    "delivery_on": "2026-11-06",
+    "microstates_removed_from_active_queue": true,
+    "unchanged_accounting_scope": true,
+    "no_deferred_approved_credit": true,
+    "bavaria_started": true,
+    "previous_runtime_validation_hold": {
+      "task_id": "SC2-TESCHEN",
+      "pending_task_ids": [],
+      "protocol": "docs/reports/map/SERG_CLOSURE/GROUPED_RECEPTION_2026_10_27/PLAYER_TEST_PROTOCOL_REMAINING.md",
+      "next_implementation_candidate": "SC3-HOLSTEIN",
+      "reason": "Réception des installations terminée selon les seuls reçus distincts ; préparer les clôtures sans commencer de chantier.",
+      "test_summary": "TE-R-CORE et BG-E-SALT-NATIVE-R1 restent à valider séparément ; aucune extension des six reçus. Une décision explicite est encore nécessaire pour la portée régionale de Teschen.",
+      "scope_note": "Les 23 tâches BLOCKED restent inchangées. Les trois voies proposées sont préparatoires ; SC3-HOLSTEIN reste suspendu.",
+      "suspended_new_territory_candidate_by_campaign": true
+    },
+    "report": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/REPORT.md",
+    "current_pass": "BAVARIA_HILPOLTSTEIN_ARBITRATION",
+    "current_delivery": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md",
+    "next_requested_pass": null,
+    "next_pass_started": false,
+    "continuation_authority": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/AUTHORITY_AND_SCOPE.md",
+    "polish_frontier_delivery": "PRUSSIA-POLAND-2026-11-05",
+    "current_pass_status": "ARBITRATION_RENDERED_NO_FUNCTIONAL_CHANGE",
+    "engine_tests_deferred_until_prussia_finished": false,
+    "western_precision_search_stopped_for_this_pass": true,
+    "next_implementation_candidate": null,
+    "next_action": "Validation moteur groupée des sept installations bavaroises déjà livrées. Arbitrage Hilpoltstein rendu sans nouvelle installation ; réserves historiques et clôture/report régional restent distincts, aucun nouveau territoire autorisé automatiquement.",
+    "western_arbitration": "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/ARBITRATION.json",
+    "bavaria_preference": "Préférence utilisateur conservée après clôture prussienne ; aucun lot proposé comme admissible ni commencé avant cette condition.",
+    "conditional_next_lot": "Bavière V1, frontière BAV/AUS et Innviertel ; proposition seulement, après décision prussienne.",
+    "engine_tests_deferred_until_bavaria_finished": true,
+    "passau_interface_review": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PASSAU_INTERFACE_REVIEW.md",
+    "voice_scope_clarified": true,
+    "current_functional_delivery": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/REPORT.md",
+    "bavarian_local_arbitration": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/ARBITRATION.json"
+  },
+  "external_prussian_deliveries": [
+    {
+      "id": "PRUSSIA-POLAND-2026-11-05",
+      "status": "PASS_RUNTIME_USER_VALIDATED",
+      "external_to_hre": true,
+      "management_points": 0,
+      "report": "docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05/REPORT.md",
+      "sources": "docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05/SOURCES.md",
+      "static_tests": "docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05/VALIDATION.json",
+      "protocol": "docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05/PLAYER_TEST_PROTOCOL.md",
+      "human_attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/PRUSSIA_POLAND_RUNTIME_USER_ATTESTATION.json",
+      "sub_lots": [
+        {
+          "id": "PP-NETZE-CORE",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "direction": "PLC_TO_PRU",
+          "cells": 222,
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/PRUSSIA_POLAND_RUNTIME_USER_ATTESTATION.json"
+        },
+        {
+          "id": "PP-THORN-CORE",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "direction": "PRU_TO_PLC",
+          "cells": 4,
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/PRUSSIA_POLAND_RUNTIME_USER_ATTESTATION.json"
+        },
+        {
+          "id": "PP-DOBRZYN-FRINGE",
+          "status": "PASS_RUNTIME_USER_VALIDATED",
+          "direction": "PRU_TO_PLC",
+          "cells": 59,
+          "attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/PRUSSIA_POLAND_RUNTIME_USER_ATTESTATION.json"
+        }
+      ],
+      "residual_uncertainty": "Catégorie B ; contour complet des quatre districts de la Netze et possessions rurales de Thorn non certifiés. Encarts 1780 confrontés aux contrôles antérieurs à 1776, sans rétroprojection de 1793.",
+      "regional_closure_approved": false
+    }
+  ],
+  "prussian_silesia_comparison": {
+    "status": "COMPARISON_COMPLETE_NO_FUNCTIONAL_CHANGE",
+    "authority": "User answer: Comparer aussi une Silésie partagée",
+    "report": "docs/reports/map/SERG_CLOSURE/SILESIA_STATE_LAYOUT_COMPARISON_2026_11_05/REPORT.md",
+    "options": [
+      "A_CURRENT_AGGREGATE",
+      "B_SHARED_UPPER_SILESIA",
+      "C_SEPARATE_AUSTRIAN_SILESIA"
+    ],
+    "recommended_for_v1": "A_CURRENT_AGGREGATE",
+    "user_selection": null,
+    "variants_b_c_installed": false,
+    "runtime_test_executed": false,
+    "approved_austrian_silesia_decision_preserved": true,
+    "next_independent_candidate": "SC5-PRUSSIAN-WEST",
+    "next_candidate_started": false
+  },
+  "active_copy_integration": {
+    "date": "2026-11-05",
+    "target": "C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork",
+    "report": "docs/reports/integration/WORKTREES_TO_MAIN_2026_11_05/REPORT.md",
+    "engine_test": false,
+    "human_runtime_attestation": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/USER_ATTESTATION.md"
+  },
+  "prussian_grouped_reception": {
+    "report": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/REPORT.md",
+    "source": "docs/reports/map/SERG_CLOSURE/PRUSSIA_GROUPED_RECEPTION_2026_11_05/USER_ATTESTATION.md",
+    "installed_sub_lots_validated": 14,
+    "hre_sub_lots": 11,
+    "external_sub_lots": 3,
+    "prussia_all_frontiers_complete": false,
+    "regional_task_closures": [],
+    "points_awarded": 0,
+    "previous_runtime_validation_hold": {
+      "task_id": "SC3-BRANDENBURG",
+      "pending_task_ids": [
+        "SC3-BRANDENBURG",
+        "SC3-SILESIA-LUSATIA",
+        "SC5-PRUSSIAN-WEST"
+      ],
+      "protocol": "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md",
+      "reason": "Instruction du joueur : tous les tests moteur seront effectués lorsque la Prusse sera finie ; cette attente ne bloque pas les corrections indépendantes autorisées.",
+      "next_implementation_candidate": null,
+      "scope_note": "Sous-lots antérieurs préservés ; deux noyaux NET ajoutés. Les réserves occidentales de précision sont arbitrées pour la V1 sans clôture régionale fictive. Réception groupée au rythme du joueur ; aucun reçu nouveau.",
+      "deferred_until_prussia_finished_by_user": true,
+      "does_not_block_implementation": true
+    }
+  },
+  "prussian_v1_final_review": {
+    "status": "USER_APPROVED_V1_FREEZE",
+    "report": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md",
+    "proposal": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_FINAL_REVIEW_2026_11_05/PROPOSED_V1_DECISION.json",
+    "review_task_ids": [
+      "SC3-BRANDENBURG",
+      "SC3-SILESIA-LUSATIA",
+      "SC5-PRUSSIAN-WEST",
+      "SC5-EAST-FRISIA-SOUTH"
+    ],
+    "new_functional_changes": 0,
+    "new_human_receipts": 0,
+    "points_awarded": 0,
+    "all_historical_borders_complete": false,
+    "proposed_freeze_applied": true,
+    "approval_received": true,
+    "conditional_projection": {
+      "earned_weight": 106,
+      "total_weight": 235,
+      "percent": "45.11",
+      "qualified_tasks": 36,
+      "total_tasks": 81,
+      "scope_version": "1.0.0"
+    },
+    "approval": "docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json"
   }
 }

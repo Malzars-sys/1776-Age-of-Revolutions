@@ -1,0 +1,319 @@
+﻿# dynasty_var values: flag:house_[name]
+# houses: orleans, bonaparte, bourbon, savoy, braganca, espartero, hohenzollern,
+# obrenovic, karadordevic, yamato (Japanese Imperial House), tokugawa, habsburg
+japan_generate_scripted_heirs = {
+	if = {
+		limit = {
+			ruler = {
+				var:dynasty_var ?= flag:house_yamato
+			}
+		}
+		if = {
+			limit = {
+				game_date >= 1831.7.22
+				NOT = { is_template_used = JAP_komei_yamato }
+				ruler ?= {
+					has_template = JAP_ninko_yamato
+				}
+			}
+			create_character = {
+				template = JAP_komei_yamato
+				on_created = {
+					replace_character_roles = { add = { heir } remove_all = yes }
+				}
+			}
+		}
+		if = {
+			limit = {
+				game_date >= 1852.11.3
+				NOT = { is_template_used = JAP_meiji_yamato }
+				ruler ?= {
+					has_template = JAP_komei_yamato
+				}
+			}
+			create_character = {
+				template = JAP_meiji_yamato
+				on_created = {
+					replace_character_roles = { add = { heir } remove_all = yes }
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				game_date >= 1879.8.31
+				NOT = { is_template_used = JAP_taisho_yamato }
+				ruler ?= {
+					has_template = JAP_meiji_yamato
+				}
+			}
+			create_character = {
+				template = JAP_taisho_yamato
+				on_created = {
+					replace_character_roles = { add = { heir } remove_all = yes }
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				game_date >= 1901.4.29
+				NOT = { is_template_used = JAP_showa_yamato }
+				ruler ?= {
+					has_template = JAP_taisho_yamato
+				}
+			}
+			create_character = {
+				template = JAP_showa_yamato
+				on_created = {
+					replace_character_roles = { add = { heir } remove_all = yes }
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			ruler = {
+				var:dynasty_var ?= flag:house_tokugawa
+			}
+		}
+		if = {
+			limit = {
+				NOT = { is_template_used = JAP_iesada_tokugawa }
+				ruler ?= {
+					has_template = JAP_ieyoshi_tokugawa
+				}
+			}
+			create_character = {
+				template = JAP_iesada_tokugawa
+				on_created = {
+					add_character_role = heir
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { has_dlc_feature = ep2_content } # Iesada's heir is handled by event in EP2
+				game_date >= 1846.7.16
+				NOT = { is_template_used = JAP_iemochi_tokugawa }
+				ruler ?= {
+					has_template = JAP_iesada_tokugawa
+				}
+			}
+			create_character = {
+				template = JAP_iemochi_tokugawa
+				on_created = {
+					add_character_role = heir
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				game_date >= 1863.8.24
+				game_date < 1879.8.24
+				NOT = { is_template_used = JAP_yoshinobu_tokugawa }
+				ruler ?= {
+					has_template = JAP_iemochi_tokugawa
+				}
+			}
+			create_character = {
+				template = JAP_yoshinobu_tokugawa
+				on_created = {
+					add_character_role = heir
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				game_date >= 1879.8.24 # Date of majority
+				NOT = { is_template_used = JAP_iesato_tokugawa }
+				ruler ?= {
+					OR = {
+						has_template = JAP_iemochi_tokugawa
+						has_template = JAP_yoshinobu_tokugawa
+					}
+				}
+			}
+			create_character = {
+				template = JAP_iesato_tokugawa
+				on_created = {
+					add_character_role = heir
+				}
+			}
+		}
+	}
+}
+
+portugal_generate_scripted_heirs = {
+	if = {
+		limit = {
+			game_date >= 1837.9.16
+			NOT = {	has_variable = pedro_v_var }
+			ruler ?= {
+				has_template = POR_maria_ii_de_braganca
+			}
+		}
+		set_variable = pedro_v_var
+		create_character = {
+			template = POR_pedro_v_de_braganca_template
+		}
+	}
+}
+
+britain_generate_scripted_heirs = {
+	if = {
+		limit = {
+			game_date >= 1841.11.09
+			NOT = { has_variable = edward_vii_heir_var }
+			ruler ?= {
+				has_template = gbr_queen_victoria_template
+			}
+		}
+		set_variable = edward_vii_heir_var
+		create_character = {
+			template = gbr_albert_edward_template
+			heir = yes
+		}
+	}
+	else_if = {
+		limit = {
+			game_date >= 1865.06.03
+			NOT = { has_variable = george_v_heir_var }
+			ruler ?= {
+				has_template = gbr_albert_edward_template
+			}
+		}
+		set_variable = george_v_heir_var
+		create_character = {
+			template = gbr_george_v_template
+			heir = yes
+		}
+	}
+}
+
+france_generate_scripted_heirs = {
+	if = {
+		limit = {
+			game_date > 1856.3.16
+			NOT = { is_template_used = FRA_napoleon_eugene_louis_bonaparte }
+			ruler ?= {
+				has_template = fra_napoleon_iii_character_template
+			}
+		}
+		country_summon_heir_effect = {
+			TEMPLATE = FRA_napoleon_eugene_louis_bonaparte
+		}
+	}
+}
+
+spain_generate_scripted_heirs = {
+	### Constitutional Spain - mirrors character_generate_constitutional_spain_heir
+	if = {
+		limit = {
+			game_date <= 1857.11.28
+			game_date > 1851.12.20
+			NOT = { has_variable = isabel_francisca_heir_var }
+			ruler ?= {
+				has_template = spa_isabel_de_borbon_template
+			}
+		}
+		set_variable = isabel_francisca_heir_var
+		create_character = {
+			template = spa_isabel_francisca_de_borbon_template
+		}
+	}
+	else_if = {
+		limit = {
+			game_date < 1886.5.17
+			game_date > 1857.11.28
+			NOT = { has_variable = alfonso_xii_heir_var }
+			ruler ?= {
+				has_template = spa_isabel_de_borbon_template
+			}
+		}
+		set_variable = alfonso_xii_heir_var
+		create_character = {
+			template = spa_alfonso_xii_de_borbon_template
+		}
+	}
+	else_if = {
+		limit = {
+			game_date > 1886.5.17
+			NOT = { has_variable = alfonso_xiii_heir_var }
+			ruler ?= {
+				has_template = spa_alfonso_xii_de_borbon_template
+			}
+		}
+		set_variable = alfonso_xiii_heir_var
+		create_character = {
+			template = spa_alfonso_xiii_de_borbon_template
+		}
+	}
+
+	# Carlist Spain - mirrors character_generate_carlist_spain_heir
+	if = {
+		limit = {
+			game_date < 1861.1.13
+			NOT = { has_variable = carlos_vi_heir_var }
+			ruler ?= {
+				has_template = SPC_carlos_v_de_borbon_template
+			}
+		}
+		set_variable = carlos_vi_heir_var
+		create_character = {
+			template = SPC_carlos_vi_de_borbon_template
+		}
+	}
+	else_if = {
+		limit = {
+			game_date < 1887.11.18
+			NOT = { has_variable = juan_iii_heir_var }
+			ruler ?= {
+				has_template = SPC_carlos_vi_de_borbon_template
+			}
+		}
+		set_variable = juan_iii_heir_var
+		create_character = {
+			template = SPC_juan_iii_de_borbon_template
+		}
+	}
+	else_if = {
+		limit = {
+			game_date < 1909.8.15
+			game_date > 1848.4.3
+			NOT = { has_variable = carlos_vii_heir_var }
+			ruler ?= {
+				has_template = SPC_juan_iii_de_borbon_template
+			}
+		}
+		set_variable = carlos_vii_heir_var
+		create_character = {
+			template = SPC_carlos_vii_de_borbon_template
+		}
+	}
+	else_if = {
+		limit = {
+			game_date < 1931.10.2
+			game_date > 1870.6.7
+			NOT = { has_variable = jaime_iii_heir_var }
+			ruler ?= {
+				has_template = SPC_carlos_vii_de_borbon_template
+			}
+		}
+		set_variable = jaime_iii_heir_var
+		create_character = {
+			template = SPC_jaime_iii_de_borbon_template
+		}
+	}
+	else_if = {
+		limit = {
+			game_date > 1849.9.12
+			NOT = { has_variable = alfonso_i_heir_var }
+			ruler ?= {
+				has_template = SPC_jaime_iii_de_borbon_template
+			}
+		}
+		set_variable = alfonso_i_heir_var
+		create_character = {
+			template = SPC_alfonso_i_de_borbon_template
+		}
+	}
+}

@@ -1,0 +1,1245 @@
+﻿# TECH-3A generated from frozen TECH-2H authority.
+
+shaft_mining = {
+	# TECH3A conceptual branch: Production
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/shaft_mining.dds"
+	category = production
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+coke_smelting = {
+	# TECH3A conceptual branch: Production
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/steelworking.dds"
+	category = production
+	unlocking_technologies ={
+		organized_workshops
+		shaft_mining
+	}
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+atmospheric_engine = {
+	# TECH3A conceptual branch: Production
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/atmospheric_engine.dds"
+	category = production
+	
+	unlocking_technologies = {
+        shaft_mining
+    }
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+improved_husbandry = {
+	# TECH3A conceptual branch: Production
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/enclosure.dds"
+	category = production
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+distillation = {
+	# Unlocks Pot Stills PM in Food Industry
+	# Unlocks Sweeteners PM in Food Industry
+	# Unlocks Fish Press PM in Fishing Wharfs
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/distillation.dds"
+	category = production
+
+	unlocking_technologies = {
+		traditional_food_processing
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+crystal_glass = {
+	# Unlocks Leaded Glass PM in Glassworks
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/crystal_glass.dds"
+	category = production
+
+	unlocking_technologies = {
+		industrial_ceramics
+		organized_workshops
+	}
+
+	ai_weight = {
+		value = 1
+	}
+}
+
+improved_agricultural_implements = {
+	# TECH3A conceptual branch: Production
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/1776_improved_agricultural_implements.dds"
+	category = production
+
+	unlocking_technologies = {
+		improved_husbandry
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+turnpike_road_networks = {
+	# TECH3A conceptual branch: Production
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/urban_planning.dds"
+	category = production
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+industrial_acids = {
+	# TECH3A conceptual branch: Production
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/1776_industrial_acids.dds"
+	category = production
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+advanced_crop_rotations = {
+	# TECH3A conceptual branch: Production
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/intensive_agriculture.dds"
+	category = production
+
+	unlocking_technologies = {
+		improved_husbandry
+		selective_breeding
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+selective_breeding = {
+	# TECH3A conceptual branch: Production
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/1776_selective_breeding.dds"
+	category = production
+
+	modifier = {
+		building_livestock_ranch_throughput_add = 0.25
+	}
+
+	unlocking_technologies = {
+		improved_husbandry
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+industrial_canals = {
+	# TECH3A conceptual branch: Production
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/1776_industrial_canals.dds"
+	category = production
+
+	unlocking_technologies = {
+		turnpike_road_networks
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+mechanized_spinning = {
+	# TECH3A conceptual branch: Production
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/1776_mechanized_spinning.dds"
+	category = production
+
+	unlocking_technologies = {
+        organized_textile_production
+    }
+	
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+applied_mineralogy = {
+	# TECH3A conceptual branch: Production
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/1776_applied_mineralogy.dds"
+	category = production
+
+	unlocking_technologies = {
+		shaft_mining
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+industrial_ceramics = {
+	# TECH3A conceptual branch: Production
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/1776_industrial_ceramics.dds"
+	category = production
+
+	unlocking_technologies = {
+		organized_workshops
+	}
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+precision_boring = {
+	# TECH3A conceptual branch: Production
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/lathe.dds"
+	category = production
+
+	unlocking_technologies = {
+		coke_smelting
+		atmospheric_engine
+		organized_workshops
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+condensing_steam_engines = {
+	# TECH3A conceptual branch: Production
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/1776_condensing_steam_engines.dds"
+	category = production
+
+	unlocking_technologies = {
+		atmospheric_engine
+		precision_boring
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+rotative_steam_power = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/1776_rotative_steam_power.dds"
+	category = production
+
+	unlocking_technologies = {
+		condensing_steam_engines
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+advanced_spinning = {
+	# TECH3A conceptual branch: Production
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/1776_advanced_spinning.dds"
+	category = production
+
+	unlocking_technologies = {
+		mechanized_spinning
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+puddling_and_rolling = {
+	# TECH3A conceptual branch: Production
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/mechanized_workshops.dds"
+	category = production
+
+	unlocking_technologies = {
+		coke_smelting
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+deep_mine_engineering = {
+	# TECH3A conceptual branch: Production
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/1776_deep_mine_engineering.dds"
+	category = production
+
+	unlocking_technologies = {
+		shaft_mining
+		atmospheric_engine
+		applied_mineralogy
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+threshing_machine = {
+	# TECH3A conceptual branch: Production
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/threshing_machine.dds"
+	category = production
+
+	unlocking_technologies = {
+		improved_agricultural_implements
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+chemical_bleaching = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/chemical_bleaching.dds"
+	category = production
+
+	unlocking_technologies = {
+		industrial_alkalis
+		industrial_ceramics
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+cotton_gin = {
+	# TECH3A conceptual branch: Production
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/cotton_gin.dds"
+	category = production
+
+
+	modifier = {
+		building_cotton_plantation_throughput_add = 0.25
+	}
+
+	unlocking_technologies = {
+		mechanized_spinning
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+automated_flour_milling = {
+	# TECH3A conceptual branch: Production
+	era = era_4
+	texture = "gfx/interface/icons/invention_icons/1776_automated_flour_milling.dds"
+	category = production
+
+	unlocking_technologies = {
+		improved_agricultural_implements
+		traditional_food_processing
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+mechanical_tools = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/mechanical_tools.dds"
+	category = production
+
+	unlocking_technologies = {
+		precision_boring
+		puddling_and_rolling
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+high_pressure_steam = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/1776_high_pressure_steam.dds"
+	category = production
+
+	unlocking_technologies = {
+		atmospheric_engine
+		mechanical_tools
+		rotative_steam_power
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+mechanized_weaving = {
+	# TECH3A conceptual branch: Production
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/1776_mechanized_weaving.dds"
+	category = production
+
+	unlocking_technologies = {
+		mechanized_spinning
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+industrial_alkalis = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/1776_industrial_alkalis.dds"
+	category = production
+
+	unlocking_technologies = {
+		industrial_acids
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+canneries = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/canneries.dds"
+	category = production
+
+	unlocking_technologies = {
+		automated_flour_milling
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+improved_road_engineering = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/1776_improved_road_engineering.dds"
+	category = production
+
+	unlocking_technologies = {
+		turnpike_road_networks
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+systematic_field_drainage = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/1776_systematic_field_drainage.dds"
+	category = production
+
+	# Field-drainage PMs now provide the land-improvement content.
+	modifier = {
+		building_group_bg_agriculture_throughput_add = 0.03
+	}
+
+	unlocking_technologies = {
+		advanced_crop_rotations
+		improved_road_engineering
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+mine_safety_engineering = {
+    # TECH3A conceptual branch: Production
+    era = era_5
+    texture = "gfx/interface/icons/invention_icons/1776_mine_safety_engineering.dds"
+    category = production
+
+    unlocking_technologies = {
+        deep_mine_engineering
+    }
+
+    modifier = {
+    building_group_bg_mining_laborers_mortality_mult = -0.05
+    building_group_bg_mining_machinists_mortality_mult = -0.025
+    building_group_bg_mining_engineers_mortality_mult = -0.01
+    building_group_bg_mining_slaves_mortality_mult = -0.10
+	}
+
+    ai_weight = {
+        value = 1
+
+        if = {
+            limit = {
+                OR = {
+                    has_strategy = ai_strategy_industrial_expansion
+                    has_strategy = ai_strategy_resource_expansion
+                }
+            }
+            add = 1
+        }
+    }
+}
+
+continuous_papermaking = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/1776_continuous_papermaking.dds"
+	category = production
+
+	unlocking_technologies = {
+		precision_boring
+		traditional_papermaking
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+coal_gasification = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/coal_gasification.dds"
+	category = production
+
+	unlocking_technologies = {
+		industrial_acids
+		coke_smelting
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+professional_civil_engineering = {
+	# TECH3A conceptual branch: Production
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/urbanization.dds"
+	category = production
+
+	unlocking_technologies = {
+		industrial_canals
+		improved_road_engineering
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+interchangeable_manufacture = {
+	# TECH3A conceptual branch: Production
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/1776_interchangeable_manufacture.dds"
+	category = production
+
+	modifier = {
+		building_economy_of_scale_level_cap_add = 10
+	}
+
+	unlocking_technologies = {
+		mechanical_tools
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+railways = {
+	# TECH3A conceptual branch: Production
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/railways.dds"
+	category = production
+
+	unlocking_technologies = {
+		high_pressure_steam
+		puddling_and_rolling
+		professional_civil_engineering
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+geological_surveying = {
+	# TECH3A conceptual branch: Production
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/1776_geological_surveying.dds"
+	category = production
+
+	unlocking_technologies = {
+		applied_mineralogy
+		professional_civil_engineering
+	}
+
+    modifier = {
+        country_resource_discovery_chance_mult = 0.25
+    }
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+hot_blast_smelting = {
+	# TECH3A conceptual branch: Production
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/1776_hot_blast_smelting.dds"
+	category = production
+
+	# Temporary TECH debt bonus; replace with blast-furnace and metallurgy content.
+	modifier = {
+		building_group_bg_heavy_industry_throughput_add = 0.05
+	}
+
+	unlocking_technologies = {
+		puddling_and_rolling
+		rotative_steam_power
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+hydraulic_cements = {
+	# TECH3A conceptual branch: Production
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/1776_hydraulic_cements.dds"
+	category = production
+
+	unlocking_technologies = {
+		professional_civil_engineering
+		industrial_ceramics
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+hydraulic_turbines = {
+	# TECH TREE Wave 3 compatibility alias: concept absorbed by professional_civil_engineering.
+	era = era_6
+	texture = "gfx/error_manul.dds"
+	category = production
+	can_research = no
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+pressed_glass = {
+	# TECH3A conceptual branch: Production
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/1776_pressed_glass.dds"
+	category = production
+
+	unlocking_technologies = {
+		crystal_glass
+    	industrial_alkalis
+    	mechanical_tools
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+fractional_distillation = {
+	# TECH3A conceptual branch: Production
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/fractional_distillation.dds"
+	category = production
+
+	unlocking_technologies = {
+		mechanical_tools
+		industrial_acids
+		distillation
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = {
+				OR = {
+					has_strategy = ai_strategy_industrial_expansion
+					has_strategy = ai_strategy_resource_expansion
+				}
+			}
+			add = 1
+		}
+	}
+}
+
+organized_forestry = {
+    # TECH3A conceptual branch: Production
+    era = era_2
+    texture = "gfx/interface/icons/invention_icons/1776_organized_forestry.dds"
+    category = production
+
+    unlocking_technologies = {
+        improved_husbandry
+    }
+
+    modifier = {
+        building_group_bg_logging_throughput_add = 0.25
+    }
+
+    ai_weight = {
+        value = 2
+    }
+}
+
+traditional_papermaking = {
+    # TECH3A conceptual branch: Production
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/1776_traditional_papermaking.dds"
+    category = production
+
+    ai_weight = {
+        value = 2
+    }
+}
+
+traditional_glassmaking = {
+	# Post-runtime compatibility alias; glassworks moved to organized_workshops.
+    era = era_2
+    texture = "gfx/error_manul.dds"
+    category = production
+	can_research = no
+}
+
+industrial_paper_bleaching = {
+    era = era_6
+    texture = "gfx/interface/icons/invention_icons/1776_industrial_paper_bleaching.dds"
+    category = production
+
+    unlocking_technologies = {
+        continuous_papermaking
+        chemical_bleaching
+    }
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+traditional_food_processing = {
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/1776_traditional_food_processing.dds"
+    category = production
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+organized_workshops = {
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/1776_organized_workshops.dds"
+    category = production
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+sugar_refining = {
+    era = era_2
+    texture = "gfx/interface/icons/invention_icons/1776_sugar_refining.dds"
+    category = production
+
+    unlocking_technologies = {
+        traditional_food_processing
+    }
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+mechanized_irrigation = {
+    era = era_6
+    texture = "gfx/interface/icons/invention_icons/1776_mechanized_irrigation.dds"
+    category = production
+
+    unlocking_technologies = {
+        systematic_field_drainage
+        rotative_steam_power
+    }
+
+    ai_weight = {
+        value = 1
+    }
+}
+
+organized_textile_production = {
+    # TECH3A conceptual branch: Production
+    era = era_1
+    texture = "gfx/interface/icons/invention_icons/1776_organized_textile_production.dds"
+    category = production
+
+    ai_weight = {
+        value = 2
+
+        if = {
+            limit = {
+                OR = {
+                    has_strategy = ai_strategy_industrial_expansion
+                    has_strategy = ai_strategy_resource_expansion
+                }
+            }
+            add = 1
+        }
+    }
+}

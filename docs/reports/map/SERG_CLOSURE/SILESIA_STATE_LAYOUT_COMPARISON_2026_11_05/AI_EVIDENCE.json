@@ -1,0 +1,86 @@
+{
+  "path": "common/ai_strategies/00_default_strategy.txt",
+  "sha256": "e7c3b653f7af8c1f0fddc747722d4e93a564842cc0e443b1be6b96c4044c502c",
+  "block": "ai_strategy_default/state_value/foreign-state branch",
+  "start_line": 1390,
+  "end_line": 1407,
+  "lines": [
+    {
+      "line": 1390,
+      "text": "\t\t\telse = {"
+    },
+    {
+      "line": 1391,
+      "text": "\t\t\t\tif = {"
+    },
+    {
+      "line": 1392,
+      "text": "\t\t\t\t\tlimit = {"
+    },
+    {
+      "line": 1393,
+      "text": "\t\t\t\t\t\tOR = {"
+    },
+    {
+      "line": 1394,
+      "text": "\t\t\t\t\t\t\tscope:target_state = {"
+    },
+    {
+      "line": 1395,
+      "text": "\t\t\t\t\t\t\t\tis_split_state = yes"
+    },
+    {
+      "line": 1396,
+      "text": "\t\t\t\t\t\t\t\tstate_region = {"
+    },
+    {
+      "line": 1397,
+      "text": "\t\t\t\t\t\t\t\t\tany_scope_state = {"
+    },
+    {
+      "line": 1398,
+      "text": "\t\t\t\t\t\t\t\t\t\towner = ROOT"
+    },
+    {
+      "line": 1399,
+      "text": "\t\t\t\t\t\t\t\t\t\tis_treaty_port = no"
+    },
+    {
+      "line": 1400,
+      "text": "\t\t\t\t\t\t\t\t\t}"
+    },
+    {
+      "line": 1401,
+      "text": "\t\t\t\t\t\t\t\t}"
+    },
+    {
+      "line": 1402,
+      "text": "\t\t\t\t\t\t\t}"
+    },
+    {
+      "line": 1403,
+      "text": "\t\t\t\t\t\t\tscope:target_state = { has_claim_by = root }"
+    },
+    {
+      "line": 1404,
+      "text": "\t\t\t\t\t\t}"
+    },
+    {
+      "line": 1405,
+      "text": "\t\t\t\t\t}"
+    },
+    {
+      "line": 1406,
+      "text": "\t\t\t\t\tmultiply = 2.0"
+    },
+    {
+      "line": 1407,
+      "text": "\t\t\t\t}"
+    }
+  ],
+  "factor": 2.0,
+  "condition": "Foreign target; either a split region with a non-treaty-port portion owned by ROOT, or a claim by ROOT. Outer reachability and other valuation conditions still apply.",
+  "not_a_war_probability": true,
+  "claim_does_not_stack_with_split": true,
+  "engine_test": false
+}

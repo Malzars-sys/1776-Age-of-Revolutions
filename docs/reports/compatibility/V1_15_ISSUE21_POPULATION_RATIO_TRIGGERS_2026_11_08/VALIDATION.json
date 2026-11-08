@@ -1,0 +1,229 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "files": {
+    "common/political_movements/00_ideological_movements.txt": {
+      "sha256": "c6622f339950345e7daae9dd26de12432195327a28328af1a50506135ea1b2f8",
+      "sites_matching_native": 2
+    },
+    "events/agitators_events/agitators_election_events.txt": {
+      "sha256": "b7ef55e9c86ee18aca842ea6acb0e013e73b4c5e3a9166f99ad92691b35e28fc",
+      "sites_matching_native": 1
+    },
+    "common/journal_entries/00_player_objectives_egalitarian_society.txt": {
+      "sha256": "67d14199075145a0cfcc222bf797e1be8423fba4cb492248ee42c65933f37e56",
+      "sites_matching_native": 1
+    }
+  },
+  "migrated_trigger_sites": 4,
+  "changed_source_lines": 8,
+  "outside_fields_byte_preserved": true,
+  "active_ratio_calls_found": 7,
+  "active_ratio_calls": [
+    {
+      "file": "common/journal_entries/00_player_objectives_egalitarian_society.txt",
+      "scope_path": [
+        "je_egalitarian_society",
+        "complete",
+        "pop_type_percent_country"
+      ],
+      "payload": [
+        [
+          "target",
+          "=",
+          "pop_type:peasants"
+        ],
+        [
+          "value",
+          "<",
+          "0.1"
+        ]
+      ]
+    },
+    {
+      "file": "common/journal_entries/00_urbanization.txt",
+      "scope_path": [
+        "je_urbanization_events_1",
+        "is_shown_when_inactive",
+        "pop_type_percent_country"
+      ],
+      "payload": [
+        [
+          "target",
+          "=",
+          "pop_type:peasants"
+        ],
+        [
+          "value",
+          ">",
+          "0.6"
+        ]
+      ]
+    },
+    {
+      "file": "common/journal_entries/00_urbanization.txt",
+      "scope_path": [
+        "je_urbanization_events_1",
+        "possible",
+        "pop_type_percent_country"
+      ],
+      "payload": [
+        [
+          "target",
+          "=",
+          "pop_type:peasants"
+        ],
+        [
+          "value",
+          ">",
+          "0.6"
+        ]
+      ]
+    },
+    {
+      "file": "common/journal_entries/00_urbanization.txt",
+      "scope_path": [
+        "je_urbanization_events_1",
+        "outcome",
+        "trigger",
+        "pop_type_percent_country"
+      ],
+      "payload": [
+        [
+          "target",
+          "=",
+          "pop_type:peasants"
+        ],
+        [
+          "value",
+          "<",
+          "0.35"
+        ]
+      ]
+    },
+    {
+      "file": "common/political_movements/00_ideological_movements.txt",
+      "scope_path": [
+        "movement_anti_slavery",
+        "additional_radicalism_factors",
+        "if",
+        "limit",
+        "owner",
+        "pop_type_percent_country"
+      ],
+      "payload": [
+        [
+          "target",
+          "=",
+          "pop_type:slaves"
+        ],
+        [
+          "value",
+          ">",
+          "0"
+        ]
+      ]
+    },
+    {
+      "file": "common/political_movements/00_ideological_movements.txt",
+      "scope_path": [
+        "movement_land_reform",
+        "creation_trigger",
+        "pop_type_percent_country"
+      ],
+      "payload": [
+        [
+          "target",
+          "=",
+          "pop_type:peasants"
+        ],
+        [
+          "value",
+          ">",
+          "0.25"
+        ]
+      ]
+    },
+    {
+      "file": "events/agitators_events/agitators_election_events.txt",
+      "scope_path": [
+        "agitators_election_events.13",
+        "trigger",
+        "pop_type_percent_country"
+      ],
+      "payload": [
+        [
+          "target",
+          "=",
+          "pop_type:peasants"
+        ],
+        [
+          "value",
+          ">=",
+          "0.35"
+        ]
+      ]
+    }
+  ],
+  "remaining_legacy_ratio_calls": 0,
+  "protected_files_checked": 2482,
+  "concurrent_changes": [],
+  "journal_outcome_debt_preserved": [
+    {
+      "journal": "je_objective_encourage_liberal_ideas",
+      "field": "complete"
+    },
+    {
+      "journal": "je_objective_encourage_liberal_ideas",
+      "field": "on_complete"
+    },
+    {
+      "journal": "je_liberate_the_slaves",
+      "field": "complete"
+    },
+    {
+      "journal": "je_pass_laws",
+      "field": "complete"
+    },
+    {
+      "journal": "je_public_services",
+      "field": "complete"
+    },
+    {
+      "journal": "je_public_services",
+      "field": "invalid"
+    },
+    {
+      "journal": "je_public_services",
+      "field": "on_invalid"
+    },
+    {
+      "journal": "je_women_and_children",
+      "field": "complete"
+    },
+    {
+      "journal": "je_women_and_children",
+      "field": "invalid"
+    },
+    {
+      "journal": "je_women_and_children",
+      "field": "on_invalid"
+    },
+    {
+      "journal": "je_egalitarian_society",
+      "field": "complete"
+    },
+    {
+      "journal": "je_egalitarian_society",
+      "field": "invalid"
+    },
+    {
+      "journal": "je_egalitarian_society",
+      "field": "on_invalid"
+    },
+    {
+      "journal": "je_egalitarian_society",
+      "field": "on_complete"
+    }
+  ],
+  "runtime_tested": false
+}

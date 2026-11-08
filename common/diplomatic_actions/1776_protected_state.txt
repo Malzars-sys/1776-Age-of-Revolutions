@@ -1,0 +1,34 @@
+# Voluntary protected-state agreement; no country-specific whitelist.
+aor1776_protected_state = {
+ groups = { general }
+ texture = "gfx/interface/icons/diplomatic_action_icons/aor1776_protected_state.dds"
+ requires_approval = yes
+ show_in_lens = yes
+ potential = {
+  is_country_type = unrecognized
+  scope:target_country = {
+   is_subject = no
+   OR = { is_country_type = recognized is_country_type = unrecognized is_country_type = colonial }
+   NOT = { this = root }
+  }
+ }
+ possible = {
+  is_diplomatic_play_committed_participant = no
+  scope:target_country = { is_diplomatic_play_committed_participant = no NOT = { has_war_with = root } }
+  "relations(scope:target_country)" >= relations_threshold:cordial
+ }
+ pact = {
+  cost = 0 has_junior_participant = yes subject_type = subject_type_aor1776_protected_state
+  income_transfer = 0 second_country_gets_income_transfer = no income_transfer_based_on_second_country = yes
+  actor_can_break = { is_diplomatic_play_committed_participant = no }
+  target_can_break = { is_diplomatic_play_committed_participant = no }
+ }
+ ai = {
+  # Players may offer this to any eligible country; no new global AI spam.
+  will_propose = { always = no } will_break = { always = no }
+  accept_score = { value = -50
+   if = { limit = { "relations(scope:actor)" >= relations_threshold:friendly } add = 75 }
+   if = { limit = { has_attitude = { who = scope:actor attitude = protective } } add = 25 }
+  }
+ }
+}

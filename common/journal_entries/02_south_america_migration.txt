@@ -108,32 +108,47 @@
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = sa_migration_completion_tt
-			trigger_if = {
-				limit = { exists = var:south_america_incorporated_population }
-				var:south_america_incorporated_population >= var:south_america_migration_goal
-				var:south_america_incorporated_population > 0
-				var:south_america_migration_goal > 0
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = sa_migration_completion_tt
+				trigger_if = {
+					limit = { exists = var:south_america_incorporated_population }
+					var:south_america_incorporated_population >= var:south_america_migration_goal
+					var:south_america_incorporated_population > 0
+					var:south_america_migration_goal > 0
+				}
+				trigger_else = {
+					always = no
+				}
 			}
-			trigger_else = {
-				always = no
+
+		}
+		effect = {
+			trigger_event = { id = sa_migration.3 popup = yes }
+			show_as_tooltip = {
+				add_modifier = {
+					name = populated_southamerica
+				}
 			}
+
 		}
 	}
 
-	on_complete = {
-		trigger_event = { id = sa_migration.3 popup = yes }
-		show_as_tooltip = {
-			add_modifier = {
-				name = populated_southamerica
-			}
-		}
-	}
 
-	invalid = {
-		has_variable = cancel_sa_migration_var
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			has_variable = cancel_sa_migration_var
+
+		}
+		effect = {}
 	}
 
 	scripted_button = southamerica_migration_button
@@ -267,26 +282,41 @@ je_central_america_migration = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = ca_migration_completion_tt
-			var:central_america_incorporated_population >= var:central_america_migration_goal
-			var:central_america_incorporated_population > 0
-			var:central_america_migration_goal > 0
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = sa_migration.3 popup = yes }
-		show_as_tooltip = {
-			add_modifier = {
-				name = populated_southamerica
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = ca_migration_completion_tt
+				var:central_america_incorporated_population >= var:central_america_migration_goal
+				var:central_america_incorporated_population > 0
+				var:central_america_migration_goal > 0
 			}
+
+		}
+		effect = {
+			trigger_event = { id = sa_migration.3 popup = yes }
+			show_as_tooltip = {
+				add_modifier = {
+					name = populated_southamerica
+				}
+			}
+
 		}
 	}
 
-	invalid = {
-		has_variable = cancel_sa_migration_var
+
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			has_variable = cancel_sa_migration_var
+
+		}
+		effect = {}
 	}
 
 	scripted_button = southamerica_migration_button
@@ -432,36 +462,51 @@ je_american_west_migration = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = wa_migration_completion_tt
-			var:american_west_incorporated_population >= var:american_west_migration_goal
-			var:american_west_incorporated_population > 0
-			var:american_west_migration_goal > 0
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = sa_migration.3 popup = yes }
-		show_as_tooltip = {
-			add_modifier = {
-				name = populated_southamerica
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = wa_migration_completion_tt
+				var:american_west_incorporated_population >= var:american_west_migration_goal
+				var:american_west_incorporated_population > 0
+				var:american_west_migration_goal > 0
 			}
+
+		}
+		effect = {
+			trigger_event = { id = sa_migration.3 popup = yes }
+			show_as_tooltip = {
+				add_modifier = {
+					name = populated_southamerica
+				}
+			}
+
 		}
 	}
 
-	invalid = {
-		OR = {
-			has_variable = cancel_sa_migration_var
-			NOT = {
-				any_scope_state = {
-					OR = {
-						region = sr:region_pacific_coast
-						region = sr:region_great_plains
+
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				has_variable = cancel_sa_migration_var
+				NOT = {
+					any_scope_state = {
+						OR = {
+							region = sr:region_pacific_coast
+							region = sr:region_great_plains
+						}
 					}
 				}
 			}
+
 		}
+		effect = {}
 	}
 
 	scripted_button = southamerica_migration_button

@@ -1,0 +1,7 @@
+# Attestation utilisateur — réception des changements prussiens
+
+Source : message explicite du joueur dans cette conversation, enregistré le 5 novembre 2026. La date effective du test n’a pas été communiquée.
+
+> J'ai vérifié tous les changements de carte. J'ai laissé passer un mois, puis sauvegardé et rechargé la partie. Tout passe. Donc, les frontières de la Prusse seront-elles finies ? Ou reste-t-il encore des choses à voir ? Si c'est terminé, je veux que tu reprennes la barre de progression qu'on s'était fixée et que tu l'avances en fonction des choses qu'on a faites. Propose-moi ensuite un nouveau lot pour le Saint-Empire romain germanique à traiter, bien sûr uniquement si la Prusse est terminée. Et privilégie la Bavière. Si la Bavière n'est pas terminée. Si la Bavière est terminée, prends n'importe quel autre lot à traiter.
+
+Portée enregistrée : les changements de carte prussiens installés dans le mod principal après intégration, un mois de simulation, sauvegarde et rechargement réussis. Le message précédent « Ok, je relance, je vois les changements » et ses trois captures établissent le contexte de la copie active. Le joueur ne fournit ici ni date initiale explicite de la partie, ni mesures chiffrées, ni compte rendu individuel des mécanismes impériaux, de l’emploi ou des unités. Ces détails ne sont pas ajoutés. Une référence au protocole ne vaut pas déclaration de réussite de chacune de ses étapes non mentionnées.

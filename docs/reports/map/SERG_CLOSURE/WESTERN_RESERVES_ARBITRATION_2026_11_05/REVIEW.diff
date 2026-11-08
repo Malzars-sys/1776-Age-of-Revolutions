@@ -1,0 +1,110 @@
+--- common/history/states/00_states.txt
++++ common/history/states/00_states.txt
+@@ -4734,7 +4734,7 @@
+ 	s:STATE_GELRE = {
+ 		create_state = {
+ 			country = c:NET
+-			owned_provinces = { xC0C0A0 x4C4894 xAF3A54 x41C0A0 }
++			owned_provinces = { xC0C0A0 x4C4894 xAF3A54 x41C0A0  xEEC700 xEEC701 }
+ 		}
+ 		create_state = {
+ 			country = c:BEO
+--- map_data/state_regions/00_west_europe.txt
++++ map_data/state_regions/00_west_europe.txt
+@@ -1002,7 +1002,7 @@
+ STATE_GELRE = {
+     id = 48
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x0000DF" "x41C0A0" "x4C4894" "xAF3A54" "xC0C0A0"  "xEEC600" }
++    provinces = { "x0000DF" "x41C0A0" "x4C4894" "xAF3A54" "xC0C0A0"  "xEEC600"  "xEEC700" "xEEC701" }
+     traits = { "state_trait_rhine_river" }
+     city = "xC0C0A0"
+     farm = "xAF3A54"
+--- common/history/pops/00_west_europe.txt
++++ common/history/pops/00_west_europe.txt
+@@ -1086,25 +1086,44 @@
+ 				culture = ashkenazi
+ 				size = 669
+ 			}
++
++create_pop = {
++				culture = dutch
++				size = 362
++			}
++create_pop = {
++				culture = dutch
++				religion = catholic
++				size = 702
++			}
++create_pop = {
++				culture = wallonian # French or Walloon Reformed
++				religion = protestant
++				size = 83
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 24
++			}
+ 		}
+ 		region_state:BEO = {
+ 			create_pop = {
+ 				culture = dutch
+-				size = 7472
++				size = 7110
+ 			}
+ 			create_pop = {
+ 				culture = dutch
+ 				religion = catholic
+-				size = 14489
++				size = 13787
+ 			}
+ 			create_pop = {
+ 				culture = wallonian # French or Walloon Reformed
+ 				religion = protestant
+-				size = 1715
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 497
++				size = 1632
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 473
+ 			}
+ 		}
+ 
+--- map_data/province_terrains.txt
++++ map_data/province_terrains.txt
+@@ -41254,3 +41254,6 @@
+ xEEC502 = "plains"
+ 
+ xEEC600 = "plains"
++
++xEEC700 = "plains"
++xEEC701 = "plains"
+--- tools/map2l_registry.py
++++ tools/map2l_registry.py
+@@ -504,6 +504,22 @@
+         assert all(new[k]==v for k,v in old.items()) and len(new)==len(old)+1
+         assert new['xEEC600']['beneficiary']=='PRU'
+         result.append(gueldre)
++    western_reserves=ROOT/'docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05'
++    if (western_reserves/'REGISTRY_MIGRATION.json').exists():
++        m=json.loads((western_reserves/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
++        g=json.loads((western_reserves/'GEOMETRY.json').read_text(encoding='utf8'))
++        assert gueldre in result
++        assert m['replaced_regions']==['STATE_GELRE'] and m['previous']==m['updated']
++        assert m['new_members']==m['free_cities']==m['extent_added_cells']==[] and m['country_additions']=={}
++        assert m['dutch_sovereign_cores_excluded_from_BEO_restitution'] is True
++        assert m['new_provinces']==g['new_provinces']==[{'rgb':'xEEC700','parent_rgb':'x0000DF'},{'rgb':'xEEC701','parent_rgb':'x0000DF'}]
++        assert g['parents']==['x0000DF'] and g['classification']=='B_POLITICAL_GENERALISATION' and g['ownership_cells']==8
++        assert [(z['id'],z['pixels']) for z in g['sub_lots']]==[('PW-VENLO-NET-B4',4),('PW-BEESEL-NET-B4',4)]
++        removed=[c for z in g['sub_lots'] for c in z['cells']]
++        assert sorted(m['extent_removed_cells'])==sorted(removed) and len({tuple(c) for c in removed})==8
++        assert {(z['owner'],z['previous_owner'],z['state']) for z in g['assignments']}=={('BEO','BEO','STATE_GELRE'),('NET','BEO','STATE_GELRE')}
++        assert not {'xEEC700','xEEC701'} & {z['rgb'] for z in m['updated']}
++        result.append(western_reserves)
+     return result
+ 
+ def provincial_membership_overrides():

@@ -1,0 +1,81 @@
+﻿COUNTRIES = {
+	c:UBD ?= {		
+		add_technology_researched = advanced_crop_rotations
+		add_technology_researched = distillation
+		add_technology_researched = improved_agricultural_implements
+		add_technology_researched = improved_husbandry
+		add_technology_researched = industrial_ceramics
+		add_technology_researched = institutionalized_scientific_exchange
+		add_technology_researched = military_topographic_surveying
+		add_technology_researched = organized_elementary_schooling
+		add_technology_researched = organized_textile_production
+		add_technology_researched = periodical_print_networks
+		add_technology_researched = permanent_engineer_services
+		add_technology_researched = political_economy
+		add_technology_researched = scientific_fortification_siegecraft
+		add_technology_researched = scientific_naval_architecture
+		add_technology_researched = selective_breeding
+		add_technology_researched = ship_classification_surveying
+		add_technology_researched = state_dockyard_systems
+		add_technology_researched = centralization
+		add_technology_researched = systematic_cadastral_surveying
+		add_technology_researched = systematic_population_registration
+		add_technology_researched = traditional_food_processing
+		add_technology_researched = organized_workshops
+		add_technology_researched = traditional_papermaking
+		add_technology_researched = variolation_networks
+		add_technology_researched = organized_military_establishments
+
+
+
+
+
+
+		remove_primary_culture = cu:lithuanian
+		remove_primary_culture = cu:latvian
+		remove_primary_culture = cu:estonian
+		add_primary_culture = cu:east_german
+		add_primary_culture = cu:russian
+
+		effect_starting_politics_conservative = yes
+		
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_landed_voting
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_freedom_of_conscience
+
+		active_law:lawgroup_education_system ?= { # Public Schools
+			add_amendment = {
+				type = amendment_prussian_education
+				sponsor = PREV.ig:ig_armed_forces
+			}
+		}
+
+		ig:ig_devout ?= { 
+			set_interest_group_name = ig_evangelical_church 
+		}
+
+		ig:ig_landowners ?= {
+			add_ruling_interest_group = yes
+		}
+
+		ig:ig_armed_forces ?= {
+			add_ruling_interest_group = yes
+		}
+
+		every_scope_character = { # Culls pregenerated Latvian/Lithuanian/Estonian characters
+			limit = {
+				NOT = {
+					is_historical = yes
+				}
+			}
+			kill_character = yes
+		}
+	}
+}

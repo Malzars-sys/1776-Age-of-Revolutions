@@ -1,0 +1,24 @@
+﻿# Repair ongoing saves, and create the journal/movement whenever the law is
+# activated. The victory variable prevents the completed trial from reopening.
+ensure_birth_quota_trial = {
+	if = {
+		limit = {
+			has_law = law_type:law_birth_quotas
+			NOT = { has_variable = birth_quota_journal_victory }
+			NOT = { has_journal_entry = je_birth_quota_trial }
+			NOT = { has_inactive_journal_entry = je_birth_quota_trial }
+		}
+		add_journal_entry = { type = je_birth_quota_trial }
+	}
+	if = {
+		limit = {
+			has_journal_entry = je_birth_quota_trial
+			NOT = {
+				any_political_movement = {
+					is_political_movement_type = movement_anti_natalist
+				}
+			}
+		}
+		create_political_movement = { type = movement_anti_natalist }
+	}
+}

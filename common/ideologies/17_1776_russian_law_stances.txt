@@ -1,0 +1,39 @@
+# Preserve all native Tsarist positions; add only the Russian-law preference.
+REPLACE:ideology_tsarist = {
+	icon = "gfx/interface/icons/ideology_icons/tsarist.dds"
+
+	lawgroup_governance_principles = {
+		law_monarchy = strongly_approve
+		law_theocracy = approve
+		law_presidential_republic = neutral
+		law_parliamentary_republic = neutral
+		law_corporate_state = neutral
+		law_social_monarchy = approve
+		law_council_republic = strongly_disapprove
+	}
+
+	lawgroup_distribution_of_power = {
+		law_anarchy = strongly_disapprove
+		law_universal_suffrage = strongly_disapprove
+		law_census_voting = strongly_disapprove
+		law_wealth_voting = disapprove
+		law_landed_voting = neutral
+		law_technocracy = neutral
+		law_oligarchy = neutral
+		law_autocracy = strongly_approve
+		law_single_party_state = disapprove
+		law_labour_suffrage = strongly_disapprove
+	}
+
+	lawgroup_church_and_state = {
+		law_state_religion = approve
+		law_freedom_of_conscience = neutral
+		law_total_separation = disapprove
+		law_state_atheism = strongly_disapprove
+	}
+
+	# A specific preference over ordinary subjecthood for the Russian army.
+	lawgroup_citizenship = {
+		law_official_nationality = approve
+	}
+}

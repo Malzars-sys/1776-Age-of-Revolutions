@@ -408,6 +408,171 @@ def approved_lot_dirs():
         assert not g['historical_cadastral_precision'] and g['parents']==g['new_provinces']==g['assignments']==g['hub_rebindings']==[]
         assert m['province_membership_overrides']==[dict(rgb='x9061E0',state='STATE_WEST_GALICIA',owner='AUS')]
         result.append(teschen)
+    prussia=ROOT/'docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02'
+    if (prussia/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((prussia/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        g=json.loads((prussia/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert teschen in result
+        assert m['replaced_regions']==['STATE_BRANDENBURG','STATE_LOWER_SILESIA']
+        assert m['new_members']==m['free_cities']==m['extent_added_cells']==m['extent_removed_cells']==[]
+        assert m['country_additions']=={} and m['new_provinces']==g['new_provinces']
+        assert g['classification']=='B_POLITICAL_GENERALISATION' and not g['historical_cadastral_precision']
+        assert set(g['parents'])=={'xDF4020','x60BF20','xB90BFF','x76EF4E','x1B72C9','x614121','x272E48'}
+        assert all(r['state'] in m['replaced_regions'] and r['previous_owner']=='PRU' and r['owner'] in {'PRU','SAX'} for r in g['assignments'])
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert all(new[k]==v for k,v in old.items() if k not in g['parents'])
+        assert len(new)==len(old)+len(g['new_provinces'])
+        assert {(r['rgb'],r['state'],r['beneficiary']) for r in m['updated'] if r['rgb'] not in old or r['rgb'] in g['parents']}=={(r['rgb'],r['state'],r['owner']) for r in g['assignments']}
+        result.append(prussia)
+    north_saxony=ROOT/'docs/reports/map/SERG_CLOSURE/NORTH_SAXONY_1_2026_11_05'
+    if (north_saxony/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((north_saxony/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        g=json.loads((north_saxony/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert prussia in result
+        assert m['replaced_regions']==['STATE_ANHALT','STATE_BRANDENBURG']
+        assert m['new_members']==m['free_cities']==m['extent_added_cells']==m['extent_removed_cells']==[]
+        assert m['country_additions']=={} and m['new_provinces']==g['new_provinces']
+        assert g['classification']=='B_POLITICAL_GENERALISATION' and not g['historical_cadastral_precision']
+        assert set(g['parents'])=={'x34386E','x83B1A8','x9B9076','xA65DA6','xCF5D8E','xDF4020'}
+        assert g['ownership_cells']==606 and len(g['new_provinces'])==5
+        assert all(r['state'] in m['replaced_regions'] and r['previous_owner']=='PRU' and r['owner'] in {'PRU','SAX'} for r in g['assignments'])
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert all(new[k]==v for k,v in old.items() if k not in g['parents'])
+        assert len(new)==len(old)+len(g['new_provinces'])
+        assert {(r['rgb'],r['state'],r['beneficiary']) for r in m['updated'] if r['rgb'] not in old or r['rgb'] in g['parents']}=={(r['rgb'],r['state'],r['owner']) for r in g['assignments']}
+        result.append(north_saxony)
+    polish_frontier=ROOT/'docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05'
+    if (polish_frontier/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((polish_frontier/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        g=json.loads((polish_frontier/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert north_saxony in result
+        assert m['replaced_regions']==['STATE_POSEN','STATE_WEST_PRUSSIA']
+        assert m['previous']==m['updated']==m['new_members']==m['free_cities']==m['extent_added_cells']==m['extent_removed_cells']==[]
+        assert m['country_additions']=={} and m['external_to_hre'] is True
+        assert m['new_provinces']==g['new_provinces'] and len(g['new_provinces'])==4
+        assert g['classification']=='B_POLITICAL_GENERALISATION' and not g['historical_cadastral_precision']
+        assert set(g['parents'])=={'x41A021','xC02121','xFCC7B7','x374AC3'}
+        assert sum(r['pixels'] for r in g['assignments'] if r['owner']!=r['previous_owner'])==285
+        assert all(r['state'] in m['replaced_regions'] and {r['owner'],r['previous_owner']}<={'PRU','PLC'} for r in g['assignments'])
+        assert len(m['locator_relocations'])==1 and m['locator_relocations']==g['locator_relocations']
+        loc=m['locator_relocations'][0]
+        assert (loc['state'],loc['kind'],loc['id'])==('STATE_WEST_PRUSSIA','farm',158)
+        assert loc['before_position']==[4519.314941,0.,2843.895264] and loc['after_position']==[4521.5,0.,2848.5]
+        result.append(polish_frontier)
+    prussian_west=ROOT/'docs/reports/map/SERG_CLOSURE/PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05'
+    if (prussian_west/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((prussian_west/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        g=json.loads((prussian_west/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert m['replaced_regions']==['STATE_HANNOVER','STATE_WESTPHALIA']
+        assert m['new_members']==m['free_cities']==m['extent_added_cells']==m['extent_removed_cells']==[]
+        assert m['country_additions']=={} and m['new_provinces']==g['new_provinces']
+        assert g['classification']=='B_POLITICAL_GENERALISATION' and g['ownership_cells']==32
+        assert set(g['parents'])=={'x1BA4F6','x910095','xEDAC00'}
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert all(new[k]==v for k,v in old.items()) and len(new)==len(old)+3
+        assert {r['owner'] for r in g['assignments'] if r['owner']!=r['previous_owner']}=={'PRU'}
+        result.append(prussian_west)
+    magdeburg=ROOT/'docs/reports/map/SERG_CLOSURE/MAGDEBURG_HALBERSTADT_2026_11_05'
+    if (magdeburg/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((magdeburg/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        g=json.loads((magdeburg/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert prussian_west in result
+        assert m['replaced_regions']==['STATE_ANHALT']
+        assert m['new_members']==m['free_cities']==m['extent_added_cells']==m['extent_removed_cells']==[]
+        assert m['country_additions']=={} and m['new_provinces']==g['new_provinces']
+        assert g['classification']=='B_POLITICAL_GENERALISATION' and g['ownership_cells']==77
+        assert set(g['parents'])=={'x618061','xA080E0','xCF5D8E'}
+        assert len(g['new_provinces'])==3 and sum(z['pixels'] for z in g['sub_lots'])==77
+        assert all(z['previous_owner']=='PRU' and z['owner'] in {'PRU','SAX'} and z['state']=='STATE_ANHALT' for z in g['assignments'])
+        old={z['rgb']:z for z in m['previous']};new={z['rgb']:z for z in m['updated']}
+        assert all(new[k]==v for k,v in old.items()) and len(new)==len(old)+3
+        assert {(z['rgb'],z['beneficiary']) for z in m['updated'] if z['rgb'] not in old}=={(z['rgb'],'SAX') for z in g['new_provinces']}
+        result.append(magdeburg)
+    gueldre=ROOT/'docs/reports/map/SERG_CLOSURE/CLEVE_GUELDRE_MARK_2026_11_05'
+    if (gueldre/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((gueldre/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        g=json.loads((gueldre/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert magdeburg in result
+        assert m['replaced_regions']==['STATE_GELRE']
+        assert m['new_members']==m['free_cities']==m['extent_added_cells']==m['extent_removed_cells']==[]
+        assert m['country_additions']=={} and m['new_provinces']==g['new_provinces']
+        assert g['classification']=='B_POLITICAL_GENERALISATION' and g['ownership_cells']==72
+        assert [(z['id'],z['pixels']) for z in g['sub_lots']]==[('PW-GUELDRE-B53',53),('PW-CLEVE-GUELDRE-NORTH-B19',19)]
+        assert g['parents']==['x0000DF'] and g['new_provinces']==[{'rgb':'xEEC600','parent_rgb':'x0000DF'}]
+        assert {(z['owner'],z['previous_owner'],z['state']) for z in g['assignments']}=={('BEO','BEO','STATE_GELRE'),('PRU','BEO','STATE_GELRE')}
+        old={z['rgb']:z for z in m['previous']};new={z['rgb']:z for z in m['updated']}
+        assert all(new[k]==v for k,v in old.items()) and len(new)==len(old)+1
+        assert new['xEEC600']['beneficiary']=='PRU'
+        result.append(gueldre)
+    western_reserves=ROOT/'docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05'
+    if (western_reserves/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((western_reserves/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
+        g=json.loads((western_reserves/'GEOMETRY.json').read_text(encoding='utf8'))
+        assert gueldre in result
+        assert m['replaced_regions']==['STATE_GELRE'] and m['previous']==m['updated']
+        assert m['new_members']==m['free_cities']==m['extent_added_cells']==[] and m['country_additions']=={}
+        assert m['dutch_sovereign_cores_excluded_from_BEO_restitution'] is True
+        assert m['new_provinces']==g['new_provinces']==[{'rgb':'xEEC700','parent_rgb':'x0000DF'},{'rgb':'xEEC701','parent_rgb':'x0000DF'}]
+        assert g['parents']==['x0000DF'] and g['classification']=='B_POLITICAL_GENERALISATION' and g['ownership_cells']==8
+        assert [(z['id'],z['pixels']) for z in g['sub_lots']]==[('PW-VENLO-NET-B4',4),('PW-BEESEL-NET-B4',4)]
+        removed=[c for z in g['sub_lots'] for c in z['cells']]
+        assert sorted(m['extent_removed_cells'])==sorted(removed) and len({tuple(c) for c in removed})==8
+        assert {(z['owner'],z['previous_owner'],z['state']) for z in g['assignments']}=={('BEO','BEO','STATE_GELRE'),('NET','BEO','STATE_GELRE')}
+        assert not {'xEEC700','xEEC701'} & {z['rgb'] for z in m['updated']}
+        result.append(western_reserves)
+    bavaria=ROOT/'docs/reports/map/SERG_CLOSURE/BAVARIA_V1_2026_11_05'
+    if (bavaria/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((bavaria/'REGISTRY_MIGRATION.json').read_text(encoding='utf-8'))
+        g=json.loads((bavaria/'GEOMETRY.json').read_text(encoding='utf-8'))
+        assert western_reserves in result
+        assert m['replaced_regions']==['STATE_AUSTRIA']
+        assert m['new_members']==m['free_cities']==m['new_provinces']==m['region_reference_changes']==m['extent_added_cells']==m['extent_removed_cells']==[]
+        assert m['country_additions']=={} and m['bitmap_unchanged'] is True and m['ownership_cells']==175
+        assert g['parents']==['xFDA6CB'] and g['new_provinces']==g['hub_rebindings']==[]
+        assert g['classification']=='B_POLITICAL_GENERALISATION' and g['changed_pixels']==0 and g['ownership_cells']==175
+        assert len(g['assignments'])==1
+        r=g['assignments'][0]
+        assert (r['rgb'],r['state'],r['previous_owner'],r['owner'],r['pixels'])==('xFDA6CB','STATE_AUSTRIA','AUS','BAV',175)
+        assert len(r['cells'])==len({tuple(c) for c in r['cells']})==175
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert set(old)==set(new) and old['xFDA6CB']['beneficiary']=='AUS' and new['xFDA6CB']['beneficiary']=='BAV'
+        assert all(new[k]==v for k,v in old.items() if k!='xFDA6CB')
+        assert old['xEDC000']==new['xEDC000'] and new['xEDC000']['beneficiary']=='PAS'
+        result.append(bavaria)
+    bavarian_upper=ROOT/'docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05'
+    if (bavarian_upper/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((bavarian_upper/'REGISTRY_MIGRATION.json').read_text(encoding='utf-8'))
+        g=json.loads((bavarian_upper/'GEOMETRY.json').read_text(encoding='utf-8'))
+        assert bavaria in result
+        assert __import__('hashlib').sha256((bavarian_upper/'GEOMETRY.json').read_bytes()).hexdigest()=='5ea4518c7a683fa03369978a2ca570673ec516b45fb4f3bbcb229cb2e3c49f27'
+        assert m['replaced_regions']==['STATE_BAVARIA']
+        assert m['new_members']==m['free_cities']==m['extent_added_cells']==m['extent_removed_cells']==[]
+        assert m['country_additions']=={} and m['new_provinces']==g['new_provinces']
+        assert g['classification']=='B_POLITICAL_GENERALISATION' and not g['historical_cadastral_precision']
+        assert g['ownership_cells']==156 and g['parents']==['x3101A0', 'x318021', 'x565185', 'x82F4B9', 'xA7094D', 'xFE59E7']
+        assert all(r['previous_owner']=='BAV' and r['owner'] in {'BAV','KPF'} for r in g['assignments'])
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert all(new[k]==v for k,v in old.items())
+        assert set(new)-set(old)=={r['rgb'] for r in g['new_provinces']}
+        assert {(r['rgb'],r['state'],r['beneficiary']) for r in m['updated'] if r['rgb'] not in old}=={(r['rgb'],r['state'],r['owner']) for r in g['assignments'] if r['rgb']!=r['parent_rgb']}
+        result.append(bavarian_upper)
+    bavarian_west=ROOT/'docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05'
+    if (bavarian_west/'REGISTRY_MIGRATION.json').exists():
+        m=json.loads((bavarian_west/'REGISTRY_MIGRATION.json').read_text(encoding='utf-8'))
+        g=json.loads((bavarian_west/'GEOMETRY.json').read_text(encoding='utf-8'))
+        assert bavarian_upper in result
+        assert __import__('hashlib').sha256((bavarian_west/'GEOMETRY.json').read_bytes()).hexdigest()=='0da4d8eebfdbd30c48597aecc0e5509045ded4c6d53df1d846d18568a68f329b'
+        assert m['replaced_regions']==['STATE_BAVARIA', 'STATE_WURTTEMBERG']
+        assert m['new_members']==m['free_cities']==m['extent_added_cells']==m['extent_removed_cells']==[]
+        assert m['country_additions']=={} and m['new_provinces']==g['new_provinces']
+        assert g['classification']=='B_POLITICAL_GENERALISATION' and not g['historical_cadastral_precision']
+        assert g['ownership_cells']==56 and g['parents']==['x118060', 'x3101A0', 'x318021', 'x565185', 'x68CE1C', 'xC347B1']
+        assert all(r['previous_owner'] in {'BAV','WUR'} and r['owner'] in {'BAV','WUR','KPF'} for r in g['assignments'])
+        old={r['rgb']:r for r in m['previous']};new={r['rgb']:r for r in m['updated']}
+        assert all(new[k]==v for k,v in old.items())
+        assert set(new)-set(old)=={r['rgb'] for r in g['new_provinces']}
+        assert {(r['rgb'],r['state'],r['beneficiary']) for r in m['updated'] if r['rgb'] not in old}=={(r['rgb'],r['state'],r['owner']) for r in g['assignments'] if r['rgb']!=r['parent_rgb']}
+        result.append(bavarian_west)
     return result
 
 def provincial_membership_overrides():

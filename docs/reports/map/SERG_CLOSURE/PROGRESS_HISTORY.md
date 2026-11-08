@@ -585,3 +585,108 @@ Progression : 39.57 → 39.57 %.
 - BASE-SWABIA-CITIES : 3 points; [RUNTIME_USER_VALIDATION_SWABIA_COMPLETION.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/MAP2L/RUNTIME_USER_VALIDATION_SWABIA_COMPLETION.json>); seuls noyaux du reçu.
 
 Référence initiale immuable : [INITIAL_STATE.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/INITIAL_STATE.json>). Périmètre et poids : [1.0.0.json](<C:/Users/simeo/Documents/Paradox Interactive/Victoria 3/mod/1776_Age_of_Revolutions_fork/docs/reports/map/SERG_CLOSURE/scopes/1.0.0.json>). Les statuts suivants restent ouverts jusqu’à preuve nouvelle; un ancien test ne couvre pas une nouvelle extension.
+
+
+## SERG-RM-0059 — 31 octobre 2026 — Carrare/Avenza, recherche ciblée
+
+Ligne 1775 de Lazzoni confirmée visuellement, 3700 ville incluse dans 8010 commune ; couverture et contour restent non homologués. Bitmap actuel : MCA 8 / MOD parent 108 ; A/B/C connexes, ancienne proposition 3 rejetée (104+1 MOD). Cotes des cartes Avenza 1775 b.84–86 et Carrare 1775 b.87–88 identifiées, pas les images originales. Aucune installation, aucun reçu ni point. SC4-MASSA-CARRARA BLOCKED P0 ; MC-I-CORE préservé. 93/235, 39,57 %, 32/81 inchangés. [Rapport](SC4-MASSA-CARRARA/CARRARA_AVENZA_FINALISATION_2026_10_31/REPORT.md).
+
+
+## SERG-RM-0060 — 1er novembre 2026 — Dernière vérification Zatta, NO-GO
+
+Feuille Zatta 1783 identifiée (Rumsey 11598.169 au catalogue), autre épreuve réellement lue ; Avenza/Carrare/Massa et relief plus détaillés, mais correspondance indépendante aux cellules toujours insuffisante. Consultation numérique ciblée des originaux : cotes confirmées, pages de service HTTP 403, aucune reproduction originale obtenue. Aucun transfert ni nouvelle validation ; recherche arrêtée, suspension recommandée jusqu’au dossier primaire communal de 1775 exploitable. SC4-MASSA-CARRARA demeure BLOCKED P0, trois points non attribués ; 93/235 et 39,57 %, 32/81 inchangés. Les 80 autres tâches et les anciens reçus sont conservés. [Rapport](SC4-MASSA-CARRARA/ZATTA_FINAL_CHECK_2026_11_01/REPORT.md).
+
+
+## SERG-RM-0061 — 5 novembre 2026 — Prusse V1, sous-lots lusaciens installés
+
+811 cellules PRU→SAX, 393 Brandebourg et 418 Basse-Silésie ; Cottbus/Peitz/Sagan protégés. Deux tâches régionales NOT_STARTED→BLOCKED avec installations partielles prêtes au test joueur. Aucun reçu humain, aucun point : 93/235 et 39,57 %, 32/81. Les 79 autres tâches, événements et reçus sont conservés. Priorité Prusse explicite, micro-États hors file active sans effacement ni crédit, Bavière non commencée. [Rapport](PRUSSIA_V1_2026_11_02/REPORT.md).
+
+
+## SERG-RM-0062 — 5 novembre 2026 — Nord saxon 1 installé
+
+606 cellules PRU→SAX supplémentaires : NS1-KURKREIS (352 Anhalt technique), NS1-FLAMING-MEISSEN (254 Brandebourg). Cinq RGB nouveaux, 592 titres impériaux et même étendue ; 811 cellules lusaciennes antérieures préservées. Catégorie B, trente cellules de raccord interne saxon et une cellule adjacente à Baruth explicitement documentées. Aucun bâtiment, unité, PM ou technologie modifié ; redistribution technique des populations existantes. SC3-BRANDENBURG reste BLOCKED, sous-lots prêts au joueur. Aucun reçu humain ni point : 93/235, 39,57 %, 32/81 ; les 80 autres tâches et événements antérieurs sont conservés. Prochaine passe demandée : frontière polonaise prussienne, non commencée. [Rapport](NORTH_SAXONY_1_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0063 — 5 novembre 2026 — Frontière polono-prussienne, livraison hors SERG
+
+285 cellules installées : PP-NETZE-CORE, 222 PLC→PRU ; PP-THORN-CORE, 4 PRU→PLC ; PP-DOBRZYN-FRINGE, 59 PRU→PLC. Farm158/Toruń déplacé vers la rive nord, autres repères et tous les bâtiments/PM/unités préservés. Approximation B ; limites complètes de la Netze et possessions rurales de Thorn non certifiées. Les preuves MAP2M, les 811 + 606 cellules saxonnes et les 81 tâches sont inchangées. Livraison extérieure au SERG, 592 titres impériaux inchangés ; aucun reçu humain ou point : 93/235, 39,57 %, 32/81. Prochaine action limitée au test joueur groupé, aucune autre passe commencée. [Rapport](PRUSSIA_POLAND_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0064 — 5 novembre 2026 — Comparaison des régions silésiennes
+
+Trois variantes comparées : agrégat actuel, Haute-Silésie partagée PRU/AUS, région autrichienne distincte. La règle IA ×2 pour une portion étrangère partagée ou revendiquée est confirmée dans le script effectif ; aucun effet moteur sur l’hostilité mesuré. Aucun fichier fonctionnel modifié, aucune nouvelle option approuvée, aucune attestation inventée. Décision SC2-AUSTRIAN-SILESIA et les 81 fiches intégralement conservées ; 93/235, 39,57 %, 32/81 inchangés. Les tests prussiens précédents restent attendus ; SC5-PRUSSIAN-WEST identifiée P1 sans dépendance, non commencée. [Comparaison](SILESIA_STATE_LAYOUT_COMPARISON_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0065 — 5 novembre 2026 — Prusse occidentale, correspondance bloquée
+
+SC5-PRUSSIAN-WEST NOT_STARTED→BLOCKED P1. Carte primaire Ravensberg 1772 et feuille Clèves/Gueldre/Mark 1793 obtenues et lues. Intérieur de Berg : 151 cellules déjà KPF selon R5, 39 cellules PRU hypothétiques selon Miller ; aucun transfert commun ni correction indépendante démontrée. Première génération arrêtée avant candidat ; export documentaire ultérieur NO-GO, aucun ajustement des anciens modèles. Aucun fichier fonctionnel, reçu ou point nouveau. Toutes les anciennes installations et 80 autres tâches conservées ; 93/235, 39,57 %, 32/81. Test joueur groupé prussien toujours attendu ; aucune Bavière ou autre tâche commencée. [Rapport](PRUSSIAN_WEST_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0066 — 5 novembre 2026 — Repères physiques et noyau prussien B de Ravensberg
+
+SC5-PRUSSIAN-WEST BLOCKED→IN_PROGRESS ; PW-RAVENSBERG-B32 installé, prêt au moteur. Six repères physiques comparés, ancien R5 retenu seulement pour B ; nouvel affine rejeté sur les trois témoins. 32 cellules : SCM 9, WPM 6, HAN 17 vers PRU ; 11 559 habitants existants réaffectés, bâtiments/PM/unités/technologies et repères physiques conservés. 592→595 titres impériaux, même étendue et neuf électeurs. Noyaux Minden/Lingen/Tecklenburg/WPO/Lippe et anciennes cellules PRU protégés. Aucune certification régionale, attestation ou point ; 93/235, 39,57 %, 32/81 inchangés. Le joueur diffère tous les tests moteur à la fin de la Prusse ; cette attente n'arrête pas les corrections autorisées. Recherche de précision occidentale arrêtée pour cette passe ; Glatz/Silésie candidate non commencée, aucune Bavière. [Rapport](PRUSSIAN_WEST_PHYSICAL_ANCHORS_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0067 — 5 novembre 2026 — Glatz et frontière silésienne, maintien B proposé
+
+Mission limitée à Glatz/Silésie. SC3-SILESIA-LUSATIA BLOCKED→IN_PROGRESS : examen borné terminé, sans nouveau changement fonctionnel ni maintien définitif approuvé. Glatz déjà PRU ; support xC00121 de 288 cellules, qui n'est pas le périmètre cadastral du comté. Tracé méridional identique au vanilla, confronté aux cartes historiques et à la partition de 1742/1763 ; positions urbaines projetées non certifiées. Aucun ancien recalage recommencé. Noyaux autrichiens, séparation économique PRU/AUS et 418 cellules lusaciennes saxonnes préservés. Décision B et réception du noyau lusacien demeurent ouvertes, tests moteur toujours différés par le joueur à la fin de la Prusse. Aucun reçu ou point : 93/235 = 39,57 %, 32/81. Aucune autre frontière ou Bavière commencée. [Rapport](GLATZ_SILESIA_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0068 — 5 novembre 2026 — Accord de maintien Glatz/Silésie
+
+Le joueur confirme le maintien du saillant de Glatz et de la frontière silésienne actuelle. Accord B borné enregistré séparément ; proposition et anciens rapports préservés. Aucun fichier fonctionnel modifié, aucun test moteur attesté, aucune extension à la réception lusacienne ou à la démographie. SC3-SILESIA-LUSATIA reste IN_PROGRESS ; 93/235 = 39,57 %, 32/81 inchangés. Magdebourg/Halberstadt et les interfaces Saxe/Anhalt recommandés comme prochaine passe, non commencée. Les réserves occidentales et polonaises demeurent ; tests moteur toujours différés à la fin de la Prusse. [Décision](GLATZ_SILESIA_2026_11_05/DECISION_USER_APPROVED_2026_11_05.json).
+
+
+## SERG-RM-0069 — 5 novembre 2026 — Saale et Gommern, deux noyaux saxons rétablis
+
+SC3-BRANDENBURG BLOCKED→IN_PROGRESS. 77 cellules PRU→SAX, catégorie B : Saale 69 (Mersebourg/Querfurt/Weißenfels/Naumbourg), Gommern 8. Trois nouvelles provinces, même région économique ; 23 202 habitants existants réaffectés sans modifier leurs profils ou le total mondial. Halle/Magdebourg/Halberstadt, tous les noyaux non PRU et les anciennes corrections conservés. Aucun bâtiment/PM/unité/locator physique modifié. Trois titres ajoutés, 595→598, même étendue impériale et neuf électeurs. Barby, Mansfeld et les autres obligations régionales restent ouverts. Deux sous-lots IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION ; aucun reçu humain ni point : 93/235, 39,57 %, 32/81. Tests moteur toujours différés à la fin de la Prusse. Prochain tri occidental recommandé, non commencé ; aucune Bavière ou micro-État. [Rapport](MAGDEBURG_HALBERSTADT_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0070 — 5 novembre 2026 — Clèves/Gueldre, B53 et B19 installés
+
+SC5-PRUSSIAN-WEST reste IN_PROGRESS. Relecture bornée Clèves/Gueldre/Mark : 72 cellules BEO→PRU, noyau Gueldre 53 et complément nord Gennep/Middelaar–Afferden/Well 19 ; 10548 habitants existants redistribués techniquement avec conservation des profils et du total mondial. Un RGB supplémentaire, 598→599 titres, même étendue impériale et neuf électeurs. Mark, noyaux Clèves/PRU existants, Ravensberg, Glatz/Silésie et corrections antérieures préservés. Aucun bâtiment/PM/unité/locator déplacé. Venlo/Beesel et les franges régionales restent ouverts, sans approbation de leur attribution actuelle. Deux sous-lots IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION ; aucun reçu ni point : 93/235, 39,57 %, 32/81. Tests moteur toujours différés à la fin de la Prusse. Prochain arbitrage de périmètre V1 identifié ; aucune deuxième étape ou Bavière lancée. [Rapport](CLEVE_GUELDRE_MARK_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0071 — 5 novembre 2026 — Réserves occidentales arbitrées pour la V1
+
+Sur autorisation explicite d'arbitrer, maintien actuel Clèves/Mark/Berg en catégorie B, sans certification des franges ni installation du candidat Berg non démontré. Deux noyaux néerlandais corrigés : Venlo 4 et Beesel/Belfeld 4 cellules BEO→NET ; 1 171 habitants existants redistribués techniquement, profils et total mondial conservés. Deux nouvelles provinces, aucun pays nouveau. Les 599 titres impériaux restent identiques ; leur domaine enregistré perd exactement ces huit cellules, sans droit BEO de restitution ni adhésion nationale NET. Roermond, tous les anciens noyaux PRU, bâtiments/PM/unités/locators et travaux concurrents préservés. SC5-PRUSSIAN-WEST reste IN_PROGRESS, deux sous-lots IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION ; aucune réception humaine ni point : 93/235, 39,57 %, 32/81. Prochaine action : test joueur prussien groupé lorsque le joueur sera prêt, sans nouveau territoire. [Rapport](WESTERN_RESERVES_ARBITRATION_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0072 — 5 novembre 2026 — Intégration des trois dossiers dans le mod principal
+
+Fusion de contenu vers la copie chargée, sans opération Git d'écriture. Les apports Massa/Prusse sont réunis aux modifications propres au principal. Les corrections Map-0 Luxembourg et Lombardie sont reprises par leurs versions validées plus récentes, sans perte de population ni retrait de l'attribution SWI. Anciens événements et reçus préservés ; aucun nouveau test moteur ou point : 93/235, 39,57 %, 32/81. Prochaine action : relancer le jeu, nouvelle partie 1776 et réception prussienne groupée. [Rapport](../../integration/WORKTREES_TO_MAIN_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0073 — 5 novembre 2026 — Réception humaine des installations prussiennes
+
+Le joueur confirme tous les changements de carte, un mois, sauvegarde et rechargement réussis dans la copie principale réunifiée. Quatorze sous-lots reçus : onze SERG et trois polono-prussiens sans point SERG. Reçus distincts limités aux installations ; aucune date de test, mesure ou vérification détaillée inventée. Les trois tâches régionales restent IN_PROGRESS pour leurs obligations non acquises ; pas de changement de statut régional, de poids ou de périmètre. Progression calculée 93/235 → 93/235, 39,57 % → 39,57 %, 32/81. Les décisions Glatz et occidentales restent acquises. Aucun fichier fonctionnel ni ancienne preuve modifié. Dernier tri prussien proposé, sans exécution ; Bavière conditionnelle à sa clôture, non commencée. [Rapport](PRUSSIA_GROUPED_RECEPTION_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0074 — 5 novembre 2026 — Revue finale Prusse V1 et proposition de gel
+
+Les preuves de Barby/Mansfeld, Leer/Rheiderland et Netze/Thorn sont réutilisées et rapprochées de la carte actuelle. La notice LASA distingue la suzeraineté prussienne antérieure de l’incorporation de Mansfeld de 1780 ; aucun transfert global justifié. 319 cellules PRU de Frise conservées, enveloppes HAN/NET non prises pour des erreurs ; 22/22 diagnostics polonais grossiers cohérents. Aucun nouveau modèle, transfert, fichier fonctionnel ou reçu humain. Les 14 sous-lots et arbitrages déjà reçus restent acquis. Proposition concrète de gel V1 et reports résiduels de quatre tâches P1, non approuvée ; trois IN_PROGRESS et un BLOCKED inchangés. Progression 93/235 → 93/235, 39,57 % → 39,57 %, 32/81. Projection 106/235, 45,11 %, 36/81 après accord explicite seulement, crédit de reports approuvés et non de nouvelles frontières exactes. Démographie séparée, obligations non supprimées ; Bavière candidate ensuite, non commencée. [Rapport](PRUSSIA_V1_FINAL_REVIEW_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0075 — 5 novembre 2026 — Accord prussien et passage à la Bavière
+
+Le joueur approuve le rapport et demande la Bavière. Gel Prusse V1 et quatre reports P1 reçus : SC3-BRANDENBURG, SC3-SILESIA-LUSATIA, SC5-PRUSSIAN-WEST, SC5-EAST-FRISIA-SOUTH → DEFERRED_APPROVED. Les 14 réceptions restent intactes ; réserves historiques conservées, aucun nouveau test moteur inventé. Progression canonique 93/235 → 106/235, 39,57 % → 45,11 %, 32/81 → 36/81. Bavière V1 autorisée, priorité Innviertel/frontière BAV-AUS dans SC2-AUSTRIA ; aucun nouveau 82e item. [Accord](BAVARIA_V1_2026_11_05/PRUSSIAN_DECISION_RECEPTION/USER_APPROVED_V1_DECISION.json).
+
+
+## SERG-RM-0076 — 5 novembre 2026 — Innbaiern bavarois installé
+
+SC2-AUSTRIA BLOCKED→IN_PROGRESS. BV-INNBAIERN-175 : province existante xFDA6CB, 175 cellules AUS→BAV sans changement du bitmap ; estimation106900 habitants tirée du relevé des ressorts bavarois1771/81, transférée du pool existant. Nom Innbaiern limité à BAV. PAS/Obernberg, SLZ, anciens noyaux, bâtiments/PM/détenteurs/unités/pays et travaux concurrents conservés. Même599 titres et étendue impériale, seul bénéficiaire cible BAV. Douze fichiers installés, dont quatre nouveaux. 42/42 contrôles de conservation réussis après classification de deux assertions globales avec mêmes écarts avant/après ; résultat brut initial38/40 conservé. Aucun nouveau reçu humain ou point : 106/235,45,11%,36/81, après les quatre reports prussiens déjà approuvés. Nouvelle installation prête au joueur, protocole ciblé préparé. Bavière entière non déclarée close ; Haute-Palatinat et grands raccords franconiens identifiés seulement. [Rapport](BAVARIA_V1_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0077 — 5 novembre 2026 — Haut-Palatinat et raccords bavarois
+
+156 BAV→KPF cells in three independent cores27/35/94;55115 current inhabitants provisionally transferred, not a1776 census. Twelve RGB subdivisions,599→611 titles, same imperial footprint/members/nine electors; all prior non-BAV cores and Innbaiern175 preserved. Hilpoltstein and western Sulzbach overlap protected interpretations; no forced transfer. All buildings/PMs/units/countries/technologies unchanged. Player groups engine tests at the end of Bavaria; no receipt or points. Remaining visible Bavarian interfaces identified, not started. [Rapport](BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0078 — 5 novembre 2026 — Schwandorf et Danube occidental
+
+Clarification de dictée : continuation bavaroise, aucun Schleswig-Holstein/Danemark/Helgoland.56 cellules vers KPF : Schwandorf18, Reichertshofen11, Danube occidental27 (Rennertshofen/Burgheim, Höchstädt/Lauingen) ; donneurs BAV36 et frange WUR/x118060 non certifiée20.32447 habitants provisoirement transférés, profils conservés ;8 RGB,611→619 titres, même emprise et neuf électeurs. Passau40/Obernberg4, Innbaiern175, KPF156 et tous les noyaux souabes reçus conservés. Aucun bâtiment/PM/unité/pays/technologie changé. Trois sous-lots prêts, aucun reçu ni point ; test groupé différé. Arbitrage Hilpoltstein identifié seulement. [Rapport](BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/REPORT.md).
+
+
+## SERG-RM-0079 — 6 novembre 2026 — Arbitrage des trois offices palatins
+
+Arbitrage Hilpoltstein/Heideck/Allersberg rendu : maintien de la livraison V1 sans changement fonctionnel, sans certification de son exactitude historique. Les douze cellules issues de la projection conservée sont ANS 11 / NUR 1 ; aucune EIC/BAV. La souveraineté palatine est établie, la correspondance locale sur le bitmap demeure incertaine ; pas de retrait arbitraire aux noyaux reçus ni de nouveau recalage. Les sept installations bavaroises antérieures restent en attente de leur test groupé, aucune attestation nouvelle. SC6 reste IN_PROGRESS, aucun report terminal approuvé ou point : 106/235 → 106/235, 45,11 % → 45,11 %, 36/81. Prochaine action : réception moteur groupée, sans nouveau territoire. [Rapport](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md).

@@ -1,0 +1,44 @@
+aor1776_minutemen_reform_institutional_context = {
+ c:USA ?= this
+ OR = {
+  aor1776_usa_independence_war_active = yes
+  is_subject = no
+ }
+ # Match the native National Militia's military-bloc restriction.
+ OR = {
+  is_power_bloc_leader = no
+  power_bloc ?= { NOT = { has_identity = identity:identity_military_treaty_organization } }
+ }
+}
+
+aor1776_minutemen_reform_can_offer = {
+ aor1776_minutemen_reform_institutional_context = yes
+ has_law = law_type:law_aor1776_minutemen
+ NOT = { has_variable = aor1776_minutemen_reform_resolved }
+ NOT = { has_variable = aor1776_minutemen_reform_event_pending }
+}
+
+# Rechecked when the player chooses to start, not only when the event opens.
+# start_enactment begins the native political procedure; it never adopts a law.
+aor1776_minutemen_reform_can_begin = {
+ aor1776_minutemen_reform_institutional_context = yes
+ has_law = law_type:law_aor1776_minutemen
+ NOT = { has_variable = aor1776_minutemen_reform_resolved }
+ custom_tooltip = {
+  text = aor1776_minutemen_reform_technology_tt
+  has_technology_researched = permanent_engineer_services
+ }
+ custom_tooltip = {
+  text = aor1776_minutemen_reform_free_enactment_tt
+  enacting_any_law = no
+ }
+ custom_tooltip = {
+  text = aor1776_minutemen_reform_political_support_tt
+  government_legitimacy >= 25
+  "enactment_chance_for_law(law_type:law_aor1776_reorganized_militia)" > 0
+ }
+ NOR = {
+  has_law_or_variant = law_type:law_strict_edo_system
+  has_law_or_variant = law_type:law_intermediate_edo_system
+ }
+}

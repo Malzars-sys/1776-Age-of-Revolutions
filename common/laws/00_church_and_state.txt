@@ -14,6 +14,19 @@ law_state_religion = {
 			has_law = law_type:law_millet_system
 			has_law = law_type:law_people_of_the_book
 		}
+		NAND = {
+			OR = {
+				c:RUS ?= this
+				AND = {
+					exists = c:RUS
+					is_subject_of = c:RUS
+					country_is_subject_type_valid_for_caesaropapism = yes
+				}
+			}
+			NOT = {
+				has_law_or_variant = law_type:law_theocracy
+			}
+		}
 	}
 
 	on_activate = {

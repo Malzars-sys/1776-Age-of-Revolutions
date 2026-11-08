@@ -1,0 +1,128 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "runtime_tested": false,
+  "three_material_routes_at_two_tiers": [
+    {
+      "tier": 1,
+      "PM": "pm_cannons",
+      "input": {
+        "iron": 15,
+        "hardwood": 10
+      },
+      "artillery": 25,
+      "employment": 5000,
+      "metal_per_artillery": 0.6,
+      "base_price_input_value": 1000.0,
+      "base_price_output_value": 1750.0,
+      "base_price_flow_surplus_before_wages_and_other_costs": 750.0
+    },
+    {
+      "tier": 1,
+      "PM": "pm_bronze_cannons",
+      "input": {
+        "copper": 10,
+        "hardwood": 15
+      },
+      "artillery": 25,
+      "employment": 5000,
+      "metal_per_artillery": 0.4,
+      "base_price_input_value": 1100.0,
+      "base_price_output_value": 1750.0,
+      "base_price_flow_surplus_before_wages_and_other_costs": 650.0
+    },
+    {
+      "tier": 1,
+      "PM": "pm_aor1776_bronze_artillery",
+      "input": {
+        "alloys": 4,
+        "hardwood": 10
+      },
+      "artillery": 30,
+      "employment": 5000,
+      "metal_per_artillery": 0.13333333333333333,
+      "base_price_input_value": 600.0,
+      "base_price_output_value": 2100.0,
+      "base_price_flow_surplus_before_wages_and_other_costs": 1500.0
+    },
+    {
+      "tier": 2,
+      "PM": "pm_smoothbores",
+      "input": {
+        "iron": 20,
+        "hardwood": 15
+      },
+      "artillery": 45,
+      "employment": 5000,
+      "metal_per_artillery": 0.4444444444444444,
+      "base_price_input_value": 1400.0,
+      "base_price_output_value": 3150.0,
+      "base_price_flow_surplus_before_wages_and_other_costs": 1750.0
+    },
+    {
+      "tier": 2,
+      "PM": "pm_bronze_smoothbores",
+      "input": {
+        "copper": 20,
+        "hardwood": 20
+      },
+      "artillery": 45,
+      "employment": 5000,
+      "metal_per_artillery": 0.4444444444444444,
+      "base_price_input_value": 1800.0,
+      "base_price_output_value": 3150.0,
+      "base_price_flow_surplus_before_wages_and_other_costs": 1350.0
+    },
+    {
+      "tier": 2,
+      "PM": "pm_aor1776_bronze_smoothbores",
+      "input": {
+        "alloys": 7,
+        "hardwood": 15
+      },
+      "artillery": 55,
+      "employment": 5000,
+      "metal_per_artillery": 0.12727272727272726,
+      "base_price_input_value": 950.0,
+      "base_price_output_value": 3850.0,
+      "base_price_flow_surplus_before_wages_and_other_costs": 2900.0
+    }
+  ],
+  "changed_existing_recipes": [
+    "pm_aor1776_bronze_artillery",
+    "pm_smoothbores"
+  ],
+  "unchanged_existing_recipes": 620,
+  "alloy_consumers_reviewed": [
+    "pm_aor1776_bronze_artillery",
+    "pm_aor1776_bronze_smoothbores",
+    "pm_aor1776_copper_brass_utensils",
+    "pm_aor1776_industrial_utensils",
+    "pm_aor1776_machined_utensils",
+    "pm_aor1776_wrought_iron_utensils",
+    "pm_arc_welded_buildings",
+    "pm_arc_welding_shipbuilding",
+    "pm_arcades",
+    "pm_automobile_production",
+    "pm_bolt_action_rifles",
+    "pm_breech_loaders",
+    "pm_electric_streetlights",
+    "pm_gas_streetlights",
+    "pm_mass_automobile_production",
+    "pm_mechanized_workshops",
+    "pm_metal_shipbuilding",
+    "pm_recoiled_barrels",
+    "pm_repeaters",
+    "pm_rubber_grips",
+    "pm_steel",
+    "pm_steel_frame_buildings"
+  ],
+  "negative_controls_rejected": [
+    "alloy_output_advantage_removed",
+    "alloy_quantity_not_lower",
+    "iron_still_requires_alloy",
+    "native_copper_quantity_changed"
+  ],
+  "protected_files": 821,
+  "concurrent_changes_preserved": [],
+  "limits": "Full staffing, no other modifiers. Flow values use local definition prices, not observed market prices or whole-building profit. Copper price collision 40/50 remains outside scope."
+}

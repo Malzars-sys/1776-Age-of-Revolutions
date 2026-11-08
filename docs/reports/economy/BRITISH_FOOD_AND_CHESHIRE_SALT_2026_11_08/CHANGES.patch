@@ -1,0 +1,57 @@
+--- a/common/history/buildings/00_west_europe.txt
++++ b/common/history/buildings/00_west_europe.txt
+@@ -1003,7 +1003,7 @@
+ 							add_ownership={
+ 								country={
+ 									country="c:GBR"
+-									levels=12
++									levels=4
+ 								}
+ 							}
+ 							reserves=1
+--- a/common/history/buildings/98_build_start_1776_world_redistribution.txt
++++ b/common/history/buildings/98_build_start_1776_world_redistribution.txt
+@@ -7061,17 +7061,6 @@
+ 							reserves=1
+ 							activate_production_methods = { "pm_wooden_buildings" }
+ 						}
+-						create_building={
+-							building="building_food_industry"
+-							add_ownership={
+-								country={
+-									country="c:GBR"
+-									levels=12
+-								}
+-							}
+-							reserves=1
+-							activate_production_methods = { "pm_bakery" "pm_disabled_canning" "pm_disabled_distillery" "pm_no_spiced_food" "pm_manual_dough_processing" }
+-						}
+ 						create_building = {
+ 							building = "building_observatorygreenwich"
+ 							level = 1
+--- /dev/null
++++ b/common/history/buildings/99_1776_cheshire_salt.txt
+@@ -0,0 +1,23 @@
++# Cheshire/Northwich rock salt, worked before 1776; existing Lancashire deposit.
++# Three gameplay levels, not a count of individual historical shafts.
++BUILDINGS = {
++	s:STATE_LANCASHIRE = {
++		region_state:GBR = {
++			create_building = {
++				building = "building_salt_mine"
++				add_ownership = {
++					country = { country = "c:GBR" levels = 3 }
++				}
++				reserves = 1
++				activate_production_methods = {
++					"pm_picks_and_shovels_building_salt_mine"
++					"pm_no_explosives"
++					"pm_no_steam_automation"
++					"pm_road_carts"
++					"pm_no_salt_processing_building_salt_mine"
++					"pm_1776_no_raw_data_reporting"
++				}
++			}
++		}
++	}
++}

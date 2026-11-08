@@ -1,0 +1,12 @@
+# Réception prussienne groupée — complément réserves occidentales
+
+Essais à effectuer par le joueur dans sa session groupée, selon son report jusqu'à la fin des travaux prussiens. **Aucun essai moteur ni reçu humain enregistré par cette passe.**
+
+1. Suivre le [protocole cumulatif précédent](../CLEVE_GUELDRE_MARK_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md), qui conserve les obligations Prusse/Lusaces/Saxe du Nord/Pologne/Saale/Gommern/Ravensberg et Clèves/Gueldre. **Actualisation explicite de son étape 4 : les deux nouveaux noyaux Venlo/Beesel sont désormais NET, leur ancienne réserve BEO est remplacée par la présente installation.** Les anciennes cartes et textes restent des archives.
+2. Démarrer une nouvelle partie au 1er janvier 1776 avec cette livraison. Vérifier [l'avant/après installé](BEFORE_AFTER.png) : quatre cellules néerlandaises dans la poche de Venlo et quatre dans la bande Beesel/Belfeld. Elles ne doivent appartenir ni à PRU ni à BEO. Les noms projetés de petites villes sont des aides de lecture et ne sont pas nécessairement recherchables dans le jeu.
+3. Vérifier Roermond et la portion BEO restante, ainsi que les 72 cellules PRU de la passe précédente. Clèves/Mark/Berg, Ravensberg/Minden, Lippe et les anciennes installations doivent être conservés.
+4. Vérifier le rattachement de la population des noyaux à la portion NET/Gueldre existante et son fonctionnement ordinaire. Aucun bâtiment, PM, unité ou nouvelle administration n'est promis dans ces noyaux : les bâtiments NET déjà présents et les unités doivent être conservés. Contrôler l'accès au marché et la subsistance sans déduire un résultat d'emploi à partir des seuls scripts.
+5. Vérifier que les Pays-Bas n'ont pas rejoint le bloc impérial et qu'aucune restitution impériale de ces huit cellules à BEO n'est proposée. Le reste BEO et le noyau PRU conservent leurs droits enregistrés ; mêmes neuf électeurs. Le contrôle en jeu porte sur les mécanismes accessibles au joueur, sans inventer un scénario non testé.
+6. Simuler un mois complet, relever toute anomalie, puis sauvegarder et recharger. Vérifier que les propriétaires et le fonctionnement persistent.
+
+Sous-lots distincts : `PW-VENLO-NET-B4` et `PW-BEESEL-NET-B4`. Ils restent `IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION` jusqu'à confirmation explicite. Un retour positif ne certifiera pas les frontières cadastrales intégrales de Clèves/Mark/Berg, les micro-enclaves ni les autres régions non testées. Aucun test nouveau n'est exigé uniquement pour le maintien sans changement des franges retenues en B.

@@ -1,0 +1,53 @@
+--- vanilla/gui/objective_types.gui
++++ mod/gui/objective_types.gui
+@@ -56,7 +56,7 @@
+ 					layoutpolicy_vertical = preferred
+ 					margin_top = 10
+ 					margin_bottom = 10
+-					minimumsize = { 1400 60 }
++					minimumsize = { 0 60 }
+ 					maximumsize = { 1680 -1 }
+ 					spacing = 8
+ 
+@@ -72,9 +72,9 @@
+ 							
+ 							item = {
+ 								widget = {
+-									layoutpolicy_horizontal = preferred
++									layoutpolicy_horizontal = expanding
+ 									layoutpolicy_vertical = preferred
+-									minimumsize = { 320 82 }
++									minimumsize = { 0 82 }
+ 									maximumsize = { 320 600 }
+ 									
+ 									enabled = "[ObjectiveType.IsAvailable]"
+@@ -123,6 +123,7 @@
+ 											}
+ 
+ 											vbox = {
++												size = { 100% 100% }
+ 												icon = {
+ 													size = { 47 47 }
+ 													texture = "gfx/interface/backgrounds/round_button_bg.dds"
+@@ -144,8 +145,8 @@
+ 													alwaystransparent = yes
+ 													elide = right
+ 													autoresize = yes
+-													minimumsize = { 250 -1 }
+-													maximumsize = { 250 -1 }
++													minimumsize = { 0 -1 }
++													maximumsize = { -1 -1 }
+ 													fontsize_min = 14
+ 												}
+ 											}
+@@ -178,8 +179,9 @@
+ 					
+ 					### sandbox (select any country)
+ 					widget = {
+-						layoutpolicy_horizontal = expanding
++						layoutpolicy_horizontal = preferred
+ 						layoutpolicy_vertical = preferred
++						minimumsize = { 340 0 }
+ 						maximumsize = { 340 620 }
+ 						visible = "[Not(GameSetup.HasSelectedObjective)]"
+ 

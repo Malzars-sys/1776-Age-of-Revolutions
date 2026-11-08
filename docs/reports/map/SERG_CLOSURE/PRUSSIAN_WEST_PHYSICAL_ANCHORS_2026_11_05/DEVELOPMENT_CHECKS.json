@@ -1,0 +1,35 @@
+{
+  "gameplay_writes_from_rejected_preparations": 0,
+  "attempts": [
+    {
+      "stage": "prepare",
+      "status": "FAILED_BEFORE_INSTALLATION",
+      "reason": "BOM stripped before token offsets were applied; candidate region text rejected by parser"
+    },
+    {
+      "stage": "prepare",
+      "status": "FAILED_BEFORE_INSTALLATION",
+      "reason": "Registry insertion anchor did not account for CRLF"
+    },
+    {
+      "stage": "compile",
+      "status": "NOT_RUN_INPUT_MISSING",
+      "reason": "Followed failed preparation; EXPECTED_TEXT.json did not yet exist"
+    },
+    {
+      "stage": "prepare_then_compile",
+      "status": "PASS",
+      "reason": "BOM handled consistently and original CRLF restored; compiler found no concurrent overlap"
+    }
+  ],
+  "initial_validation": {
+    "file": "INITIAL_VALIDATION.json",
+    "status": "FAIL",
+    "reason": "One repeated Yukon ownership declaration already present unchanged in baseline; initial global uniqueness assertion was broader than the scoped non-regression contract"
+  },
+  "corrected_validation": {
+    "file": "VALIDATION.json",
+    "scope": "No new repeated ownership declarations and three new provinces uniquely owned; inherited Yukon declaration not deleted or claimed fixed"
+  },
+  "old_failures_preserved": true
+}

@@ -1,0 +1,22 @@
+{
+  "total": 8,
+  "passed": 5,
+  "failures": [
+    {
+      "test": "test_exact_two_cells_and_no_elsewhere_edit (test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit)",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\.codex\\worktrees\\massa-carrara-finalisation\\1776_Age_of_Revolutions_fork\\tools\\test_map2m_r9.py\", line 12, in test_exact_two_cells_and_no_elsewhere_edit\n    self.assertTrue(np.array_equal(self.after,w.old.prior.r2.expected_raster(self.before,self.plan['changes'])))\nAssertionError: False is not true\n"
+    },
+    {
+      "test": "test_no_fake_wolgast_city_or_moved_locator (test_map2m_r9.R9Guards.test_no_fake_wolgast_city_or_moved_locator)",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\.codex\\worktrees\\massa-carrara-finalisation\\1776_Age_of_Revolutions_fork\\tools\\test_map2m_r9.py\", line 24, in test_no_fake_wolgast_city_or_moved_locator\n    b=w.load('BASELINE.json');self.assertTrue(all(w.core.sha(w.ROOT/p)==h for p,h in b['hashes'].items() if p.startswith('gfx/map/map_object_data/')))\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: False is not true\n"
+    },
+    {
+      "test": "test_thorn_really_unchanged_and_proposals_separate (test_map2m_r9.R9Guards.test_thorn_really_unchanged_and_proposals_separate)",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\simeo\\.codex\\worktrees\\massa-carrara-finalisation\\1776_Age_of_Revolutions_fork\\tools\\test_map2m_r9.py\", line 39, in test_thorn_really_unchanged_and_proposals_separate\n    self.assertTrue(np.array_equal(self.before==0x41A021,self.after==0x41A021))\nAssertionError: False is not true\n"
+    }
+  ],
+  "errors": [],
+  "skipped": 0,
+  "elapsed_seconds": 2.1089999999385327,
+  "engine_test": false
+}

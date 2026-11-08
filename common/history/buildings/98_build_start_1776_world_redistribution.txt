@@ -2309,7 +2309,7 @@ create_building={
 								building={
 									type="building_financial_district"
 									country="c:PRU"
-									levels=5
+									levels = 4
 									region="STATE_BRANDENBURG"
 								}
 							}
@@ -2331,6 +2331,22 @@ create_building={
 				reserves = 1
 				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
 			}
+		}
+
+		region_state:SAX = {
+create_building={
+							building="building_railway"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:PRU"
+									levels = 1
+									region="STATE_BRANDENBURG"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
+						}
 		}
 	}
 	s:STATE_BREST = {
@@ -7045,17 +7061,6 @@ create_building = {
 							reserves=1
 							activate_production_methods = { "pm_wooden_buildings" }
 						}
-						create_building={
-							building="building_food_industry"
-							add_ownership={
-								country={
-									country="c:GBR"
-									levels=12
-								}
-							}
-							reserves=1
-							activate_production_methods = { "pm_bakery" "pm_disabled_canning" "pm_disabled_distillery" "pm_no_spiced_food" "pm_manual_dough_processing" }
-						}
 						create_building = {
 							building = "building_observatorygreenwich"
 							level = 1
@@ -9647,7 +9652,23 @@ create_building={
 					building = {
 						type = "building_manor_house"
 						country = "c:PRU"
-						levels = 8
+						levels = 7
+						region = "STATE_LOWER_SILESIA"
+					}
+				}
+				reserves = 1
+				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
+
+		region_state:SAX = {
+create_building = {
+				building = "building_livestock_ranch"
+				add_ownership = {
+					building = {
+						type = "building_manor_house"
+						country = "c:PRU"
+						levels = 1
 						region = "STATE_LOWER_SILESIA"
 					}
 				}
@@ -10771,7 +10792,21 @@ create_building={
 							reserves=1
 							activate_production_methods = { "pm_atmospheric_engine_pump_building_iron_mine" "pm_no_explosives" "pm_no_steam_automation" "pm_road_carts" "pm_no_ore_concentration_building_iron_mine" "pm_no_mine_ventilation" }
 			}
-		}
+
+create_building={
+							building="building_steel_mill"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:GBR"
+									levels=1
+									region="STATE_YORKSHIRE"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_coke_blast_furnaces" "pm_automation_disabled" }
+						}
+}
 	}
 	s:STATE_MINAS_GERAIS = {
 		region_state:BRZ = {
@@ -18441,7 +18476,7 @@ create_building={
 								building={
 									type="building_financial_district"
 									country="c:GBR"
-									levels=2
+									levels=1
 									region="STATE_YORKSHIRE"
 								}
 							}

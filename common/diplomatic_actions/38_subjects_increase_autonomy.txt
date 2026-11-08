@@ -51,7 +51,14 @@ da_increase_autonomy_of_subject = {
 	accept_effect = {
 		scope:target_country = {
 			if = { limit = { aor1776_hre_centralized_subject = yes } change_subject_type = subject_type_aor1776_hre_protectorate }
-else = { increase_autonomy = yes }
+else = { if = { limit = { is_subject_type = subject_type_tributary }
+ change_subject_type = subject_type_aor1776_protected_state
+ # Existing payment-adjustment pacts must not survive the non-paying status.
+ overlord = {
+  if = { limit = { has_diplomatic_pact = { who = prev type = raise_payments } } remove_diplomatic_pact = { country = prev type = raise_payments } }
+  if = { limit = { has_diplomatic_pact = { who = prev type = decrease_payments } } remove_diplomatic_pact = { country = prev type = decrease_payments } }
+ }
+} else = { increase_autonomy = yes } }
 			add_liberty_desire = -30
 		}
 		create_unidirectional_truce = { country = scope:target_country months = 60 }
@@ -170,7 +177,14 @@ da_increase_autonomy_of_self = {
 
 	accept_effect = {
 		if = { limit = { aor1776_hre_centralized_subject = yes } change_subject_type = subject_type_aor1776_hre_protectorate }
-else = { increase_autonomy = yes }
+else = { if = { limit = { is_subject_type = subject_type_tributary }
+ change_subject_type = subject_type_aor1776_protected_state
+ # Existing payment-adjustment pacts must not survive the non-paying status.
+ overlord = {
+  if = { limit = { has_diplomatic_pact = { who = prev type = raise_payments } } remove_diplomatic_pact = { country = prev type = raise_payments } }
+  if = { limit = { has_diplomatic_pact = { who = prev type = decrease_payments } } remove_diplomatic_pact = { country = prev type = decrease_payments } }
+ }
+} else = { increase_autonomy = yes } }
 		add_liberty_desire = -30
 		create_bidirectional_truce = { country = scope:target_country months = 60 }
 		scope:target_country = { change_relations = { country = root value = -20 } }

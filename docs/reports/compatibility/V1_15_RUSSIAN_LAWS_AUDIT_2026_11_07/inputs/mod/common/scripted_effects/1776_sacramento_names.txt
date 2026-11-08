@@ -1,0 +1,12 @@
+# State scope. Keep the shared region/state named Uruguay.
+# Only the Portuguese-owned split portion receives Sacramento hub names.
+aor1776_sacramento_hub_names = {
+ if = {
+  limit = { state_region = s:STATE_URUGUAY is_split_state = yes owner = { OR = { c:BRZ ?= this c:POR ?= this } } }
+  set_hub_name = { type = city name = aor1776_sacramento_city }
+  set_hub_name = { type = port name = aor1776_sacramento_port }
+  set_hub_name = { type = farm name = aor1776_sacramento_farm }
+  set_hub_name = { type = mine name = aor1776_sacramento_mine }
+  set_hub_name = { type = wood name = aor1776_sacramento_wood }
+ }
+}

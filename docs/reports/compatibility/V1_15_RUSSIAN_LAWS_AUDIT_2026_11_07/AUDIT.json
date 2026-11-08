@@ -1,0 +1,1651 @@
+{
+  "status": "AUDIT_ONLY_NO_GAMEPLAY_EDITS_RUNTIME_NOT_TESTED",
+  "created_utc": "2026-11-07T22:11:08.029838+00:00",
+  "canonical_game": "C:\\Games\\Victoria 3\\game",
+  "version_file_metadata": {
+    "C:\\Games\\Victoria 3\\binaries\\victoria3.exe": 1793864246.0
+  },
+  "catalog_size": {
+    "effective_laws": 186,
+    "native_laws": 148
+  },
+  "missing_native_laws_all": [
+    "law_caesaropapism",
+    "law_extraordinary_commission",
+    "law_labour_suffrage",
+    "law_official_nationality",
+    "law_okhrana",
+    "law_revolutionary_guard",
+    "law_third_section"
+  ],
+  "focus_laws": [
+    {
+      "id": "law_military_bureaucrats",
+      "french": "Bureaucrates militaires",
+      "group": "lawgroup_bureaucracy",
+      "parent": null,
+      "native_source": "vanilla/common/laws/00_bureaucracy.txt",
+      "effective_source": "vanilla/common/laws/00_bureaucracy.txt",
+      "status": "DEFINED",
+      "masked_by": null,
+      "native_conditions": {},
+      "technology_gates": {}
+    },
+    {
+      "id": "law_caesaropapism",
+      "french": "Césaropapisme",
+      "group": "lawgroup_church_and_state",
+      "parent": "law_state_religion",
+      "native_source": "vanilla/common/laws/00_church_and_state.txt",
+      "effective_source": null,
+      "status": "MISSING_MASKED",
+      "masked_by": "mod/common/laws/00_church_and_state.txt",
+      "native_conditions": {
+        "is_visible": "is_visible = {\n\t\tOR = {\n\t\t\tc:RUS ?= this\n\t\t\tAND = {\n\t\t\t\texists = c:RUS\n\t\t\t\tis_subject_of = c:RUS\n\t\t\t\tcountry_is_subject_type_valid_for_caesaropapism = yes\n\t\t\t}\n\t\t}\n\t\tNOT = {\n\t\t\thas_law_or_variant = law_type:law_theocracy\n\t\t}\n\t}"
+      },
+      "technology_gates": {}
+    },
+    {
+      "id": "law_official_nationality",
+      "french": "Nationalité officielle",
+      "group": "lawgroup_citizenship",
+      "parent": "law_subjecthood",
+      "native_source": "vanilla/common/laws/00_citizenship.txt",
+      "effective_source": null,
+      "status": "MISSING_MASKED",
+      "masked_by": "mod/common/laws/00_citizenship.txt",
+      "native_conditions": {
+        "is_visible": "is_visible = {\n\t\tc:RUS ?= this # For Russia and its subjects\n\t}"
+      },
+      "technology_gates": {}
+    },
+    {
+      "id": "law_third_section",
+      "french": "Troisième section",
+      "group": "lawgroup_internal_security",
+      "parent": "law_secret_police",
+      "native_source": "vanilla/common/laws/00_internal_security.txt",
+      "effective_source": null,
+      "status": "MISSING_MASKED",
+      "masked_by": "mod/common/laws/00_internal_security.txt",
+      "native_conditions": {
+        "is_visible": "is_visible = {\n\t\tc:RUS ?= this\n\t\tcountry_has_monarchy_law = yes\n\t\tNAND = {\n\t\t\thas_technology_researched = central_archives # If has central archives, will not be available unless it's active\n\t\t\tNOT = {\n\t\t\t\thas_law = law_type:law_third_section\n\t\t\t}\n\t\t}\n\t}",
+        "unlocking_technologies": "unlocking_technologies = {\n\t\tlaw_enforcement\n\t}"
+      },
+      "technology_gates": {
+        "law_enforcement": {
+          "source": "mod/common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt",
+          "era": "era_7",
+          "can_research": "no",
+          "prerequisites": [
+            "tech_bureaucracy",
+            "urban_planning",
+            "professional_civil_policing"
+          ]
+        }
+      }
+    },
+    {
+      "id": "law_okhrana",
+      "french": "Okhrana",
+      "group": "lawgroup_internal_security",
+      "parent": "law_secret_police",
+      "native_source": "vanilla/common/laws/00_internal_security.txt",
+      "effective_source": null,
+      "status": "MISSING_MASKED",
+      "masked_by": "mod/common/laws/00_internal_security.txt",
+      "native_conditions": {
+        "is_visible": "is_visible = {\n\t\tc:RUS ?= this\n\t\tcountry_has_monarchy_law = yes\n\t}",
+        "unlocking_technologies": "unlocking_technologies = {\n\t\tcentral_archives\n\t}"
+      },
+      "technology_gates": {
+        "central_archives": {
+          "source": "mod/common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt",
+          "era": "era_7",
+          "can_research": "no",
+          "prerequisites": [
+            "centralization"
+          ]
+        }
+      }
+    },
+    {
+      "id": "law_internal_colonization",
+      "french": "Colonisation interne",
+      "group": "lawgroup_colonization",
+      "parent": null,
+      "native_source": "vanilla/common/laws/01_colonial_affairs.txt",
+      "effective_source": "mod/common/laws/1776_world_russia01.txt",
+      "status": "DEFINED",
+      "masked_by": null,
+      "native_conditions": {
+        "unlocking_technologies": "unlocking_technologies = {\n\t\tcolonization\n\t}",
+        "can_enact": "can_enact = {\n\t\tOR = {\n\t\t\tis_country_type = colonial\n\t\t\tany_scope_state = {\n\t\t\t\tis_incorporated = no\n\t\t\t}\n\t\t}\n\t}"
+      },
+      "technology_gates": {
+        "colonization": {
+          "source": "mod/common/technology/technologies/30_tech3a_society.txt",
+          "era": "era_4",
+          "can_research": "not_explicitly_disabled",
+          "prerequisites": [
+            "international_relations"
+          ]
+        }
+      }
+    },
+    {
+      "id": "law_communal_administration",
+      "french": "Administration communale",
+      "group": "lawgroup_bureaucracy",
+      "parent": null,
+      "native_source": "vanilla/common/laws/00_bureaucracy.txt",
+      "effective_source": "vanilla/common/laws/00_bureaucracy.txt",
+      "status": "DEFINED",
+      "masked_by": null,
+      "native_conditions": {
+        "unlocking_technologies": "unlocking_technologies = {\n\t\tsocialism\n\t}",
+        "unlocking_laws": "unlocking_laws = {\n\t\tlaw_council_republic\n\t\tlaw_factory_councils\n\t}"
+      },
+      "technology_gates": {
+        "socialism": {
+          "source": "mod/common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt",
+          "era": "era_7",
+          "can_research": "not_explicitly_disabled",
+          "prerequisites": [
+            "labor_movement",
+            "early_socialism_cooperativism"
+          ]
+        }
+      }
+    },
+    {
+      "id": "law_labour_suffrage",
+      "french": "Droit de vote des travailleurs",
+      "group": "lawgroup_distribution_of_power",
+      "parent": null,
+      "native_source": "vanilla/common/laws/00_distribution_of_power.txt",
+      "effective_source": null,
+      "status": "MISSING_MASKED",
+      "masked_by": "mod/common/laws/00_distribution_of_power.txt",
+      "native_conditions": {
+        "unlocking_technologies": "unlocking_technologies = {\n\t\tsocialism\n\t}",
+        "unlocking_laws": "unlocking_laws = {\n\t\tlaw_council_republic\n\t}"
+      },
+      "technology_gates": {
+        "socialism": {
+          "source": "mod/common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt",
+          "era": "era_7",
+          "can_research": "not_explicitly_disabled",
+          "prerequisites": [
+            "labor_movement",
+            "early_socialism_cooperativism"
+          ]
+        }
+      }
+    },
+    {
+      "id": "law_revolutionary_guard",
+      "french": "Garde révolutionnaire",
+      "group": "lawgroup_army_model",
+      "parent": null,
+      "native_source": "vanilla/common/laws/00_army_model.txt",
+      "effective_source": null,
+      "status": "MISSING_MASKED",
+      "masked_by": "mod/common/laws/00_army_model.txt",
+      "native_conditions": {
+        "unlocking_technologies": "unlocking_technologies = { enlistment_offices }",
+        "unlocking_laws": "unlocking_laws = {\n\t\tlaw_council_republic\n\t\tlaw_factory_councils\n\t}"
+      },
+      "technology_gates": {
+        "enlistment_offices": {
+          "source": "mod/common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt",
+          "era": "era_8",
+          "can_research": "not_explicitly_disabled",
+          "prerequisites": [
+            "logistics",
+            "corps_organization"
+          ]
+        }
+      }
+    },
+    {
+      "id": "law_extraordinary_commission",
+      "french": "Commission extraordinaire",
+      "group": "lawgroup_internal_security",
+      "parent": null,
+      "native_source": "vanilla/common/laws/00_internal_security.txt",
+      "effective_source": null,
+      "status": "MISSING_MASKED",
+      "masked_by": "mod/common/laws/00_internal_security.txt",
+      "native_conditions": {
+        "unlocking_technologies": "unlocking_technologies = {\n\t\tpolitical_agitation\n\t}"
+      },
+      "technology_gates": {
+        "political_agitation": {
+          "source": "mod/common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt",
+          "era": "era_10",
+          "can_research": "not_explicitly_disabled",
+          "prerequisites": [
+            "organized_reform_movements",
+            "mass_circulation_press"
+          ]
+        }
+      }
+    }
+  ],
+  "law_directives": [
+    {
+      "directive": "INJECT_OR_CREATE",
+      "id": "law_autocracy",
+      "source": "mod/common/laws/00_inject_laws.txt"
+    },
+    {
+      "directive": "INJECT_OR_CREATE",
+      "id": "law_merchant_republic",
+      "source": "mod/common/laws/00_inject_laws.txt"
+    }
+  ],
+  "duplicate_law_ids": [],
+  "countries": {
+    "RUS": {
+      "source": "mod/common/history/countries/rus - russia.txt",
+      "country_type": "recognized",
+      "definition_source": "mod/common/country_definitions/00_countries.txt",
+      "initial_primary_cultures_in_definition": [
+        "russian"
+      ],
+      "religion_inferred_from_first_defined_primary_culture": "orthodox",
+      "requested_laws_after_two_supported_macros": {
+        "lawgroup_governance_principles": "law_monarchy",
+        "lawgroup_distribution_of_power": "law_autocracy",
+        "lawgroup_land_reform": "law_serfdom",
+        "lawgroup_taxation": "law_land_based_taxation",
+        "lawgroup_bureaucracy": "law_hereditary_bureaucrats",
+        "lawgroup_church_and_state": "law_state_religion",
+        "lawgroup_citizenship": "law_subjecthood",
+        "lawgroup_economic_system": "law_traditionalism",
+        "lawgroup_army_model": "law_peasant_levies",
+        "lawgroup_colonization": "law_internal_colonization",
+        "lawgroup_free_speech": "law_censorship"
+      },
+      "activation_trace": [
+        {
+          "group": "lawgroup_governance_principles",
+          "law": "law_monarchy",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_distribution_of_power",
+          "law": "law_autocracy",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_land_reform",
+          "law": "law_serfdom",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_land_based_taxation",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_bureaucracy",
+          "law": "law_hereditary_bureaucrats",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_church_and_state",
+          "law": "law_state_religion",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_citizenship",
+          "law": "law_subjecthood",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_economic_system",
+          "law": "law_traditionalism",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_army_model",
+          "law": "law_peasant_levies",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_colonization",
+          "law": "law_internal_colonization",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_censorship",
+          "origin": "mod/common/history/countries/rus - russia.txt"
+        }
+      ],
+      "initial_amendments": [
+        {
+          "id": "amendment_cossacks",
+          "group": "lawgroup_colonization",
+          "source": "vanilla/common/amendments/00_amendments_ip5_04.txt",
+          "allowed_laws": [
+            "law_internal_colonization",
+            "law_frontier_colonization",
+            "law_colonial_exploitation",
+            "law_colonial_resettlement"
+          ],
+          "possible": {
+            "possible": "possible = {\n\t\tcountry_has_monarchy_law = yes\n\t\tany_primary_culture = {\n\t\t\thas_discrimination_trait = heritage_east_slavic\n\t\t}\n\t}"
+          }
+        }
+      ],
+      "directly_researched_technologies": [
+        "advanced_crop_rotations",
+        "applied_mineralogy",
+        "alloysworking",
+        "armament_standardization_inspection",
+        "colonization",
+        "enclosed_dock_systems",
+        "improved_agricultural_implements",
+        "industrial_canals",
+        "industrial_ceramics",
+        "institutionalized_scientific_exchange",
+        "medical_degrees",
+        "military_topographic_surveying",
+        "periodical_print_networks",
+        "permanent_engineer_services",
+        "permanent_military_hospitals",
+        "political_economy",
+        "scientific_fortification_siegecraft",
+        "scientific_naval_architecture",
+        "selective_breeding",
+        "ship_classification_surveying",
+        "specialized_technical_academies",
+        "standardized_naval_signals",
+        "state_dockyard_systems",
+        "sugar_refining",
+        "systematic_cadastral_surveying",
+        "systematic_population_registration",
+        "traditional_food_processing",
+        "organized_workshops",
+        "traditional_papermaking",
+        "variolation_networks",
+        "organized_financial_institutions",
+        "organized_military_establishments",
+        "turnpike_road_networks"
+      ],
+      "technology_macros_not_expanded": [
+        "effect_starting_technology_tier_4_tech"
+      ],
+      "unknowns": [],
+      "limitation": "Script requests only. Unmentioned groups and engine defaults are unknown; technology macros, events and runtime acceptance are not simulated."
+    },
+    "PLC": {
+      "source": "mod/common/history/countries/plc - polish-lithuania.txt",
+      "country_type": "recognized",
+      "definition_source": "mod/common/country_definitions/00_countries.txt",
+      "initial_primary_cultures_in_definition": [
+        "polish",
+        "lithuanian"
+      ],
+      "religion_inferred_from_first_defined_primary_culture": "catholic",
+      "requested_laws_after_two_supported_macros": {
+        "lawgroup_governance_principles": "law_presidential_republic",
+        "lawgroup_church_and_state": "law_state_religion",
+        "lawgroup_distribution_of_power": "law_oligarchy",
+        "lawgroup_bureaucracy": "law_appointed_bureaucrats",
+        "lawgroup_education_system": "law_no_schools",
+        "lawgroup_policing": "law_local_police",
+        "lawgroup_taxation": "law_land_based_taxation",
+        "lawgroup_citizenship": "law_national_supremacy",
+        "lawgroup_economic_system": "law_traditionalism",
+        "lawgroup_trade_policy": "law_mercantilism",
+        "lawgroup_labor_rights": "law_no_workers_rights",
+        "lawgroup_free_speech": "law_right_of_assembly",
+        "lawgroup_migration": "law_migration_controls",
+        "lawgroup_army_model": "law_peasant_levies",
+        "lawgroup_land_reform": "law_serfdom",
+        "lawgroup_labour_associations": "law_guild_system"
+      },
+      "activation_trace": [
+        {
+          "group": "lawgroup_governance_principles",
+          "law": "law_monarchy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_church_and_state",
+          "law": "law_state_religion",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_distribution_of_power",
+          "law": "law_oligarchy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_bureaucracy",
+          "law": "law_appointed_bureaucrats",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_education_system",
+          "law": "law_religious_schools",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_policing",
+          "law": "law_local_police",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_per_capita_based_taxation",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_citizenship",
+          "law": "law_national_supremacy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_economic_system",
+          "law": "law_interventionism",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_trade_policy",
+          "law": "law_mercantilism",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_labor_rights",
+          "law": "law_no_workers_rights",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_censorship",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_migration",
+          "law": "law_migration_controls",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_army_model",
+          "law": "law_professional_army",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_land_reform",
+          "law": "law_tenant_farmers",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_labour_associations",
+          "law": "law_combination_acts",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_governance_principles",
+          "law": "law_presidential_republic",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_distribution_of_power",
+          "law": "law_oligarchy",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_land_based_taxation",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_church_and_state",
+          "law": "law_state_religion",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_citizenship",
+          "law": "law_national_supremacy",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_trade_policy",
+          "law": "law_mercantilism",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_economic_system",
+          "law": "law_traditionalism",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_policing",
+          "law": "law_local_police",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_education_system",
+          "law": "law_no_schools",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_right_of_assembly",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_land_reform",
+          "law": "law_serfdom",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_army_model",
+          "law": "law_peasant_levies",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        },
+        {
+          "group": "lawgroup_labour_associations",
+          "law": "law_guild_system",
+          "origin": "mod/common/history/countries/plc - polish-lithuania.txt"
+        }
+      ],
+      "initial_amendments": [
+        {
+          "id": "amendment_liberum_veto",
+          "group": "lawgroup_distribution_of_power",
+          "source": "mod/common/amendments/00_amendments_modded_76.txt",
+          "allowed_laws": [
+            "law_oligarchy"
+          ],
+          "possible": {
+            "possible": "possible = {\r\n\t\tc:PLC ?= this\r\n\t\thas_law = law_type:law_oligarchy\r\n\t}"
+          }
+        },
+        {
+          "id": "amendment_elective_monarchy",
+          "group": "lawgroup_governance_principles",
+          "source": "mod/common/amendments/00_amendments_modded_76.txt",
+          "allowed_laws": [
+            "law_presidential_republic"
+          ],
+          "possible": {
+            "possible": "possible = {\r\n\t\tc:PLC ?= this\r\n\t\thas_law = law_type:law_presidential_republic \r\n\t}"
+          }
+        }
+      ],
+      "directly_researched_technologies": [
+        "advanced_crop_rotations",
+        "applied_mineralogy",
+        "armament_standardization_inspection",
+        "commercial_insurance_markets",
+        "constitutional_government",
+        "improved_agricultural_implements",
+        "industrial_ceramics",
+        "institutionalized_scientific_exchange",
+        "military_topographic_surveying",
+        "organized_elementary_schooling",
+        "periodical_print_networks",
+        "permanent_engineer_services",
+        "permanent_military_hospitals",
+        "political_economy",
+        "scientific_fortification_siegecraft",
+        "selective_breeding",
+        "specialized_technical_academies",
+        "sugar_refining",
+        "traditional_food_processing",
+        "organized_workshops",
+        "traditional_papermaking",
+        "variolation_networks",
+        "medical_degrees",
+        "organized_financial_institutions",
+        "organized_military_establishments"
+      ],
+      "technology_macros_not_expanded": [
+        "effect_starting_technology_tier_4_tech"
+      ],
+      "unknowns": [],
+      "limitation": "Script requests only. Unmentioned groups and engine defaults are unknown; technology macros, events and runtime acceptance are not simulated."
+    },
+    "UBD": {
+      "source": "mod/common/history/countries/ubd - baltic.txt",
+      "country_type": "recognized",
+      "definition_source": "mod/common/country_definitions/00_countries.txt",
+      "initial_primary_cultures_in_definition": [
+        "latvian",
+        "estonian",
+        "lithuanian"
+      ],
+      "religion_inferred_from_first_defined_primary_culture": "protestant",
+      "requested_laws_after_two_supported_macros": {
+        "lawgroup_governance_principles": "law_monarchy",
+        "lawgroup_church_and_state": "law_freedom_of_conscience",
+        "lawgroup_distribution_of_power": "law_landed_voting",
+        "lawgroup_bureaucracy": "law_appointed_bureaucrats",
+        "lawgroup_education_system": "law_religious_schools",
+        "lawgroup_policing": "law_local_police",
+        "lawgroup_taxation": "law_land_based_taxation",
+        "lawgroup_citizenship": "law_national_supremacy",
+        "lawgroup_economic_system": "law_traditionalism",
+        "lawgroup_trade_policy": "law_mercantilism",
+        "lawgroup_labor_rights": "law_no_workers_rights",
+        "lawgroup_free_speech": "law_censorship",
+        "lawgroup_migration": "law_migration_controls",
+        "lawgroup_army_model": "law_professional_army",
+        "lawgroup_land_reform": "law_tenant_farmers",
+        "lawgroup_labour_associations": "law_combination_acts"
+      },
+      "activation_trace": [
+        {
+          "group": "lawgroup_governance_principles",
+          "law": "law_monarchy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_church_and_state",
+          "law": "law_state_religion",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_distribution_of_power",
+          "law": "law_oligarchy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_bureaucracy",
+          "law": "law_appointed_bureaucrats",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_education_system",
+          "law": "law_religious_schools",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_policing",
+          "law": "law_local_police",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_per_capita_based_taxation",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_citizenship",
+          "law": "law_national_supremacy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_economic_system",
+          "law": "law_interventionism",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_trade_policy",
+          "law": "law_mercantilism",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_labor_rights",
+          "law": "law_no_workers_rights",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_censorship",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_migration",
+          "law": "law_migration_controls",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_army_model",
+          "law": "law_professional_army",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_land_reform",
+          "law": "law_tenant_farmers",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_labour_associations",
+          "law": "law_combination_acts",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_conservative"
+        },
+        {
+          "group": "lawgroup_governance_principles",
+          "law": "law_monarchy",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        },
+        {
+          "group": "lawgroup_distribution_of_power",
+          "law": "law_landed_voting",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_land_based_taxation",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        },
+        {
+          "group": "lawgroup_citizenship",
+          "law": "law_national_supremacy",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        },
+        {
+          "group": "lawgroup_land_reform",
+          "law": "law_tenant_farmers",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        },
+        {
+          "group": "lawgroup_education_system",
+          "law": "law_religious_schools",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        },
+        {
+          "group": "lawgroup_trade_policy",
+          "law": "law_mercantilism",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        },
+        {
+          "group": "lawgroup_economic_system",
+          "law": "law_traditionalism",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_censorship",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        },
+        {
+          "group": "lawgroup_church_and_state",
+          "law": "law_freedom_of_conscience",
+          "origin": "mod/common/history/countries/ubd - baltic.txt"
+        }
+      ],
+      "initial_amendments": [
+        {
+          "id": "amendment_prussian_education",
+          "group": "lawgroup_education_system",
+          "source": "mod/common/amendments/00_amendments_enactment_04.txt",
+          "allowed_laws": [
+            "law_religious_schools",
+            "law_private_schools",
+            "law_public_schools"
+          ],
+          "possible": {
+            "possible": "possible = {\n\t\talways = yes\n\t}"
+          }
+        }
+      ],
+      "directly_researched_technologies": [
+        "advanced_crop_rotations",
+        "distillation",
+        "improved_agricultural_implements",
+        "improved_husbandry",
+        "industrial_ceramics",
+        "institutionalized_scientific_exchange",
+        "military_topographic_surveying",
+        "organized_elementary_schooling",
+        "organized_textile_production",
+        "periodical_print_networks",
+        "permanent_engineer_services",
+        "political_economy",
+        "scientific_fortification_siegecraft",
+        "scientific_naval_architecture",
+        "selective_breeding",
+        "ship_classification_surveying",
+        "state_dockyard_systems",
+        "centralization",
+        "systematic_cadastral_surveying",
+        "systematic_population_registration",
+        "traditional_food_processing",
+        "organized_workshops",
+        "traditional_papermaking",
+        "variolation_networks",
+        "organized_military_establishments"
+      ],
+      "technology_macros_not_expanded": [],
+      "unknowns": [],
+      "limitation": "Script requests only. Unmentioned groups and engine defaults are unknown; technology macros, events and runtime acceptance are not simulated."
+    },
+    "ALK": {
+      "source": "mod/common/history/countries/alk - alyaska.txt",
+      "country_type": "colonial",
+      "definition_source": "mod/common/country_definitions/00_countries.txt",
+      "initial_primary_cultures_in_definition": [
+        "russian"
+      ],
+      "religion_inferred_from_first_defined_primary_culture": "orthodox",
+      "requested_laws_after_two_supported_macros": {
+        "lawgroup_governance_principles": "law_colonial_administration",
+        "lawgroup_distribution_of_power": "law_autocracy",
+        "lawgroup_land_reform": "law_tenant_farmers",
+        "lawgroup_taxation": "law_land_based_taxation",
+        "lawgroup_bureaucracy": "law_hereditary_bureaucrats",
+        "lawgroup_church_and_state": "law_state_religion",
+        "lawgroup_citizenship": "law_subjecthood",
+        "lawgroup_economic_system": "law_extraction_economy",
+        "lawgroup_army_model": "law_peasant_levies",
+        "lawgroup_free_speech": "law_censorship",
+        "lawgroup_rights_of_women": "law_women_own_property"
+      },
+      "activation_trace": [
+        {
+          "group": "lawgroup_governance_principles",
+          "law": "law_colonial_administration",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_distribution_of_power",
+          "law": "law_autocracy",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_land_reform",
+          "law": "law_tenant_farmers",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_land_based_taxation",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_bureaucracy",
+          "law": "law_hereditary_bureaucrats",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_church_and_state",
+          "law": "law_state_religion",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_citizenship",
+          "law": "law_subjecthood",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_economic_system",
+          "law": "law_extraction_economy",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_army_model",
+          "law": "law_peasant_levies",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_censorship",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        },
+        {
+          "group": "lawgroup_rights_of_women",
+          "law": "law_women_own_property",
+          "origin": "mod/common/history/countries/alk - alyaska.txt"
+        }
+      ],
+      "initial_amendments": [
+        {
+          "id": "amendment_racialized_subjecthood",
+          "group": "lawgroup_citizenship",
+          "source": "mod/common/amendments/00_amendments_historical_04.txt",
+          "allowed_laws": [
+            "law_subjecthood"
+          ],
+          "possible": {
+            "possible": "possible = {\r\n\t\thas_law = law_type:law_colonial_administration\r\n\t}"
+          }
+        }
+      ],
+      "directly_researched_technologies": [
+        "international_relations",
+        "traditional_food_processing"
+      ],
+      "technology_macros_not_expanded": [],
+      "unknowns": [],
+      "limitation": "Script requests only. Unmentioned groups and engine defaults are unknown; technology macros, events and runtime acceptance are not simulated."
+    },
+    "KZH": {
+      "source": "mod/common/history/countries/kzh - kishi zhuz.txt",
+      "country_type": "unrecognized",
+      "definition_source": "mod/common/country_definitions/00_countries.txt",
+      "initial_primary_cultures_in_definition": [
+        "kazak"
+      ],
+      "religion_inferred_from_first_defined_primary_culture": "sunni",
+      "requested_laws_after_two_supported_macros": {
+        "lawgroup_church_and_state": "law_people_of_the_book",
+        "lawgroup_distribution_of_power": "law_autocracy",
+        "lawgroup_bureaucracy": "law_hereditary_bureaucrats",
+        "lawgroup_citizenship": "law_subjecthood",
+        "lawgroup_economic_system": "law_traditionalism",
+        "lawgroup_free_speech": "law_right_of_assembly",
+        "lawgroup_army_model": "law_peasant_levies",
+        "lawgroup_migration": "law_closed_borders",
+        "lawgroup_labour_associations": "law_guild_system",
+        "lawgroup_governance_principles": "law_monarchy",
+        "lawgroup_taxation": "law_land_based_taxation",
+        "lawgroup_trade_policy": "law_mercantilism",
+        "lawgroup_land_reform": "law_serfdom",
+        "lawgroup_labor_rights": "law_no_workers_rights",
+        "lawgroup_slavery": "law_debt_slavery"
+      },
+      "activation_trace": [
+        {
+          "group": "lawgroup_church_and_state",
+          "law": "law_people_of_the_book",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_distribution_of_power",
+          "law": "law_autocracy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_bureaucracy",
+          "law": "law_hereditary_bureaucrats",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_citizenship",
+          "law": "law_subjecthood",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_economic_system",
+          "law": "law_traditionalism",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_right_of_assembly",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_army_model",
+          "law": "law_peasant_levies",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_migration",
+          "law": "law_closed_borders",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_labour_associations",
+          "law": "law_guild_system",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_governance_principles",
+          "law": "law_monarchy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_land_based_taxation",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_trade_policy",
+          "law": "law_mercantilism",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_land_based_taxation",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_land_reform",
+          "law": "law_serfdom",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_right_of_assembly",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_migration",
+          "law": "law_closed_borders",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_labor_rights",
+          "law": "law_no_workers_rights",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_slavery",
+          "law": "law_debt_slavery",
+          "origin": "mod/common/history/countries/kzh - kishi zhuz.txt"
+        }
+      ],
+      "initial_amendments": [],
+      "directly_researched_technologies": [
+        "distillation",
+        "improved_husbandry",
+        "international_relations",
+        "organized_textile_production",
+        "traditional_food_processing"
+      ],
+      "technology_macros_not_expanded": [],
+      "unknowns": [],
+      "limitation": "Script requests only. Unmentioned groups and engine defaults are unknown; technology macros, events and runtime acceptance are not simulated."
+    },
+    "CRI": {
+      "source": "mod/common/history/countries/cri - crimean khanate.txt",
+      "country_type": "unrecognized",
+      "definition_source": "mod/common/country_definitions/00_countries.txt",
+      "initial_primary_cultures_in_definition": [
+        "tatar"
+      ],
+      "religion_inferred_from_first_defined_primary_culture": "sunni",
+      "requested_laws_after_two_supported_macros": {
+        "lawgroup_church_and_state": "law_millet_system",
+        "lawgroup_distribution_of_power": "law_oligarchy",
+        "lawgroup_bureaucracy": "law_hereditary_bureaucrats",
+        "lawgroup_citizenship": "law_subjecthood",
+        "lawgroup_economic_system": "law_traditionalism",
+        "lawgroup_free_speech": "law_right_of_assembly",
+        "lawgroup_army_model": "law_peasant_levies",
+        "lawgroup_migration": "law_migration_controls",
+        "lawgroup_labour_associations": "law_guild_system",
+        "lawgroup_governance_principles": "law_monarchy",
+        "lawgroup_taxation": "law_land_based_taxation",
+        "lawgroup_trade_policy": "law_mercantilism",
+        "lawgroup_land_reform": "law_serfdom",
+        "lawgroup_labor_rights": "law_no_workers_rights",
+        "lawgroup_slavery": "law_slave_trade",
+        "lawgroup_colonization": "law_no_colonial_affairs",
+        "lawgroup_health_system": "law_no_health_system"
+      },
+      "activation_trace": [
+        {
+          "group": "lawgroup_church_and_state",
+          "law": "law_people_of_the_book",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_distribution_of_power",
+          "law": "law_autocracy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_bureaucracy",
+          "law": "law_hereditary_bureaucrats",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_citizenship",
+          "law": "law_subjecthood",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_economic_system",
+          "law": "law_traditionalism",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_right_of_assembly",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_army_model",
+          "law": "law_peasant_levies",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_migration",
+          "law": "law_closed_borders",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_labour_associations",
+          "law": "law_guild_system",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_governance_principles",
+          "law": "law_monarchy",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_land_based_taxation",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_trade_policy",
+          "law": "law_mercantilism",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_land_based_taxation",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_land_reform",
+          "law": "law_serfdom",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_right_of_assembly",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_migration",
+          "law": "law_closed_borders",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_labor_rights",
+          "law": "law_no_workers_rights",
+          "origin": "vanilla/common/scripted_effects/00_political_setup.txt:effect_starting_politics_traditional"
+        },
+        {
+          "group": "lawgroup_governance_principles",
+          "law": "law_monarchy",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_distribution_of_power",
+          "law": "law_oligarchy",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_church_and_state",
+          "law": "law_millet_system",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_citizenship",
+          "law": "law_subjecthood",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_economic_system",
+          "law": "law_traditionalism",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_right_of_assembly",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_taxation",
+          "law": "law_land_based_taxation",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_migration",
+          "law": "law_migration_controls",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_bureaucracy",
+          "law": "law_hereditary_bureaucrats",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_slavery",
+          "law": "law_slave_trade",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_colonization",
+          "law": "law_no_colonial_affairs",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_land_reform",
+          "law": "law_serfdom",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_free_speech",
+          "law": "law_right_of_assembly",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_trade_policy",
+          "law": "law_mercantilism",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_army_model",
+          "law": "law_peasant_levies",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        },
+        {
+          "group": "lawgroup_health_system",
+          "law": "law_no_health_system",
+          "origin": "mod/common/history/countries/cri - crimean khanate.txt"
+        }
+      ],
+      "initial_amendments": [],
+      "directly_researched_technologies": [
+        "distillation",
+        "improved_husbandry",
+        "international_relations",
+        "organized_textile_production",
+        "traditional_food_processing"
+      ],
+      "technology_macros_not_expanded": [],
+      "unknowns": [],
+      "limitation": "Script requests only. Unmentioned groups and engine defaults are unknown; technology macros, events and runtime acceptance are not simulated."
+    }
+  },
+  "russian_subject_pact_candidates": [
+    {
+      "overlord_candidate": "RUS",
+      "country": "c:UBD",
+      "type": "puppet",
+      "source": "mod/common/history/diplomacy/00_subject_relationships.txt",
+      "ancestry": [
+        "DIPLOMACY",
+        "c:RUS"
+      ]
+    },
+    {
+      "overlord_candidate": "RUS",
+      "country": "c:ALK",
+      "type": "colony",
+      "source": "mod/common/history/diplomacy/00_subject_relationships.txt",
+      "ancestry": [
+        "DIPLOMACY",
+        "c:RUS"
+      ]
+    },
+    {
+      "overlord_candidate": "RUS",
+      "country": "c:KZH",
+      "type": "aor1776_kazakh_nominal_protection",
+      "source": "mod/common/history/diplomacy/00_subject_relationships.txt",
+      "ancestry": [
+        "DIPLOMACY",
+        "c:RUS"
+      ]
+    }
+  ],
+  "russian_subject_closure_including_RUS": [
+    "ALK",
+    "KZH",
+    "RUS",
+    "UBD"
+  ],
+  "russian_bloc_source": "c:RUS = {\n\t\tcreate_power_bloc = {\n\t\t\tname = ROSSIYSKAYA_IMPERIYA\n\n\t\t\tmap_color = { 78 134 62 }\n\n\t\t\tfounding_date = 1721.11.2 # Proclamation of the Russian Empire (Gregorian date).\n\t\t\tidentity = identity_sovereign_empire\n\t\t\tprinciple = principle_vassalization_1\n\t\t\tmember = c:PLC # Russian political influence, NOT subjecthood or annexation.\n\t\t\tmember = c:CRI # Independent of Ottoman suzerainty since the 1774 treaty.\n\n\t\t\t# subjects are automatically part of the bloc\n\t\t}\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\thas_dlc_feature = power_bloc_features\n\t\t\t}\n\t\t\tpower_bloc = {\n\t\t\t\tadd_principle = principle_defensive_cooperation_1\n\t\t\t}\n\t\t}\n\t\t# One-time native bloc-scope leverage, NOT a leave lock or forced rejoin.\n\t\t# Native cap is 1000 and influence subsequently drifts towards its target.\n\t\tpower_bloc = {\n\t\t\tadd_leverage = { target = c:PLC value = 650 }\n\t\t\tadd_leverage = { target = c:CRI value = 550 }\n\t\t}\n\t}",
+  "caesaropapism_subject_helper": {
+    "source": "vanilla/common/scripted_triggers/00_ip5_victoria_scripted_triggers.txt",
+    "script": "country_is_subject_type_valid_for_caesaropapism = {\n\treligion = rel:orthodox\n\tOR = {\n\t\tis_subject_type = subject_type_colony\n\t\tis_subject_type = subject_type_dominion\n\t\tis_subject_type = subject_type_chartered_company\n\t\tis_subject_type = subject_type_crown_land\n\t\tis_subject_type = subject_type_personal_union\n\t}\n}"
+  },
+  "native_ip5_amendments": [
+    {
+      "id": "amendment_orthodox_conversions",
+      "effective_source": "vanilla/common/amendments/00_amendments_ip5_04.txt"
+    },
+    {
+      "id": "amendment_factory_councils",
+      "effective_source": "vanilla/common/amendments/00_amendments_ip5_04.txt"
+    },
+    {
+      "id": "amendment_bourgeois_specialists",
+      "effective_source": "vanilla/common/amendments/00_amendments_ip5_04.txt"
+    },
+    {
+      "id": "amendment_cossacks",
+      "effective_source": "vanilla/common/amendments/00_amendments_ip5_04.txt"
+    }
+  ],
+  "input_hashes": {
+    "vanilla/common/amendments/00_amendments_ep2_04.txt": "9fce4fdc7783094f71d1ce1137156e893e0e96a1499b20e695a6c8cb79e53d8e",
+    "vanilla/common/amendments/00_amendments_ip5_04.txt": "fbbe14ce2d02c634ecf1cc8928d4c5b7faed2e707d0d067dfe9a7980695fc8c2",
+    "vanilla/common/country_definitions/01_africa.txt": "8e120240995e46971b5b75f9bf6fd9a718eadb91894181f778cc026d464fbcf5",
+    "vanilla/common/country_definitions/99_dynamic.txt": "d7827baaf6b6f53912204541888cefcc64309d52a2b03b9b51581655d32d80e7",
+    "vanilla/common/cultures/00_cultures.txt": "8363d5bdf9a72b05ade7f66b5aefce2e6b70ce796459f492adad79ed44cf72ae",
+    "vanilla/common/history/diplomacy/00_embargos.txt": "fe064291d66074bc78047d77ac5cab37c2f7114ea829002ce3ba93da546c2ff9",
+    "vanilla/common/history/diplomacy/00_favors.txt": "b9910feb07593fc7031b08a7bb48a3211e80a4095dc87ae56239902f460c28c7",
+    "vanilla/common/laws/00_army_model.txt": "9cc50ef9ff1b164455489763d40f5a66b13f5328fbfa3ffe0231d773fc2b37db",
+    "vanilla/common/laws/00_bureaucracy.txt": "55874e4995608a4f82deab1a8f0e5b17c97de215d8f6a5207d73f00a7976b981",
+    "vanilla/common/laws/00_caste_hegemony.txt": "0c31a075766c3fc3db997e23b9aa61d737fe0c4c1086a5c8f501a2d03eecbae8",
+    "vanilla/common/laws/00_church_and_state.txt": "73c2c4e4fe5aab1070b501487a39d22591525e47e8e2ca3eaaee48aef22a19c3",
+    "vanilla/common/laws/00_citizenship.txt": "79f5605c6381603957db0a925149764465866f53a412a56e520dc7e4d220b338",
+    "vanilla/common/laws/00_distribution_of_power.txt": "4c89d0232c43e77f6f50520c957715cb73031bbcde996e712202fde03ab7e9a6",
+    "vanilla/common/laws/00_governance_principles.txt": "1659bde35d38b03b68e8845cc010ca2f0e3807088990fb524d4e0e6866b3ff3a",
+    "vanilla/common/laws/00_internal_security.txt": "cd6afaff490ef29a279151b4eff37946cc5cc4b81c901bee99b196df82209536",
+    "vanilla/common/laws/00_navy_model.txt": "6605480a4c4c8cf066822629a2c4b7b0076d95beb6fd854a947e898a507fb414",
+    "vanilla/common/laws/01_colonial_affairs.txt": "a7d97c841fc06d7355cee35edb20dbceaecace8c73dc0c4c046e58bfb94c0ba3",
+    "vanilla/common/laws/01_economic_system.txt": "17bc01e0fc6412536a9adc54c23eb66eab53fe19277d206be20cccca2ca7ec76",
+    "vanilla/common/laws/01_education_system.txt": "dd7ea8a9ecf8a52959a08d9d3a6b4441cc84c353ca3438586d28040274765bc7",
+    "vanilla/common/laws/01_health_system.txt": "4d015438098f9eea1350bdeb4ffe308e86857c9245e24226ab2e643566e317ed",
+    "vanilla/common/laws/01_land_reform.txt": "83c5324614a7fbad69a4815c42f69ecf816d964ab4cf95719084f0d0c98cb871",
+    "vanilla/common/laws/01_policing.txt": "8d6938f1eb556f412ba5353056cd43797f4eea3fb7ea8d6ef6e7e9eeb4a80be3",
+    "vanilla/common/laws/01_taxation.txt": "dd028ab3863ed9e3754ab91d17e07455661cc2bad2e77f98bfb4b64b59a7c317",
+    "vanilla/common/laws/01_trade_policy.txt": "f6e0ca1e180c57f994aae1a04ea3e407bfadd4ede85f75f67c303ed16d734e6d",
+    "vanilla/common/laws/02_childrens_rights.txt": "5c3659a8cfd083511b47ec0637c0ceb570a823029d9fc082f16ad854598d8818",
+    "vanilla/common/laws/02_free_speech.txt": "791ec3c820fcd47ba7a42416fa20b6ba844063a065dd24e3e9f4df809d2ef958",
+    "vanilla/common/laws/02_labor_rights.txt": "78c4f45f9f3e0a5b3ecdaf03a8ea6ede6ade46eb1de64ae31621e4ecdfe8c371",
+    "vanilla/common/laws/02_labour_associations.txt": "0087c28024d610c46458db4844bc6b068e6c7a60236ebdf262160422d6658f7b",
+    "vanilla/common/laws/02_migration.txt": "53229809fe63dd8d4c7748fa2205183c737f8afbfb60ab2e9510bc4d65fff5e3",
+    "vanilla/common/laws/02_rights_of_women.txt": "2358abfd034c7f3d944b10fec6ee6bcb985dae1b105c1932f47358b0268446b4",
+    "vanilla/common/laws/02_slavery.txt": "fd7c8c2bab70b65ef30dd2c5f18cf72ee61a33db65469326511947de1fe5f55f",
+    "vanilla/common/laws/02_welfare.txt": "42594f77b4566637631453c60749318f21e154e23d554be166ac68c7cac44784",
+    "vanilla/common/scripted_effects/0000_debug_effects.txt": "7c59b33e9f8882cdee374eb85b3baf2e0f72d80155d040442bc5a64a55dbac46",
+    "vanilla/common/scripted_effects/00_ai_decree_effects.txt": "f099caa25dca1f93db0b216575e00f990757b9897b02dadc811948ca5850d219",
+    "vanilla/common/scripted_effects/00_balkan_wars_scripted_effects.txt": "09f8e9f7bdaf7f1caf2e2767a8bd7dac267abcd13a76891afa8d981165d9bdb3",
+    "vanilla/common/scripted_effects/00_dynamic_state_names.txt": "bad1262a04b2ee1a2a0740506c0756b365ecc54971ace7e73d8d4af73cfee0e3",
+    "vanilla/common/scripted_effects/00_dynamic_state_names_africa.txt": "22ee85131f7731afdd259700fd18d502011eab1893311c3ac255d31a83118f89",
+    "vanilla/common/scripted_effects/00_dynamic_state_names_americas.txt": "95f3c56f6dd3fe6f1b72740e720ea5b2f19dd863ce483dafae84234b9313a2b6",
+    "vanilla/common/scripted_effects/00_dynamic_state_names_asia.txt": "add13aa8180b148895838c508835de1a972bc3f5f904739a0c6a180435849769",
+    "vanilla/common/scripted_effects/00_dynamic_state_names_europe.txt": "09dd11849627725f43ce49c8e7dfd78e7b4369f940ca2f87a7730f2da332be46",
+    "vanilla/common/scripted_effects/00_expedition_effects.txt": "2d0bb0939538f7e118fbc9f34cbba62b2d6fc1bf379b07e585f1a4e093c37723",
+    "vanilla/common/scripted_effects/00_government_type_change_effects.txt": "1d116b9346f8e56344fedd4038247277c16dcaddad3e3301766753e8a7a0c679",
+    "vanilla/common/scripted_effects/00_intelligentsia_scripted_effects.txt": "5ce8d8a17822a441cbbdd645044067ccb4a744b6dcce9018f4b8549207027157",
+    "vanilla/common/scripted_effects/00_krakatoa_effects.txt": "a23c6ac9d1a4efe91b135d916c09dd8b886c15df088f6e03a566c6ee2f26153b",
+    "vanilla/common/scripted_effects/00_lobby_effects.txt": "33564a290eb7f1d49b58b084eaad3c7776b90301e19f262a572ea91a97375c3d",
+    "vanilla/common/scripted_effects/00_monument_scripted_effects.txt": "702f70033b5732f3f4e184b5c932119cfcb901737117116bd5a8b1b9b81eb867",
+    "vanilla/common/scripted_effects/00_movement_effects.txt": "f1d8b624cfa39429761c9c50be8fe73c9d5a6d28bf020009f15112483a35559f",
+    "vanilla/common/scripted_effects/00_native_conscription.txt": "5fce0319925f188c8d6749989f954f62851016f546fe6e86b874626b836e55f1",
+    "vanilla/common/scripted_effects/00_political_setup.txt": "70c755848862abb553d5d5279d5f98a8a5e4d14b557aec484096eae316e7e9f4",
+    "vanilla/common/scripted_effects/00_rlit_scripted_effects.txt": "3774bd3f484492de5475689d8b2e9e77f8da35dbc655bf6365b6afd61bdc5db6",
+    "vanilla/common/scripted_effects/00_rufus_scripted_effects.txt": "8b0842f1fb6f8b5cbac304bebb620033c07da05cff049265160ab2920ddc791f",
+    "vanilla/common/scripted_effects/00_scripted_effects.txt": "0c2cf463cdaf3025cefa5d03d5345679b0aa509c1b5a928d3980488035e2e5b2",
+    "vanilla/common/scripted_effects/00_sepoy_mutiny_scripted_effects.txt": "be32f69bde816f2216d18a29ae1aebca1859f22ea25cf9504b25cf62ff519534",
+    "vanilla/common/scripted_effects/00_sgui_effects.txt": "ddac74d6eb118f2f92cc9696632177c31a635bfb42676646030609b9d292a28a",
+    "vanilla/common/scripted_effects/00_spanish_flu_effects.txt": "ffd4118819b2d42db78a0d067a58bdcefec89e6a3d8b534b0dd169d41f209889",
+    "vanilla/common/scripted_effects/00_spanish_new_world_scripted_effects.txt": "84cb65d04efb6a575248ec6cfb29ff6578008f3a55c54a770630fa57f1d4f157",
+    "vanilla/common/scripted_effects/00_starting_pop_literacy.txt": "bd7a643cdde74863e05ec7565b9a35da4b14115b3afee2facdc42c11aad50598",
+    "vanilla/common/scripted_effects/00_starting_pop_wealth.txt": "c3dc09f61925a1d8746601396f388d5e0327031d9ca1256b66792015ae37ce27",
+    "vanilla/common/scripted_effects/00_starting_secret_goals.txt": "424a3498eb13ec76d0c0a03bf2c0a1f157294ed4a42533454093e138ca779f3f",
+    "vanilla/common/scripted_effects/00_strike_effects.txt": "ecb32c27d6ea5e0cb762f4953512db040967d51a543508139e2ec669480fab40",
+    "vanilla/common/scripted_effects/00_the_grand_collapse_scripted_effects.txt": "b83839458819b26d24bee0122c7d24bdd8664ae89a1bba47d19bceeb0e47d34b",
+    "vanilla/common/scripted_effects/00_treaty_of_london_scripted_effects.txt": "ccbfd6962736442fdba909613dd57db7f23e45c9d2a659eb15c14503cf70ede9",
+    "vanilla/common/scripted_effects/00_unification_effects.txt": "f346b074eca18ec59dbad70043a1fe91ff59b3737c1f3e11103ada7e3d632de5",
+    "vanilla/common/scripted_effects/00_victoria_adversarial_scripted_effects.txt": "4775262dbce3f3e5e07bbb942de0637e8771025a11a702a83992db41acb28846",
+    "vanilla/common/scripted_effects/00_victoria_cleanup_scripted_effects.txt": "893cacee1fda729ea96fc07cfda8537f4e6d6370207d49ca9256be0e8bbd31a6",
+    "vanilla/common/scripted_effects/00_victoria_great_game_scripted_effects.txt": "4fb607c5c32dde9c70e55e48a7f72f80307dadcb8a80a4939b036cfec6d2eab1",
+    "vanilla/common/scripted_effects/00_victoria_heir_generation.txt": "fe3d5197fafe1f26e622b4746b446947dc80ce4bcd83dd73ec939d2a9c7665f4",
+    "vanilla/common/scripted_effects/00_victoria_ip3_scripted_effects.txt": "0107c3c504cb88ba93fe117c1af3c756c8864370c434124dfb7040f848ed7438",
+    "vanilla/common/scripted_effects/00_victoria_ip4_scripted_effects.txt": "4abf6d91ccd2afcfee785c28171ea45392f5e40b4cb76c9d3ca0e37c27a5fb74",
+    "vanilla/common/scripted_effects/00_victoria_ip5_scripted_effects.txt": "4835c66aa6dfae2b397da2c575442071be5c5f8fb762d49b8f7095c324475cad",
+    "vanilla/common/scripted_effects/00_victoria_on_actions_effects.txt": "c537d6a16c56a823c1811ec6c3d52f48b55bddae0403f623577e932845719396",
+    "vanilla/common/scripted_effects/00_victoria_on_revolution_effects.txt": "d5d7ab8c933f69aeec1e572a61e2cb7bb859201081888a2fb668bf07dd114f4e",
+    "vanilla/common/scripted_effects/00_victoria_on_wargoal_enforced_effects.txt": "3f0cdc3b126791ab1bfa7608a7021d82b53342f336ff1fd1feee8cfe4a27d52c",
+    "vanilla/common/scripted_effects/00_victoria_royal_successions.txt": "a4bb6da35a1f165321fcfdf49de827730635851d294672f47621c27f5c2d13a6",
+    "vanilla/common/scripted_effects/04_neg_event_options_scripted_effects.txt": "50674e7cade64bf09686f453318fc2235fcb74445bbd5d63910e6fd6220bdfa1",
+    "vanilla/common/scripted_effects/04_negotiation_scripted_effects.txt": "350b9ceba317c0cd74983f922af349634a4ecd895dc92b20346918331cf38c5b",
+    "vanilla/common/scripted_effects/05_russia_scripted_effects.txt": "0f85aa68d3824c176cb4682ec31899b54112edc03f4c3a1752ef7b8e2cf17359",
+    "vanilla/common/scripted_effects/05_russian_civil_war_scripted_effects.txt": "901054a0e8d03251fa7bff17cb3a795c3f6c35b959250ff282951b4524bfd356",
+    "vanilla/common/scripted_effects/05_tsarpoints_scripted_effects.txt": "86aac3f574b13962296dd5aff0f10d345905acacb2aa5393dc333a5ce6d805a4",
+    "vanilla/common/scripted_triggers/00_ai_triggers.txt": "33b0543699a6e28ee7253f04c06030b99618625485188cf115e35b5adc2b06ee",
+    "vanilla/common/scripted_triggers/00_building_triggers.txt": "b84c2665d59482cab85db29be51fcc2425d478ec17ddc2ead7c926b5a0b178d2",
+    "vanilla/common/scripted_triggers/00_civil_war_triggers.txt": "63abb81c1aff36c60d7b629ad2631e7254d4a8c69d3cf2b0da60f4f28c33049d",
+    "vanilla/common/scripted_triggers/00_clothes_triggers.txt": "9067d73da66469108f24d19740bf01825eb9f5cb8787a6f53c3905f3509b6364",
+    "vanilla/common/scripted_triggers/00_debug_triggers.txt": "34c17fcdb23eeca276ebfebb028ef9d8119540143a2a7da03378498c590bcd3d",
+    "vanilla/common/scripted_triggers/00_diplomacy_triggers.txt": "a18541787fc56d416aa4601efe43a7fcc2ee9c231a7aec6c27841576c934ea06",
+    "vanilla/common/scripted_triggers/00_ep2_victoria_scripted_triggers.txt": "99c242bb12946a95d782e641837745c60c5f00211e588f445d62a9465e2ba34e",
+    "vanilla/common/scripted_triggers/00_geography_triggers.txt": "10677fcdadacc25f6af825275d234d6ad036a4e88a0701334208efe09de0c891",
+    "vanilla/common/scripted_triggers/00_gfx_buildings_graphics_triggers.txt": "a6eae7037a522af34c20d297024d5bb6b3316d59179b514ce3c0e185d7e91773",
+    "vanilla/common/scripted_triggers/00_gfx_route_graphics_triggers.txt": "0c498f411ba4e4f4f4ec290ac5e9845230beb1932c2eb520fa6beed0626fcf18",
+    "vanilla/common/scripted_triggers/00_has_dlc_triggers.txt": "1c968c1aa7a58c14cf2a38a9796a5688f41ab65ea630a16539ed1e6e473979c7",
+    "vanilla/common/scripted_triggers/00_ip3_victoria_scripted_triggers.txt": "d96675c6b35f073a323f23796b848d92f0b452529d58501c891206822fc9a9f4",
+    "vanilla/common/scripted_triggers/00_ip4_victoria_scripted_triggers.txt": "b459086fcb470e9369d5328146d87bba0bef2981174799aae7546f6244142cc7",
+    "vanilla/common/scripted_triggers/00_ip4_winspear_scripted_triggers.txt": "5f2a7463e785cbed0e7f3e4454647c52bc28b854d21c20955e4cbcc509bd2efc",
+    "vanilla/common/scripted_triggers/00_ip5_daniel_triggers.txt": "0c6d76429c740c29b55a0e45a564f825ef479a9b2068e01033308fa0278170d7",
+    "vanilla/common/scripted_triggers/00_ip5_russian_revolution_scripted_triggers.txt": "09672c7aba5b0c63d53cbf97164547050fe86d8d956a8374887f8f482536d030",
+    "vanilla/common/scripted_triggers/00_ip5_victoria_scripted_triggers.txt": "ce79b3deef184b171a1a16390551df4df28dd807ad2dab7e7b0dc3ab292c0faa",
+    "vanilla/common/scripted_triggers/00_lobby_formation_triggers.txt": "a54a00299eee837d5953c4a4c5b6299e7d93cfb9618d4b6d5d55cbd5b82ed397",
+    "vanilla/common/scripted_triggers/00_rlit_scripted_triggers.txt": "4dcb1b7de692f4f65cc531b3a212fe90b3efdf34bc8f708e9ec8839d7db10253",
+    "vanilla/common/scripted_triggers/00_scripted_triggers.txt": "3547a5b7b1dbb4453ba35f624c161a7587c0a5fd0ee93d7228df4336e565f64a",
+    "vanilla/common/scripted_triggers/00_ship_name_triggers.txt": "f1945cd6c19e56b3c1c78943ef5ec18116907a4ca1efc40a57d48ab1db7adfc5",
+    "vanilla/common/scripted_triggers/00_spanish_new_world_triggers.txt": "3a4e5caae78d897c6e1ec3fcb02dbc71c61411ff1d713d364174c602e77db38f",
+    "vanilla/common/scripted_triggers/00_strike_triggers.txt": "66875d1e2ca3457ce447cbe939ec9c60ac0bc8b18a1ef029a6509b0c4c753636",
+    "vanilla/common/scripted_triggers/00_theme_triggers.txt": "16aa7a35cc8f92ab27804bab5578e010eeff05bc1acbca35baef3c30701503ea",
+    "vanilla/common/scripted_triggers/01_has_dlc_triggers_ip1.txt": "16d2a1c2b60b727d871c8455d99e0246a39e8ca94f07a1a014c9dabc03312763",
+    "vanilla/common/scripted_triggers/05_provisional_government_triggers.txt": "5abb56ab9d8a1820b273ea8ee8ccf050242786b6765c76cc366adeb4aebc3abb",
+    "vanilla/common/scripted_triggers/05_russian_civil_war_triggers.txt": "c7e04bae0b7dd45128a842222d7cb9f0fc880f8a8ea2ca0bab5aaf0e6186ebec",
+    "vanilla/common/scripted_triggers/05_tsarpoints_scripted_triggers.txt": "4d22469ebc817d730a0c5789b6e5bdfb0edc3087f417beb4e06f3322e3b98868",
+    "vanilla/common/scripted_triggers/ip4_carlist_war_triggers.txt": "ee37761ca132b73e117ca465fb0cf99de0835d25144518afff74476596067bc4",
+    "vanilla/common/scripted_triggers/ip4_negotiation_triggers.txt": "ac41dc9ca11080ae7813ccf81ea0793fb65e1129bea831c34eaaafd0db5a3500",
+    "vanilla/common/scripted_triggers/nemo_scripted_triggers.txt": "fea05f053977dbe6f32a939e6286d6249eaea8287ce3244d80db65804af3ce41",
+    "vanilla/common/subject_types/00_subject_types.txt": "926d1715c6f210169d0bee72db4219ebf18895bf9a8394cd376c920537ec0e6a",
+    "vanilla/localization/french/laws_l_french.yml": "72de4ff21d5e04e70915b4a12ed63cb2f9570e90fd3fbe327ac4816f3328bf47",
+    "mod/common/amendments/00_amendments_content_04.txt": "a09e352c7dcea5a68fbd95d0e29ebad33f2df3d3b9a5f2e804132b82ad338500",
+    "mod/common/amendments/00_amendments_enactment_04.txt": "e0041784637656032e796b5993c34910c180497b148185c8e0e40511a064ef59",
+    "mod/common/amendments/00_amendments_generic.txt": "e9dc1f1076815636dc0a2dffed55b2dbfcf50239b768174b0c5a7b7dd71d3dd6",
+    "mod/common/amendments/00_amendments_historical_04.txt": "927c62d961eead9311a46c562cd44a712d3049191376d0d5f6e77411d1ad163b",
+    "mod/common/amendments/00_amendments_modded_76.txt": "3e3cca24033209c28f8e71405835967d64c554207b398389caf14840a1cd0424",
+    "mod/common/amendments/00_amendments_test.txt": "55ffe296b2773ddf7df4510e54b3f9ac299e1741cd58a0f7d235b150d3105de8",
+    "mod/common/amendments/10_1776_birth_quota_amendments.txt": "ef4384f986f49694ce5b8cd509c5f92ece818d7a9e5dffa2d53fad8c51aa56ac",
+    "mod/common/amendments/11_1776_prussian_military_austerity.txt": "81fccfcfcfd039e28a8743eb411f6b242c3ecc0c932a1a3a41e5293c5bf9abda",
+    "mod/common/country_definitions/00_countries.txt": "10d0748d5a6ca864c2f4a29ce7ccdf258537b80c6ae41c11192ca2ade56bf766",
+    "mod/common/country_definitions/01_pacific_and_australasia.txt": "814840e9892d9d441bfb2d8bab90dd5658c2f58a03ef65e379a6d34aa4cbe741",
+    "mod/common/country_definitions/02_modded_countries.txt": "128715b50ce3d54e9a70f74fcae9a267c274700363395b695254a16c3e9c2d91",
+    "mod/common/country_definitions/03_1776_caucasus.txt": "6291126c8894fcd32d8c97b6b8cf22bd1ecb6e6bee5206cdc10dcf839ea20a53",
+    "mod/common/country_definitions/04_1776_kandy.txt": "d86959de4dc33f02266d928632d99151c7a0e5cbc10748408e94b73db79e9ec3",
+    "mod/common/country_definitions/07_1776_map2i_afsharids.txt": "dc5de7e8d2c64a439becb2e7ee3ed27584ed28f60495da85bd21a9fd10391ca3",
+    "mod/common/country_definitions/1776_arabia01.txt": "d8e028bbfffb0602ea94299208edbf57242bdc6a1be3784d46ff933158b1e5a1",
+    "mod/common/country_definitions/1776_central02_autonomies.txt": "82dcc7c20d966bc9be7ec29d75d75be8dc88f6cc46e736da137d780bc06f644c",
+    "mod/common/country_definitions/1776_dp02.txt": "9c6616e6848c4479ad1109bf85c36e21f3314bee9f4130d67ec7e48db9d681e3",
+    "mod/common/country_definitions/1776_dp03.txt": "6c3b030ec1bcbe84615b37ceb9eefd054059601922ab5526a1b00d90637106f1",
+    "mod/common/country_definitions/1776_hbc_indigenous.txt": "f7dc587820d56b182d82323c08f63de1214fb1d66e0e738a0e6267c51692240a",
+    "mod/common/country_definitions/1776_imperial_electoral_states.txt": "0ffa63c20269c1ef0fcf700cf10f51abaa0abab7857fe29f1286cf501b401be5",
+    "mod/common/country_definitions/1776_map2h_countries.txt": "109e31e04b17dc59d045d33275feb07cd00c749bd993edb6a6f91daeb221d0af",
+    "mod/common/country_definitions/1776_map2l_franconian_estates.txt": "b9409d839415dd27e88bd96eaf76853a2a691dfc2e7c2fbb110576439bc67f66",
+    "mod/common/country_definitions/1776_map2l_imperial_estates.txt": "d22fe9118e2e9eae019ded9ac1c00a2042727c62b23280ac8e9f9dee31c9f89b",
+    "mod/common/country_definitions/1776_map2l_osnabruck.txt": "f7392196fbf416d3c5d64aeb02da17d1e5e991300865287c28e69d6b8f91e530",
+    "mod/common/country_definitions/1776_map2l_swabia_completion.txt": "37b66fcb8748d06c029fb3b27fd7cea69ba00b832d5360f6e1cc9345908dc2b9",
+    "mod/common/country_definitions/1776_map2l_swabia_continuation.txt": "7ab981a66545c6053e20d74bd9a8055075c75cb6a924bc541767d2eeaa7c2169",
+    "mod/common/country_definitions/1776_map2l_swabia_finish.txt": "923f7504a51cb67dcdff45800f6da3c09cec2ffd3083a3005ebf0682ac29a6c4",
+    "mod/common/country_definitions/1776_map2l_swabian_estates.txt": "1a6bcdc1741760d76015560e9d2471f1fc9036ac208a7e8d41e282432e4635e0",
+    "mod/common/country_definitions/1776_map2l_westphalian_estates.txt": "46c6103a5649729e93543fd1adceb271ebd58f7b95cd3d191249c76095e1c9af",
+    "mod/common/country_definitions/1776_map2q_eutin.txt": "de15d5b7e5161a0212f9c5f646665c29c799696f5d687bc974278fa60414dbfb",
+    "mod/common/country_definitions/1776_map2r_anhalt.txt": "d29f08b9d8b16d1495c1db5ecfc2f511c7020d4742a8678a9324fa34af881051",
+    "mod/common/country_definitions/1776_map2t_saxony.txt": "a04aa438aa3523fe98cbffea364ede6b0c3b06e4c6b7f85db46af26069fd3c1d",
+    "mod/common/country_definitions/1776_map2u_reuss.txt": "889b17731fd89c2b1bdbcc024b9c69c33ba5f2f2ab2734defb32388593b6ee33",
+    "mod/common/country_definitions/1776_map2w_fulda.txt": "29202868f0aa2ec11a3b2e0dcc4d23a56713d991161e5964e7a431bee51ebd1a",
+    "mod/common/country_definitions/1776_map2w_r2_nassau.txt": "317c0897d12d3d58869239dbedd036731d655f23ba35a01f49e313fb87db5d0b",
+    "mod/common/country_definitions/1776_map2w_r2b_saarbruecken.txt": "48e1894bfdad946cf0ef51ba9b083ecaa8b797ed45590b32bde1e11c347a090c",
+    "mod/common/country_definitions/1776_map2w_r4_passau.txt": "29d04c8eb089462df51d00877e5214d907063313b8713bd02e4b3f2b92447a48",
+    "mod/common/country_definitions/1776_map2w_r4bc_fsi.txt": "9877564946fa46245ebf42afdf596749cfeced7e86851ddb98049ebe9a861a43",
+    "mod/common/country_definitions/1776_map2w_r4bc_rbi.txt": "d1c929a228389a875ecfe481f4a77a265bd562e595dad040cddc46364cadc197",
+    "mod/common/country_definitions/1776_map2w_r4bc_rci.txt": "5970ffaa6eea13be3fca10f81f26529ee6d8983b266ee983a7a94cb51270b517",
+    "mod/common/country_definitions/1776_northwest_frontiers.txt": "cbb6d757ead0cd3597afc89b40e6fbf6e62cbd63a0981bc74eb8ca6a8e4aabff",
+    "mod/common/country_definitions/1776_r8_southern_nations.txt": "04216d285739f334f32bc5c527a623bc5911490d4def61170b17b213cd4cc0fb",
+    "mod/common/country_definitions/1776_r904_huilliche.txt": "f24b753bad7f9ee3c3316252502335a9d015cd4abf8a0e5da756645927ec86b6",
+    "mod/common/country_definitions/1776_sc1_berchtesgaden.txt": "e60ef611e3abe571ca4c0722c48d4f00fbdd49b55f251695c638d1d264513324",
+    "mod/common/country_definitions/1776_sc1_brixen.txt": "59f8f001973c9b6f06b159b1727f8eef481ad97946b8bcec2f60412d6daf2135",
+    "mod/common/country_definitions/1776_sc1_ortenburg.txt": "1bf2f5492448e3582c048a302086fcccffda09cedd3fb4eae8c6f5a08fee285d",
+    "mod/common/country_definitions/1776_sc1_salzburg.txt": "73ff42d957954bbbbd357d31afc26c043d096cea59f104df445a60e8d992cd6f",
+    "mod/common/country_definitions/1776_sc1_trento.txt": "314a660c6c07fd469e676eae47cdeeac30844ff4f2b04817b851fa412223ac9d",
+    "mod/common/country_definitions/1776_sc4_massa_carrara.txt": "136e18f999644427b4f951188e094560ed3a3941eb4b32f966f6fb973610baa2",
+    "mod/common/country_definitions/1776_world_b02_ragusa.txt": "074b442648f500af6bba889ac10d219e396d7e1c9705d5e1e161287e6a566721",
+    "mod/common/country_definitions/1776_world_centralasia01.txt": "402600d6f284a93d92db74985b5fb25b9b050dda1af90dcc776fc516970bb00a",
+    "mod/common/country_definitions/1776_world_congo01.txt": "e573e4ed272967f08740809e62427ea46c8ea9c0cb11e7beae9c954829f586a5",
+    "mod/common/country_definitions/1776_world_horn01.txt": "040f1d0374868c4fa30c6ddfdb08db86d5f92936ce9478f5c6675fed9bc92ff9",
+    "mod/common/country_definitions/1776_world_interior01.txt": "003bc8eaee57717b410ff6b543b247a9775ade46657c0602b28fc14b4e052951",
+    "mod/common/country_definitions/1776_world_madagascar02.txt": "aee79cb528ea2db3248c50b4eb0d0ddb14ee56476f4df4fc16426a1b5554d4f6",
+    "mod/common/country_definitions/1776_world_russia01.txt": "5e2d2a436f4003c9181c1b253a285aeda97c6c2ee673ff9af6de7f35a1ab6ed0",
+    "mod/common/country_definitions/1776_world_sahel01_waalo.txt": "000df5e9147f5debb5d69987bd6fb318a812cf314642d14873007cc49016af29",
+    "mod/common/country_definitions/1776_world_sahel0205.txt": "e950c314789ff40896bf3c961178cc576951534f810997b0c5b396804426c9f1",
+    "mod/common/country_definitions/1776_world_sahel0607.txt": "b88ddc92c19f8ca777d072c1c28322dad5127530c26a7bb3d2ecba12312b8459",
+    "mod/common/country_definitions/1776_world_southern01.txt": "feea97662761785d17173d0c35f9fcb9d449e098e3967eb837ec47ba713cfc72",
+    "mod/common/defines/zz_1776_world_russia01.txt": "b5914d4904fd537a6ac626a631c16a60bbb4f845d6eccfdc3b55fb374713abc4",
+    "mod/common/history/countries/alk - alyaska.txt": "b48db23bf41b46dc1e36742c1eaccff0dd6339aa52c9530a6591cfbbcb33bd28",
+    "mod/common/history/countries/cri - crimean khanate.txt": "f62ebb9d44c8a9f28473b8ffeeec77051adc7248f3848fe44bcda907e68664e9",
+    "mod/common/history/countries/kzh - kishi zhuz.txt": "1a5b73671b410ab385317eaf41f515872ad41f923dc6ac0319eff09c4b18e74e",
+    "mod/common/history/countries/plc - polish-lithuania.txt": "625332052d0f9afc06b6ef135886985eb9fe663618b127f7af034da47ee23eba",
+    "mod/common/history/countries/rus - russia.txt": "c7a7199941fbc7013fcb06cc5271d56efdbf5b952f7a3df4e98309ec35e44d07",
+    "mod/common/history/countries/ubd - baltic.txt": "bda4e53b4d265ee64626fa23dd1261937a46e5049afdff8269bed7d12196b134",
+    "mod/common/history/diplomacy/00_relations.txt": "bcf3865cab15bf0195f1ed085e617c76f90f93193ba1a7a9aceba2e4dbc2715e",
+    "mod/common/history/diplomacy/00_rivalries.txt": "4d25e9975038f762cbe4e1c6c0889019987c83290a6dfd67bbe024a51d3a9f83",
+    "mod/common/history/diplomacy/00_subject_relationships.txt": "c8157be2861c10f1c693b189049cc17ed97fb7a080330aad96cd4e74a16f6755",
+    "mod/common/history/diplomacy/00_truces.txt": "f1945cd6c19e56b3c1c78943ef5ec18116907a4ca1efc40a57d48ab1db7adfc5",
+    "mod/common/history/diplomacy/07_1776_map2i_afsharids.txt": "dd46538add8ba0cfe60f0791eb78badc85ff6320acfa21ce566a3ec73e12aabe",
+    "mod/common/history/diplomacy/1776_arabia01.txt": "5e00909ce8b89fb94be892ce7a34089c6cca87097b281457ccd409541104526e",
+    "mod/common/history/diplomacy/1776_dp01.txt": "b4d474cabfa0ed70e7dd3ef803975a38b48600cc84c5a667815493db15617734",
+    "mod/common/history/diplomacy/1776_dp02.txt": "5f12e9ad1220a9ccab73a83944fa5efc7bc6d06d4e3ad4752a56944e9e7be1ee",
+    "mod/common/history/diplomacy/1776_dp03.txt": "82acde892244f68ef00e46621ffe32269d98ad7578943e5d6368bd4765adfd4b",
+    "mod/common/history/diplomacy/1776_map2f_gaekwad.txt": "6ca08b13b0db7ac9067ba5e74b4f69a94abdfdd1891bc5ae5bd10cdc3038864c",
+    "mod/common/history/diplomacy/1776_map2g_qing_dependencies.txt": "74b717b63d45750babcb92d1179e0f987238c4c5920ee49900a305207ff25354",
+    "mod/common/history/diplomacy/1776_map2h_lao_alliance.txt": "9d49b52ae5cd3ec41f9aa2e9598012c95f27191ffd6f7dfa0a9bdf65a7475083",
+    "mod/common/history/diplomacy/1776_map2h_vietnam_rapprochement.txt": "9445520f4cbdcaf773fb97e73fa8b5299b602ec01e37ceae1a99ef8259326c32",
+    "mod/common/history/diplomacy/1776_world_b02_ragusa.txt": "e2810945f9803916262e94f79b72c5fb22db88dc55b9fa0a98e2290f59418248",
+    "mod/common/history/diplomacy/1776_world_horn01.txt": "8f5a615f016548937bdcb39739824f98d1be9110419f900e9df7c0257b57efc8",
+    "mod/common/history/diplomacy/1776_world_interior01.txt": "db96d6e9ef2fd4f9c1c4b73acc5bd6469e965d8adb6f8b3b4808d0e55030d380",
+    "mod/common/history/diplomacy/1776_world_m03_fezzan.txt": "9204032af2f353ab40bd83b2f9200aa4f44cebe3ac546be897c6df7887910c3c",
+    "mod/common/history/diplomacy/1776_world_madagascar02.txt": "93eab719197aa09c09387136af0f9b8b76d1766386e661ff75dc660b7657c3cf",
+    "mod/common/history/diplomacy/1776_world_sahel0205.txt": "a72dba93f8c783c4fed5e790dc91fce9dc83246978edaa439306658ac9858ac2",
+    "mod/common/history/diplomacy/1776_world_sahel0607.txt": "794f9fbc9df1443d62c48fb6048d06deaab3d43b255c8d80352cd9b12e7d74cd",
+    "mod/common/history/diplomacy/1776_world_southern01.txt": "7ac72379923d918a31e484688cf757bc359af4a831d7357c9bda704230068715",
+    "mod/common/history/diplomacy/99_1776_map2q_eutin_union.txt": "dd91e1f0d79e0d060b985dcc3262caad2524d452774a9fd7b657f859e6a64b42",
+    "mod/common/history/diplomacy/zz_1776_world_b03_montenegro.txt": "b13c8f71412c7c860b4e8635127482006a7ba3d8451dbc60268bb59d6bbe2370",
+    "mod/common/history/power_blocs/00_power_blocs.txt": "9ad85e437fa34f22b0895d1339b3c9c3807d76f97758e9d591f74f0265b9a3ca",
+    "mod/common/laws/00_army_model.txt": "319842b5e1de7a7941a041351cde6613977c98dc0fd5283349dba3d39c752567",
+    "mod/common/laws/00_church_and_state.txt": "4baa0b5f5ce7fea9dca0c22323ed3110e3253b851518083d95a8f0f3fe3f2f9d",
+    "mod/common/laws/00_citizenship.txt": "bc9d5c821729cf91acb906ebbdb3e8319df9ff3aabb1dbdc2e03b3ce375e970a",
+    "mod/common/laws/00_distribution_of_power.txt": "594e383113d236df6bb6aa1e9509f1962f52a119060f566e94eeb30b1bf86a37",
+    "mod/common/laws/00_governance_principles.txt": "6ff579d27f92136d70cd06c5cc6106fbcafd43334e974c9b85bf611fbf09368e",
+    "mod/common/laws/00_inject_laws.txt": "e554a36b616d44c333f152ae15cb2e02220fa207a3302abc51c9193713f69a43",
+    "mod/common/laws/00_internal_security.txt": "5e49e9098373aa411655df95a0349112b5ea7487a8971fe7787e6c8e6e467df0",
+    "mod/common/laws/00_navy_model.txt": "59f6c330ebf87c1c62ca93828d49cbb0017aa97817c960e3ee5d0c4562e81649",
+    "mod/common/laws/01_colonial_affairs.txt": "d2041646b465f7db47c715bcd30c9092c89ae5c08115eab221f524d5aad74e99",
+    "mod/common/laws/01_economic_system.txt": "97c2a8fb66abd6addfd8c71b85d75df14732e64cc5dc9e793e7e733d735e6ec1",
+    "mod/common/laws/01_education_system.txt": "a0e549418669a7ab472ddb1b90d3a02f813e51b91f58d35b7cd40f930a155916",
+    "mod/common/laws/01_health_system.txt": "6e2ac6bbffde811eb20068b26dd81e5f9b50fc3d52e307448264a39c996fdd3c",
+    "mod/common/laws/01_land_reform.txt": "6dbbb3104c6854cba90e94ffa5b8c6e5662a76495e258d7d6a1fd27bc9809fd2",
+    "mod/common/laws/01_policing.txt": "7cb6927608976455d704813a6063f9166f7a1ab6ce9cba1f102384386ef2373d",
+    "mod/common/laws/01_taxation.txt": "3563128b6a1732b6103d4b38730d83aa5e66c520f54d8915cb817303fc41ff2b",
+    "mod/common/laws/01_trade_policy.txt": "440f720eadc8c570e16edcc44c2a953b034dfba067c5a9c711757f3c6e837719",
+    "mod/common/laws/02_childrens_rights.txt": "f65927b59028b3eb59ebdd6125b7ca7ae48e7287b364ed9ce96cb3e262c8e005",
+    "mod/common/laws/02_free_speech.txt": "42424de70f513a3366c86d26b8e7fe515c094a694c9682c2f662732c0acb0ea2",
+    "mod/common/laws/02_labor_rights.txt": "4446346bb519c7a42b5e16b896c3497ee5e34e90a87ad7cf40fe670e1216b3eb",
+    "mod/common/laws/02_rights_of_women.txt": "b3cb55e83124543193587c1adedb621f22622dc6ee325896d855c3a20e9e0b0a",
+    "mod/common/laws/02_slavery.txt": "a95ea7382a042cfe1d6ee85d90a709d777c99146e06a8d20b39d5d38ab89c031",
+    "mod/common/laws/02_welfare.txt": "7637cd2559f07ff0a5523ba70281db47190ce2c2b30f878ffac8f261dbfb0023",
+    "mod/common/laws/10_1776_birth_quotas.txt": "d85b62d4700680abb41e0f1aaffa6c4ed638cec2a6734c6f410ffbbc8421c4a4",
+    "mod/common/laws/1776_arabia01.txt": "8db77491956b2f9badfe816ccfb23f039859d3d7a20350fe0c4993c65e2e92ae",
+    "mod/common/laws/1776_dp01.txt": "8ca8445a50df358cef394936dfa2d4fd2982cc03c2c9691ffcdedb980876bd3b",
+    "mod/common/laws/1776_dp02.txt": "675d25be718e38c6b0a4253e47f9fd67d422dc197c8e9e08bb9f42b7824b1e0a",
+    "mod/common/laws/1776_dp03.txt": "6229605d8126a517877f83b1fe5f14d7df29d130cb3236d5f38e02d1bd867ed4",
+    "mod/common/laws/1776_map2l_franconian_start_variants.txt": "47f506a690e769968cb8e618884a0d66417a1d267afc4c5a0753498a226e5175",
+    "mod/common/laws/1776_map2l_osnabruck_start_variants.txt": "cf9212c5b92897b15ab9d54acaab854408f04aeb0b379d567966272a79983f8e",
+    "mod/common/laws/1776_map2l_swabia_completion.txt": "ebb7e5641a2458e4623f799d4347bb1b3441a85cfa73d954c1bf7926db4b5f9b",
+    "mod/common/laws/1776_map2l_swabia_continuation.txt": "6f26dc0bfdc196f119fa9b91f56272ff55c7a5c9a701752a421287cba294d222",
+    "mod/common/laws/1776_map2l_swabia_finish.txt": "60a7d73ab9ffe234be9c47926e85cc94b237c8e2c0036788b519e4234ee903b1",
+    "mod/common/laws/1776_map2l_swabian_start_variants.txt": "00fe38effa4378ca6b8bbc54c9df2bce264670fcea7617dc499e7309b4a8d96f",
+    "mod/common/laws/1776_map2l_westphalian_start_variants.txt": "6dad3364f5064ecb54813fac9d9c496f9b70bd4b585ae7b36d00c63fab57a60e",
+    "mod/common/laws/1776_map2q_eutin_start_variants.txt": "d1b73f315f1199eadea6d05c9a5741a89409e30c1e946163d5ca761101ee3108",
+    "mod/common/laws/1776_usa_reorganized_militia.txt": "b30e75c9d608c3307ac346e66440ed762a2c53894e78ed7b6150dc57b6d06026",
+    "mod/common/laws/1776_world_centralasia01.txt": "04785a0ae116b0c5c2481e5684768290f128df313b42077c79420516220e9caf",
+    "mod/common/laws/1776_world_congo01.txt": "d890ecac12892f0dc875802183230752b874e71682673c696c29085709fb1b66",
+    "mod/common/laws/1776_world_horn01.txt": "9450f0b3c14c4eabfc97ab7427cee630a5e446a1e7d0bff456c1ee00d58ed9b2",
+    "mod/common/laws/1776_world_interior01.txt": "51927622005cf4340d2932d18c6778b243ed3746be0aea8deb777e8f755ce672",
+    "mod/common/laws/1776_world_m03_fezzan.txt": "9dba7a74855add0f844a973066cb653ccf2ad1ec611c7fedff1343412db9dd78",
+    "mod/common/laws/1776_world_madagascar02.txt": "3e70f0710e9e127bdb47896d02d5552115d80d312df30c33b1a963797a6c46ea",
+    "mod/common/laws/1776_world_russia01.txt": "3a3be7aabddd4ff159e12e66548723a55fcceee94071b269f3ec711fd6d94593",
+    "mod/common/laws/1776_world_sahel01_waalo.txt": "addc99157f44885211a55238ca1880bc5a266212cdbc617dc10a9c5d21bbe0b4",
+    "mod/common/laws/1776_world_sahel0205.txt": "f4b6dd03bd9ce1cac7c2f89f1531f96a7bfcd23c8b5819fdef3f43085fd1528e",
+    "mod/common/laws/1776_world_sahel0607.txt": "202763265e67e900b3d14911902514820a59cb0e19d74808d2e9229038776417",
+    "mod/common/laws/1776_world_southern01.txt": "ae83793d7e6ae9e60a9190a1028b7c3a0cb25e371fd092846884f73587e27a4b",
+    "mod/common/scripted_effects/00_chris_scripted_effects.txt": "1618abac947e4bb5fe93d4e152e1f013c317da8071052094d3130420958d58ee",
+    "mod/common/scripted_effects/00_starting_inventions.txt": "d5e82c2cc2d9d5adc9408e5aebed19960c37742d0b69b84155927dc3d8f791f2",
+    "mod/common/scripted_effects/00_victoria_ep2_scripted_effects.txt": "901fd751d2aba854ba927e0018a11bfd35c16999434c9610bca9211c3c77ed99",
+    "mod/common/scripted_effects/00_victoria_scripted_effects.txt": "cdb836045c615aec9c991ededf703a803b19e012a545b8de8b54928a74f945ee",
+    "mod/common/scripted_effects/10_1776_birth_quota_demography.txt": "e5b06b8cd85a4736fd4826993cd8a0afc63c746a638e7069d8c462bef1e3eb73",
+    "mod/common/scripted_effects/11_1776_birth_quota_ig_alignment.txt": "e049e1c335dfb21b1ae03a0945d497e25cab30c4c975c646bb409401ce0b6b54",
+    "mod/common/scripted_effects/12_1776_birth_quota_trial.txt": "774d52fe07c02f20e2fb19d5dfbb1cc380b15d4b612ce6d528acec4ad32bcafd",
+    "mod/common/scripted_effects/13_tech8c_laboratory_operation.txt": "d1375a7ed6ccd049a30830d947f57b06902d51692b981d1e0a7a49d621fb95f6",
+    "mod/common/scripted_effects/1776_ai_regional_infrastructure_effects.txt": "aa033cc3b2c454738fa3820b27b30843188092a6f55e5cdacebda5dd7e623647",
+    "mod/common/scripted_effects/1776_alpine_state_names.txt": "a392ad04dd7541c9a3e4d87edd828d1ff3d804b5dd942d185cf7719604355c71",
+    "mod/common/scripted_effects/1776_bv_innbaiern.txt": "c9b6c490c6f17c06e1681d73c0f3bb5251d202b6e9f454d5ee8a685197002bb5",
+    "mod/common/scripted_effects/1776_caucasus_state_names.txt": "fa8d71f874c851ca0e846f54f428d11839d1bafb31c256963f9f8ca43eecfb80",
+    "mod/common/scripted_effects/1776_historical_forts_start.txt": "196bf861b6b7e6f5cf96988b39af882b39bd84fd1bae0b529ab4a0fa2adc24f1",
+    "mod/common/scripted_effects/1776_imperial_centralization.txt": "90a2e64875783e9af98bdbddb63b8b7f6dcbdec80d5e06b077c7ee1ec158e12b",
+    "mod/common/scripted_effects/1776_imperial_constitution.txt": "af7940c6fc8d9c2d0eb841d210c05fc29ad16475b989d2e7a8a679e54e26362f",
+    "mod/common/scripted_effects/1776_imperial_reforms.txt": "ad1ca99ffc4924539c1cb099706170b77413ecc48fae34e5acd3bda7860fb972",
+    "mod/common/scripted_effects/1776_join_ongoing_wars.txt": "ffc8ff99ed55b6055889ad62403fd4ddbbf14215d3a53780f71a44a09b0480d8",
+    "mod/common/scripted_effects/1776_land_fortification_construction.txt": "2b58234f45c48aa06da3ea0429c889b7f92bb25794b4abe2aa9ebbddcbb34b3d",
+    "mod/common/scripted_effects/1776_map2f_state_names.txt": "85b0f3b541315d20fe031903f8d633dd10d607ae0cb777eb73ff1353dbfd8f2d",
+    "mod/common/scripted_effects/1776_map2h_state_names.txt": "0f45adb5e705a83228cbae274d22895db75deeeaaeb9e0e014ef9124f55908b8",
+    "mod/common/scripted_effects/1776_map2h_tapanuli_name.txt": "48212c4423c12f19db70aa230257946fc5c60a9ededf23c964114cde44a7f055",
+    "mod/common/scripted_effects/1776_ottoman_reform_effects.txt": "fe42f42909306c9c11fe54f5493dfbef5ed1c01677eb16c2f81a9f43f52c9cb6",
+    "mod/common/scripted_effects/1776_r907_malvinas_names.txt": "533eb96505c22dcf17311eb168066f85f90cda647bbaa4bcf3ef43a1213ed4b0",
+    "mod/common/scripted_effects/1776_restored_starting_technology_profiles.txt": "280f9e51767f7e319f3766139f3870e28d6c4519a077b9f324ec56e0a816211d",
+    "mod/common/scripted_effects/1776_sacramento_names.txt": "90dc100614d6088cf4effeaf7ce1f283ae30c6d1b5a5b7f5c112406b5d07156c",
+    "mod/common/scripted_effects/1776_sc1_berchtesgaden.txt": "7b5508d00b5a88ad895b8dde2df0f34a3be290fca37a58dd9cfbb899529ee64b",
+    "mod/common/scripted_effects/1776_sc1_brixen.txt": "f8b9b6146e7cd687bb8dde5ad13b748cdaf1a5801c66127b0e0ae18da4489a7b",
+    "mod/common/scripted_effects/1776_sc1_ortenburg_names.txt": "df2a53d8f7fbed3af9afa0dba4be63a7f151b87292175d1839387b997e4cc8a3",
+    "mod/common/scripted_effects/1776_sc1_passau_obernberg.txt": "b32d7eadef2c8ea815572e039f69b4852c22784683fb951f91e46a7299aad8d2",
+    "mod/common/scripted_effects/1776_usa_content_r1.txt": "826e0062201c4fba5aab76e4b00fbfbf7330ad69fc65f3cb975aca838e331e6e",
+    "mod/common/scripted_effects/1776_usa_echoes.txt": "360a14a0a8f25e794ab87667e23aaef2317bd7b11864d9d94fb2089a8432be84",
+    "mod/common/scripted_effects/1776_usa_french_support.txt": "2adb31cfc082d51ae7cddfe88f5d4f57856cb738cd18c33af449101c4525f221",
+    "mod/common/scripted_effects/1776_usa_minutemen_reform.txt": "b9770b7d851e41085928f17f470ea8b66e30d89617b403c7fd378adeaf1f041f",
+    "mod/common/scripted_effects/1776_world_centralasia01.txt": "f0d2dc0c87826d9662b362ec7122667bf929b8cc773237b5256c56de1437d808",
+    "mod/common/scripted_effects/1776_world_congo01.txt": "a973e1deba43aca2215fd21ea2a8c43839326e9d78d636efc18f43a37a3ec371",
+    "mod/common/scripted_effects/1776_world_horn01.txt": "9291f49c2aa4628d8617ff36232a8e94140299d073ce8f2f25e8e2d5f48fb47d",
+    "mod/common/scripted_effects/1776_world_interior01.txt": "124bad7600980db708320088496447a426e4dd2126503521cd578d6bfd6c2bc3",
+    "mod/common/scripted_effects/1776_world_m03_fezzan.txt": "5e1e662be94d1341e21db5d2b9e6b5574219ba53a6c52d53beb4c19afc58ec98",
+    "mod/common/scripted_effects/1776_world_madagascar02.txt": "5056727289b3d9fb8644f9cf314ec6b3be95c288705e47b88fd985921acb06b1",
+    "mod/common/scripted_effects/1776_world_sahel01_waalo.txt": "251af0be253344d84ebe85d008e51447d977ffa687959e81d199f1959532d4b1",
+    "mod/common/scripted_effects/1776_world_sahel0205.txt": "ec9b7f90a42989ccdc619df0a5c39075a6e49c4e3bc5fc636d5597448a1f1815",
+    "mod/common/scripted_effects/1776_world_sahel0607.txt": "1c735228ee320488487c3dbc79fa4fbacc5d11fbe56375302a4f97bfb16c1ddb",
+    "mod/common/scripted_effects/1776_world_southern01.txt": "d3843e05df53aeb8ffd5ff73811179ec258c51f54085c003a5cf84c1240b3a14",
+    "mod/common/scripted_triggers/00_coa_triggers.txt": "8c4695a5c8a5cb670498b318d7ccc8d3088d649d0359007742d7e51eae632937",
+    "mod/common/scripted_triggers/00_victoria_scripted_triggers.txt": "a041697033f497fe2816808091538aa76ea98602376465599e84bfd12c4c2c0b",
+    "mod/common/scripted_triggers/10_1776_birth_quota_negotiation.txt": "2c96ff3a23b057961f011d7e01d04dbc5a57211efa434f72af79936661410b80",
+    "mod/common/scripted_triggers/11_tech8c_laboratory_operation.txt": "a918ff16ce7a6685edfbe72305b215de7ae08c5df518ad9d84a5322e52d0d4ce",
+    "mod/common/scripted_triggers/1776_ai_regional_infrastructure_shortage.txt": "01f2d50887e03b4ddf7256f65609390be8e2aad901a73e3c20b6ef5099dbcdec",
+    "mod/common/scripted_triggers/1776_engineer_corps.txt": "bcae2a40dc357e61a9c4560a7e50133257ab8a77966279238f9464251acb09e3",
+    "mod/common/scripted_triggers/1776_imperial_centralization.txt": "99c1abf48808fb072cc2d9fd57709d0faacc423ddaec37950569a74ce6848f51",
+    "mod/common/scripted_triggers/1776_imperial_constitution.txt": "65329d7d46ceb02476759a8e24620b8b953838131ee03d08805d8075ba3f459c",
+    "mod/common/scripted_triggers/1776_imperial_secession_lens.txt": "c8c8b804f121d51750ee203b273657408199997ebab8df27f5b506b6c52359e7",
+    "mod/common/scripted_triggers/1776_infrastructure_landscape.txt": "d25465ed74c852db8844c7fb7eab20e5ca802bc39872719be30a01e5ca764be2",
+    "mod/common/scripted_triggers/1776_join_ongoing_wars.txt": "5f2d60d56ba134aa6238f4d21169f7c5980750b376faf93db83236a7c6af6e46",
+    "mod/common/scripted_triggers/1776_land_fortification_construction.txt": "d96e02787eb50ff72588d616bd14eedc8ee534b66be17c0deaed9f398e065555",
+    "mod/common/scripted_triggers/1776_land_fortifications.txt": "a7a68c5066a121484328ece3912fe6539da046c54980529247a8d18104100028",
+    "mod/common/scripted_triggers/1776_map2h_kaurna_customary_laws.txt": "bc746a8bbb573c917868ce4ad8aa0f2ddd61ae4b4ab7a468ad62e2980970063c",
+    "mod/common/scripted_triggers/1776_ottoman_reform_triggers.txt": "69471a8b2d75bf69a3ae4a3f89e405d2c052c57da753d4bbba60fef5bbee4f7e",
+    "mod/common/scripted_triggers/1776_usa_colonial_expansion.txt": "e3472323df416e083b4774e64dda697fcd04b1ba3533bea657d4b3fa6173d9e7",
+    "mod/common/scripted_triggers/1776_usa_founders.txt": "2dd85e5545f1f4353540f4584dfd4aed40e1929401c0aa946a6aab0c18837acd",
+    "mod/common/scripted_triggers/1776_usa_french_support.txt": "ea083958c6c20a9ebf798ad10b65d51f1d2611338770d3af0607595f734cdc9e",
+    "mod/common/scripted_triggers/1776_usa_minutemen_reform.txt": "1da60da1d7583311d3d49ec65cc876d1ba38db8fac488bc2753a625f4c1203fb",
+    "mod/common/scripted_triggers/99_tech7a_railway_semantics.txt": "cb7e55ce97cfd36e8c7f72c4a43cbbcaedc6d5c522fb226939acd9c880d14a02",
+    "mod/common/subject_types/1776_dp01.txt": "87c0cc00cc436a7c5647780ea0afccdde5b7cc636a6664168e1545f5515c9ce3",
+    "mod/common/subject_types/1776_dp02.txt": "87c0cc00cc436a7c5647780ea0afccdde5b7cc636a6664168e1545f5515c9ce3",
+    "mod/common/subject_types/1776_imperial_centralization.txt": "0576ef137c4d12a0d802915e0c5a00c39de0365f98f69bf1438420083a6e23cb",
+    "mod/common/subject_types/1776_imperial_reforms.txt": "a4cae45089bffdef45137bc07ee29ef71436d17c6e587bbe69f2892f0316a6d6",
+    "mod/common/subject_types/1776_world_b02_ragusa.txt": "34a2536c129606edfde5e2c231a6454a5b6cb5a66567df6c411d48d845ff62c8",
+    "mod/common/subject_types/1776_world_centralasia01.txt": "da0bca20a02b55afc1e45de43dbb26107e7eb2a0f0c0a7d1de6b242225aec52d",
+    "mod/common/subject_types/zz_1776_protected_state.txt": "d274bb672c5f0318ebb7041042c052fcd677b706262d7bf2668af18cbbcd599d",
+    "mod/common/technology/technologies/10_tech3a_production.txt": "22da125b67183e5c0f848d661377b412ca43049db00d9198ffb3a600c999a12b",
+    "mod/common/technology/technologies/11_tech6c1b_portland_cement.txt": "e0151362c829d35dedb37bda1324a2d38f3ef416e0c70a02ad174ca8c882459e",
+    "mod/common/technology/technologies/20_tech3a_military.txt": "87ed164a4c081144132b419b886f437840e1f63fbc380ae4b385c8f36bed9b49",
+    "mod/common/technology/technologies/25_tech3a_naval.txt": "667b9e81c312201031fa6604637c663c63372517e5894820bac4e840f2ccb466",
+    "mod/common/technology/technologies/30_tech3a_society.txt": "c60eb6df96c0b9c9ec9a8239ef0e2d52f0dc355319e424b03e2aa586f3d2bc0a",
+    "mod/common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt": "4a593dd557ce743760bc3b7c7494bdcacaf2f8b8ba2a6b59f9cbb127cbed6c76",
+    "mod/common/technology/technologies/95_tech6r1_aluminium_metallurgy.txt": "36cf9ff257c81e41f6ae724070e3a8aacb50746c35ef03c027b53cc9d792746b",
+    "mod/common/technology/technologies/99_tech_tree_wave1_structural_trunks.txt": "b1c878f7162be2b981a8c41a3054476aeb57afc456c5f5370fcc0cc0849f1e1b",
+    "mod/descriptor.mod": "daaf24444f21f6ffd900c7f9d4035b3c08487e02599c9f3d516fd84e4cadc3d0"
+  },
+  "changed_during_audit": [],
+  "snapshot_limit": "Not an atomic engine snapshot; concurrent changes detected by final hashes are listed."
+}

@@ -1,0 +1,27 @@
+aor1776_hre_sync_imperial_subject_status = {
+if = { limit = { aor1776_hre_centralized_subject = yes }
+ set_variable = { name = c01_status_previous_liberty value = liberty_desire }
+ if = { limit = { aor1776_hre_elector = yes NOT = { is_subject_type = subject_type_imperial_elector } } change_subject_type = subject_type_imperial_elector }
+ else_if = { limit = { aor1776_hre_elector = no NOT = { is_subject_type = subject_type_imperial_estate } } change_subject_type = subject_type_imperial_estate }
+ add_liberty_desire = { value = var:c01_status_previous_liberty subtract = liberty_desire }
+ remove_variable = c01_status_previous_liberty
+}
+}
+aor1776_hre_grant_electoral_privilege = {
+if = { limit = { aor1776_hre_member = yes has_variable = aor1776_hre_constitutional_privilege_change_authorized
+ NOT = { has_global_variable = aor1776_hre_election_open } NOT = { has_global_variable = aor1776_hre_election_pending } }
+ remove_variable = aor1776_hre_electoral_privilege_revoked
+ set_variable = aor1776_hre_electoral_privilege_granted
+ remove_variable = aor1776_hre_constitutional_privilege_change_authorized
+ aor1776_hre_sync_imperial_subject_status = yes
+}
+}
+aor1776_hre_revoke_electoral_privilege = {
+if = { limit = { aor1776_hre_member = yes has_variable = aor1776_hre_constitutional_privilege_change_authorized
+ NOT = { has_global_variable = aor1776_hre_election_open } NOT = { has_global_variable = aor1776_hre_election_pending } }
+ remove_variable = aor1776_hre_electoral_privilege_granted
+ set_variable = aor1776_hre_electoral_privilege_revoked
+ remove_variable = aor1776_hre_constitutional_privilege_change_authorized
+ aor1776_hre_sync_imperial_subject_status = yes
+}
+}

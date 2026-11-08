@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+    <html class="ie ie6" lang="it"> <![endif]-->
+<!--[if IE 7 ]>
+    <html class="ie ie7" lang="it"> <![endif]-->
+<!--[if IE 8 ]>
+    <html class="ie ie8" lang="it"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+    <html lang="it"> <!--<![endif]-->
+      <head>
+	<!-- Basic Page Needs
+	     ================================================== -->
+	<meta charset="iso-8859-1" />
+	<title>SIAS. Sistema informativo degli Archivi di Stato</title>
+	<meta name="description" content="Consultazione on-line del patrimonio archivistico" />
+	<meta name="author" content="" />
+
+	<!-- Mobile Specific Metas
+	     ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+	<!-- CSS
+	     ================================================== -->
+	<!-- Skeleton responsive -->
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/css/skeleton.css" />
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/css/normalize.css" />
+	
+	<!-- Skeleton responsive -->
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/css/layout.css" />
+
+	<!-- Jquery UI -->
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/js/jquery-ui/jquery-ui.min.css" />
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/js/jquery-ui/jquery-ui.structure.min.css" />
+	
+	<!-- Responsive menu -->
+	<link href="https://sias-archivi.cultura.gov.it/htdocs/css/flexnav.css" rel="stylesheet" type="text/css" />
+	
+	<!-- Template -->
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/css/main.css" />
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/css/header.css" />
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/css/footer.css" />
+	
+	<!-- Icons -->
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/css/font-awesome.min.css" />
+
+	<!-- Slider -->
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/css/themes/default/default.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/css/nivo-slider.css" type="text/css" media="screen" />
+	
+	<!-- Albero -->
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/css/albero.css" />   
+
+	<link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/css/select2.css"/>
+
+	<!-- Google Font -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css' />
+	<link href='https://fonts.googleapis.com/css?family=Cinzel:400,700' rel='stylesheet' type='text/css' />
+
+	<!-- Font Awesome -->
+	<!--[if IE 7]>
+	    <link rel="stylesheet" href="https://sias-archivi.cultura.gov.it/htdocs/css/font-awesome-ie7.min.css" />
+	    <![endif]-->
+
+
+	<!-- HTML5 Support for ancient browsers -->
+	<!--[if lt IE 9]>
+	    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+
+	<!-- SVG support for gradients -->
+	<!--[if gte IE 9]>
+	    <style type="text/css">
+	      .gradient {
+	      filter: none;
+	      }
+	    </style>
+	    <![endif]-->
+
+	<!-- Javascripts
+	     ================================================== -->
+
+	<!-- JQuery -->
+	<script type='text/javascript' src="https://sias-archivi.cultura.gov.it/htdocs/js/jquery.js"></script>
+	<script type='text/javascript' src="https://sias-archivi.cultura.gov.it/htdocs/js/jquery-ui/jquery-ui.min.js"></script>
+	
+	<!-- jQuery Placeholder -->
+	<script type="text/javascript" src="https://sias-archivi.cultura.gov.it/htdocs/js/jquery.placeholder.js"></script>
+	<!-- Flexnav jQuery plugin -->
+	<script type="text/javascript" src="https://sias-archivi.cultura.gov.it/htdocs/js/jquery.flexnav.min.js"></script>
+	<!-- jQuery Slider -->
+	<script type="text/javascript" src="https://sias-archivi.cultura.gov.it/htdocs/js/jquery.nivo.slider.js"></script>
+
+	<script type="text/javascript" src="https://sias-archivi.cultura.gov.it/htdocs/js/select2/select2.min.js"></script>
+	<script type="text/javascript" src="https://sias-archivi.cultura.gov.it/htdocs/js/select2/i18n/it.js"></script>
+
+	<script type="text/javascript" src="https://sias-archivi.cultura.gov.it/htdocs/js/sias.js"></script>
+
+	<!-- Favicons
+	     ================================================== -->
+	<link rel="shortcut icon" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/favicon.ico" type="image/x-icon" />
+	<!-- Apple Touch Icons -->
+	<link rel="apple-touch-icon" sizes="57x57" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/apple-touch-icon-152x152.png" />
+	<!-- Windows 8 Tile Icons -->
+	<meta name="msapplication-square70x70logo" content="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/smalltile.png" />
+	<meta name="msapplication-square150x150logo" content="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/mediumtile.png" />
+	<meta name="msapplication-wide310x150logo" content="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/widetile.png" />
+	<meta name="msapplication-square310x310logo" content="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/favicon/largetile.png" />
+
+      </head>
+
+      <body>
+
+	<!-- Header -->
+	<header>
+	  
+	  <div class="mini-header">
+	    <div class="row">
+              <div class="twelve columns">
+        	<div class="container">
+        	  <!-- <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl"><i class="fa fa-home"></i>Sias</a> -->
+        	   
+		  <div class="login"><a href="https://siusa-archivi.cultura.gov.it/siusa/"> <strong>LOGIN</strong><i class="fa fa-user"></i></a> </div> 
+        	</div>
+              </div>
+	    </div>
+	  </div>
+	  
+	  <div class="row">
+	    <div class="twelve columns header">
+    	      <div class="container">
+    		<div class="two columns logo"><img src="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/img/logo2x.png" alt="logo" /></div>
+    		<div class="ten columns title">
+    		  <h1>SIAS</h1>
+    		  <h2>Sistema informativo degli Archivi di Stato</h2>
+    		</div>
+    	      </div>
+	    </div>
+	  </div>
+	  <!-- Main navigation -->
+	  <div class="menu-full">
+	    <div class="container">
+	      <div class="twelve columns ">
+		<ul class="flexnav" data-breakpoint="1000">
+		  <li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=home"><i class="fa fa-home"></i></a></li>
+<li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=progetto">Progetto</a></li>
+<li class="current"><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice">Ricerca guidata</a></li>
+<li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=ricercaavanzata">Ricerca avanzata</a></li>
+<li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=inventari">Strumenti di ricerca on line</a></li>
+<li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=archivi">Archivi di Stato</a></li>
+
+		  <!--
+                      <li><a href="#"><i class="fa fa-home"></i></a></li>
+		  <li><a href="#">PROGETTO</a></li>
+		  <li class="current"><a href="#">RICERCA GUIDATA</a></li>
+		  <li><a href="#">RICERCA AVANZATA</a></li>
+		  <li><a href="#">INDICE DEGLI ARCHIVI</a></li>
+		  <li><a href="#">PERCORSI TEMATICI</a></li>
+		  <li><a href="#">AIUTO</a></li>
+		  -->
+		</ul>
+		<div class="menu-button">Menu</div>
+	      </div>
+	    </div>
+	  </div>
+	  <!-- END // Main navigation -->
+	</header>
+	<!-- END // Header -->
+	<div class="row wide-container">
+	  
+	  <!-- box 01 -->
+	  <div class="twelve columns content">
+	  <!--###RICERCA_SEMPLICE###-->
+	    <div class="widget-search widget-search-page">
+	      <div class="container">
+		<!-- ricerca -->
+		<div class="eight columns content">
+		  <form class="form-element no-margin">
+		    <div>
+		      <input id="IdFrmRicSemplice" name="RicFrmRicSemplice" type="text" class="input-lg no-margin" size="50" placeholder="Cerca...">
+		      <input type="hidden" name="RicVM" value="ricercasemplice" /> 
+		      <input type="hidden" name="RicProgetto" value="" /> 
+		      <input type="hidden" name="RicLin" value="" />
+		      
+		      <button type="submit" title="La ricerca &egrave; per parola e viene effettuata nei campi denominazione, altra denominazione, storia archivistica, descrizione, note storiche delle schede complesso archivistico, soggetto produttore e istituto di conservazione. Vengono restituite le schede nelle quali compare almeno una delle parole ricercate dall'utente." class="btn btn-lg only-icon no-margin siusatip"><i class="fa fa-search"></i></button>
+		    </div>
+		  </form>
+		</div>
+		<!--
+		    <div class="four columns content"> 
+		      Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <a href="#">ricerca avanzata</a>
+		    </div>
+		    -->
+		<!-- END // ricerca -->		
+	      </div>
+	    </div>
+	    <!-- END // box 01 -->
+	    <!--###RICERCA_SEMPLICE###-->
+	    
+	    <!-- breadcrumb -->
+	    <div class="breadcrumb"><div class="container"><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl"><i class="fa fa-home"></i></a>  <i class="fa fa-angle-right"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice">Ricerca guidata</a>  <i class="fa fa-angle-right"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=contesti&amp;RicProgetto=as&amp;RicTipoScheda=cps"> Contesti storico-istituzionali</a> <i class="fa fa-angle-right"></i> Contesto storico-istituzionale</div></div>
+	  <!-- END // breadcrumb -->
+<!-- box 02 -->
+<div class="row">
+  <div class="container">
+    <div class="three columns">
+      	<!-- element -->
+	<div class="complessi-archivistici">
+    	  <div class="title-column">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x color-green"></i>
+              <i class="fa fa-archive fa-stack-1x fa-inverse"></i>
+            </span>
+            <h3>Complessi archivistici</h3>
+    	  </div>
+    	  <ul class="fa-ul menu_list">
+    	    <li><i class="fa-li fa fa-archive color-green"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=fondi&amp;RicProgetto=as">Fondi</a></li>
+    	    <li><i class="fa-li fa fa-archive color-green"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=fondiclass&amp;RicProgetto=as">Fondi per periodizzazione/tipologia</a></li>
+    	    <li><i class="fa-li fa fa-archive color-green"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=complessi&amp;RicProgetto=as">Tutti i complessi archivistici</a></li>
+    	    <li><i class="fa-li fa fa-align-left color-green"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=strumcorr&amp;RicProgetto=as">Strumenti di ricerca on line</a></li>
+    	  </ul>
+        </div>
+	<!-- END // element -->
+	<!-- element -->
+	<div class="soggetti-produttori">
+    	  <div class="title-column">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x color-orange"></i>
+              <i class="fa fa-folder-open fa-stack-1x fa-inverse"></i>
+            </span>
+            <h3>Soggetti produttori</h3>
+    	  </div>
+    	  <ul class="fa-ul menu_list">
+    	    <li><i class="fa-li fa fa-folder color-orange"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=prodenti&amp;RicProgetto=as">Enti</a></li>
+    	    <li><i class="fa-li fa fa-folder color-orange"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=prodfamiglie&amp;RicProgetto=as">Famiglie</a></li>
+    	    <li><i class="fa-li fa fa-folder color-orange"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=prodpersone&amp;RicProgetto=as">Persone</a></li>
+    	    <li><i class="fa-li fa fa-align-left color-orange"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=contesti&amp;RicProgetto=as">Contesti storico-istituzionali</a></li>
+    	    <li><i class="fa-li fa fa-align-left color-orange"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=profist&amp;RicProgetto=as">Profili istituzionali</a></li>
+    	    <li><i class="fa-li fa fa-align-left color-orange"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=ambiti&amp;RicProgetto=as">Ambiti territoriali</a></li>
+    	  </ul>
+        </div>
+	<!-- END // element -->
+	<!-- element -->
+	<div class="archivi">
+    	  <div class="title-column">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x color-red"></i>
+              <i class="fa fa-university fa-stack-1x fa-inverse"></i>
+            </span>
+            <h3>Istituti di conservazione</h3>
+    	  </div>
+    	  <ul class="fa-ul menu_list">
+    	    <li><i class="fa-li fa fa-university color-red"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=indcons&amp;RicProgetto=as">Archivi di Stato/Sezioni</a></li>
+	    
+    	    <li><i class="fa-li fa fa-university color-red"></i> <a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?RicVM=indice&amp;RicSez=indconsreg&amp;RicProgetto=as">Per regione di appartenenza</a></li>
+	    
+          </ul>
+        </div>
+	<!-- END // element -->
+
+    </div>
+    <div class="nine columns soggetti-produttori widget">
+      <div class="title-page">
+        <h1>Ducato di Massa, 1814 - 1829</h1>
+      </div>
+      <div class="testo-generico">
+	1814 - 1829<br /><br />Con il trattato di Vienna del 9 giugno 1815, a norma dell&apos;art. 98, Maria Beatrice d&apos;Este, moglie dell&apos;arciduca Ferdinando di Asburgo-Lorena, rientrò in possesso dell&apos;antico Ducato di Massa e Principato di Carrara. Le vennero assegnati anche gli ex feudi imperiali della Lunigiana che furono da lei ceduti, con convenzione del 20 dicembre 1815, al figlio Francesco IV, duca di Modena. Con la morte della duchessa, avvenuta nel 1829, anche il Ducato di Massa passò sotto il dominio della casa d&apos;Este, conservando una sua autonomia amministrativa che durò sino al 1836, quando il territorio degli stati di Massa e Carrara fu riunito, dal 1839 insieme a quello della Lunigiana estense, in un&apos;unica compagine amministrativa, con Massa come sede del governatore. Dopo la rivoluzione del 1848-1849, che condusse all&apos;annessione temporanea del territorio alla Toscana, il governo cosi unificato tornò agli Austro-estensi, che istituirono a Massa una delegazione del Ministero dell&apos;interno per Massa e Carrara e la Lunigiana.<br /><br /><strong>Contesto storico-istituzionale collegato:</strong><br /><ul><li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?TipoPag=contesto&amp;Chiave=64&amp;RicProgetto=as">Ducato austro-estense, 1814 - 1859</a>, <strong>collegato</strong></li><li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?TipoPag=contesto&amp;Chiave=33&amp;RicProgetto=as">Impero francese, 1804 - 1814</a>, <strong>precedente</strong></li></ul><br /><br /><strong>Redazione e revisione:</strong><br /><ul><li>Prima redazione nel Sistema Guida generale degli Archivi di Stato italiani</li>
+<li>Santolamazza Rossella, redazione centrale SIAS, 2021/08/04</li>
+</ul><br /><br />
+      </div>
+    </div>
+    <!-- END // element -->		
+  </div>
+</div>
+</div>
+<!-- END // box 02 -->
+
+<!-- Footer -->
+<div class="twelve columns footer">
+  <div class="container">
+    <div class="four columns ">
+<!--
+      <h2 class="subtitle">SIAS</h2>
+      <br>
+-->
+      <ul>
+	<li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?TipoPag=privacy"><i class="fa fa-angle-right"></i> Informativa sul trattamento dei dati personali</a></li>
+<li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?TipoPag=copyright"><i class="fa fa-angle-right"></i> Copyright</a></li>
+<li><a href="https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?TipoPag=credits"><i class="fa fa-angle-right"></i> Credits</a></li>
+
+      </ul>
+      <div class="menu-button">Menu</div>
+    </div>
+    <div class="two columns logo-footer"><img src="https://sias-archivi.cultura.gov.it/htdocs/themes/sias-default/img/logo-icar-vrt.png" alt="logo" /></div>
+    <div class="six columns ">
+      <h5>ISTITUTO CENTRALE PER GLI ARCHIVI</h5>
+	<p>Viale Castro Pretorio, 105 - 00185 Roma IT<br />Email: <a href="mailto:ic-a@beniculturali.it">ic-a@beniculturali.it</a><br />Email certificata: <a href="mailto:mbac-ic-a@mailcert.beniculturali.it">mbac-ic-a@mailcert.beniculturali.it</a> <br />Sito web: <a title="Questo link si aprir&agrave; in una nuova finestra" href="http://www.icar.beniculturali.it/" target="_blank">http://www.icar.beniculturali.it/</a></p>
+    </div>
+  </div>
+</div>
+</div>
+<!-- END // Footer -->
+<!-- Button -->
+<a href="#" class="scrollToTop"><i class="fa fa-arrow-up "></i></a>
+<!-- END // Button -->
+<!-- Flexnav jQuery plugin -->
+<script type="text/javascript">
+  $(".flexnav").flexNav();
+</script>
+</body>
+</html>

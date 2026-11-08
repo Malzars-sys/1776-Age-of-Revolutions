@@ -1,0 +1,8 @@
+# State-owner scope only. Do not rename the TRT or AUS portions or move a locator.
+assign_aor1776_brixen_names = {
+ if = {
+  limit = { state_region = s:STATE_SOUTH_TYROL owner = { c:BRX ?= this } }
+  set_state_name = aor1776_state_brixen
+  set_hub_name = { type = city name = aor1776_hub_brixen }
+ }
+}

@@ -1,0 +1,230 @@
+# MISSION CODEX — SERG TERRITORIAL 1.0
+## SC4-MASSA-CARRARA — Finalisation territoriale de Carrare et Avenza
+
+### 1. Objectif
+
+Tu travailles sur le mod Victoria 3 **1776 Age of Revolutions**.
+
+Dépôt : `Malzars-sys/1776-Age-of-Revolutions`
+
+Date historique de référence : **1er janvier 1776**.
+
+La branche locale `main` vient d'être mise à jour depuis GitHub.
+
+Ta mission consiste à reprendre **SC4-MASSA-CARRARA (P0)** pour compléter la représentation du duché de Massa et de la principauté de Carrare, particulièrement les territoires de **Carrare et d'Avenza**.
+
+L'objectif est de réaliser une correction cartographique, démographique et politique cohérente lorsque les preuves historiques le permettent, puis de préparer sa validation dans Victoria 3.
+
+Travaille de manière autonome. Ne recommence pas un audit général du Saint-Empire.
+
+### 2. Vérification préalable obligatoire
+
+Avant toute modification :
+
+1. Inspecte `git status`, la branche actuelle et les derniers commits.
+2. Identifie les changements fonctionnels déjà présents dans le dépôt.
+3. Consulte les rapports et les propositions existants.
+4. Vérifie le contenu actuel des fichiers cartographiques plutôt que de supposer qu'une ancienne proposition est installée.
+5. Préserve toutes les modifications locales et les travaux d'autres agents.
+
+**Ne fais aucun `git reset --hard`, `git clean`, `push --force` ou écrasement de modifications concurrentes.**
+
+Attention : la PR #16 était initialement une PR de recherche documentaire. Ne suppose pas que ses propositions géographiques ont déjà été appliquées.
+
+### 3. État historique et technique acquis
+
+Le sous-lot `MC-I-CORE` est déjà validé en jeu :
+
+- Pays `MCA` : duché de Massa et principauté de Carrare.
+- Souveraine : Marie-Thérèse Cybo-Malaspina.
+- RGB `xEDBC00`, comprenant huit cellules côtières.
+- Population initiale : 10 000 habitants transférés depuis Modène.
+- Administration ducale et droits impériaux déjà installés.
+- Protocole joueur réussi : nouvelle partie, un mois, sauvegarde et rechargement.
+
+Ce noyau ne doit pas être reconstruit.
+
+L'ancienne province modénaise `xF08021` possède 108 cellules résiduelles après le détachement de Massa, à vérifier dans les fichiers actuels.
+
+La tâche régionale demeure `BLOCKED P0`, avec trois points conditionnels non attribués.
+
+### 4. Sources et recherches existantes
+
+Lis prioritairement :
+
+- `docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/REPORT.md`
+- `SOURCES.md`
+- `B_PROPOSAL.md`
+- `GEOMETRY.json`
+- `JURISDICTION_MATRIX.csv`
+- `DEMOGRAPHY.json`
+- `CARRARA_AVENZA_TARGETED_REVIEW_2026_10_29.md`
+- `CARRARA_AVENZA_RESEARCH_DECISION_2026_10_29.json`
+
+Les deux derniers documents peuvent se trouver sur la branche de recherche de la PR #16 plutôt que sur `main`. Vérifie leur présence avant de poursuivre.
+
+Consulte également la carte Robert de Vaugondy de 1750 déjà conservée dans le dépôt.
+
+Ne relance pas les anciens recalages cartographiques rejetés.
+
+### 5. Délimitation historique de Carrare
+
+La principauté de Carrare comprend notamment les localités suivantes :
+
+- Carrare et Avenza ;
+- Bedizzano, Castelpoggio et Codena ;
+- Colonnata, Fontia, Fossola et Moneta ;
+- Gragnana, Noceto, Miseglia, Sorgnano et Torano.
+
+Vérifie leur appartenance politique exacte en 1776.
+
+Les territoires voisins ne doivent pas être annexés automatiquement :
+
+- Sarzana et Lerici : Gênes ;
+- Montignoso : Lucques ;
+- Pietrasanta et Seravezza : Toscane ;
+- Garfagnana : possessions modénaises ;
+- autres fiefs Malaspina : attributions individuelles à démontrer.
+
+Le mariage dynastique entre les maisons d'Este et de Cybo-Malaspina ne justifie pas une fusion entre Modène et Massa-Carrare.
+
+### 6. Travail cartographique
+
+Les études précédentes ont identifié trois possibilités d'extension du RGB de MCA.
+
+**Option A — 2 cellules**
+
+`[4325,1028]`, `[4326,1028]`
+
+**Option B — 5 cellules**
+
+`[4325,1028]`, `[4326,1028]`, `[4325,1027]`, `[4324,1027]`, `[4324,1026]`
+
+**Option C — 7 cellules**
+
+`[4325,1028]`, `[4326,1028]`, `[4325,1027]`, `[4324,1027]`, `[4326,1027]`, `[4324,1026]`, `[4325,1026]`
+
+Ces propositions étaient géométriquement connexes sur l'inventaire précédent, mais **leur exactitude historique n'est pas encore homologuée**.
+
+L'ancienne proposition constituée de `[4324,1028]`, `[4325,1028]` et `[4326,1028]` isolait une cellule modénaise. Ne la réutilise pas telle quelle.
+
+Tes tâches :
+
+1. Vérifier les cellules réelles sur le bitmap actuel.
+2. Comparer les propositions avec la carte historique et les localités identifiées.
+3. Vérifier la continuité territoriale de MCA et du résidu de MOD.
+4. Éviter les enclaves ou cellules isolées injustifiées.
+5. Choisir le contour historiquement le mieux défendable, même s'il diffère des trois propositions.
+6. Documenter précisément les cellules transférées, leurs anciens propriétaires et leur nouvel attributaire.
+
+Ne choisis pas une option uniquement parce que sa géométrie est valide.
+
+### 7. Correction démographique
+
+Un ouvrage d'Emilio Lazzoni publié en 1869 fournit les chiffres suivants pour 1775 :
+
+- Ville de Carrare : 3 700 habitants.
+- Commune de Carrare : 8 010 habitants.
+
+La ville est comprise dans la commune. **Ne jamais additionner ces deux chiffres.**
+
+Avant d'utiliser les 8 010 habitants :
+
+1. Vérifie directement la page du document numérisé.
+2. Établis ce que recouvre la commune de Carrare en 1775.
+3. Compare son territoire à celui de la principauté historique.
+4. Identifie les éventuelles différences de couverture.
+5. Détermine si les 8 010 habitants représentent une approximation acceptable pour notre mod en 1776.
+
+Si la correspondance est suffisamment étayée, tu peux préparer un transfert conservatif de **8 010 habitants existants de MOD vers MCA**.
+
+Cela donnerait théoriquement :
+
+- MCA : 10 000 → 18 010 habitants.
+- Groupe donneur MOD : 495 752 → 487 742 habitants.
+
+Vérifie ces valeurs sur le dépôt actuel : elles ne sont pas des valeurs à appliquer aveuglément.
+
+La population mondiale doit rester strictement identique. Ne crée pas de nouvelles populations pour compenser une erreur de répartition.
+
+### 8. Installation fonctionnelle
+
+Si et seulement si la correspondance territoriale et démographique est suffisamment solide, réalise une **extension unique et cohérente de MCA**.
+
+Mets à jour tous les fichiers réellement nécessaires :
+
+- bitmap des provinces ;
+- définitions et attribution des provinces ;
+- propriétés territoriales ;
+- populations concernées ;
+- registre impérial et données générées, si affectés ;
+- rapports de conservation et de validation.
+
+Réutilise le RGB et le TAG existants lorsque cela est techniquement correct.
+
+Ne crée aucun nouveau pays ou second titre impérial sans nécessité démontrée.
+
+Teste la conservation des voisins, des populations, des bâtiments, des ressources, des frontières impériales et des neuf électeurs.
+
+Si les sources restent insuffisantes, **n'installe pas de découpe arbitraire**. Présente à la place la meilleure proposition B accompagnée de ses limites.
+
+### 9. Tests et validation
+
+Exécute les tests disponibles :
+
+- cohérence du bitmap et des définitions ;
+- connexité des provinces et territoires ;
+- absence de doublons ou pertes de cellules ;
+- conservation démographique mondiale ;
+- absence de régression chez MOD, GEN, LUC, TUS et PAR ;
+- cohérence des droits impériaux ;
+- syntaxe des fichiers Victoria 3 ;
+- tests statiques existants du SERG.
+
+Distingue les tests réellement exécutés des anciens résultats consultés.
+
+Prépare un protocole joueur comprenant nouvelle partie au 1er janvier 1776, inspection de MCA et MOD, un mois de simulation, sauvegarde et rechargement.
+
+Ne prétends jamais avoir testé le moteur si tu ne l'as pas lancé.
+
+### 10. Gestion de Git et livrables
+
+Travaille sur une branche dédiée créée depuis l'état courant approprié, en conservant les modifications concurrentes.
+
+Si une correction fonctionnelle est justifiée, prépare une PR en brouillon, non fusionnée.
+
+Fournis :
+
+1. Un rapport historique et cartographique.
+2. Les cellules effectivement retenues ou rejetées et leurs justifications.
+3. Un bilan démographique avant/après.
+4. La liste exacte des fichiers modifiés.
+5. Les résultats des tests.
+6. Le protocole joueur restant.
+7. Les incertitudes historiques non résolues.
+8. Le lien vers la PR éventuelle.
+
+Ne verse pas dans Git de grandes sauvegardes de jeu ni de fichiers de validation dépassant 100 Mo. Évite les copies de travail redondantes.
+
+### 11. Règles de clôture du SERG
+
+La progression de référence est de **93/235 points, soit 39,57 %**, à recalculer depuis les fichiers canoniques actuels.
+
+- Ne modifie pas les points sans validation complète.
+- Ne clôture pas SC4-MASSA-CARRARA sur la seule base de tests statiques.
+- Ne change pas les priorités P0/P1.
+- Ne rouvre pas Teschen, actuellement suspendu de recherche active.
+- Ne commence aucun autre chantier territorial.
+- Ne modifie pas les preuves historiques préexistantes.
+
+### 12. Résultat attendu
+
+Je veux une réponse précise :
+
+**« Peut-on maintenant représenter Carrare et Avenza de façon historiquement défendable, avec une population cohérente et sans rompre la carte existante ? »**
+
+Si oui, installe la meilleure correction et prépare les vérifications en jeu.
+
+Si non, identifie exactement la preuve manquante, conserve le travail acquis et explique pourquoi aucune installation supplémentaire n'est justifiée.
+
+**Travaille de manière autonome jusqu'à la livraison du résultat. Ne relance pas d'audit général et ne demande pas de confirmation pour les opérations de recherche ou les tests non destructifs.**

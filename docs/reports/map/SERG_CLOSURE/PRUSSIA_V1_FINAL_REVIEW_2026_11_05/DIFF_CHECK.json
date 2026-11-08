@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "normal_command": {
+    "command": "git --no-optional-locks diff --check",
+    "returncode": 2,
+    "stdout": "common/history/military_formations/07_military_formations_subsaharan_africa.txt:491: trailing whitespace.\n+\t\t\t\ncommon/history/military_formations/07_military_formations_subsaharan_africa.txt:505: trailing whitespace.\n+\t\t\t\n",
+    "stderr": "warning: in the working copy of 'common/diplomatic_actions/1776_dp01.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/diplomatic_actions/1776_dp02.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/diplomatic_actions/37_subjects_decrease_autonomy.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/diplomatic_actions/38_subjects_increase_autonomy.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/history/buildings/00_west_europe.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/history/buildings/98_build_start_1776_world_redistribution.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/history/diplomacy/1776_dp01.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/history/diplomacy/1776_dp02.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/history/diplomacy/1776_dp03.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/history/diplomacy/1776_world_horn01.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/subject_types/1776_dp01.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'common/subject_types/1776_dp02.txt', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'localization/english/replace/1776_dp01_l_english.yml', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'localization/english/replace/1776_dp02_l_english.yml', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'localization/french/replace/1776_dp01_l_french.yml', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'localization/french/replace/1776_dp02_l_french.yml', LF will be replaced by CRLF the next time Git touches it\n"
+  },
+  "fallback": "Direct git diff --no-index --check against captured preimages; code 1 expected for differing files, diagnostics checked separately. No Git configuration changed.",
+  "files": [
+    {
+      "file": "ROADMAP_STATE.json",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "",
+      "errors": [],
+      "passed": true
+    },
+    {
+      "file": "ROADMAP.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "",
+      "errors": [],
+      "passed": true
+    },
+    {
+      "file": "NEXT_ACTION.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "",
+      "errors": [],
+      "passed": true
+    },
+    {
+      "file": "BLOCKERS.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "",
+      "errors": [],
+      "passed": true
+    },
+    {
+      "file": "PROGRESS_HISTORY.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "",
+      "errors": [],
+      "passed": true
+    },
+    {
+      "file": "CLOSURE_CHECKLIST.md",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "",
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "new_document_whitespace_errors": [],
+  "global_result_classification": {
+    "status": "PRESERVED_PREEXISTING_OUT_OF_SCOPE_WHITESPACE",
+    "runtime_changes_during_review": [],
+    "preexisting_global_diff_findings": [
+      {
+        "path": "common/history/military_formations/07_military_formations_subsaharan_africa.txt",
+        "lines": [
+          491,
+          505
+        ],
+        "kind": "trailing whitespace",
+        "current_sha256": "0b2cb5cc3a28fcdb78a8d8d318e636c696b7cadc16af16e6fad2962f2a5ae4a8",
+        "baseline_sha256": "0b2cb5cc3a28fcdb78a8d8d318e636c696b7cadc16af16e6fad2962f2a5ae4a8",
+        "same_bytes_before_after": true,
+        "action": "Preserve concurrent file; no unrelated cleanup"
+      }
+    ],
+    "global_git_diff_check_passed": false,
+    "scoped_documentation_diff_check_passed": true
+  }
+}

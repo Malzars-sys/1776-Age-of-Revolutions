@@ -1,0 +1,69 @@
+# State scope. Completed levels only; queued levels do not pre-price all work
+# at the final tier. PM, staffing and combat protection are not consulted.
+aor1776_refresh_fort_construction_state = {
+	if = {
+		limit = { state_has_building_type_levels = { target = bt:building_aor1776_land_fortification value >= 4 } }
+		remove_modifier = aor1776_fort_construction_level_1
+		remove_modifier = aor1776_fort_construction_level_2
+		remove_modifier = aor1776_fort_construction_level_3
+		if = {
+			limit = { NOT = { has_modifier = aor1776_fort_construction_level_4 } }
+			add_modifier = { name = aor1776_fort_construction_level_4 months = -1 }
+		}
+	}
+	else_if = {
+		limit = { state_has_building_type_levels = { target = bt:building_aor1776_land_fortification value >= 3 } }
+		remove_modifier = aor1776_fort_construction_level_1
+		remove_modifier = aor1776_fort_construction_level_2
+		remove_modifier = aor1776_fort_construction_level_4
+		if = {
+			limit = { NOT = { has_modifier = aor1776_fort_construction_level_3 } }
+			add_modifier = { name = aor1776_fort_construction_level_3 months = -1 }
+		}
+	}
+	else_if = {
+		limit = { state_has_building_type_levels = { target = bt:building_aor1776_land_fortification value >= 2 } }
+		remove_modifier = aor1776_fort_construction_level_1
+		remove_modifier = aor1776_fort_construction_level_3
+		remove_modifier = aor1776_fort_construction_level_4
+		if = {
+			limit = { NOT = { has_modifier = aor1776_fort_construction_level_2 } }
+			add_modifier = { name = aor1776_fort_construction_level_2 months = -1 }
+		}
+	}
+	else_if = {
+		limit = { state_has_building_type_levels = { target = bt:building_aor1776_land_fortification value >= 1 } }
+		remove_modifier = aor1776_fort_construction_level_2
+		remove_modifier = aor1776_fort_construction_level_3
+		remove_modifier = aor1776_fort_construction_level_4
+		if = {
+			limit = { NOT = { has_modifier = aor1776_fort_construction_level_1 } }
+			add_modifier = { name = aor1776_fort_construction_level_1 months = -1 }
+		}
+	}
+	else = {
+		remove_modifier = aor1776_fort_construction_level_1
+		remove_modifier = aor1776_fort_construction_level_2
+		remove_modifier = aor1776_fort_construction_level_3
+		remove_modifier = aor1776_fort_construction_level_4
+	}
+}
+
+# Country scope. Only relevant states are refreshed; only one monitor is queued.
+aor1776_refresh_fort_construction_country = {
+	every_scope_state = {
+		limit = { aor1776_fort_construction_needs_update = yes }
+		aor1776_refresh_fort_construction_state = yes
+	}
+}
+
+aor1776_ensure_fort_construction_monitor = {
+	if = {
+		limit = {
+			any_scope_state = { aor1776_fort_construction_needs_update = yes }
+			NOT = { has_variable = aor1776_fort_construction_monitor_pending }
+		}
+		set_variable = { name = aor1776_fort_construction_monitor_pending days = 2 }
+		trigger_event = { on_action = aor1776_fort_construction_monitor_tick days = 1 }
+	}
+}

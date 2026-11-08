@@ -3,8 +3,24 @@ je_aor1776_hre_situation = {
  icon = "gfx/interface/icons/central_identity_pillars_icons/aor1776_imperial_federation_v2.dds"
  is_shown_when_inactive = { aor1776_hre_member = yes }
  possible = { has_global_variable = aor1776_hre_initialized }
- invalid = { aor1776_hre_member = no }
- complete = { always = no }
+ outcome = {
+ 	flags = { hidden invalid_outcome }
+ 	conclusion_desc = je_standard_failure_conclusion_desc
+ 	trigger = {
+ 		aor1776_hre_member = no
+ 	}
+ 	effect = {}
+ }
+ outcome = {
+ 	header = je_standard_completion_header
+ 	effect_header = je_standard_on_completion_header
+ 	color = "gold_positive"
+ 	conclusion_desc = je_standard_completion_conclusion_desc
+ 	trigger = {
+ 		always = no
+ 	}
+ 	effect = {}
+ }
  widget = { gui = "gui/journal_entry_widgets/1776_imperial_widgets.gui" name = "aor1776_hre_situation_widget" container = "custom_widget_container_5" }
  weight = 20
 
@@ -113,8 +129,24 @@ je_aor1776_hre_vote = {
  icon = "gfx/interface/icons/central_identity_pillars_icons/aor1776_imperial_federation_v2.dds"
  is_shown_when_inactive = { aor1776_hre_elector = yes has_global_variable = aor1776_hre_election_open }
  possible = { aor1776_hre_elector = yes has_global_variable = aor1776_hre_election_open }
- complete = { NOT = { has_global_variable = aor1776_hre_election_open } }
- invalid = { aor1776_hre_elector = no }
+ outcome = {
+ 	header = je_standard_completion_header
+ 	effect_header = je_standard_on_completion_header
+ 	color = "gold_positive"
+ 	conclusion_desc = je_standard_completion_conclusion_desc
+ 	trigger = {
+ 		NOT = { has_global_variable = aor1776_hre_election_open }
+ 	}
+ 	effect = {}
+ }
+ outcome = {
+ 	flags = { hidden invalid_outcome }
+ 	conclusion_desc = je_standard_failure_conclusion_desc
+ 	trigger = {
+ 		aor1776_hre_elector = no
+ 	}
+ 	effect = {}
+ }
  weight = 100
 scripted_button = aor1776_hre_vote_AUS
 scripted_button = aor1776_hre_vote_KPF

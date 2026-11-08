@@ -1,0 +1,227 @@
+# MISSION CODEX — SERG TERRITORIAL 1.0
+## SC4-MASSA-CARRARA — Dernière tentative cartographique ciblée
+
+### Objectif
+
+Tu travailles sur le mod Victoria 3 **1776 Age of Revolutions**.
+
+Dépôt : `Malzars-sys/1776-Age-of-Revolutions`
+
+**Date historique de référence : 1er janvier 1776.**
+
+Ta mission est de résoudre, si possible, le dernier obstacle à la représentation territoriale de **Carrare et Avenza** en exploitant une source cartographique supplémentaire :
+
+**Antonio Zatta, 1783 — *La Repubblica di Lucca con parte del Modenese che comprende la Garfagnana, e il Ducato di Massa, e Carrara*.**
+
+Collection David Rumsey, référence annoncée `11598.169`.
+
+Source à retrouver et vérifier :
+https://www.davidrumsey.com/luna/servlet/view/all/who/Presso%2BAntonio%2BZatta/when/1783
+
+Cette carte pourrait fournir un repère territorial plus détaillé que les documents déjà utilisés.
+
+**Il s'agit d'une dernière instruction ciblée, pas d'un nouvel audit historique général.**
+
+### 1. Reprendre les travaux existants
+
+Avant toute opération :
+
+- Vérifie la branche Git actuelle, les changements non commités et les fichiers déjà présents.
+- Lis le dossier `docs/reports/map/SERG_CLOSURE/SC4-MASSA-CARRARA/`.
+- Consulte prioritairement les rapports datés des 29 et 31 octobre 2026.
+- Réutilise les relevés démographiques, les cartes et les propositions déjà préparés.
+- Préserve les modifications locales et concurrentes.
+- Ne modifie pas les données canoniques d'autres tâches.
+
+Le noyau `MC-I-CORE` est déjà validé :
+
+- Pays `MCA` existant.
+- Huit cellules `xEDBC00`.
+- 10 000 habitants.
+- Marie-Thérèse Cybo-Malaspina.
+- Administration et droits impériaux fonctionnels.
+- Test joueur du 23 octobre validé.
+
+Ne recrée aucun de ces éléments.
+
+### 2. Examiner réellement la carte Zatta de 1783
+
+Retrouve la reproduction numérisée correspondant à la référence indiquée.
+
+Vérifie l'auteur, le titre, la date, la couverture géographique et l'identifiant du document. Ne présume pas que le lien fournit la bonne feuille.
+
+Examine visuellement la carte, et pas uniquement sa notice bibliographique.
+
+Cherche particulièrement :
+
+- Massa et Carrare ;
+- Avenza et les localités environnantes ;
+- Les limites entre Massa-Carrare et Modène ;
+- Les limites avec Lucques et la Toscane ;
+- Les interfaces génoises de Sarzana et Lerici ;
+- Les vallées, montagnes, cours d'eau et lignes côtières utilisables comme repères.
+
+Détermine si les limites représentées sont effectivement des frontières politiques, des délimitations administratives ou de simples conventions graphiques.
+
+**Ne présente pas une limite cartographique comme une preuve de souveraineté sans l'établir.**
+
+### 3. Vérifier la stabilité historique entre 1776 et 1783
+
+La carte Zatta date de sept ans après notre référence historique.
+
+Vérifie s'il existe entre le 1er janvier 1776 et 1783 :
+
+- Des cessions territoriales ;
+- Des échanges ou modifications de frontières ;
+- Des changements de juridiction à Carrare/Avenza ;
+- Des modifications touchant les relations avec Modène, Lucques, Gênes ou la Toscane.
+
+Si les frontières concernées sont suffisamment stables, explique pourquoi la carte de 1783 peut servir de témoin de la situation de 1776.
+
+En revanche, si des modifications sont attestées, identifie les zones affectées et ne rétroprojette pas les frontières de 1783.
+
+### 4. Comparaison cartographique directe
+
+Confronte trois ensembles :
+
+1. La carte Robert de Vaugondy de 1750 déjà conservée dans le dépôt.
+2. La carte Zatta de 1783.
+3. Le bitmap actuel de Victoria 3 autour de `xEDBC00` et `xF08021`.
+
+Établis la correspondance entre les principaux lieux historiques et les cellules du jeu.
+
+N'exige pas un cadastre parfait : notre objectif reste une **représentation politique de catégorie B**, suffisamment défendable à l'échelle du jeu.
+
+Mais une simple proximité géographique ou une géométrie connexe ne suffit pas à établir une attribution territoriale.
+
+Évalue les options existantes A, B et C, notamment l'option B de cinq cellules. Tu peux proposer un contour différent si les preuves le justifient.
+
+Pour toute option retenue, vérifie :
+
+- Le propriétaire actuel et le propriétaire proposé ;
+- La continuité de MCA ;
+- La continuité du territoire résiduel MOD ;
+- L'absence de cellules isolées ;
+- La conservation des territoires GEN, LUC, TUS et PAR ;
+- L'absence de transfert de toute la Garfagnana ou de la Lunigiana sans justification.
+
+Ne réutilise pas l'ancienne découpe de trois cellules qui isolait un pixel MOD.
+
+### 5. Dernière vérification démographique
+
+Le fac-similé d'Emilio Lazzoni a déjà confirmé les chiffres de 1775 :
+
+- Ville de Carrare : 3 700 habitants.
+- Commune de Carrare : 8 010 habitants.
+
+Ne recommence pas inutilement la vérification de ces deux chiffres.
+
+Cherche uniquement à établir si la commune statistique correspond suffisamment au ressort politique que nous voulons représenter.
+
+Examine notamment la composition des localités mentionnées dans les archives SIUSA.
+
+Si les sources permettent de retenir les 8 010 habitants comme approximation défendable, prépare un transfert depuis les populations déjà présentes sous MOD.
+
+Valeurs conditionnelles à vérifier sur le dépôt actuel :
+
+- MCA : 10 000 → 18 010 habitants.
+- MOD/Émilie : 495 752 → 487 742 habitants.
+
+Aucun habitant supplémentaire ne doit être créé et aucune population ne doit être comptée deux fois.
+
+Si la correspondance démographique n'est pas suffisamment fiable, conserve cette réserve et ne présente pas 8 010 comme un recensement exact de la principauté en 1776.
+
+### 6. Consultation ciblée des archives si nécessaire
+
+Si la carte Zatta ne permet pas de trancher, examine les références identifiées :
+
+**Archivio di Stato di Massa — Archivio storico del Comune di Carrara, I Serie :**
+
+- Cartes d'Avenza, 1775 : b.84–86.
+- Cartes de Carrare, 1775 : b.87–88.
+- Relevé des maisons de 1775 : b.65.
+- Documents cadastraux : b.250.
+
+Vérifie si des reproductions numériques sont réellement accessibles.
+
+Ne prétends pas avoir examiné les cartes originales si seul l'inventaire est disponible.
+
+Si les originaux ne sont pas accessibles, relève les cotes et prépare, si utile, une demande précise aux archives. N'attends pas indéfiniment une réponse.
+
+### 7. Critère de décision — GO / NO-GO
+
+À la fin de cette recherche, prends une décision claire.
+
+**GO — Extension historiquement défendable**
+
+Seulement si les éléments suivants sont réunis :
+
+- Le ressort politique est suffisamment identifié.
+- Les principales localités sont localisées de manière cohérente.
+- Le contour B proposé est défendable à l'échelle de Victoria 3.
+- Les deux territoires résiduels restent connexes.
+- La répartition démographique est justifiée ou ses incertitudes sont explicitement gérées.
+- Aucun territoire voisin n'est absorbé abusivement.
+
+Dans ce cas, prépare et, si les critères sont entièrement satisfaits, installe une extension unique du pays MCA.
+
+Effectue les tests statiques, documente les fichiers modifiés et prépare une PR en brouillon non fusionnée ainsi qu'un protocole joueur.
+
+Ne clôture pas la tâche régionale avant les validations requises.
+
+**NO-GO — Preuves insuffisantes**
+
+Si la carte ne permet pas d'établir une frontière suffisamment défendable :
+
+1. N'installe aucune correction arbitraire.
+2. Conserve le noyau MCA déjà validé.
+3. Produis un rapport final court expliquant précisément le blocage.
+4. Identifie les sources primaires qui permettraient réellement de résoudre celui-ci.
+5. Recommande explicitement la suspension des recherches actives sur SC4-MASSA-CARRARA.
+
+Ne propose pas de relancer immédiatement une nouvelle recherche identique.
+
+### 8. Condition d'arrêt obligatoire
+
+Cette mission doit être **bornée**.
+
+Après comparaison effective des deux cartes, vérification de leur stabilité historique et recherche ciblée des documents originaux accessibles :
+
+- Si les preuves sont suffisantes, procède à la correction.
+- Si elles sont insuffisantes, conclus NO-GO et arrête la recherche.
+
+**Ne produis pas une nouvelle série d'audits, de sous-missions ou de rapports successifs qui répètent des conclusions déjà établies.**
+
+Un résultat NO-GO correctement justifié constitue une mission accomplie.
+
+### 9. Protection du suivi SERG
+
+État de référence à recalculer depuis les fichiers actuels :
+
+- Progression : 93/235 points, soit 39,57 %.
+- SC4-MASSA-CARRARA : `BLOCKED P0`.
+- Trois points régionaux conditionnels non attribués.
+- Teschen : recherche active suspendue.
+
+Ne modifie pas ces éléments sans nouvelle validation.
+
+Conserve les neuf électeurs et les 581 titres impériaux de référence, sauf changement explicitement justifié par une installation autorisée.
+
+Ne commence aucun autre chantier.
+
+### 10. Livrable final
+
+Fournis un rapport synthétique répondant à ces questions :
+
+1. **La carte Zatta de 1783 permet-elle de reconstruire une frontière utilisable pour 1776 ?**
+2. Quels éléments concordent ou divergent avec la carte Robert de 1750 ?
+3. Quel contour de cellules est le mieux étayé ?
+4. Les 8 010 habitants sont-ils utilisables pour la population représentée ?
+5. Quelle décision prends-tu : GO ou NO-GO ?
+6. Quels fichiers ont réellement été modifiés, quels tests ont été exécutés et quelle validation humaine reste nécessaire ?
+
+En cas de GO, fournis le détail de l'installation et la PR.
+
+En cas de NO-GO, recommande le report et précise l'unique preuve extérieure nécessaire à une reprise.
+
+**Travaille de manière autonome sur ce périmètre précis. Ne recommence pas les recherches acquises et ne demande pas de confirmation pour les investigations ou contrôles non destructifs.**

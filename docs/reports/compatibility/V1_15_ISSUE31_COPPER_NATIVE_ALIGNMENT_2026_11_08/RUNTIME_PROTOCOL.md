@@ -1,0 +1,14 @@
+# Mission 31 — essai moteur
+
+Livraison : **IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION**. Ce document décrit les essais à réaliser ; il ne certifie aucun résultat.
+
+1. Relancer Victoria 3 1.15 avec le mod local correspondant aux empreintes d’`INSTALLATION.json`, puis ouvrir une **nouvelle partie en 1776**. Noter le build, les DLC actifs, le playset et les pays réellement examinés.
+2. Ouvrir le marché du cuivre. Vérifier le **prix de base 40 £**, indépendamment de son prix de marché, ainsi que l’icône du bien et `@copper!` dans les entrées/sorties des bâtiments. Une pénurie peut donner un prix de marché supérieur à 40 et ne prouve pas une mauvaise définition.
+3. Sur une mine, afficher les valeurs **par niveau**, à coefficients de base : pics et pelles 20 cuivre, atmosphérique 40, condensation 60, diesel 70 ; nitroglycérine +12 et dynamite +20. Vérifier les intrants natifs, notamment 5 pétrole pour le diesel, les emplois et les technologies affichées. Distinguer la concentration, la ventilation, le débit et l’emploi effectif des valeurs du seul PM standard.
+4. Vérifier les quatre listes standard : équipement, explosifs, vapeur et transport. Les groupes supplémentaires du mod doivent toujours apparaître. La condensation reste liée à `condensing_steam_engines`. Aucun pays de départ n’est censé avoir reçu une nouvelle technologie du fait de ce lot.
+5. Comparer plusieurs **capacités de ressources du mod** avec la matrice : Katanga 60, Utah 48, West Country 36, Svealand 24, Götaland 16, Lowlands 8 et Scania 0 sont les témoins déjà documentés. Vérifier les tags/propriétaires réellement présents ; ne pas importer la distribution du scénario vanilla. Ces valeurs doivent être confirmées dans la version testée, sans attribuer automatiquement leur disponibilité géographique au pays joueur.
+6. Sur une copie de sauvegarde, simuler la mise à jour du marché et relever production, consommation, emploi et accès au marché. Sauvegarder puis recharger. Noter les durées et observations réelles ; aucune rentabilité nationale n’est présumée.
+7. Contrôler les variantes d’artillerie fer/cuivre/alliage et les groupes de concentration/doublage comme témoins de préservation. Les icônes navales encore en attente de transfert constituent un chantier distinct ; ne pas les annoncer comme corrigées ici.
+8. Conserver les nouveaux logs et comparer avec la baseline de la mission 20 et le log antérieur au correctif. Vérifier les collisions du bien, des quatre groupes et des clés natives de cuivre dans la langue testée. Les autres erreurs préexistantes doivent être séparées de celles de ce lot.
+
+Pour le reçu humain : indiquer les pays, États, PM, langue et marchés examinés, les valeurs observées, les captures pertinentes et les branches non exercées. Ne fermer la mission qu’après acceptation explicite du mainteneur. La réussite du validateur statique ne remplace pas cet essai.

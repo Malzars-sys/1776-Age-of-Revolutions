@@ -1,0 +1,68 @@
+﻿law_birth_quotas = {
+	group = lawgroup_rights_of_women
+	icon = "gfx/interface/icons/law_icons/birth_quotas.dds"
+	progressiveness = -50
+
+	unlocking_technologies = {
+		mass_propaganda
+	}
+
+	modifier = {
+		state_birth_rate_mult = 0.15
+		state_working_adult_ratio_add = -0.10
+	}
+
+	on_activate = {
+		recalculate_pop_ig_support = yes
+		trigger_event = { id = birth_quota_events.4 days = 1 }
+		custom_tooltip = birth_quota_foreign_reaction_tt
+		hidden_effect = {
+			save_scope_as = quota_enacting_country
+			every_country = {
+				limit = {
+					NOT = { this = scope:quota_enacting_country }
+					is_country_type = recognized
+					has_diplomatic_relevance = scope:quota_enacting_country
+				}
+				if = {
+					limit = {
+						OR = {
+							ruler = { has_ideology = ideology:ideology_feminist }
+							ruler = { has_ideology = ideology:ideology_humanitarian }
+							ruler = { has_ideology = ideology:ideology_radical }
+							any_interest_group = {
+								is_in_government = yes
+								has_ideology = ideology:ideology_feminist_ig
+							}
+						}
+					}
+					trigger_event = { id = birth_quota_events.8 days = 7 }
+				}
+				else_if = {
+					limit = {
+						OR = {
+							ruler = { has_ideology = ideology:ideology_utilitarian_leader }
+							any_interest_group = {
+								is_in_government = yes
+								leader = { has_ideology = ideology:ideology_utilitarian_leader }
+							}
+						}
+					}
+					trigger_event = { id = birth_quota_events.9 days = 7 }
+				}
+				else = {
+					trigger_event = { id = birth_quota_events.10 days = 7 }
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		OR = {
+			ruler = { has_ideology = ideology:ideology_utilitarian_leader }
+			any_political_movement = {
+				is_political_movement_type = movement_natalist
+			}
+		}
+	}
+}

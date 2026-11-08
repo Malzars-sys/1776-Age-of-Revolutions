@@ -140,3 +140,8 @@ Cinq RGB natifs : xB81268 en KUOPIO, x2495FE/xFEC50D/x7005BB/x6480A4 en NORTHERN
 ## CENTRAL-ASIA-01 — périmètre installé
 
 PLAN.json :172RGB natifs dans7régions. Sept fichiers existants, seuls nœuds SCOPES.json ; seuls c:KZH/KOK militaires et c:RUS/OZH/UZH diplomatiques. Cinq TAG nouveaux, KYR activé, capitales OZH/UZH surcharges explicites ; effets/loi/relation/FR-EN privés. Aucun bitmap, terrain, ressource, locator, personnage ou recette/graphe commun. Portions DUR/DP et leurs rapports/suivis strictement réservés ; Darvaz principal exclu. Préimages immédiates/FILES_DELIVERED.json et réparation Gouriev séparée font foi. DP-03 présent dans la version appliquée, Afrique/Scandinavie/Amériques/SERG/TECH/ECON conservés. Aucun retour à une baseline antérieure.
+
+
+## RUSSIA-01 — 7 novembre2026
+
+Seuls344RGB existants RUS enNENETSIA/OB versNNT. Préserver les autres voisins et toutes les réservesSERG/DP. Aucun bitmap, hub, ressource ou terrain écrit. Dans les POPs, seul le pool ugrian des deux régions est scindé ; populations russes/tatares conservées. Seuls autres blocs partagés : histoirec:RUS (loi/amendement/institution), ajout du champ IA natif cossack_host_scores. Aucun graphe/recette commun modifié ; quatre effets natifs d’établissement dans un fichier propre. Sept changements économiques extérieurs observés avant préimages sont conservés. Réparation côtière séparée, aucune restauration de baseline.

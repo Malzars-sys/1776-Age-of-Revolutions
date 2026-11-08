@@ -1,0 +1,282 @@
+--- common/history/states/00_states.txt
++++ common/history/states/00_states.txt
+@@ -8701,13 +8701,13 @@
+ 	s:STATE_POSEN = {
+ 		create_state = {
+ 			country = c:PLC
+-			owned_provinces = { x1FA1E1 x2141A0 x2E6001 x999CEE xC32D8B xE513C0 x085962 xC02121 xFCC7B7 xF962B2 x41E0A0 x635336 }
++			owned_provinces = { x1FA1E1 x2141A0 x2E6001 x999CEE xC32D8B xE513C0 x085962 xF962B2 x41E0A0 x635336 xC02121 xFCC7B7 }
+ 		}
+ 		add_claim = c:PRU
+ 		add_homeland = cu:north_german
+ 		add_homeland = cu:polish
+ 
+-		create_state = { country = c:PRU owned_provinces = { xEDB010 } }
++		create_state = { country = c:PRU owned_provinces = { xEDB010 xEEC201 xEEC202 } }
+ 	}
+ 	s:STATE_WESTPHALIA = {
+ 		create_state = {
+@@ -8753,11 +8753,11 @@
+ 	s:STATE_WEST_PRUSSIA = {
+ 		create_state = {
+ 			country = c:PRU
+-			owned_provinces = { x611F2F x178C99 x374AC3 x41A021 x55FD02 x7CB839 x945000 xBAF66D }
++			owned_provinces = { x611F2F x178C99 x55FD02 x7CB839 x945000 xBAF66D x41A021 x374AC3 }
+ 		}
+ 		create_state = {
+ 			country = c:PLC
+-			owned_provinces = { x80A0A0 }
++			owned_provinces = { x80A0A0 xEEC200 xEEC203 }
+ 		}
+ 		add_claim = c:PRU
+ 		add_homeland = cu:north_german
+--- map_data/state_regions/02_east_europe.txt
++++ map_data/state_regions/02_east_europe.txt
+@@ -114,11 +114,11 @@
+ STATE_WEST_PRUSSIA = {
+     id = 158
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x178C99" "x374AC3" "x41A021" "x55FD02" "x611F2F" "x7CB839" "x80A0A0" "x945000" "xBAF66D" }
++    provinces = { "x178C99" "x55FD02" "x611F2F" "x7CB839" "x80A0A0" "x945000" "xBAF66D" "x41A021" "xEEC200" "x374AC3" "xEEC203" }
+     traits = { "state_trait_natural_harbors" }
+     city = "x7CB839"
+     port = "x611F2F"
+-    farm = "x41A021"
++    farm = "xEEC200"
+     mine = "x945000"
+     wood = "x374AC3"
+     arable_land = 40
+@@ -159,7 +159,7 @@
+ STATE_POSEN = {
+     id = 160
+     subsistence_building = "building_subsistence_farm"
+-    provinces = { "x085962" "x1FA1E1" "x2141A0" "x2E6001" "x41E0A0" "x635336" "x999CEE" "xC02121" "xC32D8B" "xE513C0" "xF962B2" "xFCC7B7" "xEDB010" }
++    provinces = { "x085962" "x1FA1E1" "x2141A0" "x2E6001" "x41E0A0" "x635336" "x999CEE" "xC32D8B" "xE513C0" "xF962B2" "xEDB010" "xC02121" "xEEC201" "xFCC7B7" "xEEC202" }
+     city = "x999CEE"
+     farm = "xEDB010"
+     mine = "x2141A0"
+--- common/history/pops/02_east_europe.txt
++++ common/history/pops/02_east_europe.txt
+@@ -340,39 +340,72 @@
+ 				religion = catholic
+ 				size = 11156
+ 			}
++
++create_pop = {
++				culture = north_german
++				pop_type = aristocrats
++				size = 27
++			}
++create_pop = {
++				culture = polish
++				pop_type = aristocrats
++				size = 69
++			}
++create_pop = {
++				culture = north_german
++				size = 6202
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 30
++			}
++create_pop = {
++				culture = polish
++				religion = protestant
++				size = 1974
++			}
++create_pop = {
++				culture = polish
++				size = 2514
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 110
++			}
+ 		}
+ 		region_state:PRU = {
+ 			create_pop = {
+ 				culture = north_german
+ 				pop_type = aristocrats
+-				size = 817
+-			}
+-			create_pop = {
+-				culture = polish
+-				pop_type = aristocrats
+-				size = 2042
+-			}
+-			create_pop = {
+-				culture = north_german
+-				size = 184671
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 899
+-			}
+-			create_pop = {
+-				culture = polish
+-				religion = protestant
+-				size = 58782
+-			}
+-			create_pop = {
+-				culture = polish
+-				size = 74865
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 3268
++				size = 790
++			}
++			create_pop = {
++				culture = polish
++				pop_type = aristocrats
++				size = 1973
++			}
++			create_pop = {
++				culture = north_german
++				size = 178469
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 869
++			}
++			create_pop = {
++				culture = polish
++				religion = protestant
++				size = 56808
++			}
++			create_pop = {
++				culture = polish
++				size = 72351
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 3158
+ 			}
+ 		}
+ 	}
+@@ -419,24 +452,24 @@
+ 			create_pop = {
+ 				culture = polish
+ 				pop_type = aristocrats
+-				size = 7190
+-			}
+-			create_pop = {
+-				culture = north_german
+-				size = 323765
+-			}
+-			create_pop = {
+-				culture = ashkenazi
+-				size = 9586
+-			}
+-			create_pop = {
+-				culture = polish
+-				size = 514767
+-			}
+-			create_pop = {
+-				culture = north_german
+-				religion = catholic
+-				size = 84573
++				size = 6548
++			}
++			create_pop = {
++				culture = north_german
++				size = 294876
++			}
++			create_pop = {
++				culture = ashkenazi
++				size = 8731
++			}
++			create_pop = {
++				culture = polish
++				size = 468835
++			}
++			create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 77027
+ 			}
+ 		}
+ 
+@@ -466,6 +499,29 @@
+ 				culture = north_german
+ 				religion = catholic
+ 				size = 2889
++			}
++
++create_pop = {
++				culture = polish
++				pop_type = aristocrats
++				size = 642
++			}
++create_pop = {
++				culture = north_german
++				size = 28889
++			}
++create_pop = {
++				culture = ashkenazi
++				size = 855
++			}
++create_pop = {
++				culture = polish
++				size = 45932
++			}
++create_pop = {
++				culture = north_german
++				religion = catholic
++				size = 7546
+ 			}
+ 		}
+ 	}
+--- tools/map2l_registry.py
++++ tools/map2l_registry.py
+@@ -441,6 +441,24 @@
+         assert len(new)==len(old)+len(g['new_provinces'])
+         assert {(r['rgb'],r['state'],r['beneficiary']) for r in m['updated'] if r['rgb'] not in old or r['rgb'] in g['parents']}=={(r['rgb'],r['state'],r['owner']) for r in g['assignments']}
+         result.append(north_saxony)
++    polish_frontier=ROOT/'docs/reports/map/SERG_CLOSURE/PRUSSIA_POLAND_2026_11_05'
++    if (polish_frontier/'REGISTRY_MIGRATION.json').exists():
++        m=json.loads((polish_frontier/'REGISTRY_MIGRATION.json').read_text(encoding='utf8'))
++        g=json.loads((polish_frontier/'GEOMETRY.json').read_text(encoding='utf8'))
++        assert north_saxony in result
++        assert m['replaced_regions']==['STATE_POSEN','STATE_WEST_PRUSSIA']
++        assert m['previous']==m['updated']==m['new_members']==m['free_cities']==m['extent_added_cells']==m['extent_removed_cells']==[]
++        assert m['country_additions']=={} and m['external_to_hre'] is True
++        assert m['new_provinces']==g['new_provinces'] and len(g['new_provinces'])==4
++        assert g['classification']=='B_POLITICAL_GENERALISATION' and not g['historical_cadastral_precision']
++        assert set(g['parents'])=={'x41A021','xC02121','xFCC7B7','x374AC3'}
++        assert sum(r['pixels'] for r in g['assignments'] if r['owner']!=r['previous_owner'])==285
++        assert all(r['state'] in m['replaced_regions'] and {r['owner'],r['previous_owner']}<={'PRU','PLC'} for r in g['assignments'])
++        assert len(m['locator_relocations'])==1 and m['locator_relocations']==g['locator_relocations']
++        loc=m['locator_relocations'][0]
++        assert (loc['state'],loc['kind'],loc['id'])==('STATE_WEST_PRUSSIA','farm',158)
++        assert loc['before_position']==[4519.314941,0.,2843.895264] and loc['after_position']==[4521.5,0.,2848.5]
++        result.append(polish_frontier)
+     return result
+ 
+ def provincial_membership_overrides():
+--- gfx/map/map_object_data/generated_map_object_locators_farm.txt
++++ gfx/map/map_object_data/generated_map_object_locators_farm.txt
+@@ -949,7 +949,7 @@
+ 		}
+ 		{
+ 			id=158
+-			position={ 4519.314941 0.000000 2843.895264 }
++			position={ 4521.500000 0.000000 2848.500000 }
+ 			rotation={ -0.000000 -0.061694 -0.000000 -0.998095 }
+ 			scale={ 1.000000 1.000000 1.000000 }
+ 		}
+--- map_data/province_terrains.txt
++++ map_data/province_terrains.txt
+@@ -41239,3 +41239,8 @@
+ xEEC102="plains"
+ xEEC103="plains"
+ xEEC104="forest"
++
++xEEC200="plains"
++xEEC201="forest"
++xEEC202="plains"
++xEEC203="plains"

@@ -100,7 +100,7 @@ custom_tooltip = { text = aor1776_hre_autonomy_reduction_allowed_tt
  if = { limit = { aor1776_hre_elector = yes } change_subject_type = subject_type_imperial_elector }
  else = { change_subject_type = subject_type_imperial_estate }
 }
-else_if = { limit = { aor1776_hre_any_native_bond = no } decrease_autonomy = yes }
+else_if = { limit = { aor1776_hre_any_native_bond = no } if = { limit = { is_subject_type = subject_type_aor1776_protected_state } change_subject_type = subject_type_tributary } else = { decrease_autonomy = yes } }
 			add_liberty_desire = 50
 		}
 		create_unidirectional_truce = { country = scope:target_country months = 60 }

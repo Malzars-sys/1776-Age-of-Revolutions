@@ -6,10 +6,12 @@ import csv
 import re
 import subprocess
 from collections import Counter
+from functools import lru_cache
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+GAME = Path("C:/Games/Victoria 3/game")
 ERRORS: list[str] = []
 
 
@@ -41,9 +43,23 @@ def blocks(text: str, pattern: str) -> list[tuple[str, str]]:
     return result
 
 
+@lru_cache(maxsize=None)
+def definitions(folder: str) -> dict[str, list[Path]]:
+    """Resolve same-path masks and explicit overrides before counting IDs."""
+    local = {p.name.casefold(): p for p in (ROOT / folder).glob("*.txt")}
+    paths = [p for p in (GAME / folder).glob("*.txt") if p.name.casefold() not in local]
+    paths += list(local.values())
+    normal, overrides = {}, {}
+    pattern = re.compile(r"(?m)^(?:(REPLACE_OR_CREATE|REPLACE):)?([A-Za-z0-9_-]+)\s*=\s*\{")
+    for path in paths:
+        for directive, key in pattern.findall(read(path)):
+            (overrides if directive else normal).setdefault(key, []).append(path)
+    normal.update(overrides)
+    return normal
+
+
 def definition_count(folder: str, object_id: str) -> int:
-    pattern = re.compile(rf"(?m)^{re.escape(object_id)}\s*=\s*\{{")
-    return sum(len(pattern.findall(read(path))) for path in (ROOT / folder).glob("*.txt"))
+    return len(definitions(folder).get(object_id, []))
 
 
 def check_braces() -> None:
@@ -93,11 +109,13 @@ def check_objects() -> None:
             fail(f"{object_id}: expected {count} definition, found {actual}")
 
     support = read(ROOT / "common/modifier_type_definitions/12_tech6c_custom_goods_modifier_types.txt")
+    support += read(GAME / "common/modifier_type_definitions/01_building_modifier_types.txt")
     for modifier in ("goods_input_copper_add", "goods_input_copper_mult", "goods_output_copper_add", "goods_output_copper_mult"):
         if len(re.findall(rf"(?m)^{modifier}\s*=", support)) != 1:
             fail(f"Modifier registration missing or duplicated: {modifier}")
 
     texticon = read(ROOT / "gui/tech6c_goods_texticons.gui")
+    texticon += read(GAME / "gui/goods_texticons.gui")
     if len(re.findall(r"(?m)^\s*icon\s*=\s*copper\s*$", texticon)) != 1:
         fail("Copper texticon missing or duplicated")
 
@@ -111,15 +129,16 @@ def check_objects() -> None:
         if re.search(pattern, all_common):
             fail(f"Malformed modifier token present: {label}")
 
-    copper_file = read(ROOT / "common/goods/13_tech6c5b_copper.txt")
-    for required in ("cost = 50", "category = industrial", "tradeable = yes", 'texture = "gfx/error_deer.dds"'):
+    copper_provider = definitions("common/goods")["copper"][0]
+    copper_file = dict(blocks(read(copper_provider), r"(?m)^(copper)\s*=\s*\{"))["copper"]
+    for required in ("cost = 40", "category = industrial", "prestige_factor = 3", "traded_quantity = 5", 'texture = "gfx/interface/icons/goods_icons/copper.dds"'):
         if required not in copper_file:
             fail(f"Copper good missing: {required}")
 
     copper_building = read(ROOT / "common/buildings/13_tech6c5b_copper_mine.txt")
     for required in (
         "building_group = bg_mining", "city_type = mine", "required_construction = construction_cost_medium",
-        "terrain_manipulator = mining", "ownership_type = self", "ai_value = 1000", "shaft_mining",
+        "terrain_manipulator = mining", "ownership_type = self", "shaft_mining",
     ):
         if required not in copper_building:
             fail(f"Copper mine architecture missing: {required}")
@@ -160,13 +179,13 @@ def check_consumers() -> None:
     urban = read(ROOT / "common/production_methods/06_urban_center.txt")
     copper_pms = read(ROOT / "common/production_methods/13_tech6c5b_copper_production_and_consumers.txt")
     checks = [
-        (industry, r"pm_telephones\s*=.*?goods_input_copper_add\s*=\s*15", "telephone copper input"),
+        (industry, r"pm_telephones\s*=.*?goods_input_copper_add\s*=\s*30", "telephone copper input"),
         (industry, r"pm_telephones\s*=.*?goods_output_telephones_add\s*=\s*60", "telephone output"),
         (industry, r"pm_electric_engines\s*=.*?goods_input_copper_add\s*=\s*10", "electric-engine copper input"),
         (industry, r"pm_radios\s*=.*?goods_input_copper_add\s*=\s*2", "radio copper input"),
         (copper_pms, r"pm_copper_sheathing_building_shipyard\s*=.*?goods_input_copper_add\s*=\s*5.*?goods_output_clippers_add\s*=\s*5", "copper sheathing recipe"),
         (copper_pms, r"pm_ore_concentration_building_copper_mine\s*=.*?geological_surveying", "concentration technology gate"),
-        (copper_pms, r"pm_diesel_pump_building_copper_mine\s*=.*?goods_input_refined_fuels_add\s*=\s*3", "diesel refined-fuels input"),
+        (copper_pms, r"pm_diesel_pump_building_copper_mine\s*=.*?goods_input_oil_add\s*=\s*5", "native diesel oil input"),
     ]
     for text, pattern, label in checks:
         if not re.search(pattern, text, re.S):

@@ -1,0 +1,38 @@
+test_demographic_conservation_and_negative_guard (test_map2m_r9.R9Guards.test_demographic_conservation_and_negative_guard) ... ok
+test_exact_two_cells_and_no_elsewhere_edit (test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit) ... FAIL
+test_no_fake_runtime_or_full_historical_completion (test_map2m_r9.R9Guards.test_no_fake_runtime_or_full_historical_completion) ... ok
+test_no_fake_wolgast_city_or_moved_locator (test_map2m_r9.R9Guards.test_no_fake_wolgast_city_or_moved_locator) ... FAIL
+test_no_unapplied_proposal_in_change_csvs (test_map2m_r9.R9Guards.test_no_unapplied_proposal_in_change_csvs) ... ok
+test_prior398_and_all41_r8_cells_preserved (test_map2m_r9.R9Guards.test_prior398_and_all41_r8_cells_preserved) ... ok
+test_progress_covers_registry_without_starting_next_lot (test_map2m_r9.R9Guards.test_progress_covers_registry_without_starting_next_lot) ... ok
+test_thorn_really_unchanged_and_proposals_separate (test_map2m_r9.R9Guards.test_thorn_really_unchanged_and_proposals_separate) ... FAIL
+
+======================================================================
+FAIL: test_exact_two_cells_and_no_elsewhere_edit (test_map2m_r9.R9Guards.test_exact_two_cells_and_no_elsewhere_edit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\simeo\.codex\worktrees\massa-carrara-finalisation\1776_Age_of_Revolutions_fork\tools\test_map2m_r9.py", line 12, in test_exact_two_cells_and_no_elsewhere_edit
+    self.assertTrue(np.array_equal(self.after,w.old.prior.r2.expected_raster(self.before,self.plan['changes'])))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_no_fake_wolgast_city_or_moved_locator (test_map2m_r9.R9Guards.test_no_fake_wolgast_city_or_moved_locator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\simeo\.codex\worktrees\massa-carrara-finalisation\1776_Age_of_Revolutions_fork\tools\test_map2m_r9.py", line 24, in test_no_fake_wolgast_city_or_moved_locator
+    b=w.load('BASELINE.json');self.assertTrue(all(w.core.sha(w.ROOT/p)==h for p,h in b['hashes'].items() if p.startswith('gfx/map/map_object_data/')))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_thorn_really_unchanged_and_proposals_separate (test_map2m_r9.R9Guards.test_thorn_really_unchanged_and_proposals_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\simeo\.codex\worktrees\massa-carrara-finalisation\1776_Age_of_Revolutions_fork\tools\test_map2m_r9.py", line 39, in test_thorn_really_unchanged_and_proposals_separate
+    self.assertTrue(np.array_equal(self.before==0x41A021,self.after==0x41A021))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.737s
+
+FAILED (failures=3)

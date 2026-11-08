@@ -1,0 +1,206 @@
+--- before/ROADMAP_STATE.json
++++ after/ROADMAP_STATE.json
+@@ -5698,7 +5698,8 @@
+         "docs/reports/map/MAP2L/SWABIA_COMPLETION/UNRESOLVED.csv:1",
+         "docs/reports/map/MAP2L/FRANCONIA/UNRESOLVED.csv:1",
+         "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/SOURCES.md",
+-        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/SOURCES.md"
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/SOURCES.md",
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/SOURCES.md"
+       ],
+       "before": "662 cellules BAV était un chiffre initial, pas le résidu actuel après continuations.; Aucun transfert de Montbéliard; pas rétroprojection de 1786. Petits territoires et limites autrichiennes ouverts.",
+       "expected": "Noyaux déjà validés protégés; micro-enclaves P2 reportées sans devenir des frontières historiquement corrigées.",
+@@ -5709,7 +5710,8 @@
+       ],
+       "implementation_report": [
+         "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/REPORT.md",
+-        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/REPORT.md"
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/REPORT.md",
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md"
+       ],
+       "installed_lots": [
+         "SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05",
+@@ -5719,7 +5721,8 @@
+         "status": "PASS",
+         "evidence": [
+           "docs/reports/map/SERG_CLOSURE/BAVARIA_UPPER_PALATINATE_FRANCONIA_2026_11_05/VALIDATION.json",
+-          "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/VALIDATION.json"
++          "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/VALIDATION.json",
++          "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/VALIDATION.json"
+         ]
+       },
+       "runtime_validation": {
+@@ -5732,7 +5735,7 @@
+         "deferred_by_user_until_bavaria_finished": true
+       },
+       "decision": null,
+-      "residual_uncertainty": "Six KPF political B cores installed, no full regional closure. Hilpoltstein/Heideck/Allersberg arbitration explicitly deferred; western Sulzbach and jurisdictional fringes unclosed. Provisional population and confessional profiles need historical refinement. Unrelated Franconian/Swabian obligations and all protected cores preserved.",
++      "residual_uncertainty": "Six KPF political B cores installed, no full regional closure. Hilpoltstein/Heideck/Allersberg: scoped arbitration rendered, current delivered geometry retained without transfer or historical-compliance claim; projected12 cells currently ANS11/NUR1, not an established correction mask. Western Sulzbach and jurisdictional fringes remain unclosed. Provisional population and confessional profiles need historical refinement. Unrelated Franconian/Swabian obligations and all protected cores preserved.",
+       "mandatory_1_0": true,
+       "historical_region": [
+         "Franges franconiennes et possessions dispersées",
+@@ -5829,6 +5832,16 @@
+           "owner": "KPF",
+           "attestation": null,
+           "protocol": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
++        }
++      ],
++      "local_arbitrations": [
++        {
++          "id": "BV-HILPOLTSTEIN-HEIDECK-ALLERSBERG",
++          "status": "ARBITRATED_KEEP_CURRENT_DELIVERY",
++          "decision": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/ARBITRATION.json",
++          "functional_changes": 0,
++          "historical_compliance_demonstrated": false,
++          "user_terminal_approval": null
+         }
+       ]
+     },
+@@ -8667,6 +8680,34 @@
+         "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/VALIDATION.json",
+         "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md"
+       ]
++    },
++    {
++      "id": "SERG-RM-0079",
++      "date": "2026-11-06",
++      "kind": "BAVARIA_HILPOLTSTEIN_SCOPED_V1_ARBITRATION_NO_FUNCTIONAL_CHANGE",
++      "scope_version": "1.0.0",
++      "source": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/AUTHORITY_AND_SCOPE.md",
++      "changes": [
++        {
++          "task_id": "SC6-SWABIAN-ARBITRATIONS",
++          "before": "IN_PROGRESS",
++          "after": "IN_PROGRESS"
++        }
++      ],
++      "before_weight": 106,
++      "after_weight": 106,
++      "total_weight": 235,
++      "before_percent": "45.11",
++      "after_percent": "45.11",
++      "note": "Arbitrage délégué rendu pour Allersberg/Hilpoltstein/Heideck : maintien des contours livrés, sans conformité historique ni report terminal approuvé. Les12 cellules de projection sont ANS11/NUR1, aucune EIC/BAV ; aucune régression locale suffisamment démontrée pour retirer ces cellules aux noyaux reçus. Aucun recalage, transfert, population, bâtiment/PM/unité, registre ou fichier fonctionnel modifié. Sept installations bavaroises antérieures toujours prêtes, moteur groupé différé jusqu’à cette fin de passe. Aucun reçu ni point nouveau ;106/235,45,11%,36/81. Prochaine action : réception joueur groupée, aucun nouveau territoire.",
++      "evidence": [
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md",
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/SOURCES.md",
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/ARBITRATION.json",
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/GEOMETRY_DIAGNOSTIC.json",
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/VALIDATION.json",
++        "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/PLAYER_TEST_PROTOCOL_NOTE.md"
++      ]
+     }
+   ],
+   "runtime_validation_hold": {
+@@ -8762,7 +8803,7 @@
+     "authority": "Instruction explicite du joueur dans ce chat : Prusse visible avant les micro-États ; Bavière seulement ensuite si décision.",
+     "active_country": "BAV",
+     "started_on": "2026-11-02",
+-    "delivery_on": "2026-11-05",
++    "delivery_on": "2026-11-06",
+     "microstates_removed_from_active_queue": true,
+     "unchanged_accounting_scope": true,
+     "no_deferred_approved_credit": true,
+@@ -8778,23 +8819,25 @@
+       "suspended_new_territory_candidate_by_campaign": true
+     },
+     "report": "docs/reports/map/SERG_CLOSURE/PRUSSIA_V1_2026_11_02/REPORT.md",
+-    "current_pass": "BAVARIA_SCHWANDORF_DANUBE_WEST",
+-    "current_delivery": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/REPORT.md",
++    "current_pass": "BAVARIA_HILPOLTSTEIN_ARBITRATION",
++    "current_delivery": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md",
+     "next_requested_pass": null,
+     "next_pass_started": false,
+-    "continuation_authority": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/AUTHORITY_AND_SCOPE.md",
++    "continuation_authority": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/AUTHORITY_AND_SCOPE.md",
+     "polish_frontier_delivery": "PRUSSIA-POLAND-2026-11-05",
+-    "current_pass_status": "SCHWANDORF_REICHERTSHOFEN_DANUBE_WEST_IMPLEMENTED_RUNTIME_DEFERRED",
++    "current_pass_status": "ARBITRATION_RENDERED_NO_FUNCTIONAL_CHANGE",
+     "engine_tests_deferred_until_prussia_finished": false,
+     "western_precision_search_stopped_for_this_pass": true,
+     "next_implementation_candidate": null,
+-    "next_action": "Arbitrage des raccords de Hilpoltstein/Heideck/Allersberg demandé pour après ; identifié, non commencé. Validation moteur bavaroise groupée en fin de campagne.",
++    "next_action": "Validation moteur groupée des sept installations bavaroises déjà livrées. Arbitrage Hilpoltstein rendu sans nouvelle installation ; réserves historiques et clôture/report régional restent distincts, aucun nouveau territoire autorisé automatiquement.",
+     "western_arbitration": "docs/reports/map/SERG_CLOSURE/WESTERN_RESERVES_ARBITRATION_2026_11_05/ARBITRATION.json",
+     "bavaria_preference": "Préférence utilisateur conservée après clôture prussienne ; aucun lot proposé comme admissible ni commencé avant cette condition.",
+     "conditional_next_lot": "Bavière V1, frontière BAV/AUS et Innviertel ; proposition seulement, après décision prussienne.",
+     "engine_tests_deferred_until_bavaria_finished": true,
+     "passau_interface_review": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PASSAU_INTERFACE_REVIEW.md",
+-    "voice_scope_clarified": true
++    "voice_scope_clarified": true,
++    "current_functional_delivery": "docs/reports/map/SERG_CLOSURE/BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/REPORT.md",
++    "bavarian_local_arbitration": "docs/reports/map/SERG_CLOSURE/BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/ARBITRATION.json"
+   },
+   "external_prussian_deliveries": [
+     {
+--- before/ROADMAP.md
++++ after/ROADMAP.md
+@@ -1,4 +1,12 @@
+ # Feuille de route canonique — clôture territoriale du SERG
++
++## Arbitrage Hilpoltstein / Heideck / Allersberg — 6 novembre 2026
++
++**Arbitrage rendu : maintien des contours de la livraison V1, sans nouvelle modification fonctionnelle.** Les trois offices sont historiquement palatins ; la projection conservée rencontre 12 cellules déjà reçues, ANS 11 / NUR 1, aucune EIC/BAV. Ce diagnostic ne démontre pas une correction exacte à installer. Aucun noyau validé déplacé, aucun recalage repris. Réserve historique conservée ; pas de conformité sans changement, de report approuvé ou de clôture régionale fictive. [Décision et preuves](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md).
++
++**106/235 = 45,11 %, 36/81**, inchangés. SC6-SWABIAN-ARBITRATIONS reste IN_PROGRESS ; ses six sous-lots KPF et Innbaiern restent IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION, sans reçu humain. Les archives et les 81 tâches / 235 points sont conservées.
++
++**Prochaine action : session moteur bavaroise groupée**, [protocole intégral](BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md), [note de portée après arbitrage](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/PLAYER_TEST_PROTOCOL_NOTE.md). Aucun nouveau territoire commencé. Les réserves Hilpoltstein, Sulzbach occidental et périphéries de Passau/Autriche restent des obligations historiques séparées du test ; aucune exactitude intégrale bavaroise proclamée. Les encadrés datés antérieurs restent des archives et leurs anciennes prochaines actions sont remplacées par ce présent suivi.
+ 
+ ## Schwandorf / Reichertshofen / Danube occidental — 5 novembre 2026
+ 
+--- before/NEXT_ACTION.md
++++ after/NEXT_ACTION.md
+@@ -1,4 +1,12 @@
+-# Prochaine action — arbitrage de Hilpoltstein et moteur bavarois groupé
++# Prochaine action — réception moteur bavaroise groupée
++
++## Arbitrage Hilpoltstein / Heideck / Allersberg — 6 novembre 2026
++
++**Arbitrage rendu : maintien des contours de la livraison V1, sans nouvelle modification fonctionnelle.** Les trois offices sont historiquement palatins ; la projection conservée rencontre 12 cellules déjà reçues, ANS 11 / NUR 1, aucune EIC/BAV. Ce diagnostic ne démontre pas une correction exacte à installer. Aucun noyau validé déplacé, aucun recalage repris. Réserve historique conservée ; pas de conformité sans changement, de report approuvé ou de clôture régionale fictive. [Décision et preuves](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md).
++
++**106/235 = 45,11 %, 36/81**, inchangés. SC6-SWABIAN-ARBITRATIONS reste IN_PROGRESS ; ses six sous-lots KPF et Innbaiern restent IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION, sans reçu humain. Les archives et les 81 tâches / 235 points sont conservées.
++
++**Prochaine action : session moteur bavaroise groupée**, [protocole intégral](BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md), [note de portée après arbitrage](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/PLAYER_TEST_PROTOCOL_NOTE.md). Aucun nouveau territoire commencé. Les réserves Hilpoltstein, Sulzbach occidental et périphéries de Passau/Autriche restent des obligations historiques séparées du test ; aucune exactitude intégrale bavaroise proclamée. Les encadrés datés antérieurs restent des archives et leurs anciennes prochaines actions sont remplacées par ce présent suivi.
+ 
+ ## Schwandorf / Reichertshofen / Danube occidental — 5 novembre 2026
+ 
+--- before/BLOCKERS.md
++++ after/BLOCKERS.md
+@@ -1,4 +1,12 @@
+ # Blocages et couverture restant à traiter
++
++## Arbitrage Hilpoltstein / Heideck / Allersberg — 6 novembre 2026
++
++**Arbitrage rendu : maintien des contours de la livraison V1, sans nouvelle modification fonctionnelle.** Les trois offices sont historiquement palatins ; la projection conservée rencontre 12 cellules déjà reçues, ANS 11 / NUR 1, aucune EIC/BAV. Ce diagnostic ne démontre pas une correction exacte à installer. Aucun noyau validé déplacé, aucun recalage repris. Réserve historique conservée ; pas de conformité sans changement, de report approuvé ou de clôture régionale fictive. [Décision et preuves](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md).
++
++**106/235 = 45,11 %, 36/81**, inchangés. SC6-SWABIAN-ARBITRATIONS reste IN_PROGRESS ; ses six sous-lots KPF et Innbaiern restent IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION, sans reçu humain. Les archives et les 81 tâches / 235 points sont conservées.
++
++**Prochaine action : session moteur bavaroise groupée**, [protocole intégral](BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md), [note de portée après arbitrage](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/PLAYER_TEST_PROTOCOL_NOTE.md). Aucun nouveau territoire commencé. Les réserves Hilpoltstein, Sulzbach occidental et périphéries de Passau/Autriche restent des obligations historiques séparées du test ; aucune exactitude intégrale bavaroise proclamée. Les encadrés datés antérieurs restent des archives et leurs anciennes prochaines actions sont remplacées par ce présent suivi.
+ 
+ ## Schwandorf / Reichertshofen / Danube occidental — 5 novembre 2026
+ 
+--- before/PROGRESS_HISTORY.md
++++ after/PROGRESS_HISTORY.md
+@@ -685,3 +685,8 @@
+ ## SERG-RM-0078 — 5 novembre 2026 — Schwandorf et Danube occidental
+ 
+ Clarification de dictée : continuation bavaroise, aucun Schleswig-Holstein/Danemark/Helgoland.56 cellules vers KPF : Schwandorf18, Reichertshofen11, Danube occidental27 (Rennertshofen/Burgheim, Höchstädt/Lauingen) ; donneurs BAV36 et frange WUR/x118060 non certifiée20.32447 habitants provisoirement transférés, profils conservés ;8 RGB,611→619 titres, même emprise et neuf électeurs. Passau40/Obernberg4, Innbaiern175, KPF156 et tous les noyaux souabes reçus conservés. Aucun bâtiment/PM/unité/pays/technologie changé. Trois sous-lots prêts, aucun reçu ni point ; test groupé différé. Arbitrage Hilpoltstein identifié seulement. [Rapport](BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/REPORT.md).
++
++
++## SERG-RM-0079 — 6 novembre 2026 — Arbitrage des trois offices palatins
++
++Arbitrage Hilpoltstein/Heideck/Allersberg rendu : maintien de la livraison V1 sans changement fonctionnel, sans certification de son exactitude historique. Les douze cellules issues de la projection conservée sont ANS 11 / NUR 1 ; aucune EIC/BAV. La souveraineté palatine est établie, la correspondance locale sur le bitmap demeure incertaine ; pas de retrait arbitraire aux noyaux reçus ni de nouveau recalage. Les sept installations bavaroises antérieures restent en attente de leur test groupé, aucune attestation nouvelle. SC6 reste IN_PROGRESS, aucun report terminal approuvé ou point : 106/235 → 106/235, 45,11 % → 45,11 %, 36/81. Prochaine action : réception moteur groupée, sans nouveau territoire. [Rapport](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md).
+--- before/CLOSURE_CHECKLIST.md
++++ after/CLOSURE_CHECKLIST.md
+@@ -1,4 +1,12 @@
+ # Critères bloquants de clôture territoriale 1.0
++
++## Arbitrage Hilpoltstein / Heideck / Allersberg — 6 novembre 2026
++
++**Arbitrage rendu : maintien des contours de la livraison V1, sans nouvelle modification fonctionnelle.** Les trois offices sont historiquement palatins ; la projection conservée rencontre 12 cellules déjà reçues, ANS 11 / NUR 1, aucune EIC/BAV. Ce diagnostic ne démontre pas une correction exacte à installer. Aucun noyau validé déplacé, aucun recalage repris. Réserve historique conservée ; pas de conformité sans changement, de report approuvé ou de clôture régionale fictive. [Décision et preuves](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/REPORT.md).
++
++**106/235 = 45,11 %, 36/81**, inchangés. SC6-SWABIAN-ARBITRATIONS reste IN_PROGRESS ; ses six sous-lots KPF et Innbaiern restent IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION, sans reçu humain. Les archives et les 81 tâches / 235 points sont conservées.
++
++**Prochaine action : session moteur bavaroise groupée**, [protocole intégral](BAVARIA_SCHWANDORF_DANUBE_WEST_2026_11_05/PLAYER_TEST_PROTOCOL_GROUPED.md), [note de portée après arbitrage](BAVARIA_HILPOLTSTEIN_ARBITRATION_2026_11_06/PLAYER_TEST_PROTOCOL_NOTE.md). Aucun nouveau territoire commencé. Les réserves Hilpoltstein, Sulzbach occidental et périphéries de Passau/Autriche restent des obligations historiques séparées du test ; aucune exactitude intégrale bavaroise proclamée. Les encadrés datés antérieurs restent des archives et leurs anciennes prochaines actions sont remplacées par ce présent suivi.
+ 
+ ## Schwandorf / Reichertshofen / Danube occidental — 5 novembre 2026
+ 

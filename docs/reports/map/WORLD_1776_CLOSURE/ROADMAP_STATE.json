@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "scope_version": "1.0.3",
+  "scope_version": "1.0.4",
   "historical_date": "1776-01-01",
   "initialized_on": "2026-10-24",
-  "current_phase": "CENTRAL_ASIA_AUXILIARY",
+  "current_phase": "RUSSIA_AUXILIARY",
   "progress_model": {
     "technical_formula": "100 * STATIC_VERIFIED criteria / 320 fixed region-criteria; partial checks receive 0",
     "runtime_formula": "100 * USER_VALIDATED criteria / 320; no automatic human credit",
@@ -2320,6 +2320,20 @@
       "receipt": "CENTRAL-ASIA-01/FILES_DELIVERED.json",
       "runtime": "NOT_RUN",
       "credited_criteria": []
+    },
+    {
+      "id": "RUSSIA-01",
+      "date": "2026-11-07",
+      "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+      "auxiliary_scope_outside_legacy_denominator": true,
+      "native_RGBs_transferred": 344,
+      "existing_files_modified": 5,
+      "new_files": 7,
+      "new_TAGs": 1,
+      "population_delta": 0,
+      "receipt": "RUSSIA-01/FILES_DELIVERED.json",
+      "runtime": "NOT_RUN",
+      "credited_criteria": []
     }
   ],
   "progress": {
@@ -2330,10 +2344,10 @@
     "user_validated_percent": 0
   },
   "phase_transition_gate": {
-    "source": "CENTRAL-ASIA-01/USER_REQUEST.json",
+    "source": "RUSSIA-01/USER_REQUEST.json",
     "explicit_transition_authorized": true,
-    "authorized_next_phase": "CENTRAL_ASIA_AUXILIARY",
-    "rule": "Direct user request for Central Asia with Durrani concurrent work reserved.",
+    "authorized_next_phase": "RUSSIA_AUXILIARY",
+    "rule": "Direct user request after Ottoman pass; correction specifies decentralisation.",
     "authorization_is_full_canonical_V_validation": false,
     "partial_lot_tests_requested": false
   },
@@ -2364,15 +2378,22 @@
       "authority": "CENTRAL-ASIA-01/USER_REQUEST.json",
       "change": "Explicit Central Asian cartographic pass outside legacy regional scoring register; Durrani interfaces reserved.",
       "criteria_total_unchanged": 320
+    },
+    {
+      "version": "1.0.4",
+      "date": "2026-11-07",
+      "authority": "RUSSIA-01/USER_REQUEST.json",
+      "change": "Explicit Russian frontier decentralisation, including European interfaces and native1.15 Cossack access; auxiliary outside legacy320 criteria.",
+      "criteria_total_unchanged": 320
     }
   ],
   "current_steering": {
-    "date": "2026-10-29",
-    "authority": "CENTRAL-ASIA-01/USER_REQUEST.json",
-    "last_lot": "CENTRAL-ASIA-01",
-    "scope": "Central Asian territorial kernels, Durrani interface excluded",
-    "next_pass": "Grouped runtime checks; joint Darvaz/Badakhshan review only if explicitly assigned, no automatic new region",
-    "runtime_validation_timing": "GROUPED_CENTRAL_ASIA",
+    "date": "2026-11-07",
+    "authority": "RUSSIA-01/USER_REQUEST.json",
+    "last_lot": "RUSSIA-01",
+    "scope": "Russian frontier decentralisation, not incorporation-only changes",
+    "next_pass": "Grouped Russian runtime checks; no automatic new region",
+    "runtime_validation_timing": "GROUPED_RUSSIA",
     "intermediate_player_tests_requested": false,
     "full_V_credit": false
   },
@@ -2518,6 +2539,16 @@
       "scope": "Scandinavia including Finland, territorial boundaries and necessary POP reassignment",
       "next_pass": "Grouped Nordic runtime verification; documented fine-border limits only, no automatic new region",
       "runtime_validation_timing": "GROUPED_NORDIC",
+      "intermediate_player_tests_requested": false,
+      "full_V_credit": false
+    },
+    {
+      "date": "2026-10-29",
+      "authority": "CENTRAL-ASIA-01/USER_REQUEST.json",
+      "last_lot": "CENTRAL-ASIA-01",
+      "scope": "Central Asian territorial kernels, Durrani interface excluded",
+      "next_pass": "Grouped runtime checks; joint Darvaz/Badakhshan review only if explicitly assigned, no automatic new region",
+      "runtime_validation_timing": "GROUPED_CENTRAL_ASIA",
       "intermediate_player_tests_requested": false,
       "full_V_credit": false
     }

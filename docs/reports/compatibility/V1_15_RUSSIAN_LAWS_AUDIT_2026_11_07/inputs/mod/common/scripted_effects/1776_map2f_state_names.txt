@@ -1,0 +1,15 @@
+# State scope: override only the British and French parts of the split region.
+# Arcot's political name is independent of the geographic region's name.
+assign_1776_map2f_split_state_name = {
+	if = {
+		limit = { state_region = s:STATE_MADRAS is_split_state = yes }
+		if = {
+			limit = { owner = { OR = { c:BIC ?= this c:GBR ?= this } } }
+			set_state_name = aor1776_map2f_madras
+		}
+		else_if = {
+			limit = { owner = { c:FRA ?= this } }
+			set_state_name = aor1776_map2f_pondicherry
+		}
+	}
+}

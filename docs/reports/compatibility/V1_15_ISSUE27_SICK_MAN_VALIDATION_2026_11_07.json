@@ -1,0 +1,180 @@
+{
+  "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+  "runtime_tested": false,
+  "files": 1,
+  "journals": 8,
+  "legacy_fields_replaced": 26,
+  "outcomes": 17,
+  "errors": [],
+  "timeout_days": 10950,
+  "required_reforms": 4,
+  "negative_controls": [
+    {
+      "control": "changed timeout duration",
+      "detected": true,
+      "reason": "Non-conclusion fields changed"
+    },
+    {
+      "control": "removed timeout flag",
+      "detected": true,
+      "reason": "Timeout outcome must have exactly the timeout flag"
+    },
+    {
+      "control": "trigger added to timeout",
+      "detected": true,
+      "reason": "Timeout outcome must not have a trigger"
+    },
+    {
+      "control": "changed required reform count",
+      "detected": true,
+      "reason": "Non-conclusion fields changed"
+    },
+    {
+      "control": "lost timeout cultural cleanup",
+      "detected": true,
+      "reason": "Changed effect/order/cleanup: timeout"
+    },
+    {
+      "control": "changed country or journal scope",
+      "detected": true,
+      "reason": "Changed trigger/scope: complete"
+    },
+    {
+      "control": "visible invalidation",
+      "detected": true,
+      "reason": "Invalidation must be silent"
+    },
+    {
+      "control": "changed ownership criterion",
+      "detected": true,
+      "reason": "Changed trigger/scope: complete"
+    },
+    {
+      "control": "lost bureaucracy modifier cleanup",
+      "detected": true,
+      "reason": "Changed effect/order/cleanup: complete"
+    },
+    {
+      "control": "legacy field reintroduced",
+      "detected": true,
+      "reason": "Legacy conclusion remains"
+    }
+  ],
+  "mapping": [
+    {
+      "journal": "je_sick_man_main",
+      "original_line": 1,
+      "outcome_lines": [
+        10,
+        27
+      ],
+      "outcomes": [
+        "complete",
+        "timeout"
+      ]
+    },
+    {
+      "journal": "je_sick_man_syria",
+      "original_line": 96,
+      "outcome_lines": [
+        113,
+        175
+      ],
+      "outcomes": [
+        "complete",
+        "invalid"
+      ]
+    },
+    {
+      "journal": "je_sick_man_egypt",
+      "original_line": 184,
+      "outcome_lines": [
+        212,
+        241
+      ],
+      "outcomes": [
+        "complete",
+        "invalid"
+      ]
+    },
+    {
+      "journal": "je_sick_man_economy",
+      "original_line": 229,
+      "outcome_lines": [
+        268,
+        290
+      ],
+      "outcomes": [
+        "complete",
+        "invalid"
+      ]
+    },
+    {
+      "journal": "je_sick_man_education",
+      "original_line": 267,
+      "outcome_lines": [
+        317,
+        341
+      ],
+      "outcomes": [
+        "complete",
+        "invalid"
+      ]
+    },
+    {
+      "journal": "je_sick_man_separatism",
+      "original_line": 318,
+      "outcome_lines": [
+        379,
+        399,
+        421
+      ],
+      "outcomes": [
+        "complete",
+        "fail",
+        "invalid"
+      ]
+    },
+    {
+      "journal": "je_sick_man_army",
+      "original_line": 401,
+      "outcome_lines": [
+        479,
+        518
+      ],
+      "outcomes": [
+        "complete",
+        "invalid"
+      ]
+    },
+    {
+      "journal": "je_sick_man_bureaucracy",
+      "original_line": 464,
+      "outcome_lines": [
+        553,
+        580
+      ],
+      "outcomes": [
+        "complete",
+        "invalid"
+      ]
+    }
+  ],
+  "before_sha256": "c947cdd363b828346fee7b97b2d11268ee6019468e3fd8ea9d4124e1490e0afa",
+  "after_sha256": "0841ec570e277fdcb6cf8a6b0c61828747ba821fce438887c0e907777ab5c8b1",
+  "first_batch_regression": {
+    "status": "PASS_STATIC_ONLY",
+    "journals": 8,
+    "outcomes": 15
+  },
+  "remaining_legacy_fields": 1425,
+  "remaining_files": 170,
+  "local_installation": {
+    "active_playset": "hhhh",
+    "active_mod_count": 1,
+    "points_to_regular_local_workspace": true,
+    "all_prior_status_entries_preserved": true,
+    "game_launched": false,
+    "main_merged": false
+  }
+}

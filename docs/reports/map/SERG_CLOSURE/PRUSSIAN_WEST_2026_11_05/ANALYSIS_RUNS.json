@@ -1,0 +1,25 @@
+{
+  "scope": "Analysis only; no installation attempted",
+  "runs": [
+    {
+      "command": "python -B -X utf8 tools/serg_prussian_west.py geometry",
+      "result": "FAILED_BEFORE_CANDIDATE",
+      "exit_code": 1,
+      "error": "AssertionError: No defensible common interior",
+      "functional_writes": 0
+    },
+    {
+      "command": "python -B -X utf8 tools/serg_prussian_west.py geometry",
+      "result": "NO_GO_NATIVE_CORRESPONDENCE_EXPORTED",
+      "exit_code": 0,
+      "note": "Diagnostic export added after first failure; no native refit or outline enlargement",
+      "functional_writes": 0
+    },
+    {
+      "command": "python -B -X utf8 tools/serg_prussian_west.py geometry",
+      "result": "NO_GO_NATIVE_CORRESPONDENCE_EXPORTED_WITH_CURRENT_OWNER_COUNTS",
+      "exit_code": 0,
+      "functional_writes": 0
+    }
+  ]
+}

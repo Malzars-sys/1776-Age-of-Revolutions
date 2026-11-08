@@ -240,7 +240,17 @@ ottoman_1776_start_sick_man = {
 		# Vanilla initialization, but the independent administrative JE already
 		# models fiscal dysfunction: do NOT stack outmoded_bureaucracy on top.
 		add_modifier = { name = sick_man_of_europe months = -1 }
-		add_journal_entry = { type = je_sick_man_main }
+		# The visible inactive entry activates through eligibility. Keep a
+		# manual fallback only when no active or inactive instance exists.
+		if = {
+			limit = {
+				NOR = {
+					has_journal_entry = je_sick_man_main
+					has_inactive_journal_entry = je_sick_man_main
+				}
+			}
+			add_journal_entry = { type = je_sick_man_main }
+		}
 		add_journal_entry = { type = je_sick_man_syria }
 		add_journal_entry = { type = je_sick_man_economy }
 		add_journal_entry = { type = je_sick_man_education }

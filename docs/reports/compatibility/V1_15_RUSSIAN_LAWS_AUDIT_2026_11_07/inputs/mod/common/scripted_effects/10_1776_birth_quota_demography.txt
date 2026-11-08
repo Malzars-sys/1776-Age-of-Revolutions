@@ -1,0 +1,54 @@
+# Root is a country. Victory enables a permanent country bonus plus a regularly
+# refreshed state-level estimate, following the vanilla Montenegro pattern.
+refresh_birth_quota_demography = {
+	# Migrate the former modifier to a genuine amendment in existing saves.
+	if = {
+		limit = { has_modifier = birth_quota_housewife_wage_modifier }
+		if = {
+			limit = { has_law = law_type:law_birth_quotas }
+			active_law:lawgroup_rights_of_women ?= {
+				if = {
+					limit = {
+						NOT = { has_amendment = amendment_type:amendment_birth_quota_housewife_wage }
+					}
+					add_amendment = {
+						type = amendment_birth_quota_housewife_wage
+						sponsor = PREV.ig:ig_trade_unions
+					}
+				}
+			}
+		}
+		remove_modifier = birth_quota_housewife_wage_modifier
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_birth_quotas
+			has_variable = birth_quota_journal_victory
+		}
+		if = {
+			limit = { NOT = { has_modifier = birth_quota_demographic_victory_modifier } }
+			add_modifier = { name = birth_quota_demographic_victory_modifier }
+		}
+		every_scope_state = {
+			if = {
+				limit = { has_modifier = birth_quota_demographic_countermodifier }
+				remove_modifier = birth_quota_demographic_countermodifier
+			}
+			add_modifier = {
+				name = birth_quota_demographic_countermodifier
+				multiplier = birth_quota_total_counterweight
+				days = 45
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = { has_modifier = birth_quota_demographic_victory_modifier }
+			remove_modifier = birth_quota_demographic_victory_modifier
+		}
+		every_scope_state = {
+			limit = { has_modifier = birth_quota_demographic_countermodifier }
+			remove_modifier = birth_quota_demographic_countermodifier
+		}
+	}
+}

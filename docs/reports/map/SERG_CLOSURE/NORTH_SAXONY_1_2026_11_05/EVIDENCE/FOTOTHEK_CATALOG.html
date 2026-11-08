@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Status - Proof-of-Work</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .maintenance-box {
+        background: #fff;
+        border: 2px dashed #888;
+        border-radius: 8px;
+        padding: 2rem 3rem;
+        max-width: 480px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .spinner {
+        width: 42px;
+        height: 42px;
+        border: 4px solid #ccc;
+        border-top-color: #666;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .message {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .message-sec {
+        font-size: 0.95rem;
+        color: #666;
+    }
+
+    .error {
+        color: #c00;
+        font-weight: bold;
+    }
+
+    .main-content {
+        display: none;
+        padding: 2rem;
+    }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div id="maintenance" class="maintenance-box">
+        <div id="errorIcon" style="display:none; font-size:48px; margin-bottom:15px; color:#c00;">⚠️</div>
+        <div id="spinner" class="spinner"></div>
+        <div id="msgPrimary" class="message"></div>
+        <div id="msgSecondary" class="message-sec"></div>
+    </div>
+</div>
+<script>
+    // Nachrichten in verschiedenen Sprachen
+    const messages = {
+        de: {
+            waiting: {
+                primary: "Wir bereiten Ihre Anfrage vor...",
+                secondary: "Gleich geht es weiter."
+            },
+            error: {
+                primary: "Proof of Work fehlgeschlagen!",
+                secondary: "Bitte versuchen Sie es erneut."
+            }
+        },
+        en: {
+            waiting: {
+                primary: "We are preparing your request...",
+                secondary: "We will continue shortly."
+            },
+            error: {
+                primary: "Proof of Work failed!",
+                secondary: "Please try again."
+            }
+        },
+		it: {
+            waiting: {
+                primary: "Stiamo preparando la sua richiesta...",
+                secondary: "A breve si prosegue."
+            },
+            error: {
+                primary: "Proof-of-Work fallito!",
+                secondary: "La preghiamo di riprovare."
+            }
+        }
+    };
+
+    // Sprache erkennen
+    function detectLanguage() {
+        const candidates = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+        const normalized = candidates.map(c => c.toLowerCase().split('-')[0]);
+        for (const lang of normalized) {
+            if (messages[lang]) return lang;
+        }
+        return 'en';
+    }
+
+    // Status der Anzeige setzen
+    function setMessage(type) {
+        const lang = detectLanguage();
+        const msg = messages[lang][type];
+        document.getElementById('msgPrimary').innerText = msg.primary;
+        document.getElementById('msgSecondary').innerText = msg.secondary;
+
+        // Spinner nur anzeigen, wenn type = 'waiting'
+        document.getElementById('spinner').style.display = (type === 'waiting') ? 'block' : 'none';
+
+        // Error Icon nur bei 'error'
+        document.getElementById('errorIcon').style.display = (type === 'error') ? 'block' : 'none';
+
+        // Rot färben bei Error
+        if (type === 'error') {
+            document.getElementById('msgPrimary').classList.add('error');
+        } else {
+            document.getElementById('msgPrimary').classList.remove('error');
+        }
+    }
+
+    setMessage('waiting');
+
+    (async function() {
+        const challenge = {"nonce":"1376bd9ab53d751afdccce2fb8de0f74","ts":1793838348,"difficulty":1,"challenge":"eyJub25jZSI6IjEzNzZiZDlhYjUzZDc1MWFmZGNjY2UyZmI4ZGUwZjc0IiwidHMiOjE3OTM4MzgzNDgsImRpZmZpY3VsdHkiOjEsInR0bCI6MTIwfQ","sig":"b16300b3d8d2fd973a4f0d9b1012688a859549e4508cdd57c09dacc974ca6cd2"};
+
+        async function sha256(message) {
+            const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(message));
+            return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+        }
+
+        async function solve(nonce, ts, difficulty) {
+            let sol = 0, hash = '';
+            do {
+                hash = await sha256(nonce + ts + sol);
+                sol++;
+            } while (!hash.startsWith('0'.repeat(difficulty)));
+            return sol - 1;
+        }
+
+        const solution = await solve(challenge.nonce, challenge.ts, challenge.difficulty);
+
+        const res = await fetch(window.location.href, {
+            method: 'POST',
+            headers: {'Content-Type':'application/x-www-form-urlencoded'},
+            body: new URLSearchParams({
+                solution,
+                challenge: challenge.challenge,
+                sig: challenge.sig
+            })
+        });
+        const result = await res.json();
+
+        if (result.status === 'ok') {
+            // Cookie gesetzt -> Seite neu laden
+            window.location.reload();
+        } else {
+            setMessage('error');
+        }
+    })();
+</script>
+</body>
+</html>

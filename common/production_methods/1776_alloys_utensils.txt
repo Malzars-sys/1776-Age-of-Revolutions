@@ -76,16 +76,15 @@ pm_aor1776_industrial_utensils = {
 	}
 }
 
-# Optional alternative to iron cannons: same base cost, jobs and artillery output.
+# Prepared-alloy alternative: less metal and higher output, with unchanged employment.
 pm_aor1776_bronze_artillery = {
 	texture = "gfx/interface/icons/production_method_icons/artillery_production.dds"
 	unlocking_technologies = { standardized_field_artillery alloysworking }
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_iron_add = 10
 			goods_input_hardwood_add = 10
 			goods_input_alloys_add = 4
-			goods_output_artillery_add = 25
+			goods_output_artillery_add = 30
 		}
 		level_scaled = {
 			building_employment_shopkeepers_add = 500

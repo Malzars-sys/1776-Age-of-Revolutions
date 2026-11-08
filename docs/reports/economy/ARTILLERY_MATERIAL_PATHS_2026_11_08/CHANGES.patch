@@ -1,0 +1,112 @@
+--- a/common/production_methods/1776_alloys_utensils.txt
++++ b/common/production_methods/1776_alloys_utensils.txt
+@@ -76,16 +76,15 @@
+ 	}
+ }
+ 
+-# Optional alternative to iron cannons: same base cost, jobs and artillery output.
++# Prepared-alloy alternative: less metal and higher output, with unchanged employment.
+ pm_aor1776_bronze_artillery = {
+ 	texture = "gfx/interface/icons/production_method_icons/artillery_production.dds"
+ 	unlocking_technologies = { standardized_field_artillery alloysworking }
+ 	building_modifiers = {
+ 		workforce_scaled = {
+-			goods_input_iron_add = 10
+ 			goods_input_hardwood_add = 10
+ 			goods_input_alloys_add = 4
+-			goods_output_artillery_add = 25
++			goods_output_artillery_add = 30
+ 		}
+ 		level_scaled = {
+ 			building_employment_shopkeepers_add = 500
+--- a/common/production_methods/01_industry.txt
++++ b/common/production_methods/01_industry.txt
+@@ -2719,7 +2719,6 @@
+ 			# input goods
+ 			goods_input_iron_add = 20
+ 			goods_input_hardwood_add = 15
+-			goods_input_alloys_add = 5
+ 
+ 			# output goods
+ 			goods_output_artillery_add = 45
+--- a/common/production_methods/1776_v115_bronze_artillery.txt
++++ b/common/production_methods/1776_v115_bronze_artillery.txt
+@@ -48,3 +48,22 @@
+ 		}
+ 	}
+ }
++
++# Prepared alloys are a separate material route, not an extra input for iron guns.
++pm_aor1776_bronze_smoothbores = {
++	texture = "gfx/interface/icons/production_method_icons/smoothbores.dds"
++	unlocking_technologies = { shell_gun alloysworking }
++	building_modifiers = {
++		workforce_scaled = {
++			goods_input_alloys_add = 7
++			goods_input_hardwood_add = 15
++			goods_output_artillery_add = 55
++		}
++		level_scaled = {
++			building_employment_shopkeepers_add = 500
++			building_employment_laborers_add = 3250
++			building_employment_machinists_add = 1000
++			building_employment_engineers_add = 250
++		}
++	}
++}
+--- a/common/production_method_groups/01_industry.txt
++++ b/common/production_method_groups/01_industry.txt
+@@ -345,6 +345,7 @@
+ 		pm_aor1776_bronze_artillery
+ 		pm_smoothbores
+ 		pm_bronze_smoothbores
++		pm_aor1776_bronze_smoothbores
+ 		pm_breech_loaders
+ 		pm_recoiled_barrels
+ 	}
+--- a/localization/french/1776_alloys_utensils_l_french.yml
++++ b/localization/french/1776_alloys_utensils_l_french.yml
+@@ -10,8 +10,8 @@
+  pm_aor1776_machined_utensils_desc:0 "Les tours et les outils mécaniques façonnent des pièces régulières en acier, en cuivre et en alliage. Le plomb sert aux poids et aux garnitures de petits objets domestiques."
+  pm_aor1776_industrial_utensils:0 "Quincaillerie industrialisée"
+  pm_aor1776_industrial_utensils_desc:0 "Des ateliers spécialisés fabriquent en série des ustensiles en aluminium, des accessoires en acier et des objets en cuivre ou en alliage. Des poids en plomb complètent leur assortiment."
+- pm_aor1776_bronze_artillery:0 "Artillerie en bronze"
+- pm_aor1776_bronze_artillery_desc:0 "Les fondeurs coulent les tubes des canons en bronze. Les affûts et leurs ferrures emploient du bois dur et du fer."
++ pm_aor1776_bronze_artillery:0 "Canons de bronze (alliages)"
++ pm_aor1776_bronze_artillery_desc:0 "Les fondeurs coulent les tubes à partir d’alliages préparés. Les affûts emploient du bois dur ; les charges de métal mieux maîtrisées permettent de produire davantage de pièces."
+  aor1776_hardware:0 "Quincaillerie"
+  aor1776_hardware_desc:0 "Ustensiles, ferrures, couverts et petits objets métalliques d'usage courant dans les foyers et les ateliers."
+  goods_output_aor1776_hardware_add:0 "Production de quincaillerie @aor1776_hardware!"
+--- a/localization/english/1776_alloys_utensils_l_english.yml
++++ b/localization/english/1776_alloys_utensils_l_english.yml
+@@ -10,8 +10,8 @@
+  pm_aor1776_machined_utensils_desc:0 "Lathes and mechanical tools shape uniform steel, copper and alloy parts. Lead supplies weights and fittings for small household objects."
+  pm_aor1776_industrial_utensils:0 "Industrial Hardware"
+  pm_aor1776_industrial_utensils_desc:0 "Specialized workshops turn out aluminium utensils, steel accessories and copper or alloy objects in series. Lead weights complete their assortment."
+- pm_aor1776_bronze_artillery:0 "Bronze Artillery"
+- pm_aor1776_bronze_artillery_desc:0 "Founders cast bronze gun barrels. The carriages and their fittings use hardwood and iron."
++ pm_aor1776_bronze_artillery:0 "Bronze Cannons (Prepared Alloys)"
++ pm_aor1776_bronze_artillery_desc:0 "Founders cast gun barrels from prepared alloys. Hardwood supplies the carriages, while controlled metal charges allow more guns to be produced."
+  aor1776_hardware:0 "Hardware"
+  aor1776_hardware_desc:0 "Utensils, fittings, cutlery and small metal objects used daily in households and workshops."
+  goods_output_aor1776_hardware_add:0 "@aor1776_hardware! Hardware output"
+--- /dev/null
++++ b/localization/french/replace/1776_artillery_materials_l_french.yml
+@@ -0,0 +1,7 @@
++l_french:
++ pm_cannons:0 "Canons en fer"
++ pm_bronze_cannons:0 "Canons de bronze (cuivre)"
++ pm_smoothbores:0 "Canons lisses en fer"
++ pm_bronze_smoothbores:0 "Canons lisses de bronze (cuivre)"
++ pm_aor1776_bronze_smoothbores:0 "Canons lisses de bronze (alliages)"
++ pm_aor1776_bronze_smoothbores_desc:0 "Les tubes lisses sont coulés à partir d’alliages préparés, puis montés sur des affûts en bois dur. La préparation du métal réduit les besoins des fonderies et accroît le nombre de pièces produites."
+--- /dev/null
++++ b/localization/english/replace/1776_artillery_materials_l_english.yml
+@@ -0,0 +1,7 @@
++l_english:
++ pm_cannons:0 "Iron Cannons"
++ pm_bronze_cannons:0 "Bronze Cannons (Copper)"
++ pm_smoothbores:0 "Iron Smoothbores"
++ pm_bronze_smoothbores:0 "Bronze Smoothbores (Copper)"
++ pm_aor1776_bronze_smoothbores:0 "Bronze Smoothbores (Prepared Alloys)"
++ pm_aor1776_bronze_smoothbores_desc:0 "Smoothbore barrels are cast from prepared alloys and mounted on hardwood carriages. Preparing the metal reduces the foundry’s material needs and increases the number of guns produced."

@@ -1003,7 +1003,7 @@ BUILDINGS={
 							add_ownership={
 								country={
 									country="c:GBR"
-									levels=12
+									levels=4
 								}
 							}
 							reserves=1
@@ -2613,7 +2613,7 @@ BUILDINGS={
 					}
 				}
 				reserves = 1
-				activate_production_methods = { "pm_no_fertilizer_production" "pm_lead_chamber_process" "pm_no_pharmaceutical_production" }
+				activate_production_methods = { "pm_artificial_fertilizers" "pm_lead_chamber_process" "pm_no_pharmaceutical_production" }
 			}
 			create_building={
 				building="building_government_administration"
@@ -5699,7 +5699,7 @@ create_building={
 								building={
 									type="building_financial_district"
 									country="c:PRU"
-									levels=5
+									levels = 4
 									region="STATE_BRANDENBURG"
 								}
 							}
@@ -5707,6 +5707,22 @@ create_building={
 							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
 						}
 
+		}
+
+		region_state:SAX = {
+create_building={
+							building="building_railway"
+							add_ownership={
+								building={
+									type="building_financial_district"
+									country="c:PRU"
+									levels = 1
+									region="STATE_BRANDENBURG"
+								}
+							}
+							reserves=1
+							activate_production_methods = { "pm_traditional_road_network" "pm_industrial_canals" "pm_no_rail_network" "pm_no_passenger_trains" }
+						}
 		}
 	}
 	s:STATE_SCHLESWIG_HOLSTEIN={

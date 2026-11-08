@@ -1,0 +1,12 @@
+state_has_active_rail_network = {
+	has_building = building_railway
+
+	any_scope_building = {
+		is_building_type = building_railway
+		level >= 1
+
+		NOT = {
+			has_active_production_method = pm_no_rail_network
+		}
+	}
+}

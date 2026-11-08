@@ -1,0 +1,13 @@
+# The rapprochement of 1775 is temporary, not a permanent alliance or subject pact.
+# 24 months is a gameplay duration, not a claimed historical treaty expiration.
+DIPLOMACY = {
+ c:DAI ?= {
+  set_relations = { country = c:TSN value = 20 }
+  create_bidirectional_truce = { country = c:TSN months = 24 }
+ }
+ c:TSN ?= {
+  set_relations = { country = c:NGN value = -60 }
+  create_diplomatic_pact = { country = c:NGN type = rivalry }
+ }
+ c:NGN ?= { create_diplomatic_pact = { country = c:TSN type = rivalry } }
+}

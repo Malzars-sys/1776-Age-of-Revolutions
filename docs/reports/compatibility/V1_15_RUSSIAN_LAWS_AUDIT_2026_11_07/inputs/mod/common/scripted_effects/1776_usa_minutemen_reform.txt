@@ -1,0 +1,23 @@
+aor1776_minutemen_reorganization_offer_effect = {
+ if = {
+  limit = { aor1776_minutemen_reform_can_offer = yes }
+  set_variable = { name = aor1776_minutemen_reform_event_pending days = 45 }
+  trigger_event = { id = aor1776_usa_minutemen_reorganization.1 popup = yes }
+ }
+}
+
+aor1776_minutemen_reorganization_begin_effect = {
+ if = {
+  limit = { aor1776_minutemen_reform_can_begin = yes }
+  start_enactment = law_type:law_aor1776_reorganized_militia
+  set_variable = aor1776_minutemen_reform_resolved
+  set_variable = { name = aor1776_minutemen_reform_choice value = 1 }
+  remove_variable = aor1776_minutemen_reform_event_pending
+ }
+}
+
+aor1776_minutemen_reorganization_keep_effect = {
+ set_variable = aor1776_minutemen_reform_resolved
+ set_variable = { name = aor1776_minutemen_reform_choice value = 2 }
+ remove_variable = aor1776_minutemen_reform_event_pending
+}

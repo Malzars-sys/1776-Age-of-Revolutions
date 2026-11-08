@@ -1,0 +1,6 @@
+on_game_started = { on_actions = { aor1776_bv_innbaiern_initialize } }
+on_game_started_after_lobby = { on_actions = { aor1776_bv_innbaiern_initialize } }
+on_state_created = { on_actions = { aor1776_bv_innbaiern_changed } }
+on_state_owner_change = { on_actions = { aor1776_bv_innbaiern_changed } }
+aor1776_bv_innbaiern_initialize = { effect = { every_state = { assign_aor1776_bv_innbaiern_name = yes } } }
+aor1776_bv_innbaiern_changed = { effect = { assign_aor1776_bv_innbaiern_name = yes } }

@@ -1,0 +1,103 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "passed": 16,
+  "total": 16,
+  "errors": [],
+  "checks": [
+    {
+      "check": "common/laws/00_navy_model.txt.no_removed_key",
+      "passed": true
+    },
+    {
+      "check": "common/laws/00_navy_model.txt.site_count",
+      "passed": true
+    },
+    {
+      "check": "common/laws/00_navy_model.txt.other_tokens_unchanged",
+      "passed": true
+    },
+    {
+      "check": "common/laws/00_navy_model.txt.syntax",
+      "passed": true
+    },
+    {
+      "check": "law_merchant_navy.signed_multiplier",
+      "passed": true
+    },
+    {
+      "check": "law_diplomatic_navy.signed_multiplier",
+      "passed": true
+    },
+    {
+      "check": "common/power_bloc_principles/00_power_bloc_principles.txt.no_removed_key",
+      "passed": true
+    },
+    {
+      "check": "common/power_bloc_principles/00_power_bloc_principles.txt.site_count",
+      "passed": true
+    },
+    {
+      "check": "common/power_bloc_principles/00_power_bloc_principles.txt.other_tokens_unchanged",
+      "passed": true
+    },
+    {
+      "check": "common/power_bloc_principles/00_power_bloc_principles.txt.syntax",
+      "passed": true
+    },
+    {
+      "check": "principle_navy_1.signed_multiplier",
+      "passed": true
+    },
+    {
+      "check": "principle_navy_2.signed_multiplier",
+      "passed": true
+    },
+    {
+      "check": "principle_navy_3.signed_multiplier",
+      "passed": true
+    },
+    {
+      "check": "common/modifier_type_definitions/00_modifier_types.txt.effective_provider",
+      "passed": true
+    },
+    {
+      "check": "localization/english/modifiers_l_english.yml.effective_provider",
+      "passed": true
+    },
+    {
+      "check": "localization/french/modifiers_l_french.yml.effective_provider",
+      "passed": true
+    }
+  ],
+  "engine_tested": false,
+  "negative_controls": [
+    {
+      "case": "law_merchant_navy.wrong_additive_unit",
+      "detected": true
+    },
+    {
+      "case": "law_diplomatic_navy.wrong_additive_unit",
+      "detected": true
+    },
+    {
+      "case": "merchant_navy_penalty_reversed",
+      "detected": true
+    },
+    {
+      "case": "principle_navy_1.wrong_additive_unit",
+      "detected": true
+    },
+    {
+      "case": "principle_navy_2.wrong_additive_unit",
+      "detected": true
+    },
+    {
+      "case": "principle_navy_3.wrong_additive_unit",
+      "detected": true
+    },
+    {
+      "case": "unrelated_flagship_modifier_changed",
+      "detected": true
+    }
+  ]
+}
