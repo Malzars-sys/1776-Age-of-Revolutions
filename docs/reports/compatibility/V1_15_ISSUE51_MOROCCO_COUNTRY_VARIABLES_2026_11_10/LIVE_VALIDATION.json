@@ -1,0 +1,393 @@
+{
+  "status": "PASS_SCOPED_STATIC_ONLY",
+  "mode": "live",
+  "checks": [
+    {
+      "name": "parse_and_selected_entry",
+      "passed": true
+    },
+    {
+      "name": "exact_six_prefix_patch",
+      "passed": true
+    },
+    {
+      "name": "all_other_bytes_reversible",
+      "passed": true
+    },
+    {
+      "name": "BOM_preserved",
+      "passed": true
+    },
+    {
+      "name": "six_readers_three_per_phase",
+      "passed": true
+    },
+    {
+      "name": "each_variable_in_both_phases",
+      "passed": true
+    },
+    {
+      "name": "readers_are_state_nested",
+      "passed": true
+    },
+    {
+      "name": "country_writers_preserved",
+      "passed": true
+    },
+    {
+      "name": "six_writers_not_state_nested",
+      "passed": true
+    },
+    {
+      "name": "initial_values_remain_260",
+      "passed": true
+    },
+    {
+      "name": "monthly_bar_sources_match_native",
+      "passed": true
+    },
+    {
+      "name": "all_outcomes_preserved",
+      "passed": true
+    },
+    {
+      "name": "DLC_and_lobby_preserved",
+      "passed": true
+    },
+    {
+      "name": "initial.al_rif_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "name": "initial.al_rif_progress_bar_current_var.native_multiplier_payload",
+      "passed": true
+    },
+    {
+      "name": "initial.marrakech_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "name": "initial.marrakech_progress_bar_current_var.native_multiplier_payload",
+      "passed": true
+    },
+    {
+      "name": "initial.inner_morocco_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "name": "initial.inner_morocco_progress_bar_current_var.native_multiplier_payload",
+      "passed": true
+    },
+    {
+      "name": "monthly.al_rif_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "name": "monthly.al_rif_progress_bar_current_var.native_multiplier_payload",
+      "passed": true
+    },
+    {
+      "name": "monthly.marrakech_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "name": "monthly.marrakech_progress_bar_current_var.native_multiplier_payload",
+      "passed": true
+    },
+    {
+      "name": "monthly.inner_morocco_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "name": "monthly.inner_morocco_progress_bar_current_var.native_multiplier_payload",
+      "passed": true
+    },
+    {
+      "name": "state_absent_or_conflicting_values_ignored",
+      "passed": true
+    }
+  ],
+  "cases": [
+    {
+      "case": "initial.al_rif_progress_bar_current_var",
+      "country_value": 260,
+      "state_value": null,
+      "multiplier": "2.55",
+      "expected": "2.55",
+      "passed": true
+    },
+    {
+      "case": "initial.marrakech_progress_bar_current_var",
+      "country_value": 260,
+      "state_value": null,
+      "multiplier": "2.55",
+      "expected": "2.55",
+      "passed": true
+    },
+    {
+      "case": "initial.inner_morocco_progress_bar_current_var",
+      "country_value": 260,
+      "state_value": null,
+      "multiplier": "2.55",
+      "expected": "2.55",
+      "passed": true
+    },
+    {
+      "case": "monthly.al_rif_progress_bar_current_var",
+      "country_value": 400,
+      "state_value": 999,
+      "multiplier": "1.15",
+      "expected": "1.15",
+      "passed": true
+    },
+    {
+      "case": "monthly.marrakech_progress_bar_current_var",
+      "country_value": 100,
+      "state_value": 999,
+      "multiplier": "4.15",
+      "expected": "4.15",
+      "passed": true
+    },
+    {
+      "case": "monthly.inner_morocco_progress_bar_current_var",
+      "country_value": 515,
+      "state_value": 999,
+      "multiplier": "0.00",
+      "expected": "0.00",
+      "passed": true
+    }
+  ],
+  "controls": [
+    {
+      "case": "wrong_scope.initial.al_rif_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "case": "wrong_scope.initial.marrakech_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "case": "wrong_scope.initial.inner_morocco_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "case": "wrong_scope.monthly.al_rif_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "case": "wrong_scope.monthly.marrakech_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "case": "wrong_scope.monthly.inner_morocco_progress_bar_current_var.explicit_country_root",
+      "passed": true
+    },
+    {
+      "case": "wrong_coefficient",
+      "passed": true
+    },
+    {
+      "case": "unrelated_outcome",
+      "passed": true
+    }
+  ],
+  "readers": [
+    {
+      "variable": "al_rif_progress_bar_current_var",
+      "expression": "root.var:al_rif_progress_bar_current_var",
+      "phase": "initial",
+      "state_nested": true,
+      "line": 36
+    },
+    {
+      "variable": "marrakech_progress_bar_current_var",
+      "expression": "root.var:marrakech_progress_bar_current_var",
+      "phase": "initial",
+      "state_nested": true,
+      "line": 53
+    },
+    {
+      "variable": "inner_morocco_progress_bar_current_var",
+      "expression": "root.var:inner_morocco_progress_bar_current_var",
+      "phase": "initial",
+      "state_nested": true,
+      "line": 70
+    },
+    {
+      "variable": "al_rif_progress_bar_current_var",
+      "expression": "root.var:al_rif_progress_bar_current_var",
+      "phase": "monthly",
+      "state_nested": true,
+      "line": 96
+    },
+    {
+      "variable": "marrakech_progress_bar_current_var",
+      "expression": "root.var:marrakech_progress_bar_current_var",
+      "phase": "monthly",
+      "state_nested": true,
+      "line": 108
+    },
+    {
+      "variable": "inner_morocco_progress_bar_current_var",
+      "expression": "root.var:inner_morocco_progress_bar_current_var",
+      "phase": "monthly",
+      "state_nested": true,
+      "line": 121
+    }
+  ],
+  "writers": [
+    {
+      "variable": "al_rif_progress_bar_current_var",
+      "value": "260",
+      "phase": "initial",
+      "state_nested": false,
+      "payload": [
+        [
+          "set_variable",
+          "=",
+          [
+            [
+              "name",
+              "=",
+              "al_rif_progress_bar_current_var"
+            ],
+            [
+              "value",
+              "=",
+              "260"
+            ]
+          ]
+        ]
+      ],
+      "line": 23
+    },
+    {
+      "variable": "inner_morocco_progress_bar_current_var",
+      "value": "260",
+      "phase": "initial",
+      "state_nested": false,
+      "payload": [
+        [
+          "set_variable",
+          "=",
+          [
+            [
+              "name",
+              "=",
+              "inner_morocco_progress_bar_current_var"
+            ],
+            [
+              "value",
+              "=",
+              "260"
+            ]
+          ]
+        ]
+      ],
+      "line": 24
+    },
+    {
+      "variable": "marrakech_progress_bar_current_var",
+      "value": "260",
+      "phase": "initial",
+      "state_nested": false,
+      "payload": [
+        [
+          "set_variable",
+          "=",
+          [
+            [
+              "name",
+              "=",
+              "marrakech_progress_bar_current_var"
+            ],
+            [
+              "value",
+              "=",
+              "260"
+            ]
+          ]
+        ]
+      ],
+      "line": 25
+    },
+    {
+      "variable": "al_rif_progress_bar_current_var",
+      "value": "\"scope:journal_entry.scripted_bar_progress(lands_of_anarchy_tribes_of_al_rif_bar)\"",
+      "phase": "monthly",
+      "state_nested": false,
+      "payload": [
+        [
+          "set_variable",
+          "=",
+          [
+            [
+              "name",
+              "=",
+              "al_rif_progress_bar_current_var"
+            ],
+            [
+              "value",
+              "=",
+              "\"scope:journal_entry.scripted_bar_progress(lands_of_anarchy_tribes_of_al_rif_bar)\""
+            ]
+          ]
+        ]
+      ],
+      "line": 91
+    },
+    {
+      "variable": "marrakech_progress_bar_current_var",
+      "value": "\"scope:journal_entry.scripted_bar_progress(lands_of_anarchy_tribes_of_marrakech_bar)\"",
+      "phase": "monthly",
+      "state_nested": false,
+      "payload": [
+        [
+          "set_variable",
+          "=",
+          [
+            [
+              "name",
+              "=",
+              "marrakech_progress_bar_current_var"
+            ],
+            [
+              "value",
+              "=",
+              "\"scope:journal_entry.scripted_bar_progress(lands_of_anarchy_tribes_of_marrakech_bar)\""
+            ]
+          ]
+        ]
+      ],
+      "line": 103
+    },
+    {
+      "variable": "inner_morocco_progress_bar_current_var",
+      "value": "\"scope:journal_entry.scripted_bar_progress(lands_of_anarchy_tribes_of_inner_morocco_bar)\"",
+      "phase": "monthly",
+      "state_nested": false,
+      "payload": [
+        [
+          "set_variable",
+          "=",
+          [
+            [
+              "name",
+              "=",
+              "inner_morocco_progress_bar_current_var"
+            ],
+            [
+              "value",
+              "=",
+              "\"scope:journal_entry.scripted_bar_progress(lands_of_anarchy_tribes_of_inner_morocco_bar)\""
+            ]
+          ]
+        ]
+      ],
+      "line": 116
+    }
+  ],
+  "sha256": "f62b2c49a31e57129ef309ea018ffe08c5d354c866b5a8b866e3514fa893f8dc",
+  "engine_tested": false,
+  "limits": "Explicit source contract and six country/state fixtures; no engine simulation or transferred-state cleanup certification."
+}

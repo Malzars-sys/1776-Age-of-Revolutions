@@ -1,0 +1,174 @@
+pm_no_industrial_chemicals = {
+	texture = "gfx/interface/icons/production_method_icons/tech_and_res_disabled.dds"
+}
+
+pm_lead_chamber_process = {
+	texture = "gfx/interface/icons/production_method_icons/ammonia_soda_process.dds" # Three chambers match the lead-chamber process.
+	is_default = yes
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 15
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_sulfur_add = 10
+    	    goods_input_coal_add = 10
+    		goods_input_tools_add = 5
+    		goods_input_lead_add = 5
+			goods_output_industrial_chemicals_add = 40
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 3000
+			building_employment_machinists_add = 1000
+			building_employment_engineers_add = 500
+		}
+
+		unscaled = {
+			building_laborers_mortality_mult = 0.10
+			building_machinists_mortality_mult = 0.05
+			building_engineers_mortality_mult = 0.02
+		}
+	}
+}
+
+pm_leblanc_alkali_process = {
+	texture = "gfx/interface/icons/production_method_icons/leblanc_process.dds" # Retort and distillate match the Leblanc process.
+
+	unlocking_technologies = {
+		industrial_alkalis
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 20
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_salt_add = 15
+			goods_input_limestone_add = 15
+			goods_input_sulfur_add = 15
+			goods_input_coal_add = 15
+			goods_input_tools_add = 5
+			goods_output_industrial_chemicals_add = 70
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 2500
+			building_employment_machinists_add = 1250
+			building_employment_engineers_add = 750
+		}
+
+		unscaled = {
+			building_laborers_mortality_mult = 0.15
+			building_machinists_mortality_mult = 0.10
+			building_engineers_mortality_mult = 0.05
+		}
+	}
+}
+
+pm_chemical_bleaching_textile_mill = {
+	texture = "gfx/interface/icons/production_method_icons/1776_textile_bleaching.dds"
+
+	unlocking_technologies = {
+		chemical_bleaching
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_pollution_generation_add = 5
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Base-price gross margin before wages: 1300.
+			goods_input_fabric_add = 40
+			goods_input_dye_add = 5
+			goods_input_industrial_chemicals_add = 10
+			goods_output_clothes_add = 90
+		}
+
+		level_scaled = {
+			building_employment_shopkeepers_add = 500
+			building_employment_laborers_add = 3500
+			building_employment_machinists_add = 750
+			building_employment_engineers_add = 250
+		}
+	}
+}
+
+pm_solvay_process_building_chemical_works = {
+    texture = "gfx/interface/icons/production_method_icons/1776_solvay_process.dds"
+
+    unlocking_technologies = {
+        nitroglycerin
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_pollution_generation_add = 15
+        }
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            goods_input_salt_add = 25
+            goods_input_limestone_add = 25
+            goods_input_sulfur_add = 20
+            goods_input_coal_add = 10
+            goods_input_tools_add = 5
+
+            goods_output_industrial_chemicals_add = 80
+        }
+
+        level_scaled = {
+            building_employment_shopkeepers_add = 500
+            building_employment_laborers_add = 2000
+            building_employment_machinists_add = 1500
+            building_employment_engineers_add = 1000
+        }
+    }
+}
+
+pm_brine_electrolysis_building_chemical_works = {
+    texture = "gfx/interface/icons/production_method_icons/vaccum_brine_electrolysis.dds"
+
+    unlocking_technologies = {
+        electrical_capacitors
+    }
+
+    state_modifiers = {
+        workforce_scaled = {
+            state_pollution_generation_add = 20
+        }
+    }
+
+    building_modifiers = {
+        workforce_scaled = {
+            goods_input_salt_add = 30
+            goods_input_limestone_add = 10
+            goods_input_sulfur_add = 25
+            goods_input_electricity_add = 25
+            goods_input_tools_add = 10
+
+            goods_output_industrial_chemicals_add = 100
+        }
+
+        level_scaled = {
+            building_employment_shopkeepers_add = 500
+            building_employment_laborers_add = 1000
+            building_employment_machinists_add = 1500
+            building_employment_engineers_add = 2000
+        }
+    }
+
+    required_input_goods = electricity
+}

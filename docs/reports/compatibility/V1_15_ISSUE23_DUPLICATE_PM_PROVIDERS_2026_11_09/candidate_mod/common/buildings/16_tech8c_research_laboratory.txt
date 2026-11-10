@@ -1,0 +1,34 @@
+# TECH8C: public, extensible research capacity, not a source of innovation points.
+building_research_laboratory = {
+	building_group = bg_technology
+	city_type = city
+	levels_per_mesh = 50
+	expandable = yes
+	downsizeable = yes
+	required_construction = construction_cost_1776_research_laboratory
+
+	unlocking_technologies = { experimental_research_laboratories }
+
+	production_method_groups = {
+		pmg_1776_research_laboratory_equipment
+		pmg_1776_research_laboratory_specialization
+	}
+
+	can_build_private = { always = no }
+
+	icon = "gfx/interface/icons/building_icons/1776_research_laboratory.dds"
+	background = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_monuments.dds"
+
+	# Conservative prototype priority: no forced construction or global site limit.
+	# Zero innovation-cap AI valuation in the engine requires runtime checks.
+	ai_value = {
+		value = 0
+		if = {
+			limit = {
+				has_building = building_university
+				owner = { gold_reserves > 0 }
+			}
+			add = 1500
+		}
+	}
+}

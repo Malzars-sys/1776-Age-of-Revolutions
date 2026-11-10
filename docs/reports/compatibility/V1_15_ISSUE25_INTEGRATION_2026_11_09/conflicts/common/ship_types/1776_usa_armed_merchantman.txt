@@ -1,0 +1,63 @@
+﻿# Armed cargo sailing vessel; transport and escort rather than battle-line combat.
+ship_type_aor1776_armed_merchantman = {
+<<<<<<< WORKSPACE
+    ship_group = ship_group_cruisers
+    ai_ship_category = ai_ship_category_screens
+||||||| COMMON_BASE
+    ship_group = ship_group_capital_ships
+=======
+    ship_group = ship_group_capital_ships
+    ai_ship_category = ai_ship_category_battle_line
+>>>>>>> HOTFIX
+    use_modifications = yes
+    modification_construction_cost = 1
+    base_construction_cost = 5
+    can_be_flagship = no
+    modifier = {
+        ship_construction_progress_max_add = 15
+        ship_hit_points_max_add = 500
+        ship_crew_max_add = 200
+        ship_movement_speed_add = 3
+        ship_supply_capacity_add = 16
+        ship_hull_damage_add = 5
+        ship_crew_damage_add = 1
+        ship_armor_add = 2
+        ship_critical_hit_chance_add = 0.02
+        ship_critical_hit_multiplier_add = 0.1
+        ship_vulnerability_add = 25
+        ship_screening_add = 18
+        ship_readiness_gain_add = 10
+        ship_accuracy_add = 4
+        ship_visibility_add = 8
+        ship_detection_add = 10
+        ship_blockade_strength_add = 4
+        ship_carrying_capacity_add = 0.45
+        ship_marine_capacity_add = 0.05
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 64
+        goods_input_fabric_add = 38
+    }
+    materiel_goods = {
+        goods_input_grain_add = 0.2
+        goods_input_hardwood_add = 0.02
+    }
+    icon = "gfx/interface/icons/ships/ship_category/ship_group_cruisers.dds"
+    profile_texture = "gfx/interface/icons/ships/ship_types/1776_silhouette_armed_merchantman.dds"
+    ai_weight = 0.25
+    unlocking_technologies = { organized_workshops }
+    modifications = {
+        ship_mod_slot_armor = { aor1776_merchant_1 aor1776_merchant_1_silver aor1776_merchant_1_gold }
+        ship_mod_slot_guns = { aor1776_merchant_2 aor1776_merchant_2_silver aor1776_merchant_2_gold }
+        ship_mod_slot_propulsion = { aor1776_merchant_3 aor1776_merchant_3_silver aor1776_merchant_3_gold }
+        ship_mod_slot_range = { aor1776_merchant_4 aor1776_merchant_4_silver aor1776_merchant_4_gold }
+        ship_mod_slot_utility_1 = { aor1776_merchant_5 aor1776_merchant_5_silver aor1776_merchant_5_gold }
+    }
+    default_modifications = {
+        ship_mod_slot_armor = aor1776_merchant_1
+        ship_mod_slot_guns = aor1776_merchant_2
+        ship_mod_slot_propulsion = aor1776_merchant_3
+        ship_mod_slot_range = aor1776_merchant_4
+        ship_mod_slot_utility_1 = aor1776_merchant_5
+    }
+}

@@ -1,0 +1,516 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "checks": [
+    {
+      "name": "exact_four_before_findings",
+      "pass": true
+    },
+    {
+      "name": "exact_four_optional_after",
+      "pass": true
+    },
+    {
+      "name": "every_other_finding_retained",
+      "pass": true
+    },
+    {
+      "name": "all_other_audit_payloads_preserved",
+      "pass": true
+    },
+    {
+      "name": "no_target_country_provider",
+      "pass": true
+    },
+    {
+      "name": "no_target_initial_owner",
+      "pass": true
+    },
+    {
+      "name": "country_inventory_unchanged",
+      "pass": true
+    },
+    {
+      "name": "native_single_optional_block_BKH",
+      "pass": true
+    },
+    {
+      "name": "no_local_mask_BKH",
+      "pass": true
+    },
+    {
+      "name": "native_single_optional_block_MNL",
+      "pass": true
+    },
+    {
+      "name": "no_local_mask_MNL",
+      "pass": true
+    },
+    {
+      "name": "native_single_optional_block_SVN",
+      "pass": true
+    },
+    {
+      "name": "no_local_mask_SVN",
+      "pass": true
+    },
+    {
+      "name": "native_single_optional_block_TKI",
+      "pass": true
+    },
+    {
+      "name": "no_local_mask_TKI",
+      "pass": true
+    },
+    {
+      "name": "consumer_parse_errors_absent",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "name": "exact_four_inherited_history_consumers",
+      "pass": true
+    },
+    {
+      "name": "no_local_target_consumers",
+      "pass": true
+    },
+    {
+      "name": "regression_cases_pass",
+      "pass": true
+    },
+    {
+      "name": "four_required_operator_counterfactuals_detected",
+      "pass": true
+    },
+    {
+      "name": "audit_source_hashes_still_current",
+      "pass": true
+    }
+  ],
+  "passed": 21,
+  "total": 21,
+  "regression_cases": [
+    {
+      "name": "absent_optional",
+      "input": "c:BKH ?= { activate_law = law_type:law_serfdom }",
+      "defined": [],
+      "expected": [
+        0,
+        1
+      ],
+      "actual": [
+        0,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "name": "absent_required",
+      "input": "c:BKH = { activate_law = law_type:law_serfdom }",
+      "defined": [],
+      "expected": [
+        1,
+        0
+      ],
+      "actual": [
+        1,
+        0
+      ],
+      "pass": true
+    },
+    {
+      "name": "present_optional",
+      "input": "c:BKH ?= { }",
+      "defined": [
+        "BKH"
+      ],
+      "expected": [
+        0,
+        0
+      ],
+      "actual": [
+        0,
+        0
+      ],
+      "pass": true
+    },
+    {
+      "name": "present_required",
+      "input": "c:BKH = { }",
+      "defined": [
+        "BKH"
+      ],
+      "expected": [
+        0,
+        0
+      ],
+      "actual": [
+        0,
+        0
+      ],
+      "pass": true
+    },
+    {
+      "name": "no_tag_allowlist",
+      "input": "c:FIXTURE_ONLY ?= { }",
+      "defined": [],
+      "expected": [
+        0,
+        1
+      ],
+      "actual": [
+        0,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "name": "scalar_not_exempted",
+      "input": "c:BKH ?= this",
+      "defined": [],
+      "expected": [
+        1,
+        0
+      ],
+      "actual": [
+        1,
+        0
+      ],
+      "pass": true
+    },
+    {
+      "name": "comment_ignored",
+      "input": "# c:BKH ?= { }\nc:TKI = { }",
+      "defined": [],
+      "expected": [
+        1,
+        0
+      ],
+      "actual": [
+        1,
+        0
+      ],
+      "pass": true
+    },
+    {
+      "name": "quoted_text_ignored",
+      "input": "message = \"c:BKH ?= { }\"",
+      "defined": [],
+      "expected": [
+        0,
+        0
+      ],
+      "actual": [
+        0,
+        0
+      ],
+      "pass": true
+    },
+    {
+      "name": "nested_required_retained",
+      "input": "c:BKH ?= { c:MNL = { } }",
+      "defined": [],
+      "expected": [
+        1,
+        1
+      ],
+      "actual": [
+        1,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "name": "two_missing_scopes",
+      "input": "c:TKI ?= { } c:SVN = { }",
+      "defined": [],
+      "expected": [
+        1,
+        1
+      ],
+      "actual": [
+        1,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "name": "initial_owner_not_exempted",
+      "pass": true
+    },
+    {
+      "name": "source_line_retained",
+      "pass": true
+    },
+    {
+      "name": "parse_failure_not_suppressed",
+      "pass": true
+    }
+  ],
+  "required_operator_counterfactuals": [
+    {
+      "target": "BKH",
+      "mutated_operator": "=",
+      "findings": [
+        {
+          "kind": "unresolved_countries",
+          "owner": "history scope",
+          "source": "native/common/history/countries/bko - bukey orda.txt",
+          "target": "BKH",
+          "role": "literal country scope"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "target": "MNL",
+      "mutated_operator": "=",
+      "findings": [
+        {
+          "kind": "unresolved_countries",
+          "owner": "history scope",
+          "source": "native/common/history/countries/mnl - mingrelia.txt",
+          "target": "MNL",
+          "role": "literal country scope"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "target": "SVN",
+      "mutated_operator": "=",
+      "findings": [
+        {
+          "kind": "unresolved_countries",
+          "owner": "history scope",
+          "source": "native/common/history/countries/svn - svaneti.txt",
+          "target": "SVN",
+          "role": "literal country scope"
+        }
+      ],
+      "pass": true
+    },
+    {
+      "target": "TKI",
+      "mutated_operator": "=",
+      "findings": [
+        {
+          "kind": "unresolved_countries",
+          "owner": "history scope",
+          "source": "native/common/history/countries/tki - tarki.txt",
+          "target": "TKI",
+          "role": "literal country scope"
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "original_native_histories": [
+    {
+      "target": "BKH",
+      "source": "native/common/history/countries/bko - bukey orda.txt",
+      "sha256": "a4163f33be2238fca0fc5200b4c47876a90dd7012491bf6017f42a3f4d0119b4",
+      "script": "COUNTRIES = {\n\tc:BKH ?= {\n\t\teffect_starting_technology_tier_4_tech = yes\n\n\t\teffect_starting_politics_traditional = yes\n\t\tactivate_law = law_type:law_debt_slavery\n\n\t\tig:ig_landowners ?= {\n\t\t\tadd_ruling_interest_group = yes\n\t\t}\n\t}\n}\n"
+    },
+    {
+      "target": "MNL",
+      "source": "native/common/history/countries/mnl - mingrelia.txt",
+      "sha256": "b28838da6dc4fd12a042467c08833e28c399bbfdd54ca4c2496d98a98e425ea8",
+      "script": "COUNTRIES = {\n\tc:MNL ?= {\n\t\teffect_starting_technology_tier_4_tech = yes\n\n\t\teffect_starting_politics_traditional = yes\n\t\tactivate_law = law_type:law_serfdom\n\n\t\tig:ig_landowners ?= {\n\t\t\tadd_ruling_interest_group = yes\n\t\t}\n\t}\n}\n"
+    },
+    {
+      "target": "SVN",
+      "source": "native/common/history/countries/svn - svaneti.txt",
+      "sha256": "f5fb457fe74f37923d7f381dd93f05a0cbada3e8640dfbc46cd2bce69d6e9a84",
+      "script": "COUNTRIES = {\n\tc:SVN ?= {\n\t\teffect_starting_technology_tier_4_tech = yes\n\n\t\teffect_starting_politics_traditional = yes\n\t\tactivate_law = law_type:law_serfdom\n\n\t\tig:ig_landowners ?= {\n\t\t\tadd_ruling_interest_group = yes\n\t\t}\n\t}\n}\n"
+    },
+    {
+      "target": "TKI",
+      "source": "native/common/history/countries/tki - tarki.txt",
+      "sha256": "f03a0660e546f1fbd1bd7f282e717fe15b268070011577031b9b90c9f2b32cc5",
+      "script": "COUNTRIES = {\n\tc:TKI ?= {\n\t\teffect_starting_technology_tier_4_tech = yes\n\n\t\teffect_starting_politics_traditional = yes\n\t\tactivate_law = law_type:law_serfdom\n\n\t\tig:ig_landowners ?= {\n\t\t\tadd_ruling_interest_group = yes\n\t\t}\n\t}\n}\n"
+    }
+  ],
+  "consumers": [
+    {
+      "target": "BKH",
+      "source": "native/common/government_types/01_monarchies.txt",
+      "line": 2423,
+      "position": "value",
+      "operator": "=",
+      "block": false,
+      "ancestors": [
+        "gov_khanate",
+        "possible",
+        "OR",
+        "AND"
+      ]
+    },
+    {
+      "target": "BKH",
+      "source": "native/common/government_types/01_monarchies.txt",
+      "line": 2423,
+      "position": "key",
+      "operator": "=",
+      "block": false,
+      "ancestors": [
+        "gov_khanate",
+        "possible",
+        "OR",
+        "AND"
+      ]
+    },
+    {
+      "target": "TKI",
+      "source": "native/common/government_types/01_monarchies.txt",
+      "line": 2449,
+      "position": "value",
+      "operator": "=",
+      "block": false,
+      "ancestors": [
+        "gov_shamkhalate",
+        "possible",
+        "AND"
+      ]
+    },
+    {
+      "target": "TKI",
+      "source": "native/common/government_types/01_monarchies.txt",
+      "line": 2449,
+      "position": "key",
+      "operator": "=",
+      "block": false,
+      "ancestors": [
+        "gov_shamkhalate",
+        "possible",
+        "AND"
+      ]
+    },
+    {
+      "target": "BKH",
+      "source": "native/common/government_types/01_regencies.txt",
+      "line": 1339,
+      "position": "value",
+      "operator": "=",
+      "block": false,
+      "ancestors": [
+        "gov_regency_khanate",
+        "possible",
+        "OR",
+        "AND"
+      ]
+    },
+    {
+      "target": "BKH",
+      "source": "native/common/government_types/01_regencies.txt",
+      "line": 1339,
+      "position": "key",
+      "operator": "=",
+      "block": false,
+      "ancestors": [
+        "gov_regency_khanate",
+        "possible",
+        "OR",
+        "AND"
+      ]
+    },
+    {
+      "target": "TKI",
+      "source": "native/common/government_types/01_regencies.txt",
+      "line": 1364,
+      "position": "value",
+      "operator": "=",
+      "block": false,
+      "ancestors": [
+        "gov_regency_shamkhalate",
+        "possible",
+        "AND"
+      ]
+    },
+    {
+      "target": "TKI",
+      "source": "native/common/government_types/01_regencies.txt",
+      "line": 1364,
+      "position": "key",
+      "operator": "=",
+      "block": false,
+      "ancestors": [
+        "gov_regency_shamkhalate",
+        "possible",
+        "AND"
+      ]
+    },
+    {
+      "target": "BKH",
+      "source": "native/common/history/countries/bko - bukey orda.txt",
+      "line": 2,
+      "position": "key",
+      "operator": "?=",
+      "block": true,
+      "ancestors": [
+        "COUNTRIES"
+      ]
+    },
+    {
+      "target": "MNL",
+      "source": "native/common/history/countries/mnl - mingrelia.txt",
+      "line": 2,
+      "position": "key",
+      "operator": "?=",
+      "block": true,
+      "ancestors": [
+        "COUNTRIES"
+      ]
+    },
+    {
+      "target": "SVN",
+      "source": "native/common/history/countries/svn - svaneti.txt",
+      "line": 2,
+      "position": "key",
+      "operator": "?=",
+      "block": true,
+      "ancestors": [
+        "COUNTRIES"
+      ]
+    },
+    {
+      "target": "TKI",
+      "source": "native/common/history/countries/tki - tarki.txt",
+      "line": 2,
+      "position": "key",
+      "operator": "?=",
+      "block": true,
+      "ancestors": [
+        "COUNTRIES"
+      ]
+    },
+    {
+      "target": "BKH",
+      "source": "native/common/scripted_triggers/00_ai_triggers.txt",
+      "line": 1176,
+      "position": "key",
+      "operator": "?=",
+      "block": false,
+      "ancestors": [
+        "ai_russia_wants_bukey_orda_annexed",
+        "scope:target_country"
+      ]
+    }
+  ],
+  "consumer_source_hashes": {
+    "native/common/government_types/01_monarchies.txt": "f6bdce2d251bed57a63e213ee975ae8cbe3c305d533cc624b98a0a6fb6d26ea0",
+    "native/common/government_types/01_regencies.txt": "8738433ee991323bd3a01d83aa839a82b1b1c8986e5279ac3e0079cc84d12773",
+    "native/common/history/countries/bko - bukey orda.txt": "a4163f33be2238fca0fc5200b4c47876a90dd7012491bf6017f42a3f4d0119b4",
+    "native/common/history/countries/mnl - mingrelia.txt": "b28838da6dc4fd12a042467c08833e28c399bbfdd54ca4c2496d98a98e425ea8",
+    "native/common/history/countries/svn - svaneti.txt": "f5fb457fe74f37923d7f381dd93f05a0cbada3e8640dfbc46cd2bce69d6e9a84",
+    "native/common/history/countries/tki - tarki.txt": "f03a0660e546f1fbd1bd7f282e717fe15b268070011577031b9b90c9f2b32cc5",
+    "native/common/scripted_triggers/00_ai_triggers.txt": "33b0543699a6e28ee7253f04c06030b99618625485188cf115e35b5adc2b06ee"
+  },
+  "engine_tested": false,
+  "decision": "Retain the four optional native histories. Correct only audit classification; no runtime file or 1776 starting data is changed.",
+  "limitations": [
+    "This is not an engine interpreter or a proof of runtime absence of errors.",
+    "The broader literal dependency inventory remains visible and unchanged.",
+    "Other-country AI, journal and historical semantics are not reviewed here."
+  ]
+}

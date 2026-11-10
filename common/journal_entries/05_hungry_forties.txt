@@ -24,16 +24,22 @@
 
 	timeout = 1095
 
-	on_timeout = {
-		trigger_event = { id = hungry_forties.2 popup = yes }
-		remove_global_variable = hungry_forties_var
-	}
-
-	event_outcome_timeout_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_hungry_forties.2_tt
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			trigger_event = { id = hungry_forties.2 popup = yes }
+			remove_global_variable = hungry_forties_var
+		}
+		event_outcome_desc = {
+			first_valid = {
+				triggered_desc = {
+					desc = event_effects_hungry_forties.2_tt
+				}
 			}
 		}
 	}
+
 }

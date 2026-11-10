@@ -805,8 +805,8 @@ dp_demand_strait_access = {
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
 			NOT = { is_subject_of = root }
-			has_any_strait_province = scope:target_country
-			has_any_strait_control = scope:target_country
+			has_any_strait_province_in_hierarchy = yes
+			has_any_strait_control = yes
 		}
 		custom_tooltip = {
 			text = dp_demand_strait_access_already_has_access_tt
@@ -902,8 +902,8 @@ dp_demand_no_strait_closure = {
 		scope:target_country = {
 			NOT = { is_country_type = decentralized }
 			NOT = { is_subject_of = root }
-			has_any_strait_province = scope:target_country
-			has_any_strait_control = scope:target_country
+			has_any_strait_province_in_hierarchy = yes
+			has_any_strait_control = yes
 			custom_tooltip = {
 				text = dp_demand_no_strait_closure_already_bound_tt
 				can_close_straits = yes

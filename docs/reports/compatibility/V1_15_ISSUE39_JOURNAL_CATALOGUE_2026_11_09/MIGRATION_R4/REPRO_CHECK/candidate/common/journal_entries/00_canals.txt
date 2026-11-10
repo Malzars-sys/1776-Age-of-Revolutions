@@ -1,0 +1,227 @@
+﻿je_suez_survey = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_technology
+
+	on_monthly_pulse = {
+		effect = {
+			change_variable = {
+				name = survey_suez_taken
+				add = 1
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			remove_modifier = modifier_surveying_suez
+			trigger_event = { id = canal_events.100 }
+		}
+	}
+
+
+	current_value = {
+		value = root.var:survey_suez_taken
+	}
+
+	goal_add_value = {
+		value = 18
+	}
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			OR = {
+				NOT = { has_variable = survey_suez_taken }
+				s:STATE_SINAI = {
+					any_scope_state = {
+						NOT = { owner = ROOT }
+						has_building = building_suez_canal
+					}
+				}
+			}
+		}
+		effect = {
+			remove_variable = survey_suez_taken
+			remove_modifier = modifier_surveying_suez
+		}
+	}
+
+
+	progressbar = yes
+
+	weight = 10
+	should_be_pinned_by_default = yes
+}
+
+je_suez_canal = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_technology
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			s:STATE_SINAI = {
+				any_scope_state = {
+					owner = root
+					any_scope_building = {
+						is_building_type = building_suez_canal
+						occupancy >= 0.9
+					}
+				}
+			}
+		}
+		effect = {
+			set_global_variable = suez_canal_complete
+		}
+	}
+
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			OR = {
+				NOT = { has_variable = survey_suez_taken }
+				s:STATE_SINAI = {
+					any_scope_state = {
+						NOT = { owner = ROOT }
+						has_building = building_suez_canal
+					}
+				}
+			}
+		}
+		effect = {
+			remove_variable = survey_suez_taken
+			remove_modifier = modifier_surveying_suez
+		}
+	}
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+je_panama_survey = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_technology
+
+	on_monthly_pulse = {
+		effect = {
+			change_variable = {
+				name = survey_panama_taken
+				add = 1
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			remove_modifier = modifier_surveying_panama
+			trigger_event = { id = canal_events.101 }
+		}
+	}
+
+
+	current_value = {
+		value = root.var:survey_panama_taken
+	}
+
+	goal_add_value = {
+		value = 12
+	}
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = { # If the Panama Canal is being built and you're not the one building it, you've blown it, chief.
+			OR = {
+				NOT = { has_variable = survey_panama_taken }
+				s:STATE_PANAMA = {
+					any_scope_state = {
+						NOT = { owner = ROOT }
+						has_building = building_panama_canal
+					}
+				}
+			}
+		}
+		effect = {
+			remove_variable = survey_panama_taken
+			remove_modifier = modifier_surveying_panama
+		}
+	}
+
+
+	progressbar = yes
+
+	weight = 10
+	should_be_pinned_by_default = yes
+}
+
+je_panama_canal = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_technology
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			s:STATE_PANAMA = {
+				any_scope_state = {
+					owner = root
+					any_scope_building = {
+						is_building_type = building_panama_canal
+						occupancy >= 0.9
+					}
+				}
+			}
+		}
+		effect = {
+			set_global_variable = panama_canal_complete
+		}
+	}
+
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = { # If the Panama Canal is being built and you're not the one building it, you've blown it, chief.
+			OR = {
+				NOT = { has_variable = survey_panama_taken }
+				s:STATE_PANAMA = {
+					any_scope_state = {
+						NOT = { owner = ROOT }
+						has_building = building_panama_canal
+					}
+				}
+			}
+		}
+		effect = {
+			remove_variable = survey_panama_taken
+			remove_modifier = modifier_surveying_panama
+		}
+	}
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

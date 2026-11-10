@@ -1,0 +1,97 @@
+﻿je_seminole_wars = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_usa_manifest_destiny
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			owns_entire_state_region = STATE_FLORIDA
+			NOT = { exists = c:SML }
+		}
+		effect = {
+			show_as_tooltip = {
+				if = {
+					limit = {
+						c:SEQ ?= { is_subject_of = c:USA }
+						exists = s:STATE_OKLAHOMA.region_state:SEQ
+					}
+					custom_tooltip = {
+						text = je_seminole_wars_removal
+						s:STATE_FLORIDA.region_state:USA ?= {
+							every_scope_pop = {
+								limit = {
+									culture = cu:muskogean
+								}
+								move_pop = s:STATE_OKLAHOMA.region_state:SEQ
+							}
+						}
+					}
+				}
+				else = {
+					s:STATE_FLORIDA.region_state:USA ?= {
+						add_modifier = {
+							name = florida_resettlement
+							days = long_modifier_time
+						}
+					}
+				}
+			}
+			trigger_event = { id = native_resettlement.7 }
+		}
+	}
+
+
+	immediate = {
+		c:SML ?= {
+			save_scope_as = seminoles
+		}
+		cu:muskogean = {
+			save_scope_as = seminole_peoples
+		}
+		s:STATE_OKLAHOMA = {
+			save_scope_as = oklahoma_region
+		}
+		c:SEQ ?= {
+			save_scope_as = indian_territory
+		}
+		s:STATE_FLORIDA.region_state:USA = {
+			save_scope_as = flarda
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				c:SML ?= {
+					owns_entire_state_region = STATE_FLORIDA
+				}
+				c:MSC ?= {
+					owns_entire_state_region = STATE_FLORIDA
+				}
+			}
+		}
+		effect = {
+			s:STATE_FLORIDA = {
+				remove_claim = c:USA
+			}
+		}
+	}
+
+
+	on_monthly_pulse = {
+	}
+	on_yearly_pulse = {
+	}
+
+	weight = 100
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

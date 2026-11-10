@@ -1,0 +1,89 @@
+﻿je_land_reclamation = {
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_in_lobby = {
+		OR = {
+			owns_entire_state_region = STATE_FRIESLAND
+			owns_entire_state_region = STATE_HOLLAND
+		}
+	}
+
+	on_yearly_pulse = {
+		random_events = {
+			4 = 0
+			1 = land_reclamation.1
+		}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+		effect = {
+			remove_modifier = modifier_reclaiming_land
+			show_as_tooltip = {
+				add_modifier = { # prestige
+					name = land_reclamation_complete
+					days = long_modifier_time
+				}
+			}
+		}
+	}
+
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				NOT = { owns_entire_state_region = STATE_FRIESLAND }
+				NOT = { owns_entire_state_region = STATE_HOLLAND }
+			}
+		}
+		effect = {
+			remove_modifier = modifier_reclaiming_land
+			remove_variable = dutch_land_reclaimer
+		}
+	}
+
+
+	current_value = {
+		value = global_var:land_reclamation_global
+	}
+
+	goal_add_value = { # if you change this, update the thresholds in the event
+		add = 10
+	}
+
+	progressbar = yes
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = land_reclamation_no_tech
+				trigger = {
+					NOT = { has_technology_researched = concrete_dockyards }
+				}
+			}
+			triggered_desc = {
+				desc = land_reclamation_tech
+				trigger = {
+					has_technology_researched = concrete_dockyards
+				}
+			}
+		}
+	}
+
+	weight = 10
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

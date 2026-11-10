@@ -93,11 +93,18 @@
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = grand_exhibition_complete_tt
-			always = no
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = grand_exhibition_complete_tt
+				always = no
+			}
 		}
+		effect = {}
 	}
 
 	current_value = {
@@ -110,39 +117,49 @@
 
 	progressbar = yes
 
-	invalid = {
-		scope:grand_exhibition_state = {
-			devastation >= 0.1
-			NOT = {
-				owner = root
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			scope:grand_exhibition_state = {
+				devastation >= 0.1
+				NOT = {
+					owner = root
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = {
+				text = invalid_grand_exhibition_tt
+				remove_variable = grand_exhibition_decision_taken
 			}
 		}
 	}
 
-	on_invalid = {
-		custom_tooltip = {
-			text = invalid_grand_exhibition_tt
-			remove_variable = grand_exhibition_decision_taken
-		}
-	}
 
 	timeout = 1825 # 5 years
 
-	on_timeout = {
-		if = {
-			limit = {
-				root.var:grand_exhibition_points_var >= 100
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			if = {
+				limit = {
+					root.var:grand_exhibition_points_var >= 100
+				}
+				trigger_event = { id = exhibition_events.3 }
 			}
-			trigger_event = { id = exhibition_events.3 }
-		}
-		else_if = {
-			limit = {
-				root.var:grand_exhibition_points_var >= 50
+			else_if = {
+				limit = {
+					root.var:grand_exhibition_points_var >= 50
+				}
+				trigger_event = { id = exhibition_events.2 }
 			}
-			trigger_event = { id = exhibition_events.2 }
-		}
-		else = {
-			trigger_event = { id = exhibition_events.1 }
+			else = {
+				trigger_event = { id = exhibition_events.1 }
+			}
 		}
 	}
 

@@ -27,20 +27,26 @@
 	scripted_progress_bar = divided_monarchists_legitimist_progress_bar
 	scripted_progress_bar = divided_monarchists_bonapartist_progress_bar
 
-	complete = {
-		has_law = law_type:law_monarchy
-		custom_tooltip = {
-			text = je_divided_monarchists_02_tt
-			has_variable = one_true_french_dynasty #Can only ever complete upon finishing the Cement the Rightful Dynasty journal entry.
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			has_law = law_type:law_monarchy
+			custom_tooltip = {
+				text = je_divided_monarchists_02_tt
+				has_variable = one_true_french_dynasty #Can only ever complete upon finishing the Cement the Rightful Dynasty journal entry.
+			}
+		}
+		effect = {
+			custom_tooltip = {
+				text = je_divided_monarchists_03_tt
+				fra_clear_divided_monarchist_variables = yes #Removes all variables used for math in this JE, to save memory and performance.
+			}
 		}
 	}
 
-	on_complete = {
-		custom_tooltip = {
-			text = je_divided_monarchists_03_tt
-			fra_clear_divided_monarchist_variables = yes #Removes all variables used for math in this JE, to save memory and performance.
-		}
-	}
 
 	scripted_button = french_monarchy_bonapartist_button
 	scripted_button = french_monarchy_orleanist_button
@@ -214,52 +220,62 @@
 		}
 	}
 
-	fail = {
-		any_political_movement = {
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			any_political_movement = {
+				OR = {
+					movement_is_liberal = yes
+					movement_is_socialist = yes
+				}
+				is_insurrectionary = yes
+			}
 			OR = {
-				movement_is_liberal = yes
-				movement_is_socialist = yes
-			}
-			is_insurrectionary = yes
-		}
-		OR = {
-			any_civil_war = {
-				is_civil_war_type = revolution
-				civil_war_progress >= 0.75
-			}
-			capital = {
-				is_in_revolt = yes
+				any_civil_war = {
+					is_civil_war_type = revolution
+					civil_war_progress >= 0.75
+				}
+				capital = {
+					is_in_revolt = yes
+				}
 			}
 		}
-	}
-
-	on_fail = {
-		trigger_event = { id = french_pretenders.6 popup = yes }
-		if = {
-			limit = {
-				has_variable = fra_divided_monarchists_freeze
+		effect = {
+			trigger_event = { id = french_pretenders.6 popup = yes }
+			if = {
+				limit = {
+					has_variable = fra_divided_monarchists_freeze
+				}
+				remove_variable = fra_divided_monarchists_freeze #Clears the freeze variable so that progress can be made if this JE is somehow activated again.
 			}
-			remove_variable = fra_divided_monarchists_freeze #Clears the freeze variable so that progress can be made if this JE is somehow activated again.
-		}
-		fra_clear_divided_monarchist_variables = yes #Removes all variables used for math in this JE, to save memory and performance.
-	}
-
-	invalid = {
-		NOT = {
-			#Previous "Stamp Out Monarchism" requirement is deprecated - this can now come back from the dead properly upon restoring the monarchy.
-			has_law = law_type:law_monarchy
+			fra_clear_divided_monarchist_variables = yes #Removes all variables used for math in this JE, to save memory and performance.
 		}
 	}
 
-	on_invalid = {
-		if = {
-			limit = {
-				has_variable = fra_divided_monarchists_freeze
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = {
+				#Previous "Stamp Out Monarchism" requirement is deprecated - this can now come back from the dead properly upon restoring the monarchy.
+				has_law = law_type:law_monarchy
 			}
-			remove_variable = fra_divided_monarchists_freeze #Clears the freeze variable so that progress can be made if this JE is somehow activated again.
 		}
-		fra_clear_divided_monarchist_variables = yes #It should not be possible for this JE to somehow be deleted without these variables being cleared.
+		effect = {
+			if = {
+				limit = {
+					has_variable = fra_divided_monarchists_freeze
+				}
+				remove_variable = fra_divided_monarchists_freeze #Clears the freeze variable so that progress can be made if this JE is somehow activated again.
+			}
+			fra_clear_divided_monarchist_variables = yes #It should not be possible for this JE to somehow be deleted without these variables being cleared.
+		}
 	}
+
 
 	weight = 100
 
@@ -361,59 +377,71 @@ je_cement_the_rightful_dynasty = {
 		}
 	}
 
-	complete = {
-		scope:journal_entry = {
-			is_goal_complete = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+			NOT = {
+				any_civil_war = {
+					civil_war_progress > 0.10
+				}
+			}
 		}
-		NOT = {
-			any_civil_war = {
-				civil_war_progress > 0.10
+		effect = {
+			trigger_event = { id = french_pretenders_pulse.5 popup = yes }
+			set_variable = {
+				name = one_true_french_dynasty
 			}
 		}
 	}
 
-	on_complete = {
-		trigger_event = { id = french_pretenders_pulse.5 popup = yes }
-		set_variable = {
-			name = one_true_french_dynasty
-		}
-	}
 
-	fail = {
-		OR = {
-			NOT = { has_law = law_type:law_monarchy }
-			custom_tooltip = {
-				text = je_divided_monarchists_02_fail_tt
-				OR = {
-					AND = {
-						has_variable = orleanist_restoration_var
-						OR = {
-							ruler = {
-								OR = {
-									has_variable = legitimist_leader
-									has_variable = house_bonaparte
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				NOT = { has_law = law_type:law_monarchy }
+				custom_tooltip = {
+					text = je_divided_monarchists_02_fail_tt
+					OR = {
+						AND = {
+							has_variable = orleanist_restoration_var
+							OR = {
+								ruler = {
+									OR = {
+										has_variable = legitimist_leader
+										has_variable = house_bonaparte
+									}
 								}
 							}
 						}
-					}
-					AND = {
-						has_variable = legitimist_restoration_var
-						OR = {
-							ruler = {
-								OR = {
-									has_variable = house_orleans
-									has_variable = house_bonaparte
+						AND = {
+							has_variable = legitimist_restoration_var
+							OR = {
+								ruler = {
+									OR = {
+										has_variable = house_orleans
+										has_variable = house_bonaparte
+									}
 								}
 							}
 						}
-					}
-					AND = {
-						has_variable = bonapartist_restoration_var
-						OR = {
-							ruler = {
-								OR = {
-									has_variable = house_orleans
-									has_variable = legitimist_leader
+						AND = {
+							has_variable = bonapartist_restoration_var
+							OR = {
+								ruler = {
+									OR = {
+										has_variable = house_orleans
+										has_variable = legitimist_leader
+									}
 								}
 							}
 						}
@@ -421,40 +449,40 @@ je_cement_the_rightful_dynasty = {
 				}
 			}
 		}
+		effect = {
+			remove_variable = french_dynastic_primary_progress_var
+			if = {
+				limit = {
+					has_variable = fra_divided_monarchists_freeze
+				}
+				remove_variable = fra_divided_monarchists_freeze
+			}
+			if = {
+				limit = {
+					has_variable = orleanist_restoration_var
+				}
+				remove_variable = orleanist_restoration_var
+			}
+			if = {
+				limit = {
+					has_variable = legitimist_restoration_var
+				}
+				remove_variable = legitimist_restoration_var
+			}
+			if = {
+				limit = {
+					has_variable = bonapartist_restoration_var
+				}
+				remove_variable = bonapartist_restoration_var
+			}
+			je:je_divided_monarchists = {
+				add_progress = { value = -300 name = divided_monarchists_bonapartist_progress_bar }
+				add_progress = { value = -300 name = divided_monarchists_legitimist_progress_bar }
+				add_progress = { value = -300 name = divided_monarchists_orleanist_progress_bar }
+			}
+		}
 	}
 
-	on_fail = {
-		remove_variable = french_dynastic_primary_progress_var
-		if = {
-			limit = {
-				has_variable = fra_divided_monarchists_freeze
-			}
-			remove_variable = fra_divided_monarchists_freeze
-		}
-		if = {
-			limit = {
-				has_variable = orleanist_restoration_var
-			}
-			remove_variable = orleanist_restoration_var
-		}
-		if = {
-			limit = {
-				has_variable = legitimist_restoration_var
-			}
-			remove_variable = legitimist_restoration_var
-		}
-		if = {
-			limit = {
-				has_variable = bonapartist_restoration_var
-			}
-			remove_variable = bonapartist_restoration_var
-		}
-		je:je_divided_monarchists = {
-			add_progress = { value = -300 name = divided_monarchists_bonapartist_progress_bar }
-			add_progress = { value = -300 name = divided_monarchists_legitimist_progress_bar }
-			add_progress = { value = -300 name = divided_monarchists_orleanist_progress_bar }
-		}
-	}
 
 	on_monthly_pulse = {
 		effect = {

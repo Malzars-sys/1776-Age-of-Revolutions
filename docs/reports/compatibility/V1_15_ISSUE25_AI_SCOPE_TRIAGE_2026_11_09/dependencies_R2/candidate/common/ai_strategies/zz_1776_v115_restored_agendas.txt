@@ -1,0 +1,406 @@
+﻿# Native 1.15 compatibility definitions; issue25 AI dependency closure.
+
+ai_strategy_consolidation_agenda = {
+	icon = "gfx/interface/icons/ai_strategy_icons/consolidate_the_state.dds"
+
+	type = political
+
+	revolution_aversion = {
+		value = 75
+	}
+
+	min_law_chance_to_pass = {
+		value = 20
+		if = {
+			limit = { ai_has_reasons_to_not_oppose_law = yes }
+			multiply = 0.5
+		}
+	}
+
+	max_progressiveness = {
+		value = 1000
+		if = {
+			limit = { has_enactment_je_or_law_commitment = yes }
+			multiply = 1.5
+		}
+	}
+
+	max_regressiveness = {
+		value = 25
+		if = {
+			limit = { has_enactment_je_or_law_commitment = yes }
+			multiply = 2
+		}
+	}
+
+	change_law_chance = {
+		value = 10
+
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 5
+		}
+
+		if = {
+			limit = {
+				has_enactment_je_or_law_commitment = yes
+			}
+			add = 25
+		}
+	}
+
+	pro_interest_groups = {
+		ig_intelligentsia
+	}
+
+	anti_interest_groups = {
+		ig_landowners
+		ig_industrialists
+		ig_devout
+		ig_petty_bourgeoisie
+	}
+
+	pro_movements = {
+		movement_socialist
+		movement_communist
+		movement_labor
+	}
+
+	anti_movements = {
+		movement_anti_communist
+		movement_reactionary
+		movement_fascist
+		movement_royalist_absolutist
+		movement_royalist_constitutional
+		movement_pro_slavery
+		movement_cultural_minority
+		movement_cultural_majority
+		movement_religious_minority
+		movement_religious_majority
+	}
+
+	institution_scores = {
+		institution_social_security = {
+			value = 125
+		}
+		institution_workplace_safety = {
+			value = 125
+		}
+		institution_schools = {
+			value = 125
+		}
+		institution_health_system = {
+			value = 125
+		}
+		institution_police = {
+			value = 100
+		}
+		institution_home_affairs = {
+			value = 200
+		}
+	}
+
+	possible = {
+		has_radical_leftist_government = yes
+	}
+
+	weight = {
+		value = 40
+
+		if = {
+			limit = {
+				has_journal_entry = je_state_and_revolution
+			}
+			add = 15
+			add = {
+				value = 50
+				subtract = state_and_revolution_average_confrontation
+				multiply = 0.5
+			}
+		}
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_socialism_in_one_country
+			}
+			add = 10
+		}
+
+		if = {
+			limit = {
+				has_modifier = modifier_state_and_revolution_conciliation
+			}
+			add = 10
+		}
+
+		if = {
+			limit = {
+				state_and_revolution_peasant_fraction > 0.25
+			}
+			add = 5
+		}
+
+		if = {
+			limit = {
+				gdp_per_capita_ranking > 20
+			}
+			add = 5
+		}
+
+		if = {
+			limit = {
+				any_scope_state = {
+					has_famine = yes
+				}
+			}
+			add = 5
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					ig:ig_trade_unions ?= {
+						is_in_government = yes
+					}
+				}
+			}
+			add = 10
+		}
+
+		every_interest_group = {
+			limit = {
+				is_in_government = yes
+				law_stance = {
+					law = law_type:law_council_republic
+					value < neutral
+				}
+			}
+			subtract = 15
+		}
+
+		if = {
+			limit = {
+				ruler ?= {
+					law_stance = {
+						law = law_type:law_council_republic
+						value < neutral
+					}
+				}
+			}
+			subtract = 40
+		}
+
+		min = 0
+	}
+}
+
+ai_strategy_confrontation_agenda = {
+	icon = "gfx/interface/icons/ai_strategy_icons/pursue_revolutionary_confrontation.dds"
+
+	type = political
+
+	revolution_aversion = {
+		value = 25
+	}
+
+	min_law_chance_to_pass = {
+		value = 10
+		if = {
+			limit = { ai_has_reasons_to_not_oppose_law = yes }
+			multiply = 0.5
+		}
+	}
+
+	max_progressiveness = {
+		value = 1000
+		if = {
+			limit = { has_enactment_je_or_law_commitment = yes }
+			multiply = 1.5
+		}
+	}
+
+	max_regressiveness = {
+		value = 0
+	}
+
+	change_law_chance = {
+		value = 20
+
+		if = {
+			limit = { any_interest_group = { is_insurrectionary = yes } }
+			add = 5
+		}
+
+		if = {
+			limit = {
+				has_enactment_je_or_law_commitment = yes
+			}
+			add = 25
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_social_revolution
+			}
+			add = 10
+		}
+	}
+
+	pro_interest_groups = {
+		ig_trade_unions
+	}
+
+	anti_interest_groups = {
+		ig_intelligentsia
+		ig_landowners
+		ig_industrialists
+		ig_devout
+		ig_petty_bourgeoisie
+	}
+
+	pro_movements = {
+		movement_communist
+		movement_socialist
+		movement_anarchist
+	}
+
+	anti_movements = {
+		movement_anti_communist
+		movement_reactionary
+		movement_fascist
+		movement_liberal
+		movement_royalist_absolutist
+		movement_royalist_constitutional
+		movement_pro_slavery
+		movement_cultural_majority
+		movement_religious_majority
+	}
+
+	institution_scores = {
+		institution_social_security = {
+			value = 200
+		}
+		institution_workplace_safety = {
+			value = 200
+		}
+		institution_schools = {
+			value = 200
+		}
+		institution_health_system = {
+			value = 200
+		}
+		institution_police = {
+			value = 50
+		}
+		institution_home_affairs = {
+			value = 150
+		}
+	}
+
+	possible = {
+		has_radical_leftist_government = yes
+	}
+
+	weight = {
+		value = 40
+
+		if = {
+			limit = {
+				has_journal_entry = je_state_and_revolution
+			}
+			add = 15
+			add = {
+				value = state_and_revolution_average_confrontation
+				subtract = 50
+				multiply = 0.5
+			}
+		}
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_world_revolution
+			}
+			add = 10
+		}
+
+		if = {
+			limit = {
+				has_strategy = ai_strategy_anti_imperialism
+			}
+			add = 5
+		}
+
+		if = {
+			limit = {
+				has_global_variable = socialist_world_republic
+			}
+			add = 15
+		}
+
+		if = {
+			limit = {
+				average_sol > average_expected_sol
+			}
+			add = 5
+		}
+
+		if = {
+			limit = {
+				ig:ig_trade_unions ?= {
+					is_powerful = yes
+					law_stance = {
+						law = law_type:law_council_republic
+						value > neutral
+					}
+				}
+			}
+			add = 10
+		}
+
+		if = {
+			limit = {
+				had_revolutionary_socialism_victory = yes
+			}
+			add = 5
+		}
+
+		if = {
+			limit = {
+				has_modifier = modifier_state_and_revolution_conciliation
+			}
+			subtract = 25
+		}
+
+		every_interest_group = {
+			limit = {
+				is_in_government = yes
+				law_stance = {
+					law = law_type:law_council_republic
+					value < neutral
+				}
+			}
+			subtract = 15
+		}
+
+		if = {
+			limit = {
+				ruler ?= {
+					law_stance = {
+						law = law_type:law_council_republic
+						value < neutral
+					}
+				}
+			}
+			subtract = 40
+		}
+
+		if = {
+			limit = {
+				has_law_or_variant = law_type:law_anarchy
+			}
+			multiply = 1.25
+		}
+
+		min = 0
+	}
+}

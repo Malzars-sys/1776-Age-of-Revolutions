@@ -101,76 +101,87 @@ je_sagrada_familia = {
         }
     }
 
-    complete = {
-        custom_tooltip = {
-            text = sagrada_familia_complete_tt
-            any_scope_state = {
-                state_region = s:STATE_CATALONIA
-                has_building = building_sagrada_familia_cathedral_3
-            }
-        }
-        trigger_if = {
-            limit = {
-                has_game_rule = allow_monument_effects
-            }
-            custom_tooltip = {
-                text = sagrada_familia_populated_tt
-                any_scope_state = {
-                    state_region = s:STATE_CATALONIA
-                    any_scope_building = {
-                        is_building_type = building_sagrada_familia_cathedral_3
-                        occupancy >= 0.5
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        custom_tooltip = {
+	            text = sagrada_familia_complete_tt
+	            any_scope_state = {
+	                state_region = s:STATE_CATALONIA
+	                has_building = building_sagrada_familia_cathedral_3
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                has_game_rule = allow_monument_effects
+	            }
+	            custom_tooltip = {
+	                text = sagrada_familia_populated_tt
+	                any_scope_state = {
+	                    state_region = s:STATE_CATALONIA
+	                    any_scope_building = {
+	                        is_building_type = building_sagrada_familia_cathedral_3
+	                        occupancy >= 0.5
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {
+	        trigger_event = { id = sagrada_familia.4 popup = yes }
+	    }
+		event_outcome_effect_desc = {
+	        header = sagrada_familia.4.a
+	        effect = {
+	            random_scope_state = {
+	                limit = {
+	                    state_region = s:STATE_CATALONIA
+	                }
+	                add_modifier = {
+	                    name = sagrada_familia_reward_loc
+	                    days = moderately_long_modifier_time
+	                }
+	            }
+	        }
+	    }
+		event_outcome_effect_desc = {
+	        header = sagrada_familia.4.b
+	        effect = {
+	            add_modifier = {
+	                name = sagrada_familia_reward_int
+	                days = moderately_long_modifier_time
+	            }
+	        }
+	    }
+	}
 
-    on_complete = {
-        trigger_event = { id = sagrada_familia.4 popup = yes }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = sagrada_familia.4.a
-        effect = {
-            random_scope_state = {
-                limit = {
-                    state_region = s:STATE_CATALONIA
-                }
-                add_modifier = {
-                    name = sagrada_familia_reward_loc
-                    days = moderately_long_modifier_time
-                }
-            }
-        }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = sagrada_familia.4.b
-        effect = {
-            add_modifier = {
-                name = sagrada_familia_reward_int
-                days = moderately_long_modifier_time
-            }
-        }
-    }
 
-    invalid = {
-        OR = {
-            custom_tooltip = {
-                text = rejected_sagrada_familia_project_tt
-                has_variable = rejected_sagrada_familia_project
-            }
-            custom_tooltip = {
-                text = does_not_have_state_catalonia_tt
-                NOT = {
-                    any_scope_state = {
-                        state_region = s:STATE_CATALONIA
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        OR = {
+	            custom_tooltip = {
+	                text = rejected_sagrada_familia_project_tt
+	                has_variable = rejected_sagrada_familia_project
+	            }
+	            custom_tooltip = {
+	                text = does_not_have_state_catalonia_tt
+	                NOT = {
+	                    any_scope_state = {
+	                        state_region = s:STATE_CATALONIA
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {}
+	}
 
     weight = 1000
 
@@ -224,76 +235,87 @@ je_pena_palace = {
         }
     }
 
-    complete = {
-        custom_tooltip = {
-            text = pena_palace_complete_tt
-            any_scope_state = {
-                state_region = s:STATE_ESTREMADURA
-                has_building = building_pena_palace
-            }
-        }
-        trigger_if = {
-            limit = {
-                has_game_rule = allow_monument_effects
-            }
-            custom_tooltip = {
-                text = pena_palace_populated_tt
-                any_scope_state = {
-                    state_region = s:STATE_ESTREMADURA
-                    any_scope_building = {
-                        is_building_type = building_pena_palace
-                        occupancy >= 0.5
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        custom_tooltip = {
+	            text = pena_palace_complete_tt
+	            any_scope_state = {
+	                state_region = s:STATE_ESTREMADURA
+	                has_building = building_pena_palace
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                has_game_rule = allow_monument_effects
+	            }
+	            custom_tooltip = {
+	                text = pena_palace_populated_tt
+	                any_scope_state = {
+	                    state_region = s:STATE_ESTREMADURA
+	                    any_scope_building = {
+	                        is_building_type = building_pena_palace
+	                        occupancy >= 0.5
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {
+	        trigger_event = { id = pena_palace.2 popup = yes }
+	    }
+		event_outcome_effect_desc = {
+	        header = pena_palace.2.a
+	        effect = {
+	            random_scope_state = {
+	                limit = {
+	                    state_region = s:STATE_ESTREMADURA
+	                }
+	                add_modifier = {
+	                    name = pena_palace_reward_loc
+	                    days = long_modifier_time
+	                }
+	            }
+	        }
+	    }
+		event_outcome_effect_desc = {
+	        header = pena_palace.2.b
+	        effect = {
+	            add_modifier = {
+	                name = pena_palace_reward_int
+	                days = long_modifier_time
+	            }
+	        }
+	    }
+	}
 
-    on_complete = {
-        trigger_event = { id = pena_palace.2 popup = yes }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = pena_palace.2.a
-        effect = {
-            random_scope_state = {
-                limit = {
-                    state_region = s:STATE_ESTREMADURA
-                }
-                add_modifier = {
-                    name = pena_palace_reward_loc
-                    days = long_modifier_time
-                }
-            }
-        }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = pena_palace.2.b
-        effect = {
-            add_modifier = {
-                name = pena_palace_reward_int
-                days = long_modifier_time
-            }
-        }
-    }
 
-    invalid = {
-        OR = {
-            custom_tooltip = {
-                text = rejected_pena_palace_project_tt
-                has_variable = rejected_pena_palace_project
-            }
-            custom_tooltip = {
-                text = does_not_have_state_estremadura_tt
-                NOT = {
-                    any_scope_state = {
-                        state_region = s:STATE_ESTREMADURA
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        OR = {
+	            custom_tooltip = {
+	                text = rejected_pena_palace_project_tt
+	                has_variable = rejected_pena_palace_project
+	            }
+	            custom_tooltip = {
+	                text = does_not_have_state_estremadura_tt
+	                NOT = {
+	                    any_scope_state = {
+	                        state_region = s:STATE_ESTREMADURA
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {}
+	}
 
     weight = 1000
 
@@ -337,76 +359,87 @@ je_gran_teatro = {
         trigger_event = { id = gran_teatro.1 popup = yes }
     }
 
-    complete = {
-        custom_tooltip = {
-            text = gran_teatro_complete_tt
-            any_scope_state = {
-                state_region = s:STATE_WESTERN_CUBA
-                has_building = building_gran_teatro_de_la_habana
-            }
-        }
-        trigger_if = {
-            limit = {
-                has_game_rule = allow_monument_effects
-            }
-            custom_tooltip = {
-                text = gran_teatro_populated_tt
-                any_scope_state = {
-                    state_region = s:STATE_WESTERN_CUBA
-                    any_scope_building = {
-                        is_building_type = building_gran_teatro_de_la_habana
-                        occupancy >= 0.5
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        custom_tooltip = {
+	            text = gran_teatro_complete_tt
+	            any_scope_state = {
+	                state_region = s:STATE_WESTERN_CUBA
+	                has_building = building_gran_teatro_de_la_habana
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                has_game_rule = allow_monument_effects
+	            }
+	            custom_tooltip = {
+	                text = gran_teatro_populated_tt
+	                any_scope_state = {
+	                    state_region = s:STATE_WESTERN_CUBA
+	                    any_scope_building = {
+	                        is_building_type = building_gran_teatro_de_la_habana
+	                        occupancy >= 0.5
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {
+	        trigger_event = { id = gran_teatro.2 popup = yes }
+	    }
+		event_outcome_effect_desc = {
+	        header = gran_teatro.2.a
+	        effect = {
+	            random_scope_state = {
+	                limit = {
+	                    state_region = s:STATE_WESTERN_CUBA
+	                }
+	                add_modifier = {
+	                    name = gran_teatro_reward_loc
+	                    days = long_modifier_time
+	                }
+	            }
+	        }
+	    }
+		event_outcome_effect_desc = {
+	        header = gran_teatro.2.b
+	        effect = {
+	            add_modifier = {
+	                name = gran_teatro_reward_int
+	                days = long_modifier_time
+	            }
+	        }
+	    }
+	}
 
-    on_complete = {
-        trigger_event = { id = gran_teatro.2 popup = yes }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = gran_teatro.2.a
-        effect = {
-            random_scope_state = {
-                limit = {
-                    state_region = s:STATE_WESTERN_CUBA
-                }
-                add_modifier = {
-                    name = gran_teatro_reward_loc
-                    days = long_modifier_time
-                }
-            }
-        }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = gran_teatro.2.b
-        effect = {
-            add_modifier = {
-                name = gran_teatro_reward_int
-                days = long_modifier_time
-            }
-        }
-    }
 
-    invalid = {
-        OR = {
-            custom_tooltip = {
-                text = rejected_gran_teatro_project_tt
-                has_variable = rejected_gran_teatro_project
-            }
-            custom_tooltip = {
-                text = does_not_have_state_western_cuba_tt
-                NOT = {
-                    any_scope_state = {
-                        state_region = s:STATE_WESTERN_CUBA
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        OR = {
+	            custom_tooltip = {
+	                text = rejected_gran_teatro_project_tt
+	                has_variable = rejected_gran_teatro_project
+	            }
+	            custom_tooltip = {
+	                text = does_not_have_state_western_cuba_tt
+	                NOT = {
+	                    any_scope_state = {
+	                        state_region = s:STATE_WESTERN_CUBA
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {}
+	}
 
     weight = 1000
 
@@ -454,76 +487,87 @@ je_atocha_railway = {
         trigger_event = { id = atocha_railway.1 popup = yes }
     }
 
-    complete = {
-        custom_tooltip = {
-            text = atocha_railway_complete_tt
-            any_scope_state = {
-                state_region = s:STATE_NEW_CASTILE
-                has_building = building_estacion_de_madrid_atocha
-            }
-        }
-        trigger_if = {
-            limit = {
-                has_game_rule = allow_monument_effects
-            }
-            custom_tooltip = {
-                text = atocha_railway_populated_tt
-                any_scope_state = {
-                    state_region = s:STATE_NEW_CASTILE
-                    any_scope_building = {
-                        is_building_type = building_estacion_de_madrid_atocha
-                        occupancy >= 0.5
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        custom_tooltip = {
+	            text = atocha_railway_complete_tt
+	            any_scope_state = {
+	                state_region = s:STATE_NEW_CASTILE
+	                has_building = building_estacion_de_madrid_atocha
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                has_game_rule = allow_monument_effects
+	            }
+	            custom_tooltip = {
+	                text = atocha_railway_populated_tt
+	                any_scope_state = {
+	                    state_region = s:STATE_NEW_CASTILE
+	                    any_scope_building = {
+	                        is_building_type = building_estacion_de_madrid_atocha
+	                        occupancy >= 0.5
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {
+	        trigger_event = { id = atocha_railway.2 popup = yes }
+	    }
+		event_outcome_effect_desc = {
+	        header = atocha_railway.2.a
+	        effect = {
+	            random_scope_state = {
+	                limit = {
+	                    state_region = s:STATE_NEW_CASTILE
+	                }
+	                add_modifier = {
+	                    name = atocha_railway_reward_loc
+	                    days = long_modifier_time
+	                }
+	            }
+	        }
+	    }
+		event_outcome_effect_desc = {
+	        header = atocha_railway.2.b
+	        effect = {
+	            add_modifier = {
+	                name = atocha_railway_reward_int
+	                days = long_modifier_time
+	            }
+	        }
+	    }
+	}
 
-    on_complete = {
-        trigger_event = { id = atocha_railway.2 popup = yes }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = atocha_railway.2.a
-        effect = {
-            random_scope_state = {
-                limit = {
-                    state_region = s:STATE_NEW_CASTILE
-                }
-                add_modifier = {
-                    name = atocha_railway_reward_loc
-                    days = long_modifier_time
-                }
-            }
-        }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = atocha_railway.2.b
-        effect = {
-            add_modifier = {
-                name = atocha_railway_reward_int
-                days = long_modifier_time
-            }
-        }
-    }
 
-    invalid = {
-        OR = {
-            custom_tooltip = {
-                text = rejected_atocha_railway_project_tt
-                has_variable = rejected_atocha_railway_project
-            }
-            custom_tooltip = {
-                text = does_not_have_state_new_castile_tt
-                NOT = {
-                    any_scope_state = {
-                        state_region = s:STATE_NEW_CASTILE
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        OR = {
+	            custom_tooltip = {
+	                text = rejected_atocha_railway_project_tt
+	                has_variable = rejected_atocha_railway_project
+	            }
+	            custom_tooltip = {
+	                text = does_not_have_state_new_castile_tt
+	                NOT = {
+	                    any_scope_state = {
+	                        state_region = s:STATE_NEW_CASTILE
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {}
+	}
 
     weight = 1000
 
@@ -574,77 +618,88 @@ je_manila_cathedral = {
         trigger_event = { id = manila_cathedral.1 popup = yes }
     }
 
-    complete = {
-        custom_tooltip = {
-            text = manila_cathedral_complete_tt
-            any_scope_state = {
-                state_region = s:STATE_LUZON
-                has_building = building_manila_cathedral_monument
-            }
-        }
-        trigger_if = {
-            limit = {
-                has_game_rule = allow_monument_effects
-            }
-            custom_tooltip = {
-                text = manila_cathedral_populated_tt
-                any_scope_state = {
-                    state_region = s:STATE_LUZON
-                    any_scope_building = {
-                        is_building_type = building_manila_cathedral_monument
-                        occupancy >= 0.5
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        custom_tooltip = {
+	            text = manila_cathedral_complete_tt
+	            any_scope_state = {
+	                state_region = s:STATE_LUZON
+	                has_building = building_manila_cathedral_monument
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                has_game_rule = allow_monument_effects
+	            }
+	            custom_tooltip = {
+	                text = manila_cathedral_populated_tt
+	                any_scope_state = {
+	                    state_region = s:STATE_LUZON
+	                    any_scope_building = {
+	                        is_building_type = building_manila_cathedral_monument
+	                        occupancy >= 0.5
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {
+	        trigger_event = { id = manila_cathedral.2 popup = yes }
+	    }
+		event_outcome_effect_desc = {
+	        header = manila_cathedral.2.a
+	        effect = {
+	            random_scope_state = {
+	                limit = {
+	                    state_region = s:STATE_LUZON
+	                }
+	                add_modifier = {
+	                    name = manila_cathedral_reward_loc
+	                    days = long_modifier_time
+	                }
+	            }
+	        }
+	    }
+		event_outcome_effect_desc = {
+	        header = manila_cathedral.2.b
+	        effect = {
+	            add_modifier = {
+	                name = manila_cathedral_reward_int
+	                days = long_modifier_time
+	            }
+	        }
+	    }
+	}
 
-    on_complete = {
-        trigger_event = { id = manila_cathedral.2 popup = yes }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = manila_cathedral.2.a
-        effect = {
-            random_scope_state = {
-                limit = {
-                    state_region = s:STATE_LUZON
-                }
-                add_modifier = {
-                    name = manila_cathedral_reward_loc
-                    days = long_modifier_time
-                }
-            }
-        }
-    }
 
-    event_outcome_completed_effect_desc = {
-        header = manila_cathedral.2.b
-        effect = {
-            add_modifier = {
-                name = manila_cathedral_reward_int
-                days = long_modifier_time
-            }
-        }
-    }
 
-    invalid = {
-        OR = {
-            has_law_or_variant = law_type:law_state_atheism
-            custom_tooltip = {
-                text = rejected_manila_cathedral_project_tt
-                has_variable = rejected_manila_cathedral_project
-            }
-            custom_tooltip = {
-                text = does_not_have_state_luzon_tt
-                NOT = {
-                    any_scope_state = {
-                        state_region = s:STATE_LUZON
-                    }
-                }
-            }
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        OR = {
+	            has_law_or_variant = law_type:law_state_atheism
+	            custom_tooltip = {
+	                text = rejected_manila_cathedral_project_tt
+	                has_variable = rejected_manila_cathedral_project
+	            }
+	            custom_tooltip = {
+	                text = does_not_have_state_luzon_tt
+	                NOT = {
+	                    any_scope_state = {
+	                        state_region = s:STATE_LUZON
+	                    }
+	                }
+	            }
+	        }
+	    }
+		effect = {}
+	}
 
     weight = 1000
 

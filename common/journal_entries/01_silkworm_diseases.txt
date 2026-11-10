@@ -5,36 +5,48 @@
 
 	#Activated by event
 
-	complete = {
-		OR = {
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = pebrine_cure_tt
+					has_variable = pebrine_cure
+				}
+			}
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+		effect = {
+			trigger_event = { id = silkworm_diseases.9 }
+		}
+	}
+
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOT = {
+				any_scope_state = {
+					is_incorporated = yes
+					has_building = building_silk_plantation
+				}
+			}
+		}
+		effect = {
 			custom_tooltip = {
-				text = pebrine_cure_tt
-				has_variable = pebrine_cure
-			}
-		}
-		scope:journal_entry = {
-			is_goal_complete = yes
-		}
-	}
-
-	on_complete = {
-		trigger_event = { id = silkworm_diseases.9 }
-	}
-
-	fail = {
-		NOT = {
-			any_scope_state = {
-				is_incorporated = yes
-				has_building = building_silk_plantation
+				text = pebrine_je_fail_tt
 			}
 		}
 	}
 
-	on_fail = {
-		custom_tooltip = {
-			text = pebrine_je_fail_tt
-		}
-	}
 
 	on_monthly_pulse = {
 		effect = {
@@ -110,13 +122,18 @@
 		}
 	}
 
-	invalid = {
-		NOT = {
-			any_scope_state = {
-				is_incorporated = yes
-				has_modifier = modifier_pebrine_state_modifier
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = {
+				any_scope_state = {
+					is_incorporated = yes
+					has_modifier = modifier_pebrine_state_modifier
+				}
 			}
 		}
+		effect = {}
 	}
 
 	immediate = {

@@ -1,0 +1,76 @@
+{
+  "recorded_at": "2026-11-09T13:13:42.819400+00:00",
+  "issue": 24,
+  "global_issue_status": "In progress",
+  "bounded_delivery_status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+  "resumption_complete": true,
+  "installed_gameplay_files": [
+    {
+      "path": "common/strategic_regions/europe_strategic_regions.txt",
+      "action": "new targeted same-path mask",
+      "before_sha256": null,
+      "canonical_source": "C:\\Games\\Victoria 3\\game\\common\\strategic_regions\\europe_strategic_regions.txt",
+      "canonical_sha256": "1c4a54e6dc8bd8caa2079db47c07524ef2cbe17900b3861b82ba62e9ccc6973e",
+      "candidate_sha256": "41630f9844d4acfeeaaf3caca09484e46c060989ed447142a7b68fe027512bd5",
+      "changes": {
+        "region_russia": {
+          "STATE_TULA": null,
+          "STATE_KOSTROMA": null,
+          "STATE_SARATOV": "STATE_TARTARIA",
+          "STATE_VOLOGDA": "STATE_GALICH"
+        },
+        "region_eastern_europe": {
+          "STATE_LITHUANIA": "STATE_KAUNAS"
+        }
+      }
+    },
+    {
+      "path": "common/strategic_regions/east_asia_strategic_regions.txt",
+      "action": "new targeted same-path mask",
+      "before_sha256": null,
+      "canonical_source": "C:\\Games\\Victoria 3\\game\\common\\strategic_regions\\east_asia_strategic_regions.txt",
+      "canonical_sha256": "220b662fe36ba692338d8ddb217ef47b193b723dc28e37c5a4d6d0a456df8df0",
+      "candidate_sha256": "4bd3d7d2040a7dc35e832e7df8b85a6bf76be8e37f63758628dc61ee8079b7c9",
+      "changes": {
+        "region_northeast_asia": {
+          "STATE_KAMCHATKA": "STATE_KAMCHATKA STATE_CHUKOTKA"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/12_indonesia.txt",
+      "action": "replace only Mindanao port province",
+      "before_sha256": "772d3e31c4445417a56ae6fbc403c8b724ae67a790e972d6b98e19666607142e",
+      "candidate_sha256": "90a31af671ba62508e0700fdddf6b4ca13fc929c31ae6839c8746d2be3cdb353",
+      "classification": "pre-existing structural defect, commit f34a6b88d 2026-10-14; not newly attributed to 1.15",
+      "port_before": "x16C9FB",
+      "port_after": "xF0014A",
+      "naval_exit_unchanged": 3125
+    }
+  ],
+  "candidate_checks": "31/31",
+  "fixture_controls": "6/6",
+  "final_delivery_checks": "24/24",
+  "native_version": "1.15.0",
+  "culture_followup": {
+    "issue": 40,
+    "status": "Backlog",
+    "parent": 24,
+    "runtime_population_loss_claimed": false
+  },
+  "remaining_findings": "REMAINING_FINDINGS.json",
+  "source_preservation": "FINAL_SOURCE_PROTECTION.json",
+  "failed_guard_preserved": "FINAL_INPUT_GUARD_FIRST_ATTEMPT.json",
+  "concurrent_reconciliation": "CONCURRENT_EVENT_RECONCILIATION.json",
+  "engine_tested": false,
+  "human_runtime_accepted": false,
+  "journals39_modified": false,
+  "vanilla_written": false,
+  "git_written": false,
+  "release_published": false,
+  "auditor_sha256": "0ccd4842dc28ec93a7214f3630802240e34639a0545d71f3dbe19310dbb9f354",
+  "screenshots": [
+    "FINAL_STATUS_SCREENSHOT.png",
+    "CULTURE_FOLLOWUP_SCREENSHOT.png"
+  ]
+}

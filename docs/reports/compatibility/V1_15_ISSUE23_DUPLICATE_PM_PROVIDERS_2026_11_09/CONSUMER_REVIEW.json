@@ -1,0 +1,348 @@
+{
+  "consumers": [
+    {
+      "building": "building_subsistence_farm",
+      "source": "native/common/buildings/12_subsistence.txt",
+      "all_cumulative_groups": [
+        "pmg_base_building_subsistence_farm",
+        "pmg_home_workshops_building_subsistence_farm",
+        "pmg_serfdom_building_subsistence_farm"
+      ],
+      "affected_groups": [
+        "pmg_home_workshops_building_subsistence_farm"
+      ]
+    },
+    {
+      "building": "building_subsistence_orchard",
+      "source": "native/common/buildings/12_subsistence.txt",
+      "all_cumulative_groups": [
+        "pmg_base_building_subsistence_orchard",
+        "pmg_home_workshops_building_subsistence_orchard",
+        "pmg_serfdom_building_subsistence_orchard"
+      ],
+      "affected_groups": [
+        "pmg_home_workshops_building_subsistence_orchard"
+      ]
+    },
+    {
+      "building": "building_subsistence_pasture",
+      "source": "native/common/buildings/12_subsistence.txt",
+      "all_cumulative_groups": [
+        "pmg_base_building_subsistence_pasture",
+        "pmg_home_workshops_building_subsistence_pasture",
+        "pmg_serfdom_building_subsistence_pasture"
+      ],
+      "affected_groups": [
+        "pmg_home_workshops_building_subsistence_pasture"
+      ]
+    },
+    {
+      "building": "building_subsistence_fishing_village",
+      "source": "native/common/buildings/12_subsistence.txt",
+      "all_cumulative_groups": [
+        "pmg_base_building_subsistence_fishing_village",
+        "pmg_home_workshops_building_subsistence_fishing_village",
+        "pmg_serfdom_building_subsistence_fishing_village"
+      ],
+      "affected_groups": [
+        "pmg_home_workshops_building_subsistence_fishing_village"
+      ]
+    },
+    {
+      "building": "building_subsistence_rice_farm",
+      "source": "native/common/buildings/12_subsistence.txt",
+      "all_cumulative_groups": [
+        "pmg_base_building_subsistence_rice_farm",
+        "pmg_home_workshops_building_subsistence_rice_farm",
+        "pmg_serfdom_building_subsistence_rice_farm"
+      ],
+      "affected_groups": [
+        "pmg_home_workshops_building_subsistence_rice_farm"
+      ]
+    },
+    {
+      "building": "building_logging_camp",
+      "source": "mod/common/buildings/09_misc_resource.txt",
+      "all_cumulative_groups": [
+        "pmg_base_building_logging_camp",
+        "pmg_hardwood",
+        "pmg_equipment",
+        "pmg_transportation_building_logging_camp"
+      ],
+      "affected_groups": [
+        "pmg_base_building_logging_camp"
+      ]
+    },
+    {
+      "building": "building_rubber_plantation",
+      "source": "mod/common/buildings/09_misc_resource.txt",
+      "all_cumulative_groups": [
+        "pmg_base_building_rubber_plantation",
+        "pmg_rubber_exploitation",
+        "pmg_train_automation_building_rubber_plantation"
+      ],
+      "affected_groups": [
+        "pmg_train_automation_building_rubber_plantation"
+      ]
+    }
+  ],
+  "groups": {
+    "pmg_base_building_logging_camp": {
+      "source": "mod/common/production_method_groups/99_tech_tree_wood_rework_pmgs.txt",
+      "methods": [
+        "pm_simple_forestry",
+        "pm_organized_forestry",
+        "pm_saw_mills",
+        "pm_electric_saw_mills"
+      ]
+    },
+    "pmg_home_workshops_building_subsistence_farm": {
+      "source": "native/common/production_method_groups/12_subsistence.txt",
+      "methods": [
+        "pm_home_workshops_no_building_subsistence_farm",
+        "pm_home_workshops_building_subsistence_farm"
+      ]
+    },
+    "pmg_home_workshops_building_subsistence_fishing_village": {
+      "source": "native/common/production_method_groups/12_subsistence.txt",
+      "methods": [
+        "pm_home_workshops_no_building_subsistence_fishing_village",
+        "pm_home_workshops_building_subsistence_fishing_village"
+      ]
+    },
+    "pmg_home_workshops_building_subsistence_orchard": {
+      "source": "native/common/production_method_groups/12_subsistence.txt",
+      "methods": [
+        "pm_home_workshops_no_building_subsistence_orchard",
+        "pm_home_workshops_building_subsistence_orchard"
+      ]
+    },
+    "pmg_home_workshops_building_subsistence_pasture": {
+      "source": "native/common/production_method_groups/12_subsistence.txt",
+      "methods": [
+        "pm_home_workshops_no_building_subsistence_pasture",
+        "pm_home_workshops_building_subsistence_pasture"
+      ]
+    },
+    "pmg_home_workshops_building_subsistence_rice_farm": {
+      "source": "native/common/production_method_groups/12_subsistence.txt",
+      "methods": [
+        "pm_home_workshops_no_building_subsistence_rice_farm",
+        "pm_home_workshops_building_subsistence_rice_farm"
+      ]
+    },
+    "pmg_train_automation_building_rubber_plantation": {
+      "source": "mod/common/production_method_groups/99_tech_tree_wave3_causality_pmgs.txt",
+      "methods": [
+        "pm_road_carts",
+        "pm_steam_rail_transport_building_rubber_plantation"
+      ]
+    }
+  },
+  "method_coefficients_and_requirements": {
+    "pm_organized_forestry": {
+      "source": "mod/common/production_methods/09_misc_resource.txt",
+      "raw_fields": [
+        [
+          "texture",
+          "\"gfx/interface/icons/production_method_icons/simple_forestry.dds\""
+        ],
+        [
+          "",
+          "organized_forestry"
+        ],
+        [
+          "goods_output_wood_add",
+          "40"
+        ],
+        [
+          "building_employment_shopkeepers_add",
+          "500"
+        ],
+        [
+          "building_employment_laborers_add",
+          "4500"
+        ]
+      ],
+      "unit_note": "Authored scaled modifier coefficients; not observed weekly national supply or profit."
+    },
+    "pm_steam_rail_transport_building_rubber_plantation": {
+      "source": "mod/common/production_methods/99_tech_tree_wave3_causality.txt",
+      "raw_fields": [
+        [
+          "texture",
+          "\"gfx/interface/icons/production_method_icons/rail_transport.dds\""
+        ],
+        [
+          "state_pollution_generation_add",
+          "10"
+        ],
+        [
+          "",
+          "rubber_mastication"
+        ],
+        [
+          "goods_input_transportation_add",
+          "5"
+        ],
+        [
+          "building_employment_laborers_add",
+          "-1000"
+        ]
+      ],
+      "unit_note": "Authored scaled modifier coefficients; not observed weekly national supply or profit."
+    },
+    "pm_home_workshops_building_subsistence_farm": {
+      "source": "mod/common/production_methods/99_tech_start_1776_subsistence_tools.txt",
+      "raw_fields": [
+        [
+          "texture",
+          "\"gfx/interface/icons/production_method_icons/home_workshops.dds\""
+        ],
+        [
+          "",
+          "law_collectivized_agriculture"
+        ],
+        [
+          "goods_output_clothes_add",
+          "0.25"
+        ],
+        [
+          "goods_output_furniture_add",
+          "0.25"
+        ],
+        [
+          "goods_output_liquor_add",
+          "0.25"
+        ],
+        [
+          "goods_output_tools_add",
+          "0.10"
+        ]
+      ],
+      "unit_note": "Authored scaled modifier coefficients; not observed weekly national supply or profit."
+    },
+    "pm_home_workshops_building_subsistence_fishing_village": {
+      "source": "mod/common/production_methods/99_tech_start_1776_subsistence_tools.txt",
+      "raw_fields": [
+        [
+          "texture",
+          "\"gfx/interface/icons/production_method_icons/home_workshops.dds\""
+        ],
+        [
+          "",
+          "law_collectivized_agriculture"
+        ],
+        [
+          "goods_output_clothes_add",
+          "0.25"
+        ],
+        [
+          "goods_output_furniture_add",
+          "0.25"
+        ],
+        [
+          "goods_output_liquor_add",
+          "0.25"
+        ],
+        [
+          "goods_output_tools_add",
+          "0.10"
+        ]
+      ],
+      "unit_note": "Authored scaled modifier coefficients; not observed weekly national supply or profit."
+    },
+    "pm_home_workshops_building_subsistence_orchard": {
+      "source": "mod/common/production_methods/99_tech_start_1776_subsistence_tools.txt",
+      "raw_fields": [
+        [
+          "texture",
+          "\"gfx/interface/icons/production_method_icons/home_workshops.dds\""
+        ],
+        [
+          "",
+          "law_collectivized_agriculture"
+        ],
+        [
+          "goods_output_clothes_add",
+          "0.25"
+        ],
+        [
+          "goods_output_furniture_add",
+          "0.25"
+        ],
+        [
+          "goods_output_liquor_add",
+          "0.25"
+        ],
+        [
+          "goods_output_tools_add",
+          "0.10"
+        ]
+      ],
+      "unit_note": "Authored scaled modifier coefficients; not observed weekly national supply or profit."
+    },
+    "pm_home_workshops_building_subsistence_pasture": {
+      "source": "mod/common/production_methods/99_tech_start_1776_subsistence_tools.txt",
+      "raw_fields": [
+        [
+          "texture",
+          "\"gfx/interface/icons/production_method_icons/home_workshops.dds\""
+        ],
+        [
+          "",
+          "law_collectivized_agriculture"
+        ],
+        [
+          "goods_output_clothes_add",
+          "0.25"
+        ],
+        [
+          "goods_output_furniture_add",
+          "0.25"
+        ],
+        [
+          "goods_output_liquor_add",
+          "0.25"
+        ],
+        [
+          "goods_output_tools_add",
+          "0.10"
+        ]
+      ],
+      "unit_note": "Authored scaled modifier coefficients; not observed weekly national supply or profit."
+    },
+    "pm_home_workshops_building_subsistence_rice_farm": {
+      "source": "mod/common/production_methods/99_tech_start_1776_subsistence_tools.txt",
+      "raw_fields": [
+        [
+          "texture",
+          "\"gfx/interface/icons/production_method_icons/home_workshops.dds\""
+        ],
+        [
+          "",
+          "law_collectivized_agriculture"
+        ],
+        [
+          "goods_output_clothes_add",
+          "0.50"
+        ],
+        [
+          "goods_output_furniture_add",
+          "0.50"
+        ],
+        [
+          "goods_output_liquor_add",
+          "0.50"
+        ],
+        [
+          "goods_output_tools_add",
+          "0.20"
+        ]
+      ],
+      "unit_note": "Authored scaled modifier coefficients; not observed weekly national supply or profit."
+    }
+  },
+  "economic_parameters_changed": false,
+  "implicit_engine_initial_PM_selection_verified": false
+}

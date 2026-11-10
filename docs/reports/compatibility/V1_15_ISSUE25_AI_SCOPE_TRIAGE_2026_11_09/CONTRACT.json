@@ -1,0 +1,47 @@
+{
+  "path": "common/ai_strategies/00_default_strategy.txt",
+  "replacements": [
+    {
+      "start": 120353,
+      "end": 120372,
+      "before": "building_naval_base",
+      "after": "building_naval_administration"
+    },
+    {
+      "start": 120393,
+      "end": 120395,
+      "before": "15",
+      "after": "3"
+    }
+  ],
+  "context_path": [
+    "ai_strategy_default",
+    "secret_goal_scores",
+    "befriend",
+    "score",
+    "if",
+    "limit",
+    "c:RUS",
+    "any_scope_state",
+    "OR",
+    "any_scope_building"
+  ],
+  "before_sha256": "fc316ac6b2aef29e8f30347e4941a2d6d3415b1e1399af46213a3a12aa9a77dd",
+  "candidate_sha256": "4f66808b678ec64a79d90f83f7df62d483b69b5d731fc2cdd9c087488489d07f",
+  "native_sha256": "83a9e8b7b568967ea9ae10df63ee18ed9b069ff69a5a31a23d35cc129b89ce73",
+  "before_line": 5132,
+  "native_line": 7380,
+  "native_predicate": [
+    [
+      "is_building_type",
+      "=",
+      "building_naval_administration"
+    ],
+    [
+      "level",
+      ">=",
+      "3"
+    ]
+  ],
+  "game_version": "1.15.0"
+}

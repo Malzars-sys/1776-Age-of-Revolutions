@@ -1,0 +1,247 @@
+﻿je_consolidate_colonial_rule = {
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	group = je_group_british_india
+
+	immediate = {
+		ig:ig_industrialists = {
+			save_scope_as = industrialists_ig
+		}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_state = {
+				filter = {
+					OR = {
+						state_region = s:STATE_PUNJAB
+						state_region = s:STATE_HILL_PUNJAB
+						state_region = s:STATE_SINDH
+						state_region = s:STATE_PASHTUNISTAN
+						state_region = s:STATE_QUETTA
+						state_region = s:STATE_KASHMIR
+						state_region = s:STATE_BALUCHISTAN
+						state_region = s:STATE_MANDALAY
+						state_region = s:STATE_KACHIN
+						state_region = s:STATE_SHAN_STATES
+						state_region = s:STATE_PEGU
+						state_region = s:STATE_AWADH
+						state_region = s:STATE_BIHAR
+						state_region = s:STATE_BOMBAY
+						state_region = s:STATE_MALWA
+						state_region = s:STATE_CEYLON
+						state_region = s:STATE_CIRCARS
+						state_region = s:STATE_DELHI
+						state_region = s:STATE_GUJARAT
+						state_region = s:STATE_HYDERABAD
+						state_region = s:STATE_MADRAS
+						state_region = s:STATE_MYSORE
+						state_region = s:STATE_CENTRAL_PROVINCES
+						state_region = s:STATE_ORISSA
+						state_region = s:STATE_RAJPUTANA
+						state_region = s:STATE_TRAVANCORE
+						state_region = s:STATE_KURNOOL
+						state_region = s:STATE_BUNDELKHAND
+						state_region = s:STATE_AGRA
+					}
+				}
+				OR = {
+					owner = ROOT
+					owner = {
+						is_subject_of = ROOT
+					}
+					trigger_if = {
+						limit = {
+							exists = ROOT.top_overlord
+						}
+						OR = {
+							owner = ROOT.top_overlord
+							owner = {
+								is_subject_of = ROOT.top_overlord
+							}
+						}
+					}
+				}
+				percent >= 0.80
+			}
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+			highest_secession_progress < 0.5
+		}
+		effect = {
+			trigger_event = { id = east_indies.1 }
+			set_variable = consolidated_colonial_rule
+		}
+		event_outcome_desc = {
+	        first_valid = {
+	            triggered_desc = {
+	                desc = event_effects_east_indies.1_tt
+	            }
+	        }
+	    }
+	}
+
+	
+
+    
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				NOT = {
+					exists = c:GBR
+				}
+				trigger_if = {
+					limit = {
+						exists = c:GBR
+					}
+					NOT = {
+						is_subject_of = c:GBR
+					}
+				}
+				is_subject_type = subject_type_colony
+			}
+		}
+		effect = {}
+	}
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			OR = {
+				has_variable = bic_collapse_var
+				has_journal_entry = je_battle_for_india_goal
+			}
+		}
+		effect = {}
+	}
+
+	current_value = {
+		value = root.var:east_indies_revolt_var
+	}
+
+	goal_add_value = {
+		add = 120
+	}
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+
+	weight = 5000
+}
+
+je_reform_indies = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_internal_affairs
+
+	is_shown_when_inactive = {
+		AND = {
+			exists = c:DEI
+			c:DEI = THIS
+		}
+	}
+
+	possible = {
+		OR = {
+			has_law = law_type:law_free_trade
+			has_law = law_type:law_mercantilism
+			NOT = { has_law = law_type:law_land_based_taxation }
+			NOT = { has_law = law_type:law_serfdom }
+		}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+			OR = {
+				has_law = law_type:law_free_trade
+				has_law = law_type:law_mercantilism
+			}
+			NOT = { has_law = law_type:law_land_based_taxation }
+			NOT = { has_law = law_type:law_serfdom }
+			has_law = law_type:law_slavery_banned
+		}
+		effect = {
+			trigger_event = { id = east_indies.2 }
+			show_as_tooltip = {
+				add_journal_entry = {
+					type = je_ethical_policy
+				}
+			}
+		}
+	}
+
+	
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			has_variable = bic_collapse_var
+		}
+		effect = {}
+	}
+
+
+	current_value = {
+		value = root.gdp
+	}
+
+	goal_add_value = {
+		value = root.gdp
+		multiply = 0.5
+	}
+
+	progressbar = yes
+
+	weight = 100
+}
+
+je_ethical_policy = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_internal_affairs
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			literacy_rate > 0.5
+			root.average_sol > 15
+		}
+		effect = {
+			trigger_event = { id = east_indies.3 }
+		}
+	}
+
+	
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			has_variable = bic_collapse_var
+		}
+		effect = {}
+	}
+
+	weight = 100
+}

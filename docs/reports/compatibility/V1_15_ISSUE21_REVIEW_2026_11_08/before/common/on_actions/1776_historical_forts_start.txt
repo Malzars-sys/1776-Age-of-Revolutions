@@ -1,0 +1,18 @@
+# MIL-FORT-ENGINEERS-1776, lot A1. Child actions preserve other start systems.
+# No monthly reseeding and no retroactive additions to older campaigns.
+on_game_started = { on_actions = { aor1776_historical_forts_a1_initialize } }
+on_game_started_after_lobby = { on_actions = { aor1776_historical_forts_a1_initialize } }
+
+aor1776_historical_forts_a1_initialize = {
+	trigger = {
+		current_date >= 1776.1.1
+		current_date < 1776.1.2
+	}
+	effect = {
+		c:FRA ?= { aor1776_historical_forts_a1_france = yes }
+		c:GBR ?= { aor1776_historical_forts_a1_britain = yes }
+		c:SPA ?= { aor1776_historical_forts_a1_spain = yes }
+		c:POR ?= { aor1776_historical_forts_a1_portugal = yes }
+		c:NET ?= { aor1776_historical_forts_a1_netherlands = yes }
+	}
+}

@@ -1,0 +1,98 @@
+#1776 scenario deltas only. All other defines inherit canonical1.15.
+# Provenance: e5d97261 (1.13.9+1776),756e6c13 (demographic design).
+# Keep these formulas together; their macros are local to this file.
+NGame = { START_DATE = "1776.1.1" }
+NPops = { WORKING_ADULT_RATIO_BASE = 0.30 }
+
+### Pop Growth Constants
+## Base Values per month
+@aor1776_min_birthrate = 0.00110			# Higher gross births at high SoL; keep net growth near the old baseline.
+@aor1776_max_birthrate = 0.00510			# High pre-transition birthrate.
+@aor1776_min_mortality = 0.00095			# Higher gross mortality leaves room for medical advances.
+@aor1776_max_mortality = 0.00620			# High mortality in severe poverty.
+
+## SoL Thresholds
+@aor1776_pop_growth_equilibrium_sol = 5		# Equilibrium is pops stop starving and where growth first becomes positive
+@aor1776_pop_growth_transition_sol = 10     # Transition determines how long birthrate "lags" behind mortality before starting to drop. Setting to same as equilibrium leads to no "lag" (only matters for birthrate)
+@aor1776_pop_growth_max_sol = 15			# Growth Max is where net growth generally is at it's highest (only matters for mortality)
+@aor1776_pop_growth_stable_sol = 25 		# Stable is where birthrate and mortality stop changing and hit their minimum values
+
+## Others
+@aor1776_transition_birthrate_mult = 1 		# If you want the birthrate "lag" to go to a higher or lower value than max_birthrate. (you can also just change it directly below)
+@aor1776_max_growth_mortality_mult = 0.50	# Higher mortality at peak growth balances the increased birthrate.
+
+### Pop Growth Derived values
+# Generally, for each one of these derived values below we're really just doing one of three operations (or combination of them):
+# - Calculate a Point: sol * slope + start_value   					(x_at_y)
+# - Calculate a Slope: (start_value - end_value) / number_of_steps	(x_slope)
+# - Calculate an Intercept: -slope*sol + end_value					(x_intercept)
+# Intercepts are only needed for line segments that don't start at 0 SoL
+
+@aor1776_birthrate_at_transition = @[aor1776_max_birthrate*aor1776_transition_birthrate_mult]
+@aor1776_rate_at_equilibrium = @[aor1776_pop_growth_equilibrium_sol*((aor1776_birthrate_at_transition-aor1776_max_birthrate)/aor1776_pop_growth_transition_sol)+aor1776_max_birthrate] # determines both mortality and birthrate
+
+## Mortality from 0 to pop_growth_equilibrium_sol
+@aor1776_mortality_starving_slope = @[(aor1776_rate_at_equilibrium-aor1776_max_mortality)/aor1776_pop_growth_equilibrium_sol]
+
+## Birthrate from 0 to pop_growth_transition_sol
+@aor1776_birthrate_pretransition_slope = @[(aor1776_birthrate_at_transition-aor1776_rate_at_equilibrium)/aor1776_pop_growth_transition_sol]
+
+## Mortality from pop_growth_equilibrium_sol to pop_growth_max_sol
+@aor1776_birthrate_at_growth_max = @[(aor1776_pop_growth_max_sol-aor1776_pop_growth_transition_sol)*((aor1776_min_birthrate-aor1776_birthrate_at_transition)/(aor1776_pop_growth_stable_sol-aor1776_pop_growth_transition_sol))+aor1776_birthrate_at_transition]
+@aor1776_mortality_at_growth_max = @[aor1776_birthrate_at_growth_max*aor1776_max_growth_mortality_mult]
+@aor1776_mortality_equilibrium_to_growth_max_slope = @[(aor1776_mortality_at_growth_max-aor1776_rate_at_equilibrium)/(aor1776_pop_growth_max_sol-aor1776_pop_growth_equilibrium_sol)]
+@aor1776_mortality_equilibrium_to_growth_max_intercept = @[-aor1776_mortality_equilibrium_to_growth_max_slope*aor1776_pop_growth_equilibrium_sol+aor1776_rate_at_equilibrium]
+
+## Birthrate from pop_growth_transition_sol to pop_growth_stable_sol
+@aor1776_birthrate_transition_slope = @[(aor1776_min_birthrate-aor1776_birthrate_at_transition)/(aor1776_pop_growth_stable_sol-aor1776_pop_growth_transition_sol)]
+@aor1776_birthrate_transition_intercept = @[-aor1776_birthrate_transition_slope*aor1776_pop_growth_stable_sol+aor1776_min_birthrate]
+
+## Mortality from pop_growth_max_sol to pop_growth_stable_sol
+@aor1776_mortality_growth_max_to_stable_slope = @[(aor1776_min_mortality-aor1776_mortality_at_growth_max)/(aor1776_pop_growth_stable_sol-aor1776_pop_growth_max_sol)]
+@aor1776_mortality_growth_max_to_stable_intercept = @[-aor1776_mortality_growth_max_to_stable_slope*aor1776_pop_growth_stable_sol+aor1776_min_mortality]
+
+### Pseudo algorithm to determine base Mortality / Birthrate
+## Mortality
+# if (sol < POP_GROWTH_EQUILIBRIUM_SOL)
+# { mortality = sol * POP_GROWTH_MORTALITY_STARVING_SLOPE + POP_GROWTH_MAX_MORTALITY }
+# else if (sol < POP_GROWTH_MAX_SOL)
+# { mortality = sol * POP_GROWTH_MORTALITY_EQUILIBRIUM_TO_GROWTH_MAX_SLOPE + POP_GROWTH_MORTALITY_EQUILIBRIUM_TO_GROWTH_MAX_INTERCEPT }
+# else if (sol < POP_GROWTH_STABLE_SOL)
+# { mortality = sol * POP_GROWTH_MORTALITY_GROWTH_MAX_TO_STABLE_SLOPE + POP_GROWTH_MORTALITY_GROWTH_MAX_TO_STABLE_INTERCEPT }
+# else { mortality = POP_GROWTH_MIN_MORTALITY }
+
+## Birthrate
+# if (sol < POP_GROWTH_EQUILIBRIUM_SOL)
+# { birthrate = sol * POP_GROWTH_BIRTHRATE_PRETRANSITION_SLOPE + POP_GROWTH_MAX_BIRTHRATE }
+# else if (sol < POP_GROWTH_TRANSITION_SOL)
+# { birthrate = sol * POP_GROWTH_BIRTHRATE_PRETRANSITION_SLOPE + POP_GROWTH_MAX_BIRTHRATE }
+# else if (sol < POP_GROWTH_STABLE_SOL)
+# { birthrate = sol * POP_GROWTH_BIRTHRATE_TRANSITION_SLOPE + POP_GROWTH_BIRTHRATE_TRANSITION_INTERCEPT }
+# else { birthrate = POP_GROWTH_MIN_BIRTHRATE }
+
+NPops = {
+	## Birthrate
+	POP_GROWTH_BIRTHRATE_PRETRANSITION_SLOPE = @aor1776_birthrate_pretransition_slope
+	POP_GROWTH_BIRTHRATE_TRANSITION_SLOPE = @aor1776_birthrate_transition_slope
+	POP_GROWTH_BIRTHRATE_TRANSITION_INTERCEPT = @aor1776_birthrate_transition_intercept
+
+	## Mortality
+	POP_GROWTH_MORTALITY_STARVING_SLOPE = @aor1776_mortality_starving_slope
+	POP_GROWTH_MORTALITY_EQUILIBRIUM_TO_GROWTH_MAX_SLOPE = @aor1776_mortality_equilibrium_to_growth_max_slope
+	POP_GROWTH_MORTALITY_EQUILIBRIUM_TO_GROWTH_MAX_INTERCEPT = @aor1776_mortality_equilibrium_to_growth_max_intercept
+	POP_GROWTH_MORTALITY_GROWTH_MAX_TO_STABLE_SLOPE = @aor1776_mortality_growth_max_to_stable_slope
+	POP_GROWTH_MORTALITY_GROWTH_MAX_TO_STABLE_INTERCEPT = @aor1776_mortality_growth_max_to_stable_intercept
+
+	## Base Values
+	POP_GROWTH_MIN_BIRTHRATE = @aor1776_min_birthrate					# Minimum base birthrate per month (at POP_GROWTH_STABLE_SOL)
+	POP_GROWTH_MAX_BIRTHRATE = @aor1776_max_birthrate					# Maximum base birthrate per month (at SOL = 0)
+	POP_GROWTH_MIN_MORTALITY = @aor1776_min_mortality					# Minimum base mortality per month (at POP_GROWTH_STABLE_SOL)
+	POP_GROWTH_MAX_MORTALITY = @aor1776_max_mortality					# Maximum base mortality per month (at SOL = 0)
+
+	## SoL Thresholds
+	POP_GROWTH_EQUILIBRIUM_SOL = @aor1776_pop_growth_equilibrium_sol	# Equilibrium is pops stop starving and where growth first becomes positive
+	POP_GROWTH_TRANSITION_SOL = @aor1776_pop_growth_transition_sol		# Transition determines how long birthrate "lags" behind mortality before starting to drop. Setting to same as equilibrium leads to no "lag" (only matters for birthrate)
+	POP_GROWTH_MAX_SOL = @aor1776_pop_growth_max_sol					# Growth Max is where net growth generally is at it's highest (only matters for mortality)
+	POP_GROWTH_STABLE_SOL = @aor1776_pop_growth_stable_sol				# Stable is where birthrate and mortality stop changing and hit their minimum values
+}
+### End Pop Growth Constant defines

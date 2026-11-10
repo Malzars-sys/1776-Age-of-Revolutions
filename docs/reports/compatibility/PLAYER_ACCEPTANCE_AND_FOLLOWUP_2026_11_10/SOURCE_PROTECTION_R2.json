@@ -1,0 +1,40 @@
+{
+  "time_utc": "2026-11-10T17:54:55.028229+00:00",
+  "status": "PASS_SCOPED_WITH_RECORDED_CONCURRENT_CHANGE",
+  "before_count": 2528,
+  "after_count": 2532,
+  "checks": {
+    "only_manifest_new_files_added": true,
+    "no_existing_file_removed": true,
+    "all_candidates_installed_exactly": true,
+    "native_sources_unchanged": true,
+    "git_metadata_unchanged": true,
+    "only_manifest_files_and_explicit_concurrent_file_changed": true,
+    "concurrent_file_preserved": true
+  },
+  "modified": [
+    "common/journal_entries/02_acre_dispute.txt",
+    "events/phase1_japan_tenpo_events.txt",
+    "localization/english/phase1_japan_tenpo_l_english.yml",
+    "localization/french/phase1_japan_tenpo_l_french.yml"
+  ],
+  "added": [
+    "common/history/buildings/1776_british_guatemala_mosquito_ports.txt",
+    "common/static_modifiers/1776_japan_famine_choices.txt",
+    "localization/english/1776_japan_famine_choices_l_english.yml",
+    "localization/french/1776_japan_famine_choices_l_french.yml"
+  ],
+  "removed": [],
+  "engine_tested": false,
+  "previous_protection_result": "SOURCE_PROTECTION.json retained, including its failed all-source assertion",
+  "concurrent_changes": [
+    {
+      "path": "common/journal_entries/02_acre_dispute.txt",
+      "before_sha256": "d256e32abbb1e47c0c503ed0c39b2d77f5700a5028eb76998883695029faac73",
+      "after_sha256": "0cb6556d310d07c2bfbce1affc815dab86e14ff0882695c4834e78948cf049ce",
+      "last_write_utc": "2026-11-10T17:49:45.496635+00:00",
+      "attribution": "Observed concurrent change outside the seven-file installer manifest; no author inferred",
+      "action": "Preserved byte-identical; current copy captured under concurrent/"
+    }
+  ]
+}

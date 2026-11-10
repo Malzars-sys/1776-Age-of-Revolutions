@@ -1,0 +1,741 @@
+# Approved early hull equipment; no engines, coal, shells or modern armor.
+# Every equipment tier adds goods, useful statistics and construction complexity.
+
+aor_caravel_armor_low = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_hull_bronze.dds"
+    modifier = {
+        ship_hit_points_max_add = 30
+        ship_armor_add = 0.5
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 2
+        goods_input_tools_add = 0.25
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_armor_mid = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_hull_silver.dds"
+    modifier = {
+        ship_hit_points_max_add = 70
+        ship_armor_add = 1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_tools_add = 0.5
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_armor_high = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_hull_gold.dds"
+    modifier = {
+        ship_hit_points_max_add = 160
+        ship_armor_add = 3
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 8
+        goods_input_tools_add = 1
+    }
+    unlocking_technologies = { diagonal_ship_framing }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_guns_low = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_falconets_bronze.dds"
+    modifier = {
+        ship_hull_damage_add = 1
+        ship_crew_damage_add = 0.5
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_iron_add = 0.25
+        goods_input_tools_add = 0.1
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_guns_mid = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_long_guns_silver.dds"
+    modifier = {
+        ship_hull_damage_add = 6
+        ship_crew_damage_add = 3
+    }
+    construction_goods = {
+        goods_input_iron_add = 1
+        goods_input_artillery_add = 0.5
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_guns_high = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_carronades_gold.dds"
+    modifier = {
+        ship_hull_damage_add = 9
+        ship_crew_damage_add = 5
+    }
+    construction_goods = {
+        goods_input_iron_add = 2
+        goods_input_artillery_add = 1
+    }
+    unlocking_technologies = { copper_sheathing }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_propulsion_low = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_rig_vertical_bronze_v2.dds"
+    modifier = {
+        ship_movement_speed_add = 0.2
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_fabric_add = 1
+        goods_input_hardwood_add = 0.5
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_propulsion_mid = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_rig_vertical_silver_v2.dds"
+    modifier = {
+        ship_movement_speed_add = 0.4
+    }
+    construction_goods = {
+        goods_input_fabric_add = 2
+        goods_input_hardwood_add = 1
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_propulsion_high = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_rig_vertical_gold_v2.dds"
+    modifier = {
+        ship_movement_speed_add = 0.8
+    }
+    construction_goods = {
+        goods_input_fabric_add = 4
+        goods_input_hardwood_add = 2
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_range_low = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_deck_bronze.dds"
+    modifier = {
+        ship_supply_capacity_add = 2
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 1
+        goods_input_fabric_add = 0.5
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_range_mid = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_deck_silver_v5.dds"
+    modifier = {
+        ship_supply_capacity_add = 8
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 2
+        goods_input_fabric_add = 1
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_range_high = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_deck_gold.dds"
+    modifier = {
+        ship_supply_capacity_add = 18
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_fabric_add = 2
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_armor_low = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_hull_bronze.dds"
+    modifier = {
+        ship_hit_points_max_add = 30
+        ship_armor_add = 0.5
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 2
+        goods_input_tools_add = 0.25
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_armor_mid = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_hull_silver.dds"
+    modifier = {
+        ship_hit_points_max_add = 100
+        ship_armor_add = 1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_tools_add = 0.5
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_armor_high = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_hull_gold.dds"
+    modifier = {
+        ship_hit_points_max_add = 220
+        ship_armor_add = 3
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 8
+        goods_input_tools_add = 1
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_guns_low = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_bow_gun_bronze_v2.dds"
+    modifier = {
+        ship_hull_damage_add = 1
+        ship_crew_damage_add = 0.5
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_iron_add = 0.25
+        goods_input_tools_add = 0.1
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_guns_mid = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_chase_gun_silver_v2.dds"
+    modifier = {
+        ship_hull_damage_add = 5
+        ship_crew_damage_add = 2
+    }
+    construction_goods = {
+        goods_input_iron_add = 1
+        goods_input_artillery_add = 0.5
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_guns_high = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_axial_gun_gold_v2.dds"
+    modifier = {
+        ship_hull_damage_add = 8
+        ship_crew_damage_add = 4
+    }
+    construction_goods = {
+        goods_input_iron_add = 2
+        goods_input_artillery_add = 1
+    }
+    unlocking_technologies = { ship_classification_surveying }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_propulsion_low = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_propulsion_bronze.dds"
+    modifier = {
+        ship_movement_speed_add = 0.2
+        ship_crew_max_add = 0
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_fabric_add = 1
+        goods_input_hardwood_add = 0.5
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_propulsion_mid = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_propulsion_silver.dds"
+    modifier = {
+        ship_movement_speed_add = 0.4
+        ship_crew_max_add = 0
+    }
+    construction_goods = {
+        goods_input_fabric_add = 2
+        goods_input_hardwood_add = 1
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_propulsion_high = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_propulsion_gold.dds"
+    modifier = {
+        ship_movement_speed_add = 0.8
+        ship_crew_max_add = 0
+    }
+    construction_goods = {
+        goods_input_fabric_add = 4
+        goods_input_hardwood_add = 2
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_range_low = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_supply_bronze.dds"
+    modifier = {
+        ship_supply_capacity_add = 2
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 1
+        goods_input_fabric_add = 0.5
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_range_mid = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_supply_silver.dds"
+    modifier = {
+        ship_supply_capacity_add = 4
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 2
+        goods_input_fabric_add = 1
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_range_high = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_supply_gold.dds"
+    modifier = {
+        ship_supply_capacity_add = 8
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_fabric_add = 2
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_armor_low = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_hull_bronze.dds"
+    modifier = {
+        ship_hit_points_max_add = 30
+        ship_armor_add = 0.5
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 2
+        goods_input_tools_add = 0.25
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_armor_mid = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_hull_silver.dds"
+    modifier = {
+        ship_hit_points_max_add = 80
+        ship_armor_add = 1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_tools_add = 0.5
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_armor_high = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_hull_gold.dds"
+    modifier = {
+        ship_hit_points_max_add = 180
+        ship_armor_add = 3
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 8
+        goods_input_tools_add = 1
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_guns_low = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_swivel_gun_bronze_v2.dds"
+    modifier = {
+        ship_hull_damage_add = 1
+        ship_crew_damage_add = 0.5
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_iron_add = 0.25
+        goods_input_tools_add = 0.1
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_guns_mid = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_long_gun_silver.dds"
+    modifier = {
+        ship_hull_damage_add = 1
+        ship_crew_damage_add = 1
+    }
+    construction_goods = {
+        goods_input_iron_add = 0.5
+        goods_input_artillery_add = 0.25
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_guns_high = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_carronade_gold_v3.dds"
+    modifier = {
+        ship_hull_damage_add = 2
+        ship_crew_damage_add = 2
+    }
+    construction_goods = {
+        goods_input_iron_add = 1
+        goods_input_artillery_add = 0.5
+    }
+    unlocking_technologies = { copper_sheathing }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_propulsion_low = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_rig_bronze.dds"
+    modifier = {
+        ship_movement_speed_add = 0.2
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_fabric_add = 1
+        goods_input_hardwood_add = 0.5
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_propulsion_mid = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_rig_silver.dds"
+    modifier = {
+        ship_movement_speed_add = 0.4
+    }
+    construction_goods = {
+        goods_input_fabric_add = 2
+        goods_input_hardwood_add = 1
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_propulsion_high = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_rig_gold.dds"
+    modifier = {
+        ship_movement_speed_add = 0.8
+    }
+    construction_goods = {
+        goods_input_fabric_add = 4
+        goods_input_hardwood_add = 2
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_range_low = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_supply_bronze.dds"
+    modifier = {
+        ship_supply_capacity_add = 2
+        ship_carrying_capacity_add = 0.05
+        ship_construction_progress_max_add = 1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 1
+        goods_input_fabric_add = 0.5
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_range_mid = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_supply_silver.dds"
+    modifier = {
+        ship_carrying_capacity_add = 0.15
+        ship_supply_capacity_add = 5
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 2
+        goods_input_fabric_add = 1
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_cog_range_high = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_cog_supply_gold.dds"
+    modifier = {
+        ship_carrying_capacity_add = 0.3
+        ship_supply_capacity_add = 10
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_fabric_add = 2
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_landing_launches = {
+    type = ship_mod_slot_utility_1
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_landing_launches_blue.dds"
+    modifier = {
+        ship_naval_invasion_efficiency_mult = 0.1
+        ship_marine_capacity_add = 0.1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_fabric_add = 1
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_blockade = {
+    type = ship_mod_slot_utility_1
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_blockade_supply_bronze_v2.dds"
+    modifier = {
+        ship_blockade_strength_mult = 0.35
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 2
+        goods_input_fabric_add = 1
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_caravel_landing = {
+    type = ship_mod_slot_utility_1
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_landing_launches_blue.dds"
+    modifier = {
+        ship_marine_capacity_add = 0.1
+        ship_naval_invasion_efficiency_mult = 0.1
+        ship_supply_capacity_add = -2
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_fabric_add = 1
+    }
+    unlocking_technologies = { enclosed_dock_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_coastal_battery = {
+    type = ship_mod_slot_utility_1
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_coastal_battery_red.dds"
+    modifier = {
+        ship_hull_damage_mult = 0.15
+        ship_accuracy_add = 1
+    }
+    construction_goods = {
+        goods_input_iron_add = 1
+        goods_input_tools_add = 0.5
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}
+
+aor_galley_boarding_spur = {
+    type = ship_mod_slot_utility_1
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_galley_boarding_spur_blue.dds"
+    modifier = {
+        ship_crew_damage_mult = 0.2
+        ship_marine_capacity_add = 0.05
+        ship_movement_speed_add = -0.1
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 3
+        goods_input_iron_add = 0.5
+    }
+    unlocking_technologies = { state_dockyard_systems }
+    ai_weight = {
+        value = 1
+        multiply = ship_mod_market_multiplier
+    }
+}

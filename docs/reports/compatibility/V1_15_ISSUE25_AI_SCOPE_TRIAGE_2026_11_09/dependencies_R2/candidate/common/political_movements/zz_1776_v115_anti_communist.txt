@@ -1,0 +1,385 @@
+﻿# Native 1.15 compatibility definitions; issue25 AI dependency closure.
+
+movement_anti_communist = {
+	category = movement_category_ideological
+	active_law_radicalism_multiplier = 0.75
+
+	ideology = ideology_anti_communist_movement
+	character_ideologies = {
+		ideology_market_liberal
+		ideology_liberal_leader
+		ideology_republican_leader
+		ideology_radical
+		ideology_positivist
+		ideology_ethno_nationalist
+		ideology_fascist
+	}
+
+	disband_trigger = {
+		NOT = { has_council_republic_law = yes }
+	}
+
+	on_disbanded = {
+		owner ?= {
+			create_political_movement = { type = movement_reactionary }
+			create_political_movement = { type = movement_liberal }
+		}
+	}
+
+	creation_trigger = {
+		has_council_republic_law = yes
+	}
+	creation_weight = {
+		value = 100
+		if = {
+			limit = {
+				owner ?= { # If a movement of this type exists in a neighbouring country, make it more likely to spawn here as well
+					any_neighbouring_state = {
+						owner = {
+							prestige > ROOT.owner.prestige
+							any_political_movement = {
+								is_political_movement_type = movement_anti_communist
+							}
+						}
+					}
+				}
+			}
+			multiply = {
+				value = 2
+			}
+		}
+	}
+	on_created = {
+		add_movement_enthusiasm_modifier = yes
+	}
+
+	character_support_trigger = {
+		OR = {
+			has_reactionary_ideology = yes
+			has_conservative_ideology = yes
+			has_liberal_ideology = yes
+			has_ideology = ideology:ideology_modernizer_leader
+			has_ideology = ideology:ideology_positivist
+			scope:interest_group ?= {
+				OR = {
+					has_ideology = ideology:ideology_liberal
+					has_ideology = ideology:ideology_universalist
+					has_ideology = ideology:ideology_liberal_modern
+					has_ideology = ideology:ideology_universalist_modern
+				}
+			}
+		}
+	}
+	character_support_weight = {
+		value = 200
+		if = {
+			limit = {
+				OR = {
+					has_ideology = ideology:ideology_republican_leader
+					has_ideology = ideology:ideology_liberal_leader
+					has_ideology = ideology:ideology_market_liberal
+				}
+			}
+			multiply = {
+				value = 5
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_reactionary_ideology = yes
+					has_conservative_ideology = yes
+				}
+			}
+			multiply = {
+				value = 3
+			}
+		}
+		else_if = {
+			limit = {
+				has_ideology = ideology:ideology_modernizer_leader
+			}
+			multiply = {
+				value = 2
+			}
+		}
+		if = {
+			limit = {
+				scope:interest_group ?= {
+					OR = {
+						has_ideology = ideology:ideology_liberal
+						has_ideology = ideology:ideology_universalist
+						has_ideology = ideology:ideology_liberal_modern
+						has_ideology = ideology:ideology_universalist_modern
+					}
+				}
+			}
+			multiply = {
+				value = 2
+			}
+		}
+	}
+
+	pop_support_trigger = {
+		NOT = {
+			is_pop_type = slaves
+		}
+	}
+
+	pop_support_factors = {
+		movement_support_high_literacy
+		movement_support_aristocrats
+		movement_support_capitalists
+		movement_support_clergymen
+		movement_support_shopkeepers
+		movement_support_farmers
+		movement_support_clerks
+		movement_support_peasants
+	}
+
+	pop_support_weight = {
+		if = {
+			limit = {
+				exists = scope:political_movement
+				scope:political_movement ?= {
+						OR = {
+							is_being_suppressed = yes
+							is_being_bolstered = yes
+						}
+					}
+				}
+			if = {
+				limit = {
+					scope:political_movement = {
+						is_being_suppressed = yes
+					}
+				}
+				add = {
+					value = suppression_base_value
+					multiply = {
+						value = -0.5
+						add = owner.modifier:country_suppression_attraction_factor
+					}
+					desc = "concept_suppressed"
+				}
+			}
+			else = {
+				add = {
+					value = bolstering_base_value
+					multiply = {
+						value = 0.5
+						add = owner.modifier:country_bolster_attraction_factor
+					}
+					desc = "concept_bolstered"
+				}
+			}
+		}
+
+		add = {
+			value = 1
+			desc = "POP_BASE_SUPPORT"
+		}
+
+		if = {
+			limit = {
+				strata = upper
+			}
+			if = {
+				limit = {
+					is_pop_type = capitalists
+				}
+				add = {
+					value = 50
+					desc = "POP_CAPITALISTS"
+				}
+			}
+			else_if = {
+				limit = {
+					is_pop_type = aristocrats
+				}
+				add = {
+					value = 15
+					desc = "POP_ARISTOCRATS"
+				}
+			}
+			else = {
+				add = {
+					value = 6
+					desc = "UPPER_NO_ICON"
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				strata = middle
+			}
+			if = {
+				limit = {
+					is_pop_type = clergymen
+				}
+				add = {
+					value = 25
+					desc = "POP_CLERGYMEN"
+				}
+			}
+			if = {
+				limit = {
+					is_pop_type = shopkeepers
+				}
+				add = {
+					value = 35
+					desc = "POP_SHOPKEEPERS"
+				}
+			}
+			else_if = {
+				limit = {
+					is_pop_type = farmers
+				}
+				add = {
+					value = 20
+					desc = "POP_FARMERS"
+				}
+			}
+			else_if = {
+				limit = {
+					is_pop_type = engineers
+				}
+				add = {
+					value = 15
+					desc = "POP_ENGINEERS"
+				}
+			}
+			else = {
+				add = {
+					value = 9
+					desc = "MIDDLE_NO_ICON"
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				strata = lower
+			}
+			if = {
+				limit = {
+					is_pop_type = clerks
+				}
+				add = {
+					value = 5
+					desc = "POP_CLERKS"
+				}
+			}
+			else_if = {
+				limit = {
+					is_pop_type = laborers
+				}
+				add = {
+					value = -3
+					desc = "POP_LABORERS"
+				}
+			}
+			else_if = {
+				limit = {
+					is_pop_type = soldiers
+				}
+				add = {
+					value = 5
+					desc = "POP_SOLDIERS"
+				}
+			}
+			else_if = {
+				limit = {
+					is_pop_type = peasants
+				}
+				add = {
+					value = 12
+					desc = "POP_PEASANTS"
+				}
+			}
+			else = {
+				add = {
+					value = 3
+					desc = "LOWER_NO_ICON"
+				}
+			}
+		}
+
+		multiply = { # Illiterate pops participate at 1/10 the rate of fully literate pops
+			desc = "POP_LITERACY"
+			value = literacy_rate
+			add = 0.10
+		}
+
+		multiply = {
+			value = 0.012
+			multiply = pop_acceptance
+			desc = "ACCEPTANCE"
+		}
+	}
+
+	revolution = {
+		possible = {
+			political_movement_support >= 0.05
+		}
+
+		weight = {
+			value = 100
+		}
+
+		state_weight = {
+			value = 0.5
+			add = scope:clout
+			subtract = owner.ig:ig_trade_unions.ig_clout
+		}
+	}
+
+	secession = {
+		possible = {
+			political_movement_support >= 0.05
+			scope:clout <= 0
+		}
+
+		weight = {
+			value = 1000
+		}
+	}
+
+	additional_radicalism_factors = {
+		if = {
+			limit = {
+				owner = {
+					pressing_liberation_wargoal_against_adjacent_country = yes
+				}
+			}
+			add = {
+				desc = "EXPORTING_REVOLUTION"
+				value = 0.25
+			}
+		}
+
+		if = {
+			limit = {
+				owner ?= {
+					has_journal_entry = je_state_and_revolution
+				}
+			}
+			add = {
+				desc = "STATE_AND_REVOLUTION_CONFRONTATION"
+				value = "owner.state_and_revolution_political_confrontation_progress"
+				add = "owner.state_and_revolution_economic_confrontation_progress"
+				divide = 4
+			}
+		}
+
+		if = {
+			limit = {
+				neighboring_country_has_insurrectionary_movement_trigger = { TYPE = movement_anti_communist }
+			}
+			add = {
+				desc = "NEIGHBOURING_COUNTRY_WITH_REVOLUTION"
+				value = 0.15
+			}
+		}
+		add = movement_radicalism_suppressed_after_civil_war
+	}
+}

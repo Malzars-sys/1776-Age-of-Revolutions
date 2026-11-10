@@ -1244,7 +1244,7 @@ ai_strategy_default = {
 			limit = {
 				OR = {
 					scope:target_state = { owner = root }
-					can_reach_target_state = yes
+					can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }
 				}
 			}
 
@@ -1252,7 +1252,13 @@ ai_strategy_default = {
 				limit = {
 					OR = {
 						scope:target_state = { owner = root }
-						ai_desires_target_state = yes
+						OR = {
+							ai_state_has_core_ambition = yes
+							ai_state_ambition_border = yes
+							ai_state_ambition_colonial = yes
+							ai_state_ambition_overlord_gift = yes
+							ai_state_ambition_sphere = yes
+						}
 					}
 				}
 
@@ -1433,7 +1439,7 @@ ai_strategy_default = {
 				if = {
 					limit = {
 						is_diplomatic_play_involved_with = scope:target_country
-						ai_strongly_desires_target_state = no
+						ai_state_has_core_ambition = no
 					}
 					multiply = 0.5
 				}
@@ -2085,7 +2091,7 @@ ai_strategy_default = {
 
 			if = {
 				limit = {
-					can_reach_target_state = no
+					NOT = { can_reach_target_state_to_coerce = { TARGET_STATE = scope:target_state } }
 				}
 				multiply = 0
 			}
@@ -2106,7 +2112,7 @@ ai_strategy_default = {
 			limit = {
 				OR = {
 					scope:target_country = { is_subject_of = root }
-					can_reach_target_country = yes
+					can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 				}
 			}
 
@@ -3349,7 +3355,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				can_reach_target_country = yes
+				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
 			}
 			add = 10
 		}
@@ -3368,7 +3374,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				can_reach_target_country = yes
+				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
 			}
 			add = 10
 		}
@@ -3387,7 +3393,7 @@ ai_strategy_default = {
 						}
 					}
 				}
-				can_reach_target_country = yes
+				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
 			}
 			add = 15
 		}
@@ -4490,7 +4496,7 @@ ai_strategy_default = {
 					scope:target_country = {
 						is_oppressor_of_schleswig_holstein = yes
 					}
-					can_reach_target_country = no
+					NOT = { can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country } }
 				}
 				add = 100
 			}
@@ -5123,8 +5129,8 @@ ai_strategy_default = {
 										level >= 5
 									}
 									any_scope_building = {
-										is_building_type = building_naval_base
-										level >= 15
+										is_building_type = building_naval_administration
+										level >= 3
 									}
 								}
 							}
@@ -5766,7 +5772,7 @@ ai_strategy_default = {
 
 				if = {
 					limit = {
-						can_reach_target_country = yes
+						can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
 						NOT = { is_subject_of = scope:target_country }
 					}
 					add = 50
@@ -5949,7 +5955,7 @@ ai_strategy_default = {
 		}
 		conquer = {
 			trigger = {
-				can_reach_target_country = yes
+				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
 				NOT = { is_subject_of = scope:target_country }
 
 				# Be nice to tutorial players
@@ -6367,7 +6373,7 @@ ai_strategy_default = {
 						scope:target_country = { is_country_type = unrecognized }
 					}
 				}
-				can_reach_target_country = yes
+				can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 				NOT = { is_subject_of = scope:target_country }
 
 				# AI shouldn't be aggressive against subjects of their subjects
@@ -6414,7 +6420,7 @@ ai_strategy_default = {
 
 				if = {
 					limit = {
-						can_reach_target_country = yes
+						can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 						country_rank > scope:target_country.country_rank
 						NOT = { is_country_type = unrecognized }
 						scope:target_country = { is_country_type = unrecognized }
@@ -6521,7 +6527,7 @@ ai_strategy_default = {
 
 				if = {
 					limit = {
-						can_reach_target_country = yes
+						can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 						country_rank > scope:target_country.country_rank
 						scope:target_country.country_rank < rank_value:major_power
 						scope:target_country = { NOT = { is_subject_of = root }	}
@@ -6847,7 +6853,7 @@ ai_strategy_default = {
 					wants_to_solve_schleswig_holstein = yes
 					exists = c:HOL
 					scope:target_country = { c:HOL ?= THIS }
-					can_reach_target_country = yes
+					can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 				}
 				add = 100
 			}
@@ -7147,7 +7153,7 @@ ai_strategy_default = {
 							type = embargo
 						}
 					}
-					can_reach_target_country = yes
+					can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
 				}
 				add = 50
 			}
@@ -7450,7 +7456,7 @@ ai_strategy_default = {
 					wants_to_solve_schleswig_holstein = yes
 					exists = c:HOL
 					scope:target_country = { c:HOL ?= THIS }
-					can_reach_target_country = yes
+					can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
 				}
 				add = 150
 			}

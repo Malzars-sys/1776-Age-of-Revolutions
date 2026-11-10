@@ -1,0 +1,347 @@
+﻿# Canonical 1.15 providers retained by the annual event lists and their dependencies.
+namespace = marx_events
+
+marx_events.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = marx_events.3.t
+	desc = marx_events.3.d
+	flavor = marx_events.3.f
+
+	gui_window = event_window_1char_tabloid
+	left_icon = scope:marx_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	duration = 3
+
+	fire_only_once = yes
+
+	trigger = {
+		has_global_variable = marx_happened
+		has_global_variable = big_communism_builder
+		has_global_variable = peoples_springtime_happened
+		global_var:big_communism_builder ?= {
+			OR = {
+				owner ?= ROOT
+				AND = {
+					is_in_exile_pool = yes
+					global_var:big_communism_builder.home_country ?= ROOT
+				}
+			}
+		}
+	}
+
+	immediate = {
+		global_var:big_communism_builder ?= {
+			save_scope_as = marx_scope
+		}
+	}
+
+	option = {
+		name = marx_events.3.a
+		default_option = yes
+		custom_tooltip_no_bullet = for_16_years_tt
+		scope:marx_scope ?= {
+			set_character_busy_and_immortal = yes
+		}
+		hidden_effect = {
+			trigger_event = { id = marx_events.4 years = 16 }
+		}
+	}
+
+	option = {
+		name = marx_events.3.b
+		trigger = {
+			scope:marx_scope ?= {
+				owner ?= ROOT
+				interest_group ?= {
+					is_in_government = yes
+				}
+			}
+		}
+		highlighted_option = yes
+		show_as_unavailable = {
+			scope:marx_scope ?= {
+				owner ?= ROOT
+			}
+		}
+		custom_tooltip_no_bullet = for_8_years_tt
+		scope:marx_scope ?= {
+			set_character_busy_and_immortal = yes
+		}
+		add_modifier = {
+			name = modifier_funding_capital
+			years = 8
+		}
+		hidden_effect = {
+			trigger_event = { id = marx_events.4 years = 8 }
+		}
+	}
+
+	option = {
+		name = marx_events.3.c
+		trigger = {
+			scope:marx_scope ?= {
+				owner ?= ROOT
+				custom_tooltip = {
+					text = marx_has_non_agitator_role_tt
+					any_character_role = {
+						NOT = {
+							is_character_role = character_role_agitator
+						}
+					}
+				}
+				custom_tooltip = {
+					text = marx_has_official_duties_tt
+					OR = {
+						has_role_of_type = general
+						has_role_of_type = admiral
+						interest_group ?= {
+							is_in_government = yes
+						}
+					}
+				}
+			}
+		}
+		highlighted_option = yes
+		show_as_unavailable = {
+			scope:marx_scope ?= {
+				owner ?= ROOT
+			}
+		}
+		custom_tooltip = marx_focuses_on_other_things_tt
+	}
+}
+
+marx_events.4 = {
+	type = country_event
+	placement = ROOT
+
+	title = marx_events.4.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = marx_events.4.d_1
+				trigger = {
+					exists = scope:capital_author_scope
+				}
+			}
+			triggered_desc = {
+				desc = marx_events.4.d
+				trigger = {
+					NOT = {
+						exists = scope:capital_author_scope
+					}
+				}
+			}
+		}
+	}
+	flavor = marx_events.4.f
+
+	gui_window = event_window_1char_tabloid
+	left_icon = scope:capital_publisher_scope
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/1Character_Banner"
+
+	icon = "gfx/interface/icons/event_icons/event_default.dds"
+
+	duration = 3
+
+	fire_only_once = yes
+
+	trigger = {
+		# Triggered by marx_events.3
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				global_var:big_communism_builder ?= {
+					has_variable = character_counts_as_dead
+				}
+			}
+			ordered_character = {
+				limit = {
+					has_template = GBR_friedrich_engels
+				}
+				alternative_limit = {
+					has_socialist_ideology = yes
+				}
+				alternative_limit = {
+					has_ideology = ideology:ideology_state_socialist
+				}
+				order_by = prominence
+				position = 0
+				save_scope_as = capital_publisher_scope
+			}
+			global_var:big_communism_builder ?= {
+				save_scope_as = capital_author_scope
+			}
+		}
+		else = {
+			global_var:big_communism_builder ?= {
+				save_scope_as = capital_publisher_scope
+			}
+		}
+		random_political_movement = {
+			limit = {
+				is_political_movement_type = movement_socialist
+			}
+			save_scope_as = socialist_movement_scope
+		}
+		generate_2_common_name = {
+			CULTURE_1 = primary_culture
+			CULTURE_2 = primary_culture
+		}
+	}
+
+	option = {
+		name = marx_events.4.a
+		default_option = yes
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					ai_avoids_radicals = yes
+				}
+				add = 10
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:capital_author_scope
+			}
+			scope:capital_publisher_scope ?= {
+				add_trait = literary
+			}
+		}
+		else = {
+			scope:capital_publisher_scope ?= {
+				set_character_busy_and_immortal = no
+				add_trait = literary
+				hidden_effect = {
+					if = {
+						limit = {
+							is_immortal = no
+						}
+						set_character_immortal = yes
+					}
+				}
+			}
+		}
+		scope:socialist_movement_scope ?= {
+			add_modifier = {
+				name = modifier_das_kapital
+				days = long_modifier_time
+			}
+		}
+	}
+
+	option = {
+		name = marx_events.4.b
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					ai_avoids_radicals = yes
+				}
+				add = 10
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:capital_author_scope
+			}
+			scope:capital_publisher_scope ?= {
+				add_trait = literary
+			}
+		}
+		else = {
+			scope:capital_publisher_scope ?= {
+				set_character_busy_and_immortal = no
+				add_trait = literary
+				hidden_effect = {
+					if = {
+						limit = {
+							is_immortal = no
+						}
+						set_character_immortal = yes
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = marx_events.4.c
+		ai_chance = {
+			base = 1
+			modifier = {
+				trigger = {
+					ai_wants_radicals = yes
+				}
+				add = 10
+			}
+		}
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_traditionalism
+				has_law_or_variant = law_type:law_agrarianism
+				has_law_or_variant = law_type:law_industry_banned
+			}
+		}
+		highlighted_option = yes
+		if = {
+			limit = {
+				exists = scope:capital_author_scope
+			}
+			scope:capital_publisher_scope ?= {
+				add_trait = literary
+			}
+		}
+		else = {
+			scope:capital_publisher_scope ?= {
+				set_character_busy_and_immortal = no
+				add_trait = literary
+				hidden_effect = {
+					if = {
+						limit = {
+							is_immortal = no
+						}
+						set_character_immortal = yes
+					}
+				}
+			}
+		}
+		add_radicals = {
+			pop_type = academics
+			value = 0.01
+		}
+		ordered_political_movement = {
+			limit = {
+				OR = {
+					is_political_movement_type = movement_land_reform
+					is_political_movement_type = movement_nihilist
+					is_political_movement_type = movement_radical
+					is_political_movement_type = movement_labor
+				}
+			}
+			order_by = political_movement_radicalism
+			position = 0
+			add_modifier = {
+				name = modifier_das_kapital
+				days = long_modifier_time
+			}
+		}
+	}
+
+	after = {
+		clear_generated_names = yes
+	}
+}

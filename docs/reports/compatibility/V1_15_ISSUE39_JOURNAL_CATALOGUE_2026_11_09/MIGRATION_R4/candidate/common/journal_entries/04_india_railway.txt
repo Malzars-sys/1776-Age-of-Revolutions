@@ -1,0 +1,160 @@
+﻿# Purveyor of Progress JE
+je_india_railway = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_british_india
+
+	is_shown_when_inactive = {
+		has_dlc_feature = ip2_content
+		is_player = yes
+		NOT = { has_global_variable = india_railway_done }
+		is_in_geographic_region = geographic_region_india
+	}
+
+	possible = {
+		hidden_trigger = {
+			OR = {
+				c:BIC ?= root
+				c:RAJ ?= root
+				is_in_geographic_region = geographic_region_india #helps performance
+			}
+		}
+		AND = { # Country has a presence near all state regions for the line
+			sr:region_north_india = { root_owns_state_in_region = yes }
+			sr:region_south_india = { root_owns_state_in_region = yes }
+		}
+		has_technology_researched = railways
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			# Completed the line. Now it doesn't matter who owns the railway.
+			AND = {
+				custom_tooltip = {
+					text = delhi_calcutta_line_complete_tt
+					AND = { # Delhi-Calcutta line
+						s:STATE_WEST_BENGAL ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_BIHAR ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_AWADH ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_AGRA ?=  {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_DELHI ?= {
+							state_has_active_rail_network = yes
+						}
+					}
+				}
+				custom_tooltip = {
+					text = allahabad_bombay_line_complete_tt
+					AND = { # Allahabad-Bombay line
+						s:STATE_AGRA ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_BUNDELKHAND ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_CENTRAL_PROVINCES ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_MALWA ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_BOMBAY ?= {
+							state_has_active_rail_network = yes
+						}
+					}
+				}
+				custom_tooltip = {
+					text = bombay_madras_line_complete_tt
+					AND = { # Bombay-Madras line
+						s:STATE_BOMBAY ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_HYDERABAD ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_KURNOOL ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_MADRAS ?= {
+							state_has_active_rail_network = yes
+						}
+					}
+				}
+				custom_tooltip = {
+					text = gujarat_bombay_line_complete_tt
+					AND = { # Gujarat-Bombay line
+						s:STATE_BOMBAY ?= {
+							state_has_active_rail_network = yes
+						}
+						s:STATE_GUJARAT ?= {
+							state_has_active_rail_network = yes
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			set_global_variable = india_railway_done
+			trigger_event = { id = india_railway.5 }
+		}
+		event_outcome_desc = {
+	        first_valid = {
+	            triggered_desc = {
+	                desc = event_effects_india_railway.5_tt
+	            }
+	        }
+	    }
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_BOMBAY
+			}
+			save_scope_as = bombay_scope #for loc
+		}
+	}
+
+
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = {
+				any_scope_state = {
+					OR = {
+						is_in_geographic_region = geographic_region_india
+					}
+				}
+			}
+		}
+		effect = {}
+	}
+
+	on_yearly_pulse = {
+		effect = {
+
+		}
+		random_events = {
+			100 = 0
+			10 = india_railway.1
+			10 = india_railway.2
+			10 = india_railway.3
+			10 = india_railway.4
+		}
+	}
+
+	weight = 50
+}

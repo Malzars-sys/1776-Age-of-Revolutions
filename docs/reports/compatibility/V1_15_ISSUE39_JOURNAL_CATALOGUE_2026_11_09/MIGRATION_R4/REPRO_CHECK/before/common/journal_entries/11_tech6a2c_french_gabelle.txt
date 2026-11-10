@@ -1,0 +1,99 @@
+﻿je_gabelle = {
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		c:FRA ?= this
+		NOT = { has_variable = lagab_gabelle_reformed }
+		has_consumption_tax = g:salt
+	}
+
+	possible = {
+		c:FRA ?= this
+		has_consumption_tax = g:salt
+	}
+
+	# This active JE is destroyed when the tax disappears. The canonical
+	# monthly country controller creates a fresh instance after tax restoration.
+	modifiers_while_active = {
+		gabelle_income_active
+	}
+
+	invalid = {
+		NOT = { has_consumption_tax = g:salt }
+	}
+
+	custom_completion_header = "je_gabelle_complete_header"
+	complete = {
+		custom_tooltip = {
+			text = "je_gabelle_reform_goal"
+			has_variable = lagab_gabelle_reformed
+		}
+	}
+
+	weight = 100
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	
+}
+
+je_gabelle_reformed = {
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		c:FRA ?= this
+		has_variable = lagab_gabelle_reformed
+		has_consumption_tax = g:salt
+	}
+
+	possible = {
+		c:FRA ?= this
+		has_variable = lagab_gabelle_reformed
+		has_consumption_tax = g:salt
+	}
+
+	modifiers_while_active = {
+		gabelle_income_reformed_active
+	}
+
+	invalid = {
+		NOT = { has_consumption_tax = g:salt }
+	}
+
+	custom_completion_header = "je_gabelle_complete_header"
+	complete = {
+		custom_tooltip = {
+			text = "je_gabelle_reformed_desc"
+			always = no
+		}
+	}
+
+	weight = 100
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+# Legacy cleanup definition for saves created by the superseded suspended-phase
+# fix. No current path creates this JE and it never creates an active phase.
+je_gabelle_suspended = {
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		always = no
+	}
+
+	possible = {
+		c:FRA ?= this
+	}
+
+	custom_completion_header = "je_gabelle_restore_header"
+	complete = {
+		custom_tooltip = {
+			text = "je_gabelle_restore_goal"
+			has_consumption_tax = g:salt
+		}
+	}
+
+	weight = 100
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

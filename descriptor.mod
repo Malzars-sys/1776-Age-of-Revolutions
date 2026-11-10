@@ -1,5 +1,5 @@
 ﻿name="1776 - Age of Revolutions Fork"
-supported_version="1.13.*"
+supported_version="1.15.*"
 tags={
     "Total Conversion"
 }

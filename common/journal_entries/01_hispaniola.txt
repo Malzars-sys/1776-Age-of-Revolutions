@@ -20,18 +20,58 @@
             save_scope_as = france_scope
         }
     }
-    complete = {
-        NOR = {
-            scope:journal_entry = {
-                OR = {
-                    has_modifier = modifier_french_independence_payments_4
-                    has_modifier = modifier_french_independence_payments_3
-                    has_modifier = modifier_french_independence_payments_2
-                    has_modifier = modifier_french_independence_payments_1
-                }
-            }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        NOR = {
+	            scope:journal_entry = {
+	                OR = {
+	                    has_modifier = modifier_french_independence_payments_4
+	                    has_modifier = modifier_french_independence_payments_3
+	                    has_modifier = modifier_french_independence_payments_2
+	                    has_modifier = modifier_french_independence_payments_1
+	                }
+	            }
+				custom_tooltip = {
+					text = je_haitian_cancel_debt_not_tt
+					OR = {
+						has_modifier = modifier_cancelled_haiti_debt_1
+						has_modifier = modifier_cancelled_haiti_debt_2
+						has_modifier = modifier_cancelled_haiti_debt_3
+						has_modifier = modifier_cancelled_haiti_debt_4
+					}
+				}
+	        }
+	    }
+		effect = {
+	        trigger_event = { id = hispaniola_events.1 popup = yes }
+	        c:FRA ?= { trigger_event = { id = hispaniola_events.2 popup = yes } }
+	    }
+	}
+
+
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = c:FRA
+	        }
+	    }
+		effect = {}
+	}
+
+    outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
 			custom_tooltip = {
-				text = je_haitian_cancel_debt_not_tt
+				text = je_haitian_cancel_debt_tt
 				OR = {
 					has_modifier = modifier_cancelled_haiti_debt_1
 					has_modifier = modifier_cancelled_haiti_debt_2
@@ -39,31 +79,9 @@
 					has_modifier = modifier_cancelled_haiti_debt_4
 				}
 			}
-        }
-    }
-
-    on_complete = {
-        trigger_event = { id = hispaniola_events.1 popup = yes }
-        c:FRA ?= { trigger_event = { id = hispaniola_events.2 popup = yes } }
-    }
-
-    invalid = {
-        NOT = {
-            exists = c:FRA
-        }
-    }
-
-    fail = {
-		custom_tooltip = {
-			text = je_haitian_cancel_debt_tt
-			OR = {
-				has_modifier = modifier_cancelled_haiti_debt_1
-				has_modifier = modifier_cancelled_haiti_debt_2
-				has_modifier = modifier_cancelled_haiti_debt_3
-				has_modifier = modifier_cancelled_haiti_debt_4
-			}
-		}
-    }
+	    }
+		effect = {}
+	}
 
     status_desc = {
         first_valid = {

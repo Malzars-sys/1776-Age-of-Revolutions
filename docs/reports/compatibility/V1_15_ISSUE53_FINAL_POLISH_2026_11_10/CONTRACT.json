@@ -1,0 +1,73 @@
+{
+  "issue": 53,
+  "timestamp_utc": "2026-11-10T18:32:02.755413+00:00",
+  "journal_id": "je_tutorial_improve_supply_network",
+  "journal_path": "common/journal_entries/00_tutorial.txt",
+  "old_start": 15276,
+  "old_end": 15912,
+  "replacement": "je_tutorial_improve_supply_network = {\r\n\ticon = \"gfx/interface/icons/event_icons/tutorial_icon.dds\"\r\n\r\n\tshould_be_pinned_by_default_uninvolved_or_context = yes\r\n\r\n\tgroup = je_group_tutorial\r\n\r\n\tactivation_description = {\r\n\t\tcustom_tooltip = je_tutorial_improve_supply_network_activation_tt\r\n\t\tcustom_tooltip = je_tutorial_improve_supply_network_activation_2_tt\r\n\t}\r\n\r\n\toutcome = {\r\n\t\theader = je_standard_completion_header\r\n\t\teffect_header = je_standard_on_completion_header\r\n\t\tcolor = \"gold_positive\"\r\n\t\tconclusion_desc = je_standard_completion_conclusion_desc\r\n\t\ttrigger = {\r\n\t\t\texists = scope:target\r\n\t\t\tscope:target = { state_goods_pricier < 0.1 }\r\n\t\t}\r\n\t\teffect = {\r\n\t\t}\r\n\t}\r\n\r\n\tweight = 1018\r\n\ttransferable = yes\r\n}",
+  "native_tutorial_sha256": "83e4f81f813ae2cb04563ed02bed77d760d93b7b1f196bf58da11ac933d7ab78",
+  "subgoal_provider": "native/common/objective_subgoals/00_subgoals_tutorial.txt",
+  "subgoal_source_sha256": "68267cce9b75ec0a54b0b2d1d5aa08e20966a7b313f091d54484d8490d38ed36",
+  "subgoal_excerpt": "sg_improve_supply_network = {\n\tcategory = sgcat_tutorial\n\n\tunlocking_subgoals_any = {\n\t\tsg_expand_productive_building\n\t}\n\n\ttrigger = {\n\t\tany_scope_state = {\n\t\t\tAND = {\n\t\t\t\tis_coastal = yes\n\t\t\t\tsg:merchant_marine = {\n\t\t\t\t\tstate_goods_pricier > 0.3\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\ton_start = {\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tany_scope_state = {\n\t\t\t\t\tAND = {\n\t\t\t\t\t\tis_coastal = yes\n\t\t\t\t\t\tsg:merchant_marine = {\n\t\t\t\t\t\t\tstate_goods_pricier > 0.3\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\trandom_scope_state = {\n\t\t\t\tlimit = {\n\t\t\t\t\tAND = {\n\t\t\t\t\t\tis_coastal = yes\n\t\t\t\t\t\tsg:merchant_marine = {\n\t\t\t\t\t\t\tstate_goods_pricier > 0.3\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tsg:merchant_marine = { save_scope_as = tut_supply_network }\n\t\t\t}\n\t\t}\n\n\t\tadd_journal_entry = {\n\t\t\ttype = je_tutorial_improve_supply_network\n\t\t\tobjective_subgoal = sg_improve_supply_network\n\t\t\ttarget = scope:tut_supply_network\n\t\t}\n\t}\n}",
+  "localizations": {
+    "french": {
+      "je_meiji_restoration_goal": "Les propriétaires terriens sont exclus du gouvernement. Le pays est en paix, sans groupe d’intérêt insurgé, et possède tout le Kantō. La légitimité du gouvernement atteint 50 ou les propriétaires terriens sont marginaux.",
+      "je_secure_persian_border_complete_tt": "La Russie a consolidé sa frontière caucasienne.",
+      "je_secure_persian_border_fail_tt": "La Russie a échoué à consolider sa frontière caucasienne.",
+      "je_pacify_kazakh_steppes_success_tt": "Les steppes kazakhes ont été soumises à l’autorité russe.",
+      "je_pacify_kazakh_steppes_fail_tt": "La soumission des steppes kazakhes a échoué.",
+      "russia_out_of_kuban_tt": "La Russie ne possède aucun territoire dans la région du Kouban.",
+      "russia_out_of_dagestan_tt": "La Russie ne possède aucun territoire dans la région du Daghestan.",
+      "russia_out_of_north_caucasus_tt": "La Russie ne possède aucun territoire dans la région du Caucase du Nord."
+    },
+    "english": {
+      "je_meiji_restoration_goal": "The Landowners are out of government. The country is at peace, has no insurrectionary interest groups and owns all of Kanto. Government legitimacy is at least 50 or the Landowners are marginalized.",
+      "je_secure_persian_border_complete_tt": "Russia has consolidated its Caucasian frontier.",
+      "je_secure_persian_border_fail_tt": "Russia has failed to consolidate its Caucasian frontier.",
+      "je_pacify_kazakh_steppes_success_tt": "The Kazakh steppes have been brought under Russian authority.",
+      "je_pacify_kazakh_steppes_fail_tt": "The subjugation of the Kazakh steppes has failed.",
+      "russia_out_of_kuban_tt": "Russia owns no territory in the Kuban region.",
+      "russia_out_of_dagestan_tt": "Russia owns no territory in the Dagestan region.",
+      "russia_out_of_north_caucasus_tt": "Russia owns no territory in the North Caucasus region."
+    }
+  },
+  "files": [
+    {
+      "path": "common/journal_entries/00_tutorial.txt",
+      "existed": true,
+      "before_sha256": "d23b472e2c538c496c06f43ce5fede403f85182be05f72069bcc08ecaf44d0db",
+      "candidate_sha256": "36abd0876d96321e6a4d7d0907b4c958ff54a3f73cc7af86f5d5213ce6c70429"
+    },
+    {
+      "path": "localization/french/1776_v115_final_tooltips_l_french.yml",
+      "existed": false,
+      "candidate_sha256": "a0244cada1352bd3ab9c39e0aeaf54fdffaccdfc933010b02c2a32c9f30c762b",
+      "keys": [
+        "je_meiji_restoration_goal",
+        "je_secure_persian_border_complete_tt",
+        "je_secure_persian_border_fail_tt",
+        "je_pacify_kazakh_steppes_success_tt",
+        "je_pacify_kazakh_steppes_fail_tt",
+        "russia_out_of_kuban_tt",
+        "russia_out_of_dagestan_tt",
+        "russia_out_of_north_caucasus_tt"
+      ]
+    },
+    {
+      "path": "localization/english/1776_v115_final_tooltips_l_english.yml",
+      "existed": false,
+      "candidate_sha256": "df500eac5cdbdfbe4295b173dab01e5f61e3dcffff0a0927a1986ad93dfe5979",
+      "keys": [
+        "je_meiji_restoration_goal",
+        "je_secure_persian_border_complete_tt",
+        "je_secure_persian_border_fail_tt",
+        "je_pacify_kazakh_steppes_success_tt",
+        "je_pacify_kazakh_steppes_fail_tt",
+        "russia_out_of_kuban_tt",
+        "russia_out_of_dagestan_tt",
+        "russia_out_of_north_caucasus_tt"
+      ]
+    }
+  ]
+}

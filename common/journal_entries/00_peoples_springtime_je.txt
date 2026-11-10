@@ -111,157 +111,171 @@
 		springtime_save_conservative_laws = yes
 	}
 
-	custom_completion_header = je_springtime_of_the_peoples_complete_header
 
-	complete = {
-		AND = {
-			OR = {
-				custom_tooltip = {
-					text = had_springtime_revolution_tt_no_scope
-					scope:journal_entry = {
-						any_scope_je_involved = {
-							is_player = yes
-							has_variable = had_springtime_revolution
+	outcome = {
+		header = je_springtime_of_the_peoples_complete_header
+		effect_header = je_springtime_of_the_peoples_on_complete_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			AND = {
+				OR = {
+					custom_tooltip = {
+						text = had_springtime_revolution_tt_no_scope
+						scope:journal_entry = {
+							any_scope_je_involved = {
+								is_player = yes
+								has_variable = had_springtime_revolution
+							}
 						}
 					}
-				}
-				custom_tooltip = {
-					text = has_liberal_or_radical_in_government_tt
-					scope:journal_entry = {
-						any_scope_je_involved = {
-							is_player = yes
-							any_interest_group = {
-								is_in_government = yes
-								OR = {
-									has_ideology = ideology:ideology_liberal
-									leader = { has_ideology = ideology:ideology_radical }
+					custom_tooltip = {
+						text = has_liberal_or_radical_in_government_tt
+						scope:journal_entry = {
+							any_scope_je_involved = {
+								is_player = yes
+								any_interest_group = {
+									is_in_government = yes
+									OR = {
+										has_ideology = ideology:ideology_liberal
+										leader = { has_ideology = ideology:ideology_radical }
+									}
 								}
 							}
 						}
 					}
 				}
+				custom_tooltip = {
+					text = has_census_voting_or_universal_suffrage_tt
+					scope:journal_entry = {
+						any_scope_je_involved = {
+							is_player = yes
+							OR = {
+								has_law_or_variant = law_type:law_census_voting
+								has_law_or_variant = law_type:law_universal_suffrage
+							}
+						}
+					}
+				}
 			}
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = {
+			scope:journal_entry = {
+				random_scope_je_involved = {
+					limit = {
+						is_player = yes
+					}
+					show_as_tooltip = {
+						trigger_event = { id = peoples_springtime.10 }
+					}
+				}
+			}
+		}
+		event_outcome_desc = {
+			first_valid = {
+				triggered_desc = {
+					desc = event_effects_peoples_springtime.10_tt
+				}
+			}
+		}
+	}
+
+
+
+
+
+	outcome = {
+		header = je_springtime_of_the_peoples_fail_header
+		effect_header = je_springtime_of_the_peoples_on_fail_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
 			custom_tooltip = {
-				text = has_census_voting_or_universal_suffrage_tt
+				text = no_radical_agitators_or_politicians_tt
 				scope:journal_entry = {
 					any_scope_je_involved = {
 						is_player = yes
-						OR = {
-							has_law_or_variant = law_type:law_census_voting
-							has_law_or_variant = law_type:law_universal_suffrage
-						}
-					}
-				}
-			}
-		}
-		hidden_trigger = {
-			always = no
-		}
-	}
-
-	custom_on_completion_header = je_springtime_of_the_peoples_on_complete_header
-
-	on_complete = {
-		scope:journal_entry = {
-			random_scope_je_involved = {
-				limit = {
-					is_player = yes
-				}
-				show_as_tooltip = {
-					trigger_event = { id = peoples_springtime.10 }
-				}
-			}
-		}
-	}
-
-	event_outcome_completed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_peoples_springtime.10_tt
-			}
-		}
-	}
-
-	custom_failure_header = je_springtime_of_the_peoples_fail_header
-
-	fail = {
-		custom_tooltip = {
-			text = no_radical_agitators_or_politicians_tt
-			scope:journal_entry = {
-				any_scope_je_involved = {
-					is_player = yes
-					NOT = {
-						any_scope_character = {
-							OR = {
-								has_role_of_type = politician
-								has_role_of_type = agitator
+						NOT = {
+							any_scope_character = {
+								OR = {
+									has_role_of_type = politician
+									has_role_of_type = agitator
+								}
+								has_ideology = ideology:ideology_radical
 							}
-							has_ideology = ideology:ideology_radical
 						}
 					}
 				}
 			}
+			custom_tooltip = springtime_of_the_peoples_timer_dummy_tt
+			custom_tooltip = {
+				text = all_radical_movements_suppressed_tt
+				scope:journal_entry = {
+					any_scope_je_involved = {
+						is_player = yes
+						any_political_movement = {
+							OR = {
+								is_political_movement_type = movement_yugoslav_national
+								is_political_movement_type = movement_german_national
+								is_political_movement_type = movement_italian_national
+								is_political_movement_type = movement_radical
+							}
+							political_movement_support <= 0.10
+							is_being_suppressed = yes
+						}
+						has_variable = springtime_timer_var
+						var:springtime_timer_var >= 12
+					}
+				}
+			}
+			hidden_trigger = {
+				always = no
+			}
 		}
-		custom_tooltip = springtime_of_the_peoples_timer_dummy_tt
-		custom_tooltip = {
-			text = all_radical_movements_suppressed_tt
+		effect = {
 			scope:journal_entry = {
-				any_scope_je_involved = {
-					is_player = yes
-					any_political_movement = {
-						OR = {
-							is_political_movement_type = movement_yugoslav_national
-							is_political_movement_type = movement_german_national
-							is_political_movement_type = movement_italian_national
-							is_political_movement_type = movement_radical
-						}
-						political_movement_support <= 0.10
-						is_being_suppressed = yes
+				random_scope_je_involved = {
+					limit = {
+						is_player = yes
 					}
-					has_variable = springtime_timer_var
-					var:springtime_timer_var >= 12
+					show_as_tooltip = {
+						trigger_event = { id = peoples_springtime.8 }
+					}
 				}
 			}
 		}
-		hidden_trigger = {
-			always = no
-		}
-	}
-
-	custom_on_failure_header = je_springtime_of_the_peoples_on_fail_header
-
-	on_fail = {
-		scope:journal_entry = {
-			random_scope_je_involved = {
-				limit = {
-					is_player = yes
-				}
-				show_as_tooltip = {
-					trigger_event = { id = peoples_springtime.8 }
+		event_outcome_desc = {
+			first_valid = {
+				triggered_desc = {
+					desc = event_effects_peoples_springtime.8_tt
 				}
 			}
 		}
 	}
 
-	event_outcome_failed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_peoples_springtime.8_tt
+
+
+
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			trigger_event = { id = peoples_springtime.8 }
+		}
+		event_outcome_desc = {
+			first_valid = {
+				triggered_desc = {
+					desc = event_effects_peoples_springtime.8_tt
+				}
 			}
 		}
 	}
 
-	on_timeout = {
-		trigger_event = { id = peoples_springtime.8 }
-	}
-
-	event_outcome_timeout_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_peoples_springtime.8_tt
-			}
-		}
-	}
 
 	on_weekly_pulse = {
 		effect = {
@@ -317,8 +331,13 @@
 		}
 	}
 
-	invalid = {
-		has_global_variable = peoples_springtime_happened
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			has_global_variable = peoples_springtime_happened
+		}
+		effect = {}
 	}
 
 	weight = 10000
@@ -396,83 +415,96 @@ je_red_summer = {
 		}
 	}
 
-	custom_completion_header = je_springtime_of_the_peoples_complete_header
 
-	complete = {
-		OR = {
-			custom_tooltip = {
-				text = red_summer_liberal_victory_tt
-				red_summer_liberal_victory_trigger = yes
-			}
-			red_summer_liberal_victory_trigger = yes
-			custom_tooltip = {
-				text = red_summer_radical_victory_tt
-				red_summer_radical_victory_trigger = yes
-			}
-			red_summer_radical_victory_trigger = yes
-		}
-	}
-
-	custom_on_completion_header = je_springtime_of_the_peoples_on_complete_header
-
-	on_complete = {
-		custom_tooltip = {
-			text = on_liberal_victory_tt
-			if = {
-				limit = {
+	outcome = {
+		header = je_springtime_of_the_peoples_complete_header
+		effect_header = je_springtime_of_the_peoples_on_complete_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = red_summer_liberal_victory_tt
 					red_summer_liberal_victory_trigger = yes
 				}
-				trigger_event = { id = peoples_springtime.71 popup = yes }
-			}
-		}
-		custom_tooltip = {
-			text = on_radical_victory_tt
-			if = {
-				limit = {
+				red_summer_liberal_victory_trigger = yes
+				custom_tooltip = {
+					text = red_summer_radical_victory_tt
 					red_summer_radical_victory_trigger = yes
 				}
-				trigger_event = { id = peoples_springtime.7 popup = yes }
+				red_summer_radical_victory_trigger = yes
+			}
+		}
+		effect = {
+			custom_tooltip = {
+				text = on_liberal_victory_tt
+				if = {
+					limit = {
+						red_summer_liberal_victory_trigger = yes
+					}
+					trigger_event = { id = peoples_springtime.71 popup = yes }
+				}
+			}
+			custom_tooltip = {
+				text = on_radical_victory_tt
+				if = {
+					limit = {
+						red_summer_radical_victory_trigger = yes
+					}
+					trigger_event = { id = peoples_springtime.7 popup = yes }
+				}
+			}
+		}
+		event_outcome_desc = {
+			first_valid = {
+				triggered_desc = {
+					desc = red_summer_on_complete_tt
+				}
 			}
 		}
 	}
 
-	event_outcome_completed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = red_summer_on_complete_tt
+
+
+
+
+	outcome = {
+		header = je_springtime_of_the_peoples_fail_header
+		effect_header = je_springtime_of_the_peoples_on_fail_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = red_summer_fail_tt
+				scope:journal_entry = { "scripted_bar_progress(red_summer_counter_revolution_progress_bar)" >= 100 }
+			}
+		}
+		effect = {
+			trigger_event = { id = peoples_springtime.8 popup = yes }
+		}
+		event_outcome_desc = {
+			first_valid = {
+				triggered_desc = {
+					desc = event_effects_peoples_springtime.8_tt
+				}
 			}
 		}
 	}
 
-	custom_failure_header = je_springtime_of_the_peoples_fail_header
 
-	fail = {
-		custom_tooltip = {
-			text = red_summer_fail_tt
-			scope:journal_entry = { "scripted_bar_progress(red_summer_counter_revolution_progress_bar)" >= 100 }
-		}
-	}
 
-	custom_on_failure_header = je_springtime_of_the_peoples_on_fail_header
-
-	on_fail = {
-		trigger_event = { id = peoples_springtime.8 popup = yes }
-	}
-
-	event_outcome_failed_desc = {
-		first_valid = {
-			triggered_desc = {
-				desc = event_effects_peoples_springtime.8_tt
-			}
-		}
-	}
 
 	on_monthly_pulse = {
 
 	}
 
-	invalid = {
-		has_global_variable = peoples_springtime_happened
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			has_global_variable = peoples_springtime_happened
+		}
+		effect = {}
 	}
 
 	weight = 9000

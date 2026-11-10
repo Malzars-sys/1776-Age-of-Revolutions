@@ -1,0 +1,340 @@
+namespace = phase1_japan_tenpo
+
+# 1776-compatible lead-in to the vanilla Tenpo Crisis.
+phase1_japan_tenpo.1 = {
+	type = country_event
+	placement = root
+
+	duration = 3
+
+	title = phase1_japan_tenpo.1.t
+	desc = phase1_japan_tenpo.1.d
+	flavor = phase1_japan_tenpo.1.f
+
+	event_image = {
+		video = "asia_dead_cattle_poor_harvest"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	trigger = {
+		c:JAP ?= this
+		game_date >= 1787.1.1
+		game_date < 1791.1.1
+		NOT = { has_variable = phase1_japan_tenmei_lessons_done }
+	}
+
+	immediate = {
+		set_variable = phase1_japan_tenmei_lessons_done
+	}
+
+	option = {
+		name = phase1_japan_tenpo.1.a
+		default_option = yes
+		add_treasury = { value = root.gdp multiply = -0.005 }
+		custom_tooltip = aor1776_japan_granary_policy_tt
+		set_variable = { name = aor1776_japan_grain_procurement_active days = 730 }
+		set_variable = aor1776_japan_grain_reserves
+		every_scope_state = {
+		  limit = { any_scope_building = { OR = {
+		    is_building_type = building_rice_farm
+		    is_building_type = building_wheat_farm
+		    is_building_type = building_rye_farm
+		    is_building_type = building_maize_farm
+		    is_building_type = building_millet_farm
+		    is_building_group = bg_subsistence_agriculture
+		  } } }
+		  add_modifier = { name = aor1776_japan_grain_procurement days = 730 }
+		}
+		every_scope_state = { add_modifier = { name = aor1776_japan_granary_network } }
+		add_radicals = { value = small_radicals pop_type = peasants }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1825 } }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
+	}
+
+	option = {
+		name = phase1_japan_tenpo.1.b
+		add_treasury = { value = root.gdp multiply = -0.003 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_village_relief days = 1095 } }
+		add_loyalists = { value = small_radicals strata = lower }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
+	}
+
+	option = {
+		name = phase1_japan_tenpo.1.c
+		add_modifier = { name = aor1776_japan_government_inaction days = 1825 }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
+		add_radicals = { value = small_radicals strata = lower }
+	}
+}
+
+phase1_japan_tenpo.2 = {
+	type = country_event
+	placement = root
+
+	duration = 3
+
+	title = phase1_japan_tenpo.2.t
+	desc = phase1_japan_tenpo.2.d
+	flavor = phase1_japan_tenpo.2.f
+
+	event_image = {
+		video = "ep2_important_japanese_men_negotiating"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		c:JAP ?= this
+		game_date >= 1789.1.1
+		game_date < 1794.1.1
+		has_variable = phase1_japan_tenmei_lessons_done
+		NOT = { has_variable = phase1_japan_kansei_reforms_done }
+	}
+
+	immediate = {
+		set_variable = phase1_japan_kansei_reforms_done
+	}
+
+	option = {
+		name = phase1_japan_tenpo.2.a
+		default_option = yes
+		add_modifier = { name = aor1776_japan_kansei_discipline days = 1825 }
+		ig:ig_intelligentsia ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1825 } }
+		add_radicals = { value = small_radicals pop_type = peasants }
+	}
+
+	option = {
+		name = phase1_japan_tenpo.2.b
+		add_treasury = { value = root.gdp multiply = -0.002 }
+		add_modifier = { name = aor1776_japan_relief_administration days = 1825 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_harvest_watch days = 1825 } }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
+	}
+
+	option = {
+		name = phase1_japan_tenpo.2.c
+		add_modifier = { name = aor1776_japan_domain_autonomy days = 1825 }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
+	}
+}
+
+phase1_japan_tenpo.3 = {
+	type = country_event
+	placement = root
+
+	duration = 3
+
+	title = phase1_japan_tenpo.3.t
+	desc = phase1_japan_tenpo.3.d
+	flavor = phase1_japan_tenpo.3.f
+
+	event_image = {
+		video = "asia_westerners_arriving"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_military.dds"
+
+	trigger = {
+		c:JAP ?= this
+		game_date >= 1825.1.1
+		game_date < 1828.1.1
+		has_law = law_type:law_sakoku
+		NOT = { has_variable = phase1_japan_foreign_ships_edict_done }
+	}
+
+	immediate = {
+		set_variable = phase1_japan_foreign_ships_edict_done
+	}
+
+	option = {
+		name = phase1_japan_tenpo.3.a
+		default_option = yes
+		add_treasury = { value = root.gdp multiply = -0.002 }
+		add_modifier = { name = aor1776_japan_coastal_vigilance days = 1825 }
+		ig:ig_armed_forces ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
+		ig:ig_industrialists ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1825 } }
+	}
+
+	option = {
+		name = phase1_japan_tenpo.3.b
+		add_treasury = { value = root.gdp multiply = -0.001 }
+		add_modifier = { name = aor1776_japan_cautious_diplomacy days = 1825 }
+		ig:ig_industrialists ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
+	}
+
+	option = {
+		name = phase1_japan_tenpo.3.c
+		add_modifier = { name = aor1776_japan_government_inaction days = 1095 }
+		ig:ig_armed_forces ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1095 } }
+	}
+}
+
+phase1_japan_tenpo.4 = {
+	type = country_event
+	placement = root
+
+	duration = 3
+
+	title = phase1_japan_tenpo.4.t
+	desc = phase1_japan_tenpo.4.d
+	flavor = phase1_japan_tenpo.4.f
+
+	event_image = {
+		video = "asia_dead_cattle_poor_harvest"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		c:JAP ?= this
+		game_date >= 1832.1.1
+		game_date < 1834.1.1
+		has_law = law_type:law_bakufu
+		has_law = law_type:law_sakoku
+		NOT = { has_variable = phase1_japan_bad_harvests_1832 }
+	}
+
+	immediate = {
+		set_variable = phase1_japan_bad_harvests_1832
+	}
+
+	option = {
+		name = phase1_japan_tenpo.4.a
+		default_option = yes
+		add_treasury = { value = root.gdp multiply = -0.001 }
+		add_modifier = { name = aor1776_japan_relief_administration days = 1095 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_harvest_watch days = 1095 } }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
+	}
+
+	option = {
+		name = phase1_japan_tenpo.4.b
+		custom_tooltip = aor1776_japan_domain_stocks_tt
+		set_variable = { name = aor1776_japan_grain_procurement_active days = 365 }
+		set_variable = aor1776_japan_grain_reserves
+		every_scope_state = {
+		  limit = { any_scope_building = { OR = {
+		    is_building_type = building_rice_farm
+		    is_building_type = building_wheat_farm
+		    is_building_type = building_rye_farm
+		    is_building_type = building_maize_farm
+		    is_building_type = building_millet_farm
+		    is_building_group = bg_subsistence_agriculture
+		  } } }
+		  add_modifier = { name = aor1776_japan_grain_procurement days = 365 }
+		}
+		every_scope_state = { add_modifier = { name = aor1776_japan_village_relief days = 1095 } }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1095 } }
+		add_radicals = { value = small_radicals pop_type = peasants }
+	}
+}
+
+phase1_japan_tenpo.5 = {
+	type = country_event
+	placement = root
+
+	duration = 3
+
+	title = phase1_japan_tenpo.5.t
+	desc = phase1_japan_tenpo.5.d
+	flavor = phase1_japan_tenpo.5.f
+
+	event_image = {
+		video = "asia_farmers_market"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_trade.dds"
+
+	trigger = {
+		c:JAP ?= this
+		game_date >= 1833.1.1
+		game_date < 1835.1.1
+		has_variable = phase1_japan_bad_harvests_1832
+		NOT = { has_variable = phase1_japan_rice_price_crisis_done }
+	}
+
+	immediate = {
+		set_variable = phase1_japan_rice_price_crisis_done
+	}
+
+	option = {
+		name = phase1_japan_tenpo.5.a
+		trigger = { custom_tooltip = { text = aor1776_japan_reserves_ready_tt has_variable = aor1776_japan_grain_reserves NOT = { has_variable = aor1776_japan_grain_procurement_active } } }
+		custom_tooltip = aor1776_japan_release_tt
+		remove_variable = aor1776_japan_grain_reserves
+		every_scope_state = { add_modifier = { name = aor1776_japan_emergency_distribution days = 365 } }
+		add_loyalists = { value = small_radicals strata = lower }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
+	}
+
+	option = {
+		name = phase1_japan_tenpo.5.b
+		default_option = yes
+		add_treasury = { value = root.gdp multiply = -0.002 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_requisitioned_grain days = 365 } }
+		ig:ig_industrialists ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1095 } }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1095 } }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
+	}
+
+	option = {
+		name = phase1_japan_tenpo.5.c
+		add_modifier = { name = aor1776_japan_government_inaction days = 1095 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_unrelieved_shortages days = 730 } }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
+		add_radicals = { value = small_radicals strata = lower }
+	}
+}
+
+phase1_japan_tenpo.6 = {
+	type = country_event
+	placement = root
+
+	duration = 3
+
+	title = phase1_japan_tenpo.6.t
+	desc = phase1_japan_tenpo.6.d
+	flavor = phase1_japan_tenpo.6.f
+
+	event_image = {
+		video = "asia_dead_cattle_poor_harvest"
+	}
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		c:JAP ?= this
+		has_dlc_feature = ep2_content
+		game_date >= 1833.1.1
+		game_date < 1836.1.1
+		has_variable = phase1_japan_bad_harvests_1832
+		has_variable = phase1_japan_rice_price_crisis_done
+		NOT = { has_variable = phase1_japan_tenpo_crisis_started_from_1776_mod }
+		NOT = { has_journal_entry = je_tenpo_crisis }
+	}
+
+	immediate = {
+		set_variable = phase1_japan_tenpo_crisis_started_from_1776_mod
+		set_variable = {
+			name = tenpo_gdp_goal
+			value = {
+				value = root.gdp
+				multiply = 1.35
+			}
+		}
+	}
+
+	option = {
+		name = phase1_japan_tenpo.6.a
+		default_option = yes
+		add_journal_entry = {
+			type = je_tenpo_crisis
+		}
+		trigger_event = {
+			id = tenpo_events.1
+			days = 1
+			popup = yes
+		}
+	}
+}

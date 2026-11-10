@@ -669,12 +669,13 @@ def structural_errors(graph: dict[str, set[str]]) -> list[str]:
 
 
 def validate_subsistence_pm() -> list[str]:
+    # Player decision, 2026-11-09: domestic workshops must not produce tools.
     expected = {
-        "pm_home_workshops_building_subsistence_farm": "0.10",
-        "pm_home_workshops_building_subsistence_orchard": "0.10",
-        "pm_home_workshops_building_subsistence_pasture": "0.10",
-        "pm_home_workshops_building_subsistence_fishing_village": "0.10",
-        "pm_home_workshops_building_subsistence_rice_farm": "0.20",
+        "pm_home_workshops_building_subsistence_farm": "0.25",
+        "pm_home_workshops_building_subsistence_orchard": "0.25",
+        "pm_home_workshops_building_subsistence_pasture": "0.25",
+        "pm_home_workshops_building_subsistence_fishing_village": "0.25",
+        "pm_home_workshops_building_subsistence_rice_farm": "0.50",
     }
     errors: list[str] = []
     if not SUBSISTENCE_PM_FILE.exists():
@@ -685,8 +686,11 @@ def validate_subsistence_pm() -> list[str]:
         except ValueError:
             errors.append(f"{pm} absent")
             continue
-        if not re.search(rf"(?m)^\s*goods_output_tools_add\s*=\s*{re.escape(value)}\s*$", block):
-            errors.append(f"{pm}: sortie outils {value} absente")
+        if re.search(r"(?m)^\s*goods_output_tools_(?:add|mult)\s*=", block):
+            errors.append(f"{pm}: sortie outils interdite")
+        for good in ("clothes", "furniture", "liquor"):
+            if not re.search(rf"(?m)^\s*goods_output_{good}_add\s*=\s*{re.escape(value)}\s*$", block):
+                errors.append(f"{pm}: sortie {good} {value} absente")
     return errors
 
 

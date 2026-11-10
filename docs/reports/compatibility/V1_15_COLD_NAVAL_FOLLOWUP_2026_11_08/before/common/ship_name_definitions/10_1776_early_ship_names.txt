@@ -1,0 +1,35 @@
+# Native naming prefixes plus generic names; no imported 1836 historical lists.
+shipname_1776_early_hulls = {
+    name = "shipname_default_format"
+    selection_weight = 1
+    fallback = yes
+    allowed_ship_types = {
+        ship_type_caravel
+        ship_type_galley
+        ship_type_cog
+    }
+    clone_properties = shipname_prefixes_clone_template
+    properties = {
+        {
+            type = owned_states
+            key = "SHIP_NAMESAKE"
+        }
+    }
+}
+shipname_1776_early_hulls_surnames = {
+    name = "shipname_default_format"
+    selection_weight = 0.5
+    fallback = yes
+    allowed_ship_types = {
+        ship_type_caravel
+        ship_type_galley
+        ship_type_cog
+    }
+    clone_properties = shipname_prefixes_clone_template
+    properties = {
+        {
+            type = culture_surnames
+            key = "SHIP_NAMESAKE"
+        }
+    }
+}

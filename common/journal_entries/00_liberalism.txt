@@ -42,39 +42,45 @@ je_liberalism_1 = {
 		}
 	}
 
-	complete = {
-		OR = {
-			has_law_or_variant = law_type:law_census_voting
-			has_law_or_variant = law_type:law_universal_suffrage
-		}
-
-		government_legitimacy >= 50
-		any_interest_group = {
-			is_in_government = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
 			OR = {
-				custom_tooltip = {
-					text = has_ideology_liberal_tt
-					OR = {
-						has_ideology = ideology:ideology_liberal
-						has_ideology = ideology:ideology_liberal_modern
+				has_law_or_variant = law_type:law_census_voting
+				has_law_or_variant = law_type:law_universal_suffrage
+			}
+
+			government_legitimacy >= 50
+			any_interest_group = {
+				is_in_government = yes
+				OR = {
+					custom_tooltip = {
+						text = has_ideology_liberal_tt
+						OR = {
+							has_ideology = ideology:ideology_liberal
+							has_ideology = ideology:ideology_liberal_modern
+						}
 					}
+					leader = { has_ideology = ideology:ideology_radical }
+					leader = { has_ideology = ideology:ideology_market_liberal }
 				}
-				leader = { has_ideology = ideology:ideology_radical }
-				leader = { has_ideology = ideology:ideology_market_liberal }
+			}
+			is_at_war = no
+			NOT = {
+				any_interest_group = {
+					is_insurrectionary = yes
+				}
 			}
 		}
-		is_at_war = no
-		NOT = {
-			any_interest_group = {
-				is_insurrectionary = yes
-			}
+		effect = {
+			set_variable = liberalism_1_done
+			trigger_event = { id = liberalism.1 }
 		}
 	}
 
-	on_complete = {
-		set_variable = liberalism_1_done
-		trigger_event = { id = liberalism.1 }
-	}
 
 	weight = 10000
 }
@@ -85,10 +91,19 @@ je_liberalism_2 = {
 
 	group = je_group_internal_affairs
 
-	complete = {
-		has_law_or_variant = law_type:law_free_trade
-		scope:journal_entry = {
-			is_goal_complete = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			has_law_or_variant = law_type:law_free_trade
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+		}
+		effect = {
+			trigger_event = { id = liberalism.2 }
 		}
 	}
 
@@ -101,9 +116,6 @@ je_liberalism_2 = {
 		multiply = 0.5
 	}
 
-	on_complete = {
-		trigger_event = { id = liberalism.2 }
-	}
 
 	progressbar = yes
 
@@ -116,30 +128,36 @@ je_liberalism_3 = {
 
 	group = je_group_internal_affairs
 
-	complete = {
-		OR = {
-			has_law_or_variant = law_type:law_right_of_assembly
-			has_law_or_variant = law_type:law_protected_speech
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_right_of_assembly
+				has_law_or_variant = law_type:law_protected_speech
+			}
+			OR = {
+				has_law_or_variant = law_type:law_freedom_of_conscience
+				has_law_or_variant = law_type:law_total_separation
+			}
+			any_scope_building = {
+				is_building_type = building_university
+				level >= 3
+				occupancy > 0.9
+			}
+			any_scope_building = {
+				is_building_type = building_art_academy
+				level >= 3
+				occupancy > 0.9
+			}
 		}
-		OR = {
-			has_law_or_variant = law_type:law_freedom_of_conscience
-			has_law_or_variant = law_type:law_total_separation
-		}
-		any_scope_building = {
-			is_building_type = building_university
-			level >= 3
-			occupancy > 0.9
-		}
-		any_scope_building = {
-			is_building_type = building_art_academy
-			level >= 3
-			occupancy > 0.9
+		effect = {
+			trigger_event = { id = liberalism.3 }
 		}
 	}
 
-	on_complete = {
-		trigger_event = { id = liberalism.3 }
-	}
 
 	weight = 5000
 }
@@ -150,20 +168,26 @@ je_liberalism_4 = {
 
 	group = je_group_internal_affairs
 
-	complete = {
-		OR = {
-			has_law_or_variant = law_type:law_freedom_of_conscience
-			has_law_or_variant = law_type:law_total_separation
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_freedom_of_conscience
+				has_law_or_variant = law_type:law_total_separation
+			}
+			has_law_or_variant = law_type:law_slavery_banned
+			has_law_or_variant = law_type:law_multicultural
+			has_law_or_variant = law_type:law_no_migration_controls
+			average_sol >= 12
 		}
-		has_law_or_variant = law_type:law_slavery_banned
-		has_law_or_variant = law_type:law_multicultural
-		has_law_or_variant = law_type:law_no_migration_controls
-		average_sol >= 12
+		effect = {
+			trigger_event = { id = liberalism.4 }
+		}
 	}
 
-	on_complete = {
-		trigger_event = { id = liberalism.4 }
-	}
 
 	weight = 5000
 }

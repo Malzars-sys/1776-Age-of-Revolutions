@@ -1,7 +1,8 @@
-# Contemporary basic merchant equipment, no future naval technology.
+﻿# Armed merchant equipment: cargo, endurance and convoy escort; existing bronze IDs retained for startup templates.
+
 aor1776_merchant_1 = {
     type = ship_mod_slot_armor
-    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_hull_bronze.dds"
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_hull_bronze.dds"
     modifier = {
         ship_hit_points_max_add = 30
         ship_armor_add = 0.5
@@ -15,15 +16,58 @@ aor1776_merchant_1 = {
     ai_weight = {
         value = 1
         multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_1_silver = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_hull_silver.dds"
+    modifier = {
+        ship_hit_points_max_add = 70
+        ship_armor_add = 1
+        ship_construction_progress_max_add = 2
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_tools_add = 0.5
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_1_gold = {
+    type = ship_mod_slot_armor
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_hull_gold.dds"
+    modifier = {
+        ship_hit_points_max_add = 120
+        ship_armor_add = 1.5
+        ship_construction_progress_max_add = 3
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 8
+        goods_input_iron_add = 1
+        goods_input_tools_add = 1
+    }
+    unlocking_technologies = { diagonal_ship_framing }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
     }
 }
 
 aor1776_merchant_2 = {
     type = ship_mod_slot_guns
-    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_falconets_bronze.dds"
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_guns_bronze.dds"
     modifier = {
         ship_hull_damage_add = 1
         ship_crew_damage_add = 0.5
+        ship_screening_add = 2
         ship_construction_progress_max_add = 1
     }
     construction_goods = {
@@ -34,14 +78,58 @@ aor1776_merchant_2 = {
     ai_weight = {
         value = 1
         multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_2_silver = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_guns_silver.dds"
+    modifier = {
+        ship_hull_damage_add = 2
+        ship_crew_damage_add = 1
+        ship_screening_add = 4
+        ship_construction_progress_max_add = 2
+    }
+    construction_goods = {
+        goods_input_iron_add = 0.5
+        goods_input_artillery_add = 0.25
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_2_gold = {
+    type = ship_mod_slot_guns
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_guns_gold.dds"
+    modifier = {
+        ship_hull_damage_add = 4
+        ship_crew_damage_add = 2
+        ship_screening_add = 6
+        ship_construction_progress_max_add = 3
+    }
+    construction_goods = {
+        goods_input_iron_add = 1
+        goods_input_artillery_add = 0.5
+    }
+    unlocking_technologies = { copper_sheathing }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
     }
 }
 
 aor1776_merchant_3 = {
     type = ship_mod_slot_propulsion
-    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_rig_vertical_bronze_v2.dds"
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_rig_bronze.dds"
     modifier = {
         ship_movement_speed_add = 0.2
+        ship_supply_efficiency_add = 0.02
         ship_construction_progress_max_add = 1
     }
     construction_goods = {
@@ -52,14 +140,57 @@ aor1776_merchant_3 = {
     ai_weight = {
         value = 1
         multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_3_silver = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_rig_silver.dds"
+    modifier = {
+        ship_movement_speed_add = 0.4
+        ship_supply_efficiency_add = 0.04
+        ship_construction_progress_max_add = 2
+    }
+    construction_goods = {
+        goods_input_fabric_add = 2
+        goods_input_hardwood_add = 1
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_3_gold = {
+    type = ship_mod_slot_propulsion
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_rig_gold.dds"
+    modifier = {
+        ship_movement_speed_add = 0.6
+        ship_supply_efficiency_add = 0.06
+        ship_construction_progress_max_add = 3
+    }
+    construction_goods = {
+        goods_input_fabric_add = 4
+        goods_input_hardwood_add = 2
+        goods_input_tools_add = 0.25
+    }
+    unlocking_technologies = { marine_chronometry }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
     }
 }
 
 aor1776_merchant_4 = {
     type = ship_mod_slot_range
-    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_caravel_deck_bronze.dds"
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_cargo_bronze.dds"
     modifier = {
-        ship_supply_capacity_add = 2
+        ship_supply_capacity_add = 4
+        ship_carrying_capacity_add = 0.05
         ship_construction_progress_max_add = 1
     }
     construction_goods = {
@@ -70,14 +201,59 @@ aor1776_merchant_4 = {
     ai_weight = {
         value = 1
         multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_4_silver = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_cargo_silver.dds"
+    modifier = {
+        ship_supply_capacity_add = 10
+        ship_carrying_capacity_add = 0.1
+        ship_construction_progress_max_add = 2
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 2
+        goods_input_fabric_add = 1
+    }
+    unlocking_technologies = { scientific_naval_architecture }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_4_gold = {
+    type = ship_mod_slot_range
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_cargo_gold.dds"
+    modifier = {
+        ship_supply_capacity_add = 20
+        ship_carrying_capacity_add = 0.15
+        ship_construction_progress_max_add = 3
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_fabric_add = 2
+        goods_input_tools_add = 0.25
+    }
+    unlocking_technologies = { hydrographic_surveying }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
     }
 }
 
 aor1776_merchant_5 = {
     type = ship_mod_slot_utility_1
-    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_blockade_supply_bronze_v2.dds"
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_escort_bronze.dds"
     modifier = {
-        ship_blockade_strength_mult = 0.35
+        ship_screening_mult = 0.15
+        ship_supply_efficiency_add = 0.05
+        ship_suffered_crew_damage_mult = -0.05
+        ship_construction_progress_max_add = 1
     }
     construction_goods = {
         goods_input_hardwood_add = 2
@@ -87,5 +263,50 @@ aor1776_merchant_5 = {
     ai_weight = {
         value = 1
         multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_5_silver = {
+    type = ship_mod_slot_utility_1
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_escort_silver.dds"
+    modifier = {
+        ship_screening_mult = 0.25
+        ship_supply_efficiency_add = 0.1
+        ship_suffered_crew_damage_mult = -0.1
+        ship_construction_progress_max_add = 2
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 3
+        goods_input_fabric_add = 2
+        goods_input_tools_add = 0.25
+    }
+    unlocking_technologies = { standardized_naval_signals }
+    ai_weight = {
+        value = 2
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
+    }
+}
+
+aor1776_merchant_5_gold = {
+    type = ship_mod_slot_utility_1
+    icon = "gfx/interface/icons/military_icons/navy_icons/ship_designer_icons/1776_merchant_escort_gold.dds"
+    modifier = {
+        ship_screening_mult = 0.35
+        ship_supply_efficiency_add = 0.15
+        ship_suffered_crew_damage_mult = -0.15
+        ship_construction_progress_max_add = 3
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 4
+        goods_input_fabric_add = 3
+        goods_input_tools_add = 0.5
+    }
+    unlocking_technologies = { maritime_safety_standards }
+    ai_weight = {
+        value = 3
+        multiply = ship_mod_market_multiplier
+        multiply = ship_mod_merchant_navy_doctrine
     }
 }

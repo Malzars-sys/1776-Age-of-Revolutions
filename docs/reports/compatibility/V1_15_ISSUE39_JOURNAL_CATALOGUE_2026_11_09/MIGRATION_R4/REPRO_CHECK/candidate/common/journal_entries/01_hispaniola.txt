@@ -1,0 +1,110 @@
+﻿je_haitian_debt = {
+    icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	group = je_group_historical_content
+
+    is_shown_in_lobby = {
+        c:HAI ?= THIS
+    }
+
+    scripted_button = je_haitian_debt_negotiation_button
+    scripted_button = je_haitian_debt_payment_button
+    scripted_button = je_haitian_cancel_debt_button
+
+    modifiers_while_active = {
+		modifier_french_independence_payments_4
+    }
+
+    immediate = {
+        c:FRA ?= {
+            save_scope_as = france_scope
+        }
+    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        NOR = {
+	            scope:journal_entry = {
+	                OR = {
+	                    has_modifier = modifier_french_independence_payments_4
+	                    has_modifier = modifier_french_independence_payments_3
+	                    has_modifier = modifier_french_independence_payments_2
+	                    has_modifier = modifier_french_independence_payments_1
+	                }
+	            }
+				custom_tooltip = {
+					text = je_haitian_cancel_debt_not_tt
+					OR = {
+						has_modifier = modifier_cancelled_haiti_debt_1
+						has_modifier = modifier_cancelled_haiti_debt_2
+						has_modifier = modifier_cancelled_haiti_debt_3
+						has_modifier = modifier_cancelled_haiti_debt_4
+					}
+				}
+	        }
+	    }
+		effect = {
+	        trigger_event = { id = hispaniola_events.1 popup = yes }
+	        c:FRA ?= { trigger_event = { id = hispaniola_events.2 popup = yes } }
+	    }
+	}
+
+
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = c:FRA
+	        }
+	    }
+		effect = {}
+	}
+
+    outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_haitian_cancel_debt_tt
+				OR = {
+					has_modifier = modifier_cancelled_haiti_debt_1
+					has_modifier = modifier_cancelled_haiti_debt_2
+					has_modifier = modifier_cancelled_haiti_debt_3
+					has_modifier = modifier_cancelled_haiti_debt_4
+				}
+			}
+	    }
+		effect = {}
+	}
+
+    status_desc = {
+        first_valid = {
+            triggered_desc = {
+                desc = je_haitian_debt_status_4
+                trigger = { je:je_haitian_debt ?= { has_modifier = modifier_french_independence_payments_4 } }
+            }
+            triggered_desc = {
+                desc = je_haitian_debt_status_3
+                trigger = { je:je_haitian_debt ?= { has_modifier = modifier_french_independence_payments_3 } }
+            }
+            triggered_desc = {
+                desc = je_haitian_debt_status_2
+                trigger = { je:je_haitian_debt ?= { has_modifier = modifier_french_independence_payments_2 } }
+            }
+            triggered_desc = {
+                desc = je_haitian_debt_status_1
+                trigger = { je:je_haitian_debt ?= { has_modifier = modifier_french_independence_payments_1 } }
+            }
+        }
+    }
+
+    weight = 1000
+    should_be_pinned_by_default_uninvolved_or_context = yes
+	can_revolution_inherit = yes
+}

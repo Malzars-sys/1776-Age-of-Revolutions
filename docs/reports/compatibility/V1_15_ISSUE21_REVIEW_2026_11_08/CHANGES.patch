@@ -1,0 +1,2123 @@
+--- before/common/ai_strategies/00_default_strategy.txt
++++ after/common/ai_strategies/00_default_strategy.txt
+@@ -1244,7 +1244,7 @@
+ 			limit = {
+ 				OR = {
+ 					scope:target_state = { owner = root }
+-					can_reach_target_state = yes
++					can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }
+ 				}
+ 			}
+ 
+@@ -1252,7 +1252,13 @@
+ 				limit = {
+ 					OR = {
+ 						scope:target_state = { owner = root }
+-						ai_desires_target_state = yes
++						OR = {
++							ai_state_has_core_ambition = yes
++							ai_state_ambition_border = yes
++							ai_state_ambition_colonial = yes
++							ai_state_ambition_overlord_gift = yes
++							ai_state_ambition_sphere = yes
++						}
+ 					}
+ 				}
+ 
+@@ -1433,7 +1439,7 @@
+ 				if = {
+ 					limit = {
+ 						is_diplomatic_play_involved_with = scope:target_country
+-						ai_strongly_desires_target_state = no
++						ai_state_has_core_ambition = no
+ 					}
+ 					multiply = 0.5
+ 				}
+@@ -2085,7 +2091,7 @@
+ 
+ 			if = {
+ 				limit = {
+-					can_reach_target_state = no
++					NOT = { can_reach_target_state_to_coerce = { TARGET_STATE = scope:target_state } }
+ 				}
+ 				multiply = 0
+ 			}
+@@ -2106,7 +2112,7 @@
+ 			limit = {
+ 				OR = {
+ 					scope:target_country = { is_subject_of = root }
+-					can_reach_target_country = yes
++					can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
+ 				}
+ 			}
+ 
+@@ -3349,7 +3355,7 @@
+ 						}
+ 					}
+ 				}
+-				can_reach_target_country = yes
++				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 			}
+ 			add = 10
+ 		}
+@@ -3368,7 +3374,7 @@
+ 						}
+ 					}
+ 				}
+-				can_reach_target_country = yes
++				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 			}
+ 			add = 10
+ 		}
+@@ -3387,7 +3393,7 @@
+ 						}
+ 					}
+ 				}
+-				can_reach_target_country = yes
++				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 			}
+ 			add = 15
+ 		}
+@@ -4490,7 +4496,7 @@
+ 					scope:target_country = {
+ 						is_oppressor_of_schleswig_holstein = yes
+ 					}
+-					can_reach_target_country = no
++					NOT = { can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country } }
+ 				}
+ 				add = 100
+ 			}
+@@ -5766,7 +5772,7 @@
+ 
+ 				if = {
+ 					limit = {
+-						can_reach_target_country = yes
++						can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
+ 						NOT = { is_subject_of = scope:target_country }
+ 					}
+ 					add = 50
+@@ -5949,7 +5955,7 @@
+ 		}
+ 		conquer = {
+ 			trigger = {
+-				can_reach_target_country = yes
++				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 				NOT = { is_subject_of = scope:target_country }
+ 
+ 				# Be nice to tutorial players
+@@ -6367,7 +6373,7 @@
+ 						scope:target_country = { is_country_type = unrecognized }
+ 					}
+ 				}
+-				can_reach_target_country = yes
++				can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
+ 				NOT = { is_subject_of = scope:target_country }
+ 
+ 				# AI shouldn't be aggressive against subjects of their subjects
+@@ -6414,7 +6420,7 @@
+ 
+ 				if = {
+ 					limit = {
+-						can_reach_target_country = yes
++						can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
+ 						country_rank > scope:target_country.country_rank
+ 						NOT = { is_country_type = unrecognized }
+ 						scope:target_country = { is_country_type = unrecognized }
+@@ -6521,7 +6527,7 @@
+ 
+ 				if = {
+ 					limit = {
+-						can_reach_target_country = yes
++						can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
+ 						country_rank > scope:target_country.country_rank
+ 						scope:target_country.country_rank < rank_value:major_power
+ 						scope:target_country = { NOT = { is_subject_of = root }	}
+@@ -6847,7 +6853,7 @@
+ 					wants_to_solve_schleswig_holstein = yes
+ 					exists = c:HOL
+ 					scope:target_country = { c:HOL ?= THIS }
+-					can_reach_target_country = yes
++					can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
+ 				}
+ 				add = 100
+ 			}
+@@ -7147,7 +7153,7 @@
+ 							type = embargo
+ 						}
+ 					}
+-					can_reach_target_country = yes
++					can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
+ 				}
+ 				add = 50
+ 			}
+@@ -7450,7 +7456,7 @@
+ 					wants_to_solve_schleswig_holstein = yes
+ 					exists = c:HOL
+ 					scope:target_country = { c:HOL ?= THIS }
+-					can_reach_target_country = yes
++					can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }
+ 				}
+ 				add = 150
+ 			}
+--- before/common/ai_strategies/02_diplomatic_strategies.txt
++++ after/common/ai_strategies/02_diplomatic_strategies.txt
+@@ -275,7 +275,7 @@
+ 		conquer = {
+ 			trigger = {
+ 				NOT = { scope:target_country = { is_subject_of = root } }
+-				can_reach_target_country = yes
++				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 				has_strategic_adjacency = scope:target_country
+ 				scope:target_country.country_rank <= root.country_rank
+ 			}
+@@ -1203,7 +1203,7 @@
+ 	treaty_port_value = {
+ 		if = {
+ 			limit = {
+-				can_reach_target_state = yes
++				can_reach_target_state_to_coerce = { TARGET_STATE = scope:target_state }
+ 				scope:target_country = {
+ 					has_law_or_variant = law_type:law_isolationism
+ 					gdp >= 2000000 # Not worth doing against very small markets
+@@ -1224,7 +1224,7 @@
+ 		# Eager to reclaim a treaty port from a country that recently reneged on the agreement we inherited to them
+ 		if = {
+ 			limit = {
+-				can_reach_target_state = yes
++				can_reach_target_state_to_coerce = { TARGET_STATE = scope:target_state }
+ 				has_variable = wants_treaty_port_revenge_against
+ 				var:wants_treaty_port_revenge_against ?= scope:target_country
+ 			}
+@@ -1240,7 +1240,7 @@
+ 			if = {
+ 				limit = {
+ 					country_rank = rank_value:great_power
+-					can_reach_target_country = yes
++					can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
+ 					scope:target_country = {
+ 						has_law_or_variant = law_type:law_isolationism
+ 						gdp >= 5000000 # Not worth doing against small markets
+@@ -1273,7 +1273,7 @@
+ 			if = {
+ 				limit = {
+ 					country_rank = rank_value:great_power
+-					can_reach_target_country = yes
++					can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
+ 					scope:target_country = {
+ 						has_law_or_variant = law_type:law_isolationism
+ 						gdp >= 5000000 # Not worth doing against small markets
+@@ -1520,7 +1520,7 @@
+ 						}
+ 					}
+ 				}
+-				can_reach_target_state = yes
++				can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }
+ 			}
+ 			add = 100
+ 		}
+@@ -1812,7 +1812,7 @@
+ 						}
+ 					}
+ 				}
+-				can_reach_target_state = yes
++				can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }
+ 			}
+ 			add = 100
+ 		}
+@@ -2091,7 +2091,7 @@
+ 						}
+ 					}
+ 				}
+-				can_reach_target_state = yes
++				can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }
+ 			}
+ 			add = 100
+ 		}
+@@ -2104,7 +2104,7 @@
+ 					scope:target_country = {
+ 						has_journal_entry = je_age_of_princes
+ 					}
+-					can_reach_target_country = yes
++					can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 				}
+ 				add = 300
+ 			}
+@@ -2129,7 +2129,7 @@
+ 
+ 				if = {
+ 					limit = {
+-						can_reach_target_country = no
++						NOT = { can_reach_target_country_to_protect = { TARGET_COUNTRY = scope:target_country } }
+ 					}
+ 					add = 150
+ 				}
+@@ -2146,7 +2146,7 @@
+ 						}
+ 					}
+ 				}
+-				can_reach_target_country = yes
++				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 			}
+ 			score = {
+ 				value = 500
+@@ -2273,7 +2273,7 @@
+ 						}
+ 					}
+ 				}
+-				can_reach_target_state = yes
++				can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }
+ 			}
+ 			add = 100
+ 		}
+@@ -2286,7 +2286,7 @@
+ 					scope:target_country = {
+ 						has_journal_entry = je_reunify_china
+ 					}
+-					can_reach_target_country = yes
++					can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 				}
+ 				add = 300
+ 			}
+@@ -2306,7 +2306,7 @@
+ 
+ 				if = {
+ 					limit = {
+-						can_reach_target_country = no
++						NOT = { can_reach_target_country_to_protect = { TARGET_COUNTRY = scope:target_country } }
+ 					}
+ 					add = 150
+ 				}
+@@ -2318,7 +2318,7 @@
+ 				scope:target_country = {
+ 					has_journal_entry = je_reunify_china
+ 				}
+-				can_reach_target_country = yes
++				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 			}
+ 			score = {
+ 				value = 500
+@@ -3104,7 +3104,7 @@
+ 		conquer = {
+ 			trigger = {
+ 				NOT = { scope:target_country = { is_subject_of = root } }
+-				can_reach_target_country = yes
++				can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }
+ 			}
+ 			score = {
+ 				if = {
+@@ -3362,7 +3362,7 @@
+ 						is_homeland = cu:bulgarian
+ 					}
+ 				}
+-				can_reach_target_state = yes
++				can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }
+ 			}
+ 			add = 100
+ 		}
+--- before/common/decrees/00_decree.txt
++++ after/common/decrees/00_decree.txt
+@@ -330,7 +330,10 @@
+ 						has_law_or_variant = law_type:law_subjecthood
+ 					}
+ 				}
+-				primary_cultures_percent_state <= 0.9
++				primary_cultures_percent_state = {
++					target_country = owner
++					value <= 0.9
++				}
+ 			}
+ 
+ 			if = { # Colonies
+@@ -372,19 +375,28 @@
+ 
+ 			if = {
+ 				limit = {
+-					primary_cultures_percent_state <= 0.1
++					primary_cultures_percent_state = {
++						target_country = owner
++						value <= 0.1
++					}
+ 				}
+ 				multiply = 5.0
+ 			}
+ 			else_if = {
+ 				limit = {
+-					primary_cultures_percent_state <= 0.3
++					primary_cultures_percent_state = {
++						target_country = owner
++						value <= 0.3
++					}
+ 				}
+ 				multiply = 3.0
+ 			}
+ 			else_if = {
+ 				limit = {
+-					primary_cultures_percent_state <= 0.5
++					primary_cultures_percent_state = {
++						target_country = owner
++						value <= 0.5
++					}
+ 				}
+ 				multiply = 2.0
+ 			}
+@@ -552,7 +564,10 @@
+ 
+ 		if = {
+ 			limit = {
+-				primary_cultures_percent_state > 0.9
++				primary_cultures_percent_state = {
++					target_country = owner
++					value > 0.9
++				}
+ 				religion_percent_state = {
+ 					target = scope:country.religion
+ 					value > 0.9
+@@ -562,7 +577,10 @@
+ 		}
+ 		else_if = {
+ 			limit = {
+-				primary_cultures_percent_state > 0.5
++				primary_cultures_percent_state = {
++					target_country = owner
++					value > 0.5
++				}
+ 				religion_percent_state = {
+ 					target = scope:country.religion
+ 					value > 0.5
+--- before/common/diplomatic_plays/00_diplomatic_plays.txt
++++ after/common/diplomatic_plays/00_diplomatic_plays.txt
+@@ -805,8 +805,8 @@
+ 		scope:target_country = {
+ 			NOT = { is_country_type = decentralized }
+ 			NOT = { is_subject_of = root }
+-			has_any_strait_province = scope:target_country
+-			has_any_strait_control = scope:target_country
++			has_any_strait_province_in_hierarchy = yes
++			has_any_strait_control = yes
+ 		}
+ 		custom_tooltip = {
+ 			text = dp_demand_strait_access_already_has_access_tt
+@@ -902,8 +902,8 @@
+ 		scope:target_country = {
+ 			NOT = { is_country_type = decentralized }
+ 			NOT = { is_subject_of = root }
+-			has_any_strait_province = scope:target_country
+-			has_any_strait_control = scope:target_country
++			has_any_strait_province_in_hierarchy = yes
++			has_any_strait_control = yes
+ 			custom_tooltip = {
+ 				text = dp_demand_no_strait_closure_already_bound_tt
+ 				can_close_straits = yes
+--- before/common/dynamic_country_names/00_dynamic_country_names.txt
++++ after/common/dynamic_country_names/00_dynamic_country_names.txt
+@@ -1290,7 +1290,7 @@
+ 		}
+ 	}
+ 
+-	dynamic_country_name = { name = aor1776_azb adjective = aor1776_azb_adj is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { current_date < 1828.1.1 } } }
++	dynamic_country_name = { name = aor1776_azb adjective = aor1776_azb_adj is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { game_date < 1828.1.1 } } }
+ }
+ 
+ BAV = { # Bavaria
+@@ -1674,7 +1674,7 @@
+ 		}
+ 	}
+ 
+-	dynamic_country_name = { name = aor1776_chc adjective = aor1776_chc_adj is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { current_date < 1828.1.1 } } }
++	dynamic_country_name = { name = aor1776_chc adjective = aor1776_chc_adj is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { game_date < 1828.1.1 } } }
+ }
+ 
+ CHI = { # China
+@@ -2719,7 +2719,7 @@
+ 		}
+ 	}
+ 
+- dynamic_country_name = { name = aor1776_sikh_confederacies adjective = PAN_ADJ is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { current_date < 1801.1.1 } } }
++ dynamic_country_name = { name = aor1776_sikh_confederacies adjective = PAN_ADJ is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { game_date < 1801.1.1 } } }
+ }
+ 
+ PAP = { # Papal State, but the base name is technically Rome
+@@ -4196,7 +4196,7 @@
+ 
+ 			scope:actor ?= {
+ 				any_scope_character = {
+-					is_ruler = yes
++					is_ruler_of_own_country = yes
+ 					has_template = ARG_Juan_Manuel_de_Rosas
+ 				}
+ 			}
+@@ -4987,7 +4987,7 @@
+ 				is_subject_type = subject_type_chartered_company
+ 			}
+ 		
+- current_date >= 1799.1.1
++ game_date >= 1799.1.1
+ }
+ 	}
+ 	dynamic_country_name = {
+@@ -5006,7 +5006,7 @@
+ 		}
+ 	}
+ 
+- dynamic_country_name = { name = dyn_c_1776_aleutian_traders adjective = dyn_c_1776_aleutian_traders_adj is_main_tag_only = yes priority = 100 trigger = { current_date < 1799.1.1 } }
++ dynamic_country_name = { name = dyn_c_1776_aleutian_traders adjective = dyn_c_1776_aleutian_traders_adj is_main_tag_only = yes priority = 100 trigger = { game_date < 1799.1.1 } }
+ }
+ 
+ IDS = {
+@@ -5582,4 +5582,4 @@
+ 	}
+ }
+ 
+-ARM = { dynamic_country_name = { name = aor1776_arm adjective = aor1776_arm_adj is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { current_date < 1828.1.1 } } } }
++ARM = { dynamic_country_name = { name = aor1776_arm adjective = aor1776_arm_adj is_main_tag_only = yes priority = 100 trigger = { exists = scope:actor scope:actor ?= { game_date < 1828.1.1 } } } }
+--- before/common/journal_entries/02_brazil_navy.txt
++++ after/common/journal_entries/02_brazil_navy.txt
+@@ -11,7 +11,7 @@
+ 	possible = {
+ 		country_rank >= rank_value:minor_power
+ 		any_scope_character = {
+-			has_role = admiral
++			has_role_of_type = admiral
+ 		}
+ 		OR = {
+ 			has_technology_researched = state_dockyard_systems
+@@ -76,7 +76,7 @@
+ 
+ 	complete = {
+ 		any_scope_character = {
+-			has_role = admiral
++			has_role_of_type = admiral
+ 		}
+ 		scope:journal_entry = {
+ 			is_goal_complete = yes
+--- before/common/journal_entries/04_india_non_cooperation.txt
++++ after/common/journal_entries/04_india_non_cooperation.txt
+@@ -209,9 +209,9 @@
+ 						any_supporting_character = {
+ 							is_in_exile_pool = no
+ 							is_in_void = no
+-							is_ruler = no
+-							is_heir = no
+-							has_role = politician
++							is_ruler_of_own_country = no
++							is_heir_of_own_country = no
++							has_role_of_type = politician
+ 							OR = {
+ 								has_ideology = ideology:ideology_humanitarian
+ 								has_ideology = ideology:ideology_pacifist
+@@ -230,9 +230,9 @@
+ 						any_supporting_character = {
+ 							is_in_exile_pool = no
+ 							is_in_void = no
+-							is_ruler = no
+-							is_heir = no
+-							has_role = agitator
++							is_ruler_of_own_country = no
++							is_heir_of_own_country = no
++							has_role_of_type = agitator
+ 							OR = {
+ 								has_ideology = ideology:ideology_humanitarian
+ 								has_ideology = ideology:ideology_pacifist
+--- before/common/journal_entries/05_austrian_fascism.txt
++++ after/common/journal_entries/05_austrian_fascism.txt
+@@ -63,8 +63,8 @@
+ 							any_scope_character = {
+ 								AND = {
+ 									OR = {
+-										has_role = politician
+-										has_role = agitator
++										has_role_of_type = politician
++										has_role_of_type = agitator
+ 									}
+ 									has_ideology = ideology:ideology_corporatist_leader
+ 								}
+@@ -216,8 +216,8 @@
+ 								has_ideology = ideology:ideology_corporatist
+ 								any_scope_character = {
+ 									OR = {
+-										has_role = politician
+-										has_role = agitator
++										has_role_of_type = politician
++										has_role_of_type = agitator
+ 									}
+ 									OR = {
+ 										has_ideology = ideology:ideology_corporatist_leader
+--- before/common/journal_entries/05_metternich.txt
++++ after/common/journal_entries/05_metternich.txt
+@@ -34,7 +34,7 @@
+ 					age >= 18
+ 					custom_tooltip = {
+ 						text = franz_joseph_acceded_tt
+-						is_ruler = yes
++						is_ruler_of_own_country = yes
+ 					}
+ 				}
+ 			}
+--- before/common/on_actions/00_code_on_actions.txt
++++ after/common/on_actions/00_code_on_actions.txt
+@@ -1136,14 +1136,7 @@
+ 		}
+ 
+ 		### This is how we give objectives to AI countries
+-		if = {
+-			limit = {
+-				has_dlc_feature = ep1_content
+-				is_player = no
+-				has_journal_entry = je_great_game_control
+-			}
+-			handle_ai_great_game_objectives = yes
+-		}
++		# The removed Great Game objective pulse has no 1.15 successor.
+ 
+ 		# TODO: Move these to tag-specific pulses
+ 		if = {
+@@ -2576,7 +2569,7 @@
+ 						set_character_as_ruler = yes
+ 					}
+ 				}
+-				generate_new_eic_government_leader = yes
++				aor1776_generate_eic_government_leader = yes
+ 			}
+ 		}
+ 		# Ethiopian emperor succession pre-unification
+@@ -2756,7 +2749,7 @@
+ 							set_character_as_ruler = yes
+ 						}
+ 					}
+-					generate_new_eic_government_leader = yes
++					aor1776_generate_eic_government_leader = yes
+ 				}
+ 			}
+ 			if = {
+@@ -4835,7 +4828,12 @@
+ 				}
+ 			}
+ 		}
+-		upgrade_moderniser_movement_effect = yes # Relevant if owner has a moderniser movement
++		owner = {
++			if = {
++				limit = { any_political_movement = { is_political_movement_type = movement_modernizer } }
++				mutate_moderniser_movement_effect = yes
++			}
++		} # Relevant if owner has a moderniser movement
+ 		owner = {
+ 			if = { # If a currently enacting law is invalidated by an activated law, stop enacting it
+ 				limit = {
+--- before/common/on_actions/1776_historical_forts_start.txt
++++ after/common/on_actions/1776_historical_forts_start.txt
+@@ -5,8 +5,8 @@
+ 
+ aor1776_historical_forts_a1_initialize = {
+ 	trigger = {
+-		current_date >= 1776.1.1
+-		current_date < 1776.1.2
++		game_date >= 1776.1.1
++		game_date < 1776.1.2
+ 	}
+ 	effect = {
+ 		c:FRA ?= { aor1776_historical_forts_a1_france = yes }
+--- before/common/power_bloc_principles/00_power_bloc_principles.txt
++++ after/common/power_bloc_principles/00_power_bloc_principles.txt
+@@ -605,7 +605,7 @@
+ 		country_initiator_war_goal_maneuver_cost_mult = -0.3
+ 
+ 		# Reduces war exhaustion from casualties, propaganda!
+-		country_war_exhaustion_casualties_mult = -0.15
++		country_war_support_casualties_mult = -0.15
+ 	}
+ 
+ 	ai_weight = {
+@@ -629,7 +629,7 @@
+ 	member_modifier = {
+ 		# Modifiers from previous level(s)
+ 		country_initiator_war_goal_maneuver_cost_mult = -0.3
+-		country_war_exhaustion_casualties_mult = -0.15
++		country_war_support_casualties_mult = -0.15
+ 
+ 		# Countries forced to join diplomatic plays of members, other countries are not happy about this threat
+ 		country_join_power_bloc_member_in_plays_bool = yes
+--- before/common/power_bloc_principles/1776_imperial_principles.txt
++++ after/common/power_bloc_principles/1776_imperial_principles.txt
+@@ -94,7 +94,7 @@
+ visible = { power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } }
+ possible = { aor1776_hre_emperor = yes power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation current_cohesion_number > 40 } }
+ member_modifier = { country_bureaucracy_mult = 0.05
+-country_institution_cost_REPLACE_OR_CREATE:institution_workplace_safety_mult = -0.10
++
+ country_institution_cost_institution_colonial_affairs_mult = -0.10
+ country_institution_cost_institution_health_system_mult = -0.10
+ country_institution_cost_institution_home_affairs_mult = -0.10
+@@ -111,7 +111,7 @@
+ visible = { power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } }
+ possible = { aor1776_hre_emperor = yes power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation current_cohesion_number > 40 } }
+ member_modifier = { country_bureaucracy_mult = 0.10
+-country_institution_cost_REPLACE_OR_CREATE:institution_workplace_safety_mult = -0.20
++
+ country_institution_cost_institution_colonial_affairs_mult = -0.20
+ country_institution_cost_institution_health_system_mult = -0.20
+ country_institution_cost_institution_home_affairs_mult = -0.20
+@@ -128,7 +128,7 @@
+ visible = { power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation } }
+ possible = { aor1776_hre_emperor = yes power_bloc ?= { has_identity = identity:identity_aor1776_imperial_federation current_cohesion_number > 40 } }
+ member_modifier = { country_bureaucracy_mult = 0.15
+-country_institution_cost_REPLACE_OR_CREATE:institution_workplace_safety_mult = -0.30
++
+ country_institution_cost_institution_colonial_affairs_mult = -0.30
+ country_institution_cost_institution_health_system_mult = -0.30
+ country_institution_cost_institution_home_affairs_mult = -0.30
+--- before/common/production_methods/11_private_infrastructure.txt
++++ after/common/production_methods/11_private_infrastructure.txt
+@@ -96,13 +96,13 @@
+ 
+ pm_no_rail_network = {
+ 	texture = "gfx/interface/icons/production_method_icons/no_rail_transport.dds"
+-	ai_weight = 1
++
+ 	is_default = yes
+ }
+ 
+ pm_early_trains = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_experimental_locomotive_green.dds"
+-	ai_weight = 1
++
+ 
+ 	unlocking_technologies = {
+ 		railways
+@@ -131,7 +131,7 @@
+ 
+ pm_steam_trains = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_steam_locomotive_green.dds"
+-	ai_weight = 1
++
+ 	replacement_if_valid = pm_steam_trains_principle_transport_3
+ 
+ 	unlocking_technologies = {
+@@ -161,7 +161,7 @@
+ 
+ pm_steam_trains_principle_transport_3 = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_steam_locomotive_green.dds"
+-	ai_weight = 1
++
+ 	is_hidden_when_unavailable = yes
+ 
+ 	unlocking_principles = {
+@@ -195,7 +195,7 @@
+ 
+ pm_electric_trains = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_electric_locomotive_green.dds"
+-	ai_weight = 1
++
+ 	replacement_if_valid = pm_electric_trains_principle_transport_3
+ 
+ 	unlocking_technologies = {
+@@ -227,7 +227,7 @@
+ 
+ pm_electric_trains_principle_transport_3 = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_electric_locomotive_green.dds"
+-	ai_weight = 1
++
+ 	is_hidden_when_unavailable = yes
+ 
+ 	unlocking_principles = {
+@@ -263,7 +263,7 @@
+ 
+ pm_diesel_trains = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_diesel_locomotive_green.dds"
+-	ai_weight = 1
++
+ 	replacement_if_valid = pm_diesel_trains_principle_transport_3
+ 
+ 	unlocking_technologies = {
+@@ -294,7 +294,7 @@
+ 
+ pm_diesel_trains_principle_transport_3 = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_diesel_locomotive_green.dds"
+-	ai_weight = 1
++
+ 	is_hidden_when_unavailable = yes
+ 
+ 	unlocking_principles = {
+@@ -329,12 +329,12 @@
+ 
+ pm_no_passenger_trains = {
+ 	texture = "gfx/interface/icons/production_method_icons/no_passenger_trains.dds"
+-	ai_weight = 1
++
+ }
+ 
+ pm_wooden_passenger_carriages = {
+ 	texture = "gfx/interface/icons/production_method_icons/passenger_trains.dds"
+-	ai_weight = 1
++
+ 
+ 	unlocking_technologies = {
+ 		railways
+@@ -353,7 +353,7 @@
+ 
+ pm_steel_passenger_carriages = {
+ 	texture = "gfx/interface/icons/production_method_icons/passenger_carriages.dds"
+-	ai_weight = 1
++
+ 
+ 	unlocking_technologies = {
+ 		steel_railway_cars
+--- before/common/production_methods/14_tech6c5c_aluminium_production_and_consumers.txt
++++ after/common/production_methods/14_tech6c5c_aluminium_production_and_consumers.txt
+@@ -208,7 +208,7 @@
+ 
+ pm_aluminium_passenger_carriages = {
+ 	texture = "gfx/interface/icons/production_method_icons/pm_aluminium_passenger_carriages.dds"
+-	ai_weight = 1
++
+ 
+ 	unlocking_technologies = {
+ 		bayer_process
+--- before/common/production_methods/22_tech7a_wave_a_land_transport_production.txt
++++ after/common/production_methods/22_tech7a_wave_a_land_transport_production.txt
+@@ -1,6 +1,6 @@
+ pm_traditional_road_network = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_traditional_road_network.dds"
+-	ai_weight = 1
++
+ 	is_default = yes
+ 
+ 	building_modifiers = {
+@@ -19,7 +19,7 @@
+ 
+ pm_turnpike_road_network = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_turnpike_road_network.dds"
+-	ai_weight = 1
++
+ 
+ 	unlocking_technologies = {
+ 		turnpike_road_networks
+@@ -50,7 +50,7 @@
+ 
+ pm_engineered_road_network = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_engineered_road_network.dds"
+-	ai_weight = 1
++
+ 
+ 	unlocking_technologies = {
+ 		improved_road_engineering
+@@ -82,7 +82,7 @@
+ 
+ pm_paved_road_network = {
+ 	texture = "gfx/interface/icons/production_method_icons/1776_paved_road_network.dds"
+-	ai_weight = 1
++
+ 
+ 	unlocking_technologies = {
+ 		paved_roads
+--- before/common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt
++++ after/common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt
+@@ -1062,7 +1062,7 @@
+ 	category = military
+ 
+ 	modifier = {
+-		country_war_exhaustion_casualties_mult = -0.25
++		country_war_support_casualties_mult = -0.25
+ 	}
+ 
+ 	unlocking_technologies = {
+--- before/common/treaty_articles/07_foreign_investment_rights.txt
++++ after/common/treaty_articles/07_foreign_investment_rights.txt
+@@ -486,7 +486,7 @@
+ 							type = embargo
+ 						}
+ 					}
+-					can_reach_target_country = yes
++					can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }
+ 				}
+ 				add = 1
+ 			}
+--- before/events/agitators_events/revolution_events_02.txt
++++ after/events/agitators_events/revolution_events_02.txt
+@@ -788,12 +788,12 @@
+  			}
+  		}
+ 		OR = {
+-			country_navy_unit_type_fraction = {
+-				target = unit_type:combat_unit_type_battleship
++			country_ship_type_fraction = {
++				target = ship_type:ship_type_pre_dreadnought
+ 				value >= 0.1
+ 			}
+-			country_navy_unit_type_fraction = {
+-				target = unit_type:combat_unit_type_dreadnought
++			country_ship_type_fraction = {
++				target = ship_type:ship_type_dreadnought
+ 				value >= 0.1
+ 			}
+ 		}
+@@ -859,12 +859,12 @@
+  			limit = {
+ 				commander_military_formation = {
+ 					OR = {
+-						formation_navy_unit_type_fraction = {
+-							target = unit_type:combat_unit_type_battleship
++						formation_ship_type_fraction = {
++							target = ship_type:ship_type_pre_dreadnought
+ 							value >= 0.2
+ 						}
+-						formation_navy_unit_type_fraction = {
+-							target = unit_type:combat_unit_type_dreadnought
++						formation_ship_type_fraction = {
++							target = ship_type:ship_type_dreadnought
+ 							value >= 0.2
+ 						}
+ 					}
+--- before/events/brazil/brazil_navy.txt
++++ after/events/brazil/brazil_navy.txt
+@@ -32,13 +32,13 @@
+ 		if = {
+ 			limit = {
+ 				any_scope_character = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					commander_rank >= 5
+ 				}
+ 			}
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					commander_rank >= 5
+ 				}
+ 				save_scope_as = admiral_scope
+@@ -47,13 +47,13 @@
+ 		else_if = {
+ 			limit = {
+ 				any_scope_character = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					commander_rank >= 4
+ 				}
+ 			}
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					commander_rank >= 4
+ 				}
+ 				save_scope_as = admiral_scope
+@@ -62,13 +62,13 @@
+ 		else_if = {
+ 			limit = {
+ 				any_scope_character = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					commander_rank >= 3
+ 				}
+ 			}
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					commander_rank >= 3
+ 				}
+ 				save_scope_as = admiral_scope
+@@ -77,13 +77,13 @@
+ 		else_if = {
+ 			limit = {
+ 				any_scope_character = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					commander_rank >= 2
+ 				}
+ 			}
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					commander_rank >= 2
+ 				}
+ 				save_scope_as = admiral_scope
+@@ -92,7 +92,7 @@
+ 		else = {
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 				}
+ 				save_scope_as = admiral_scope
+ 			}
+@@ -151,7 +151,7 @@
+ 			}
+ 		}
+ 		any_scope_character = {
+-			has_role = admiral
++			has_role_of_type = admiral
+ 		}
+ 	}
+ 
+@@ -162,13 +162,13 @@
+ 		if = {
+ 			limit = {
+ 				any_scope_character = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					NOT = { has_modifier = brz_navy_advocate }
+ 				}
+ 			}
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 					NOT = { has_modifier = brz_navy_advocate }
+ 				}
+ 				save_scope_as = admiral_scope
+@@ -177,7 +177,7 @@
+ 		else = {
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = admiral
++					has_role_of_type = admiral
+ 				}
+ 				save_scope_as = admiral_scope
+ 			}
+@@ -268,14 +268,14 @@
+ 			}
+ 		}
+ 		any_scope_character = {
+-			has_role = admiral
++			has_role_of_type = admiral
+ 		}
+ 	}
+ 
+ 	immediate = {
+ 		random_scope_character = {
+ 			limit = {
+-				has_role = admiral
++				has_role_of_type = admiral
+ 			}
+ 			save_scope_as = admiral_scope
+ 		}
+@@ -327,7 +327,7 @@
+ 		}
+ 		random_scope_character = {
+ 			limit = {
+-				has_role = admiral
++				has_role_of_type = admiral
+ 			}
+ 			save_scope_as = admiral_scope
+ 		}
+--- before/events/dei_breakup.txt
++++ after/events/dei_breakup.txt
+@@ -650,7 +650,7 @@
+ 				text = inherit_characters_from_athabaska_tt
+ 				every_scope_character = { # Culls Russian IG leaders
+ 					limit = {
+-						has_role = politician
++						has_role_of_type = politician
+ 					}
+ 					kill_character = {
+ 						hidden = yes
+@@ -661,7 +661,7 @@
+ 						transfer_character = c:ALK
+ 						if = {
+ 							limit = {
+-								has_role = politician
++								has_role_of_type = politician
+ 							}
+ 							set_as_interest_group_leader = yes
+ 						}
+@@ -672,7 +672,7 @@
+ 				}
+ 				ordered_scope_character = { # Promotes the most influential Athabaskan IG leader to ruler
+ 					limit = {
+-						has_role = politician
++						has_role_of_type = politician
+ 					}
+ 					order_by = this.interest_group.ig_clout
+ 					position = 0
+--- before/events/dreadnought_hoax.txt
++++ after/events/dreadnought_hoax.txt
+@@ -29,8 +29,8 @@
+                 is_incorporated = yes
+             }
+  		}
+-        country_navy_unit_type_fraction = {
+-            target = unit_type:combat_unit_type_battleship
++        country_ship_type_fraction = {
++            target = ship_type:ship_type_pre_dreadnought
+             value >= 0.1
+         }
+  		any_scope_pop = {
+--- before/events/iberia_events/iberian_union_events.txt
++++ after/events/iberia_events/iberian_union_events.txt
+@@ -84,7 +84,7 @@
+ 		set_variable = pursued_iberian_unification
+ 		custom_tooltip = je_iberia_activate_tt
+ 		save_scope_as = iberia_forming_country
+-		every_country_in_iberia = {
++		every_country_in_iberia_old = {
+ 			limit = {
+ 				NOT = {
+ 					has_variable = pursued_iberian_unification
+@@ -132,7 +132,7 @@
+ 		set_variable = pursued_iberian_unification
+ 		custom_tooltip = je_iberia_activate_tt
+ 		save_scope_as = iberia_forming_country
+-		every_country_in_iberia = {
++		every_country_in_iberia_old = {
+ 			limit = {
+ 				NOR = {
+ 					has_variable = pursued_iberian_unification
+--- before/events/india_events/india_nationalism_events.txt
++++ after/events/india_events/india_nationalism_events.txt
+@@ -29,8 +29,8 @@
+ 		random_scope_character = {
+ 			limit = {
+ 				NOR = {
+-					is_ruler = yes
+-					is_heir = yes
++					is_ruler_of_own_country = yes
++					is_heir_of_own_country = yes
+ 				}
+ 				NOT = {
+ 					has_socialist_ideology = yes
+@@ -336,7 +336,7 @@
+ 			culture = {
+ 				has_discrimination_trait_group = heritage_group_south_asian
+ 			}
+-			has_role = agitator
++			has_role_of_type = agitator
+ 		}
+ 		any_political_lobby = {
+ 			is_political_lobby_type = lobby_anti_overlord
+@@ -369,7 +369,7 @@
+ 				culture = {
+ 					has_discrimination_trait_group = heritage_group_south_asian
+ 				}
+-				has_role = agitator
++				has_role_of_type = agitator
+ 			}
+ 			order_by = popularity
+ 			position = 0
+--- before/events/india_events/india_non_cooperation.txt
++++ after/events/india_events/india_non_cooperation.txt
+@@ -77,9 +77,9 @@
+ 						# repeating the requirements for sending someone to jail
+ 						is_in_exile_pool = no
+ 						is_in_void = no
+-						is_ruler = no
+-						is_heir = no
+-						has_role = agitator
++						is_ruler_of_own_country = no
++						is_heir_of_own_country = no
++						has_role_of_type = agitator
+ 						is_immortal = no
+ 					}
+ 				}
+@@ -87,9 +87,9 @@
+ 					limit = {
+ 						is_in_exile_pool = no
+ 						is_in_void = no
+-						is_ruler = no
+-						is_heir = no
+-						has_role = agitator
++						is_ruler_of_own_country = no
++						is_heir_of_own_country = no
++						has_role_of_type = agitator
+ 						is_immortal = no
+ 					}
+ 					save_scope_as = indian_independence_movement_agitator
+@@ -404,11 +404,11 @@
+ 				limit = {
+ 					is_in_exile_pool = no
+ 					is_in_void = no
+-					is_ruler = no
+-					is_heir = no
++					is_ruler_of_own_country = no
++					is_heir_of_own_country = no
+ 					OR = {
+-						has_role = agitator
+-						has_role = politician
++						has_role_of_type = agitator
++						has_role_of_type = politician
+ 					}
+ 					OR = {
+ 						has_ideology = ideology:ideology_humanitarian
+@@ -450,8 +450,8 @@
+ 		if = {
+ 			limit = {
+ 				scope:nonviolent_movement_leader = {
+-					has_role = agitator
+-					NOT = { has_role = politician }
++					has_role_of_type = agitator
++					NOT = { has_role_of_type = politician }
+ 				}
+ 			}
+ 			scope:nonviolent_movement_leader = {
+@@ -496,7 +496,7 @@
+ 		if = {
+ 			limit = {
+ 				scope:nonviolent_movement_leader = {
+-					has_role = politician
++					has_role_of_type = politician
+ 				}
+ 			}
+ 			scope:nonviolent_movement_leader = {
+--- before/events/india_events/indian_famines.txt
++++ after/events/india_events/indian_famines.txt
+@@ -140,7 +140,7 @@
+ 			culture = {
+ 				has_discrimination_trait_group = heritage_group_south_asian
+ 			}
+-			has_role = agitator
++			has_role_of_type = agitator
+ 		}
+ 	}
+ 
+@@ -168,7 +168,7 @@
+ 				culture = {
+ 					has_discrimination_trait_group = heritage_group_south_asian
+ 				}
+-				has_role = agitator
++				has_role_of_type = agitator
+ 			}
+ 			save_scope_as = hunger_strike_agitator_scope
+ 			set_variable = hunger_striker_var
+@@ -307,7 +307,7 @@
+ 				culture = {
+ 					has_discrimination_trait_group = heritage_group_south_asian
+ 				}
+-				has_role = agitator
++				has_role_of_type = agitator
+ 				has_variable = hunger_striker_var
+ 			}
+ 		}
+--- before/events/india_events/mughal_events.txt
++++ after/events/india_events/mughal_events.txt
+@@ -28,7 +28,7 @@
+ 			has_template = mug_akbar_ii
+ 		}
+ 		any_scope_character = {
+-			is_heir = yes
++			is_heir_of_own_country = yes
+ 			has_template = mug_bahadur_ii
+ 		}
+ 	}
+@@ -225,7 +225,7 @@
+ 			modifier = {
+ 				trigger = {
+ 					any_scope_character = {
+-						is_ruler = yes
++						is_ruler_of_own_country = yes
+ 						OR = {
+ 							has_trait = ambitious
+ 							has_template = mug_mirza_salim
+@@ -237,7 +237,7 @@
+ 			modifier = {
+ 				trigger = {
+ 					any_scope_character = {
+-						is_ruler = yes
++						is_ruler_of_own_country = yes
+ 						has_template = mug_bahadur_ii
+ 					}
+ 				}
+@@ -263,7 +263,7 @@
+ 			modifier = {
+ 				trigger = {
+ 					any_scope_character = {
+-						is_ruler = yes
++						is_ruler_of_own_country = yes
+ 						OR = {
+ 							has_trait = ambitious
+ 							has_template = mug_mirza_salim
+@@ -340,7 +340,7 @@
+ 			modifier = {
+ 				trigger = {
+ 					any_scope_character = {
+-						is_ruler = yes
++						is_ruler_of_own_country = yes
+ 						OR = {
+ 							has_trait = ambitious
+ 							has_template = mug_mirza_salim
+@@ -390,7 +390,7 @@
+ 			modifier = {
+ 				trigger = {
+ 					any_scope_character = {
+-						is_ruler = yes
++						is_ruler_of_own_country = yes
+ 						OR = {
+ 							has_trait = ambitious
+ 							has_template = mug_mirza_salim
+@@ -479,8 +479,8 @@
+ 			}
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = politician
+-					is_ruler = no # but it is okay if an heir is targeted with this
++					has_role_of_type = politician
++					is_ruler_of_own_country = no # but it is okay if an heir is targeted with this
+ 					OR = {
+ 						is_interest_group_type = ig_trade_unions
+ 						is_interest_group_type = ig_intelligentsia
+@@ -504,8 +504,8 @@
+ 			}
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = politician
+-					is_ruler = no # but it is okay if an heir is targeted with this
++					has_role_of_type = politician
++					is_ruler_of_own_country = no # but it is okay if an heir is targeted with this
+ 					OR = {
+ 						is_interest_group_type = ig_rural_folk
+ 						is_interest_group_type = ig_intelligentsia
+@@ -580,7 +580,7 @@
+ 			modifier = {
+ 				trigger = {
+ 					any_scope_character = {
+-						is_ruler = yes
++						is_ruler_of_own_country = yes
+ 						has_ideology = ideology:ideology_slaver
+ 					}
+ 				}
+@@ -890,7 +890,7 @@
+     	if = {
+     		limit = {
+ 	    		any_scope_character = {
+-	    			is_heir = yes
++					is_heir_of_own_country = yes
+ 	    		}
+ 	    	}
+     		heir ?= {
+--- before/events/india_events/princely_states.txt
++++ after/events/india_events/princely_states.txt
+@@ -367,8 +367,8 @@
+ 		has_dlc_feature = ip2_content
+ 		any_scope_character = {
+ 			OR = {
+-				is_ruler = yes
+-				has_role = general
++				is_ruler_of_own_country = yes
++				has_role_of_type = general
+ 			}
+ 		}
+ 		OR = {
+@@ -381,8 +381,8 @@
+ 		random_scope_character = {
+ 			limit = {
+ 				OR = {
+-					is_ruler = yes
+-					has_role = general
++					is_ruler_of_own_country = yes
++					has_role_of_type = general
+ 				}
+ 			}
+ 			save_scope_as = award_winner_scope
+--- before/events/india_events/sikh_empire.txt
++++ after/events/india_events/sikh_empire.txt
+@@ -297,18 +297,18 @@
+ 			}
+ 		}
+ 		any_scope_character = {
+-			has_role = general
++			has_role_of_type = general
+ 			is_busy = no
+-			is_ruler = no
++			is_ruler_of_own_country = no
+ 		}
+ 	}
+ 
+ 	immediate = {
+ 		random_scope_character = {
+ 			limit = {
+-				has_role = general
++				has_role_of_type = general
+ 				is_busy = no
+-				is_ruler = no
++				is_ruler_of_own_country = no
+ 			}
+ 			save_scope_as = relevant_general
+ 		}
+@@ -923,7 +923,7 @@
+ 				desc = sikh_empire.10.d1
+ 				trigger = {
+ 					any_scope_character = {
+-						has_role = politician
++						has_role_of_type = politician
+ 						has_trait = wrathful
+ 					}
+ 				}
+@@ -967,7 +967,7 @@
+ 		}
+ 		random_scope_character = {
+ 			limit = {
+-				has_role = politician
++				has_role_of_type = politician
+ 				has_trait = wrathful
+ 			}
+ 			save_scope_as = assassin_scope
+@@ -1042,7 +1042,7 @@
+ 	immediate = {
+ 		random_scope_character = {
+ 			limit = {
+-				is_ruler = yes
++				is_ruler_of_own_country = yes
+ 			}
+ 			save_scope_as = relevant_ruler
+ 		}
+@@ -1117,12 +1117,12 @@
+ 			if = {
+ 				limit = {
+ 					any_scope_character = {
+-						has_role = general
++						has_role_of_type = general
+ 					}
+ 				}
+ 				random_scope_character = {
+ 					limit = {
+-						has_role = general
++						has_role_of_type = general
+ 					}
+ 					set_character_as_ruler = yes
+ 				}
+@@ -1130,7 +1130,7 @@
+ 			else = {
+ 				ordered_scope_character = {
+ 					limit = {
+-						has_role = politician
++						has_role_of_type = politician
+ 					}
+ 					order_by = interest_group.ig_clout
+ 					position = 0
+--- before/events/india_events/utilitarian.txt
++++ after/events/india_events/utilitarian.txt
+@@ -91,8 +91,8 @@
+ 			limit = {
+ 				any_scope_character = {
+ 					OR = {
+-						has_role = agitator
+-						has_role = politician
++						has_role_of_type = agitator
++						has_role_of_type = politician
+ 					}
+ 					has_ideology = ideology:ideology_utilitarian_leader
+ 				}
+@@ -179,8 +179,8 @@
+ 			limit = {
+ 				any_scope_character = {
+ 					OR = {
+-						has_role = agitator
+-						has_role = politician
++						has_role_of_type = agitator
++						has_role_of_type = politician
+ 					}
+ 					has_ideology = ideology:ideology_utilitarian_leader
+ 				}
+@@ -333,8 +333,8 @@
+ 				limit = {
+ 					any_scope_character = {
+ 						OR = {
+-							has_role = agitator
+-							has_role = politician
++							has_role_of_type = agitator
++							has_role_of_type = politician
+ 						}
+ 						has_ideology = ideology:ideology_utilitarian_leader
+ 					}
+@@ -403,8 +403,8 @@
+ 			limit = {
+ 				any_scope_character = {
+ 					OR = {
+-						has_role = agitator
+-						has_role = politician
++						has_role_of_type = agitator
++						has_role_of_type = politician
+ 					}
+ 					has_ideology = ideology:ideology_utilitarian_leader
+ 				}
+@@ -413,8 +413,8 @@
+ 			random_scope_character = {
+ 				limit = {
+ 					OR = {
+-						has_role = agitator
+-						has_role = politician
++						has_role_of_type = agitator
++						has_role_of_type = politician
+ 					}
+ 					has_ideology = ideology:ideology_utilitarian_leader
+ 				}
+@@ -503,8 +503,8 @@
+ 		}
+ 		any_scope_character = {
+ 			OR = {
+-				has_role = agitator
+-				has_role = politician
++				has_role_of_type = agitator
++				has_role_of_type = politician
+ 			}
+ 			has_ideology = ideology:ideology_utilitarian_leader
+ 		}
+@@ -538,8 +538,8 @@
+ 		random_scope_character = {
+ 			limit = {
+ 				OR = {
+-					has_role = agitator
+-					has_role = politician
++					has_role_of_type = agitator
++					has_role_of_type = politician
+ 				}
+ 				has_ideology = ideology:ideology_utilitarian_leader
+ 			}
+@@ -618,7 +618,7 @@
+ 			}
+ 			any_lobby_member = {
+ 				leader = {
+-					is_ruler = no
++					is_ruler_of_own_country = no
+ 				}
+ 			}
+ 			target = { c:GBR ?= this }
+@@ -634,7 +634,7 @@
+ 				}
+ 				any_lobby_member = {
+ 					leader = {
+-						is_ruler = no
++						is_ruler_of_own_country = no
+ 					}
+ 				}
+ 				target = { c:GBR ?= this }
+@@ -643,7 +643,7 @@
+ 			random_lobby_member = {
+ 				limit = {
+ 					leader = {
+-						is_ruler = no
++						is_ruler_of_own_country = no
+ 					}
+ 				}
+ 				leader = {
+@@ -988,8 +988,8 @@
+ 			limit = {
+ 				any_scope_character = {
+ 					OR = {
+-						has_role = agitator
+-						has_role = politician
++						has_role_of_type = agitator
++						has_role_of_type = politician
+ 					}
+ 					has_ideology = ideology:ideology_utilitarian_leader
+ 				}
+@@ -998,8 +998,8 @@
+ 			random_scope_character = {
+ 				limit = {
+ 					OR = {
+-						has_role = agitator
+-						has_role = politician
++						has_role_of_type = agitator
++						has_role_of_type = politician
+ 					}
+ 					has_ideology = ideology:ideology_utilitarian_leader
+ 				}
+@@ -1085,8 +1085,8 @@
+ 		}
+ 		any_scope_character = {
+ 			OR = {
+-				has_role = agitator
+-				has_role = politician
++				has_role_of_type = agitator
++				has_role_of_type = politician
+ 			}
+ 			has_ideology = ideology:ideology_utilitarian_leader
+ 		}
+@@ -1161,8 +1161,8 @@
+ 			limit = {
+ 				any_scope_character = {
+ 					OR = {
+-						has_role = agitator
+-						has_role = politician
++						has_role_of_type = agitator
++						has_role_of_type = politician
+ 					}
+ 					has_ideology = ideology:ideology_utilitarian_leader
+ 				}
+--- before/events/meiji_restoration.txt
++++ after/events/meiji_restoration.txt
+@@ -588,7 +588,7 @@
+ 			NOT = { is_owed_obligation_by = ROOT }
+ 			NOT = { has_war_with = ROOT }
+ 			any_scope_character = {
+-				has_role = general
++				has_role_of_type = general
+ 				is_busy = no
+ 			}
+ 		}
+@@ -602,14 +602,14 @@
+ 				NOT = { is_owed_obligation_by = ROOT }
+ 				NOT = { has_war_with = ROOT }
+ 				any_scope_character = {
+-					has_role = general
++					has_role_of_type = general
+ 					is_busy = no
+ 				}
+ 			}
+ 			save_scope_as = military_consultant_country
+ 			random_scope_character = {
+ 				limit = {
+-					has_role = general
++					has_role_of_type = general
+ 					is_busy = no
+ 				}
+ 				save_scope_as = military_consultant_general
+@@ -1324,7 +1324,7 @@
+ 		NOT = { has_variable = japan_port_incident }
+ 		has_law_or_variant = law_type:law_isolationism
+ 		any_scope_state = {
+-			has_port = yes
++			has_port_state = yes
+ 		}
+ 		any_country = {
+ 			country_rank = rank_value:great_power
+@@ -1342,7 +1342,7 @@
+ 			years = 4
+ 		}
+ 		random_scope_state = {
+-			limit = { has_port = yes }
++			limit = { has_port_state = yes }
+ 			save_scope_as = infringed_port_state
+ 		}
+ 		random_country = {
+--- before/events/tech_events/naval_tech_events.txt
++++ after/events/tech_events/naval_tech_events.txt
+@@ -21,8 +21,8 @@
+ 
+  	trigger = {
+ 		is_at_war = yes
+-        country_navy_unit_type_fraction = {
+-            target = unit_type:combat_unit_type_dreadnought
++        country_ship_type_fraction = {
++            target = ship_type:ship_type_dreadnought
+             value >= 0.2
+         }
+         any_military_formation = {
+@@ -30,10 +30,10 @@
+                 is_fleet = yes
+             }
+             any_scope_character = {
+-                has_role = admiral
++                has_role_of_type = admiral
+                commander_military_formation = {
+-                   formation_navy_unit_type_fraction = {
+-                       target = unit_type:combat_unit_type_dreadnought
++                   formation_ship_type_fraction = {
++                       target = ship_type:ship_type_dreadnought
+                        value >= 0.2
+                    }
+                }
+@@ -45,10 +45,10 @@
+  	immediate = {
+  		random_scope_character = {
+  			limit = {
+- 				has_role = admiral
++				has_role_of_type = admiral
+  				commander_military_formation = {
+-                    formation_navy_unit_type_fraction = {
+-                        target = unit_type:combat_unit_type_dreadnought
++                    formation_ship_type_fraction = {
++                        target = ship_type:ship_type_dreadnought
+                         value >= 0.2
+                     }
+                 }
+@@ -97,8 +97,8 @@
+ 
+  	trigger = {
+ 		is_at_war = yes
+-		country_navy_unit_type_fraction = {
+-		   target = unit_type:combat_unit_type_destroyer
++		country_ship_type_fraction = {
++		   target = ship_type:ship_type_destroyer
+ 		   value >= 0.2
+ 	    }
+ 		any_military_formation = {
+@@ -106,10 +106,10 @@
+ 			   is_fleet = yes
+ 		   }
+ 		   any_scope_character = {
+-			   has_role = admiral
++			   has_role_of_type = admiral
+ 			  commander_military_formation = {
+-				  formation_navy_unit_type_fraction = {
+-					  target = unit_type:combat_unit_type_destroyer
++				  formation_ship_type_fraction = {
++					  target = ship_type:ship_type_destroyer
+ 					  value >= 0.2
+ 				  }
+ 			  }
+@@ -121,10 +121,10 @@
+  	immediate = {
+  		random_scope_character = {
+  			limit = {
+- 				has_role = admiral
++				has_role_of_type = admiral
+  				commander_military_formation = {
+-                    formation_navy_unit_type_fraction = {
+-                        target = unit_type:combat_unit_type_destroyer
++                    formation_ship_type_fraction = {
++                        target = ship_type:ship_type_destroyer
+                         value >= 0.2
+                     }
+                 }
+@@ -173,8 +173,8 @@
+ 
+  	trigger = {
+ 		is_at_war = yes
+-		country_navy_unit_type_fraction = {
+-		   target = unit_type:combat_unit_type_battleship
++		country_ship_type_fraction = {
++		   target = ship_type:ship_type_super_dreadnought
+ 		   value >= 0.2
+ 	   	}
+ 		# for these JE's we would want this to be true for X months, but excluding that for the sake of readability
+@@ -183,10 +183,10 @@
+ 				is_fleet = yes
+ 			}
+ 			any_scope_character = {
+-				has_role = admiral
++				has_role_of_type = admiral
+ 				commander_military_formation = {
+-					formation_navy_unit_type_fraction = {
+-						target = unit_type:combat_unit_type_battleship
++					formation_ship_type_fraction = {
++						target = ship_type:ship_type_super_dreadnought
+ 						value >= 0.2
+ 					}
+ 				}
+@@ -198,10 +198,10 @@
+  	immediate = {
+  		random_scope_character = {
+  			limit = {
+- 				has_role = admiral
++				has_role_of_type = admiral
+  				commander_military_formation = {
+-                    formation_navy_unit_type_fraction = {
+-                        target = unit_type:combat_unit_type_battleship
++                    formation_ship_type_fraction = {
++                        target = ship_type:ship_type_super_dreadnought
+                         value >= 0.2
+                     }
+                 }
+@@ -260,8 +260,8 @@
+  	flavor = naval_tech_events.4.f
+ 
+  	trigger = {
+-		country_navy_unit_type_fraction = {
+-            target = unit_type:combat_unit_type_submarine
++		country_ship_type_fraction = {
++            target = ship_type:ship_type_submarine
+             value >= 0.2
+         }
+         any_military_formation = {
+@@ -269,10 +269,10 @@
+                 is_fleet = yes
+             }
+             any_scope_character = {
+-                has_role = admiral
++                has_role_of_type = admiral
+                commander_military_formation = {
+-                   formation_navy_unit_type_fraction = {
+-                       target = unit_type:combat_unit_type_submarine
++                   formation_ship_type_fraction = {
++                       target = ship_type:ship_type_submarine
+                        value >= 0.2
+                    }
+                }
+@@ -284,10 +284,10 @@
+  	immediate = {
+  		random_scope_character = {
+  			limit = {
+- 				has_role = admiral
++				has_role_of_type = admiral
+  				commander_military_formation = {
+-                    formation_navy_unit_type_fraction = {
+-                        target = unit_type:combat_unit_type_submarine
++                    formation_ship_type_fraction = {
++                        target = ship_type:ship_type_submarine
+                         value >= 0.2
+                     }
+                 }
+@@ -390,8 +390,8 @@
+  	flavor = naval_tech_events.5.f
+ 
+  	trigger = {
+-		country_navy_unit_type_fraction = {
+-            target = unit_type:combat_unit_type_carrier
++		country_ship_type_fraction = {
++            target = ship_type:ship_type_aircraft_carrier
+             value >= 0.2
+         }
+         any_military_formation = {
+@@ -399,10 +399,10 @@
+                 is_fleet = yes
+             }
+             any_scope_character = {
+-                has_role = admiral
++                has_role_of_type = admiral
+                 commander_military_formation = {
+-                   formation_navy_unit_type_fraction = {
+-                       target = unit_type:combat_unit_type_carrier
++                   formation_ship_type_fraction = {
++                       target = ship_type:ship_type_aircraft_carrier
+                        value >= 0.2
+                    }
+                 }
+@@ -414,10 +414,10 @@
+  	immediate = {
+  		random_scope_character = {
+  			limit = {
+- 				has_role = admiral
++				has_role_of_type = admiral
+  				commander_military_formation = {
+-                    formation_navy_unit_type_fraction = {
+-                        target = unit_type:combat_unit_type_carrier
++                    formation_ship_type_fraction = {
++                        target = ship_type:ship_type_aircraft_carrier
+                         value >= 0.2
+                     }
+                 }
+@@ -442,11 +442,11 @@
+  		trigger = {
+  			any_interest_group = {
+  				leader = {
+- 					has_role = admiral
++					has_role_of_type = admiral
+  				}
+  			}
+  			scope:aviator_commander = {
+- 				NOT = { has_role = politician }
++				NOT = { has_role_of_type = politician }
+ 				is_immortal = no
+  			}
+  		}
+@@ -456,7 +456,7 @@
+  		every_interest_group = {
+  			limit = {
+  				leader = {
+- 					has_role = admiral
++					has_role_of_type = admiral
+  				}
+  			}
+  			add_modifier = {
+@@ -471,7 +471,7 @@
+ 
+  		trigger = {
+  			scope:aviator_commander = {
+- 				NOT = { has_role = politician }
++				NOT = { has_role_of_type = politician }
+  			}
+  		}
+ 
+--- before/events/tech_events/production_tech_events.txt
++++ after/events/tech_events/production_tech_events.txt
+@@ -494,9 +494,9 @@
+ 			level >= 3
+ 		}
+ 		any_scope_character = {
+-			has_role = admiral
++			has_role_of_type = admiral
+ 			is_busy = no
+-			is_ruler = no
++			is_ruler_of_own_country = no
+ 		}
+ 	}
+ 
+@@ -525,9 +525,9 @@
+ 		}
+ 		random_scope_character = {
+ 			limit = {
+-				has_role = admiral
++				has_role_of_type = admiral
+ 				is_busy = no
+-				is_ruler = no
++				is_ruler_of_own_country = no
+ 			}
+ 			save_scope_as = whaling_admiral_character
+ 		}
+--- before/events/technology_events.txt
++++ after/events/technology_events.txt
+@@ -175,7 +175,7 @@
+ 	immediate = {
+ 		random_scope_character = {
+ 			limit = {
+-				is_ruler = yes
++				is_ruler_of_own_country = yes
+ 			}
+ 			save_scope_as = radio_ruler
+ 			interest_group = {
+--- /dev/null
++++ after/common/modifier_type_definitions/zz_1776_v115_missing_modifier_types.txt
+@@ -0,0 +1,14 @@
++# Existing 1776 effects require explicit registration, as in native modifier types.
++building_limestone_quarry_throughput_add = {
++	decimals = 0
++	color = good
++	percent = yes
++	game_data = { ai_value = 0 }
++}
++
++country_institution_cost_institution_workplace_safety_mult = {
++	decimals = 0
++	color = bad
++	percent = yes
++	game_data = { ai_value = 0 }
++}
+--- /dev/null
++++ after/common/on_actions/zz_1776_v115_character_expiry.txt
+@@ -0,0 +1,22 @@
++# Additive child action; leaves the existing monthly character pulse intact.
++on_monthly_pulse_character = { on_actions = { aor1776_v115_event_immortality_expiry } }
++aor1776_v115_event_immortality_expiry = {
++	effect = {
++		if = { # Temporary Immortality
++			limit = {
++				is_immortal = yes
++				has_variable = temporary_immortality_var
++				var:temporary_immortality_var != 0
++			}
++			change_variable = { name = temporary_immortality_var subtract = 1 }
++		}
++		else_if = {
++			limit = {
++				is_immortal = yes
++				has_variable = temporary_immortality_var
++				var:temporary_immortality_var = 0
++			}
++			set_character_immortal = no
++		}
++	}
++}
+--- /dev/null
++++ after/common/script_values/zz_1776_v115_ideology_compatibility.txt
+@@ -0,0 +1,60 @@
++# Country scope. Compatibility score for the retained 1776 social-democratic ideology.
++# One point per law group at its least-favoured stance, matching native count units.
++ideology_social_democrat_disfavoured_laws = {
++	value = 0
++	if = {
++		limit = {
++			has_law_or_variant = law_type:law_no_workers_rights
++		}
++		add = 1
++	}
++	if = {
++		limit = {
++			OR = {
++				has_law_or_variant = law_type:law_oligarchy
++				has_law_or_variant = law_type:law_autocracy
++				has_law_or_variant = law_type:law_single_party_state
++			}
++		}
++		add = 1
++	}
++	if = {
++		limit = {
++			OR = {
++				has_law_or_variant = law_type:law_consumption_based_taxation
++				has_law_or_variant = law_type:law_land_based_taxation
++			}
++		}
++		add = 1
++	}
++	if = {
++		limit = {
++			OR = {
++				has_law_or_variant = law_type:law_poor_laws
++				has_law_or_variant = law_type:law_no_social_security
++			}
++		}
++		add = 1
++	}
++	if = {
++		limit = {
++			OR = {
++				has_law_or_variant = law_type:law_combination_acts
++				has_law_or_variant = law_type:law_factory_councils
++			}
++		}
++		add = 1
++	}
++	if = {
++		limit = {
++			has_law_or_variant = law_type:law_hindu_caste_enforced
++		}
++		add = 1
++	}
++	if = {
++		limit = {
++			has_law_or_variant = law_type:law_strict_edo_system
++		}
++		add = 1
++	}
++}
+--- /dev/null
++++ after/common/scripted_effects/zz_1776_v115_restored_helpers.txt
+@@ -0,0 +1,136 @@
++# Required native 1.15 helpers masked by retained 1776 overrides.
++
++set_temporary_event_immortality = {
++	hidden_effect = {
++		if = { # this is to ensure a character won't die during the event but an already immortal character doesn't lose immortality at the end of the event
++			limit = {
++				is_immortal = no # checks if the character isn't already immortal
++			}
++			set_character_immortal = yes
++			set_variable = { name = temporary_immortality_var value = $DURATION$ }
++		}
++		else = {
++			set_variable = { name = immortal_at_start_of_event_var months = $DURATION$ }
++		}
++	}
++}
++
++revoke_temporary_event_immortality = { # Otherwise revoked in on_monthly_pulse_character
++	hidden_effect = {
++		$CHARACTER$ ?= {
++			if = {
++				limit = {
++					is_immortal = yes
++					has_variable = temporary_immortality_var
++					NOT = { has_variable = immortal_at_start_of_event_var }
++				}
++				set_character_immortal = no # sets character back to not immortal
++				remove_variable = temporary_immortality_var
++			}
++			else_if = {
++				limit = {
++					has_variable = immortal_at_start_of_event_var
++				}
++				remove_variable = immortal_at_start_of_event_var
++			}
++		}
++	}
++}
++
++exile_character_with_martyrdom_to_pool = {
++	exile_character_martyrdom_setup_effect = yes
++	if = {
++		limit = { is_in_exile_pool = no }
++		exile_character = {
++			exile_pool = $EXILE_POOL$
++			years = $YEARS$
++		}
++	}
++	hidden_effect = {
++		clean_up_exile_character_roles = yes
++	}
++}
++
++exile_character_martyrdom_setup_effect = {
++	save_scope_as = martyred_exile_scope
++	if = {
++		limit = {
++			NOT = {
++				has_modifier = modifier_political_martyr
++			}
++		}
++		add_modifier = modifier_political_martyr
++	}
++	if = {
++		limit = {
++			NOT = {
++				has_variable = exile_pool_culling_immunity
++			}
++		}
++		set_variable = {
++			name = exile_pool_culling_immunity
++			days = very_short_modifier_time
++		}
++	}
++	hidden_effect = { # If Metternich is the victim, un-immortal him.
++		if = {
++			limit = {
++				has_dlc_feature = ip3_content
++				scope:martyred_exile_scope ?= {
++					has_template = aus_klemens_von_metternich
++					is_immortal = yes
++				}
++			}
++			set_character_immortal = no
++		}
++	}
++	if = {
++		limit = {
++			owner ?= {
++				NOT = {
++					any_primary_culture = {
++						this = scope:martyred_exile_scope.culture
++					}
++				}
++			}
++		}
++		if = {
++			limit = {
++				any_country = {
++					NOT = {
++						this = scope:martyred_exile_scope.owner
++					}
++					any_primary_culture = {
++						this = scope:martyred_exile_scope.culture
++					}
++				}
++			}
++			ordered_country = {
++				limit = {
++					NOT = {
++						this = scope:martyred_exile_scope.owner
++					}
++					any_primary_culture = {
++						this = scope:martyred_exile_scope.culture
++					}
++				}
++				order_by = country_rank
++				position = 0
++				check_range_bounds = no
++				create_diplomatic_catalyst = {
++					type = catalyst_exiled_culture_member
++					target = scope:martyred_exile_scope.owner
++				}
++			}
++		}
++	}
++}
++
++# Country scope. Existing 1776 EIC policy promotes the previous Industrialist
++# leader to ruler; create its replacement IG leader using the native API.
++aor1776_generate_eic_government_leader = {
++	create_character = {
++		ig_leader = yes
++		interest_group = ig_industrialists
++	}
++}
+--- /dev/null
++++ after/common/scripted_triggers/zz_1776_v115_restored_helpers.txt
+@@ -0,0 +1,12 @@
++# Required native 1.15 helpers masked by retained 1776 overrides.
++
++ideology_state_socialist_valid_trigger = {
++	OR = {
++		is_interest_group_type = ig_devout
++		is_interest_group_type = ig_rural_folk
++		is_interest_group_type = ig_intelligentsia
++		is_interest_group_type = ig_trade_unions
++		is_interest_group_type = ig_petty_bourgeoisie
++	}
++}
++
+--- /dev/null
++++ after/localization/english/1776_v115_missing_modifiers_l_english.yml
+@@ -0,0 +1,5 @@
++l_english:
++ building_limestone_quarry_throughput_add:0 "$building_limestone_quarry$ [concept_throughput]"
++ building_limestone_quarry_throughput_add_desc:0 "A bonus or penalty to both input and output of $building_limestone_quarry$."
++ country_institution_cost_institution_workplace_safety_mult:0 "@bur![Nbsp][concept_bureaucracy] Cost of [GetInstitutionType('institution_workplace_safety').GetName]"
++ country_institution_cost_institution_workplace_safety_mult_desc:0 "An increase or reduction to the @bur![Nbsp][concept_bureaucracy] cost of providing [GetInstitutionType('institution_workplace_safety').GetName] to the population."
+--- /dev/null
++++ after/localization/french/1776_v115_missing_modifiers_l_french.yml
+@@ -0,0 +1,5 @@
++l_french:
++ building_limestone_quarry_throughput_add:0 "[concept_throughput] des carrières de calcaire"
++ building_limestone_quarry_throughput_add_desc:0 "Un bonus ou une pénalité à la consommation et à la production des carrières de calcaire."
++ country_institution_cost_institution_workplace_safety_mult:0 "Coût en @bur![Nbsp][concept_bureaucracy] de [GetInstitutionType('institution_workplace_safety').GetName]"
++ country_institution_cost_institution_workplace_safety_mult_desc:0 "Une augmentation ou une réduction du coût en @bur![Nbsp][concept_bureaucracy] de [GetInstitutionType('institution_workplace_safety').GetName] pour la population."

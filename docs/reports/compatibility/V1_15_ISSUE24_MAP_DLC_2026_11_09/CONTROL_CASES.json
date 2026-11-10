@@ -1,0 +1,54 @@
+{
+  "passed": 6,
+  "total": 6,
+  "cases": [
+    {
+      "case": "valid",
+      "expected": "no findings",
+      "observed": {},
+      "pass": true
+    },
+    {
+      "case": "unknown_region_member",
+      "expected": "unresolved_states",
+      "observed": {
+        "unresolved_states": 1,
+        "strategic_region_membership_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "two_region_memberships",
+      "expected": "strategic_region_membership_count",
+      "observed": {
+        "strategic_region_membership_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "outside_port",
+      "expected": "hub_outside_state",
+      "observed": {
+        "hub_outside_state": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "duplicate_state_id",
+      "expected": "missing_or_duplicate_state_numeric_id",
+      "observed": {
+        "missing_or_duplicate_state_numeric_id": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "missing_culture",
+      "expected": "unresolved_cultures",
+      "observed": {
+        "unresolved_cultures": 1
+      },
+      "pass": true
+    }
+  ],
+  "live_files_mutated": false
+}

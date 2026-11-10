@@ -1,0 +1,261 @@
+[
+  {
+    "path": "common/production_methods/09_misc_resource.txt",
+    "before_sha256": "542c636e773a87656e1117cdd90645741f72498360a0caa3de1c39d0cca66db8",
+    "after_sha256": "db2d42a0f4008fef14f7fa19bed46ffb9974f2fd38cd449727069026a39d1ff2",
+    "spans": [
+      {
+        "start": 316,
+        "end": 670,
+        "before": "pm_organized_forestry = {\n\ttexture = \"gfx/interface/icons/production_method_icons/simple_forestry.dds\"\n\n\tunlocking_technologies = {\n\t\torganized_forestry\n\t}\n\n\tbuilding_modifiers = {\n\t\tworkforce_scaled = {\n\t\t\tgoods_output_wood_add = 40\n\t\t}\n\n\t\tlevel_scaled = {\n\t\t\tbuilding_employment_shopkeepers_add = 500\n\t\t\tbuilding_employment_laborers_add = 4500\n\t\t}\n\t}\n}",
+        "after": "",
+        "reason": "Remove redundant forestry PM; simple forestry has identical output/jobs"
+      }
+    ]
+  },
+  {
+    "path": "common/production_method_groups/99_tech_tree_wood_rework_pmgs.txt",
+    "before_sha256": "61b23cee63a930454939231f613ab1e0b60dc65230161a04e7e0e5be621fd9d0",
+    "after_sha256": "7278fae302f68879e8a77bc461443a0e9398182a22c3bfec1feb6cedf0da744a",
+    "spans": [
+      {
+        "start": 169,
+        "end": 194,
+        "before": "\t\tpm_organized_forestry\r\n",
+        "after": "",
+        "reason": "Remove PM from selectable group"
+      }
+    ]
+  },
+  {
+    "path": "common/history/buildings/99_1776_econ_paper_forestry_livestock.txt",
+    "before_sha256": "0d8204b7f475f11d3e00b52718d6aeb84627da1ba22addde08c7e0839f1e01e3",
+    "after_sha256": "394446fcf1d248775c0c59524ef87a225a76e93b88427f17303dd5b0c86cd9d8",
+    "spans": [
+      {
+        "start": 2043,
+        "end": 2064,
+        "before": "pm_organized_forestry",
+        "after": "pm_simple_forestry",
+        "reason": "Preserve forestry starts using surviving identical recipe"
+      },
+      {
+        "start": 2374,
+        "end": 2395,
+        "before": "pm_organized_forestry",
+        "after": "pm_simple_forestry",
+        "reason": "Preserve forestry starts using surviving identical recipe"
+      },
+      {
+        "start": 2705,
+        "end": 2726,
+        "before": "pm_organized_forestry",
+        "after": "pm_simple_forestry",
+        "reason": "Preserve forestry starts using surviving identical recipe"
+      }
+    ]
+  },
+  {
+    "path": "common/history/buildings/99_1776_prussian_forestry_addon.txt",
+    "before_sha256": "4c738eaf8a117ca771d28f739dd61b674e8ad3c6b67181e91bdbc7d06c53efde",
+    "after_sha256": "ffcd829b0f6b8b03ad6a468b3720e828e02409cfa79a099de753b8365674562e",
+    "spans": [
+      {
+        "start": 224,
+        "end": 245,
+        "before": "pm_organized_forestry",
+        "after": "pm_simple_forestry",
+        "reason": "Preserve forestry starts using surviving identical recipe"
+      },
+      {
+        "start": 514,
+        "end": 535,
+        "before": "pm_organized_forestry",
+        "after": "pm_simple_forestry",
+        "reason": "Preserve forestry starts using surviving identical recipe"
+      }
+    ]
+  },
+  {
+    "path": "localization/french/tech3a_technology_l_french.yml",
+    "before_sha256": "d6e51dc2764da65b23b0564f5f38a41a60dff9a7124488a879f564d86cd85436",
+    "after_sha256": "6b910254b37451f1d49abeeabbf4a72bc0559adb17efedd888715189996ba0b9",
+    "spans": [
+      {
+        "start": 22216,
+        "end": 22278,
+        "before": " pm_organized_forestry:0 \"Exploitation forestière organisée\"\r\n",
+        "after": "",
+        "reason": "Remove obsolete PM labels; preserve technology labels"
+      },
+      {
+        "start": 22278,
+        "end": 22465,
+        "before": " pm_organized_forestry_desc:0 \"La coordination de l’abattage, du débardage et du transport augmente la production de bois tout en conservant une organisation exigeante en main-d’œuvre.\"\r\n",
+        "after": "",
+        "reason": "Remove obsolete PM labels; preserve technology labels"
+      }
+    ]
+  },
+  {
+    "path": "localization/english/tech3a_technology_l_english.yml",
+    "before_sha256": "0202c0963624cbe5f23c3eeb2cd98b854c2220dbc84db15c75289bc2e8d51832",
+    "after_sha256": "0160bbec2904815e38a1906190875535c0c7beb35729e9d7c9637553eab7120e",
+    "spans": [
+      {
+        "start": 19846,
+        "end": 19893,
+        "before": " pm_organized_forestry:0 \"Organized Forestry\"\r\n",
+        "after": "",
+        "reason": "Remove obsolete PM labels; preserve technology labels"
+      },
+      {
+        "start": 19893,
+        "end": 20050,
+        "before": " pm_organized_forestry_desc:0 \"Coordinated felling, extraction and timber transport increase forest output while retaining a labor-intensive organization.\"\r\n",
+        "after": "",
+        "reason": "Remove obsolete PM labels; preserve technology labels"
+      }
+    ]
+  },
+  {
+    "path": "common/production_methods/99_tech_start_1776_subsistence_tools.txt",
+    "before_sha256": "50953149ea0fe12470c528e4a22ccdbeceddc1ef728d6a3b14bee8da1018f95d",
+    "after_sha256": "dd8b0f996089847a319757f395415dbfc6444f5cc6780fda1b96427f9072c9f1",
+    "spans": [
+      {
+        "start": 507,
+        "end": 541,
+        "before": "\t\t\tgoods_output_tools_add = 0.10\r\n",
+        "after": "",
+        "reason": "Remove tools from all five domestic subsistence workshop variants"
+      },
+      {
+        "start": 904,
+        "end": 938,
+        "before": "\t\t\tgoods_output_tools_add = 0.10\r\n",
+        "after": "",
+        "reason": "Remove tools from all five domestic subsistence workshop variants"
+      },
+      {
+        "start": 1301,
+        "end": 1335,
+        "before": "\t\t\tgoods_output_tools_add = 0.10\r\n",
+        "after": "",
+        "reason": "Remove tools from all five domestic subsistence workshop variants"
+      },
+      {
+        "start": 1706,
+        "end": 1740,
+        "before": "\t\t\tgoods_output_tools_add = 0.10\r\n",
+        "after": "",
+        "reason": "Remove tools from all five domestic subsistence workshop variants"
+      },
+      {
+        "start": 2105,
+        "end": 2139,
+        "before": "\t\t\tgoods_output_tools_add = 0.20\r\n",
+        "after": "",
+        "reason": "Remove tools from all five domestic subsistence workshop variants"
+      },
+      {
+        "start": 0,
+        "end": 157,
+        "before": "# 1776 start compatibility: before tooling workshops become available through\r\n# coke_smelting, domestic workshops provide a deliberately small tools supply.",
+        "after": "# Domestic subsistence workshops: clothes, furniture and liquor only.\r\n# Player decision of 2026-11-09: tools require dedicated industrial production.",
+        "reason": "Update obsolete header"
+      }
+    ]
+  },
+  {
+    "path": "common/history/buildings/00_west_europe.txt",
+    "before_sha256": "64fec1f5dceb74f89a1c6dc75e83b101470edc69f2b69198c448f5810caf905a",
+    "after_sha256": "5d7edd2bec061992f546ab0346b43f2ee4ad30ffab1b12b425c7706c8c468c8e",
+    "spans": [
+      {
+        "start": 32154,
+        "end": 32155,
+        "before": "2",
+        "after": "4",
+        "reason": "Player relocation/addition of starting building levels"
+      },
+      {
+        "start": 38176,
+        "end": 38545,
+        "before": "create_building={\n\t\t\t\t\t\t\tbuilding=\"building_glassworks\"\n\t\t\t\t\t\t\tadd_ownership={\n\t\t\t\t\t\t\t\tbuilding={\n\t\t\t\t\t\t\t\t\ttype=\"building_financial_district\"\n\t\t\t\t\t\t\t\t\tcountry=\"c:GBR\"\n\t\t\t\t\t\t\t\t\tlevels=1\n\t\t\t\t\t\t\t\t\tregion=\"STATE_MIDLANDS\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\treserves=1\n\t\t\t\t\t\t\tactivate_production_methods = { \"pm_forest_glass\" \"pm_disabled_ceramics\" \"pm_manual_glassblowing\" }\n\t\t\t\t\t\t}",
+        "after": "create_building={\n\t\t\t\t\t\t\tbuilding=\"building_glassworks\"\n\t\t\t\t\t\t\tadd_ownership={\n\t\t\t\t\t\t\t\tbuilding={\n\t\t\t\t\t\t\t\t\ttype=\"building_financial_district\"\n\t\t\t\t\t\t\t\t\tcountry=\"c:GBR\"\n\t\t\t\t\t\t\t\t\tlevels=1\n\t\t\t\t\t\t\t\t\tregion=\"STATE_MIDLANDS\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\treserves=1\n\t\t\t\t\t\t\tactivate_production_methods = { \"pm_leaded_glass\" \"pm_ceramics\" \"pm_manual_glassblowing\" }\n\t\t\t\t\t\t}",
+        "reason": "Activate leaded glass and industrial ceramics"
+      }
+    ]
+  },
+  {
+    "path": "common/history/buildings/98_build_start_1776_world_redistribution.txt",
+    "before_sha256": "04f8b37bd6107d171503338d68c6434d447591a7f011f92777dd482d0bb193b7",
+    "after_sha256": "9490c9a12d28ea2294cfa0f7844a12dd1ca8ce5443e336c38353615001b390eb",
+    "spans": [
+      {
+        "start": 246095,
+        "end": 246096,
+        "before": "5",
+        "after": "1",
+        "reason": "Player relocation/addition of starting building levels"
+      },
+      {
+        "start": 302975,
+        "end": 302976,
+        "before": "6",
+        "after": "8",
+        "reason": "Player relocation/addition of starting building levels"
+      },
+      {
+        "start": 301281,
+        "end": 301662,
+        "before": "create_building={\r\n\t\t\t\t\t\t\tbuilding=\"building_glassworks\"\r\n\t\t\t\t\t\t\tadd_ownership={\r\n\t\t\t\t\t\t\t\tbuilding={\r\n\t\t\t\t\t\t\t\t\ttype=\"building_financial_district\"\r\n\t\t\t\t\t\t\t\t\tcountry=\"c:GBR\"\r\n\t\t\t\t\t\t\t\t\tlevels=1\r\n\t\t\t\t\t\t\t\t\tregion=\"STATE_MIDLANDS\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\treserves=1\r\n\t\t\t\t\t\t\tactivate_production_methods = { \"pm_forest_glass\" \"pm_disabled_ceramics\" \"pm_manual_glassblowing\" }\r\n\t\t\t\t\t\t}",
+        "after": "create_building={\r\n\t\t\t\t\t\t\tbuilding=\"building_glassworks\"\r\n\t\t\t\t\t\t\tadd_ownership={\r\n\t\t\t\t\t\t\t\tbuilding={\r\n\t\t\t\t\t\t\t\t\ttype=\"building_financial_district\"\r\n\t\t\t\t\t\t\t\t\tcountry=\"c:GBR\"\r\n\t\t\t\t\t\t\t\t\tlevels=2\r\n\t\t\t\t\t\t\t\t\tregion=\"STATE_MIDLANDS\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\treserves=1\r\n\t\t\t\t\t\t\tactivate_production_methods = { \"pm_leaded_glass\" \"pm_ceramics\" \"pm_manual_glassblowing\" }\r\n\t\t\t\t\t\t}",
+        "reason": "Activate leaded glass and industrial ceramics; add one Midlands level"
+      },
+      {
+        "start": 246625,
+        "end": 246625,
+        "before": "",
+        "after": "\t\t\tcreate_building={\r\n\t\t\t\t\t\t\tbuilding=\"building_glassworks\"\r\n\t\t\t\t\t\t\tadd_ownership={\r\n\t\t\t\t\t\t\t\tbuilding={\r\n\t\t\t\t\t\t\t\t\ttype=\"building_financial_district\"\r\n\t\t\t\t\t\t\t\t\tcountry=\"c:GBR\"\r\n\t\t\t\t\t\t\t\t\tlevels=1\r\n\t\t\t\t\t\t\t\t\tregion=\"STATE_LANCASHIRE\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\treserves=1\r\n\t\t\t\t\t\t\tactivate_production_methods = { \"pm_leaded_glass\" \"pm_ceramics\" \"pm_manual_glassblowing\" }\r\n\t\t\t\t\t\t}\r\n",
+        "reason": "Add one glassworks level with local British ownership and requested PMs"
+      },
+      {
+        "start": 520560,
+        "end": 520560,
+        "before": "",
+        "after": "\t\t\tcreate_building={\r\n\t\t\t\t\t\t\tbuilding=\"building_glassworks\"\r\n\t\t\t\t\t\t\tadd_ownership={\r\n\t\t\t\t\t\t\t\tbuilding={\r\n\t\t\t\t\t\t\t\t\ttype=\"building_financial_district\"\r\n\t\t\t\t\t\t\t\t\tcountry=\"c:GBR\"\r\n\t\t\t\t\t\t\t\t\tlevels=1\r\n\t\t\t\t\t\t\t\t\tregion=\"STATE_YORKSHIRE\"\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\treserves=1\r\n\t\t\t\t\t\t\tactivate_production_methods = { \"pm_leaded_glass\" \"pm_ceramics\" \"pm_manual_glassblowing\" }\r\n\t\t\t\t\t\t}\r\n",
+        "reason": "Add one glassworks level with local British ownership and requested PMs"
+      }
+    ]
+  },
+  {
+    "path": "tools/tech_start_1776_implementation.py",
+    "before_sha256": "b15e94ac6a953e3b0a257b5918e0b8f796bef278834c734502f2ec2452399798",
+    "after_sha256": "8ded5b9b68ef614afff1dd3017ddf6a7ca6ec3adc9ea1384894724c088634a55",
+    "spans": [
+      {
+        "start": 29930,
+        "end": 30857,
+        "before": "def validate_subsistence_pm() -> list[str]:\r\n    expected = {\r\n        \"pm_home_workshops_building_subsistence_farm\": \"0.10\",\r\n        \"pm_home_workshops_building_subsistence_orchard\": \"0.10\",\r\n        \"pm_home_workshops_building_subsistence_pasture\": \"0.10\",\r\n        \"pm_home_workshops_building_subsistence_fishing_village\": \"0.10\",\r\n        \"pm_home_workshops_building_subsistence_rice_farm\": \"0.20\",\r\n    }\r\n    errors: list[str] = []\r\n    if not SUBSISTENCE_PM_FILE.exists():\r\n        return [\"fichier PM de subsistance absent\"]\r\n    for pm, value in expected.items():\r\n        try:\r\n            block = named_block(SUBSISTENCE_PM_FILE, pm)\r\n        except ValueError:\r\n            errors.append(f\"{pm} absent\")\r\n            continue\r\n        if not re.search(rf\"(?m)^\\s*goods_output_tools_add\\s*=\\s*{re.escape(value)}\\s*$\", block):\r\n            errors.append(f\"{pm}: sortie outils {value} absente\")\r\n    return errors\r\n\r\n",
+        "after": "def validate_subsistence_pm() -> list[str]:\r\n    # Player decision, 2026-11-09: domestic workshops must not produce tools.\r\n    expected = {\r\n        \"pm_home_workshops_building_subsistence_farm\": \"0.25\",\r\n        \"pm_home_workshops_building_subsistence_orchard\": \"0.25\",\r\n        \"pm_home_workshops_building_subsistence_pasture\": \"0.25\",\r\n        \"pm_home_workshops_building_subsistence_fishing_village\": \"0.25\",\r\n        \"pm_home_workshops_building_subsistence_rice_farm\": \"0.50\",\r\n    }\r\n    errors: list[str] = []\r\n    if not SUBSISTENCE_PM_FILE.exists():\r\n        return [\"fichier PM de subsistance absent\"]\r\n    for pm, value in expected.items():\r\n        try:\r\n            block = named_block(SUBSISTENCE_PM_FILE, pm)\r\n        except ValueError:\r\n            errors.append(f\"{pm} absent\")\r\n            continue\r\n        if re.search(r\"(?m)^\\s*goods_output_tools_(?:add|mult)\\s*=\", block):\r\n            errors.append(f\"{pm}: sortie outils interdite\")\r\n        for good in (\"clothes\", \"furniture\", \"liquor\"):\r\n            if not re.search(rf\"(?m)^\\s*goods_output_{good}_add\\s*=\\s*{re.escape(value)}\\s*$\", block):\r\n                errors.append(f\"{pm}: sortie {good} {value} absente\")\r\n    return errors\r\n\r\n",
+        "reason": "Replace old tools-preservation policy with explicit no-tools and retained-goods checks"
+      }
+    ]
+  },
+  {
+    "path": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+    "before_sha256": "ad9782deac45b9b6026cedfbed4eeaf179b6a220d343f724001ab63238153684",
+    "after_sha256": "ac02430f2b68fddd93fcdba5827ef5b596b473dc3b912469226de98ebd95c916",
+    "spans": [
+      {
+        "start": 380,
+        "end": 1076,
+        "before": "pm_turnpike_road_network = {\r\n\ttexture = \"gfx/interface/icons/production_method_icons/1776_turnpike_road_network.dds\"\r\n\r\n\r\n\tunlocking_technologies = {\r\n\t\tturnpike_road_networks\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_wood_add = 4\r\n\t\t\tgoods_input_tools_add = 2\r\n\t\t\tgoods_output_transportation_add = 5\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_laborers_add = 750\r\n\t\t\tbuilding_employment_clerks_add = 150\r\n\t\t\tbuilding_employment_bureaucrats_add = 100\r\n\t\t}\r\n\t}\r\n\r\n\tstate_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tstate_infrastructure_add = 7\r\n\t\t\tstate_infrastructure_from_population_add = 0.02\r\n\t\t\tstate_infrastructure_from_population_max_add = 0.5\r\n\t\t}\r\n\t}\r\n}",
+        "after": "pm_turnpike_road_network = {\r\n\ttexture = \"gfx/interface/icons/production_method_icons/1776_turnpike_road_network.dds\"\r\n\r\n\r\n\tunlocking_technologies = {\r\n\t\tturnpike_road_networks\r\n\t}\r\n\r\n\tbuilding_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tgoods_input_wood_add = 5\r\n\t\t\tgoods_output_transportation_add = 5\r\n\t\t}\r\n\r\n\t\tlevel_scaled = {\r\n\t\t\tbuilding_employment_laborers_add = 750\r\n\t\t\tbuilding_employment_clerks_add = 150\r\n\t\t\tbuilding_employment_bureaucrats_add = 100\r\n\t\t}\r\n\t}\r\n\r\n\tstate_modifiers = {\r\n\t\tworkforce_scaled = {\r\n\t\t\tstate_infrastructure_add = 7\r\n\t\t\tstate_infrastructure_from_population_add = 0.02\r\n\t\t\tstate_infrastructure_from_population_max_add = 0.5\r\n\t\t}\r\n\t}\r\n}",
+        "reason": "Player request: only wood 5, no tools; retain transport output and all other PM fields"
+      }
+    ]
+  }
+]

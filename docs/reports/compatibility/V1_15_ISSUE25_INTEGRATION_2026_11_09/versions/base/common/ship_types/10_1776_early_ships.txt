@@ -1,0 +1,223 @@
+# Economical pre-industrial hulls with approved, period-specific equipment.
+# Caravel: capital sailing ship. Galley: primitive coastal-defense cruiser.
+# Four native equipment slots; compatible utility slots; no modern engines or armor.
+# Construction goods ~20% and materiel 20% of an advanced wooden hull;
+# Crew uses whole 100-sailor assignment slots. Combat capability remains lower.
+ship_type_caravel = {
+    ship_group = ship_group_capital_ships
+    use_modifications = yes
+    modification_construction_cost = 1
+    base_construction_cost = 5
+    can_be_flagship = yes
+    modifier = {
+        ship_construction_progress_max_add = 15
+        ship_hit_points_max_add = 450
+        ship_crew_max_add = 200
+        ship_movement_speed_add = 3
+        ship_supply_capacity_add = 6
+        ship_hull_damage_add = 12
+        ship_crew_damage_add = 2
+        ship_armor_add = 3
+        ship_critical_hit_chance_add = 0.03
+        ship_critical_hit_multiplier_add = 0.1
+        ship_vulnerability_add = 3
+        ship_screening_add = 10
+        ship_readiness_gain_add = 10
+        ship_accuracy_add = 4
+        ship_visibility_add = 5
+        ship_detection_add = 10
+        ship_blockade_strength_add = 15
+        ship_carrying_capacity_add = 0.1
+        ship_marine_capacity_add = 0.05
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 72
+        goods_input_fabric_add = 43
+    }
+    materiel_goods = {
+        goods_input_grain_add = 0.2
+        goods_input_hardwood_add = 0.02
+    }
+    icon = "gfx/interface/icons/ships/ship_category/ship_group_capital_ships.dds"
+    profile_texture = "gfx/interface/icons/ships/ship_types/1776_silhouette_caravel.dds"
+    ai_weight = 0.5
+
+    unlocking_technologies = { enclosed_dock_systems }
+    modifications = {
+        ship_mod_slot_armor = {
+            aor_caravel_armor_low
+            aor_caravel_armor_mid
+            aor_caravel_armor_high
+        }
+        ship_mod_slot_guns = {
+            aor_caravel_guns_low
+            aor_caravel_guns_mid
+            aor_caravel_guns_high
+        }
+        ship_mod_slot_propulsion = {
+            aor_caravel_propulsion_low
+            aor_caravel_propulsion_mid
+            aor_caravel_propulsion_high
+        }
+        ship_mod_slot_range = {
+            aor_caravel_range_low
+            aor_caravel_range_mid
+            aor_caravel_range_high
+        }
+        ship_mod_slot_utility_1 = { aor_caravel_blockade aor_caravel_landing }
+    }
+    default_modifications = {
+        ship_mod_slot_armor = aor_caravel_armor_low
+        ship_mod_slot_guns = aor_caravel_guns_low
+        ship_mod_slot_propulsion = aor_caravel_propulsion_low
+        ship_mod_slot_range = aor_caravel_range_low
+        ship_mod_slot_utility_1 = aor_caravel_blockade
+    }
+}
+
+# Primitive coastal defender: use the coastal-defense range mechanic, not modern combat stats.
+ship_type_galley = {
+    ship_group = ship_group_cruisers
+    use_modifications = yes
+    modification_construction_cost = 1
+    base_construction_cost = 10
+    can_be_flagship = yes
+    modifier = {
+        ship_construction_progress_max_add = 15
+        ship_hit_points_max_add = 1000
+        ship_crew_max_add = 300
+        ship_movement_speed_add = 3
+        ship_supply_capacity_add = 20
+        ship_carrying_capacity_add = 0.15
+        ship_marine_capacity_add = 0.1
+        ship_hull_damage_add = 15
+        ship_crew_damage_add = 8
+        ship_armor_add = 8
+        ship_critical_hit_chance_add = 0.03
+        ship_critical_hit_multiplier_add = 0.15
+        ship_vulnerability_add = 40
+        ship_screening_add = 4
+        ship_readiness_gain_add = 10
+        ship_accuracy_add = 4
+        ship_visibility_add = 20
+        ship_detection_add = 8
+        ship_blockade_strength_add = 50
+        ship_max_distance_to_port_add = 1
+    }
+    distance_to_port_modifier = {
+        ship_hull_damage_mult = -0.8
+        ship_crew_damage_mult = -0.8
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 130
+        goods_input_fabric_add = 78
+    }
+    materiel_goods = {
+        goods_input_grain_add = 0.2
+        goods_input_hardwood_add = 0.02
+    }
+    icon = "gfx/interface/icons/ships/ship_category/ship_group_cruisers.dds"
+    profile_texture = "gfx/interface/icons/ships/ship_types/1776_silhouette_galley.dds"
+    ai_weight = 0.5
+
+    unlocking_technologies = { state_dockyard_systems }
+    modifications = {
+        ship_mod_slot_armor = {
+            aor_galley_armor_low
+            aor_galley_armor_mid
+            aor_galley_armor_high
+        }
+        ship_mod_slot_guns = {
+            aor_galley_guns_low
+            aor_galley_guns_mid
+            aor_galley_guns_high
+        }
+        ship_mod_slot_propulsion = {
+            aor_galley_propulsion_low
+            aor_galley_propulsion_mid
+            aor_galley_propulsion_high
+        }
+        ship_mod_slot_range = {
+            aor_galley_range_low
+            aor_galley_range_mid
+            aor_galley_range_high
+        }
+        ship_mod_slot_utility_1 = { aor_galley_coastal_battery aor_galley_boarding_spur }
+    }
+    default_modifications = {
+        ship_mod_slot_armor = aor_galley_armor_low
+        ship_mod_slot_guns = aor_galley_guns_low
+        ship_mod_slot_propulsion = aor_galley_propulsion_low
+        ship_mod_slot_range = aor_galley_range_low
+        ship_mod_slot_utility_1 = aor_galley_coastal_battery
+    }
+}
+
+ship_type_cog = {
+    ship_group = ship_group_cruisers
+    use_modifications = yes
+    modification_construction_cost = 1
+    base_construction_cost = 5
+    modifier = {
+        ship_construction_progress_max_add = 10
+        ship_hit_points_max_add = 600
+        ship_crew_max_add = 100
+        ship_movement_speed_add = 2.5
+        ship_supply_capacity_add = 25
+        ship_hull_damage_add = 5
+        ship_crew_damage_add = 2
+        ship_armor_add = 4
+        ship_vulnerability_add = 80
+        ship_screening_add = 2
+        ship_readiness_gain_add = 10
+        ship_accuracy_add = 3
+        ship_visibility_add = 10
+        ship_detection_add = 5
+        ship_blockade_strength_add = 2
+        ship_carrying_capacity_add = 0.5
+        ship_marine_capacity_add = 0.15
+    }
+    construction_goods = {
+        goods_input_hardwood_add = 104
+        goods_input_fabric_add = 52
+    }
+    materiel_goods = {
+        goods_input_grain_add = 0.2
+        goods_input_hardwood_add = 0.02
+    }
+    icon = "gfx/interface/icons/ships/ship_category/ship_group_cruisers.dds"
+    profile_texture = "gfx/interface/icons/ships/ship_types/1776_silhouette_cog.dds"
+    ai_weight = 0.25
+
+    unlocking_technologies = { state_dockyard_systems }
+    modifications = {
+        ship_mod_slot_armor = {
+            aor_cog_armor_low
+            aor_cog_armor_mid
+            aor_cog_armor_high
+        }
+        ship_mod_slot_guns = {
+            aor_cog_guns_low
+            aor_cog_guns_mid
+            aor_cog_guns_high
+        }
+        ship_mod_slot_propulsion = {
+            aor_cog_propulsion_low
+            aor_cog_propulsion_mid
+            aor_cog_propulsion_high
+        }
+        ship_mod_slot_range = {
+            aor_cog_range_low
+            aor_cog_range_mid
+            aor_cog_range_high
+        }
+        ship_mod_slot_utility_1 = { aor_landing_launches }
+    }
+    default_modifications = {
+        ship_mod_slot_armor = aor_cog_armor_low
+        ship_mod_slot_guns = aor_cog_guns_low
+        ship_mod_slot_propulsion = aor_cog_propulsion_low
+        ship_mod_slot_range = aor_cog_range_low
+        ship_mod_slot_utility_1 = aor_landing_launches
+    }
+}

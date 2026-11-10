@@ -56,55 +56,72 @@
 		}
 	}
 
-	complete = {
-		OR = {
-			custom_tooltip = {
-				text = india_independence_movement_defeated_tt
-				OR = {
-					NOT = {
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = india_independence_movement_defeated_tt
+					OR = {
+						NOT = {
+							any_political_movement = {
+								is_political_movement_type = movement_india_pan_national
+							}
+						}
 						any_political_movement = {
 							is_political_movement_type = movement_india_pan_national
+							political_movement_support <= 0.05
+							political_movement_radicalism <= 0.1
 						}
 					}
-					any_political_movement = {
-						is_political_movement_type = movement_india_pan_national
-						political_movement_support <= 0.05
-						political_movement_radicalism <= 0.1
-					}
+				}
+				custom_tooltip = {
+					text = india_independent_tt
+					is_subject = no
 				}
 			}
-			custom_tooltip = {
-				text = india_independent_tt
-				is_subject = no
+		}
+		effect = {
+
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			has_revolution = yes
+		}
+		effect = {
+			custom_tooltip = britain_might_abandon_india_tt
+			top_overlord = {
+				trigger_event = { id = india_nationalism_events.1 popup = yes }
 			}
 		}
+		event_outcome_desc = {
+	        first_valid = {
+	            triggered_desc = {
+	                desc = event_effects_india_nationalism_events.1_tt
+	            }
+	        }
+	    }
 	}
 
-	fail = {
-		has_revolution = yes
-	}
 
-	on_fail = {
-		custom_tooltip = britain_might_abandon_india_tt
-		top_overlord = {
-			trigger_event = { id = india_nationalism_events.1 popup = yes }
+
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+
 		}
-	}
-
-    event_outcome_failed_desc = {
-        first_valid = {
-            triggered_desc = {
-                desc = event_effects_india_nationalism_events.1_tt
-            }
-        }
-    }
-
-	on_complete = {
-
-	}
-
-	invalid = {
-
+		effect = {}
 	}
 
 	weight = 1000

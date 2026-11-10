@@ -31,30 +31,40 @@ phase1_japan_tenpo.1 = {
 	option = {
 		name = phase1_japan_tenpo.1.a
 		default_option = yes
-		add_loyalists = {
-			value = small_radicals
-			strata = lower
+		add_treasury = { value = root.gdp multiply = -0.005 }
+		custom_tooltip = aor1776_japan_granary_policy_tt
+		set_variable = { name = aor1776_japan_grain_procurement_active days = 730 }
+		set_variable = aor1776_japan_grain_reserves
+		every_scope_state = {
+		  limit = { any_scope_building = { OR = {
+		    is_building_type = building_rice_farm
+		    is_building_type = building_wheat_farm
+		    is_building_type = building_rye_farm
+		    is_building_type = building_maize_farm
+		    is_building_type = building_millet_farm
+		    is_building_group = bg_subsistence_agriculture
+		  } } }
+		  add_modifier = { name = aor1776_japan_grain_procurement days = 730 }
 		}
+		every_scope_state = { add_modifier = { name = aor1776_japan_granary_network } }
+		add_radicals = { value = small_radicals pop_type = peasants }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1825 } }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
 	}
 
 	option = {
 		name = phase1_japan_tenpo.1.b
-		add_loyalists = {
-			value = small_radicals
-			strata = lower
-		}
-		add_radicals = {
-			value = small_radicals
-			strata = upper
-		}
+		add_treasury = { value = root.gdp multiply = -0.003 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_village_relief days = 1095 } }
+		add_loyalists = { value = small_radicals strata = lower }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
 	}
 
 	option = {
 		name = phase1_japan_tenpo.1.c
-		add_radicals = {
-			value = small_radicals
-			strata = lower
-		}
+		add_modifier = { name = aor1776_japan_government_inaction days = 1825 }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
+		add_radicals = { value = small_radicals strata = lower }
 	}
 }
 
@@ -89,26 +99,23 @@ phase1_japan_tenpo.2 = {
 	option = {
 		name = phase1_japan_tenpo.2.a
 		default_option = yes
-		add_loyalists = {
-			value = small_radicals
-			strata = upper
-		}
+		add_modifier = { name = aor1776_japan_kansei_discipline days = 1825 }
+		ig:ig_intelligentsia ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1825 } }
+		add_radicals = { value = small_radicals pop_type = peasants }
 	}
 
 	option = {
 		name = phase1_japan_tenpo.2.b
-		add_loyalists = {
-			value = small_radicals
-			strata = lower
-		}
+		add_treasury = { value = root.gdp multiply = -0.002 }
+		add_modifier = { name = aor1776_japan_relief_administration days = 1825 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_harvest_watch days = 1825 } }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
 	}
 
 	option = {
 		name = phase1_japan_tenpo.2.c
-		add_radicals = {
-			value = small_radicals
-			strata = lower
-		}
+		add_modifier = { name = aor1776_japan_domain_autonomy days = 1825 }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
 	}
 }
 
@@ -143,26 +150,23 @@ phase1_japan_tenpo.3 = {
 	option = {
 		name = phase1_japan_tenpo.3.a
 		default_option = yes
-		add_loyalists = {
-			value = small_radicals
-			strata = upper
-		}
+		add_treasury = { value = root.gdp multiply = -0.002 }
+		add_modifier = { name = aor1776_japan_coastal_vigilance days = 1825 }
+		ig:ig_armed_forces ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
+		ig:ig_industrialists ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1825 } }
 	}
 
 	option = {
 		name = phase1_japan_tenpo.3.b
-		add_loyalists = {
-			value = small_radicals
-			strata = middle
-		}
+		add_treasury = { value = root.gdp multiply = -0.001 }
+		add_modifier = { name = aor1776_japan_cautious_diplomacy days = 1825 }
+		ig:ig_industrialists ?= { add_modifier = { name = aor1776_japan_ig_support days = 1825 } }
 	}
 
 	option = {
 		name = phase1_japan_tenpo.3.c
-		add_radicals = {
-			value = small_radicals
-			strata = upper
-		}
+		add_modifier = { name = aor1776_japan_government_inaction days = 1095 }
+		ig:ig_armed_forces ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1095 } }
 	}
 }
 
@@ -198,22 +202,31 @@ phase1_japan_tenpo.4 = {
 	option = {
 		name = phase1_japan_tenpo.4.a
 		default_option = yes
-		add_radicals = {
-			value = small_radicals
-			strata = lower
-		}
+		add_treasury = { value = root.gdp multiply = -0.001 }
+		add_modifier = { name = aor1776_japan_relief_administration days = 1095 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_harvest_watch days = 1095 } }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
 	}
 
 	option = {
 		name = phase1_japan_tenpo.4.b
-		add_loyalists = {
-			value = small_radicals
-			strata = lower
+		custom_tooltip = aor1776_japan_domain_stocks_tt
+		set_variable = { name = aor1776_japan_grain_procurement_active days = 365 }
+		set_variable = aor1776_japan_grain_reserves
+		every_scope_state = {
+		  limit = { any_scope_building = { OR = {
+		    is_building_type = building_rice_farm
+		    is_building_type = building_wheat_farm
+		    is_building_type = building_rye_farm
+		    is_building_type = building_maize_farm
+		    is_building_type = building_millet_farm
+		    is_building_group = bg_subsistence_agriculture
+		  } } }
+		  add_modifier = { name = aor1776_japan_grain_procurement days = 365 }
 		}
-		add_radicals = {
-			value = small_radicals
-			strata = middle
-		}
+		every_scope_state = { add_modifier = { name = aor1776_japan_village_relief days = 1095 } }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1095 } }
+		add_radicals = { value = small_radicals pop_type = peasants }
 	}
 }
 
@@ -247,27 +260,30 @@ phase1_japan_tenpo.5 = {
 
 	option = {
 		name = phase1_japan_tenpo.5.a
-		default_option = yes
-		add_loyalists = {
-			value = small_radicals
-			strata = lower
-		}
+		trigger = { custom_tooltip = { text = aor1776_japan_reserves_ready_tt has_variable = aor1776_japan_grain_reserves NOT = { has_variable = aor1776_japan_grain_procurement_active } } }
+		custom_tooltip = aor1776_japan_release_tt
+		remove_variable = aor1776_japan_grain_reserves
+		every_scope_state = { add_modifier = { name = aor1776_japan_emergency_distribution days = 365 } }
+		add_loyalists = { value = small_radicals strata = lower }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
 	}
 
 	option = {
 		name = phase1_japan_tenpo.5.b
-		add_radicals = {
-			value = small_radicals
-			strata = middle
-		}
+		default_option = yes
+		add_treasury = { value = root.gdp multiply = -0.002 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_requisitioned_grain days = 365 } }
+		ig:ig_industrialists ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1095 } }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_opposition days = 1095 } }
+		ig:ig_rural_folk ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
 	}
 
 	option = {
 		name = phase1_japan_tenpo.5.c
-		add_radicals = {
-			value = small_radicals
-			strata = lower
-		}
+		add_modifier = { name = aor1776_japan_government_inaction days = 1095 }
+		every_scope_state = { add_modifier = { name = aor1776_japan_unrelieved_shortages days = 730 } }
+		ig:ig_landowners ?= { add_modifier = { name = aor1776_japan_ig_support days = 1095 } }
+		add_radicals = { value = small_radicals strata = lower }
 	}
 }
 

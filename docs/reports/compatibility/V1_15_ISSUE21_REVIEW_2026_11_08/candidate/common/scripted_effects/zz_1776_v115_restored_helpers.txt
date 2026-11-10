@@ -1,0 +1,136 @@
+# Required native 1.15 helpers masked by retained 1776 overrides.
+
+set_temporary_event_immortality = {
+	hidden_effect = {
+		if = { # this is to ensure a character won't die during the event but an already immortal character doesn't lose immortality at the end of the event
+			limit = {
+				is_immortal = no # checks if the character isn't already immortal
+			}
+			set_character_immortal = yes
+			set_variable = { name = temporary_immortality_var value = $DURATION$ }
+		}
+		else = {
+			set_variable = { name = immortal_at_start_of_event_var months = $DURATION$ }
+		}
+	}
+}
+
+revoke_temporary_event_immortality = { # Otherwise revoked in on_monthly_pulse_character
+	hidden_effect = {
+		$CHARACTER$ ?= {
+			if = {
+				limit = {
+					is_immortal = yes
+					has_variable = temporary_immortality_var
+					NOT = { has_variable = immortal_at_start_of_event_var }
+				}
+				set_character_immortal = no # sets character back to not immortal
+				remove_variable = temporary_immortality_var
+			}
+			else_if = {
+				limit = {
+					has_variable = immortal_at_start_of_event_var
+				}
+				remove_variable = immortal_at_start_of_event_var
+			}
+		}
+	}
+}
+
+exile_character_with_martyrdom_to_pool = {
+	exile_character_martyrdom_setup_effect = yes
+	if = {
+		limit = { is_in_exile_pool = no }
+		exile_character = {
+			exile_pool = $EXILE_POOL$
+			years = $YEARS$
+		}
+	}
+	hidden_effect = {
+		clean_up_exile_character_roles = yes
+	}
+}
+
+exile_character_martyrdom_setup_effect = {
+	save_scope_as = martyred_exile_scope
+	if = {
+		limit = {
+			NOT = {
+				has_modifier = modifier_political_martyr
+			}
+		}
+		add_modifier = modifier_political_martyr
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_variable = exile_pool_culling_immunity
+			}
+		}
+		set_variable = {
+			name = exile_pool_culling_immunity
+			days = very_short_modifier_time
+		}
+	}
+	hidden_effect = { # If Metternich is the victim, un-immortal him.
+		if = {
+			limit = {
+				has_dlc_feature = ip3_content
+				scope:martyred_exile_scope ?= {
+					has_template = aus_klemens_von_metternich
+					is_immortal = yes
+				}
+			}
+			set_character_immortal = no
+		}
+	}
+	if = {
+		limit = {
+			owner ?= {
+				NOT = {
+					any_primary_culture = {
+						this = scope:martyred_exile_scope.culture
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOT = {
+						this = scope:martyred_exile_scope.owner
+					}
+					any_primary_culture = {
+						this = scope:martyred_exile_scope.culture
+					}
+				}
+			}
+			ordered_country = {
+				limit = {
+					NOT = {
+						this = scope:martyred_exile_scope.owner
+					}
+					any_primary_culture = {
+						this = scope:martyred_exile_scope.culture
+					}
+				}
+				order_by = country_rank
+				position = 0
+				check_range_bounds = no
+				create_diplomatic_catalyst = {
+					type = catalyst_exiled_culture_member
+					target = scope:martyred_exile_scope.owner
+				}
+			}
+		}
+	}
+}
+
+# Country scope. Existing 1776 EIC policy promotes the previous Industrialist
+# leader to ruler; create its replacement IG leader using the native API.
+aor1776_generate_eic_government_leader = {
+	create_character = {
+		ig_leader = yes
+		interest_group = ig_industrialists
+	}
+}

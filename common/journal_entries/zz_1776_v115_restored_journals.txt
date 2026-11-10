@@ -1,0 +1,646 @@
+﻿# Native journal definitions masked by retained older 1776 journal files.
+
+je_five_year_plan = {
+	icon = "gfx/interface/icons/invention_icons/central_planning.dds"
+
+	group = je_group_socialism
+
+	activation_description = {
+		always = yes
+	}
+
+	scripted_button = je_five_year_plan_heavy_industry_button
+	scripted_button = je_five_year_plan_light_industry_button
+	scripted_button = je_five_year_plan_transportation_button
+	scripted_button = je_five_year_plan_agriculture_button
+	scripted_button = je_five_year_plan_electrification_button
+	scripted_button = je_five_year_plan_conclude_button
+	scripted_button = je_five_year_plan_reduce_objectives_button
+	scripted_button = je_five_year_plan_cheat_button
+	scripted_button = je_five_year_plan_forced_labor_button
+
+	immediate = {
+		root = {
+			save_scope_as = five_year_plan_country
+			set_variable = { name = five_year_plan_drafting_var value = 6 months = 6 }
+			set_variable = { name = five_year_plan_ai_early_plan_var months = 48 }
+		}
+		scope:journal_entry ?= {
+			set_variable = {
+				name = five_year_plan_heavy_industry_initial_var
+				value = "root.country_has_building_group_levels(bg_heavy_industry)"
+			}
+			set_variable = {
+				name = five_year_plan_heavy_industry_target_var
+				value = {
+					value = var:five_year_plan_heavy_industry_initial_var
+					multiply = 0.25
+					min = 10
+					add = var:five_year_plan_heavy_industry_initial_var
+					round = yes
+				}
+			}
+			set_variable = {
+				name = five_year_plan_light_industry_initial_var
+				value = "root.country_has_building_group_levels(bg_light_industry)"
+			}
+			set_variable = {
+				name = five_year_plan_light_industry_target_var
+				value = {
+					value = var:five_year_plan_light_industry_initial_var
+					multiply = 0.25
+					min = 10
+					add = var:five_year_plan_light_industry_initial_var
+					round = yes
+				}
+			}
+			set_variable = {
+				name = five_year_plan_transportation_initial_var
+				value = {
+					value = 0
+					root = {
+						add = five_year_plan_transportation_buy_orders_value
+					}
+				}
+			}
+			set_variable = {
+				name = five_year_plan_transportation_target_var
+				value = {
+					value = var:five_year_plan_transportation_initial_var
+					multiply = 1.25
+					round = yes
+					min = 50
+				}
+			}
+			set_variable = {
+				name = five_year_plan_electrification_initial_var
+				value = {
+					value = 0
+					root = {
+						add = five_year_plan_electricity_buy_orders_value
+					}
+				}
+			}
+			set_variable = {
+				name = five_year_plan_electrification_target_var
+				value = {
+					value = var:five_year_plan_electrification_initial_var
+					multiply = 1.25
+					round = yes
+					min = 50
+				}
+			}
+			set_variable = {
+				name = five_year_plan_agriculture_initial_var
+				value = {
+					value = 0
+					root = {
+						add = state_and_revolution_peasant_fraction
+					}
+				}
+			}
+			set_variable = {
+				name = five_year_plan_agriculture_target_var
+				value = {
+					value = var:five_year_plan_agriculture_initial_var
+					subtract = 0.1
+					min = 0.05
+				}
+			}
+			set_variable = {
+				name = five_year_plan_gdp_per_capita_initial_var
+				value = root.country_gdp_per_capita
+			}
+			set_variable = {
+				name = five_year_plan_gdp_per_capita_target_var
+				value = {
+					value = var:five_year_plan_gdp_per_capita_initial_var
+					multiply = 1.25
+				}
+			}
+			set_variable = {
+				name = five_year_plan_urbanization_initial_var
+				value = "root.country_has_building_type_levels(bt:building_urban_center)"
+			}
+			set_variable = {
+				name = five_year_plan_urbanization_target_var
+				value = {
+					value = var:five_year_plan_urbanization_initial_var
+					multiply = 1.25
+					round = yes
+				}
+			}
+			set_variable = { name = five_year_plan_reward_var value = 1 }
+			set_variable = {
+				name = five_year_plan_fraud_detection_peak_var
+				value = {
+					value = 0
+					root = {
+						add = five_year_plan_fraud_detection_current_chance_value
+					}
+				}
+			}
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					var:five_year_plan_drafting_var > 0
+				}
+				change_variable = {
+					name = five_year_plan_drafting_var
+					subtract = 1
+				}
+			}
+			je:je_five_year_plan ?= {
+				if = {
+					limit = {
+						root.five_year_plan_fraud_detection_current_chance_value > var:five_year_plan_fraud_detection_peak_var
+					}
+					set_variable = {
+						name = five_year_plan_fraud_detection_peak_var
+						value = {
+							value = 0
+							root = {
+								add = five_year_plan_fraud_detection_current_chance_value
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_five_year_plan_drafting_status
+				trigger = {
+					has_variable = five_year_plan_drafting_var
+				}
+			}
+			desc = je_five_year_plan_in_progress_status
+		}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			has_law_or_variant = law_type:law_command_economy
+			hidden_trigger = {
+				NOT = { has_variable = five_year_plan_drafting_var }
+			}
+			custom_tooltip = {
+				text = five_year_plan_gdp_per_capita_goal_tt
+				scope:journal_entry.var:five_year_plan_gdp_per_capita_target_var <= five_year_plan_gdp_per_capita_value
+			}
+			custom_tooltip = {
+				text = five_year_plan_urbanization_goal_tt
+				scope:journal_entry.var:five_year_plan_urbanization_target_var <= five_year_plan_urban_centre_levels_value
+			}
+			trigger_if = {
+				limit = {
+					scope:journal_entry = {
+						has_variable = five_year_plan_heavy_industry_var
+					}
+				}
+				five_year_plan_heavy_industry_goal_met = yes
+			}
+			trigger_if = {
+				limit = {
+					scope:journal_entry = {
+						has_variable = five_year_plan_light_industry_var
+					}
+				}
+				five_year_plan_light_industry_goal_met = yes
+			}
+			trigger_if = {
+				limit = {
+					scope:journal_entry = {
+						has_variable = five_year_plan_transportation_var
+					}
+				}
+				five_year_plan_transportation_goal_met = yes
+			}
+			trigger_if = {
+				limit = {
+					scope:journal_entry = {
+						has_variable = five_year_plan_agriculture_var
+					}
+				}
+				five_year_plan_agriculture_goal_met = yes
+			}
+			trigger_if = {
+				limit = {
+					scope:journal_entry = {
+						has_variable = five_year_plan_electrification_var
+					}
+				}
+				five_year_plan_electrification_goal_met = yes
+			}
+			in_default = no
+		}
+		effect = {
+			add_modifier = {
+				name = five_year_plan_welfare_mod
+				days = normal_modifier_time
+				multiplier = five_year_plan_success_reward_value
+			}
+			je_five_year_plan_cleanup = yes
+			custom_tooltip = {
+				text = next_five_year_plan_tt
+				trigger_event = { id = communism.13 days = 1 }
+			}
+		}
+	}
+
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		flags = { timeout }
+		color = "blue_negative"
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		effect = {
+			add_modifier = {
+				name = five_year_plan_failure_mod
+				days = normal_modifier_time
+				multiplier = scope:journal_entry.var:five_year_plan_reward_var
+			}
+			je_five_year_plan_cleanup = yes
+			custom_tooltip = {
+				text = next_five_year_plan_tt
+				trigger_event = { id = communism.13 days = 1 }
+			}
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NAND = {
+				has_law_or_variant = law_type:law_council_republic
+				has_law_or_variant = law_type:law_command_economy
+			}
+		}
+		effect = {
+			je_five_year_plan_cleanup = yes
+		}
+	}
+
+	timeout = 1825
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}
+
+je_meiji_imperial_marriage = {
+	icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_meiji_restoration
+
+	activation_description = {
+		always = yes
+	}
+
+	immediate = {
+		ruler = {
+			save_scope_as = imperial_marriage_ruler
+		}
+		random_scope_character = {
+			limit = {
+				has_variable = japan_imperial_princess
+			}
+			save_scope_as = imperial_princess_scope
+		}
+		ordered_scope_treaty = {
+			limit = {
+				binds = ROOT
+				any_scope_article = {
+					OR = {
+						has_type = trade_privilege
+						has_type = foreign_investment_rights
+						has_type = law_commitment
+					}
+				}
+			}
+			order_by = {
+				value = "ROOT.ai_treaty_value(scope:source_country)"
+				multiply = -1
+			}
+			position = 0
+			save_scope_as = relevant_treaty_scope
+		}
+		if = {
+			limit = {
+				exists = scope:relevant_treaty_scope
+			}
+			scope:journal_entry ?= {
+				set_variable = japan_break_treaty_var
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			trigger_if = {
+				limit = {
+					scope:journal_entry ?= {
+						has_variable = japan_break_treaty_var
+					}
+				}
+				trigger_if = {
+					limit = {
+						exists = scope:relevant_treaty_scope
+					}
+					custom_tooltip = {
+						text = has_broken_relevant_treaty_tt
+						NOT = {
+							any_scope_treaty = {
+								scope:relevant_treaty_scope ?= this
+							}
+						}
+					}
+				}
+				trigger_else = {
+					custom_tooltip = {
+						text = im_broken_applicable_treaty_tt
+						NOT = {
+							exists = scope:relevant_treaty_scope
+						}
+					}
+				}
+			}
+			has_law_or_variant = law_type:law_closed_borders
+			NOT = {
+				has_law_or_variant = law_type:law_free_trade
+			}
+			NOT = {
+				any_state_in_home_islands = {
+					is_treaty_port = yes
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = {
+				text = kobu_gattai_progress_tt
+				set_variable = japan_completed_imperial_marriage
+			}
+			je_meiji_imperial_marriage_cleanup = yes
+		}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				custom_tooltip = {
+					text = ruler_does_not_have_imperial_marriage_tt
+					ruler = {
+						NOT = {
+							has_variable = japan_imperial_marriage
+						}
+					}
+				}
+				custom_tooltip = {
+					text = je_has_timed_out_tt
+					NOT = {
+						has_journal_entry = je_meiji_imperial_marriage
+					}
+				}
+			}
+		}
+		effect = {
+			ruler = {
+				remove_variable = japan_imperial_marriage
+			}
+			custom_tooltip = {
+				text = kobu_gattai_no_longer_viable_tt
+				remove_variable = kobu_gattai
+				set_variable = kogi_yoron
+			}
+			custom_tooltip = kogi_yoron_forced_tt
+			je_meiji_imperial_marriage_cleanup = yes
+		}
+	}
+
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		flags = { timeout }
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		effect = {
+			custom_tooltip = je_will_fail_tt
+			ruler = {
+				remove_variable = japan_imperial_marriage
+			}
+			remove_variable = kobu_gattai
+			set_variable = kogi_yoron
+			je_meiji_imperial_marriage_cleanup = yes
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOR = {
+				has_law_or_variant = law_type:law_monarchy
+				has_law = law_type:law_bakufu
+			}
+		}
+		effect = {
+			je_meiji_imperial_marriage_cleanup = yes
+		}
+	}
+
+	timeout = 1825
+
+	weight = 10000
+	should_be_pinned_by_default_uninvolved_or_context = yes
+	can_revolution_inherit = yes
+}
+
+je_state_and_revolution = {
+	icon = "gfx/interface/icons/event_icons/event_revolutionary_flag.dds"
+
+	group = je_group_socialism
+
+	activation_description = {
+		always = yes
+	}
+
+	scripted_progress_bar = je_state_and_revolution_political_bar
+	scripted_progress_bar = je_state_and_revolution_economic_bar
+
+	scripted_button = je_state_and_revolution_industrialisation_plan_button
+	scripted_button = je_state_and_revolution_bourgeois_specialists_button
+
+	immediate = {
+		assemble_aes_country_list_effect = yes
+		set_variable = { name = state_and_revolution_economic_pivot_var value = 50 }
+		set_variable = { name = state_and_revolution_economic_current_var value = 75 }
+		set_variable = { name = state_and_revolution_political_pivot_var value = 50 }
+		set_variable = { name = state_and_revolution_political_current_var value = 75 }
+		set_variable = { name = state_and_revolution_lower_strata_loyalist_fraction_var value = state_and_revolution_lower_strata_loyalist_fraction }
+		set_variable = { name = state_and_revolution_lower_strata_below_expected_sol_var value = state_and_revolution_lower_strata_below_expected_sol_fraction }
+		set_strategy = ai_strategy_confrontation_agenda
+	}
+
+	scaling_modifiers_while_active = {
+		modifier = modifier_state_and_revolution_political_confrontation
+		value = {
+			value = "scope:journal_entry.scripted_bar_progress(je_state_and_revolution_political_bar)"
+		}
+	}
+	scaling_modifiers_while_active = {
+		modifier = modifier_state_and_revolution_economic_confrontation
+		value = {
+			value = "scope:journal_entry.scripted_bar_progress(je_state_and_revolution_economic_bar)"
+		}
+	}
+
+	on_monthly_pulse = {
+		effect = {
+			set_variable = { name = state_and_revolution_lower_strata_loyalist_fraction_var value = state_and_revolution_lower_strata_loyalist_fraction }
+			set_variable = { name = state_and_revolution_lower_strata_below_expected_sol_var value = state_and_revolution_lower_strata_below_expected_sol_fraction }
+			set_variable = { name = state_and_revolution_economic_current_var value = "scope:journal_entry.scripted_bar_progress(je_state_and_revolution_economic_bar)" }
+			set_variable = { name = state_and_revolution_political_current_var value = "scope:journal_entry.scripted_bar_progress(je_state_and_revolution_political_bar)" }
+			set_variable = {
+				name = state_and_revolution_economic_pivot_var
+				value = 100
+			}
+			change_variable = {
+				name = state_and_revolution_economic_pivot_var
+				multiply = ROOT.state_and_revolution_economic_confrontation_display
+			}
+			set_variable = {
+				name = state_and_revolution_political_pivot_var
+				value = 100
+			}
+			change_variable = {
+				name = state_and_revolution_political_pivot_var
+				multiply = ROOT.state_and_revolution_political_confrontation_display
+			}
+		}
+	}
+
+	outcome = {
+		header = je_state_and_revolution_confrontation_header
+		effect_header = je_state_and_revolution_on_confrontation_victory_header
+		color = "red_outcome"
+		conclusion_desc = je_state_and_revolution_confrontation_conclusion_desc
+		trigger = {
+			has_all_revolutionary_laws = yes
+			custom_tooltip = {
+				text = revolutionary_bloc_controls_half_of_global_gdp_tt
+				revolutionary_bloc_gdp >= revolutionary_bloc_gdp_target
+			}
+		}
+		effect = {
+			custom_tooltip_no_bullet = best_communist_country_gets_tt
+			ordered_in_global_list = {
+				limit = {
+					has_law_or_variant = law_type:law_council_republic
+				}
+				variable = aes_country_list
+				order_by = prestige
+				position = 0
+				if = {
+					limit = {
+						NOT = {
+							has_modifier = modifier_state_and_revolution_home_of_the_revolution
+						}
+					}
+					add_modifier = {
+						name = modifier_state_and_revolution_home_of_the_revolution
+						days = very_long_modifier_time
+					}
+					if = {
+						limit = {
+							market ?= {
+								owner ?= prev
+								gdp >= {
+									value = global_gdp
+									multiply = state_and_revolution_swr_gdp_target
+								}
+							}
+						}
+						set_variable = sozialistische_weltrepublik_var
+						custom_tooltip = socialist_world_republic_tt
+					}
+					else = {
+						show_as_tooltip = {
+							custom_tooltip_no_bullet = if_quarter_of_world_gdp_swr_tt
+							set_variable = sozialistische_weltrepublik_var
+							custom_tooltip = socialist_world_republic_tt
+						}
+					}
+				}
+			}
+			set_global_variable = socialist_world_republic
+			je_state_and_revolution_cleanup = yes
+		}
+	}
+
+	outcome = {
+		header = je_state_and_revolution_consolidation_header
+		effect_header = je_state_and_revolution_on_consolidation_victory_header
+		color = "gold_positive"
+		conclusion_desc = je_state_and_revolution_consolidation_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = state_and_revolution_economic_consolidation_victory_values_tt
+				scope:journal_entry = {
+					"scripted_bar_progress(je_state_and_revolution_economic_bar)" <= state_and_revolution_consolidation_victory_bar_threshold
+				}
+			}
+			custom_tooltip = {
+				text = state_and_revolution_political_consolidation_victory_values_tt
+				scope:journal_entry = {
+					"scripted_bar_progress(je_state_and_revolution_political_bar)" <= state_and_revolution_consolidation_victory_bar_threshold
+				}
+			}
+			custom_tooltip = {
+				text = state_and_revolution_not_in_liberation_war_tt
+				NOT = {
+					pressing_liberation_wargoal_against_adjacent_country = yes
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = no_more_maluses_with_non_communist_countries_tt
+			add_modifier = {
+				name = modifier_state_and_revolution_conciliation
+				days = very_long_modifier_time
+			}
+			je_state_and_revolution_cleanup = yes
+		}
+	}
+
+	outcome = {
+		flags = { hidden invalid_outcome }
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOT = { has_law_or_variant = law_type:law_council_republic }
+		}
+		effect = {
+			je_state_and_revolution_cleanup = yes
+		}
+	}
+
+	can_revolution_inherit = yes
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

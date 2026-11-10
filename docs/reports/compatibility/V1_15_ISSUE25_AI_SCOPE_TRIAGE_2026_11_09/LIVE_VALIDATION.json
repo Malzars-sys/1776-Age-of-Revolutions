@@ -1,0 +1,228 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "passed": 12,
+  "total": 12,
+  "checks": [
+    {
+      "check": "captured_source_unchanged",
+      "pass": true
+    },
+    {
+      "check": "canonical_native_source_unchanged",
+      "pass": true
+    },
+    {
+      "check": "only_two_authorized_value_spans",
+      "pass": true
+    },
+    {
+      "check": "candidate_hash_matches",
+      "pass": true
+    },
+    {
+      "check": "bom_preserved",
+      "pass": true
+    },
+    {
+      "check": "syntax",
+      "pass": true
+    },
+    {
+      "check": "building_type",
+      "pass": true
+    },
+    {
+      "check": "native_threshold_and_operator",
+      "pass": true
+    },
+    {
+      "check": "original_context_preserved",
+      "pass": true
+    },
+    {
+      "check": "native_predicate_equivalence",
+      "pass": true
+    },
+    {
+      "check": "no_removed_building_reference",
+      "pass": true
+    },
+    {
+      "check": "reverse_byte_reconstruction",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "engine_tested": false,
+  "negative_controls": {
+    "detected": 7,
+    "total": 7,
+    "cases": [
+      {
+        "case": "old_removed_building",
+        "input_changed": true,
+        "detected": true,
+        "errors": [
+          {
+            "check": "only_two_authorized_value_spans",
+            "pass": false
+          },
+          {
+            "check": "candidate_hash_matches",
+            "pass": false
+          },
+          {
+            "check": "syntax_or_target: Expected exactly one scoped building_naval_administration target, found 0",
+            "pass": false
+          },
+          {
+            "check": "no_removed_building_reference",
+            "pass": false
+          },
+          {
+            "check": "reverse_byte_reconstruction",
+            "pass": false
+          }
+        ]
+      },
+      {
+        "case": "old_level_15",
+        "input_changed": true,
+        "detected": true,
+        "errors": [
+          {
+            "check": "only_two_authorized_value_spans",
+            "pass": false
+          },
+          {
+            "check": "candidate_hash_matches",
+            "pass": false
+          },
+          {
+            "check": "native_threshold_and_operator",
+            "pass": false
+          },
+          {
+            "check": "native_predicate_equivalence",
+            "pass": false
+          },
+          {
+            "check": "reverse_byte_reconstruction",
+            "pass": false
+          }
+        ]
+      },
+      {
+        "case": "wrong_new_building",
+        "input_changed": true,
+        "detected": true,
+        "errors": [
+          {
+            "check": "only_two_authorized_value_spans",
+            "pass": false
+          },
+          {
+            "check": "candidate_hash_matches",
+            "pass": false
+          },
+          {
+            "check": "syntax_or_target: Expected exactly one scoped building_naval_administration target, found 0",
+            "pass": false
+          },
+          {
+            "check": "reverse_byte_reconstruction",
+            "pass": false
+          }
+        ]
+      },
+      {
+        "case": "zero_level_threshold",
+        "input_changed": true,
+        "detected": true,
+        "errors": [
+          {
+            "check": "only_two_authorized_value_spans",
+            "pass": false
+          },
+          {
+            "check": "candidate_hash_matches",
+            "pass": false
+          },
+          {
+            "check": "native_threshold_and_operator",
+            "pass": false
+          },
+          {
+            "check": "native_predicate_equivalence",
+            "pass": false
+          },
+          {
+            "check": "reverse_byte_reconstruction",
+            "pass": false
+          }
+        ]
+      },
+      {
+        "case": "unrelated_geography_changed",
+        "input_changed": true,
+        "detected": true,
+        "errors": [
+          {
+            "check": "only_two_authorized_value_spans",
+            "pass": false
+          },
+          {
+            "check": "candidate_hash_matches",
+            "pass": false
+          },
+          {
+            "check": "reverse_byte_reconstruction",
+            "pass": false
+          }
+        ]
+      },
+      {
+        "case": "unrelated_default_value_changed",
+        "input_changed": true,
+        "detected": true,
+        "errors": [
+          {
+            "check": "only_two_authorized_value_spans",
+            "pass": false
+          },
+          {
+            "check": "candidate_hash_matches",
+            "pass": false
+          },
+          {
+            "check": "reverse_byte_reconstruction",
+            "pass": false
+          }
+        ]
+      },
+      {
+        "case": "broken_syntax",
+        "input_changed": true,
+        "detected": true,
+        "errors": [
+          {
+            "check": "only_two_authorized_value_spans",
+            "pass": false
+          },
+          {
+            "check": "candidate_hash_matches",
+            "pass": false
+          },
+          {
+            "check": "syntax_or_target: Unexpected closing brace at 174571",
+            "pass": false
+          },
+          {
+            "check": "reverse_byte_reconstruction",
+            "pass": false
+          }
+        ]
+      }
+    ]
+  }
+}

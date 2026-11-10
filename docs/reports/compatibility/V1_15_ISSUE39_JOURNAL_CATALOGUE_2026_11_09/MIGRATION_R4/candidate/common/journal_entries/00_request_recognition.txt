@@ -1,0 +1,82 @@
+﻿je_earn_recognition = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_foreign_affairs
+
+	scripted_progress_bar = earn_recognition_progress_bar
+
+	is_shown_when_inactive = {
+		is_country_type = unrecognized
+	}
+
+	possible = {
+		is_country_type = unrecognized
+		OR = {
+			AND = {
+				OR = {
+					custom_tooltip = {
+						text = is_subject_of_great_power_tt
+						any_overlord_or_above = {
+							country_rank >= rank_value:great_power
+						}
+					}
+					country_rank >= rank_value:unrecognized_major_power
+				}
+				has_technology_researched = colonization
+			}
+			AND = {
+				country_rank >= rank_value:unrecognized_regional_power
+				has_technology_researched = civilizing_mission
+			}
+			AND = {
+				country_rank >= rank_value:unrecognized_power
+				has_technology_researched = international_exchange_standards
+			}
+		}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_country = {
+				country_rank >= rank_value:great_power
+				relations:root >= relations_threshold:amicable
+			}
+			custom_tooltip = {
+				text = je_earn_recognition_complete_tt
+				scope:journal_entry ?= {
+					"scripted_bar_progress(earn_recognition_progress_bar)" >= 200
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = {
+				text = je_earn_recognition_tt
+				trigger_event = { id = earn_recognition_events.1 days = 0 popup = yes }
+			}
+			show_as_tooltip = {
+				set_country_type = recognized
+			}
+		}
+	}
+
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+		}
+		effect = {
+		}
+	}
+
+
+	weight = 100
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

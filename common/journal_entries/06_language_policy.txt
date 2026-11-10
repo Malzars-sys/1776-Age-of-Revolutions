@@ -164,253 +164,264 @@
 		}
 	}
 
-	complete = {
-		OR = { # This strange OR wrap is for the sake of a sensible completion trigger block in the JE preview. This may rely on a bug to display correctly :B
-			trigger_if = {
-				limit = {
-					NOT = {
-						has_variable = chose_integration_var # inverted checks to enable sensible completion trigger block in the JE preview
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = { # This strange OR wrap is for the sake of a sensible completion trigger block in the JE preview. This may rely on a bug to display correctly :B
+				trigger_if = {
+					limit = {
+						NOT = {
+							has_variable = chose_integration_var # inverted checks to enable sensible completion trigger block in the JE preview
+						}
+					}
+					trigger_if = {
+						limit = {
+							OR = {
+								c:SPA ?= this
+								was_formed_from = SPA
+							}
+						}
+						any_scope_state = {
+							filter = {
+								state_region = {
+									is_homeland = cu:spanish
+								}
+							}
+							culture_percent_state = {
+								target = cu:spanish
+								value >= 0.6
+							}
+							custom_tooltip = {
+								text = VERNACULAR_POLICY_ASSIMILATION_STATES_TT
+							}
+							percent = 1
+						}
+					}
+					trigger_else_if = {
+						limit = {
+							OR = {
+								c:FRA ?= this
+								was_formed_from = FRA
+							}
+						}
+						any_scope_state = {
+							filter = {
+								state_region = {
+									is_homeland = cu:french
+								}
+							}
+							culture_percent_state = {
+								target = cu:french
+								value >= 0.6
+							}
+							custom_tooltip = {
+								text = VERNACULAR_POLICY_ASSIMILATION_STATES_TT
+							}
+							percent = 1
+						}
 					}
 				}
 				trigger_if = {
 					limit = {
-						OR = {
-							c:SPA ?= this
-							was_formed_from = SPA
+						NOT = {
+							has_variable = chose_assimilation_var # inverted checks to enable sensible completion trigger block in the JE preview
 						}
 					}
-					any_scope_state = {
-						filter = {
-							state_region = {
-								is_homeland = cu:spanish
+					trigger_if = {
+						limit = {
+							OR = {
+								c:SPA ?= this
+								was_formed_from = SPA
 							}
 						}
-						culture_percent_state = {
-							target = cu:spanish
-							value >= 0.6
-						}
-						custom_tooltip = {
-							text = VERNACULAR_POLICY_ASSIMILATION_STATES_TT
-						}
-						percent = 1
-					}
-				}
-				trigger_else_if = {
-					limit = {
-						OR = {
-							c:FRA ?= this
-							was_formed_from = FRA
-						}
-					}
-					any_scope_state = {
-						filter = {
-							state_region = {
-								is_homeland = cu:french
+						AND = {
+							trigger_if = {
+								limit = {
+									any_scope_state = {
+										culture_percent_state = {
+											target = cu:catalan
+											value > 0
+										}
+										state_region = {
+											is_homeland = cu:catalan
+										}
+									}
+								}
+								country_has_primary_culture = cu:catalan
+							}
+							trigger_if = {
+								limit = {
+									any_scope_state = {
+										culture_percent_state = {
+											target = cu:aragonese
+											value > 0
+										}
+										state_region = {
+											is_homeland = cu:aragonese
+										}
+									}
+								}
+								country_has_primary_culture = cu:aragonese
+							}
+							trigger_if = {
+								limit = {
+									any_scope_state = {
+										culture_percent_state = {
+											target = cu:asturleonese
+											value > 0
+										}
+										state_region = {
+											is_homeland = cu:asturleonese
+										}
+									}
+								}
+								country_has_primary_culture = cu:asturleonese
+							}
+							trigger_if = {
+								limit = {
+									any_scope_state = {
+										culture_percent_state = {
+											target = cu:galician
+											value > 0
+										}
+										state_region = {
+											is_homeland = cu:galician
+										}
+									}
+								}
+								country_has_primary_culture = cu:galician
+							}
+							trigger_if = {
+								limit = {
+									any_scope_state = {
+										culture_percent_state = {
+											target = cu:basque
+											value > 0
+										}
+										state_region = {
+											is_homeland = cu:basque
+										}
+									}
+								}
+								country_has_primary_culture = cu:basque
 							}
 						}
-						culture_percent_state = {
-							target = cu:french
-							value >= 0.6
+					}
+					trigger_else_if = {
+						limit = {
+							OR = {
+								c:FRA ?= this
+								was_formed_from = FRA
+							}
 						}
-						custom_tooltip = {
-							text = VERNACULAR_POLICY_ASSIMILATION_STATES_TT
+						AND = {
+							trigger_if = {
+								limit = {
+									any_scope_state = {
+										culture_percent_state = {
+											target = cu:occitan
+											value > 0
+										}
+										state_region = {
+											is_homeland = cu:occitan
+										}
+									}
+								}
+								country_has_primary_culture = cu:occitan
+							}
+							trigger_if = {
+								limit = {
+									any_scope_state = {
+										culture_percent_state = {
+											target = cu:francoprovencal
+											value > 0
+										}
+										state_region = {
+											is_homeland = cu:francoprovencal
+										}
+									}
+								}
+								country_has_primary_culture = cu:francoprovencal
+							}
+							trigger_if = {
+								limit = {
+									any_scope_state = {
+										culture_percent_state = {
+											target = cu:breton
+											value > 0
+										}
+										state_region = {
+											is_homeland = cu:breton
+										}
+									}
+								}
+								country_has_primary_culture = cu:breton
+							}
+							trigger_if = {
+								limit = {
+									any_scope_state = {
+										culture_percent_state = {
+											target = cu:wallonian
+											value > 0
+										}
+										state_region = {
+											is_homeland = cu:wallonian
+										}
+									}
+								}
+								country_has_primary_culture = cu:wallonian
+							}
 						}
-						percent = 1
 					}
 				}
 			}
-			trigger_if = {
+		}
+		effect = {
+			clear_variable_list = vernacular_policy_assimilation_states
+			if = {
 				limit = {
-					NOT = {
-						has_variable = chose_assimilation_var # inverted checks to enable sensible completion trigger block in the JE preview
-					}
+					has_variable = chose_assimilation_var
 				}
-				trigger_if = {
-					limit = {
-						OR = {
-							c:SPA ?= this
-							was_formed_from = SPA
-						}
-					}
-					AND = {
-						trigger_if = {
-							limit = {
-								any_scope_state = {
-									culture_percent_state = {
-										target = cu:catalan
-										value > 0
-									}
-									state_region = {
-										is_homeland = cu:catalan
-									}
-								}
-							}
-							country_has_primary_culture = cu:catalan
-						}
-						trigger_if = {
-							limit = {
-								any_scope_state = {
-									culture_percent_state = {
-										target = cu:aragonese
-										value > 0
-									}
-									state_region = {
-										is_homeland = cu:aragonese
-									}
-								}
-							}
-							country_has_primary_culture = cu:aragonese
-						}
-						trigger_if = {
-							limit = {
-								any_scope_state = {
-									culture_percent_state = {
-										target = cu:asturleonese
-										value > 0
-									}
-									state_region = {
-										is_homeland = cu:asturleonese
-									}
-								}
-							}
-							country_has_primary_culture = cu:asturleonese
-						}
-						trigger_if = {
-							limit = {
-								any_scope_state = {
-									culture_percent_state = {
-										target = cu:galician
-										value > 0
-									}
-									state_region = {
-										is_homeland = cu:galician
-									}
-								}
-							}
-							country_has_primary_culture = cu:galician
-						}
-						trigger_if = {
-							limit = {
-								any_scope_state = {
-									culture_percent_state = {
-										target = cu:basque
-										value > 0
-									}
-									state_region = {
-										is_homeland = cu:basque
-									}
-								}
-							}
-							country_has_primary_culture = cu:basque
-						}
-					}
+				trigger_event = {
+					id = vernacular_events.2
+					popup = yes
 				}
-				trigger_else_if = {
-					limit = {
-						OR = {
-							c:FRA ?= this
-							was_formed_from = FRA
-						}
-					}
-					AND = {
-						trigger_if = {
-							limit = {
-								any_scope_state = {
-									culture_percent_state = {
-										target = cu:occitan
-										value > 0
-									}
-									state_region = {
-										is_homeland = cu:occitan
-									}
-								}
-							}
-							country_has_primary_culture = cu:occitan
-						}
-						trigger_if = {
-							limit = {
-								any_scope_state = {
-									culture_percent_state = {
-										target = cu:francoprovencal
-										value > 0
-									}
-									state_region = {
-										is_homeland = cu:francoprovencal
-									}
-								}
-							}
-							country_has_primary_culture = cu:francoprovencal
-						}
-						trigger_if = {
-							limit = {
-								any_scope_state = {
-									culture_percent_state = {
-										target = cu:breton
-										value > 0
-									}
-									state_region = {
-										is_homeland = cu:breton
-									}
-								}
-							}
-							country_has_primary_culture = cu:breton
-						}
-						trigger_if = {
-							limit = {
-								any_scope_state = {
-									culture_percent_state = {
-										target = cu:wallonian
-										value > 0
-									}
-									state_region = {
-										is_homeland = cu:wallonian
-									}
-								}
-							}
-							country_has_primary_culture = cu:wallonian
-						}
-					}
+			}
+			if = {
+				limit = {
+					has_variable = chose_integration_var
 				}
+				trigger_event = {
+					id = vernacular_events.3
+					popup = yes
+				}
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_france_breton_integration_aid
+				}
+				remove_modifier = modifier_france_breton_integration_aid
+			}
+			if = {
+				limit = {
+					has_modifier = modifier_spain_basque_integration_aid
+				}
+				remove_modifier = modifier_spain_basque_integration_aid
 			}
 		}
 	}
 
-	on_complete = {
-		clear_variable_list = vernacular_policy_assimilation_states
-		if = {
-			limit = {
-				has_variable = chose_assimilation_var
-			}
-			trigger_event = {
-				id = vernacular_events.2
-				popup = yes
-			}
-		}
-		if = {
-			limit = {
-				has_variable = chose_integration_var
-			}
-			trigger_event = {
-				id = vernacular_events.3
-				popup = yes
-			}
-		}
-		if = {
-			limit = {
-				has_modifier = modifier_france_breton_integration_aid
-			}
-			remove_modifier = modifier_france_breton_integration_aid
-		}
-		if = {
-			limit = {
-				has_modifier = modifier_spain_basque_integration_aid
-			}
-			remove_modifier = modifier_spain_basque_integration_aid
-		}
-	}
 
-	invalid = {
-		has_variable = chose_to_not_care_var
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			has_variable = chose_to_not_care_var
+		}
+		effect = {}
 	}
 
 	weight = 10000

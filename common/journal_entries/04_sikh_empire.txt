@@ -15,39 +15,92 @@
 		set_variable = { name = sikh_dead_maharajas_var value = 0 }
 	}
 
-	complete = {
-		is_subject = no
-		legitimacy >= 75
-		custom_tooltip = {
-			text = je_sikh_sovereignty_complete
-			scope:journal_entry = {
-				"scripted_bar_progress(sikh_empire_progress_bar)" >= 300
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			is_subject = no
+			legitimacy >= 75
+			custom_tooltip = {
+				text = je_sikh_sovereignty_complete
+				scope:journal_entry = {
+					"scripted_bar_progress(sikh_empire_progress_bar)" >= 300
+				}
 			}
 		}
+		effect = {
+			trigger_event = { id = sikh_empire.8 popup = yes }
+			set_variable = completed_sikh_sovereignty_je
+		}
+		event_outcome_desc = {
+	        first_valid = {
+	            triggered_desc = {
+	                desc = event_effects_sikh_empire.8_tt
+	            }
+	        }
+	    }
 	}
 
 	is_progressing = {
 		legitimacy >= 50
 	}
 
-	fail = {
-		OR = {
-			is_subject = yes
-			custom_tooltip = {
-				text = five_deaths_in_a_row_tt
-				var:sikh_dead_maharajas_var >= 5
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				is_subject = yes
+				custom_tooltip = {
+					text = five_deaths_in_a_row_tt
+					var:sikh_dead_maharajas_var >= 5
+				}
 			}
 		}
+		effect = {
+			trigger_event = { id = sikh_empire.7 popup = yes }
+		}
+		event_outcome_desc = {
+	        first_valid = {
+	            triggered_desc = {
+					trigger = {
+						ruler = {
+							has_template = pan_duleep_singh
+						}
+					}
+	                desc = event_effects_sikh_empire.7_tt
+	            }
+	            triggered_desc = {
+					trigger = {
+						NOT = {
+							ruler = {
+								has_template = pan_duleep_singh
+							}
+						}
+					}
+	                desc = event_effects_sikh_empire.7_1_tt
+	            }
+	        }
+	    }
 	}
 
-	invalid = {
-		hidden_trigger = {
-			OR = {
-				NOT = { c:PAN ?= this }
-				has_variable = sikh_empire_je_done
-				NOT = { has_law = law_type:law_monarchy }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			hidden_trigger = {
+				OR = {
+					NOT = { c:PAN ?= this }
+					has_variable = sikh_empire_je_done
+					NOT = { has_law = law_type:law_monarchy }
+				}
 			}
 		}
+		effect = {}
 	}
 
 	on_monthly_pulse = {
@@ -154,45 +207,9 @@
 		}
 	}
 
-	on_fail = {
-		trigger_event = { id = sikh_empire.7 popup = yes }
-	}
 
-    event_outcome_failed_desc = {
-        first_valid = {
-            triggered_desc = {
-				trigger = {
-					ruler = {
-						has_template = pan_duleep_singh
-					}
-				}
-                desc = event_effects_sikh_empire.7_tt
-            }
-            triggered_desc = {
-				trigger = {
-					NOT = {
-						ruler = {
-							has_template = pan_duleep_singh
-						}
-					}
-				}
-                desc = event_effects_sikh_empire.7_1_tt
-            }
-        }
-    }
 
-	on_complete = {
-		trigger_event = { id = sikh_empire.8 popup = yes }
-		set_variable = completed_sikh_sovereignty_je
-	}
 
-    event_outcome_completed_desc = {
-        first_valid = {
-            triggered_desc = {
-                desc = event_effects_sikh_empire.8_tt
-            }
-        }
-    }
 
 	weight = 100
 

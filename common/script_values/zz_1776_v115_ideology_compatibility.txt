@@ -1,0 +1,60 @@
+# Country scope. Compatibility score for the retained 1776 social-democratic ideology.
+# One point per law group at its least-favoured stance, matching native count units.
+ideology_social_democrat_disfavoured_laws = {
+	value = 0
+	if = {
+		limit = {
+			has_law_or_variant = law_type:law_no_workers_rights
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law_or_variant = law_type:law_oligarchy
+				has_law_or_variant = law_type:law_autocracy
+				has_law_or_variant = law_type:law_single_party_state
+			}
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law_or_variant = law_type:law_consumption_based_taxation
+				has_law_or_variant = law_type:law_land_based_taxation
+			}
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law_or_variant = law_type:law_poor_laws
+				has_law_or_variant = law_type:law_no_social_security
+			}
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law_or_variant = law_type:law_combination_acts
+				has_law_or_variant = law_type:law_factory_councils
+			}
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_law_or_variant = law_type:law_hindu_caste_enforced
+		}
+		add = 1
+	}
+	if = {
+		limit = {
+			has_law_or_variant = law_type:law_strict_edo_system
+		}
+		add = 1
+	}
+}

@@ -1,0 +1,100 @@
+﻿# Compatibility ID for native consumers; preserve the authored legacy communist selection.
+# Zero random-selection weights prevent introducing an equivalent second random ideology.
+ideology_communist_leader = { # Average Progressiveness - 104.16
+	icon = "gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_communist.dds"
+
+	character_ideology = yes
+
+	lawgroup_governance_principles = {
+		law_monarchy = strongly_disapprove
+		law_presidential_republic = disapprove
+		law_parliamentary_republic = disapprove
+		law_corporate_state = strongly_disapprove
+		law_social_monarchy = strongly_disapprove
+		law_theocracy = strongly_disapprove
+		law_council_republic = approve
+	}
+
+	lawgroup_distribution_of_power = {
+		law_oligarchy = strongly_disapprove
+		law_autocracy = strongly_disapprove
+		law_anarchy = neutral
+		law_universal_suffrage = disapprove
+		law_census_voting = strongly_disapprove
+		law_wealth_voting = strongly_disapprove
+		law_landed_voting = strongly_disapprove
+		law_technocracy = disapprove
+		law_single_party_state = disapprove
+		law_labour_suffrage = approve
+	}
+
+	lawgroup_church_and_state = {
+		law_state_religion = strongly_disapprove
+		law_freedom_of_conscience = disapprove
+		law_total_separation = neutral
+		law_state_atheism = approve
+	}
+
+	lawgroup_bureaucracy = {
+		law_elected_bureaucrats = disapprove
+		law_military_bureaucrats = strongly_disapprove
+		law_appointed_bureaucrats = disapprove
+		law_hereditary_bureaucrats = strongly_disapprove
+		law_communal_administration = approve
+	}
+
+	lawgroup_army_model = {
+		law_mass_conscription = neutral
+		law_professional_army = disapprove
+		law_national_militia = neutral
+		law_peasant_levies = strongly_disapprove
+		law_revolutionary_guard = approve
+	}
+
+	lawgroup_labour_associations = {
+		law_combination_acts = strongly_disapprove
+		law_guild_system = strongly_disapprove
+		law_anti_strike_laws = disapprove
+		law_corporatized_unions = strongly_disapprove
+		law_right_to_associate = neutral
+		law_factory_councils = approve
+	}
+
+	country_trigger = {
+		has_technology_researched = socialism
+	}
+
+	interest_group_leader_trigger = {
+		ideology_communist_leader_valid_trigger = yes
+	}
+
+	non_interest_group_leader_trigger = {
+		# Agitator ideologies should disapprove of a current law
+		NAND = {
+			has_role_of_type = agitator
+			owner ?= {
+				has_law_or_variant = law_type:law_collectivized_agriculture
+				has_law_or_variant = law_type:law_state_atheism
+				has_law_or_variant = law_type:law_council_republic
+				has_law_or_variant = law_type:law_worker_protections
+			}
+		}
+		# Monarchs cannot be republicans
+		NAND = {
+			owner ?= {
+				country_has_monarchy_law = yes
+			}
+			OR = {
+				is_ruler_of_own_country = yes
+				is_heir_of_own_country = yes
+			}
+		}
+		interest_group ?= {
+			ideology_communist_leader_valid_trigger = yes
+		}
+	}
+
+	interest_group_leader_weight = { value = 0 }
+
+	non_interest_group_leader_weight = { value = 0 }
+}

@@ -1,0 +1,52 @@
+﻿# Match the unchanged native state region (id 153, 23 provinces) under its mod ID.
+# Preserve every other native condition, helper, naming branch and game-rule path.
+REPLACE:assign_state_name_region_baltic_states = {
+	if = {
+		limit = {
+			state_region = {
+				s:STATE_VILNIUS ?= this
+			}
+		}
+		STATE_VILNIUS_state_name_assign = yes
+	}
+	if = {
+		limit = {
+			state_region = {
+				s:STATE_KAUNAS ?= this
+			}
+		}
+		STATE_LITHUANIA_state_name_assign = yes
+	}
+	if = {
+		limit = {
+			state_region = {
+				s:STATE_RIGA ?= this
+			}
+		}
+		STATE_RIGA_state_name_assign = yes
+	}
+	if = {
+		limit = {
+			state_region = {
+				s:STATE_COURLAND ?= this
+			}
+		}
+		STATE_COURLAND_state_name_assign = yes
+	}
+	if = {
+		limit = {
+			state_region = {
+				s:STATE_TARTU ?= this
+			}
+		}
+		STATE_TARTU_state_name_assign = yes
+	}
+	if = {
+		limit = {
+			state_region = {
+				s:STATE_TALINN ?= this
+			}
+		}
+		STATE_TALINN_state_name_assign = yes
+	}
+}

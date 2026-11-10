@@ -1,0 +1,58 @@
+﻿je_birth_quota_trial = {
+	icon = "gfx/interface/icons/journal_entry_icons/birth_quota_trial.dds"
+	group = je_group_internal_affairs
+	scripted_progress_bar = birth_quota_trial_progress_bar
+	is_shown_when_inactive = {
+		NOT = { has_variable = birth_quota_journal_victory }
+	}
+	possible = {
+		has_law = law_type:law_birth_quotas
+		NOT = { has_variable = birth_quota_journal_victory }
+	}
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = {
+				"scripted_bar_progress(birth_quota_trial_progress_bar)" >= 200
+			}
+		}
+		effect = {
+			set_variable = birth_quota_journal_victory
+			align_birth_quota_interest_groups = yes
+			ig:ig_intelligentsia ?= {
+				if = {
+					limit = { NOT = { has_ideology = ideology:ideology_natalist_intelligentsia } }
+					add_ideology = ideology_natalist_intelligentsia
+				}
+			}
+			refresh_birth_quota_demography = yes
+			trigger_event = { id = birth_quota_events.11 popup = yes }
+		}
+	}
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			OR = {
+				NOT = { has_law = law_type:law_birth_quotas }
+				scope:journal_entry = {
+					"scripted_bar_progress(birth_quota_trial_progress_bar)" <= 0
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { has_law = law_type:law_birth_quotas }
+				activate_law = law_type:law_no_womens_rights
+				trigger_event = { id = birth_quota_events.12 popup = yes }
+			}
+		}
+	}
+	weight = 100
+	should_be_pinned_by_default_uninvolved_or_context = yes
+}

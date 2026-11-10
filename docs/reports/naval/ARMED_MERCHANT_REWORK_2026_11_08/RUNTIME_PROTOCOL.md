@@ -1,0 +1,12 @@
+# Marchands armés et icônes navales — contrôle en jeu
+
+Nouvelle partie en 1776 après un redémarrage complet. Aucun test moteur n’est attesté par les contrôles de fichiers.
+
+1. Ouvrir un chantier naval utilisant la construction artisanale. Vérifier le dessin ocre, puis les deux dessins violets du doublage. La variante sans doublage porte un cercle barré violet, sans rouge. Les recettes, les employés et les prérequis de ces PM sont conservés.
+2. Jouer les États-Unis et ouvrir la flotte initiale : les cinq marchands armés doivent toujours être présents. Vérifier leur nouvelle silhouette et leur représentation 3D à voile dans le concepteur et sur la carte. Le modèle 3D est un transport à voile vanilla réutilisé, pas une nouvelle sculpture de navire.
+3. Créer un modèle de marchand armé. Les quatre emplacements obligatoires — coque, canons, propulsion, provisions — proposent chacun trois équipements bronze, argent et or. Les équipements futurs doivent indiquer leur technologie et rester bloqués tant qu’elle manque. Les équipements bronze gardent leur condition initiale, sans attribution supplémentaire de technologie aux pays.
+4. Vérifier la fonction facultative d’escorte des convois et ses trois variantes. Elle doit favoriser la protection et l’approvisionnement, sans conserver l’ancien bonus de blocus. Comparer les valeurs affichées au tableau du rapport, en distinguant les quatre équipements obligatoires de la fonction facultative.
+5. Comparer un modèle de caravelle au marchand du même palier : le marchand doit avoir une capacité de transport et des provisions supérieures, mais une puissance offensive inférieure. Les cargaisons et les statistiques du concepteur sont militaires ; ces navires ne créent pas automatiquement des routes commerciales ni des convois économiques supplémentaires pour les ports.
+6. Construire ou modifier un navire, vérifier ses coûts et son équipage, avancer la simulation puis sauvegarder/recharger. Vérifier la persistance du modèle et des équipements, la présence de la flotte et l’absence de nouvelle erreur liée aux identifiants navals ou aux textures.
+
+Pour examiner les paliers ultérieurs, utiliser une copie de sauvegarde ou un pays qui connaît leurs technologies ; ne pas modifier les technologies initiales du mod. Contrôler aussi les caravelles, galères et transports anciens comme témoins. Les travaux concurrents et la mission #21 ne font pas partie de cette livraison.

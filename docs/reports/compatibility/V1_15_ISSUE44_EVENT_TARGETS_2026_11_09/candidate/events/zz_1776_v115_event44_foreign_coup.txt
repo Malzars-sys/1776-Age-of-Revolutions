@@ -1,0 +1,84 @@
+﻿namespace = ip4_coup
+
+ip4_coup.11 = { # Foreign-Backed Coup
+	type = country_event
+	placement = root
+
+	duration = 3
+
+	title = ip4_coup.11.t
+	desc = ip4_coup.11.d
+	flavor = ip4_coup.11.f
+
+	is_popup = yes
+
+	gui_window = event_window_1char_tabloid
+
+	left_icon = scope:golpista_general
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+	on_opened_soundeffect = "event:/SFX/Events/misc/2Characters"
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	trigger = {
+		# Fired by diplomatic interaction
+	}
+
+	cancellation_trigger = {
+		NOT = { exists = scope:golpista_general }
+	}
+
+	immediate = {
+		random_political_lobby = {
+			limit = {
+				OR = {
+					is_political_lobby_type = lobby_pro_country
+					is_political_lobby_type = lobby_pro_overlord
+				}
+				target = scope:coupist_lobby_country
+			}
+			save_scope_as = relevant_lobby
+			set_variable = coup_lobby
+		}
+		# Inherits scopes and coup_reason from scripted effect
+		set_variable = { name = coup_event_active days = 90 }
+		generate_2_common_name = {
+			CULTURE_1 = primary_culture
+			CULTURE_2 = primary_culture
+		}
+	}
+
+	# Advance the coup
+	option = {
+		name = ip4_coup.11.a
+		add_journal_entry = { type = je_ip4_coup }
+		scope:golpista_general ?= {
+			add_modifier = {
+				name = coup_supported
+				days = short_modifier_time
+			}
+		}
+		clear_generated_names = yes
+	}
+
+	# Resist the coup
+	option = {
+		name = ip4_coup.11.b
+		default_option = yes
+		add_journal_entry = { type = je_ip4_coup }
+		add_modifier = {
+			name = coup_resisted
+			days = short_modifier_time
+		}
+		clear_generated_names = yes
+	}
+
+	after = {
+		show_as_tooltip = {
+			custom_tooltip = if_coup_is_successful_tt
+			ip4_coup_victory_effect = yes
+		}
+		remove_variable = coup_event_active
+	}
+}

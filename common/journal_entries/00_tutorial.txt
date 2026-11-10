@@ -13,8 +13,25 @@
 		}
 	}
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_expand_basic_building_complete
+					journal_entry = je:je_tutorial_expand_basic_building
+				}
+			}
+			scope:target.state = {
+				set_available_for_autonomous_investment = scope:target.type
+			}
+		}
 	}
 
 	current_value = {
@@ -30,38 +47,36 @@
 		scope:target = { is_under_construction = yes }
 	}
 
-	invalid = {
-		custom_tooltip = {
-			text = je_tutorial_expand_basic_building_invalid_tooltip
-			OR = {
-				NOT = { exists = scope:target }
-				NOT = { scope:target.owner = root }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_expand_basic_building_invalid_tooltip
+				OR = {
+					NOT = { exists = scope:target }
+					NOT = { scope:target.owner = root }
+				}
+			}
+		}
+		effect = {
+			remove_active_objective_subgoal = sg_expand_basic_building
+			scope:target.state = {
+				set_available_for_autonomous_investment = scope:target.type
 			}
 		}
 	}
 
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_expand_basic_building_complete
-				journal_entry = je:je_tutorial_expand_basic_building
+
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden }
+		trigger = { always = no }
+		effect = {
+			scope:target.state = {
+				set_available_for_autonomous_investment = scope:target.type
 			}
-		}
-		scope:target.state = {
-			set_available_for_autonomous_investment = scope:target.type
-		}
-	}
-
-	on_invalid = {
-		remove_active_objective_subgoal = sg_expand_basic_building
-		scope:target.state = {
-			set_available_for_autonomous_investment = scope:target.type
-		}
-	}
-
-	on_fail = {
-		scope:target.state = {
-			set_available_for_autonomous_investment = scope:target.type
 		}
 	}
 
@@ -89,35 +104,47 @@ je_tutorial_fix_budget_deficit = {
 		}
 	}
 
-	complete = {
-		gold_reserves > 0
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			gold_reserves > 0
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_budget_balance_complete
+					journal_entry = je:je_tutorial_fix_budget_deficit
+				}
+			}
+		}
 	}
 
 	is_progressing = {
 		net_fixed_income > 0
 	}
 
-	fail = {
-		in_default = yes
-	}
-
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_budget_balance_complete
-				journal_entry = je:je_tutorial_fix_budget_deficit
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			in_default = yes
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_budget_balance_fail
+					journal_entry = je:je_tutorial_fix_budget_deficit
+				}
 			}
 		}
 	}
 
-	on_fail = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_budget_balance_fail
-				journal_entry = je:je_tutorial_fix_budget_deficit
-			}
-		}
-	}
+
 
 	weight = 1010
 	transferable = yes
@@ -141,8 +168,15 @@ je_tutorial_change_production_method = {
 		}
 	}
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {}
 	}
 
 	current_value = {
@@ -173,14 +207,19 @@ je_tutorial_change_production_method = {
 		}
 	}
 
-	invalid = {
-		custom_tooltip = {
-			text = je_tutorial_change_production_method_invalid_tooltip
-			OR = {
-				NOT = { exists = scope:target }
-				NOT = { scope:target.owner = root }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_change_production_method_invalid_tooltip
+				OR = {
+					NOT = { exists = scope:target }
+					NOT = { scope:target.owner = root }
+				}
 			}
 		}
+		effect = {}
 	}
 
 	weight = 1010
@@ -202,8 +241,19 @@ je_tutorial_expand_productive_building = {
 		}
 	}
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			scope:target.state = {
+				set_available_for_autonomous_investment = scope:target.type
+			}
+		}
 	}
 
 	is_progressing = {
@@ -219,32 +269,36 @@ je_tutorial_expand_productive_building = {
 		value = 1
 	}
 
-	invalid = {
-		custom_tooltip = {
-			text = je_tutorial_expand_productive_building_invalid_tooltip
-			OR = {
-				NOT = { exists = scope:target }
-				NOT = { scope:target.owner = root }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_expand_productive_building_invalid_tooltip
+				OR = {
+					NOT = { exists = scope:target }
+					NOT = { scope:target.owner = root }
+				}
+			}
+		}
+		effect = {
+			remove_active_objective_subgoal = sg_expand_productive_building
+			scope:target.state = {
+				set_available_for_autonomous_investment = scope:target.type
 			}
 		}
 	}
 
-	on_complete = {
-		scope:target.state = {
-			set_available_for_autonomous_investment = scope:target.type
-		}
-	}
 
-	on_invalid = {
-		remove_active_objective_subgoal = sg_expand_productive_building
-		scope:target.state = {
-			set_available_for_autonomous_investment = scope:target.type
-		}
-	}
 
-	on_fail = {
-		scope:target.state = {
-			set_available_for_autonomous_investment = scope:target.type
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden }
+		trigger = { always = no }
+		effect = {
+			scope:target.state = {
+				set_available_for_autonomous_investment = scope:target.type
+			}
 		}
 	}
 
@@ -279,8 +333,22 @@ je_tutorial_fix_unproductive_building = {
 		}
 	}
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_fix_unproductive_building_complete
+					journal_entry = je:je_tutorial_fix_unproductive_building
+				}
+			}
+		}
 	}
 
 	current_value = {
@@ -307,24 +375,21 @@ je_tutorial_fix_unproductive_building = {
 		}
 	}
 
-	invalid = {
-		custom_tooltip = {
-			text = je_tutorial_fix_unproductive_building_invalid_tooltip
-			OR = {
-				NOT = { exists = scope:target }
-				NOT = { scope:target.owner = root }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_fix_unproductive_building_invalid_tooltip
+				OR = {
+					NOT = { exists = scope:target }
+					NOT = { scope:target.owner = root }
+				}
 			}
 		}
+		effect = {}
 	}
 
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_fix_unproductive_building_complete
-				journal_entry = je:je_tutorial_fix_unproductive_building
-			}
-		}
-	}
 
 	weight = 1010
 	transferable = yes
@@ -341,8 +406,22 @@ je_tutorial_grow_gdp = {
 
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_grow_gdp_complete
+					journal_entry = je:je_tutorial_grow_gdp
+				}
+			}
+		}
 	}
 
 	current_value = {
@@ -353,14 +432,6 @@ je_tutorial_grow_gdp = {
 		multiply = 0.25
 	}
 
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_grow_gdp_complete
-				journal_entry = je:je_tutorial_grow_gdp
-			}
-		}
-	}
 
 	weight = 1002
 	transferable = yes
@@ -377,8 +448,15 @@ je_tutorial_promote_movement = {
 
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {}
 	}
 
 	is_progressing = {
@@ -456,8 +534,16 @@ je_tutorial_increase_market_access_by_decree = {
 		}
 	}
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+		}
 	}
 
 	current_value = {
@@ -491,22 +577,24 @@ je_tutorial_increase_market_access_by_decree = {
 		}
 	}
 
-	invalid = {
-		custom_tooltip = {
-			text = je_tutorial_increase_market_access_by_decree_invalid_tooltip
-			OR = {
-				NOT = { exists = scope:target }
-				NOT = { scope:target.owner = root }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_increase_market_access_by_decree_invalid_tooltip
+				OR = {
+					NOT = { exists = scope:target }
+					NOT = { scope:target.owner = root }
+				}
 			}
+		}
+		effect = {
+			remove_active_objective_subgoal = sg_increase_market_access_by_decree
 		}
 	}
 
-	on_complete = {
-	}
 
-	on_invalid = {
-		remove_active_objective_subgoal = sg_increase_market_access_by_decree
-	}
 
 	weight = 1006
 	transferable = yes
@@ -524,12 +612,20 @@ je_tutorial_improve_market_access_with_railways = {
 	immediate = {
 	}
 
-	complete = {
-		scope:target = {
-			custom_tooltip = {
-				text = je_tutorial_improve_market_access_with_railways_tooltip
-				state_infrastructure_balance > 0
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:target = {
+				custom_tooltip = {
+					text = je_tutorial_improve_market_access_with_railways_tooltip
+					state_infrastructure_balance > 0
+				}
 			}
+		}
+		effect = {
 		}
 	}
 
@@ -543,22 +639,24 @@ je_tutorial_improve_market_access_with_railways = {
 		}
 	}
 
-	invalid = {
-		custom_tooltip = {
-			text = je_tutorial_improve_market_access_with_railways_invalid_tooltip
-			OR = {
-				NOT = { exists = scope:target }
-				NOT = { scope:target.owner = root }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_improve_market_access_with_railways_invalid_tooltip
+				OR = {
+					NOT = { exists = scope:target }
+					NOT = { scope:target.owner = root }
+				}
 			}
+		}
+		effect = {
+			remove_active_objective_subgoal = sg_improve_market_access_with_railways
 		}
 	}
 
-	on_complete = {
-	}
 
-	on_invalid = {
-		remove_active_objective_subgoal = sg_improve_market_access_with_railways
-	}
 
 	weight = 1008
 	transferable = yes
@@ -573,8 +671,15 @@ je_tutorial_increase_immigration = {
 
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {}
 	}
 
 	current_value = {
@@ -585,19 +690,23 @@ je_tutorial_increase_immigration = {
 		add = 10000
 	}
 
-	invalid = {
-		custom_tooltip = {
-			text = je_tutorial_increase_immigration_invalid_tooltip
-			OR = {
-				NOT = { exists = scope:target }
-				NOT = { scope:target.owner = root }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_increase_immigration_invalid_tooltip
+				OR = {
+					NOT = { exists = scope:target }
+					NOT = { scope:target.owner = root }
+				}
 			}
+		}
+		effect = {
+			remove_active_objective_subgoal = sg_increase_immigration
 		}
 	}
 
-	on_invalid = {
-		remove_active_objective_subgoal = sg_increase_immigration
-	}
 
 	weight = 1012
 	transferable = yes
@@ -605,21 +714,26 @@ je_tutorial_increase_immigration = {
 
 je_tutorial_improve_supply_network = {
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
+
 	should_be_pinned_by_default_uninvolved_or_context = yes
 
 	group = je_group_tutorial
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	activation_description = {
+		custom_tooltip = je_tutorial_improve_supply_network_activation_tt
+		custom_tooltip = je_tutorial_improve_supply_network_activation_2_tt
 	}
 
-	current_value = {
-		value = num_convoys_available
-	}
-
-	goal_add_value = {
-		value = {
-			add = 400
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			exists = scope:target
+			scope:target = { state_goods_pricier < 0.1 }
+		}
+		effect = {
 		}
 	}
 
@@ -633,9 +747,16 @@ je_tutorial_improve_consumer_goods_access = {
 
 	group = je_group_tutorial
 
-	complete = {
-		exists = scope:target
-		scope:target = { state_goods_pricier < 0.2 }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			exists = scope:target
+			scope:target = { state_goods_pricier < 0.2 }
+		}
+		effect = {}
 	}
 
 	weight = 1021
@@ -648,8 +769,15 @@ je_tutorial_make_interest_group_happy = {
 
 	group = je_group_tutorial
 
-	complete = {
-		scope:target = { ig_approval >= 2 }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:target = { ig_approval >= 2 }
+		}
+		effect = {}
 	}
 
 	weight = 1021
@@ -666,8 +794,22 @@ je_tutorial_enact_institution_law = {
 
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
 
-	complete = {
-		NOT = { has_law = scope:target }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			NOT = { has_law = scope:target }
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_enact_institution_law_complete
+					journal_entry = je:je_tutorial_enact_institution_law
+				}
+			}
+		}
 	}
 
 	is_progressing = {
@@ -677,14 +819,6 @@ je_tutorial_enact_institution_law = {
 		}
 	}
 
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_enact_institution_law_complete
-				journal_entry = je:je_tutorial_enact_institution_law
-			}
-		}
-	}
 
 	weight = 1022
 	transferable = yes
@@ -707,22 +841,33 @@ je_tutorial_invest_into_an_institution = {
 
 	goal_add_value = 1
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			# owner = {
+			# 	start_tutorial_lesson = {
+			# 		tutorial_lesson = lesson_invest_into_an_institution_complete
+			# 		journal_entry = je:je_tutorial_invest_into_an_institution
+			# 	}
+			# }
+		}
 	}
 
-	invalid = {
-		NOT = { has_institution = scope:journal_entry.target.type }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = { has_institution = scope:journal_entry.target.type }
+		}
+		effect = {}
 	}
 
-	on_complete = {
-		# owner = {
-		# 	start_tutorial_lesson = {
-		# 		tutorial_lesson = lesson_invest_into_an_institution_complete
-		# 		journal_entry = je:je_tutorial_invest_into_an_institution
-		# 	}
-		# }
-	}
 
 	weight = 1023
 	transferable = yes
@@ -736,20 +881,26 @@ je_tutorial_reform_government = {
 
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
 
-	complete = {
-		government_legitimacy >= 60
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			government_legitimacy >= 60
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_reform_government_complete
+					journal_entry = je:je_tutorial_reform_government
+				}
+			}
+		}
 	}
 
 	current_value = legitimacy
 
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_reform_government_complete
-				journal_entry = je:je_tutorial_reform_government
-			}
-		}
-	}
 
 	weight = 1024
 	transferable = yes
@@ -766,8 +917,22 @@ je_tutorial_increase_relations = {
 
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_increase_relations_complete
+					journal_entry = je:je_tutorial_increase_relations
+				}
+			}
+		}
 	}
 
 	current_value = {
@@ -821,22 +986,18 @@ je_tutorial_increase_relations = {
 	 	}
 	}
 
-	invalid = {
-		NOT = { exists = scope:target }
-	}
-
-	on_invalid = {
-		remove_active_objective_subgoal = sg_increase_relations
-	}
-
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_increase_relations_complete
-				journal_entry = je:je_tutorial_increase_relations
-			}
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = { exists = scope:target }
+		}
+		effect = {
+			remove_active_objective_subgoal = sg_increase_relations
 		}
 	}
+
+
 
 	weight = 1026
 	transferable = yes
@@ -899,51 +1060,60 @@ je_tutorial_improve_rank = {
 		}
 	}
 
-	complete = {
-		OR = {
-			scope:journal_entry = { is_goal_complete = yes }
-			trigger_if = {
-				limit = {
-					has_variable = tut_great_power
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = {
+				scope:journal_entry = { is_goal_complete = yes }
+				trigger_if = {
+					limit = {
+						has_variable = tut_great_power
+					}
+					global_country_ranking = 1
 				}
-				global_country_ranking = 1
-			}
-			trigger_else_if = {
-				limit = {
-					has_variable = tut_major_power
+				trigger_else_if = {
+					limit = {
+						has_variable = tut_major_power
+					}
+					country_rank = rank_value:great_power
 				}
-				country_rank = rank_value:great_power
-			}
-			trigger_else_if = {
-				limit = {
-					has_variable = tut_minor_power
+				trigger_else_if = {
+					limit = {
+						has_variable = tut_minor_power
+					}
+					country_rank = rank_value:major_power
 				}
-				country_rank = rank_value:major_power
-			}
-			trigger_else_if = {
-				limit = {
-					has_variable = tut_insignificant_power
+				trigger_else_if = {
+					limit = {
+						has_variable = tut_insignificant_power
+					}
+					country_rank = rank_value:minor_power
 				}
-				country_rank = rank_value:minor_power
-			}
-			trigger_else_if = {
-				limit = {
-					has_variable = tut_unrecognized_major_power
+				trigger_else_if = {
+					limit = {
+						has_variable = tut_unrecognized_major_power
+					}
+					country_rank > rank_value:unrecognized_major_power
 				}
-				country_rank > rank_value:unrecognized_major_power
-			}
-			trigger_else_if = {
-				limit = {
-					has_variable = tut_unrecognized_regional_power
+				trigger_else_if = {
+					limit = {
+						has_variable = tut_unrecognized_regional_power
+					}
+					country_rank >= rank_value:unrecognized_major_power
 				}
-				country_rank >= rank_value:unrecognized_major_power
-			}
-			trigger_else_if = {
-				limit = {
-					has_variable = tut_unrecognized_power
+				trigger_else_if = {
+					limit = {
+						has_variable = tut_unrecognized_power
+					}
+					country_rank >= rank_value:unrecognized_regional_power
 				}
-				country_rank >= rank_value:unrecognized_regional_power
 			}
+		}
+		effect = {
+			set_variable = tutorial_form_pb_end
 		}
 	}
 
@@ -957,9 +1127,6 @@ je_tutorial_improve_rank = {
 		min = 100
 	}
 
-	on_complete = {
-		set_variable = tutorial_form_pb_end
-	}
 
 	weight = 1028
 	transferable = yes
@@ -971,11 +1138,18 @@ je_tutorial_prevent_revolution = {
 
 	group = je_group_tutorial
 
-	complete = {
-		any_civil_war = {
-			is_civil_war_type = revolution
-			count = 0
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_civil_war = {
+				is_civil_war_type = revolution
+				count = 0
+			}
 		}
+		effect = {}
 	}
 
 	weight = 1030
@@ -988,8 +1162,15 @@ je_tutorial_earn_obligation = {
 
 	group = je_group_tutorial
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {}
 	}
 
 	current_value = {
@@ -1014,11 +1195,25 @@ je_tutorial_expand_military = {
 
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
 
-	complete = {
-		scope:journal_entry = {
-			is_goal_complete = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = {
+				is_goal_complete = yes
+			}
+			has_healthy_economy = yes
 		}
-		has_healthy_economy = yes
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_expand_military_complete
+					journal_entry = je:je_tutorial_expand_military
+				}
+			}
+		}
 	}
 
 	current_value = {
@@ -1035,14 +1230,6 @@ je_tutorial_expand_military = {
 		round = yes
 	}
 
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_expand_military_complete
-				journal_entry = je:je_tutorial_expand_military
-			}
-		}
-	}
 
 	weight = 1044
 	transferable = yes
@@ -1068,16 +1255,23 @@ je_tutorial_recruit_promote_commander = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = "je_tutorial_recruit_promote_commander_complete_trigger"
-			exists = scope:journal_entry.var:tut_commander_target
-			scope:journal_entry = {
-				var:tut_commander_target = {
-					prev.var:tut_commander_target_initial_rank < commander_rank
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = "je_tutorial_recruit_promote_commander_complete_trigger"
+				exists = scope:journal_entry.var:tut_commander_target
+				scope:journal_entry = {
+					var:tut_commander_target = {
+						prev.var:tut_commander_target_initial_rank < commander_rank
+					}
 				}
 			}
 		}
+		effect = {}
 	}
 
 	weight = 1046
@@ -1092,11 +1286,18 @@ je_tutorial_mobilize_army = {
 
 	group = je_group_tutorial
 
-	complete = {
-		any_military_formation = {
-			is_army = yes
-			is_fully_mobilized = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_military_formation = {
+				is_army = yes
+				is_fully_mobilized = yes
+			}
 		}
+		effect = {}
 	}
 
 	weight = 1048
@@ -1110,10 +1311,17 @@ je_tutorial_send_general_to_front = {
 
 	group = je_group_tutorial
 
-	complete = {
-		scope:target = {
-			is_on_front = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:target = {
+				is_on_front = yes
+			}
 		}
+		effect = {}
 	}
 
 	weight = 1050
@@ -1128,30 +1336,41 @@ je_tutorial_convoy_raiding = {
 
 	group = je_group_tutorial
 
-	complete = {
-		scope:target = {
-			has_commander_order = defend
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:target = {
+				has_commander_order = defend
+			}
 		}
+		effect = {}
 	}
 
-	invalid = {
-		custom_tooltip = {
-			text = je_tutorial_convoy_raiding_invalid_tooltip
-			OR = {
-				NOT = { exists = scope:target }
-				NOT = { scope:target.owner = root }
-				NOT = {
-					scope:target = {
-						has_role_of_type = general
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_convoy_raiding_invalid_tooltip
+				OR = {
+					NOT = { exists = scope:target }
+					NOT = { scope:target.owner = root }
+					NOT = {
+						scope:target = {
+							has_role_of_type = general
+						}
 					}
 				}
 			}
 		}
+		effect = {
+			remove_active_objective_subgoal = sg_convoy_raiding
+		}
 	}
 
-	on_invalid = {
-		remove_active_objective_subgoal = sg_convoy_raiding
-	}
 
 	weight = 1052
 	transferable = yes
@@ -1174,8 +1393,15 @@ je_tutorial_recover_from_default = {
 		}
 	}
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {}
 	}
 
 	current_value = {
@@ -1219,8 +1445,15 @@ je_tutorial_start_diplomatic_play = {
 
 	group = je_group_tutorial
 
-	complete = {
-		is_diplomatic_play_initiator = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			is_diplomatic_play_initiator = yes
+		}
+		effect = {}
 	}
 
 	weight = 1056
@@ -1234,16 +1467,23 @@ je_tutorial_is_play_target = {
 
 	group = je_group_tutorial
 
-	complete = { #needs triggers
-		any_diplomatic_play = {
-			save_temporary_scope_as = diplomatic_play
-			root = {
-				should_set_wargoal = {
-					value = no
-					target = scope:diplomatic_play
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = { #needs triggers
+			any_diplomatic_play = {
+				save_temporary_scope_as = diplomatic_play
+				root = {
+					should_set_wargoal = {
+						value = no
+						target = scope:diplomatic_play
+					}
 				}
 			}
 		}
+		effect = {}
 	}
 
 	weight = 1058
@@ -1276,8 +1516,22 @@ je_tutorial_capacity_deficit = {
 		}
 	}
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_fix_capacity_deficit_complete
+					journal_entry = je:je_tutorial_capacity_deficit
+				}
+			}
+		}
 	}
 
 	current_value = {
@@ -1359,14 +1613,6 @@ je_tutorial_capacity_deficit = {
 		}
 	}
 
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_fix_capacity_deficit_complete
-				journal_entry = je:je_tutorial_capacity_deficit
-			}
-		}
-	}
 
 	weight = 1056
 	transferable = yes
@@ -1386,8 +1632,22 @@ je_tutorial_incorporate_state = {
 
 	goal_add_value = 1
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_incorporate_state_complete
+					journal_entry = je:je_tutorial_incorporate_state
+				}
+			}
+		}
 	}
 
 	status_desc = {
@@ -1412,14 +1672,6 @@ je_tutorial_incorporate_state = {
 		}
 	}
 
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_incorporate_state_complete
-				journal_entry = je:je_tutorial_incorporate_state
-			}
-		}
-	}
 
 	weight = 1064
 	transferable = yes
@@ -1462,8 +1714,22 @@ je_tutorial_declare_an_interest = {
 		has_interest_marker_in_region = scope:target.capital.region
 	}
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {
+			owner = {
+				start_tutorial_lesson = {
+					tutorial_lesson = lesson_declare_interest_complete
+					journal_entry = je:je_tutorial_declare_an_interest
+				}
+			}
+		}
 	}
 
 	current_value = {
@@ -1474,16 +1740,13 @@ je_tutorial_declare_an_interest = {
 		value = 12
 	}
 
-	on_complete = {
-		owner = {
-			start_tutorial_lesson = {
-				tutorial_lesson = lesson_declare_interest_complete
-				journal_entry = je:je_tutorial_declare_an_interest
-			}
-		}
-	}
 
-	invalid = { scope:target ?= { is_country_alive = no } }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = { scope:target ?= { is_country_alive = no } }
+		effect = {}
+	}
 
 	weight = 1066
 	transferable = yes
@@ -1516,14 +1779,21 @@ je_tutorial_colonize_state = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = "je_tutorial_colonize_state_grow_a_colony"
-			any_scope_state = {
-				is_split_state = no
-				has_variable = tut_colony_target
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = "je_tutorial_colonize_state_grow_a_colony"
+				any_scope_state = {
+					is_split_state = no
+					has_variable = tut_colony_target
+				}
 			}
 		}
+		effect = {}
 	}
 
 	weight = 1068
@@ -1537,8 +1807,15 @@ je_tutorial_make_peace = {
 
 	group = je_group_tutorial
 
-	complete = {
-		is_at_war = no
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			is_at_war = no
+		}
+		effect = {}
 	}
 
 	weight = 1068
@@ -1552,12 +1829,19 @@ je_tutorial_research_technology = {
 
 	group = je_group_tutorial
 
-	complete = {
-		custom_tooltip = {
-			text = je_tutorial_research_technology_complete_trigger
-			has_variable = tut_began_new_research
-			NOT = { exists = technology_being_researched }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_research_technology_complete_trigger
+				has_variable = tut_began_new_research
+				NOT = { exists = technology_being_researched }
+			}
 		}
+		effect = {}
 	}
 
 	is_progressing = {
@@ -1592,12 +1876,20 @@ je_tutorial_create_formation = {
 
 	group = je_group_tutorial
 
-	complete = {
-		custom_tooltip = {
-			text = je_tutorial_create_formation_complete_trigger
-			NOT = {
-				has_variable = formation_tutorial_ongoing
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_tutorial_create_formation_complete_trigger
+				NOT = {
+					has_variable = formation_tutorial_ongoing
+				}
 			}
+		}
+		effect = {
 		}
 	}
 
@@ -1607,8 +1899,6 @@ je_tutorial_create_formation = {
 	goal_add_value = {
 	}
 
-	on_complete = {
-	}
 
 	weight = 1002
 	transferable = yes
@@ -1624,10 +1914,17 @@ je_subject_liberty = {
 
 	group = je_group_tutorial
 
-	complete = {
-		scope:target = {
-			liberty_desire < 50
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:target = {
+				liberty_desire < 50
+			}
 		}
+		effect = {}
 	}
 
 	weight = 1002
@@ -1643,22 +1940,33 @@ je_tutorial_foreign_investment = {
 
 	group = je_group_tutorial
 
-	complete = {
-		scope:target = {
-			gdp_ownership_ratio = {
-				target = ROOT
-				value >= 0.2
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:target = {
+				gdp_ownership_ratio = {
+					target = ROOT
+					value >= 0.2
+				}
 			}
+		}
+		effect = {}
+	}
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = { exists = scope:target }
+		}
+		effect = {
+			remove_active_objective_subgoal = sg_foreign_investment
 		}
 	}
 
-	invalid = {
-		NOT = { exists = scope:target }
-	}
-
-	on_invalid = {
-		remove_active_objective_subgoal = sg_foreign_investment
-	}
 
 
 	weight = 1002
@@ -1674,8 +1982,16 @@ je_tutorial_establish_company = {
 
 	group = je_group_tutorial
 
-	complete = {
-		NOT = { can_establish_company = YES }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			NOT = { can_establish_company = YES }
+		}
+		effect = {
+		}
 	}
 
 	current_value = {
@@ -1684,8 +2000,6 @@ je_tutorial_establish_company = {
 	goal_add_value = {
 	}
 
-	on_complete = {
-	}
 
 	weight = 1002
 	transferable = yes
@@ -1701,8 +2015,16 @@ je_tutorial_form_power_bloc = {
 
 	group = je_group_tutorial
 
-	complete = {
-		is_power_bloc_leader = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			is_power_bloc_leader = yes
+		}
+		effect = {
+		}
 	}
 
 	current_value = {
@@ -1711,8 +2033,6 @@ je_tutorial_form_power_bloc = {
 	goal_add_value = {
 	}
 
-	on_complete = {
-	}
 
 	weight = 1002
 	transferable = yes
@@ -1727,15 +2047,26 @@ je_tutorial_lobbies = {
 
 	icon = "gfx/interface/icons/event_icons/tutorial_icon.dds"
 
-	complete = {
-		scope:journal_entry = { is_goal_complete = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			scope:journal_entry = { is_goal_complete = yes }
+		}
+		effect = {}
 	}
 
 	current_value = scope:target.appeasement
 
 	goal_add_value = 3
 
-	invalid = { NOT = { exists = scope:target } }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = { NOT = { exists = scope:target } }
+		effect = { remove_active_objective_subgoal = sg_foreign_investment }
+	}
 
-	on_invalid = { remove_active_objective_subgoal = sg_foreign_investment }
 }

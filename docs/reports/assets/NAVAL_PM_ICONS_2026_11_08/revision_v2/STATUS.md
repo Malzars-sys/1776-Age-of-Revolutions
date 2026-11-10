@@ -23,3 +23,7 @@ Les images corrigées n'ont donc pas pu être copiées dans le mod. Aucun DDS co
 `tools/export_naval_pm_icons_20261108.cjs` est prêt pour les trois maîtres corrigés. Il vérifie les tailles exactes, l'alpha et les dimensions 1254 × 1254, prépare trois DDS natifs 208 × 208 BGRA8 à huit mipmaps, puis peut installer le lot et ses seules références de PM avec `--install-approved`. Il refuse un master manquant ou remplacé par un fichier différent. Le registre des sources est complété sans réécrire ses anciennes entrées.
 
 Une copie manuelle des trois fichiers corrigés dans le sous-dossier `masters/` permet de reprendre sans génération supplémentaire. Le script reconnaît soit les noms courts du tableau, soit les noms français originaux. La conversion et l'intégration des trois DDS restent **non exécutées** tant que ces octets ne sont pas disponibles localement.
+
+## Reprise installée le 8 novembre 2026
+
+De nouveaux masters papier ont été générés dans `../../ARMED_MERCHANT_2026_11_08/`. Le joueur a validé le trio (« Oui, installe ces trois icônes ») ; ses trois DDS et références de PM sont installés. Les fichiers de bibliothèque R2 ci-dessus ne sont toujours pas matérialisés : il ne s’agit pas d’un export de ces anciens octets. Les preuves de cette reprise figurent dans `../../ARMED_MERCHANT_2026_11_08/PM_INSTALLED.json` et le rapport naval `docs/reports/naval/ARMED_MERCHANT_REWORK_2026_11_08/REPORT.md`. Le rendu moteur reste à vérifier.

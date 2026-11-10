@@ -1,0 +1,84 @@
+# ECON-PAPER-1776 and player-requested forestry/livestock additions, 2026-10-17.
+# Five relocated logging levels offset 4.5 infrastructure used by Brandenburg paper.
+BUILDINGS = {
+	s:STATE_AUSTRIA = {
+		region_state:AUS = {
+			create_building = {
+				building = "building_paper_mill"
+				add_ownership = { building = { type = "building_financial_district" country = "c:AUS" levels = 4 region = "STATE_AUSTRIA" } }
+				reserves = 1
+				activate_production_methods = { "pm_pulp_pressing" "pm_automation_disabled" "pm_1776_no_raw_data_reporting" }
+			}
+		}
+	}
+	s:STATE_BRANDENBURG = {
+		region_state:PRU = {
+			create_building = {
+				building = "building_paper_mill"
+				add_ownership = { building = { type = "building_financial_district" country = "c:PRU" levels = 3 region = "STATE_BRANDENBURG" } }
+				reserves = 1
+				activate_production_methods = { "pm_pulp_pressing" "pm_automation_disabled" "pm_1776_no_raw_data_reporting" }
+			}
+		}
+	}
+	s:STATE_SAXONY = {
+		region_state:SAX = {
+			create_building = {
+				building = "building_paper_mill"
+				add_ownership = { building = { type = "building_financial_district" country = "c:SAX" levels = 2 region = "STATE_SAXONY" } }
+				reserves = 1
+				activate_production_methods = { "pm_pulp_pressing" "pm_automation_disabled" "pm_1776_no_raw_data_reporting" }
+			}
+		}
+	}
+	s:STATE_LOWER_SILESIA = {
+		region_state:PRU = {
+			create_building = {
+				building = "building_paper_mill"
+				add_ownership = { building = { type = "building_financial_district" country = "c:PRU" levels = 1 region = "STATE_LOWER_SILESIA" } }
+				reserves = 1
+				activate_production_methods = { "pm_pulp_pressing" "pm_automation_disabled" "pm_1776_no_raw_data_reporting" }
+			}
+		}
+	}
+	s:STATE_SAXONY = {
+		region_state:SAX = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = { building = { type = "building_financial_district" country = "c:SAX" levels = 2 region = "STATE_SAXONY" } }
+				reserves = 1
+				activate_production_methods = { "pm_organized_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" }
+			}
+		}
+	}
+	s:STATE_LOWER_SILESIA = {
+		region_state:PRU = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = { country = { country = "c:PRU" levels = 3 } }
+				reserves = 1
+				activate_production_methods = { "pm_organized_forestry" "pm_no_hardwood" "pm_no_equipment" "pm_road_carts" }
+			}
+		}
+	}
+	s:STATE_UPPER_SILESIA = {
+		region_state:PRU = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = { country = { country = "c:PRU" levels = 2 } }
+				reserves = 1
+				activate_production_methods = { "pm_organized_forestry" "pm_hardwood" "pm_no_equipment" "pm_road_carts" }
+			}
+		}
+	}
+	s:STATE_BAVARIA = {
+		region_state:BAV = {
+			create_building = {
+				building = "building_livestock_ranch"
+				add_ownership = { building = { type = "building_manor_house" country = "c:BAV" levels = 5 region = "STATE_BAVARIA" } }
+				reserves = 1
+				activate_production_methods = { "pm_open_air_stockyards" "pm_simple_ranch" "pm_standard_fences" "pm_unrefrigerated" }
+			}
+		}
+	}
+}

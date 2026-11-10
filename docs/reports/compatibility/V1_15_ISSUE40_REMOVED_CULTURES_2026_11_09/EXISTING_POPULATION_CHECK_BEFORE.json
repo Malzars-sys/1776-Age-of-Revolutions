@@ -1,0 +1,58 @@
+{
+  "tool": "tools/population_1776_baseline.py: rows() only; main() never called",
+  "status": "PRE_EXISTING_READER_FAILURE",
+  "error_type": "ValueError",
+  "error": "invalid literal for int() with base 10: ''",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\population_1776_baseline.py\", line 22, in rows\n    total = sum(int(parser.scalar(pop.text, \"size\")) for pop in pops)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\tools\\population_1776_baseline.py\", line 22, in <genexpr>\n    total = sum(int(parser.scalar(pop.text, \"size\")) for pop in pops)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: ''\n",
+  "unreadable_examples": [
+    {
+      "file": "00_west_europe.txt",
+      "state": "s:STATE_AUSTRIA",
+      "owner": "region_state:PAS",
+      "text": "\t\t\tcreate_pop = { culture = south_german size = 1400 }"
+    },
+    {
+      "file": "00_west_europe.txt",
+      "state": "s:STATE_AUSTRIA",
+      "owner": "region_state:BAV",
+      "text": "\t\t\tcreate_pop = { culture = south_german size = 106900 }"
+    },
+    {
+      "file": "00_west_europe.txt",
+      "state": "s:STATE_TYROL",
+      "owner": "region_state:BGT",
+      "text": "\t\t\tcreate_pop = { culture = south_german size = 1000 }"
+    },
+    {
+      "file": "00_west_europe.txt",
+      "state": "s:STATE_SOUTH_TYROL",
+      "owner": "region_state:TRT",
+      "text": "\t\t\tcreate_pop = { culture = north_italian size = 9000 }"
+    },
+    {
+      "file": "00_west_europe.txt",
+      "state": "s:STATE_SOUTH_TYROL",
+      "owner": "region_state:BRX",
+      "text": "\t\t\tcreate_pop = { culture = south_german size = 3000 }"
+    },
+    {
+      "file": "00_west_europe.txt",
+      "state": "s:STATE_BAVARIA",
+      "owner": "region_state:SLZ",
+      "text": "\t\t\tcreate_pop = { culture = south_german size = 16000 }"
+    },
+    {
+      "file": "00_west_europe.txt",
+      "state": "s:STATE_BAVARIA",
+      "owner": "region_state:ORT",
+      "text": "\t\t\tcreate_pop = { culture = south_german religion = protestant size = 1000 }"
+    },
+    {
+      "file": "01_south_europe.txt",
+      "state": "s:STATE_LOMBARDY",
+      "owner": "region_state:SWI",
+      "text": "\t\t\tcreate_pop = { culture = north_italian size = 4999 }"
+    }
+  ],
+  "unreadable_count": 108
+}

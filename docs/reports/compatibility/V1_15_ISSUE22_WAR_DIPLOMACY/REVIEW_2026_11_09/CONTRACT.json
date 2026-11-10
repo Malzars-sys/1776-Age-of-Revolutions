@@ -1,0 +1,391 @@
+{
+  "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+  "native_root": "C:\\Games\\Victoria 3\\game",
+  "files": {
+    "common/ideologies/01_character_ideologies.txt": {
+      "before_sha256": "05e239363ba0ef123e493163e91509e28363d640517b0cc96b404c573af6297a",
+      "installed_sha256": "1943f3eed19785019f8eeae15ebe0adb2ef31c5da4ef1c7b9b6792293bd14679",
+      "native_sha256": "e11c0062b3a634e91ad177480c08e84b16aaa974519b17db575420d20f445c09",
+      "bom_preserved": true,
+      "sites": [
+        {
+          "root": "ideology_pacifist",
+          "command": "has_war_support",
+          "occurrence": 0,
+          "operator": "<",
+          "target": "root.owner",
+          "old_value": "0",
+          "expected_value": "50",
+          "mod_line": 2633,
+          "native_line": 2768,
+          "native_occurrence": 0,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "root.owner"
+            ],
+            [
+              "value",
+              "<",
+              "50"
+            ]
+          ]
+        },
+        {
+          "root": "ideology_pacifist",
+          "command": "has_war_support",
+          "occurrence": 1,
+          "operator": "<",
+          "target": "root.owner",
+          "old_value": "0",
+          "expected_value": "50",
+          "mod_line": 2754,
+          "native_line": 2894,
+          "native_occurrence": 1,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "root.owner"
+            ],
+            [
+              "value",
+              "<",
+              "50"
+            ]
+          ]
+        }
+      ]
+    },
+    "common/scripted_effects/00_victoria_scripted_effects.txt": {
+      "before_sha256": "cdb836045c615aec9c991ededf703a803b19e012a545b8de8b54928a74f945ee",
+      "installed_sha256": "e78e370d272f69a1f538fc7caa21ef063393ad768028d3037ab8a6548d73e04b",
+      "native_sha256": "1733134e7db17772c8b1205c217aff73a1ee41a19dd266357c270bf27dbdd751",
+      "bom_preserved": true,
+      "sites": [
+        {
+          "root": "calculate_national_identity_progress",
+          "command": "has_war_support",
+          "occurrence": 0,
+          "operator": ">",
+          "target": "root",
+          "old_value": "50",
+          "expected_value": "80",
+          "mod_line": 2974,
+          "native_line": 2764,
+          "native_occurrence": 0,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "root"
+            ],
+            [
+              "value",
+              ">",
+              "80"
+            ]
+          ]
+        },
+        {
+          "root": "calculate_national_identity_progress",
+          "command": "has_war_support",
+          "occurrence": 1,
+          "operator": "<=",
+          "target": "root",
+          "old_value": "50",
+          "expected_value": "80",
+          "mod_line": 2982,
+          "native_line": 2772,
+          "native_occurrence": 1,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "root"
+            ],
+            [
+              "value",
+              "<=",
+              "80"
+            ]
+          ]
+        },
+        {
+          "root": "calculate_national_identity_progress",
+          "command": "has_war_support",
+          "occurrence": 2,
+          "operator": ">",
+          "target": "root",
+          "old_value": "25",
+          "expected_value": "65",
+          "mod_line": 2983,
+          "native_line": 2773,
+          "native_occurrence": 2,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "root"
+            ],
+            [
+              "value",
+              ">",
+              "65"
+            ]
+          ]
+        },
+        {
+          "root": "calculate_national_identity_progress",
+          "command": "has_war_support",
+          "occurrence": 3,
+          "operator": "<=",
+          "target": "root",
+          "old_value": "25",
+          "expected_value": "65",
+          "mod_line": 2991,
+          "native_line": 2781,
+          "native_occurrence": 3,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "root"
+            ],
+            [
+              "value",
+              "<=",
+              "65"
+            ]
+          ]
+        },
+        {
+          "root": "calculate_national_identity_progress",
+          "command": "has_war_support",
+          "occurrence": 4,
+          "operator": ">",
+          "target": "root",
+          "old_value": "0",
+          "expected_value": "50",
+          "mod_line": 2992,
+          "native_line": 2782,
+          "native_occurrence": 4,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "root"
+            ],
+            [
+              "value",
+              ">",
+              "50"
+            ]
+          ]
+        }
+      ]
+    },
+    "events/election_events/election_contextual_events.txt": {
+      "before_sha256": "ec0f438c8280038b86274f5cda5dbd2092223f8b2cf7f4cde437add8b3ca1757",
+      "installed_sha256": "a4663f15fb561d84830b3a719a07a4e30c359a597dc54b238adc57b479e1e13d",
+      "native_sha256": "cae6474a31ea3e1a5c5c922594350a209f0930e33b1bef90d356489df84011cd",
+      "bom_preserved": true,
+      "sites": [
+        {
+          "root": "election_contextual_events.7",
+          "command": "has_war_support",
+          "occurrence": 0,
+          "operator": ">",
+          "target": "ROOT",
+          "old_value": "70",
+          "expected_value": "85",
+          "mod_line": 735,
+          "native_line": 842,
+          "native_occurrence": 0,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "ROOT"
+            ],
+            [
+              "value",
+              ">",
+              "85"
+            ]
+          ]
+        },
+        {
+          "root": "election_contextual_events.7",
+          "command": "has_war_support",
+          "occurrence": 1,
+          "operator": ">",
+          "target": "ROOT",
+          "old_value": "70",
+          "expected_value": "85",
+          "mod_line": 749,
+          "native_line": 856,
+          "native_occurrence": 1,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "ROOT"
+            ],
+            [
+              "value",
+              ">",
+              "85"
+            ]
+          ]
+        }
+      ]
+    },
+    "events/tech_events/aviation.txt": {
+      "before_sha256": "a19c7ab3851b53d3918462008c41d41ba1c128b4789cac16fde9ef4727f58652",
+      "installed_sha256": "e5a2b9b9720dd2bbcc0d9eac8e69c47b3292b144a05ce4e927c623298281b195",
+      "native_sha256": "627aef91721fc3d71368fe2de1ae668d083f86ca2c9705cbb21043609802cc44",
+      "bom_preserved": true,
+      "sites": [
+        {
+          "root": "aviation.1",
+          "command": "add_war_war_support",
+          "occurrence": 0,
+          "operator": "=",
+          "target": "scope:flying_circus_home",
+          "old_value": "10",
+          "expected_value": "5",
+          "mod_line": 82,
+          "native_line": 84,
+          "native_occurrence": 0,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "scope:flying_circus_home"
+            ],
+            [
+              "value",
+              "=",
+              "5"
+            ]
+          ]
+        }
+      ]
+    },
+    "events/technology_events.txt": {
+      "before_sha256": "6df8fac27c542f13879ac8627400db441de789609c202a1f9568f899e6898b94",
+      "installed_sha256": "f13b62cf993700bec3e73de075fa3e2907eac436e18fdd41748c1dc4aebb24ed",
+      "native_sha256": "160e37c81fb8594e0d8747c907f1443b32a67ca4e6f984851640a2781e20961c",
+      "bom_preserved": true,
+      "sites": [
+        {
+          "root": "technology_events.30",
+          "command": "add_war_war_support",
+          "occurrence": 0,
+          "operator": "=",
+          "target": "ROOT",
+          "old_value": "-10",
+          "expected_value": "-5",
+          "mod_line": 282,
+          "native_line": 302,
+          "native_occurrence": 0,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "ROOT"
+            ],
+            [
+              "value",
+              "=",
+              "-5"
+            ]
+          ]
+        }
+      ]
+    },
+    "events/heavenly_kingdom_events.txt": {
+      "before_sha256": "72f58b0f7a8b1437ba13da50ae427a9b47b81a3fde76d4f2ba14056284d3348e",
+      "installed_sha256": "f4f8d800af64a9ee4faa623323244db683018679a84aafa8e08e9a53f75cbb6e",
+      "native_sha256": "cf6fdce76317958ea2f129a5bda2959a187e5e6905b38d2bd1b809f61bae86c0",
+      "bom_preserved": true,
+      "sites": [
+        {
+          "root": "heavenly.4",
+          "command": "add_diplomatic_play_war_support",
+          "occurrence": 0,
+          "operator": "=",
+          "target": "c:TPG",
+          "old_value": "100",
+          "expected_value": "50",
+          "mod_line": 550,
+          "native_line": 534,
+          "native_occurrence": 0,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "c:TPG"
+            ],
+            [
+              "value",
+              "=",
+              "50"
+            ]
+          ]
+        },
+        {
+          "root": "heavenly.4",
+          "command": "add_diplomatic_play_war_support",
+          "occurrence": 1,
+          "operator": "=",
+          "target": "c:TPG",
+          "old_value": "100",
+          "expected_value": "50",
+          "mod_line": 609,
+          "native_line": 534,
+          "native_occurrence": 0,
+          "native_payload": [
+            [
+              "target",
+              "=",
+              "c:TPG"
+            ],
+            [
+              "value",
+              "=",
+              "50"
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "site_count": 13,
+  "engine_tested": false,
+  "restored_plays": {
+    "file": "common/diplomatic_plays/zz_1776_v115_restored_war_plays.txt",
+    "native_file": "common/diplomatic_plays/00_diplomatic_plays.txt",
+    "native_sha256": "cca1f2689fd70a7cc4d076a9bad3b68b9feb566038a878fa91e3513b003c9b9b",
+    "installed_sha256": "76a314fe4c576f5caaa86aeb428fcf76f19c3f4efebf069b901d24ddc9510643",
+    "keys": [
+      "dp_polish_uprising",
+      "dp_release_as_subject",
+      "dp_return_state_to_subject",
+      "dp_unify_russia"
+    ],
+    "dependencies_inherited": [
+      "common/scripted_triggers/00_scripted_triggers.txt",
+      "common/scripted_triggers/00_diplomacy_triggers.txt"
+    ],
+    "note": "Exact native objects, no edits to the old same-path file, starting wars or Russian annexation infamy exception."
+  },
+  "inherited_legacy_reference": {
+    "file": "common/script_values/war_exhaustion_values.txt",
+    "sha256": "f25fc45c9a7328f6aaefa688ed4468e066bd1074b64d064d6f39b969c29c348e",
+    "status": "UPSTREAM_RESIDUE_UNCHANGED_RUNTIME_UNDETERMINED",
+    "notes": "Only remaining effective removed-command references are inside this inherited native file. Exact war_exhaustion identifier has no other occurrence in searched mod/native common/events .txt scripts; engine-internal consumption is not inferred. No vanilla edits or suppression."
+  }
+}

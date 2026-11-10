@@ -85,158 +85,176 @@
 		}
 	}
 
-    complete = {
-		custom_tooltip = {
-			text = je_tibet_expedition_success_tt
-			OR = {
-				AND = {
-					has_variable = tibet_has_concluded
-					scope:journal_entry = {
-						is_goal_complete = yes
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_tibet_expedition_success_tt
+				OR = {
+					AND = {
+						has_variable = tibet_has_concluded
+						scope:journal_entry = {
+							is_goal_complete = yes
+						}
+					}
+					c:TIB ?= {
+						is_direct_subject_of = ROOT
 					}
 				}
-				c:TIB ?= {
-					is_direct_subject_of = ROOT
+			}
+	    }
+		effect = {
+			custom_tooltip = {
+				text = je_tibet_expedition_success_event_tt
+			}
+			random_scope_character = {
+				limit = {
+					has_variable = expedition_leader_var
 				}
+				remove_variable = expedition_leader_var
+				set_character_busy_and_immortal = no
 			}
-		}
-    }
+			remove_variable = on_expedition
+			remove_variable = tibet_expedition_var
+			remove_variable = tibet_has_started
+			remove_variable = lhasa_approached
+			remove_variable = entered_into_tibet
+			remove_variable = tibet_has_concluded
+			remove_modifier = modifier_large_expedition_cost
+			set_global_variable = tibet_expedition_completed
+			remove_variable = tibet_expedition_progress_var
 
-	on_complete = {
-		custom_tooltip = {
-			text = je_tibet_expedition_success_event_tt
-		}
-		random_scope_character = {
-			limit = {
-				has_variable = expedition_leader_var
+			if = {
+				limit = {
+					has_journal_entry = je_great_game_control
+					c:GBR ?= this
+				}
+				great_game_britain_progress_10 = yes
 			}
-			remove_variable = expedition_leader_var
-			set_character_busy_and_immortal = no
-		}
-		remove_variable = on_expedition
-		remove_variable = tibet_expedition_var
-		remove_variable = tibet_has_started
-		remove_variable = lhasa_approached
-		remove_variable = entered_into_tibet
-		remove_variable = tibet_has_concluded
-		remove_modifier = modifier_large_expedition_cost
-		set_global_variable = tibet_expedition_completed
-		remove_variable = tibet_expedition_progress_var
-
-		if = {
-			limit = {
-				has_journal_entry = je_great_game_control
-				c:GBR ?= this
+			if = {
+				limit = {
+					has_journal_entry = je_great_game_control
+					c:RUS ?= this
+				}
+				great_game_russia_progress_10 = yes
 			}
-			great_game_britain_progress_10 = yes
 		}
-		if = {
-			limit = {
-				has_journal_entry = je_great_game_control
-				c:RUS ?= this
-			}
-			great_game_russia_progress_10 = yes
-		}
+		event_outcome_desc = {
+			first_valid = {
+	            triggered_desc = {
+	                trigger = {
+	                    is_country_type = unrecognized
+	                }
+	                desc = event_effects_tibet_expedition_events.27_unrecognised_tt
+	            }
+	            triggered_desc = {
+	                trigger = {
+						OR = {
+							is_country_type = recognized
+							is_country_type = colonial
+						}
+	                }
+	                desc = event_effects_tibet_expedition_events.27_recognised_tt
+	            }
+	        }
+	    }
 	}
 
-    event_outcome_completed_desc = {
-		first_valid = {
-            triggered_desc = {
-                trigger = {
-                    is_country_type = unrecognized
-                }
-                desc = event_effects_tibet_expedition_events.27_unrecognised_tt
-            }
-            triggered_desc = {
-                trigger = {
-					OR = {
-						is_country_type = recognized
-						is_country_type = colonial
-					}
-                }
-                desc = event_effects_tibet_expedition_events.27_recognised_tt
-            }
-        }
-    }
+
 
 	timeout = 1825 # five years
 
-	on_timeout = {
-		remove_variable = tibet_expedition_progress_var
-		remove_variable = on_expedition
-		remove_variable = tibet_expedition_var
-		remove_variable = tibet_has_started
-		remove_variable = lhasa_approached
-		remove_variable = entered_into_tibet
-		remove_variable = tibet_has_concluded # strange if this happened but just in case
-		remove_modifier = modifier_large_expedition_cost
-		random_scope_character = {
-			limit = {
-				has_variable = expedition_leader_var
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			remove_variable = tibet_expedition_progress_var
+			remove_variable = on_expedition
+			remove_variable = tibet_expedition_var
+			remove_variable = tibet_has_started
+			remove_variable = lhasa_approached
+			remove_variable = entered_into_tibet
+			remove_variable = tibet_has_concluded # strange if this happened but just in case
+			remove_modifier = modifier_large_expedition_cost
+			random_scope_character = {
+				limit = {
+					has_variable = expedition_leader_var
+				}
+				remove_variable = expedition_leader_var
+				set_character_busy_and_immortal = no
 			}
-			remove_variable = expedition_leader_var
-			set_character_busy_and_immortal = no
-		}
-		if = {
-			limit = {
-				has_variable = received_subjugation_refusal_var
+			if = {
+				limit = {
+					has_variable = received_subjugation_refusal_var
+				}
+				remove_variable = received_subjugation_refusal_var
 			}
-			remove_variable = received_subjugation_refusal_var
-		}
-		add_modifier = {
-			name = tibetan_fiasco
-			days = normal_modifier_time
+			add_modifier = {
+				name = tibetan_fiasco
+				days = normal_modifier_time
+			}
 		}
 	}
 
-    fail = {
-		custom_tooltip = {
-			text = je_tibet_expedition_failure_tt
-			OR = {
-				has_global_variable = tibet_expedition_completed
-				NOT = { exists = c:TIB }
-				NOT = {
-					any_scope_character = {
-						has_variable = expedition_leader_var
+    outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_tibet_expedition_failure_tt
+				OR = {
+					has_global_variable = tibet_expedition_completed
+					NOT = { exists = c:TIB }
+					NOT = {
+						any_scope_character = {
+							has_variable = expedition_leader_var
+						}
 					}
-				}
-				trigger_if = {
-					limit = {
-						exists = c:TIB
+					trigger_if = {
+						limit = {
+							exists = c:TIB
+						}
+						has_war_with = c:TIB
 					}
-					has_war_with = c:TIB
+					has_variable = received_subjugation_refusal_var
 				}
-				has_variable = received_subjugation_refusal_var
 			}
-		}
-    }
-
-	on_fail = {
-		remove_variable = tibet_expedition_progress_var
-		remove_variable = on_expedition
-		remove_variable = tibet_expedition_var
-		remove_variable = tibet_has_started
-		remove_variable = lhasa_approached
-		remove_variable = entered_into_tibet
-		remove_variable = tibet_has_concluded # strange if this happened but just in case
-		remove_modifier = modifier_large_expedition_cost
-		random_scope_character = {
-			limit = {
-				has_variable = expedition_leader_var
+	    }
+		effect = {
+			remove_variable = tibet_expedition_progress_var
+			remove_variable = on_expedition
+			remove_variable = tibet_expedition_var
+			remove_variable = tibet_has_started
+			remove_variable = lhasa_approached
+			remove_variable = entered_into_tibet
+			remove_variable = tibet_has_concluded # strange if this happened but just in case
+			remove_modifier = modifier_large_expedition_cost
+			random_scope_character = {
+				limit = {
+					has_variable = expedition_leader_var
+				}
+				remove_variable = expedition_leader_var
 			}
-			remove_variable = expedition_leader_var
-		}
-		if = {
-			limit = {
-				has_variable = received_subjugation_refusal_var
+			if = {
+				limit = {
+					has_variable = received_subjugation_refusal_var
+				}
+				remove_variable = received_subjugation_refusal_var
 			}
-			remove_variable = received_subjugation_refusal_var
-		}
-		add_modifier = {
-			name = tibetan_fiasco
-			days = normal_modifier_time
+			add_modifier = {
+				name = tibetan_fiasco
+				days = normal_modifier_time
+			}
 		}
 	}
+
 
 	current_value = {
 		if = {

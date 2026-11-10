@@ -22,57 +22,63 @@
 		has_technology_researched = railways
 	}
 
-	complete = {
-		any_scope_state = {
-			filter = {
-				OR = {
-					state_region = s:STATE_MOSCOW
-					state_region = s:STATE_YAROSLAVL
-					state_region = s:STATE_NIZHNY_NOVGOROD
-					state_region = s:STATE_CHUVASHIA
-					state_region = s:STATE_KAZAN
-					state_region = s:STATE_UFA
-					state_region = s:STATE_CHELYABINSK
-					state_region = s:STATE_URAL
-					state_region = s:STATE_TOBOLSK
-					state_region = s:STATE_TOMSK
-					state_region = s:STATE_KRASNOYARSK
-					state_region = s:STATE_IRKUTSK
-					state_region = s:STATE_BURYATIA
-					state_region = s:STATE_TRANS_BAIKAL
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_scope_state = {
+				filter = {
+					OR = {
+						state_region = s:STATE_MOSCOW
+						state_region = s:STATE_YAROSLAVL
+						state_region = s:STATE_NIZHNY_NOVGOROD
+						state_region = s:STATE_CHUVASHIA
+						state_region = s:STATE_KAZAN
+						state_region = s:STATE_UFA
+						state_region = s:STATE_CHELYABINSK
+						state_region = s:STATE_URAL
+						state_region = s:STATE_TOBOLSK
+						state_region = s:STATE_TOMSK
+						state_region = s:STATE_KRASNOYARSK
+						state_region = s:STATE_IRKUTSK
+						state_region = s:STATE_BURYATIA
+						state_region = s:STATE_TRANS_BAIKAL
+					}
+				}
+				state_has_active_rail_network = yes
+				percent = 1
+			}
+			OR = {
+				AND = {
+					any_scope_state = {
+						state_region = s:STATE_YAKUTSK
+						state_has_active_rail_network = yes
+					}
+					any_scope_state = {
+						state_region = s:STATE_OKHOTSK
+						state_has_active_rail_network = yes
+					}
+				}
+				AND = {
+					any_scope_state = {
+						state_region = s:STATE_AMUR
+						state_has_active_rail_network = yes
+					}
+					any_scope_state = {
+						state_region = s:STATE_OUTER_MANCHURIA
+						state_has_active_rail_network = yes
+					}
 				}
 			}
-			state_has_active_rail_network = yes
-			percent = 1
 		}
-		OR = {
-			AND = {
-				any_scope_state = {
-					state_region = s:STATE_YAKUTSK
-					state_has_active_rail_network = yes
-				}
-				any_scope_state = {
-					state_region = s:STATE_OKHOTSK
-					state_has_active_rail_network = yes
-				}
-			}
-			AND = {
-				any_scope_state = {
-					state_region = s:STATE_AMUR
-					state_has_active_rail_network = yes
-				}
-				any_scope_state = {
-					state_region = s:STATE_OUTER_MANCHURIA
-					state_has_active_rail_network = yes
-				}
-			}
+		effect = {
+			set_global_variable = trans_siberian_done
+			trigger_event = { id = major_railways.1 }
 		}
 	}
 
-	on_complete = {
-		set_global_variable = trans_siberian_done
-		trigger_event = { id = major_railways.1 }
-	}
 
 	weight = 50
 }
@@ -96,33 +102,39 @@ je_trans_continental_railway = {
 		owns_entire_state_region = STATE_CALIFORNIA
 	}
 
-	complete = {
-		any_scope_state = {
-			state_region = s:STATE_NEBRASKA
-			state_has_active_rail_network = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NEBRASKA
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_WYOMING
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_UTAH
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_NEVADA
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_CALIFORNIA
+				state_has_active_rail_network = yes
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_WYOMING
-			state_has_active_rail_network = yes
-		}
-		any_scope_state = {
-			state_region = s:STATE_UTAH
-			state_has_active_rail_network = yes
-		}
-		any_scope_state = {
-			state_region = s:STATE_NEVADA
-			state_has_active_rail_network = yes
-		}
-		any_scope_state = {
-			state_region = s:STATE_CALIFORNIA
-			state_has_active_rail_network = yes
+		effect = {
+			set_global_variable = trans_continental_done
+			trigger_event = { id = major_railways.2 }
 		}
 	}
 
-	on_complete = {
-		set_global_variable = trans_continental_done
-		trigger_event = { id = major_railways.2 }
-	}
 
 	weight = 50
 }
@@ -178,37 +190,43 @@ je_canada_pacific_railway = {
 		}
 	}
 
-	complete = {
-		any_scope_state = {
-			state_region = s:STATE_QUEBEC
-			state_has_active_rail_network = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_BRITISH_COLUMBIA
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_ONTARIO
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_ALBERTA
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_SASKATCHEWAN
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_MANITOBA
+				state_has_active_rail_network = yes
+			}
 		}
-		any_scope_state = {
-			state_region = s:STATE_BRITISH_COLUMBIA
-			state_has_active_rail_network = yes
-		}
-		any_scope_state = {
-			state_region = s:STATE_ONTARIO
-			state_has_active_rail_network = yes
-		}
-		any_scope_state = {
-			state_region = s:STATE_ALBERTA
-			state_has_active_rail_network = yes
-		}
-		any_scope_state = {
-			state_region = s:STATE_SASKATCHEWAN
-			state_has_active_rail_network = yes
-		}
-		any_scope_state = {
-			state_region = s:STATE_MANITOBA
-			state_has_active_rail_network = yes
+		effect = {
+			set_global_variable = canada_pacific_done
+			trigger_event = { id = major_railways.3 }
 		}
 	}
 
-	on_complete = {
-		set_global_variable = canada_pacific_done
-		trigger_event = { id = major_railways.3 }
-	}
 
 	weight = 50
 }

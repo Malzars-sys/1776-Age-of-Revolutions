@@ -1,0 +1,25 @@
+# SC2-INNER-AUSTRIA: minimal regional representation of Inner Austrian public administration.
+# One public level is a game-scale abstraction, not historical headcount.
+# Regional aggregate; distinct duchies and offices are not legally merged.
+BUILDINGS = {
+    s:STATE_STYRIA = {
+        region_state:AUS = {
+            create_building = {
+                building = "building_government_administration"
+                add_ownership = {
+                    country = {
+                        country = "c:AUS"
+                        levels = 1
+                    }
+                }
+                reserves = 1
+                activate_production_methods = {
+                    "pm_simple_organization"
+                    "pm_hereditary_bureaucrats"
+                    "pm_religious_bureaucrats"
+                    "pm_1776_no_organized_data_reporting"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,192 @@
+{
+  "files": [
+    {
+      "path": "events/zz_1776_v115_event46_marx.txt",
+      "ids": [
+        "marx_events.3",
+        "marx_events.4"
+      ],
+      "native_source": "events/karl_marx_events.txt",
+      "native_sha256": "10748b9fc4c8a0dd3392b72266135d2f80823f66e03ebe64a7822e3c06cd533d",
+      "sha256": "175d9481a1963b288e2f1777f413e6ad2ffbbfe12f02ca68bbb25d0263c74493",
+      "allowed_native_deviations": [
+        {
+          "object": "marx_events.3",
+          "field": "trigger",
+          "addition": "has_global_variable = big_communism_builder",
+          "reason": "Optional global scope would otherwise pass when absent; legacy mod does not establish the actor."
+        }
+      ]
+    },
+    {
+      "path": "events/zz_1776_v115_event46_japan.txt",
+      "ids": [
+        "japan_events.32",
+        "japan_events.33",
+        "japan_events.34",
+        "japan_events.35"
+      ],
+      "native_source": "events/japan_events/ep2_japan_events_03.txt",
+      "native_sha256": "877adf2e219fe3a5ab29e07ef4f03f2eb50505e60dbaf6eb58529281f8af1e05",
+      "sha256": "3e09e3799173184152d0798075e04cbe117d3e38cffb4b2348c099f5cd60454c"
+    },
+    {
+      "path": "common/ideologies/zz_1776_v115_event46_state_socialist.txt",
+      "ids": [
+        "ideology_state_socialist"
+      ],
+      "native_source": "common/ideologies/01_character_ideologies.txt",
+      "native_sha256": "e11c0062b3a634e91ad177480c08e84b16aaa974519b17db575420d20f445c09",
+      "sha256": "77862f87a2fd39e10a0778b0d0c16018e30c7d735fe1f380dd9abe104f9fcb60"
+    },
+    {
+      "path": "common/laws/zz_1776_v115_event46_labour_suffrage.txt",
+      "ids": [
+        "law_labour_suffrage"
+      ],
+      "native_source": "common/laws/00_distribution_of_power.txt",
+      "native_sha256": "4c89d0232c43e77f6f50520c957715cb73031bbcde996e712202fde03ab7e9a6",
+      "sha256": "67f893bffaf27d9aca8c578e3ad4c982e2f2a5af04aca49d77201311fb346bf0"
+    },
+    {
+      "path": "common/ideologies/zz_1776_v115_event46_communist_compatibility_alias.txt",
+      "ids": [
+        "ideology_communist_leader"
+      ],
+      "native_source": "common/ideologies/01_character_ideologies.txt",
+      "native_sha256": "e11c0062b3a634e91ad177480c08e84b16aaa974519b17db575420d20f445c09",
+      "sha256": "25d2d49157986f4ffdc21d71487173a0d853b727d2ec7ed74d765e24e9952938",
+      "compatibility_alias": true,
+      "allowed_native_deviations": [
+        {
+          "start": 2637,
+          "end": 8826,
+          "before": "interest_group_leader_weight = {\n\t\tvalue = {\n\t\t\tadd = 50\n\t\t\tdesc = \"base_value\"\n\t\t}\n\t\t# More likely if people are angry, or content under a Council Republic\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_council_republic\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = owner.loyalist_fraction\n\t\t\t\tmultiply = 100\n\t\t\t\tdesc = \"COUNTRY_LOYALISTS\"\n\t\t\t}\n\t\t}\n\t\telse = {\n\t\t\tadd = {\n\t\t\t\tvalue = owner.radical_fraction\n\t\t\t\tmultiply = 100\n\t\t\t\tdesc = \"COUNTRY_RADICALS\"\n\t\t\t}\n\t\t}\n\n\t\t# More likely if issues are relevant\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner.ideology_communist_leader_disfavoured_laws > 0\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = owner.ideology_communist_leader_disfavoured_laws\n\t\t\t\tmultiply = 8\n\t\t\t\tdesc = \"DISFAVORED_LAWS\"\n\t\t\t}\n\t\t}\n\n\t\t# Less likely if issues are not relevant\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner.ideology_communist_leader_favoured_laws > 0\n\t\t\t}\n\t\t\tsubtract = {\n\t\t\t\tvalue = owner.ideology_communist_leader_favoured_laws\n\t\t\t\tmultiply = 8\n\t\t\t\tdesc = \"FAVORED_LAWS\"\n\t\t\t}\n\t\t}\n\n\t\t# More likely for angry IG's outside of council republic\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\tNOT = { has_law_or_variant = law_type:law_council_republic }\n\t\t\t\t}\n\t\t\t\tNOT = { is_interest_group_type = ig_armed_forces }\n\t\t\t\tig_approval <= define:NPolitics|APPROVAL_THRESHOLD_UNHAPPY\n\t\t\t}\n\t\t\tsubtract = {\n\t\t\t\tvalue = ig_approval\n\t\t\t\tmultiply = 5\n\t\t\t\tdesc = \"IG_APPROVAL_BELOW_UNHAPPY\"\n\t\t\t}\n\t\t}\n\t\t# More likely when SoL is low outside of council republic\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\tNOT = { has_law_or_variant = law_type:law_council_republic }\n\t\t\t\t\taverage_sol < average_expected_sol\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = 50\n\t\t\t\tdesc = \"SOL_BELOW_EXPECTED\"\n\t\t\t}\n\t\t}\n\t\t# Labour Association Laws\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_factory_councils\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = 75\n\t\t\t\tdesc = \"FACTORY_COUNCILS_LAW\"\n\t\t\t}\n\t\t}\n\t\telse_if = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_combination_acts\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = 50\n\t\t\t\tdesc = \"COMBINATION_ACTS_LAW\"\n\t\t\t}\n\t\t}\n\t\telse_if = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\tOR = {\n\t\t\t\t\t\thas_law_or_variant = law_type:law_guild_system\n\t\t\t\t\t\thas_law_or_variant = law_type:law_anti_strike_laws\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = 25\n\t\t\t\tdesc = \"GUILDS_OR_ANTI_STRIKE_LAW\"\n\t\t\t}\n\t\t}\n\t\telse_if = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_right_to_associate\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = -25\n\t\t\t\tdesc = \"RIGHT_TO_ASSOCIATE_LAW\"\n\t\t\t}\n\t\t}\n\t\telse_if = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_corporatized_unions\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = -50\n\t\t\t\tdesc = \"CORPORATIZED_UNIONS_LAW\"\n\t\t\t}\n\t\t}\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\tactive_law:lawgroup_labour_associations ?= {\n\t\t\t\t\t\thas_amendment = amendment_type:amendment_factory_councils\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = 75\n\t\t\t\tdesc = \"FACTORY_COUNCILS_AMENDMENT\"\n\t\t\t}\n\t\t}\n\t\t# Communal Administration favours the Trade Unions\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_communal_administration\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = 50\n\t\t\t\tdesc = \"COMMUNAL_ADMINISTRATION_LAW\"\n\t\t\t}\n\t\t}\n\t\t# Revolutionary Guard favours the Armed Forces\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_armed_forces\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_revolutionary_guard\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = 50\n\t\t\t\tdesc = \"REVOLUTIONARY_GUARD_LAW\"\n\t\t\t}\n\t\t}\n\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= { has_variable = election_communist_support }\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = 50\n\t\t\t\tdesc = \"INTERNATIONAL_SUPPORT\"\n\t\t\t}\n\t\t}\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= { has_variable = communism_1_done }\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = 100\n\t\t\t\tdesc = \"COMMUNISM_1_COMPLETE\"\n\t\t\t}\n\t\t}\n\n\t\t# Multiplied by inverse percent of peasants\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\t\"owner.pop_type_percent_country(pop_type:peasants)\" < 0.25\n\t\t\t\t}\n\t\t\t}\n\t\t\tmultiply = {\n\t\t\t\tvalue = 1\n\t\t\t\tadd = {\n\t\t\t\t\tvalue = 1\n\t\t\t\t\tsubtract = \"owner.pop_type_percent_country(pop_type:peasants)\"\n\t\t\t\t}\n\t\t\t\tdesc = \"LOW_PEASANTS_PERCENT\"\n\t\t\t}\n\t\t}\n\t\telse = {\n\t\t\tmultiply = {\n\t\t\t\tvalue = 0.5\n\t\t\t\tdesc = \"PEASANTS_PERCENT\"\n\t\t\t}\n\t\t}\n\n\t\t# Multiplied by inverse GDP per capita percentage\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner.gdp_per_capita_ranking < 20 # TODO PRCAL-46014: change this out for the ratio of global average gdp per capita to gdp per capita\n\t\t\t}\n\t\t\tmultiply = {\n\t\t\t\tvalue = 1\n\t\t\t\tadd = {\n\t\t\t\t\tvalue = 100\n\t\t\t\t\tsubtract = owner.gdp_per_capita_ranking # TODO PRCAL-46014: change this out for the ratio of global average gdp per capita to gdp per capita\n\t\t\t\t\tdivide = 100\n\t\t\t\t}\n\t\t\t\tdesc = \"HIGH_GDP_PER_CAPITA\"\n\t\t\t}\n\t\t}\n\t\telse = {\n\t\t\tmultiply = {\n\t\t\t\tvalue = 0.5\n\t\t\t\tdesc = \"LOW_GDP_PER_CAPITA\"\n\t\t\t}\n\t\t}\n\n\t\tif = { #Armed Forces should not become communist too often outside CRs.\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\tNOT = {\n\t\t\t\t\t\thas_law_or_variant = law_type:law_council_republic\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tis_interest_group_type = ig_armed_forces\n\t\t\t}\n\t\t\tmultiply = {\n\t\t\t\tvalue = 0.3\n\t\t\t\tdesc = \"ig_armed_forces\"\n\t\t\t}\n\t\t}\n\t\t# National Liberation Alliance\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\thas_variable = national_liberation_alliance_variable\n\t\t\t\t\thas_journal_entry = je_new_republic\n\t\t\t\t}\n\t\t\t}\n\t\t\tmultiply = {\n\t\t\t\tvalue = 1.25\n\t\t\t\tdesc = \"NATIONAL_LIBERATION_ALLIANCE\"\n\t\t\t}\n\t\t}\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tOR = {\n\t\t\t\t\thas_variable = chose_vanguardism\n\t\t\t\t\thas_variable = chose_anarchism\n\t\t\t\t}\n\t\t\t}\n\t\t\tmultiply = {\n\t\t\t\tvalue = 0.5\n\t\t\t\tdesc = \"CHOSE_A_DIFFERENT_RADICAL_PATH\"\n\t\t\t}\n\t\t}\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tOR = {\n\t\t\t\t\thas_variable = chose_conservatism\n\t\t\t\t\thas_variable = chose_fascism\n\t\t\t\t\thas_variable = chose_ethno_nationalism\n\t\t\t\t}\n\t\t\t}\n\t\t\tmultiply = {\n\t\t\t\tvalue = 0.1\n\t\t\t\tdesc = \"CHOSE_A_DIFFERENT_PATH\"\n\t\t\t}\n\t\t}\n\t\tmultiply = {\n\t\t\tvalue = 1\n\t\t\tadd = modifier:interest_group_ideology_communist_leader_leader_chance_mult\n\t\t\tdesc = \"EVENTS_AND_OTHER_EFFECTS\"\n\t\t}\n\t}",
+          "after": "interest_group_leader_weight = { value = 0 }"
+        },
+        {
+          "start": 8829,
+          "end": 13472,
+          "before": "non_interest_group_leader_weight = {\n\t\tvalue = 50\n\n\t\t# More likely if people are angry, or content under a Council Republic\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_council_republic\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = owner.loyalist_fraction\n\t\t\t\tmultiply = 100\n\t\t\t}\n\t\t}\n\t\telse = {\n\t\t\tadd = {\n\t\t\t\tvalue = owner.radical_fraction\n\t\t\t\tmultiply = 100\n\t\t\t}\n\t\t}\n\n\t\t# More likely if issues are relevant\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner.ideology_communist_leader_disfavoured_laws > 0\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = owner.ideology_communist_leader_disfavoured_laws\n\t\t\t\tmultiply = 8\n\t\t\t}\n\t\t}\n\n\t\t# Less likely if issues are not relevant\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner.ideology_communist_leader_favoured_laws > 0\n\t\t\t}\n\t\t\tsubtract = {\n\t\t\t\tvalue = owner.ideology_communist_leader_favoured_laws\n\t\t\t\tmultiply = 8\n\t\t\t}\n\t\t}\n\n\t\t# More likely for angry IG's outside of council republic\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\tNOT = { has_law_or_variant = law_type:law_council_republic }\n\t\t\t\t}\n\t\t\t\tNOT = { is_interest_group_type = ig_armed_forces }\n\t\t\t\tinterest_group.ig_approval <= define:NPolitics|APPROVAL_THRESHOLD_UNHAPPY\n\t\t\t}\n\t\t\tadd = {\n\t\t\t\tvalue = interest_group.ig_approval\n\t\t\t\tmultiply = 5\n\t\t\t}\n\t\t}\n\n\t\t# More likely when SoL is low outside of council republic\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\tNOT = { has_law_or_variant = law_type:law_council_republic }\n\t\t\t\t\taverage_sol < average_expected_sol\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = 50\n\t\t}\n\n\t\t# Labour Association Laws\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_factory_councils\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = 75\n\t\t}\n\t\telse_if = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_combination_acts\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = 50\n\t\t}\n\t\telse_if = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\tOR = {\n\t\t\t\t\t\thas_law_or_variant = law_type:law_guild_system\n\t\t\t\t\t\thas_law_or_variant = law_type:law_anti_strike_laws\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = 25\n\t\t}\n\t\telse_if = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_right_to_associate\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = -25\n\t\t}\n\t\telse_if = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_corporatized_unions\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = -50\n\t\t}\n\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\tactive_law:lawgroup_labour_associations ?= {\n\t\t\t\t\t\thas_amendment = amendment_type:amendment_factory_councils\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = 75\n\t\t}\n\t\t# Communal Administration favours the Trade Unions\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_trade_unions\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_communal_administration\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = 50\n\t\t}\n\t\t# Revolutionary Guard favours the Armed Forces\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tis_interest_group_type = ig_armed_forces\n\t\t\t\towner ?= {\n\t\t\t\t\thas_law_or_variant = law_type:law_revolutionary_guard\n\t\t\t\t}\n\t\t\t}\n\t\t\tadd = 50\n\t\t}\n\n\t\t# Multiplied by inverse percent of peasants\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\t\"owner.pop_type_percent_country(pop_type:peasants)\" < 0.25\n\t\t\t\t}\n\t\t\t}\n\t\t\tmultiply = {\n\t\t\t\tvalue = 1\n\t\t\t\tadd = {\n\t\t\t\t\tvalue = 1\n\t\t\t\t\tsubtract = \"owner.pop_type_percent_country(pop_type:peasants)\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\telse = {\n\t\t\tmultiply = 0.5\n\t\t}\n\n\t\t# Multiplied by inverse GDP per capita percentage\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\towner.gdp_per_capita_ranking < 20 # TODO PRCAL-46014: change this out for the ratio of global average gdp per capita to gdp per capita\n\t\t\t}\n\t\t\tmultiply = {\n\t\t\t\tvalue = 1\n\t\t\t\tadd = {\n\t\t\t\t\tvalue = 100\n\t\t\t\t\tsubtract = owner.gdp_per_capita_ranking # TODO PRCAL-46014: change this out for the ratio of global average gdp per capita to gdp per capita\n\t\t\t\t\tdivide = 100\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\telse = {\n\t\t\tmultiply = 0.5\n\t\t}\n\n\t\tif = { #Armed Forces should not become communist too often outside CRs.\n\t\t\tlimit = {\n\t\t\t\towner ?= {\n\t\t\t\t\tNOT = {\n\t\t\t\t\t\thas_law_or_variant = law_type:law_council_republic\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tis_interest_group_type = ig_armed_forces\n\t\t\t}\n\t\t\tmultiply = 0.3\n\t\t}\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tOR = {\n\t\t\t\t\thas_variable = chose_vanguardism\n\t\t\t\t\thas_variable = chose_anarchism\n\t\t\t\t}\n\t\t\t}\n\t\t\tmultiply = 0.5\n\t\t}\n\t\tif = {\n\t\t\tlimit = {\n\t\t\t\tOR = {\n\t\t\t\t\thas_variable = chose_conservatism\n\t\t\t\t\thas_variable = chose_fascism\n\t\t\t\t\thas_variable = chose_ethno_nationalism\n\t\t\t\t}\n\t\t\t}\n\t\t\tmultiply = 0.1\n\t\t}\n\t\tmultiply = {\n\t\t\tvalue = 1\n\t\t\tadd = interest_group.modifier:interest_group_ideology_communist_leader_leader_chance_mult\n\t\t\tdesc = \"EVENTS_AND_OTHER_EFFECTS\"\n\t\t}\n\t}",
+          "after": "non_interest_group_leader_weight = { value = 0 }"
+        }
+      ]
+    },
+    {
+      "path": "common/scripted_triggers/zz_1776_v115_event46_communist_validity.txt",
+      "ids": [
+        "ideology_communist_leader_valid_trigger"
+      ],
+      "native_source": "common/scripted_triggers/00_victoria_scripted_triggers.txt",
+      "native_sha256": "cfed3a88a33dcdfd645b44ce9887e53a5909682f9c68b0eb4057a4cea59b951d",
+      "sha256": "0993f8a64db92f618d24e410c27eb38981230b5a71a0463eff6042191076dd0f"
+    }
+  ],
+  "localization": [
+    {
+      "language": "french",
+      "checked_keys": 43,
+      "new_keys": 0,
+      "keys": [
+        "for_16_years_tt",
+        "for_8_years_tt",
+        "ideology_state_socialist",
+        "ideology_state_socialist_desc",
+        "japan_events.32.a",
+        "japan_events.32.b",
+        "japan_events.32.d",
+        "japan_events.32.f",
+        "japan_events.32.t",
+        "japan_events.33.a",
+        "japan_events.33.b",
+        "japan_events.33.d",
+        "japan_events.33.f",
+        "japan_events.33.t",
+        "japan_events.34.a",
+        "japan_events.34.b",
+        "japan_events.34.d",
+        "japan_events.34.f",
+        "japan_events.34.t",
+        "japan_events.35.a",
+        "japan_events.35.b",
+        "japan_events.35.d",
+        "japan_events.35.f",
+        "japan_events.35.t",
+        "law_labour_suffrage",
+        "law_labour_suffrage_desc",
+        "marx_events.3.a",
+        "marx_events.3.b",
+        "marx_events.3.c",
+        "marx_events.3.d",
+        "marx_events.3.f",
+        "marx_events.3.t",
+        "marx_events.4.a",
+        "marx_events.4.b",
+        "marx_events.4.c",
+        "marx_events.4.d",
+        "marx_events.4.d_1",
+        "marx_events.4.f",
+        "marx_events.4.t",
+        "marx_focuses_on_other_things_tt",
+        "marx_has_non_agitator_role_tt",
+        "marx_has_official_duties_tt",
+        "marx_last"
+      ]
+    },
+    {
+      "language": "english",
+      "checked_keys": 46,
+      "new_keys": 0,
+      "keys": [
+        "bg_fishing",
+        "bg_whaling",
+        "for_16_years_tt",
+        "for_8_years_tt",
+        "ideology_state_socialist",
+        "ideology_state_socialist_desc",
+        "japan_events.32.a",
+        "japan_events.32.b",
+        "japan_events.32.d",
+        "japan_events.32.f",
+        "japan_events.32.t",
+        "japan_events.33.a",
+        "japan_events.33.b",
+        "japan_events.33.d",
+        "japan_events.33.f",
+        "japan_events.33.t",
+        "japan_events.34.a",
+        "japan_events.34.b",
+        "japan_events.34.d",
+        "japan_events.34.f",
+        "japan_events.34.t",
+        "japan_events.35.a",
+        "japan_events.35.b",
+        "japan_events.35.d",
+        "japan_events.35.f",
+        "japan_events.35.t",
+        "law_labour_suffrage",
+        "law_labour_suffrage_desc",
+        "marx_events.3.a",
+        "marx_events.3.b",
+        "marx_events.3.c",
+        "marx_events.3.d",
+        "marx_events.3.f",
+        "marx_events.3.t",
+        "marx_events.4.a",
+        "marx_events.4.b",
+        "marx_events.4.c",
+        "marx_events.4.d",
+        "marx_events.4.d_1",
+        "marx_events.4.f",
+        "marx_events.4.t",
+        "marx_focuses_on_other_things_tt",
+        "marx_has_non_agitator_role_tt",
+        "marx_has_official_duties_tt",
+        "marx_last",
+        "strata_commoners_townspeople"
+      ]
+    }
+  ],
+  "candidate_directory": "candidate_R4",
+  "revision": "R4: explicit author context guard in Marx.3, no bootstrap or legacy event rewrite."
+}

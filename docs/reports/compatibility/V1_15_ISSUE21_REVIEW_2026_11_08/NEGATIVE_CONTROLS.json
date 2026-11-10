@@ -1,0 +1,38 @@
+[
+  {
+    "case": "valid_ship_identity_wrong_for_technology_event",
+    "detected": true,
+    "failed_checks": [
+      "events/tech_events/naval_tech_events.txt.only_authorized_spans",
+      "naval_tech_events.3.context_specific_native_ship_identity"
+    ]
+  },
+  {
+    "case": "limited_war_wrongly_uses_conquest_reach",
+    "detected": true,
+    "failed_checks": [
+      "common/ai_strategies/00_default_strategy.txt.only_authorized_spans"
+    ]
+  },
+  {
+    "case": "permanently_immortal_character_loses_protection",
+    "detected": true,
+    "failed_checks": [
+      "set_temporary_event_immortality.native_payload"
+    ]
+  },
+  {
+    "case": "temporary_immortality_never_expires",
+    "detected": true,
+    "failed_checks": [
+      "temporary_immortality.native_monthly_expiry"
+    ]
+  },
+  {
+    "case": "unrelated_AI_value_changed",
+    "detected": true,
+    "failed_checks": [
+      "common/ai_strategies/00_default_strategy.txt.only_authorized_spans"
+    ]
+  }
+]

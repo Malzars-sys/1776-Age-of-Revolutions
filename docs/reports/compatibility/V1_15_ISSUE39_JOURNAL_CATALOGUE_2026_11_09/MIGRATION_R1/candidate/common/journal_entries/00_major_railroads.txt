@@ -1,0 +1,235 @@
+﻿je_trans_siberian_railway = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_russia_expansion
+
+	is_shown_when_inactive = {
+		NOT = { has_global_variable = trans_siberian_done }
+		owns_entire_state_region = STATE_MOSCOW
+		any_state = {
+			filter = {
+				OR = {
+					is_in_geographic_region = geographic_region_east_siberia_old
+					is_in_geographic_region = geographic_region_west_siberia_old
+				}
+			}
+			percent > 0.8
+			owner = ROOT
+		}
+	}
+
+	possible = {
+		has_technology_researched = railways
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_scope_state = {
+				filter = {
+					OR = {
+						state_region = s:STATE_MOSCOW
+						state_region = s:STATE_YAROSLAVL
+						state_region = s:STATE_NIZHNY_NOVGOROD
+						state_region = s:STATE_CHUVASHIA
+						state_region = s:STATE_KAZAN
+						state_region = s:STATE_UFA
+						state_region = s:STATE_CHELYABINSK
+						state_region = s:STATE_URAL
+						state_region = s:STATE_TOBOLSK
+						state_region = s:STATE_TOMSK
+						state_region = s:STATE_KRASNOYARSK
+						state_region = s:STATE_IRKUTSK
+						state_region = s:STATE_BURYATIA
+						state_region = s:STATE_TRANS_BAIKAL
+					}
+				}
+				state_has_active_rail_network = yes
+				percent = 1
+			}
+			OR = {
+				AND = {
+					any_scope_state = {
+						state_region = s:STATE_YAKUTSK
+						state_has_active_rail_network = yes
+					}
+					any_scope_state = {
+						state_region = s:STATE_OKHOTSK
+						state_has_active_rail_network = yes
+					}
+				}
+				AND = {
+					any_scope_state = {
+						state_region = s:STATE_AMUR
+						state_has_active_rail_network = yes
+					}
+					any_scope_state = {
+						state_region = s:STATE_OUTER_MANCHURIA
+						state_has_active_rail_network = yes
+					}
+				}
+			}
+		}
+		effect = {
+			set_global_variable = trans_siberian_done
+			trigger_event = { id = major_railways.1 }
+		}
+	}
+
+	
+
+	weight = 50
+}
+
+je_trans_continental_railway = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_usa_manifest_destiny
+
+	is_shown_when_inactive = {
+		NOT = { has_global_variable = trans_continental_done }
+		owns_entire_state_region = STATE_NEW_YORK
+		any_scope_state = {
+			state_region = s:STATE_NEBRASKA
+		}
+	}
+
+	possible = {
+		has_technology_researched = railways
+		owns_entire_state_region = STATE_NEBRASKA
+		owns_entire_state_region = STATE_CALIFORNIA
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_scope_state = {
+				state_region = s:STATE_NEBRASKA
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_WYOMING
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_UTAH
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_NEVADA
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_CALIFORNIA
+				state_has_active_rail_network = yes
+			}
+		}
+		effect = {
+			set_global_variable = trans_continental_done
+			trigger_event = { id = major_railways.2 }
+		}
+	}
+
+	
+
+	weight = 50
+}
+
+je_canada_pacific_railway = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_historical_content
+
+	is_shown_when_inactive = {
+		NOT = { has_global_variable = canada_pacific_done }
+		OR = {
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+			}
+			any_scope_state = {
+				state_region = s:STATE_BRITISH_COLUMBIA
+			}
+			any_scope_state = {
+				state_region = s:STATE_ONTARIO
+			}
+			any_scope_state = {
+				state_region = s:STATE_ALBERTA
+			}
+			any_scope_state = {
+				state_region = s:STATE_SASKATCHEWAN
+			}
+			any_scope_state = {
+				state_region = s:STATE_MANITOBA
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = railways
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+		}
+		any_scope_state = {
+			state_region = s:STATE_BRITISH_COLUMBIA
+		}
+		any_scope_state = {
+			state_region = s:STATE_ONTARIO
+		}
+		any_scope_state = {
+			state_region = s:STATE_ALBERTA
+		}
+		any_scope_state = {
+			state_region = s:STATE_SASKATCHEWAN
+		}
+		any_scope_state = {
+			state_region = s:STATE_MANITOBA
+		}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_BRITISH_COLUMBIA
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_ONTARIO
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_ALBERTA
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_SASKATCHEWAN
+				state_has_active_rail_network = yes
+			}
+			any_scope_state = {
+				state_region = s:STATE_MANITOBA
+				state_has_active_rail_network = yes
+			}
+		}
+		effect = {
+			set_global_variable = canada_pacific_done
+			trigger_event = { id = major_railways.3 }
+		}
+	}
+
+	
+
+	weight = 50
+}

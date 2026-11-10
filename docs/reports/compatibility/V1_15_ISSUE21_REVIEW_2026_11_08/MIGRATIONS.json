@@ -1,0 +1,2063 @@
+[
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 1247,
+    "start": 29935,
+    "end": 29963,
+    "old": "can_reach_target_state = yes",
+    "new": "can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }",
+    "reason": "Native state reach: conquer; context ai_strategy_default.state_value.if.limit.OR"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 1255,
+    "start": 30062,
+    "end": 30091,
+    "old": "ai_desires_target_state = yes",
+    "new": "OR = {\n\t\t\t\t\t\t\tai_state_has_core_ambition = yes\n\t\t\t\t\t\t\tai_state_ambition_border = yes\n\t\t\t\t\t\t\tai_state_ambition_colonial = yes\n\t\t\t\t\t\t\tai_state_ambition_overlord_gift = yes\n\t\t\t\t\t\t\tai_state_ambition_sphere = yes\n\t\t\t\t\t\t}",
+    "reason": "Any current native ambition; preserve existing 1776 scoring gate and numbers"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 1436,
+    "start": 33746,
+    "end": 33783,
+    "old": "ai_strongly_desires_target_state = no",
+    "new": "ai_state_has_core_ambition = no",
+    "reason": "Native strong-interest predicate, same reluctance multiplier"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 2088,
+    "start": 47577,
+    "end": 47604,
+    "old": "can_reach_target_state = no",
+    "new": "NOT = { can_reach_target_state_to_coerce = { TARGET_STATE = scope:target_state } }",
+    "reason": "Native state reach: coerce; context ai_strategy_default.treaty_port_value.if.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 2109,
+    "start": 48112,
+    "end": 48142,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: subjugate; context ai_strategy_default.subject_value.if.limit.OR"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 3352,
+    "start": 74834,
+    "end": 74864,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_default.aggression.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 3371,
+    "start": 75259,
+    "end": 75289,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_default.aggression.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 3390,
+    "start": 75695,
+    "end": 75725,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_default.aggression.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 4493,
+    "start": 100929,
+    "end": 100958,
+    "old": "can_reach_target_country = no",
+    "new": "NOT = { can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country } }",
+    "reason": "Native reach helper: conquer; context ai_strategy_default.liberate_country_scores.HOL.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 5769,
+    "start": 127481,
+    "end": 127511,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: coerce; context ai_strategy_default.secret_goal_scores.antagonize.score.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 5952,
+    "start": 131248,
+    "end": 131278,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_default.secret_goal_scores.conquer.trigger"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 6370,
+    "start": 140582,
+    "end": 140612,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: subjugate; context ai_strategy_default.secret_goal_scores.dominate.trigger"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 6417,
+    "start": 141711,
+    "end": 141741,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: subjugate; context ai_strategy_default.secret_goal_scores.dominate.score.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 6524,
+    "start": 144208,
+    "end": 144238,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: subjugate; context ai_strategy_default.secret_goal_scores.dominate.score.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 6850,
+    "start": 150002,
+    "end": 150032,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: subjugate; context ai_strategy_default.wargoal_scores.transfer_subject.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 7150,
+    "start": 155545,
+    "end": 155575,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: coerce; context ai_strategy_default.wargoal_scores.open_market.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/00_default_strategy.txt",
+    "line": 7453,
+    "start": 160345,
+    "end": 160375,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_subjugate = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: subjugate; context ai_strategy_default.wargoal_scores.liberate_subject.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 278,
+    "start": 4652,
+    "end": 4682,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_territorial_expansion.secret_goal_scores.conquer.trigger"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 1206,
+    "start": 21654,
+    "end": 21682,
+    "old": "can_reach_target_state = yes",
+    "new": "can_reach_target_state_to_coerce = { TARGET_STATE = scope:target_state }",
+    "reason": "Native state reach: coerce; context ai_strategy_economic_imperialism.treaty_port_value.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 1227,
+    "start": 22271,
+    "end": 22299,
+    "old": "can_reach_target_state = yes",
+    "new": "can_reach_target_state_to_coerce = { TARGET_STATE = scope:target_state }",
+    "reason": "Native state reach: coerce; context ai_strategy_economic_imperialism.treaty_port_value.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 1243,
+    "start": 22741,
+    "end": 22771,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: coerce; context ai_strategy_economic_imperialism.wargoal_scores.foreign_investment_rights.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 1276,
+    "start": 23520,
+    "end": 23550,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: coerce; context ai_strategy_economic_imperialism.wargoal_scores.open_market.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 1523,
+    "start": 27842,
+    "end": 27870,
+    "old": "can_reach_target_state = yes",
+    "new": "can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }",
+    "reason": "Native state reach: conquer; context ai_strategy_unify_germany.state_value.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 1815,
+    "start": 33452,
+    "end": 33480,
+    "old": "can_reach_target_state = yes",
+    "new": "can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }",
+    "reason": "Native state reach: conquer; context ai_strategy_unify_italy.state_value.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 2094,
+    "start": 38748,
+    "end": 38776,
+    "old": "can_reach_target_state = yes",
+    "new": "can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }",
+    "reason": "Native state reach: conquer; context ai_strategy_unify_ethiopia.state_value.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 2107,
+    "start": 38953,
+    "end": 38983,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_unify_ethiopia.wargoal_scores.annex_country.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 2132,
+    "start": 39362,
+    "end": 39391,
+    "old": "can_reach_target_country = no",
+    "new": "NOT = { can_reach_target_country_to_protect = { TARGET_COUNTRY = scope:target_country } }",
+    "reason": "Native reach helper: protect; context ai_strategy_unify_ethiopia.secret_goal_scores.befriend.score.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 2149,
+    "start": 39686,
+    "end": 39716,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_unify_ethiopia.secret_goal_scores.conquer.trigger"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 2276,
+    "start": 41628,
+    "end": 41656,
+    "old": "can_reach_target_state = yes",
+    "new": "can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }",
+    "reason": "Native state reach: conquer; context ai_strategy_unify_china.state_value.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 2289,
+    "start": 41832,
+    "end": 41862,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_unify_china.wargoal_scores.annex_country.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 2309,
+    "start": 42156,
+    "end": 42185,
+    "old": "can_reach_target_country = no",
+    "new": "NOT = { can_reach_target_country_to_protect = { TARGET_COUNTRY = scope:target_country } }",
+    "reason": "Native reach helper: protect; context ai_strategy_unify_china.secret_goal_scores.befriend.score.if.limit"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 2321,
+    "start": 42395,
+    "end": 42425,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_unify_china.secret_goal_scores.conquer.trigger"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 3107,
+    "start": 55720,
+    "end": 55750,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_conquer = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: conquer; context ai_strategy_restore_natural_borders.secret_goal_scores.conquer.trigger"
+  },
+  {
+    "file": "common/ai_strategies/02_diplomatic_strategies.txt",
+    "line": 3365,
+    "start": 59868,
+    "end": 59896,
+    "old": "can_reach_target_state = yes",
+    "new": "can_reach_target_state_to_conquer = { TARGET_STATE = scope:target_state }",
+    "reason": "Native state reach: conquer; context ai_strategy_prussia_of_the_balkans.state_value.if.limit"
+  },
+  {
+    "file": "common/treaty_articles/07_foreign_investment_rights.txt",
+    "line": 489,
+    "start": 10407,
+    "end": 10437,
+    "old": "can_reach_target_country = yes",
+    "new": "can_reach_target_country_to_coerce = { TARGET_COUNTRY = scope:target_country }",
+    "reason": "Native reach helper: coerce; context foreign_investment_rights.ai.wargoal_score_multiplier.if.limit"
+  },
+  {
+    "file": "common/decrees/00_decree.txt",
+    "line": 333,
+    "start": 6671,
+    "end": 6708,
+    "old": "primary_cultures_percent_state <= 0.9",
+    "new": "primary_cultures_percent_state = {\n\t\t\t\t\ttarget_country = owner\n\t\t\t\t\tvalue <= 0.9\n\t\t\t\t}",
+    "reason": "Native decree contract; country=state owner; original operator and fraction"
+  },
+  {
+    "file": "common/decrees/00_decree.txt",
+    "line": 375,
+    "start": 7462,
+    "end": 7499,
+    "old": "primary_cultures_percent_state <= 0.1",
+    "new": "primary_cultures_percent_state = {\n\t\t\t\t\t\ttarget_country = owner\n\t\t\t\t\t\tvalue <= 0.1\n\t\t\t\t\t}",
+    "reason": "Native decree contract; country=state owner; original operator and fraction"
+  },
+  {
+    "file": "common/decrees/00_decree.txt",
+    "line": 381,
+    "start": 7564,
+    "end": 7601,
+    "old": "primary_cultures_percent_state <= 0.3",
+    "new": "primary_cultures_percent_state = {\n\t\t\t\t\t\ttarget_country = owner\n\t\t\t\t\t\tvalue <= 0.3\n\t\t\t\t\t}",
+    "reason": "Native decree contract; country=state owner; original operator and fraction"
+  },
+  {
+    "file": "common/decrees/00_decree.txt",
+    "line": 387,
+    "start": 7666,
+    "end": 7703,
+    "old": "primary_cultures_percent_state <= 0.5",
+    "new": "primary_cultures_percent_state = {\n\t\t\t\t\t\ttarget_country = owner\n\t\t\t\t\t\tvalue <= 0.5\n\t\t\t\t\t}",
+    "reason": "Native decree contract; country=state owner; original operator and fraction"
+  },
+  {
+    "file": "common/decrees/00_decree.txt",
+    "line": 555,
+    "start": 10813,
+    "end": 10849,
+    "old": "primary_cultures_percent_state > 0.9",
+    "new": "primary_cultures_percent_state = {\n\t\t\t\t\ttarget_country = owner\n\t\t\t\t\tvalue > 0.9\n\t\t\t\t}",
+    "reason": "Native decree contract; country=state owner; original operator and fraction"
+  },
+  {
+    "file": "common/decrees/00_decree.txt",
+    "line": 565,
+    "start": 10997,
+    "end": 11033,
+    "old": "primary_cultures_percent_state > 0.5",
+    "new": "primary_cultures_percent_state = {\n\t\t\t\t\ttarget_country = owner\n\t\t\t\t\tvalue > 0.5\n\t\t\t\t}",
+    "reason": "Native decree contract; country=state owner; original operator and fraction"
+  },
+  {
+    "file": "common/diplomatic_plays/00_diplomatic_plays.txt",
+    "line": 808,
+    "start": 16558,
+    "end": 16604,
+    "old": "has_any_strait_province = scope:target_country",
+    "new": "has_any_strait_province_in_hierarchy = yes",
+    "reason": "Native target-country boolean contract, includes subjects holding strait provinces"
+  },
+  {
+    "file": "common/diplomatic_plays/00_diplomatic_plays.txt",
+    "line": 809,
+    "start": 16608,
+    "end": 16653,
+    "old": "has_any_strait_control = scope:target_country",
+    "new": "has_any_strait_control = yes",
+    "reason": "Native target-country boolean contract, includes subjects holding strait provinces"
+  },
+  {
+    "file": "common/diplomatic_plays/00_diplomatic_plays.txt",
+    "line": 905,
+    "start": 18889,
+    "end": 18935,
+    "old": "has_any_strait_province = scope:target_country",
+    "new": "has_any_strait_province_in_hierarchy = yes",
+    "reason": "Native target-country boolean contract, includes subjects holding strait provinces"
+  },
+  {
+    "file": "common/diplomatic_plays/00_diplomatic_plays.txt",
+    "line": 906,
+    "start": 18939,
+    "end": 18984,
+    "old": "has_any_strait_control = scope:target_country",
+    "new": "has_any_strait_control = yes",
+    "reason": "Native target-country boolean contract, includes subjects holding strait provinces"
+  },
+  {
+    "file": "common/power_bloc_principles/00_power_bloc_principles.txt",
+    "line": 608,
+    "start": 17993,
+    "end": 18039,
+    "old": "country_war_exhaustion_casualties_mult = -0.15",
+    "new": "country_war_support_casualties_mult = -0.15",
+    "reason": "Native casualty-driven support loss multiplier; preserve signed value"
+  },
+  {
+    "file": "common/power_bloc_principles/00_power_bloc_principles.txt",
+    "line": 632,
+    "start": 18790,
+    "end": 18836,
+    "old": "country_war_exhaustion_casualties_mult = -0.15",
+    "new": "country_war_support_casualties_mult = -0.15",
+    "reason": "Native casualty-driven support loss multiplier; preserve signed value"
+  },
+  {
+    "file": "common/technology/technologies/90_tech3a_vanilla_post1836_compatibility.txt",
+    "line": 1065,
+    "start": 21164,
+    "end": 21210,
+    "old": "country_war_exhaustion_casualties_mult = -0.25",
+    "new": "country_war_support_casualties_mult = -0.25",
+    "reason": "Native casualty-driven support loss multiplier; preserve signed value"
+  },
+  {
+    "file": "common/power_bloc_principles/1776_imperial_principles.txt",
+    "line": 97,
+    "start": 5714,
+    "end": 5798,
+    "old": "country_institution_cost_REPLACE_OR_CREATE:institution_workplace_safety_mult = -0.10",
+    "new": "",
+    "reason": "Malformed duplicate of workplace-safety cost already present in same member_modifier; retain one -10/-20/-30% effect"
+  },
+  {
+    "file": "common/power_bloc_principles/1776_imperial_principles.txt",
+    "line": 114,
+    "start": 6773,
+    "end": 6857,
+    "old": "country_institution_cost_REPLACE_OR_CREATE:institution_workplace_safety_mult = -0.20",
+    "new": "",
+    "reason": "Malformed duplicate of workplace-safety cost already present in same member_modifier; retain one -10/-20/-30% effect"
+  },
+  {
+    "file": "common/power_bloc_principles/1776_imperial_principles.txt",
+    "line": 131,
+    "start": 7833,
+    "end": 7917,
+    "old": "country_institution_cost_REPLACE_OR_CREATE:institution_workplace_safety_mult = -0.30",
+    "new": "",
+    "reason": "Malformed duplicate of workplace-safety cost already present in same member_modifier; retain one -10/-20/-30% effect"
+  },
+  {
+    "file": "common/dynamic_country_names/00_dynamic_country_names.txt",
+    "line": 1293,
+    "start": 24769,
+    "end": 24792,
+    "old": "current_date < 1828.1.1",
+    "new": "game_date < 1828.1.1",
+    "reason": "Current native predicate; preserve bool/date, scope AZB.dynamic_country_name.trigger.scope:actor"
+  },
+  {
+    "file": "common/dynamic_country_names/00_dynamic_country_names.txt",
+    "line": 1677,
+    "start": 31823,
+    "end": 31846,
+    "old": "current_date < 1828.1.1",
+    "new": "game_date < 1828.1.1",
+    "reason": "Current native predicate; preserve bool/date, scope CHC.dynamic_country_name.trigger.scope:actor"
+  },
+  {
+    "file": "common/dynamic_country_names/00_dynamic_country_names.txt",
+    "line": 2722,
+    "start": 50614,
+    "end": 50637,
+    "old": "current_date < 1801.1.1",
+    "new": "game_date < 1801.1.1",
+    "reason": "Current native predicate; preserve bool/date, scope PAN.dynamic_country_name.trigger.scope:actor"
+  },
+  {
+    "file": "common/dynamic_country_names/00_dynamic_country_names.txt",
+    "line": 4199,
+    "start": 76533,
+    "end": 76547,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope ARG.dynamic_country_name.trigger.scope:actor.any_scope_character"
+  },
+  {
+    "file": "common/dynamic_country_names/00_dynamic_country_names.txt",
+    "line": 4990,
+    "start": 89743,
+    "end": 89767,
+    "old": "current_date >= 1799.1.1",
+    "new": "game_date >= 1799.1.1",
+    "reason": "Current native predicate; preserve bool/date, scope ALK.dynamic_country_name.trigger"
+  },
+  {
+    "file": "common/dynamic_country_names/00_dynamic_country_names.txt",
+    "line": 5009,
+    "start": 90156,
+    "end": 90179,
+    "old": "current_date < 1799.1.1",
+    "new": "game_date < 1799.1.1",
+    "reason": "Current native predicate; preserve bool/date, scope ALK.dynamic_country_name.trigger"
+  },
+  {
+    "file": "common/dynamic_country_names/00_dynamic_country_names.txt",
+    "line": 5585,
+    "start": 99807,
+    "end": 99830,
+    "old": "current_date < 1828.1.1",
+    "new": "game_date < 1828.1.1",
+    "reason": "Current native predicate; preserve bool/date, scope ARM.dynamic_country_name.trigger.scope:actor"
+  },
+  {
+    "file": "common/journal_entries/02_brazil_navy.txt",
+    "line": 14,
+    "start": 268,
+    "end": 286,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; je_brazil_navy.possible.any_scope_character"
+  },
+  {
+    "file": "common/journal_entries/02_brazil_navy.txt",
+    "line": 79,
+    "start": 1422,
+    "end": 1440,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; je_brazil_navy.complete.any_scope_character"
+  },
+  {
+    "file": "common/journal_entries/04_india_non_cooperation.txt",
+    "line": 212,
+    "start": 5466,
+    "end": 5479,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope je_india_non_cooperation_movement.event_outcome_failed_desc.first_valid.triggered_desc.trigger.any_political_movement.any_supporting_character"
+  },
+  {
+    "file": "common/journal_entries/04_india_non_cooperation.txt",
+    "line": 213,
+    "start": 5487,
+    "end": 5499,
+    "old": "is_heir = no",
+    "new": "is_heir_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope je_india_non_cooperation_movement.event_outcome_failed_desc.first_valid.triggered_desc.trigger.any_political_movement.any_supporting_character"
+  },
+  {
+    "file": "common/journal_entries/04_india_non_cooperation.txt",
+    "line": 214,
+    "start": 5507,
+    "end": 5528,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; je_india_non_cooperation_movement.event_outcome_failed_desc.first_valid.triggered_desc.trigger.any_political_movement.any_supporting_character"
+  },
+  {
+    "file": "common/journal_entries/04_india_non_cooperation.txt",
+    "line": 233,
+    "start": 6114,
+    "end": 6127,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope je_india_non_cooperation_movement.event_outcome_failed_desc.first_valid.triggered_desc.trigger.any_political_movement.any_supporting_character"
+  },
+  {
+    "file": "common/journal_entries/04_india_non_cooperation.txt",
+    "line": 234,
+    "start": 6135,
+    "end": 6147,
+    "old": "is_heir = no",
+    "new": "is_heir_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope je_india_non_cooperation_movement.event_outcome_failed_desc.first_valid.triggered_desc.trigger.any_political_movement.any_supporting_character"
+  },
+  {
+    "file": "common/journal_entries/04_india_non_cooperation.txt",
+    "line": 235,
+    "start": 6155,
+    "end": 6174,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; je_india_non_cooperation_movement.event_outcome_failed_desc.first_valid.triggered_desc.trigger.any_political_movement.any_supporting_character"
+  },
+  {
+    "file": "common/journal_entries/05_austrian_fascism.txt",
+    "line": 66,
+    "start": 1677,
+    "end": 1698,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; je_standestaat.immediate.ordered_interest_group.if.limit.ROOT.NOT.any_scope_character.AND.OR"
+  },
+  {
+    "file": "common/journal_entries/05_austrian_fascism.txt",
+    "line": 67,
+    "start": 1709,
+    "end": 1728,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; je_standestaat.immediate.ordered_interest_group.if.limit.ROOT.NOT.any_scope_character.AND.OR"
+  },
+  {
+    "file": "common/journal_entries/05_austrian_fascism.txt",
+    "line": 219,
+    "start": 4984,
+    "end": 5005,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; je_standestaat.fail.OR.AND.custom_tooltip.NOT.any_interest_group.OR.any_scope_character.OR"
+  },
+  {
+    "file": "common/journal_entries/05_austrian_fascism.txt",
+    "line": 220,
+    "start": 5016,
+    "end": 5035,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; je_standestaat.fail.OR.AND.custom_tooltip.NOT.any_interest_group.OR.any_scope_character.OR"
+  },
+  {
+    "file": "common/journal_entries/05_metternich.txt",
+    "line": 37,
+    "start": 757,
+    "end": 771,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope je_metternich.complete.OR.trigger_if.scope:franz_joseph_scope.custom_tooltip"
+  },
+  {
+    "file": "common/on_actions/1776_historical_forts_start.txt",
+    "line": 8,
+    "start": 378,
+    "end": 402,
+    "old": "current_date >= 1776.1.1",
+    "new": "game_date >= 1776.1.1",
+    "reason": "Current native predicate; preserve bool/date, scope aor1776_historical_forts_a1_initialize.trigger"
+  },
+  {
+    "file": "common/on_actions/1776_historical_forts_start.txt",
+    "line": 9,
+    "start": 405,
+    "end": 428,
+    "old": "current_date < 1776.1.2",
+    "new": "game_date < 1776.1.2",
+    "reason": "Current native predicate; preserve bool/date, scope aor1776_historical_forts_a1_initialize.trigger"
+  },
+  {
+    "file": "events/dei_breakup.txt",
+    "line": 653,
+    "start": 13389,
+    "end": 13410,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; alk_breakup.1.option.if.custom_tooltip.every_scope_character.limit"
+  },
+  {
+    "file": "events/dei_breakup.txt",
+    "line": 664,
+    "start": 13634,
+    "end": 13655,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; alk_breakup.1.option.if.custom_tooltip.c:ATB.every_scope_character.if.limit"
+  },
+  {
+    "file": "events/dei_breakup.txt",
+    "line": 675,
+    "start": 13890,
+    "end": 13911,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; alk_breakup.1.option.if.custom_tooltip.ordered_scope_character.limit"
+  },
+  {
+    "file": "events/dreadnought_hoax.txt",
+    "line": 32,
+    "start": 703,
+    "end": 832,
+    "old": "country_navy_unit_type_fraction = {\n            target = unit_type:combat_unit_type_battleship\n            value >= 0.1\n        }",
+    "new": "country_ship_type_fraction = {\n            target = ship_type:ship_type_pre_dreadnought\n            value >= 0.1\n        }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/meiji_restoration.txt",
+    "line": 591,
+    "start": 12074,
+    "end": 12092,
+    "old": "has_role = general",
+    "new": "has_role_of_type = general",
+    "reason": "Native role-type enum replaces old role database argument; meiji.4.trigger.any_country.any_scope_character"
+  },
+  {
+    "file": "events/meiji_restoration.txt",
+    "line": 605,
+    "start": 12375,
+    "end": 12393,
+    "old": "has_role = general",
+    "new": "has_role_of_type = general",
+    "reason": "Native role-type enum replaces old role database argument; meiji.4.immediate.random_country.limit.any_scope_character"
+  },
+  {
+    "file": "events/meiji_restoration.txt",
+    "line": 612,
+    "start": 12519,
+    "end": 12537,
+    "old": "has_role = general",
+    "new": "has_role_of_type = general",
+    "reason": "Native role-type enum replaces old role database argument; meiji.4.immediate.random_country.random_scope_character.limit"
+  },
+  {
+    "file": "events/meiji_restoration.txt",
+    "line": 1327,
+    "start": 27569,
+    "end": 27583,
+    "old": "has_port = yes",
+    "new": "has_port_state = yes",
+    "reason": "Current native predicate; preserve bool/date, scope meiji.11.trigger.any_scope_state"
+  },
+  {
+    "file": "events/meiji_restoration.txt",
+    "line": 1345,
+    "start": 27918,
+    "end": 27932,
+    "old": "has_port = yes",
+    "new": "has_port_state = yes",
+    "reason": "Current native predicate; preserve bool/date, scope meiji.11.immediate.random_scope_state.limit"
+  },
+  {
+    "file": "events/technology_events.txt",
+    "line": 178,
+    "start": 3306,
+    "end": 3320,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope technology_events.20.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "events/agitators_events/revolution_events_02.txt",
+    "line": 791,
+    "start": 15994,
+    "end": 16102,
+    "old": "country_navy_unit_type_fraction = {\n\t\t\t\ttarget = unit_type:combat_unit_type_battleship\n\t\t\t\tvalue >= 0.1\n\t\t\t}",
+    "new": "country_ship_type_fraction = {\n\t\t\t\ttarget = ship_type:ship_type_pre_dreadnought\n\t\t\t\tvalue >= 0.1\n\t\t\t}",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/agitators_events/revolution_events_02.txt",
+    "line": 795,
+    "start": 16106,
+    "end": 16215,
+    "old": "country_navy_unit_type_fraction = {\n\t\t\t\ttarget = unit_type:combat_unit_type_dreadnought\n\t\t\t\tvalue >= 0.1\n\t\t\t}",
+    "new": "country_ship_type_fraction = {\n\t\t\t\ttarget = ship_type:ship_type_dreadnought\n\t\t\t\tvalue >= 0.1\n\t\t\t}",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/agitators_events/revolution_events_02.txt",
+    "line": 862,
+    "start": 17464,
+    "end": 17583,
+    "old": "formation_navy_unit_type_fraction = {\n\t\t\t\t\t\t\ttarget = unit_type:combat_unit_type_battleship\n\t\t\t\t\t\t\tvalue >= 0.2\n\t\t\t\t\t\t}",
+    "new": "formation_ship_type_fraction = {\n\t\t\t\t\t\t\ttarget = ship_type:ship_type_pre_dreadnought\n\t\t\t\t\t\t\tvalue >= 0.2\n\t\t\t\t\t\t}",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/agitators_events/revolution_events_02.txt",
+    "line": 866,
+    "start": 17590,
+    "end": 17710,
+    "old": "formation_navy_unit_type_fraction = {\n\t\t\t\t\t\t\ttarget = unit_type:combat_unit_type_dreadnought\n\t\t\t\t\t\t\tvalue >= 0.2\n\t\t\t\t\t\t}",
+    "new": "formation_ship_type_fraction = {\n\t\t\t\t\t\t\ttarget = ship_type:ship_type_dreadnought\n\t\t\t\t\t\t\tvalue >= 0.2\n\t\t\t\t\t\t}",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 35,
+    "start": 555,
+    "end": 573,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.1.immediate.if.limit.any_scope_character"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 41,
+    "start": 659,
+    "end": 677,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.1.immediate.if.random_scope_character.limit"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 50,
+    "start": 812,
+    "end": 830,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.1.immediate.else_if.limit.any_scope_character"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 56,
+    "start": 916,
+    "end": 934,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.1.immediate.else_if.random_scope_character.limit"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 65,
+    "start": 1069,
+    "end": 1087,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.1.immediate.else_if.limit.any_scope_character"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 71,
+    "start": 1173,
+    "end": 1191,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.1.immediate.else_if.random_scope_character.limit"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 80,
+    "start": 1326,
+    "end": 1344,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.1.immediate.else_if.limit.any_scope_character"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 86,
+    "start": 1430,
+    "end": 1448,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.1.immediate.else_if.random_scope_character.limit"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 95,
+    "start": 1583,
+    "end": 1601,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.1.immediate.else.random_scope_character.limit"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 154,
+    "start": 2695,
+    "end": 2713,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.2.trigger.any_scope_character"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 165,
+    "start": 2839,
+    "end": 2857,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.2.immediate.if.limit.any_scope_character"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 171,
+    "start": 2966,
+    "end": 2984,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.2.immediate.if.random_scope_character.limit"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 180,
+    "start": 3142,
+    "end": 3160,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.2.immediate.else.random_scope_character.limit"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 271,
+    "start": 4940,
+    "end": 4958,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.3.trigger.any_scope_character"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 278,
+    "start": 5028,
+    "end": 5046,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.3.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "events/brazil/brazil_navy.txt",
+    "line": 330,
+    "start": 5878,
+    "end": 5896,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; brazil_navy.4.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "events/iberia_events/iberian_union_events.txt",
+    "line": 87,
+    "start": 1439,
+    "end": 1462,
+    "old": "every_country_in_iberia",
+    "new": "every_country_in_iberia_old",
+    "reason": "Native geographic iterator for the same former Iberia strategic-region state list"
+  },
+  {
+    "file": "events/iberia_events/iberian_union_events.txt",
+    "line": 135,
+    "start": 2283,
+    "end": 2306,
+    "old": "every_country_in_iberia",
+    "new": "every_country_in_iberia_old",
+    "reason": "Native geographic iterator for the same former Iberia strategic-region state list"
+  },
+  {
+    "file": "events/india_events/indian_famines.txt",
+    "line": 143,
+    "start": 2781,
+    "end": 2800,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; indian_famines.2.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/indian_famines.txt",
+    "line": 171,
+    "start": 3363,
+    "end": 3382,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; indian_famines.2.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/indian_famines.txt",
+    "line": 310,
+    "start": 6120,
+    "end": 6139,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; indian_famines.3.cancellation_trigger.NOT.any_scope_character"
+  },
+  {
+    "file": "events/india_events/india_nationalism_events.txt",
+    "line": 32,
+    "start": 613,
+    "end": 627,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope india_nationalism_events.1.immediate.random_scope_character.limit.NOR"
+  },
+  {
+    "file": "events/india_events/india_nationalism_events.txt",
+    "line": 33,
+    "start": 633,
+    "end": 646,
+    "old": "is_heir = yes",
+    "new": "is_heir_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope india_nationalism_events.1.immediate.random_scope_character.limit.NOR"
+  },
+  {
+    "file": "events/india_events/india_nationalism_events.txt",
+    "line": 339,
+    "start": 6265,
+    "end": 6284,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; india_nationalism_events.3.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/india_nationalism_events.txt",
+    "line": 372,
+    "start": 6907,
+    "end": 6926,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; india_nationalism_events.3.immediate.ordered_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 80,
+    "start": 1853,
+    "end": 1866,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope india_non_cooperation.1.immediate.random_political_movement.if.limit.any_supporting_character"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 81,
+    "start": 1873,
+    "end": 1885,
+    "old": "is_heir = no",
+    "new": "is_heir_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope india_non_cooperation.1.immediate.random_political_movement.if.limit.any_supporting_character"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 82,
+    "start": 1892,
+    "end": 1911,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; india_non_cooperation.1.immediate.random_political_movement.if.limit.any_supporting_character"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 90,
+    "start": 2055,
+    "end": 2068,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope india_non_cooperation.1.immediate.random_political_movement.if.random_supporting_character.limit"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 91,
+    "start": 2075,
+    "end": 2087,
+    "old": "is_heir = no",
+    "new": "is_heir_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope india_non_cooperation.1.immediate.random_political_movement.if.random_supporting_character.limit"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 92,
+    "start": 2094,
+    "end": 2113,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; india_non_cooperation.1.immediate.random_political_movement.if.random_supporting_character.limit"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 407,
+    "start": 8523,
+    "end": 8536,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope india_non_cooperation.5.immediate.random_political_movement.random_supporting_character.limit"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 408,
+    "start": 8542,
+    "end": 8554,
+    "old": "is_heir = no",
+    "new": "is_heir_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope india_non_cooperation.5.immediate.random_political_movement.random_supporting_character.limit"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 410,
+    "start": 8573,
+    "end": 8592,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; india_non_cooperation.5.immediate.random_political_movement.random_supporting_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 411,
+    "start": 8599,
+    "end": 8620,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; india_non_cooperation.5.immediate.random_political_movement.random_supporting_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 453,
+    "start": 9445,
+    "end": 9464,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; india_non_cooperation.5.option.if.limit.scope:nonviolent_movement_leader"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 454,
+    "start": 9478,
+    "end": 9499,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; india_non_cooperation.5.option.if.limit.scope:nonviolent_movement_leader.NOT"
+  },
+  {
+    "file": "events/india_events/india_non_cooperation.txt",
+    "line": 499,
+    "start": 10376,
+    "end": 10397,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; india_non_cooperation.5.option.if.limit.scope:nonviolent_movement_leader"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 31,
+    "start": 642,
+    "end": 655,
+    "old": "is_heir = yes",
+    "new": "is_heir_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.1.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 228,
+    "start": 4214,
+    "end": 4228,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.4.option.ai_chance.modifier.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 240,
+    "start": 4415,
+    "end": 4429,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.4.option.ai_chance.modifier.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 266,
+    "start": 4805,
+    "end": 4819,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.4.option.ai_chance.modifier.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 343,
+    "start": 6009,
+    "end": 6023,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.5.option.ai_chance.modifier.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 393,
+    "start": 6833,
+    "end": 6847,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.5.option.ai_chance.modifier.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 482,
+    "start": 8419,
+    "end": 8440,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; mughal.6.immediate.if.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 483,
+    "start": 8446,
+    "end": 8459,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.6.immediate.if.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 507,
+    "start": 9228,
+    "end": 9249,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; mughal.6.immediate.else_if.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 508,
+    "start": 9255,
+    "end": 9268,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.6.immediate.else_if.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 583,
+    "start": 11000,
+    "end": 11014,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.6.option.ai_chance.modifier.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/mughal_events.txt",
+    "line": 893,
+    "start": 17649,
+    "end": 17670,
+    "old": "\t    \t\t\tis_heir = yes",
+    "new": "\t\t\t\t\tis_heir_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope mughal.7.option.if.limit.any_scope_character; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/india_events/princely_states.txt",
+    "line": 370,
+    "start": 7623,
+    "end": 7637,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope princely_states.4.trigger.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/princely_states.txt",
+    "line": 371,
+    "start": 7642,
+    "end": 7660,
+    "old": "has_role = general",
+    "new": "has_role_of_type = general",
+    "reason": "Native role-type enum replaces old role database argument; princely_states.4.trigger.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/princely_states.txt",
+    "line": 384,
+    "start": 7884,
+    "end": 7898,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope princely_states.4.immediate.random_scope_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/princely_states.txt",
+    "line": 385,
+    "start": 7904,
+    "end": 7922,
+    "old": "has_role = general",
+    "new": "has_role_of_type = general",
+    "reason": "Native role-type enum replaces old role database argument; princely_states.4.immediate.random_scope_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 300,
+    "start": 5684,
+    "end": 5702,
+    "old": "has_role = general",
+    "new": "has_role_of_type = general",
+    "reason": "Native role-type enum replaces old role database argument; sikh_empire.4.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 302,
+    "start": 5722,
+    "end": 5735,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope sikh_empire.4.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 309,
+    "start": 5805,
+    "end": 5823,
+    "old": "has_role = general",
+    "new": "has_role_of_type = general",
+    "reason": "Native role-type enum replaces old role database argument; sikh_empire.4.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 311,
+    "start": 5845,
+    "end": 5858,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope sikh_empire.4.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 926,
+    "start": 18218,
+    "end": 18239,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; sikh_empire.10.desc.first_valid.triggered_desc.trigger.any_scope_character"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 970,
+    "start": 19038,
+    "end": 19059,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; sikh_empire.10.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 1045,
+    "start": 20450,
+    "end": 20464,
+    "old": "is_ruler = yes",
+    "new": "is_ruler_of_own_country = yes",
+    "reason": "Current native predicate; preserve bool/date, scope sikh_empire.11.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 1120,
+    "start": 22041,
+    "end": 22059,
+    "old": "has_role = general",
+    "new": "has_role_of_type = general",
+    "reason": "Native role-type enum replaces old role database argument; sikh_empire.11.option.if.if.limit.any_scope_character"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 1125,
+    "start": 22125,
+    "end": 22143,
+    "old": "has_role = general",
+    "new": "has_role_of_type = general",
+    "reason": "Native role-type enum replaces old role database argument; sikh_empire.11.option.if.if.random_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/sikh_empire.txt",
+    "line": 1133,
+    "start": 22261,
+    "end": 22282,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; sikh_empire.11.option.if.else.ordered_scope_character.limit"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 94,
+    "start": 1796,
+    "end": 1815,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.1.option.every_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 95,
+    "start": 1822,
+    "end": 1843,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.1.option.every_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 182,
+    "start": 3384,
+    "end": 3403,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.2.option.every_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 183,
+    "start": 3410,
+    "end": 3431,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.2.option.every_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 336,
+    "start": 6140,
+    "end": 6159,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.3.option.if.every_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 337,
+    "start": 6167,
+    "end": 6188,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.3.option.if.every_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 406,
+    "start": 7420,
+    "end": 7439,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.4.immediate.random_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 407,
+    "start": 7446,
+    "end": 7467,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.4.immediate.random_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 416,
+    "start": 7636,
+    "end": 7655,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.4.immediate.random_interest_group.random_scope_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 417,
+    "start": 7662,
+    "end": 7683,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.4.immediate.random_interest_group.random_scope_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 506,
+    "start": 9252,
+    "end": 9271,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.5.trigger.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 507,
+    "start": 9276,
+    "end": 9297,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.5.trigger.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 541,
+    "start": 10009,
+    "end": 10028,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.5.immediate.random_scope_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 542,
+    "start": 10034,
+    "end": 10055,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.5.immediate.random_scope_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 621,
+    "start": 11545,
+    "end": 11558,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope utilitarian.6.trigger.any_political_lobby.any_lobby_member.leader"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 637,
+    "start": 11828,
+    "end": 11841,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope utilitarian.6.immediate.random_political_lobby.limit.any_lobby_member.leader"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 646,
+    "start": 11988,
+    "end": 12001,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope utilitarian.6.immediate.random_political_lobby.random_lobby_member.limit.leader"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 991,
+    "start": 18427,
+    "end": 18446,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.9.immediate.random_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 992,
+    "start": 18453,
+    "end": 18474,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.9.immediate.random_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 1001,
+    "start": 18643,
+    "end": 18662,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.9.immediate.random_interest_group.random_scope_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 1002,
+    "start": 18669,
+    "end": 18690,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.9.immediate.random_interest_group.random_scope_character.limit.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 1088,
+    "start": 20253,
+    "end": 20272,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.10.trigger.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 1089,
+    "start": 20277,
+    "end": 20298,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.10.trigger.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 1164,
+    "start": 21676,
+    "end": 21695,
+    "old": "has_role = agitator",
+    "new": "has_role_of_type = agitator",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.10.option.every_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/india_events/utilitarian.txt",
+    "line": 1165,
+    "start": 21702,
+    "end": 21723,
+    "old": "has_role = politician",
+    "new": "has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; utilitarian.10.option.every_interest_group.limit.any_scope_character.OR"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 24,
+    "start": 493,
+    "end": 623,
+    "old": "country_navy_unit_type_fraction = {\n            target = unit_type:combat_unit_type_dreadnought\n            value >= 0.2\n        }",
+    "new": "country_ship_type_fraction = {\n            target = ship_type:ship_type_dreadnought\n            value >= 0.2\n        }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 33,
+    "start": 779,
+    "end": 797,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.1.trigger.any_military_formation.any_scope_character"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 35,
+    "start": 865,
+    "end": 1030,
+    "old": "formation_navy_unit_type_fraction = {\n                       target = unit_type:combat_unit_type_dreadnought\n                       value >= 0.2\n                   }",
+    "new": "formation_ship_type_fraction = {\n                       target = ship_type:ship_type_dreadnought\n                       value >= 0.2\n                   }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 48,
+    "start": 1156,
+    "end": 1179,
+    "old": " \t\t\t\thas_role = admiral",
+    "new": "\t\t\t\thas_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.1.immediate.random_scope_character.limit; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 50,
+    "start": 1238,
+    "end": 1406,
+    "old": "formation_navy_unit_type_fraction = {\n                        target = unit_type:combat_unit_type_dreadnought\n                        value >= 0.2\n                    }",
+    "new": "formation_ship_type_fraction = {\n                        target = ship_type:ship_type_dreadnought\n                        value >= 0.2\n                    }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 100,
+    "start": 2301,
+    "end": 2412,
+    "old": "country_navy_unit_type_fraction = {\n\t\t   target = unit_type:combat_unit_type_destroyer\n\t\t   value >= 0.2\n\t    }",
+    "new": "country_ship_type_fraction = {\n\t\t   target = ship_type:ship_type_destroyer\n\t\t   value >= 0.2\n\t    }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 109,
+    "start": 2521,
+    "end": 2539,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.2.trigger.any_military_formation.any_scope_character"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 111,
+    "start": 2584,
+    "end": 2702,
+    "old": "formation_navy_unit_type_fraction = {\n\t\t\t\t\t  target = unit_type:combat_unit_type_destroyer\n\t\t\t\t\t  value >= 0.2\n\t\t\t\t  }",
+    "new": "formation_ship_type_fraction = {\n\t\t\t\t\t  target = ship_type:ship_type_destroyer\n\t\t\t\t\t  value >= 0.2\n\t\t\t\t  }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 124,
+    "start": 2809,
+    "end": 2832,
+    "old": " \t\t\t\thas_role = admiral",
+    "new": "\t\t\t\thas_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.2.immediate.random_scope_character.limit; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 126,
+    "start": 2891,
+    "end": 3057,
+    "old": "formation_navy_unit_type_fraction = {\n                        target = unit_type:combat_unit_type_destroyer\n                        value >= 0.2\n                    }",
+    "new": "formation_ship_type_fraction = {\n                        target = ship_type:ship_type_destroyer\n                        value >= 0.2\n                    }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 176,
+    "start": 3941,
+    "end": 4053,
+    "old": "country_navy_unit_type_fraction = {\n\t\t   target = unit_type:combat_unit_type_battleship\n\t\t   value >= 0.2\n\t   \t}",
+    "new": "country_ship_type_fraction = {\n\t\t   target = ship_type:ship_type_super_dreadnought\n\t\t   value >= 0.2\n\t   \t}",
+    "reason": "Native naval_tech_events.3 specifically targets super-dreadnoughts; original comparison and fraction preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 186,
+    "start": 4262,
+    "end": 4280,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.3.trigger.any_military_formation.any_scope_character"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 188,
+    "start": 4323,
+    "end": 4439,
+    "old": "formation_navy_unit_type_fraction = {\n\t\t\t\t\t\ttarget = unit_type:combat_unit_type_battleship\n\t\t\t\t\t\tvalue >= 0.2\n\t\t\t\t\t}",
+    "new": "formation_ship_type_fraction = {\n\t\t\t\t\t\ttarget = ship_type:ship_type_super_dreadnought\n\t\t\t\t\t\tvalue >= 0.2\n\t\t\t\t\t}",
+    "reason": "Native naval_tech_events.3 specifically targets super-dreadnoughts; original comparison and fraction preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 201,
+    "start": 4539,
+    "end": 4562,
+    "old": " \t\t\t\thas_role = admiral",
+    "new": "\t\t\t\thas_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.3.immediate.random_scope_character.limit; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 203,
+    "start": 4621,
+    "end": 4788,
+    "old": "formation_navy_unit_type_fraction = {\n                        target = unit_type:combat_unit_type_battleship\n                        value >= 0.2\n                    }",
+    "new": "formation_ship_type_fraction = {\n                        target = ship_type:ship_type_super_dreadnought\n                        value >= 0.2\n                    }",
+    "reason": "Native naval_tech_events.3 specifically targets super-dreadnoughts; original comparison and fraction preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 263,
+    "start": 5990,
+    "end": 6118,
+    "old": "country_navy_unit_type_fraction = {\n            target = unit_type:combat_unit_type_submarine\n            value >= 0.2\n        }",
+    "new": "country_ship_type_fraction = {\n            target = ship_type:ship_type_submarine\n            value >= 0.2\n        }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 272,
+    "start": 6274,
+    "end": 6292,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.4.trigger.any_military_formation.any_scope_character"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 274,
+    "start": 6360,
+    "end": 6523,
+    "old": "formation_navy_unit_type_fraction = {\n                       target = unit_type:combat_unit_type_submarine\n                       value >= 0.2\n                   }",
+    "new": "formation_ship_type_fraction = {\n                       target = ship_type:ship_type_submarine\n                       value >= 0.2\n                   }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 287,
+    "start": 6649,
+    "end": 6672,
+    "old": " \t\t\t\thas_role = admiral",
+    "new": "\t\t\t\thas_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.4.immediate.random_scope_character.limit; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 289,
+    "start": 6731,
+    "end": 6897,
+    "old": "formation_navy_unit_type_fraction = {\n                        target = unit_type:combat_unit_type_submarine\n                        value >= 0.2\n                    }",
+    "new": "formation_ship_type_fraction = {\n                        target = ship_type:ship_type_submarine\n                        value >= 0.2\n                    }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 393,
+    "start": 8827,
+    "end": 8953,
+    "old": "country_navy_unit_type_fraction = {\n            target = unit_type:combat_unit_type_carrier\n            value >= 0.2\n        }",
+    "new": "country_ship_type_fraction = {\n            target = ship_type:ship_type_aircraft_carrier\n            value >= 0.2\n        }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 402,
+    "start": 9109,
+    "end": 9127,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.5.trigger.any_military_formation.any_scope_character"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 404,
+    "start": 9196,
+    "end": 9357,
+    "old": "formation_navy_unit_type_fraction = {\n                       target = unit_type:combat_unit_type_carrier\n                       value >= 0.2\n                   }",
+    "new": "formation_ship_type_fraction = {\n                       target = ship_type:ship_type_aircraft_carrier\n                       value >= 0.2\n                   }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 417,
+    "start": 9484,
+    "end": 9507,
+    "old": " \t\t\t\thas_role = admiral",
+    "new": "\t\t\t\thas_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.5.immediate.random_scope_character.limit; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 419,
+    "start": 9566,
+    "end": 9730,
+    "old": "formation_navy_unit_type_fraction = {\n                        target = unit_type:combat_unit_type_carrier\n                        value >= 0.2\n                    }",
+    "new": "formation_ship_type_fraction = {\n                        target = ship_type:ship_type_aircraft_carrier\n                        value >= 0.2\n                    }",
+    "reason": "Native ship-type fraction; old battleship maps to pre-dreadnought, original fraction/operator preserved"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 445,
+    "start": 10071,
+    "end": 10095,
+    "old": " \t\t\t\t\thas_role = admiral",
+    "new": "\t\t\t\t\thas_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.5.option.trigger.any_interest_group.leader; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 449,
+    "start": 10141,
+    "end": 10175,
+    "old": " \t\t\t\tNOT = { has_role = politician",
+    "new": "\t\t\t\tNOT = { has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.5.option.trigger.scope:aviator_commander.NOT; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 459,
+    "start": 10324,
+    "end": 10348,
+    "old": " \t\t\t\t\thas_role = admiral",
+    "new": "\t\t\t\t\thas_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.5.option.every_interest_group.limit.leader; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/tech_events/naval_tech_events.txt",
+    "line": 474,
+    "start": 10561,
+    "end": 10595,
+    "old": " \t\t\t\tNOT = { has_role = politician",
+    "new": "\t\t\t\tNOT = { has_role_of_type = politician",
+    "reason": "Native role-type enum replaces old role database argument; naval_tech_events.5.option.trigger.scope:aviator_commander.NOT; normalize inherited indentation on this edited line only"
+  },
+  {
+    "file": "events/tech_events/production_tech_events.txt",
+    "line": 497,
+    "start": 10399,
+    "end": 10417,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; production_tech_events.301.trigger.any_scope_character"
+  },
+  {
+    "file": "events/tech_events/production_tech_events.txt",
+    "line": 499,
+    "start": 10437,
+    "end": 10450,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope production_tech_events.301.trigger.any_scope_character"
+  },
+  {
+    "file": "events/tech_events/production_tech_events.txt",
+    "line": 528,
+    "start": 11008,
+    "end": 11026,
+    "old": "has_role = admiral",
+    "new": "has_role_of_type = admiral",
+    "reason": "Native role-type enum replaces old role database argument; production_tech_events.301.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "events/tech_events/production_tech_events.txt",
+    "line": 530,
+    "start": 11048,
+    "end": 11061,
+    "old": "is_ruler = no",
+    "new": "is_ruler_of_own_country = no",
+    "reason": "Current native predicate; preserve bool/date, scope production_tech_events.301.immediate.random_scope_character.limit"
+  },
+  {
+    "file": "common/on_actions/00_code_on_actions.txt",
+    "line": 1139,
+    "start": 25118,
+    "end": 25286,
+    "old": "if = {\n\t\t\tlimit = {\n\t\t\t\thas_dlc_feature = ep1_content\n\t\t\t\tis_player = no\n\t\t\t\thas_journal_entry = je_great_game_control\n\t\t\t}\n\t\t\thandle_ai_great_game_objectives = yes\n\t\t}",
+    "new": "# The removed Great Game objective pulse has no 1.15 successor.",
+    "reason": "Delete only dead Great Game branch; native game removed this objective system"
+  },
+  {
+    "file": "common/on_actions/00_code_on_actions.txt",
+    "line": 2579,
+    "start": 58171,
+    "end": 58211,
+    "old": "generate_new_eic_government_leader = yes",
+    "new": "aor1776_generate_eic_government_leader = yes",
+    "reason": "Retain existing 1776 industrialist succession policy with a namespaced current-API helper"
+  },
+  {
+    "file": "common/on_actions/00_code_on_actions.txt",
+    "line": 2759,
+    "start": 62092,
+    "end": 62132,
+    "old": "generate_new_eic_government_leader = yes",
+    "new": "aor1776_generate_eic_government_leader = yes",
+    "reason": "Retain existing 1776 industrialist succession policy with a namespaced current-API helper"
+  },
+  {
+    "file": "common/on_actions/00_code_on_actions.txt",
+    "line": 4838,
+    "start": 107765,
+    "end": 107805,
+    "old": "upgrade_moderniser_movement_effect = yes",
+    "new": "owner = {\n\t\t\tif = {\n\t\t\t\tlimit = { any_political_movement = { is_political_movement_type = movement_modernizer } }\n\t\t\t\tmutate_moderniser_movement_effect = yes\n\t\t\t}\n\t\t}",
+    "reason": "Native renamed helper runs in country scope, not the on_law_enacted law scope"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 99,
+    "start": 2242,
+    "end": 2256,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 105,
+    "start": 2394,
+    "end": 2408,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 134,
+    "start": 3007,
+    "end": 3021,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 164,
+    "start": 3715,
+    "end": 3729,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 198,
+    "start": 4434,
+    "end": 4448,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 230,
+    "start": 5198,
+    "end": 5212,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 266,
+    "start": 5960,
+    "end": 5974,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 297,
+    "start": 6727,
+    "end": 6741,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 332,
+    "start": 7494,
+    "end": 7508,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 337,
+    "start": 7624,
+    "end": 7638,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/11_private_infrastructure.txt",
+    "line": 356,
+    "start": 7997,
+    "end": 8011,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/14_tech6c5c_aluminium_production_and_consumers.txt",
+    "line": 211,
+    "start": 4503,
+    "end": 4517,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+    "line": 3,
+    "start": 123,
+    "end": 137,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+    "line": 22,
+    "start": 492,
+    "end": 506,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+    "line": 53,
+    "start": 1179,
+    "end": 1193,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  },
+  {
+    "file": "common/production_methods/22_tech7a_wave_a_land_transport_production.txt",
+    "line": 85,
+    "start": 1906,
+    "end": 1920,
+    "old": "\tai_weight = 1",
+    "new": "",
+    "reason": "Remove redundant neutral PM AI weight rejected by actual 1.15 parser; native examples omit it and documented default is 1.0; remove indentation of the now-empty line"
+  }
+]

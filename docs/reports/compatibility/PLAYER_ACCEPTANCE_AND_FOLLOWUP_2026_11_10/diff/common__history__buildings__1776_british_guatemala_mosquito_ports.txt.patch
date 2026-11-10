@@ -1,0 +1,22 @@
+--- before/common/history/buildings/1776_british_guatemala_mosquito_ports.txt
++++ candidate/common/history/buildings/1776_british_guatemala_mosquito_ports.txt
+@@ -0,0 +1,19 @@
++# Player-requested 1776 market links; borders and country histories are unchanged.
++BUILDINGS = {
++ s:STATE_GUATEMALA = { region_state:GBR = {
++  create_building = {
++   building = building_port
++   level = 1
++   reserves = 1
++   activate_production_methods = { pm_basic_port pm_1776_no_raw_data_reporting }
++  }
++ } }
++ s:STATE_NICARAGUA = { region_state:MKT = {
++  create_building = {
++   building = building_port
++   level = 1
++   reserves = 1
++   activate_production_methods = { pm_aor1776_traditional_commercial_harbor pm_1776_no_raw_data_reporting }
++  }
++ } }
++}

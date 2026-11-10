@@ -1,0 +1,344 @@
+﻿# TECH-3A generated from frozen TECH-2H authority.
+
+state_dockyard_systems = {
+	# TECH3A conceptual branch: Naval
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/admiralty.dds"
+	category = military
+
+	modifier = {
+		country_admiral_rank_impact_mult = 0.25
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+enclosed_dock_systems = {
+	# TECH3A conceptual branch: Naval
+	era = era_1
+	texture = "gfx/interface/icons/invention_icons/drydock.dds"
+	category = military
+
+	unlocking_technologies = {
+		state_dockyard_systems
+	}
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+scientific_naval_architecture = {
+	# TECH3A conceptual branch: Naval
+	era = era_2
+	texture = "gfx/interface/icons/invention_icons/1776_scientific_naval_architecture.dds"
+	category = military
+
+	unlocking_technologies = {
+		state_dockyard_systems
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+marine_chronometry = {
+	# TECH3A conceptual branch: Naval
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/1776_marine_chronometry.dds"
+	category = military
+
+	unlocking_technologies = {
+		ship_classification_surveying
+	}
+
+	ai_weight = {
+		value = 2
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+ship_classification_surveying = {
+	# TECH3A conceptual branch: Naval
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/1776_ship_classification_surveying.dds"
+	category = military
+
+	# Temporary TECH debt bonus; replace with naval registry and inspection content.
+	modifier = {
+		building_naval_administration_throughput_add = 0.25
+	}
+
+	unlocking_technologies = {
+		state_dockyard_systems
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+copper_sheathing = {
+	# TECH3A conceptual branch: Naval
+	era = era_4
+	texture = "gfx/error_manul.dds"
+	category = military
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+hydrographic_surveying = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/1776_hydrographic_surveying.dds"
+	category = military
+
+	# Temporary TECH debt bonus; replace with charts, beacons and hydrographic services.
+	modifier = {
+		ship_max_distance_to_port_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		marine_chronometry
+		military_topographic_surveying
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+standardized_naval_signals = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/1776_standardized_naval_signals.dds"
+	category = military
+
+	unlocking_technologies = {
+		ship_classification_surveying
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+paddle_steamer = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/paddle_steamer.dds"
+	category = military
+
+
+	modifier = {
+		ship_hull_damage_mult = 0.05
+		ship_crew_damage_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+mechanized_naval_dockyards = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/hydraulic_cranes.dds"
+	category = military
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+		state_dockyard_systems
+		enclosed_dock_systems
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+diagonal_ship_framing = {
+	# TECH3A conceptual branch: Naval
+	era = era_5
+	texture = "gfx/interface/icons/invention_icons/1776_diagonal_ship_framing.dds"
+	category = military
+
+	# Temporary TECH debt bonus; replace with reinforced wooden shipbuilding content.
+	modifier = {
+		ship_hit_points_max_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		scientific_naval_architecture
+		standardized_naval_signals
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+shell_gun = {
+	# TECH3A conceptual branch: Naval
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/shell_gun.dds"
+	category = military
+
+	unlocking_technologies = {
+		standardized_field_artillery
+		scientific_naval_architecture
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+maritime_safety_standards = {
+	# TECH3A conceptual branch: Naval
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/1776_maritime_safety_standards.dds"
+	category = military
+
+	# Temporary TECH debt bonus; replace with maritime safety and rescue content.
+	modifier = {
+		ship_suffered_crew_damage_mult = -0.05
+	}
+
+	unlocking_technologies = {
+		ship_classification_surveying
+		hydrographic_surveying
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+modern_lighthouse_optics = {
+	# TECH3A conceptual branch: Naval
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/1776_modern_lighthouse_optics.dds"
+	category = military
+
+	unlocking_technologies = {
+		hydrographic_surveying
+	}
+
+	modifier = {
+		building_port_throughput_add = 0.05
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}
+
+iron_hull_construction = {
+	# TECH3A conceptual branch: Naval
+	era = era_6
+	texture = "gfx/interface/icons/invention_icons/1776_iron_hull_construction.dds"
+	category = military
+
+	# Temporary TECH debt bonus; replace with iron-hull shipyard and armor content.
+	modifier = {
+		ship_armor_mult = 0.05
+	}
+
+	unlocking_technologies = {
+		mechanized_naval_dockyards
+		diagonal_ship_framing
+		paddle_steamer
+	}
+
+	ai_weight = {
+		value = 1
+
+		if = {
+			limit = { navy_size >= 5 }
+			add = 1
+		}
+	}
+}

@@ -22,45 +22,57 @@
 #		}
 #	}
 
-	complete = {
-		OR = {
-			has_revolution = yes	
-			has_any_secessionists_broken_out = yes
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = {
+				has_revolution = yes
+				has_any_secessionists_broken_out = yes
+			}
+		}
+		effect = {
+			c:GBR ?= {
+				trigger_event = { id = irish_question.1 popup = yes }
+			}
 		}
 	}
 
-	on_complete = {
-		c:GBR ?= {
-			trigger_event = { id = irish_question.1 popup = yes }
-		}
-	}
 	
-	fail = {
-		NOT = {
-			c:IREK ?= {
-				is_subject_of = c:GBR
-			}
-		}
-	}
-	
-	on_fail = {
-		change_tag = IRE
-		hidden_effect = {
-			activate_law = law_type:law_parliamentary_republic
-			remove_primary_culture = cu:british
-			remove_primary_culture = cu:scottish
-			add_primary_culture = cu:irish
-			set_state_religion = rel:catholic
-			state_religion_switch_effect = yes
-			every_scope_character = {
-				limit = {
-					culture = cu:british
-					is_immortal = no
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOT = {
+				c:IREK ?= {
+					is_subject_of = c:GBR
 				}
-				kill_character = yes
+			}
+		}
+		effect = {
+			change_tag = IRE
+			hidden_effect = {
+				activate_law = law_type:law_parliamentary_republic
+				remove_primary_culture = cu:british
+				remove_primary_culture = cu:scottish
+				add_primary_culture = cu:irish
+				set_state_religion = rel:catholic
+				state_religion_switch_effect = yes
+				every_scope_character = {
+					limit = {
+						culture = cu:british
+						is_immortal = no
+					}
+					kill_character = yes
+				}
 			}
 		}
 	}
+	
 	
     on_monthly_pulse = {
         random_events = {

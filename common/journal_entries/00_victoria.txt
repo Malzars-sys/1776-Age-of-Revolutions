@@ -3,46 +3,52 @@
 
 	group = je_group_historical_content
 
-	complete = {
-		trigger_if = {
-			limit = {
-				c:GBR ?= {
-					NOT = {
-						has_variable = ruler_selector_var
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			trigger_if = {
+				limit = {
+					c:GBR ?= {
+						NOT = {
+							has_variable = ruler_selector_var
+						}
+					}
+					c:HAN ?= {
+						NOT = {
+							has_variable = ruler_selector_var
+						}
 					}
 				}
-				c:HAN ?= {
-					NOT = {
-						has_variable = ruler_selector_var
+				custom_tooltip = {
+					text = billy_died
+					ruler = {
+						NOT = {
+							has_variable = is_billy
+						}
 					}
 				}
 			}
-			custom_tooltip = {
-				text = billy_died
-				ruler = {
-					NOT = {
-						has_variable = is_billy
-					}
+			trigger_else = {
+				hidden_trigger = {
+					always = no
 				}
 			}
 		}
-		trigger_else = {
-			hidden_trigger = {
-				always = no 
+		effect = {
+			custom_tooltip = hanover_union_ends
+			if = {
+				limit = {
+					exists = c:GBR
+					c:GBR = ROOT
+				}
+				trigger_event = { id = victoria.1 }
 			}
 		}
 	}
 
-	on_complete = {
-		custom_tooltip = hanover_union_ends
-		if = {
-			limit = {
-				exists = c:GBR
-				c:GBR = ROOT
-			}
-			trigger_event = { id = victoria.1 }
-		}
-	}
 
 	on_monthly_pulse = {
 		effect = {
@@ -66,33 +72,38 @@
 		}
 	}
 
-	invalid = {
-		OR = {
-			NOT = {
-				exists = c:GBR
-			}
-			NOT = {
-				exists = c:HAN
-			}
-			c:HAN ?= {
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			OR = {
 				NOT = {
-					is_subject_of = c:GBR
+					exists = c:GBR
 				}
-			}
-			c:GBR ?= {
-				has_variable = ruler_selector_var
-			}
-			c:GBR ?= {
-				custom_tooltip = {
-					text = "DEBUG_NO_CHARACTER_IN_GBR_IS_VICTORIA"
+				NOT = {
+					exists = c:HAN
+				}
+				c:HAN ?= {
 					NOT = {
-						any_scope_character = {
-							has_variable = is_victoria
+						is_subject_of = c:GBR
+					}
+				}
+				c:GBR ?= {
+					has_variable = ruler_selector_var
+				}
+				c:GBR ?= {
+					custom_tooltip = {
+						text = "DEBUG_NO_CHARACTER_IN_GBR_IS_VICTORIA"
+						NOT = {
+							any_scope_character = {
+								has_variable = is_victoria
+							}
 						}
 					}
 				}
 			}
 		}
+		effect = {}
 	}
 
 	weight = 10

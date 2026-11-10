@@ -1,0 +1,274 @@
+﻿je_french_natural_borders = {
+	icon = "gfx/interface/icons/event_icons/bicorne_hat.dds"
+
+	group = je_group_france_expansion
+
+	is_shown_when_inactive = {
+		exists = c:FRA
+		c:FRA ?= THIS
+		has_dlc_feature = voice_of_the_people_content
+	}
+
+	possible = {
+		has_technology_researched = nationalism
+		any_interest_group = {
+			is_powerful = yes
+			is_in_government = yes
+			leader = {
+				OR = {
+					has_ideology = ideology:ideology_jingoist_leader
+					has_ideology = ideology:ideology_ethno_nationalist
+					has_ideology = ideology:ideology_fascist
+					has_ideology = ideology:ideology_integralist
+					has_ideology = ideology:ideology_bonapartist
+				}
+			}
+		}
+	}
+
+	immediate = {
+		trigger_event = { id = natural_borders.1 popup = yes }
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			is_at_war = no
+			custom_tooltip = {
+				text = own_all_french_homelands
+				NOT = {
+					any_state = {
+						state_region = {
+							is_homeland = cu:french
+						}
+						NOT = { owner = ROOT }
+					}
+				}
+			}
+			any_scope_state = {
+				state_region = s:STATE_WALLONIA
+				is_incorporated = yes
+				is_split_state = no
+			}
+			any_scope_state = {
+				state_region = s:STATE_FLANDERS
+				is_incorporated = yes
+				is_split_state = no
+			}
+			any_scope_state = {
+				state_region = s:STATE_RHINELAND
+				is_incorporated = yes
+				is_split_state = no
+			}
+			any_scope_state = {
+				state_region = s:STATE_NORTH_RHINE
+				is_incorporated = yes
+				is_split_state = no
+			}
+		}
+		effect = {
+			set_variable = completed_natural_borders_je
+			trigger_event = { id = natural_borders.2 popup = yes }
+		}
+	}
+
+	
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			has_variable = reject_natural_borders
+		}
+		effect = {}
+	}
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+
+	weight = 100
+}
+
+je_confederation_of_the_rhine = {
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+
+	group = je_group_france_expansion
+
+	is_shown_when_inactive = {
+		OR = {
+			any_subject_or_below = {
+				capital = {
+					OR = {
+						is_in_geographic_region = geographic_region_rhine_old
+						is_in_geographic_region = geographic_region_north_germany_old
+						is_in_geographic_region = geographic_region_south_germany_old
+					}
+				}
+			}
+			any_scope_state = {
+				state_region = {
+					OR = {
+						is_homeland = cu:south_german
+						is_homeland = cu:north_german
+					}
+				}
+				OR = {
+					is_in_geographic_region = geographic_region_rhine_old
+					is_in_geographic_region = geographic_region_north_germany_old
+					is_in_geographic_region = geographic_region_south_germany_old
+				}
+				is_incorporated = no
+				NOT = {
+					ROOT = {
+						has_claim = prev.state_region
+					}
+				}
+			}
+		}
+		NOR = {
+			country_has_primary_culture = cu:north_german
+			country_has_primary_culture = cu:south_german
+		}
+	}
+
+	possible = {
+		country_rank >= rank_value:great_power
+		any_state = {
+			OR = {
+				is_in_geographic_region = geographic_region_rhine_old
+				is_in_geographic_region = geographic_region_north_germany_old
+				is_in_geographic_region = geographic_region_south_germany_old
+			}
+			state_region = {
+				OR = {
+					is_homeland = cu:south_german
+					is_homeland = cu:north_german
+				}
+			}
+			OR = {
+				owner = {
+					is_subject_of = ROOT
+					NOT = {
+						has_diplomatic_pact = {
+							who = ROOT
+							type = personal_union
+							is_initiator = no
+						}
+					}
+					capital = {
+						OR = {
+							is_in_geographic_region = geographic_region_rhine_old
+							is_in_geographic_region = geographic_region_north_germany_old
+							is_in_geographic_region = geographic_region_south_germany_old
+						}
+					}
+					OR = {
+						country_has_primary_culture = cu:north_german
+						country_has_primary_culture = cu:south_german
+					}
+				}
+				owner = ROOT
+			}
+			count >= 4
+		}
+	}
+
+	immediate = {
+		save_scope_as = rhine_overlord
+		cu:north_german = {
+			save_scope_as = north_german_scope
+		}
+		cu:south_german = {
+			save_scope_as = south_german_scope
+		}
+	}
+
+	scripted_button = je_confederation_of_the_rhine_confederate_button
+	scripted_button = je_confederation_of_the_rhine_expand_button
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOR = {
+				any_country = {
+					is_subject_of = ROOT
+					capital = {
+						OR = {
+							is_in_geographic_region = geographic_region_rhine_old
+							is_in_geographic_region = geographic_region_north_germany_old
+							is_in_geographic_region = geographic_region_south_germany_old
+						}
+					}
+				}
+				any_scope_state = {
+					state_region = {
+						OR = {
+							is_homeland = cu:south_german
+							is_homeland = cu:north_german
+						}
+					}
+					OR = {
+						is_in_geographic_region = geographic_region_rhine_old
+						is_in_geographic_region = geographic_region_north_germany_old
+						is_in_geographic_region = geographic_region_south_germany_old
+					}
+					is_incorporated = no
+				}
+			}
+		}
+		effect = {}
+	}
+
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = no_german_great_powers_tt
+				NOT = {
+					any_country = {
+						OR = {
+							country_has_primary_culture = cu:north_german
+							country_has_primary_culture = cu:south_german
+						}
+						country_rank = rank_value:great_power
+					}
+				}
+			}
+		}
+		effect = {}
+	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			exists = c:RHN
+			c:RHN ?= {
+				NOT = {
+					is_subject_of = ROOT
+				}
+			}
+		}
+		effect = {
+			add_modifier = {
+				name = modifier_fall_of_germany
+				days = normal_modifier_time
+				is_decaying = yes
+			}
+		}
+	}
+
+	
+
+	should_be_pinned_by_default_uninvolved_or_context = yes
+
+	weight = 100
+}

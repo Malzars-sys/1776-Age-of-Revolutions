@@ -78,33 +78,46 @@
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = sold_alaska_tt
-			has_variable = successful_sale_of_alaska
-		}
-	}
-
-	fail = {
-		NOT = {
-			OR = {
-				has_state_in_state_region = STATE_ALASKA
-				any_subject_or_below = {
-					has_state_in_state_region = STATE_ALASKA
-				}
-			}
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
 			custom_tooltip = {
-				text = not_sold_alaska_tt
+				text = sold_alaska_tt
 				has_variable = successful_sale_of_alaska
 			}
 		}
-	}
-
-	on_complete = {
-		custom_tooltip = {
-			text = selling_alaska_tt
+		effect = {
+			custom_tooltip = {
+				text = selling_alaska_tt
+			}
 		}
 	}
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			NOT = {
+				OR = {
+					has_state_in_state_region = STATE_ALASKA
+					any_subject_or_below = {
+						has_state_in_state_region = STATE_ALASKA
+					}
+				}
+				custom_tooltip = {
+					text = not_sold_alaska_tt
+					has_variable = successful_sale_of_alaska
+				}
+			}
+		}
+		effect = {}
+	}
+
 
 	weight = 200
 
@@ -158,48 +171,54 @@ je_alaska = {
 		}
 	}
 
-	complete = {
-		s:STATE_ALASKA = {
-			any_scope_state = {
-				OR = {
-					owner = root
-					owner = {
-						AND = {
-							is_subject_of = root
-							capital = {
-								state_region = s:STATE_ALASKA
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			s:STATE_ALASKA = {
+				any_scope_state = {
+					OR = {
+						owner = root
+						owner = {
+							AND = {
+								is_subject_of = root
+								capital = {
+									state_region = s:STATE_ALASKA
+								}
 							}
 						}
 					}
+				}
+				any_scope_state = {
+					OR = {
+						owner = root
+						owner = {
+							AND = {
+								is_subject_of = root
+								capital = {
+									state_region = s:STATE_ALASKA
+								}
+							}
+						}
+						owner = {
+							is_country_type = decentralized
+						}
+					}
+					count = all
 				}
 			}
-			any_scope_state = {
-				OR = {
-					owner = root
-					owner = {
-						AND = {
-							is_subject_of = root
-							capital = {
-								state_region = s:STATE_ALASKA
-							}
-						}
-					}
-					owner = {
-						is_country_type = decentralized
-					}
-				}
-				count = all
+		}
+		effect = {
+			set_global_variable = alaska_sold
+			add_modifier = {
+				name = conquest_of_alaska
+				days = normal_modifier_time
 			}
 		}
 	}
 
-	on_complete = {
-		set_global_variable = alaska_sold
-		add_modifier = {
-			name = conquest_of_alaska
-			days = normal_modifier_time
-		}
-	}
 
 	timeout = 7300
 
@@ -208,4 +227,11 @@ je_alaska = {
 	transferable = no
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {}
+	}
 }

@@ -297,18 +297,18 @@ sikh_empire.4 = {
 			}
 		}
 		any_scope_character = {
-			has_role = general
+			has_role_of_type = general
 			is_busy = no
-			is_ruler = no
+			is_ruler_of_own_country = no
 		}
 	}
 
 	immediate = {
 		random_scope_character = {
 			limit = {
-				has_role = general
+				has_role_of_type = general
 				is_busy = no
-				is_ruler = no
+				is_ruler_of_own_country = no
 			}
 			save_scope_as = relevant_general
 		}
@@ -923,7 +923,7 @@ sikh_empire.10 = {
 				desc = sikh_empire.10.d1
 				trigger = {
 					any_scope_character = {
-						has_role = politician
+						has_role_of_type = politician
 						has_trait = wrathful
 					}
 				}
@@ -967,7 +967,7 @@ sikh_empire.10 = {
 		}
 		random_scope_character = {
 			limit = {
-				has_role = politician
+				has_role_of_type = politician
 				has_trait = wrathful
 			}
 			save_scope_as = assassin_scope
@@ -1042,7 +1042,7 @@ sikh_empire.11 = {
 	immediate = {
 		random_scope_character = {
 			limit = {
-				is_ruler = yes
+				is_ruler_of_own_country = yes
 			}
 			save_scope_as = relevant_ruler
 		}
@@ -1117,12 +1117,12 @@ sikh_empire.11 = {
 			if = {
 				limit = {
 					any_scope_character = {
-						has_role = general
+						has_role_of_type = general
 					}
 				}
 				random_scope_character = {
 					limit = {
-						has_role = general
+						has_role_of_type = general
 					}
 					set_character_as_ruler = yes
 				}
@@ -1130,7 +1130,7 @@ sikh_empire.11 = {
 			else = {
 				ordered_scope_character = {
 					limit = {
-						has_role = politician
+						has_role_of_type = politician
 					}
 					order_by = interest_group.ig_clout
 					position = 0

@@ -49,33 +49,53 @@
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_clothes_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_clothes_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_clothes_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_clothes_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_clothes_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -91,26 +111,17 @@
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_clothes_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_clothes_var
-                }
-            }
-        }
-        post_notification = prestige_goods_clothes_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_clothes_timer_var
@@ -178,33 +189,53 @@ je_prestige_goods_groceries = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_groceries_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_groceries_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_groceries_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_groceries_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_groceries_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -220,26 +251,17 @@ je_prestige_goods_groceries = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_groceries_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_groceries_var
-                }
-            }
-        }
-        post_notification = prestige_goods_groceries_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_groceries_timer_var
@@ -307,33 +329,53 @@ je_prestige_goods_furniture = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_furniture_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_furniture_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_furniture_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_furniture_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_furniture_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -349,26 +391,17 @@ je_prestige_goods_furniture = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_furniture_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_furniture_var
-                }
-            }
-        }
-        post_notification = prestige_goods_furniture_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_furniture_timer_var
@@ -436,33 +469,53 @@ je_prestige_goods_fertilizer = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_fertilizer_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_fertilizer_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_fertilizer_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_fertilizer_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_fertilizer_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -478,26 +531,17 @@ je_prestige_goods_fertilizer = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_fertilizer_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_fertilizer_var
-                }
-            }
-        }
-        post_notification = prestige_goods_fertilizer_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_fertilizer_timer_var
@@ -565,33 +609,53 @@ je_prestige_goods_tools = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_tools_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_tools_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_tools_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_tools_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_tools_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -607,26 +671,17 @@ je_prestige_goods_tools = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_tools_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_tools_var
-                }
-            }
-        }
-        post_notification = prestige_goods_tools_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_tools_timer_var
@@ -694,33 +749,53 @@ je_prestige_goods_fish = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_fish_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_fish_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_fish_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_fish_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_fish_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -736,26 +811,17 @@ je_prestige_goods_fish = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_fish_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_fish_var
-                }
-            }
-        }
-        post_notification = prestige_goods_fish_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_fish_timer_var
@@ -823,33 +889,53 @@ je_prestige_goods_meat = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_meat_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_meat_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_meat_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_meat_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_meat_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -865,26 +951,17 @@ je_prestige_goods_meat = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_meat_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_meat_var
-                }
-            }
-        }
-        post_notification = prestige_goods_meat_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_meat_timer_var
@@ -952,33 +1029,53 @@ je_prestige_goods_coffee = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_coffee_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_coffee_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_coffee_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_coffee_var
+	                }
+	            }
+	        }
+	        post_notification = generic_coffee_prestige
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -994,26 +1091,17 @@ je_prestige_goods_coffee = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_coffee_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_coffee_var
-                }
-            }
-        }
-        post_notification = generic_coffee_prestige
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_coffee_timer_var
@@ -1081,33 +1169,53 @@ je_prestige_goods_steel = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_steel_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_steel_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_steel_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_steel_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_steel_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -1123,26 +1231,17 @@ je_prestige_goods_steel = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_steel_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_steel_var
-                }
-            }
-        }
-        post_notification = prestige_goods_steel_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_steel_timer_var
@@ -1210,33 +1309,53 @@ je_prestige_goods_opium = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_opium_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_opium_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_opium_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_opium_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_opium_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -1252,26 +1371,17 @@ je_prestige_goods_opium = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_opium_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_opium_var
-                }
-            }
-        }
-        post_notification = prestige_goods_opium_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
 	current_value = {
 		value = root.var:prestige_opium_timer_var
@@ -1339,33 +1449,53 @@ je_prestige_goods_small_arms = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_small_arms_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_small_arms_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_small_arms_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_small_arms_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_small_arms_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -1381,26 +1511,17 @@ je_prestige_goods_small_arms = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_small_arms_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_small_arms_var
-                }
-            }
-        }
-        post_notification = prestige_goods_small_arms_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
     current_value = {
         value = root.var:prestige_small_arms_timer_var
@@ -1468,33 +1589,53 @@ je_prestige_goods_artillery = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_artillery_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_artillery_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_artillery_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_artillery_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_artillery_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -1510,26 +1651,17 @@ je_prestige_goods_artillery = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_artillery_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_artillery_var
-                }
-            }
-        }
-        post_notification = prestige_goods_artillery_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
     current_value = {
         value = root.var:prestige_artillery_timer_var
@@ -1597,33 +1729,53 @@ je_prestige_goods_merchant_marine = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_merchant_marine_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_merchant_marine_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_merchant_marine_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_merchant_marine_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_merchant_marine_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -1639,26 +1791,17 @@ je_prestige_goods_merchant_marine = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_merchant_marine_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_merchant_marine_var
-                }
-            }
-        }
-        post_notification = prestige_goods_merchant_marine_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
     current_value = {
         value = root.var:prestige_merchant_marine_timer_var
@@ -1726,33 +1869,53 @@ je_prestige_goods_grain = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_grain_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_grain_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_grain_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_grain_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_grain_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -1768,26 +1931,17 @@ je_prestige_goods_grain = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_grain_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_grain_var
-                }
-            }
-        }
-        post_notification = prestige_goods_grain_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
     current_value = {
         value = root.var:prestige_grain_timer_var
@@ -1855,33 +2009,53 @@ je_prestige_goods_paper = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_paper_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_paper_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_paper_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_paper_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_paper_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -1897,26 +2071,17 @@ je_prestige_goods_paper = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_paper_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_paper_var
-                }
-            }
-        }
-        post_notification = prestige_goods_paper_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
     current_value = {
         value = root.var:prestige_paper_timer_var
@@ -1984,33 +2149,53 @@ je_prestige_goods_explosives = {
         }
     }
 
-    complete = {
-        trigger_if = {
-            limit = {
-                has_variable = prestige_explosives_timer_var
-            }
-            scope:journal_entry = {
-                is_goal_complete = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            scope:relevant_company ?= {
-                company_is_prosperous = yes
-            }
-        }
-        trigger_if = {
-            limit = {
-                exists = scope:relevant_goods
-            }
-            custom_tooltip = {
-                text = relevant_goods_production_rank_tt
-                "goods_production_rank(scope:relevant_goods)" <= 3
-            }
-        }
-    }
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        trigger_if = {
+	            limit = {
+	                has_variable = prestige_explosives_timer_var
+	            }
+	            scope:journal_entry = {
+	                is_goal_complete = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            scope:relevant_company ?= {
+	                company_is_prosperous = yes
+	            }
+	        }
+	        trigger_if = {
+	            limit = {
+	                exists = scope:relevant_goods
+	            }
+	            custom_tooltip = {
+	                text = relevant_goods_production_rank_tt
+	                "goods_production_rank(scope:relevant_goods)" <= 3
+	            }
+	        }
+	    }
+		effect = {
+	        if = {
+	            limit = {
+	                exists = scope:relevant_company
+	            }
+	            custom_tooltip = {
+	                text = je_prestige_goods_explosives_reward_tt
+	                scope:relevant_company ?= {
+	                    set_variable = prestige_good_generic_explosives_var
+	                }
+	            }
+	        }
+	        post_notification = prestige_goods_explosives_unlocked
+	    }
+	}
 
     on_monthly_pulse = {
         effect = {
@@ -2026,26 +2211,17 @@ je_prestige_goods_explosives = {
         }
     }
 
-    on_complete = {
-        if = {
-            limit = {
-                exists = scope:relevant_company
-            }
-            custom_tooltip = {
-                text = je_prestige_goods_explosives_reward_tt
-                scope:relevant_company ?= {
-                    set_variable = prestige_good_generic_explosives_var
-                }
-            }
-        }
-        post_notification = prestige_goods_explosives_unlocked
-    }
 
-    invalid = {
-        NOT = {
-            exists = scope:relevant_company
-        }
-    }
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+	        NOT = {
+	            exists = scope:relevant_company
+	        }
+	    }
+		effect = {}
+	}
 
     current_value = {
         value = root.var:prestige_explosives_timer_var

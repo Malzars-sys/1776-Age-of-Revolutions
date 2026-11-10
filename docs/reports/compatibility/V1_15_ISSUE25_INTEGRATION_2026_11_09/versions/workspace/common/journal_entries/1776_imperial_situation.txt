@@ -1,0 +1,248 @@
+je_aor1776_hre_situation = {
+
+ icon = "gfx/interface/icons/central_identity_pillars_icons/aor1776_imperial_federation_v2.dds"
+ is_shown_when_inactive = { aor1776_hre_member = yes }
+ possible = { has_global_variable = aor1776_hre_initialized }
+ outcome = {
+ 	flags = { hidden invalid_outcome }
+ 	conclusion_desc = je_standard_failure_conclusion_desc
+ 	trigger = {
+ 		aor1776_hre_member = no
+ 	}
+ 	effect = {}
+ }
+ outcome = {
+ 	header = je_standard_completion_header
+ 	effect_header = je_standard_on_completion_header
+ 	color = "gold_positive"
+ 	conclusion_desc = je_standard_completion_conclusion_desc
+ 	trigger = {
+ 		always = no
+ 	}
+ 	effect = {}
+ }
+ widget = { gui = "gui/journal_entry_widgets/1776_imperial_widgets.gui" name = "aor1776_hre_situation_widget" container = "custom_widget_container_5" }
+ weight = 20
+
+
+group = je_group_aor1776_imperial_affairs
+
+should_be_pinned_by_default_uninvolved_or_context = yes
+
+is_shown_in_lobby = { aor1776_hre_member = yes }
+
+scripted_button = aor1776_hre_vote_AUS
+scripted_button = aor1776_hre_vote_KPF
+scripted_button = aor1776_hre_vote_KTR
+scripted_button = aor1776_hre_vote_KMZ
+scripted_button = aor1776_hre_vote_KCL
+scripted_button = aor1776_hre_vote_MOD
+scripted_button = aor1776_hre_vote_TUS
+scripted_button = aor1776_hre_vote_PAR
+scripted_button = aor1776_hre_vote_PRU
+scripted_button = aor1776_hre_vote_LUB
+scripted_button = aor1776_hre_vote_HAM
+scripted_button = aor1776_hre_vote_BRE
+scripted_button = aor1776_hre_vote_BRA
+scripted_button = aor1776_hre_vote_SCM
+scripted_button = aor1776_hre_vote_MST
+scripted_button = aor1776_hre_vote_OLD
+scripted_button = aor1776_hre_vote_HES
+scripted_button = aor1776_hre_vote_BAV
+scripted_button = aor1776_hre_vote_WUR
+scripted_button = aor1776_hre_vote_BAD
+scripted_button = aor1776_hre_vote_SAX
+scripted_button = aor1776_hre_vote_HEK
+scripted_button = aor1776_hre_vote_MEC
+scripted_button = aor1776_hre_vote_NAS
+scripted_button = aor1776_hre_vote_WEI
+scripted_button = aor1776_hre_vote_SCW
+scripted_button = aor1776_hre_vote_COB
+scripted_button = aor1776_hre_vote_MEI
+scripted_button = aor1776_hre_vote_ANH
+scripted_button = aor1776_hre_vote_WLD
+scripted_button = aor1776_hre_vote_LIP
+scripted_button = aor1776_hre_vote_FRM
+scripted_button = aor1776_hre_vote_HOL
+scripted_button = aor1776_hre_vote_HOH
+scripted_button = aor1776_hre_vote_BEO
+scripted_button = aor1776_hre_vote_HAN
+scripted_button = aor1776_hre_vote_LGE
+scripted_button = aor1776_hre_vote_STM
+scripted_button = aor1776_hre_vote_SAR
+scripted_button = aor1776_hre_vote_ANS
+scripted_button = aor1776_hre_vote_FBM
+scripted_button = aor1776_hre_vote_WZB
+scripted_button = aor1776_hre_vote_NUR
+scripted_button = aor1776_hre_vote_EIC
+scripted_button = aor1776_hre_vote_WPM
+scripted_button = aor1776_hre_vote_WPD
+scripted_button = aor1776_hre_vote_WPO
+scripted_button = aor1776_hre_vote_HSG
+scripted_button = aor1776_hre_vote_SUU
+scripted_button = aor1776_hre_vote_SAG
+scripted_button = aor1776_hre_vote_SKE
+scripted_button = aor1776_hre_vote_SFU
+scripted_button = aor1776_hre_vote_SEW
+scripted_button = aor1776_hre_vote_SLM
+scripted_button = aor1776_hre_vote_SWW
+scripted_button = aor1776_hre_vote_SWF
+scripted_button = aor1776_hre_vote_SWX
+scripted_button = aor1776_hre_vote_SWY
+scripted_button = aor1776_hre_vote_SKC
+scripted_button = aor1776_hre_vote_SAC
+scripted_button = aor1776_hre_vote_SKI
+scripted_button = aor1776_hre_vote_SRT
+scripted_button = aor1776_hre_vote_SBI
+scripted_button = aor1776_hre_vote_SMM
+scripted_button = aor1776_hre_vote_SRQ
+scripted_button = aor1776_hre_vote_SWG
+scripted_button = aor1776_hre_vote_HLB
+scripted_button = aor1776_hre_vote_ABG
+scripted_button = aor1776_hre_vote_AKT
+scripted_button = aor1776_hre_vote_AZR
+scripted_button = aor1776_hre_vote_GOT
+scripted_button = aor1776_hre_vote_HIL
+scripted_button = aor1776_hre_vote_SSO
+scripted_button = aor1776_hre_vote_RGZ
+scripted_button = aor1776_hre_vote_RGE
+scripted_button = aor1776_hre_vote_RSL
+scripted_button = aor1776_hre_vote_RLO
+scripted_button = aor1776_hre_vote_REB
+scripted_button = aor1776_hre_vote_FUL
+scripted_button = aor1776_hre_vote_NOU
+scripted_button = aor1776_hre_vote_NWB
+scripted_button = aor1776_hre_vote_NSB
+scripted_button = aor1776_hre_vote_PAS
+scripted_button = aor1776_hre_vote_FSI
+scripted_button = aor1776_hre_vote_RBI
+scripted_button = aor1776_hre_vote_RCI
+scripted_button = aor1776_hre_vote_SLZ
+scripted_button = aor1776_hre_vote_MCA
+scripted_button = aor1776_hre_vote_TRT
+scripted_button = aor1776_hre_vote_BRX
+scripted_button = aor1776_hre_vote_BGT
+scripted_button = aor1776_hre_vote_ORT
+}
+je_aor1776_hre_vote = {
+
+ icon = "gfx/interface/icons/central_identity_pillars_icons/aor1776_imperial_federation_v2.dds"
+ is_shown_when_inactive = { aor1776_hre_elector = yes has_global_variable = aor1776_hre_election_open }
+ possible = { aor1776_hre_elector = yes has_global_variable = aor1776_hre_election_open }
+ outcome = {
+ 	header = je_standard_completion_header
+ 	effect_header = je_standard_on_completion_header
+ 	color = "gold_positive"
+ 	conclusion_desc = je_standard_completion_conclusion_desc
+ 	trigger = {
+ 		NOT = { has_global_variable = aor1776_hre_election_open }
+ 	}
+ 	effect = {}
+ }
+ outcome = {
+ 	flags = { hidden invalid_outcome }
+ 	conclusion_desc = je_standard_failure_conclusion_desc
+ 	trigger = {
+ 		aor1776_hre_elector = no
+ 	}
+ 	effect = {}
+ }
+ weight = 100
+scripted_button = aor1776_hre_vote_AUS
+scripted_button = aor1776_hre_vote_KPF
+scripted_button = aor1776_hre_vote_KTR
+scripted_button = aor1776_hre_vote_KMZ
+scripted_button = aor1776_hre_vote_KCL
+scripted_button = aor1776_hre_vote_MOD
+scripted_button = aor1776_hre_vote_TUS
+scripted_button = aor1776_hre_vote_PAR
+scripted_button = aor1776_hre_vote_PRU
+scripted_button = aor1776_hre_vote_LUB
+scripted_button = aor1776_hre_vote_HAM
+scripted_button = aor1776_hre_vote_BRE
+scripted_button = aor1776_hre_vote_BRA
+scripted_button = aor1776_hre_vote_SCM
+scripted_button = aor1776_hre_vote_MST
+scripted_button = aor1776_hre_vote_OLD
+scripted_button = aor1776_hre_vote_HES
+scripted_button = aor1776_hre_vote_BAV
+scripted_button = aor1776_hre_vote_WUR
+scripted_button = aor1776_hre_vote_BAD
+scripted_button = aor1776_hre_vote_SAX
+scripted_button = aor1776_hre_vote_HEK
+scripted_button = aor1776_hre_vote_MEC
+scripted_button = aor1776_hre_vote_NAS
+scripted_button = aor1776_hre_vote_WEI
+scripted_button = aor1776_hre_vote_SCW
+scripted_button = aor1776_hre_vote_COB
+scripted_button = aor1776_hre_vote_MEI
+scripted_button = aor1776_hre_vote_ANH
+scripted_button = aor1776_hre_vote_WLD
+scripted_button = aor1776_hre_vote_LIP
+scripted_button = aor1776_hre_vote_FRM
+scripted_button = aor1776_hre_vote_HOL
+scripted_button = aor1776_hre_vote_HOH
+scripted_button = aor1776_hre_vote_BEO
+scripted_button = aor1776_hre_vote_HAN
+scripted_button = aor1776_hre_vote_LGE
+scripted_button = aor1776_hre_vote_STM
+scripted_button = aor1776_hre_vote_SAR
+scripted_button = aor1776_hre_vote_ANS
+scripted_button = aor1776_hre_vote_FBM
+scripted_button = aor1776_hre_vote_WZB
+scripted_button = aor1776_hre_vote_NUR
+scripted_button = aor1776_hre_vote_EIC
+scripted_button = aor1776_hre_vote_WPM
+scripted_button = aor1776_hre_vote_WPD
+scripted_button = aor1776_hre_vote_WPO
+scripted_button = aor1776_hre_vote_HSG
+scripted_button = aor1776_hre_vote_SUU
+scripted_button = aor1776_hre_vote_SAG
+scripted_button = aor1776_hre_vote_SKE
+scripted_button = aor1776_hre_vote_SFU
+scripted_button = aor1776_hre_vote_SEW
+scripted_button = aor1776_hre_vote_SLM
+scripted_button = aor1776_hre_vote_SWW
+scripted_button = aor1776_hre_vote_SWF
+scripted_button = aor1776_hre_vote_SWX
+scripted_button = aor1776_hre_vote_SWY
+scripted_button = aor1776_hre_vote_SKC
+scripted_button = aor1776_hre_vote_SAC
+scripted_button = aor1776_hre_vote_SKI
+scripted_button = aor1776_hre_vote_SRT
+scripted_button = aor1776_hre_vote_SBI
+scripted_button = aor1776_hre_vote_SMM
+scripted_button = aor1776_hre_vote_SRQ
+scripted_button = aor1776_hre_vote_SWG
+scripted_button = aor1776_hre_vote_HLB
+scripted_button = aor1776_hre_vote_ABG
+scripted_button = aor1776_hre_vote_AKT
+scripted_button = aor1776_hre_vote_AZR
+scripted_button = aor1776_hre_vote_GOT
+scripted_button = aor1776_hre_vote_HIL
+scripted_button = aor1776_hre_vote_SSO
+scripted_button = aor1776_hre_vote_RGZ
+scripted_button = aor1776_hre_vote_RGE
+scripted_button = aor1776_hre_vote_RSL
+scripted_button = aor1776_hre_vote_RLO
+scripted_button = aor1776_hre_vote_REB
+scripted_button = aor1776_hre_vote_FUL
+scripted_button = aor1776_hre_vote_NOU
+scripted_button = aor1776_hre_vote_NWB
+scripted_button = aor1776_hre_vote_NSB
+scripted_button = aor1776_hre_vote_PAS
+scripted_button = aor1776_hre_vote_FSI
+scripted_button = aor1776_hre_vote_RBI
+scripted_button = aor1776_hre_vote_RCI
+scripted_button = aor1776_hre_vote_SLZ
+scripted_button = aor1776_hre_vote_MCA
+scripted_button = aor1776_hre_vote_TRT
+scripted_button = aor1776_hre_vote_BRX
+scripted_button = aor1776_hre_vote_BGT
+scripted_button = aor1776_hre_vote_ORT
+
+
+group = je_group_aor1776_imperial_affairs
+
+should_be_pinned_by_default_uninvolved_or_context = yes
+}

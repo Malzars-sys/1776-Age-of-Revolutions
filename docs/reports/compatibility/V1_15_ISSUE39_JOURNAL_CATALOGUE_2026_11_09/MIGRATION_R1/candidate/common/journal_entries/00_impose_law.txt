@@ -1,0 +1,116 @@
+﻿je_law_imposition = {
+    icon = "gfx/interface/icons/event_icons/event_scales.dds"
+
+	group = je_group_foreign_affairs
+
+    immediate = {
+		save_scope_as = country_imposed_upon
+		imposed_law = {
+			save_scope_as = foreign_imposition_law
+		}
+		imposer_of_law = {
+			save_scope_as = foreign_imposition_country
+		}
+		remove_modifier = impose_law_cooldown 			# the cooldown variable is replicated in this journal entry
+		scope:journal_entry = {
+			add_modifier = foreign_legislative_interference
+		}
+	}
+
+	modifiers_while_active = {
+		impose_law_cooldown
+	}
+
+	scripted_button = button_implement_law_imposition
+	scripted_button = button_refuse_law_imposition
+
+    status_desc = {
+		first_valid = {
+			triggered_desc = {
+				desc = je_law_imposition_status_enacting
+				trigger = { currently_enacting_law ?= scope:foreign_imposition_law }
+			}
+			triggered_desc = {
+				desc = je_law_imposition_status_not_yet_enacting
+			}
+		}
+	}
+
+	on_weekly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					exists = currently_enacting_law
+					scope:journal_entry = { NOT = { has_variable = notification_sent_var } }
+					currently_enacting_law ?= scope:foreign_imposition_law
+				}
+				imposer_of_law = { post_notification = imposition_started }
+				scope:journal_entry = { set_variable = notification_sent_var }
+			}
+		}
+	}
+
+    outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+	        has_law = scope:foreign_imposition_law.type
+	    }
+		effect = {
+			change_relations = {
+				country = scope:foreign_imposition_country
+				value = 20
+			}
+	
+			every_political_lobby = {
+				limit = { pro_foreign_imposition_country = yes }
+				change_appeasement = { amount = 1 factor = appeasement_imposed_law_enacted }
+			}
+			every_political_lobby = {
+				limit = { anti_foreign_imposition_country = yes }
+				change_appeasement = { amount = -1 factor = appeasement_imposed_law_enacted }
+			}
+	        add_modifier = {
+	            name = successfully_met_foreign_imposition_legitimacy
+	            days = normal_modifier_time
+	            is_decaying = yes
+	        }
+	    }
+	}
+
+    
+
+    outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			OR = {
+				scope:journal_entry = {
+					has_variable = has_been_abandoned
+				}
+				scope:foreign_imposition_country ?= {
+					NOT = {
+						has_law_imposition_rights = {
+							target_country = root
+							law_type = scope:foreign_imposition_law.type
+						}
+					}
+				}
+			}
+	    }
+		effect = {
+			if = {
+				limit = { currently_enacting_law ?= scope:foreign_imposition_law }
+				cancel_enactment = yes
+			}
+		}
+	}
+
+	
+
+    weight = 1000
+
+    should_be_pinned_by_default_uninvolved_or_context = yes
+}

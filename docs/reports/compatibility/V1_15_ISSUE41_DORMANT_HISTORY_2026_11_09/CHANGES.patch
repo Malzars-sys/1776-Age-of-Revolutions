@@ -1,0 +1,55 @@
+--- before/issue24_map_dlc_audit.py
++++ tools/compatibility/issue24_map_dlc_audit.py
+@@ -53,6 +53,7 @@
+             metadata.get('game_custom_data', {}).get('replace_paths', [])))
+         self.hashes, self.masks, self.errors, self.findings = {}, [], [], []
+         self.cache, self.definitions = {}, {}
++        self.optional_history_country_scopes = []
+ 
+     def paths(self, folder):
+         local = {} if self.native else {p.relative_to(self.mod).as_posix().casefold(): p
+@@ -100,6 +101,26 @@
+             return
+         if target not in self.definitions[category]:
+             self.finding('unresolved_' + category, owner, source, target, role=role)
++
++    def history_country_scope(self, node, source, raw):
++        """Keep absent optional history blocks visible without requiring a provider.
++
++        This only classifies the direct c:TAG ?= { ... } form. It does not
++        evaluate enclosing guards or suppress other references in the block.
++        """
++        if not re.fullmatch(r'c:[A-Za-z0-9_]+', node.key):
++            return
++        target = node.key[2:]
++        if (node.op == '?=' and isinstance(node.value, list)
++                and target not in self.definitions['countries']):
++            self.optional_history_country_scopes.append({
++                'target': target, 'source': source, 'operator': node.op,
++                'line': raw.count('\n', 0, node.start) + 1,
++                'classification': 'absent_optional_country_history_scope',
++                'note': 'Direct optional block; not a required provider. '
++                        'No engine execution or nested-reference exemption is implied.'})
++            return
++        self.ref('countries', target, 'history scope', source, 'literal country scope')
+ 
+     def run(self, pixels=True):
+         states = self.load('states', 'map_data/state_regions')
+@@ -216,8 +237,7 @@
+             for path in self.paths(folder):
+                 nodes, raw, source = self.read(path)
+                 for n in walk(nodes):
+-                    if re.fullmatch(r'c:[A-Za-z0-9_]+', n.key):
+-                        self.ref('countries', n.key[2:], 'history scope', source, 'literal country scope')
++                    self.history_country_scope(n, source, raw)
+                     for target in [n.key, plain(n.value)]:
+                         if target and re.fullmatch(r's:STATE_[A-Z0-9_]+', target):
+                             self.ref('states', target[2:], 'history', source, 'literal state reference')
+@@ -292,6 +312,7 @@
+                 'palette': palette, 'climate': climate, 'initial_state_allocations': created,
+                 'dlc_gate_inventory': dlc_rows, 'native_feature_vocabulary': sorted(native_features),
+                 'script_literal_dependency_candidates': script_findings,
++                'optional_history_country_scopes': self.optional_history_country_scopes,
+                 'initial_pop_culture_candidates': pop_candidates,
+                 'source_hashes': self.hashes, 'engine_tested': False,
+                 'limits': ['No reachability evaluation or interpretation of country-history capital overrides.',

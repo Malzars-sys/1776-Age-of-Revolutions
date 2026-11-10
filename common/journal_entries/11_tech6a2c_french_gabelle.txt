@@ -19,16 +19,27 @@
 		gabelle_income_active
 	}
 
-	invalid = {
-		NOT = { has_consumption_tax = g:salt }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = { has_consumption_tax = g:salt }
+		}
+		effect = {}
 	}
 
-	custom_completion_header = "je_gabelle_complete_header"
-	complete = {
-		custom_tooltip = {
-			text = "je_gabelle_reform_goal"
-			has_variable = lagab_gabelle_reformed
+	outcome = {
+		header = "je_gabelle_complete_header"
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = "je_gabelle_reform_goal"
+				has_variable = lagab_gabelle_reformed
+			}
 		}
+		effect = {}
 	}
 
 	weight = 100
@@ -56,16 +67,27 @@ je_gabelle_reformed = {
 		gabelle_income_reformed_active
 	}
 
-	invalid = {
-		NOT = { has_consumption_tax = g:salt }
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			NOT = { has_consumption_tax = g:salt }
+		}
+		effect = {}
 	}
 
-	custom_completion_header = "je_gabelle_complete_header"
-	complete = {
-		custom_tooltip = {
-			text = "je_gabelle_reformed_desc"
-			always = no
+	outcome = {
+		header = "je_gabelle_complete_header"
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = "je_gabelle_reformed_desc"
+				always = no
+			}
 		}
+		effect = {}
 	}
 
 	weight = 100
@@ -86,12 +108,18 @@ je_gabelle_suspended = {
 		c:FRA ?= this
 	}
 
-	custom_completion_header = "je_gabelle_restore_header"
-	complete = {
-		custom_tooltip = {
-			text = "je_gabelle_restore_goal"
-			has_consumption_tax = g:salt
+	outcome = {
+		header = "je_gabelle_restore_header"
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = "je_gabelle_restore_goal"
+				has_consumption_tax = g:salt
+			}
 		}
+		effect = {}
 	}
 
 	weight = 100

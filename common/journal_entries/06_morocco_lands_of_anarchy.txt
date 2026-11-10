@@ -34,7 +34,7 @@
 				add_modifier = {
 					name = state_of_anarchy_scaled_mod
 					multiplier = {
-						value = var:al_rif_progress_bar_current_var
+						value = root.var:al_rif_progress_bar_current_var
 						divide = -100
 						add = 5.15
 					}
@@ -51,7 +51,7 @@
 				add_modifier = {
 					name = state_of_anarchy_scaled_mod
 					multiplier = {
-						value = var:marrakech_progress_bar_current_var
+						value = root.var:marrakech_progress_bar_current_var
 						divide = -100
 						add = 5.15
 					}
@@ -68,7 +68,7 @@
 				add_modifier = {
 					name = state_of_anarchy_scaled_mod
 					multiplier = {
-						value = var:inner_morocco_progress_bar_current_var
+						value = root.var:inner_morocco_progress_bar_current_var
 						divide = -100
 						add = 5.15
 					}
@@ -94,7 +94,7 @@
             	add_modifier = {
             		name = state_of_anarchy_scaled_mod
             		multiplier = {
-            			value = var:al_rif_progress_bar_current_var
+            			value = root.var:al_rif_progress_bar_current_var
             			divide = -100
             			add = 5.15
             		}
@@ -106,7 +106,7 @@
             	add_modifier = {
             		name = state_of_anarchy_scaled_mod
             		multiplier = {
-            			value = var:marrakech_progress_bar_current_var
+            			value = root.var:marrakech_progress_bar_current_var
             			divide = -100
             			add = 5.15
             		}
@@ -119,7 +119,7 @@
             	add_modifier = {
             		name = state_of_anarchy_scaled_mod
             		multiplier = {
-            			value = var:inner_morocco_progress_bar_current_var
+            			value = root.var:inner_morocco_progress_bar_current_var
             			divide = -100
             			add = 5.15
             		}
@@ -128,91 +128,113 @@
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_lands_of_anarchy_complete_tt
-			AND = {
-				je:je_lands_of_anarchy = {
-					"scripted_bar_progress(lands_of_anarchy_tribes_of_marrakech_bar)" >= 400
-				}
-				je:je_lands_of_anarchy = {
-					"scripted_bar_progress(lands_of_anarchy_tribes_of_al_rif_bar)" >= 400
-				}
-				je:je_lands_of_anarchy = {
-					"scripted_bar_progress(lands_of_anarchy_tribes_of_inner_morocco_bar)" >= 400
-				}
-			}
-		}
-	}
-
-	on_complete = {
-		s:STATE_AL_RIF = {
-			if = {
-				limit = {
-					any_scope_state = {
-						NOT = {
-							owner = ROOT
-						}
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_lands_of_anarchy_complete_tt
+				AND = {
+					je:je_lands_of_anarchy = {
+						"scripted_bar_progress(lands_of_anarchy_tribes_of_marrakech_bar)" >= 400
+					}
+					je:je_lands_of_anarchy = {
+						"scripted_bar_progress(lands_of_anarchy_tribes_of_al_rif_bar)" >= 400
+					}
+					je:je_lands_of_anarchy = {
+						"scripted_bar_progress(lands_of_anarchy_tribes_of_inner_morocco_bar)" >= 400
 					}
 				}
-				add_claim = ROOT
 			}
 		}
-		trigger_event = lands_of_anarchy.2
+		effect = {
+			s:STATE_AL_RIF = {
+				if = {
+					limit = {
+						any_scope_state = {
+							NOT = {
+								owner = ROOT
+							}
+						}
+					}
+					add_claim = ROOT
+				}
+			}
+			trigger_event = lands_of_anarchy.2
+		}
 	}
 
-	fail = {
-		custom_tooltip = {
-			text = je_lands_of_anarchy_fail_tt
-			AND = {
-				je:je_lands_of_anarchy = {
-					"scripted_bar_progress(lands_of_anarchy_tribes_of_marrakech_bar)" <= 100
-				}
-				je:je_lands_of_anarchy = {
-					"scripted_bar_progress(lands_of_anarchy_tribes_of_al_rif_bar)" <= 100
-				}
-				je:je_lands_of_anarchy = {
-					"scripted_bar_progress(lands_of_anarchy_tribes_of_inner_morocco_bar)"<= 100
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_lands_of_anarchy_fail_tt
+				AND = {
+					je:je_lands_of_anarchy = {
+						"scripted_bar_progress(lands_of_anarchy_tribes_of_marrakech_bar)" <= 100
+					}
+					je:je_lands_of_anarchy = {
+						"scripted_bar_progress(lands_of_anarchy_tribes_of_al_rif_bar)" <= 100
+					}
+					je:je_lands_of_anarchy = {
+						"scripted_bar_progress(lands_of_anarchy_tribes_of_inner_morocco_bar)"<= 100
+					}
 				}
 			}
 		}
-	}
-
-	on_fail = {
-		trigger_event = lands_of_anarchy.3
-	}
-
-	invalid = {
-		any_scope_state = {
-			has_modifier = state_of_anarchy_scaled_mod
-			count < 2
-		}
-		hidden_trigger = {
-			has_variable = anarchy_modifiers_given_var
+		effect = {
+			trigger_event = lands_of_anarchy.3
 		}
 	}
 
-	on_invalid = {
-		every_scope_state = {
-			limit = {
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			any_scope_state = {
 				has_modifier = state_of_anarchy_scaled_mod
+				count < 2
 			}
-			hidden_effect = {
-				remove_modifier = state_of_anarchy_scaled_mod
+			hidden_trigger = {
+				has_variable = anarchy_modifiers_given_var
 			}
 		}
-		add_modifier = {
-			name = lands_of_anarchy_failed_nation_mod
-			days = long_modifier_time
+		effect = {
+			every_scope_state = {
+				limit = {
+					has_modifier = state_of_anarchy_scaled_mod
+				}
+				hidden_effect = {
+					remove_modifier = state_of_anarchy_scaled_mod
+				}
+			}
+			add_modifier = {
+				name = lands_of_anarchy_failed_nation_mod
+				days = long_modifier_time
+			}
 		}
 	}
+
 
 	timeout = 9125
 
-	on_timeout = {
-		add_modifier = {
-			name = lands_of_anarchy_failed_nation_mod
-			days = long_modifier_time
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			add_modifier = {
+				name = lands_of_anarchy_failed_nation_mod
+				days = long_modifier_time
+			}
 		}
 	}
 }

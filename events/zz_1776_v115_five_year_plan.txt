@@ -1,0 +1,109 @@
+﻿# Native continuation required by the restored industrialisation-plan journal.
+namespace = communism
+
+communism.13 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		add_journal_entry = { type = je_five_year_plan }
+	}
+}
+
+communism.12 = {
+	type = country_event
+	placement = root
+
+	duration = 3
+
+	title = communism.12.t
+	desc = communism.12.d
+	flavor = communism.12.f
+
+	event_image = {
+		video = "ep1_clandestine_meeting"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_protest.dds"
+
+	trigger = {
+		# Fired by the Five-Year Plan cheat button
+	}
+
+	immediate = {
+		ig:ig_trade_unions ?= {
+			save_scope_as = proletariat_ig
+		}
+		generate_1_common_name = {
+			CULTURE_1 = primary_culture
+		}
+	}
+
+	cancellation_trigger = {
+		NOT = {
+			has_journal_entry = je_five_year_plan
+		}
+	}
+
+	option = {
+		name = communism.12.a
+		default_option = yes
+		add_modifier = {
+			name = modifier_falsified_plan_figures
+			days = normal_modifier_time
+		}
+		kill_population_percent = {
+			pop_type = bureaucrats
+			percent = 0.025
+		}
+		add_radicals = {
+			value = medium_radicals
+			interest_group = ig:ig_trade_unions
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+
+	option = {
+		name = communism.12.b
+		trigger = {
+			OR = {
+				has_law_or_variant = law_type:law_censorship
+				has_law_or_variant = law_type:law_outlawed_dissent
+			}
+			NAND = {
+				has_law_or_variant = law_type:law_factory_councils
+				has_law_or_variant = law_type:law_communal_administration
+			}
+		}
+		highlighted_option = yes
+		show_as_unavailable = {
+			always = yes
+		}
+		custom_tooltip = {
+			text = je_five_year_plan_cheat_button_success_tt
+			je:je_five_year_plan ?= {
+				set_variable = five_year_plan_creative_accounting_var
+			}
+		}
+		add_radicals = {
+			value = large_radicals
+			interest_group = ig:ig_trade_unions
+		}
+		add_loyalists = {
+			value = large_radicals
+			pop_type = bureaucrats
+		}
+		add_modifier = {
+			name = modifier_fyp_censorship_campaign
+			days = normal_modifier_time
+		}
+	}
+
+	after = {
+		clear_generated_names = yes
+	}
+}

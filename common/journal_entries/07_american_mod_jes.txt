@@ -76,18 +76,24 @@
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = sold_florida_tt
-			has_variable = successful_sale_of_florida
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = sold_florida_tt
+				has_variable = successful_sale_of_florida
+			}
+		}
+		effect = {
+			custom_tooltip = {
+				text = selling_florida_tt
+			}
 		}
 	}
 
-	on_complete = {
-		custom_tooltip = {
-			text = selling_florida_tt
-		}
-	}
 
 	weight = 200
 
@@ -144,82 +150,88 @@ je_buying_florida_mod = {
 		}
 	}
 
-	complete = {
-		AND = {
-s:STATE_FLORIDA = {
-			any_scope_state = {
-				OR = {
-					owner = root
-					owner = {
-						AND = {
-							is_subject_of = root
-							capital = {
-								OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			AND = {
+	s:STATE_FLORIDA = {
+				any_scope_state = {
+					OR = {
+						owner = root
+						owner = {
+							AND = {
+								is_subject_of = root
+								capital = {
+									OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
+								}
 							}
 						}
 					}
+				}
+				any_scope_state = {
+					OR = {
+						owner = root
+						owner = {
+							AND = {
+								is_subject_of = root
+								capital = {
+									OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
+								}
+							}
+						}
+						owner = {
+							is_country_type = decentralized
+						}
+					}
+					count = all
 				}
 			}
-			any_scope_state = {
-				OR = {
-					owner = root
-					owner = {
-						AND = {
-							is_subject_of = root
-							capital = {
-								OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
+	s:STATE_WEST_FLORIDA = {
+				any_scope_state = {
+					OR = {
+						owner = root
+						owner = {
+							AND = {
+								is_subject_of = root
+								capital = {
+									OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
+								}
 							}
 						}
 					}
-					owner = {
-						is_country_type = decentralized
-					}
 				}
-				count = all
+				any_scope_state = {
+					OR = {
+						owner = root
+						owner = {
+							AND = {
+								is_subject_of = root
+								capital = {
+									OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
+								}
+							}
+						}
+						owner = {
+							is_country_type = decentralized
+						}
+					}
+					count = all
+				}
+			}
+	}
+		}
+		effect = {
+			set_global_variable = florida_sold
+			add_modifier = {
+				name = conquest_of_florida
+				days = normal_modifier_time
 			}
 		}
-s:STATE_WEST_FLORIDA = {
-			any_scope_state = {
-				OR = {
-					owner = root
-					owner = {
-						AND = {
-							is_subject_of = root
-							capital = {
-								OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
-							}
-						}
-					}
-				}
-			}
-			any_scope_state = {
-				OR = {
-					owner = root
-					owner = {
-						AND = {
-							is_subject_of = root
-							capital = {
-								OR = { state_region = s:STATE_FLORIDA state_region = s:STATE_WEST_FLORIDA }
-							}
-						}
-					}
-					owner = {
-						is_country_type = decentralized
-					}
-				}
-				count = all
-			}
-		}
-}
 	}
 
-	on_complete = {
-		set_global_variable = florida_sold
-		add_modifier = {
-			name = conquest_of_florida
-			days = normal_modifier_time
-		}
-	}
 
 	timeout = 7300
 
@@ -228,6 +240,13 @@ s:STATE_WEST_FLORIDA = {
 	transferable = no
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {}
+	}
 }
 
 je_northwest_frontier_mod = {

@@ -1,0 +1,23 @@
+{
+  "scope": "PR34 content reconciliation only; no Git or live-file installation",
+  "files": {
+    "common/goods/13_tech6c5b_copper.txt": {
+      "action": "keep_current",
+      "expected_workspace_sha256": "33a3cc511d04f90f4c5cb9d38bfedb73af6872e1f876848e3bf541f727138e80",
+      "expected_main_sha256": "9bd2732ec333c3363e9c5df6450068b14015388ca83214c22a8e7bfa4c72b355",
+      "reason": "Keep main: inherit native copper (cost 40); remote definition cost 50 is superseded by accepted vanilla alignment. No deposit edits."
+    },
+    "common/journal_entries/00_sick_man.txt": {
+      "action": "keep_current",
+      "expected_workspace_sha256": "f7ed1ba42324cac8dcddf5671eb1f58db2a54f154d9e039aa3b0d39ab89799c4",
+      "expected_main_sha256": "bcfadc604d117a6cb0167d4896a9c7f4a0f232744fb7b402bfa19b20821fae29",
+      "reason": "Keep main: all 17 ordered outcomes unchanged; preserve later group, inactive-visibility/activation gate and guarded progress fixes."
+    },
+    "tools/compatibility/issue27_journal_outcomes_audit.py": {
+      "action": "keep_current",
+      "expected_workspace_sha256": "066d0a86565b9cac15195f098e14bdf5fdbd8ae33fe37a664948579370432e58",
+      "expected_main_sha256": "066d0a86565b9cac15195f098e14bdf5fdbd8ae33fe37a664948579370432e58",
+      "reason": "Keep main: preserves the first and sick-man batches and adds American-independence batch coverage."
+    }
+  }
+}

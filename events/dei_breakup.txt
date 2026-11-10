@@ -650,7 +650,7 @@ alk_breakup.1 = {
 				text = inherit_characters_from_athabaska_tt
 				every_scope_character = { # Culls Russian IG leaders
 					limit = {
-						has_role = politician
+						has_role_of_type = politician
 					}
 					kill_character = {
 						hidden = yes
@@ -661,7 +661,7 @@ alk_breakup.1 = {
 						transfer_character = c:ALK
 						if = {
 							limit = {
-								has_role = politician
+								has_role_of_type = politician
 							}
 							set_as_interest_group_leader = yes
 						}
@@ -672,7 +672,7 @@ alk_breakup.1 = {
 				}
 				ordered_scope_character = { # Promotes the most influential Athabaskan IG leader to ruler
 					limit = {
-						has_role = politician
+						has_role_of_type = politician
 					}
 					order_by = this.interest_group.ig_clout
 					position = 0

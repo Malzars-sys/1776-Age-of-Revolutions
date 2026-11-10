@@ -1,0 +1,37 @@
+{
+  "captured_utc": "2026-11-09T21:23:27.824Z",
+  "operation": "update_issue",
+  "project_status_evidence": "BOARD_FINAL_IN_REVIEW.png",
+  "issue": {
+    "url": "https://github.com/Malzars-sys/1776-Age-of-Revolutions/issues/45",
+    "title": "[1.15 Hotfix] Preserve both yearly-pulse effects through additive on_action dispatch",
+    "issue_number": 45,
+    "body": "## Delivery — 2026-11-09\n\n**IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION. Project 1 status: In review, changed and verified in the authenticated maintainer session. Issue remains open pending engine/human acceptance.**\n\nThe yearly hook no longer declares two competing effect blocks. Only `common/on_actions/phase1_japan_tenpo_on_actions.txt` changes: its original Japanese effect is moved intact to `aor1776_phase1_japan_yearly_pulse`, called through an additive `on_actions` contribution to `on_yearly_pulse`. This follows the installed Victoria 3 **1.15.0** on_action contract. The main hook file and Manila earthquake branch are byte-identical.\n\nAll Japanese dates, variables, laws, DLC guard, scope and six event calls remain unchanged. This corrects a documented script incompatibility; it does not claim reproduced engine execution order or a last-provider-wins observation.\n\n### Validation and evidence\n- Candidate and installed version: **15/15 static checks**.\n- **Four negative controls** detect the original conflict, broken child reference, changed Japanese date and modified main file; **one positive control** accepts valid additive declarations.\n- Effective inventory: **321 → 322** on_actions, **1,132 → 1,133** list/fallback references; exactly one new resolved child link.\n- Duplicate effect/trigger conflicts: **1 → 0**; zero parse errors in the inventoried inputs.\n- Six pre-existing missing targets remain explicitly reported: `marx_events.3`, `japan_events.32–35` and `on_memento_mori`. They are outside this correction and are not suppressed or automatically reactivated.\n- Source protection: **2,968** pre-existing runtime files captured; only the authorized Japanese file differs, exactly as the candidate. No runtime file added. **7/7** protection checks pass, including current audit inputs, native contract, Git index and HEAD.\n- No engine/human validation, Git write, native modification, branch operation, merge or publication.\n\nEvidence: `docs/reports/compatibility/V1_15_ISSUE45_YEARLY_DISPATCH_2026_11_09/` — report, bounded runtime protocol, before/candidate files, patch, inventories, validation, controls, source protection, installation receipt and final board screenshot. Validator: `tools/compatibility/issue45_yearly_dispatch_audit.py`.\n\n### Board synchronization\nActual Project columns for **#42, #43 and #44** were reconciled to **In review** in this session; **#45** was reserved In progress before implementation and moved to **In review** after verification. Final board screenshot shows **In review 5/5** (#23, #42, #43, #44, #45). No issue was closed or marked Done.\n\n- [x] Document provider conflict and native append contract.\n- [x] Install one bounded file correction, preserving both effects.\n- [x] Candidate/live checks, controls, list inventory and source protection.\n- [x] Synchronize and verify Project status.\n- [ ] Engine/human acceptance using `RUNTIME_PROTOCOL.md`.\n\n<details>\n<summary>Original assignment retained</summary>\n\n## Current assignment — Codex, 2026-11-09\n\n**Claimed at the maintainer's request to take the next mission and keep the board current. Requested Project status: In progress.**\n\nCanonical `common/on_actions/_on_actions.md` allows additive on_action definitions but forbids multiple effect blocks on the same named hook. The effective mod has two `effect` blocks for `on_yearly_pulse`: the existing Manila earthquake branch in `00_code_on_actions.txt` and the Japan progression branch in `phase1_japan_tenpo_on_actions.txt`.\n\n### Bounded correction\n- Preserve the main hook and Manila file completely.\n- Move the existing Japanese effect body, unchanged, into one uniquely named child on_action.\n- Make the Japanese contribution to `on_yearly_pulse` an additive `on_actions = { child }` dispatcher, following the installed native documentation.\n- Preserve all Japanese date windows, variables, laws, DLC guard, six event calls and root/country scope.\n- Verify additive provider semantics, exact body preservation, no new missing reference, controls and source/index/native protections.\n\nThe supporting list audit also records six pre-existing missing targets (five events and `on_memento_mori`). These are outside this one-file conflict fix and must remain visible; no historical event or obsolete mortality handler is silently reactivated.\n\n- [ ] Document provider conflict and native append contract.\n- [ ] Install one bounded file correction, preserving both effects.\n- [ ] Candidate/live checks, controls, list inventory and source protection.\n- [ ] Engine/human acceptance; no claimed runtime order or reproduced last-provider-wins behavior.\n\nRelated workstream #25. No #39 journal edits, law/technology/history/map/economy rewrite, Git write, native modification, branch operation, merge or publication. Local evidence will use a task-specific `V1_15_ISSUE<number>_YEARLY_DISPATCH_2026_11_09/` directory.\n\n</details>\n",
+    "state": "open",
+    "user": {
+      "login": "Malzars-sys",
+      "name": "Malzars-sys",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/231894512?v=4",
+      "id": 231894512
+    },
+    "assignees": [
+      {
+        "login": "Malzars-sys",
+        "name": "Malzars-sys",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/231894512?v=4",
+        "id": 231894512
+      }
+    ],
+    "labels": null,
+    "milestone": null,
+    "state_reason": null,
+    "comments": 0,
+    "created_at": "2026-11-09T21:12:44Z",
+    "updated_at": "2026-11-09T21:23:02Z",
+    "closed_at": null,
+    "display_url": "https://github.com/Malzars-sys/1776-Age-of-Revolutions/issues/45",
+    "display_title": "[1.15 Hotfix] Preserve both yearly-pulse effects through additive on_action dispatch"
+  }
+}

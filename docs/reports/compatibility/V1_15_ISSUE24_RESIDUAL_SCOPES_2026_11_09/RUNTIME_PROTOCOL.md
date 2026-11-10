@@ -1,0 +1,11 @@
+# Test moteur groupé — capitales et nommage, mission 24
+
+**À faire ; aucune validation moteur fournie.** Redémarrer avec le mod courant, noter build/DLC/langue et utiliser une nouvelle partie au 1er janvier 1776. Une ancienne sauvegarde ne rejoue pas les capitales initiales.
+
+1. **Groenland (GR7).** Ouvrir sa fiche et la capitale si l'interface décentralisée la rend accessible : elle doit être au Groenland et ne plus renvoyer au Nil Bleu. Les possessions, cultures et statut politique sont conservés. Si le champ n'est pas observable, noter ce point non testé plutôt qu'en déduire une position.
+2. **Diola (DIO, Sénégal).** Même contrôle : capitale dans l'État du Sénégal, sans renvoi vers la Sierra Leone. Ne pas centraliser le pays pour fabriquer un test. Examiner aussi la Pologne-Lituanie comme témoin : sa capitale initiale reste dans la Grande-Pologne.
+3. **Yukon.** Vérifier qu'ATB possède toujours la province concernée (`x26A0BA`) et que le chargement ne produit pas d'erreur nouvelle. Le retrait d'une occurrence répétée ne doit pas déplacer la frontière, retirer une population ou supprimer l'État.
+4. **Kaunas, entre Prusse et Vilnius.** Avec les noms dynamiques activés, observer l'absence d'erreur de portée lors d'un recalcul des noms. Dans un cas réellement éligible où le propriétaire a une culture russe ou polonaise sans la culture lituanienne, vérifier l'application du nom et des hubs natifs correspondants ; cette branche reste non testée si le contexte n'est jamais réuni. Un propriétaire lituanien doit garder le comportement natif de réinitialisation. Avec la règle désactivant les noms dynamiques, le comportement de réinitialisation reste inchangé. Aucune modification permanente des cultures ou frontières n'est demandée pour le test.
+5. **Persistance.** Passer les premiers jours, conserver une sauvegarde, recharger et contrôler les deux capitales accessibles et Kaunas. Garder les nouveaux logs avec les passages concernant GR7, DIO, Kaunas et le répartiteur des noms baltes.
+
+Retour : réussi / échoué / non testé, pays, date, sauvegarde et capture si anomalie. Les treize attributions contradictoires et la province de Micronésie sont des limites de carte conservées ; ce protocole n'en choisit pas les détenteurs et ne certifie pas tout le parent 24 ou le hotfix.

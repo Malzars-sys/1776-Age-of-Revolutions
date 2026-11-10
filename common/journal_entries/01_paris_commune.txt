@@ -52,15 +52,26 @@
 		trigger_event = { id = paris_commune.1 popup = yes }
 	}
 
-	fail = {
-		custom_tooltip = {
-			text = je_the_paris_commune_france_spawned
-			has_variable = paris_commune_spawn
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_the_paris_commune_france_spawned
+				has_variable = paris_commune_spawn
+			}
 		}
+		effect = {}
 	}
 
-	on_timeout = {
+	outcome = {
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { hidden timeout }
+		effect = {
 
+		}
 	}
 
 	on_monthly_pulse = {
@@ -106,59 +117,81 @@ je_the_paris_commune_france = {
 		set_variable = { name = PRC_money_transfer value = money_amount_multiplier_very_large }
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_the_paris_commune_france_complete
-			global_var:paris_commune_progress_var <= 0
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_the_paris_commune_france_complete
+				global_var:paris_commune_progress_var <= 0
+			}
+		}
+		effect = {
+			trigger_event = { id = paris_commune.2 popup = yes }
+			hidden_effect = {
+				remove_modifier = fra_paris_commune_drain
+			}
 		}
 	}
 
-	on_complete = {
-		trigger_event = { id = paris_commune.2 popup = yes }
-		hidden_effect = {
-			remove_modifier = fra_paris_commune_drain
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_the_paris_commune_communard_complete
+				global_var:paris_commune_progress_var >= 100
+			}
+		}
+		effect = {
+			trigger_event = { id = paris_commune.3 popup = yes }
+			hidden_effect = {
+				remove_modifier = fra_paris_commune_drain
+			}
 		}
 	}
 
-	fail = {
-		custom_tooltip = {
-			text = je_the_paris_commune_communard_complete
-			global_var:paris_commune_progress_var >= 100
-		}
-	}
 
-	on_fail = {
-		trigger_event = { id = paris_commune.3 popup = yes }
-		hidden_effect = {
-			remove_modifier = fra_paris_commune_drain
-		}
-	}
-
-	invalid = {
-		OR = {
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_ILE_DE_FRANCE
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			OR = {
+				NOT = {
+					any_scope_state = {
+						state_region = s:STATE_ILE_DE_FRANCE
+					}
 				}
+				has_war_with = c:PRC
+				NOT = {
+					exists = c:PRC
+				}
+				has_global_variable = paris_commune_invalid
 			}
-			has_war_with = c:PRC
-			NOT = {
-				exists = c:PRC
+		}
+		effect = {
+			hidden_effect = {
+				remove_modifier = fra_paris_commune_drain
 			}
-			has_global_variable = paris_commune_invalid
 		}
 	}
 
-	on_invalid = {
-		hidden_effect = {
-			remove_modifier = fra_paris_commune_drain
-		}
-	}
 
-	on_timeout = {
-		trigger_event = { id = paris_commune.2 popup = yes }
-		hidden_effect = {
-			remove_modifier = fra_paris_commune_drain
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			trigger_event = { id = paris_commune.2 popup = yes }
+			hidden_effect = {
+				remove_modifier = fra_paris_commune_drain
+			}
 		}
 	}
 
@@ -263,64 +296,86 @@ je_the_paris_commune_communards = {
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = je_the_paris_commune_communard_complete
-			global_var:paris_commune_progress_var >= 100
-		}
-	}
-
-	on_complete = {
-		hidden_effect = {
-			c:FRA ?= {
-				trigger_event = { id = paris_commune.3 popup = yes }
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_the_paris_commune_communard_complete
+				global_var:paris_commune_progress_var >= 100
 			}
 		}
-		show_as_tooltip = {
-			trigger_event = { id = paris_commune.3 popup = yes }
-		}
-		remove_modifier = fra_paris_commune_drain_proceeds
-	}
-
-	fail = {
-		custom_tooltip = {
-			text = je_the_paris_commune_france_complete
-			global_var:paris_commune_progress_var <= 0
-		}
-	}
-
-	on_fail = {
-		show_as_tooltip = {
-			trigger_event = { id = paris_commune.2 popup = yes }
-		}
-		remove_modifier = fra_paris_commune_drain_proceeds
-	}
-
-	invalid = {
-		OR = {
-			NOT = {
-				any_scope_state = {
-					state_region = s:STATE_ILE_DE_FRANCE
+		effect = {
+			hidden_effect = {
+				c:FRA ?= {
+					trigger_event = { id = paris_commune.3 popup = yes }
 				}
 			}
-			has_war_with = c:FRA
-			NOT = {
-				exists = c:FRA
+			show_as_tooltip = {
+				trigger_event = { id = paris_commune.3 popup = yes }
 			}
-			has_global_variable = paris_commune_invalid
+			remove_modifier = fra_paris_commune_drain_proceeds
 		}
 	}
 
-	on_timeout = {
-		show_as_tooltip = {
-			trigger_event = { id = paris_commune.2 popup = yes }
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = je_the_paris_commune_france_complete
+				global_var:paris_commune_progress_var <= 0
+			}
 		}
-		remove_modifier = fra_paris_commune_drain_proceeds
+		effect = {
+			show_as_tooltip = {
+				trigger_event = { id = paris_commune.2 popup = yes }
+			}
+			remove_modifier = fra_paris_commune_drain_proceeds
+		}
 	}
 
-	on_invalid = {
-		remove_modifier = fra_paris_commune_drain_proceeds
+
+	outcome = {
+		conclusion_desc = je_standard_failure_conclusion_desc
+		flags = { hidden invalid_outcome }
+		trigger = {
+			OR = {
+				NOT = {
+					any_scope_state = {
+						state_region = s:STATE_ILE_DE_FRANCE
+					}
+				}
+				has_war_with = c:FRA
+				NOT = {
+					exists = c:FRA
+				}
+				has_global_variable = paris_commune_invalid
+			}
+		}
+		effect = {
+			remove_modifier = fra_paris_commune_drain_proceeds
+		}
 	}
+
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			show_as_tooltip = {
+				trigger_event = { id = paris_commune.2 popup = yes }
+			}
+			remove_modifier = fra_paris_commune_drain_proceeds
+		}
+	}
+
 
 	should_be_pinned_by_default_uninvolved_or_context = yes
 

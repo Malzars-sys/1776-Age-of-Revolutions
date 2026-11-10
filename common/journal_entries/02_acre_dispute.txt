@@ -5,7 +5,8 @@
 
 	is_shown_in_lobby = {
 		has_dlc_feature = rp1_content #Colossus of the South
-		c:BOL = THIS
+		exists = c:BOL
+		c:BOL ?= THIS
 	}
 
 	immediate = {
@@ -16,18 +17,30 @@
 		}
 	}
 
-	complete = {
-		country_or_subject_owns_entire_state_region = STATE_ACRE
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			country_or_subject_owns_entire_state_region = STATE_ACRE
+		}
+		effect = {
+			trigger_event = { id = acre_dispute.3 popup = yes }
+		}
 	}
 
-	on_complete = {
-		trigger_event = { id = acre_dispute.3 popup = yes }
-	}
 
 	timeout = 1825
 
-	on_timeout = {
-		trigger_event = { id = acre_dispute.4 popup = yes }
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			trigger_event = { id = acre_dispute.4 popup = yes }
+		}
 	}
 
 	should_be_pinned_by_default_uninvolved_or_context = yes

@@ -588,7 +588,7 @@ meiji.4 = {
 			NOT = { is_owed_obligation_by = ROOT }
 			NOT = { has_war_with = ROOT }
 			any_scope_character = {
-				has_role = general
+				has_role_of_type = general
 				is_busy = no
 			}
 		}
@@ -602,14 +602,14 @@ meiji.4 = {
 				NOT = { is_owed_obligation_by = ROOT }
 				NOT = { has_war_with = ROOT }
 				any_scope_character = {
-					has_role = general
+					has_role_of_type = general
 					is_busy = no
 				}
 			}
 			save_scope_as = military_consultant_country
 			random_scope_character = {
 				limit = {
-					has_role = general
+					has_role_of_type = general
 					is_busy = no
 				}
 				save_scope_as = military_consultant_general
@@ -1324,7 +1324,7 @@ meiji.11 = {
 		NOT = { has_variable = japan_port_incident }
 		has_law_or_variant = law_type:law_isolationism
 		any_scope_state = {
-			has_port = yes
+			has_port_state = yes
 		}
 		any_country = {
 			country_rank = rank_value:great_power
@@ -1342,7 +1342,7 @@ meiji.11 = {
 			years = 4
 		}
 		random_scope_state = {
-			limit = { has_port = yes }
+			limit = { has_port_state = yes }
 			save_scope_as = infringed_port_state
 		}
 		random_country = {

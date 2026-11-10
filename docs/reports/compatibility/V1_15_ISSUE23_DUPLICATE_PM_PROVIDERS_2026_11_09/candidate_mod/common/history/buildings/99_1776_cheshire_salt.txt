@@ -1,0 +1,23 @@
+# Cheshire/Northwich rock salt, worked before 1776; existing Lancashire deposit.
+# Three gameplay levels, not a count of individual historical shafts.
+BUILDINGS = {
+	s:STATE_LANCASHIRE = {
+		region_state:GBR = {
+			create_building = {
+				building = "building_salt_mine"
+				add_ownership = {
+					country = { country = "c:GBR" levels = 3 }
+				}
+				reserves = 1
+				activate_production_methods = {
+					"pm_picks_and_shovels_building_salt_mine"
+					"pm_no_explosives"
+					"pm_no_steam_automation"
+					"pm_road_carts"
+					"pm_no_salt_processing_building_salt_mine"
+					"pm_1776_no_raw_data_reporting"
+				}
+			}
+		}
+	}
+}

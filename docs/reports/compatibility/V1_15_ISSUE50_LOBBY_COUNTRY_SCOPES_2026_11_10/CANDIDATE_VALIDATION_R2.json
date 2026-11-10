@@ -1,0 +1,156 @@
+{
+  "status": "PASS_SCOPED_STATIC_ONLY",
+  "mode": "candidate",
+  "checks": [
+    {
+      "name": "parse_selected_entry",
+      "passed": true
+    },
+    {
+      "name": "BOM_preserved",
+      "passed": true
+    },
+    {
+      "name": "exact_two_line_patch",
+      "passed": true
+    },
+    {
+      "name": "reversible_to_original_bytes",
+      "passed": true
+    },
+    {
+      "name": "outside_lobby_bytes_preserved",
+      "passed": true
+    },
+    {
+      "name": "outcomes_activation_effects_and_other_objects_unchanged",
+      "passed": true
+    },
+    {
+      "name": "explicit_country_exists_once",
+      "passed": true
+    },
+    {
+      "name": "safe_identity_comparison_once",
+      "passed": true
+    },
+    {
+      "name": "DLC_gate_preserved",
+      "passed": true
+    },
+    {
+      "name": "only_three_expected_terms",
+      "passed": true
+    },
+    {
+      "name": "country_provider_unique",
+      "passed": true
+    },
+    {
+      "name": "six_context_cases_pass",
+      "passed": true
+    },
+    {
+      "name": "existing_country_behavior_preserved",
+      "passed": true
+    }
+  ],
+  "cases": [
+    {
+      "country": "absent",
+      "DLC": false,
+      "expected": false,
+      "optional_absent_false_or_true": [
+        false,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "country": "absent",
+      "DLC": true,
+      "expected": false,
+      "optional_absent_false_or_true": [
+        false,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "country": "matching",
+      "DLC": false,
+      "expected": false,
+      "optional_absent_false_or_true": [
+        false,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "country": "matching",
+      "DLC": true,
+      "expected": true,
+      "optional_absent_false_or_true": [
+        true,
+        true
+      ],
+      "passed": true
+    },
+    {
+      "country": "other",
+      "DLC": false,
+      "expected": false,
+      "optional_absent_false_or_true": [
+        false,
+        false
+      ],
+      "passed": true
+    },
+    {
+      "country": "other",
+      "DLC": true,
+      "expected": false,
+      "optional_absent_false_or_true": [
+        false,
+        false
+      ],
+      "passed": true
+    }
+  ],
+  "controls": [
+    {
+      "case": "missing_exists_guard",
+      "detected_by": "explicit_country_exists_once",
+      "passed": true
+    },
+    {
+      "case": "strict_comparison_restored",
+      "detected_by": "safe_identity_comparison_once",
+      "passed": true
+    },
+    {
+      "case": "wrong_country",
+      "detected_by": "safe_identity_comparison_once",
+      "passed": true
+    },
+    {
+      "case": "DLC_gate_removed",
+      "detected_by": "DLC_gate_preserved",
+      "passed": true
+    },
+    {
+      "case": "outcome_changed",
+      "detected_by": "outcomes_activation_effects_and_other_objects_unchanged",
+      "passed": true
+    },
+    {
+      "case": "unrelated_bytes_changed",
+      "detected_by": "outside_lobby_bytes_preserved",
+      "passed": true
+    }
+  ],
+  "source": "C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\docs\\reports\\compatibility\\V1_15_ISSUE50_LOBBY_COUNTRY_SCOPES_2026_11_10\\candidate\\common\\journal_entries\\02_acre_dispute.txt",
+  "sha256": "0cb6556d310d07c2bfbce1affc815dab86e14ff0882695c4834e78948cf049ce",
+  "engine_tested": false,
+  "limits": "Three-predicate conservative fixture model, not an engine, general scope interpreter, or test of all journal reachability."
+}

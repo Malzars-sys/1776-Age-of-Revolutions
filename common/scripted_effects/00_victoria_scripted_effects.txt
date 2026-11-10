@@ -2971,7 +2971,7 @@ calculate_national_identity_progress = {
 	set_variable = { name = national_identity_progress_from_wars value = 0 }
 	every_scope_war = {
 		limit = {
-			has_war_support = { target = root value > 50 }
+			has_war_support = { target = root value > 80 }
 		}
 		ROOT = {
 			change_variable = { name = national_identity_progress_from_wars add = 0.50 }
@@ -2979,8 +2979,8 @@ calculate_national_identity_progress = {
 	}
 	every_scope_war = {
 		limit = {
-			has_war_support = { target = root value <= 50 }
-			has_war_support = { target = root value > 25 }
+			has_war_support = { target = root value <= 80 }
+			has_war_support = { target = root value > 65 }
 		}
 		ROOT = {
 			change_variable = { name = national_identity_progress_from_wars add = 0.25 }
@@ -2988,8 +2988,8 @@ calculate_national_identity_progress = {
 	}
 	every_scope_war = {
 		limit = {
-			has_war_support = { target = root value <= 25 }
-			has_war_support = { target = root value > 0 }
+			has_war_support = { target = root value <= 65 }
+			has_war_support = { target = root value > 50 }
 		}
 		ROOT = {
 			change_variable = { name = national_identity_progress_from_wars add = 0.10 }

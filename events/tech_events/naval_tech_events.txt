@@ -21,8 +21,8 @@
 
  	trigger = {
 		is_at_war = yes
-        country_navy_unit_type_fraction = {
-            target = unit_type:combat_unit_type_dreadnought
+        country_ship_type_fraction = {
+            target = ship_type:ship_type_dreadnought
             value >= 0.2
         }
         any_military_formation = {
@@ -30,10 +30,10 @@
                 is_fleet = yes
             }
             any_scope_character = {
-                has_role = admiral
+                has_role_of_type = admiral
                commander_military_formation = {
-                   formation_navy_unit_type_fraction = {
-                       target = unit_type:combat_unit_type_dreadnought
+                   formation_ship_type_fraction = {
+                       target = ship_type:ship_type_dreadnought
                        value >= 0.2
                    }
                }
@@ -45,10 +45,10 @@
  	immediate = {
  		random_scope_character = {
  			limit = {
- 				has_role = admiral
+				has_role_of_type = admiral
  				commander_military_formation = {
-                    formation_navy_unit_type_fraction = {
-                        target = unit_type:combat_unit_type_dreadnought
+                    formation_ship_type_fraction = {
+                        target = ship_type:ship_type_dreadnought
                         value >= 0.2
                     }
                 }
@@ -97,8 +97,8 @@
 
  	trigger = {
 		is_at_war = yes
-		country_navy_unit_type_fraction = {
-		   target = unit_type:combat_unit_type_destroyer
+		country_ship_type_fraction = {
+		   target = ship_type:ship_type_destroyer
 		   value >= 0.2
 	    }
 		any_military_formation = {
@@ -106,10 +106,10 @@
 			   is_fleet = yes
 		   }
 		   any_scope_character = {
-			   has_role = admiral
+			   has_role_of_type = admiral
 			  commander_military_formation = {
-				  formation_navy_unit_type_fraction = {
-					  target = unit_type:combat_unit_type_destroyer
+				  formation_ship_type_fraction = {
+					  target = ship_type:ship_type_destroyer
 					  value >= 0.2
 				  }
 			  }
@@ -121,10 +121,10 @@
  	immediate = {
  		random_scope_character = {
  			limit = {
- 				has_role = admiral
+				has_role_of_type = admiral
  				commander_military_formation = {
-                    formation_navy_unit_type_fraction = {
-                        target = unit_type:combat_unit_type_destroyer
+                    formation_ship_type_fraction = {
+                        target = ship_type:ship_type_destroyer
                         value >= 0.2
                     }
                 }
@@ -173,8 +173,8 @@
 
  	trigger = {
 		is_at_war = yes
-		country_navy_unit_type_fraction = {
-		   target = unit_type:combat_unit_type_battleship
+		country_ship_type_fraction = {
+		   target = ship_type:ship_type_super_dreadnought
 		   value >= 0.2
 	   	}
 		# for these JE's we would want this to be true for X months, but excluding that for the sake of readability
@@ -183,10 +183,10 @@
 				is_fleet = yes
 			}
 			any_scope_character = {
-				has_role = admiral
+				has_role_of_type = admiral
 				commander_military_formation = {
-					formation_navy_unit_type_fraction = {
-						target = unit_type:combat_unit_type_battleship
+					formation_ship_type_fraction = {
+						target = ship_type:ship_type_super_dreadnought
 						value >= 0.2
 					}
 				}
@@ -198,10 +198,10 @@
  	immediate = {
  		random_scope_character = {
  			limit = {
- 				has_role = admiral
+				has_role_of_type = admiral
  				commander_military_formation = {
-                    formation_navy_unit_type_fraction = {
-                        target = unit_type:combat_unit_type_battleship
+                    formation_ship_type_fraction = {
+                        target = ship_type:ship_type_super_dreadnought
                         value >= 0.2
                     }
                 }
@@ -260,8 +260,8 @@
  	flavor = naval_tech_events.4.f
 
  	trigger = {
-		country_navy_unit_type_fraction = {
-            target = unit_type:combat_unit_type_submarine
+		country_ship_type_fraction = {
+            target = ship_type:ship_type_submarine
             value >= 0.2
         }
         any_military_formation = {
@@ -269,10 +269,10 @@
                 is_fleet = yes
             }
             any_scope_character = {
-                has_role = admiral
+                has_role_of_type = admiral
                commander_military_formation = {
-                   formation_navy_unit_type_fraction = {
-                       target = unit_type:combat_unit_type_submarine
+                   formation_ship_type_fraction = {
+                       target = ship_type:ship_type_submarine
                        value >= 0.2
                    }
                }
@@ -284,10 +284,10 @@
  	immediate = {
  		random_scope_character = {
  			limit = {
- 				has_role = admiral
+				has_role_of_type = admiral
  				commander_military_formation = {
-                    formation_navy_unit_type_fraction = {
-                        target = unit_type:combat_unit_type_submarine
+                    formation_ship_type_fraction = {
+                        target = ship_type:ship_type_submarine
                         value >= 0.2
                     }
                 }
@@ -390,8 +390,8 @@
  	flavor = naval_tech_events.5.f
 
  	trigger = {
-		country_navy_unit_type_fraction = {
-            target = unit_type:combat_unit_type_carrier
+		country_ship_type_fraction = {
+            target = ship_type:ship_type_aircraft_carrier
             value >= 0.2
         }
         any_military_formation = {
@@ -399,10 +399,10 @@
                 is_fleet = yes
             }
             any_scope_character = {
-                has_role = admiral
+                has_role_of_type = admiral
                 commander_military_formation = {
-                   formation_navy_unit_type_fraction = {
-                       target = unit_type:combat_unit_type_carrier
+                   formation_ship_type_fraction = {
+                       target = ship_type:ship_type_aircraft_carrier
                        value >= 0.2
                    }
                 }
@@ -414,10 +414,10 @@
  	immediate = {
  		random_scope_character = {
  			limit = {
- 				has_role = admiral
+				has_role_of_type = admiral
  				commander_military_formation = {
-                    formation_navy_unit_type_fraction = {
-                        target = unit_type:combat_unit_type_carrier
+                    formation_ship_type_fraction = {
+                        target = ship_type:ship_type_aircraft_carrier
                         value >= 0.2
                     }
                 }
@@ -442,11 +442,11 @@
  		trigger = {
  			any_interest_group = {
  				leader = {
- 					has_role = admiral
+					has_role_of_type = admiral
  				}
  			}
  			scope:aviator_commander = {
- 				NOT = { has_role = politician }
+				NOT = { has_role_of_type = politician }
 				is_immortal = no
  			}
  		}
@@ -456,7 +456,7 @@
  		every_interest_group = {
  			limit = {
  				leader = {
- 					has_role = admiral
+					has_role_of_type = admiral
  				}
  			}
  			add_modifier = {
@@ -471,7 +471,7 @@
 
  		trigger = {
  			scope:aviator_commander = {
- 				NOT = { has_role = politician }
+				NOT = { has_role_of_type = politician }
  			}
  		}
 

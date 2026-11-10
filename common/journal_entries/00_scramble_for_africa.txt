@@ -44,43 +44,49 @@
 		}
 	}
 
-	complete = {
-		custom_tooltip = {
-			text = scramble_for_africa_complete_tt
-			var:controlled_colonies_in_africa_cached ?= {
-				this >= scope:journal_entry.goal_value
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = scramble_for_africa_complete_tt
+				var:controlled_colonies_in_africa_cached ?= {
+					this >= scope:journal_entry.goal_value
+				}
 			}
-		}
-		custom_tooltip = {
-			text = scramble_for_africa_complete_2_tt
-			any_state_region_in_africa = {
-				any_scope_state = {
-					owner = {
-						OR = {
-							is_country_type = recognized
-							top_overlord ?= {
+			custom_tooltip = {
+				text = scramble_for_africa_complete_2_tt
+				any_state_region_in_africa = {
+					any_scope_state = {
+						owner = {
+							OR = {
 								is_country_type = recognized
+								top_overlord ?= {
+									is_country_type = recognized
+								}
 							}
 						}
 					}
+					percent >= 0.95
 				}
-				percent >= 0.95
+			}
+		}
+		effect = {
+			trigger_event = {
+				id = africa_colonial_events.2
+				popup = yes
+			}
+			if = {
+				limit = {
+					has_variable = controlled_colonies_in_africa_cached
+				}
+				remove_variable = controlled_colonies_in_africa_cached
 			}
 		}
 	}
 
-	on_complete = {
-		trigger_event = {
-			id = africa_colonial_events.2
-			popup = yes
-		}
-		if = {
-			limit = {
-				has_variable = controlled_colonies_in_africa_cached
-			}
-			remove_variable = controlled_colonies_in_africa_cached
-		}
-	}
 
 
 	# goal_value
@@ -88,34 +94,40 @@
 		value = 7
 	}
 
-	fail = {
-		custom_tooltip = {
-			text = scramble_for_africa_fail_tt
-			NOR = {
-				any_scope_state = {
-					is_incorporated = no
-					is_in_geographic_region = geographic_region_africa
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
+			custom_tooltip = {
+				text = scramble_for_africa_fail_tt
+				NOR = {
+					any_scope_state = {
+						is_incorporated = no
+						is_in_geographic_region = geographic_region_africa
+					}
+					any_subject_or_below = {
+						is_in_geographic_region = geographic_region_africa
+					}
 				}
-				any_subject_or_below = {
-					is_in_geographic_region = geographic_region_africa
+			}
+		}
+		effect = {
+			#trigger_event = {
+			#	id = africa_colonial_events.3
+			#	days = 0
+			#	popup = yes
+			#}
+			if = {
+				limit = {
+					has_variable = controlled_colonies_in_africa_cached
 				}
+				remove_variable = controlled_colonies_in_africa_cached
 			}
 		}
 	}
 
-	on_fail = {
-		#trigger_event = {
-		#	id = africa_colonial_events.3
-		#	days = 0
-		#	popup = yes
-		#}
-		if = {
-			limit = {
-				has_variable = controlled_colonies_in_africa_cached
-			}
-			remove_variable = controlled_colonies_in_africa_cached
-		}
-	}
 
 	status_desc = {
 		first_valid = {
@@ -158,8 +170,12 @@
 	# No timeout. Imperialism never ends.
 	# timeout = 7300
 
-	on_timeout = {
+	outcome = {
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { hidden timeout }
+		effect = {
 
+		}
 	}
 
 	on_weekly_pulse = {

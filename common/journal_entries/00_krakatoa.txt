@@ -84,15 +84,21 @@
 		}
 	}
 
-	on_timeout = {
-		clear_variable_list = krakatoa_states
-		if = {
-			limit = {
-				exists = global_var:krakatoa_temperature_drop
-				exists = global_var:krakatoa_temperature_recovery_rate
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			clear_variable_list = krakatoa_states
+			if = {
+				limit = {
+					exists = global_var:krakatoa_temperature_drop
+					exists = global_var:krakatoa_temperature_recovery_rate
+				}
+				remove_global_variable = krakatoa_temperature_drop
+				remove_global_variable = krakatoa_temperature_recovery_rate
 			}
-			remove_global_variable = krakatoa_temperature_drop
-			remove_global_variable = krakatoa_temperature_recovery_rate
 		}
 	}
 

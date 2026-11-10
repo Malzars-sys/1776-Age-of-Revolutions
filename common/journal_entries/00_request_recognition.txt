@@ -35,34 +35,46 @@
 		}
 	}
 
-	complete = {
-		any_country = {
-			country_rank >= rank_value:great_power
-			relations:root >= relations_threshold:amicable
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			any_country = {
+				country_rank >= rank_value:great_power
+				relations:root >= relations_threshold:amicable
+			}
+			custom_tooltip = {
+				text = je_earn_recognition_complete_tt
+				scope:journal_entry ?= {
+					"scripted_bar_progress(earn_recognition_progress_bar)" >= 200
+				}
+			}
 		}
-		custom_tooltip = {
-			text = je_earn_recognition_complete_tt
-			scope:journal_entry ?= {
-				"scripted_bar_progress(earn_recognition_progress_bar)" >= 200
+		effect = {
+			custom_tooltip = {
+				text = je_earn_recognition_tt
+				trigger_event = { id = earn_recognition_events.1 days = 0 popup = yes }
+			}
+			show_as_tooltip = {
+				set_country_type = recognized
 			}
 		}
 	}
 
-	on_complete = {
-		custom_tooltip = {
-			text = je_earn_recognition_tt
-			trigger_event = { id = earn_recognition_events.1 days = 0 popup = yes }
+
+	outcome = {
+		header = je_standard_failure_header
+		effect_header = je_standard_on_failure_header
+		color = "blue_negative"
+		conclusion_desc = je_standard_failure_conclusion_desc
+		trigger = {
 		}
-		show_as_tooltip = {
-			set_country_type = recognized
+		effect = {
 		}
 	}
 
-	fail = {
-	}
-
-	on_fail = {
-	}
 
 	weight = 100
 

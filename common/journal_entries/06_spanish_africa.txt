@@ -71,85 +71,97 @@
 		}
 	}
 
-	complete = {
-		country_or_subject_owns_entire_state_region  = STATE_AL_RIF
-	}
-
-	on_complete = {
-		if = {
-			limit = {
-				has_technology_researched = civilizing_mission
-				NOT = {
-					has_law = law_type:law_no_colonial_affairs
-				}
-			}
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			country_or_subject_owns_entire_state_region  = STATE_AL_RIF
+		}
+		effect = {
 			if = {
 				limit = {
+					has_technology_researched = civilizing_mission
 					NOT = {
-						country_or_subject_owns_entire_state_region = STATE_WEST_SAHARA
+						has_law = law_type:law_no_colonial_affairs
 					}
 				}
-				trigger_event = spanish_africa.2
-			}
-			else_if = {
-				limit = {
-					any_state_in_subsaharan_africa = {
-						custom_tooltip = {
-							text = owned_by_root_or_a_colonial_subject_tt
-							owner = {
-								OR = {
-									this = ROOT
-									AND = {
-										country_is_colonial_or_company = yes
-										is_subject_of = ROOT
+				if = {
+					limit = {
+						NOT = {
+							country_or_subject_owns_entire_state_region = STATE_WEST_SAHARA
+						}
+					}
+					trigger_event = spanish_africa.2
+				}
+				else_if = {
+					limit = {
+						any_state_in_subsaharan_africa = {
+							custom_tooltip = {
+								text = owned_by_root_or_a_colonial_subject_tt
+								owner = {
+									OR = {
+										this = ROOT
+										AND = {
+											country_is_colonial_or_company = yes
+											is_subject_of = ROOT
+										}
 									}
 								}
 							}
-						}
-						count >= 3
-					}
-				}
-				trigger_event = spanish_africa.3
-			}
-			else_if = {
-				limit = {
-					OR = {
-						NOT = {
-							c:MOR ?= {
-								is_subject_of = ROOT
-							}
-						}
-						NOT = {
-							AND = {
-								country_or_subject_owns_entire_state_region  = STATE_AL_RIF
-								country_or_subject_owns_entire_state_region  = STATE_FEZ
-								country_or_subject_owns_entire_state_region  = STATE_INNER_MOROCCO
-								country_or_subject_owns_entire_state_region  = STATE_MARRAKECH
-							}
+							count >= 3
 						}
 					}
+					trigger_event = spanish_africa.3
 				}
-				trigger_event = spanish_africa.4
+				else_if = {
+					limit = {
+						OR = {
+							NOT = {
+								c:MOR ?= {
+									is_subject_of = ROOT
+								}
+							}
+							NOT = {
+								AND = {
+									country_or_subject_owns_entire_state_region  = STATE_AL_RIF
+									country_or_subject_owns_entire_state_region  = STATE_FEZ
+									country_or_subject_owns_entire_state_region  = STATE_INNER_MOROCCO
+									country_or_subject_owns_entire_state_region  = STATE_MARRAKECH
+								}
+							}
+						}
+					}
+					trigger_event = spanish_africa.4
+				}
+				else = {
+					add_modifier = {
+						name = successful_retaliation_modifier
+						days = normal_modifier_time
+					}
+					trigger_event = spanish_africa.9
+				}
 			}
 			else = {
-				add_modifier = {
-					name = successful_retaliation_modifier
-					days = normal_modifier_time
-				}
-				trigger_event = spanish_africa.9
+				custom_tooltip = further_events_upon_researching_civilising_mission_tt
 			}
-		}
-		else = {
-			custom_tooltip = further_events_upon_researching_civilising_mission_tt
 		}
 	}
 
+
 	timeout = 3650
 
-	on_timeout = {
-		trigger_event = spanish_africa.10
-		s:STATE_AL_RIF = {
-			remove_claim = root
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			trigger_event = spanish_africa.10
+			s:STATE_AL_RIF = {
+				remove_claim = root
+			}
 		}
 	}
 }
@@ -185,64 +197,76 @@ je_western_saharan_conquest = { #2nd in chain, western sahara after al-rif
 		}
 	}
 
-	complete = {
-		country_or_subject_owns_entire_state_region = STATE_WEST_SAHARA
-	}
-
-	on_complete = {
-		if = {
-			limit = {
-				NOT = {
-					any_subject_or_below = {
-						any_scope_state = {
-							OR = {
-								is_in_geographic_region = geographic_region_senegal_old
-								is_in_geographic_region = geographic_region_niger_old
-								is_in_geographic_region = geographic_region_congo_old
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			country_or_subject_owns_entire_state_region = STATE_WEST_SAHARA
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						any_subject_or_below = {
+							any_scope_state = {
+								OR = {
+									is_in_geographic_region = geographic_region_senegal_old
+									is_in_geographic_region = geographic_region_niger_old
+									is_in_geographic_region = geographic_region_congo_old
+								}
+							}
+							is_subject_type = subject_type_colony
+							count >= 3
+						}
+					}
+				}
+				trigger_event = spanish_africa.3
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = {
+							c:MOR ?= {
+								is_subject_of = ROOT
 							}
 						}
-						is_subject_type = subject_type_colony
-						count >= 3
-					}
-				}
-			}
-			trigger_event = spanish_africa.3
-		}
-		else_if = {
-			limit = {
-				OR = {
-					NOT = {
-						c:MOR ?= {
-							is_subject_of = ROOT
-						}
-					}
-					NOT = {
-						AND = {
-							country_or_subject_owns_entire_state_region  = STATE_AL_RIF
-							country_or_subject_owns_entire_state_region  = STATE_FEZ
-							country_or_subject_owns_entire_state_region  = STATE_INNER_MOROCCO
-							country_or_subject_owns_entire_state_region  = STATE_MARRAKECH
+						NOT = {
+							AND = {
+								country_or_subject_owns_entire_state_region  = STATE_AL_RIF
+								country_or_subject_owns_entire_state_region  = STATE_FEZ
+								country_or_subject_owns_entire_state_region  = STATE_INNER_MOROCCO
+								country_or_subject_owns_entire_state_region  = STATE_MARRAKECH
+							}
 						}
 					}
 				}
+				trigger_event = spanish_africa.4
 			}
-			trigger_event = spanish_africa.4
-		}
-		else = {
-			add_modifier = {
-				name = successful_saharan_ambitions_modifier
-				days = normal_modifier_time
+			else = {
+				add_modifier = {
+					name = successful_saharan_ambitions_modifier
+					days = normal_modifier_time
+				}
+				trigger_event = spanish_africa.9
 			}
-			trigger_event = spanish_africa.9
 		}
 	}
+
 
 	timeout = 3650
 
-	on_timeout = {
-		trigger_event = spanish_africa.10
-		s:STATE_WEST_SAHARA = {
-			remove_claim = root
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			trigger_event = spanish_africa.10
+			s:STATE_WEST_SAHARA = {
+				remove_claim = root
+			}
 		}
 	}
 }
@@ -264,11 +288,46 @@ je_guinean_conquest = { #3rd in chain, equatorial africa
 		}
 	}
 
-	complete = {
-		# In order to save on performance, we will use a very fake trigger.
-		custom_tooltip = {
-			text = je_guinean_conquest_complete_tt
-			has_variable = je_guinean_conquest_complete
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			# In order to save on performance, we will use a very fake trigger.
+			custom_tooltip = {
+				text = je_guinean_conquest_complete_tt
+				has_variable = je_guinean_conquest_complete
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						NOT = {
+							c:MOR ?= {
+								is_subject_of = ROOT
+							}
+						}
+						NOT = {
+							AND = {
+								country_or_subject_owns_entire_state_region = STATE_AL_RIF
+								country_or_subject_owns_entire_state_region = STATE_FEZ
+								country_or_subject_owns_entire_state_region = STATE_INNER_MOROCCO
+								country_or_subject_owns_entire_state_region = STATE_MARRAKECH
+							}
+						}
+					}
+				}
+				trigger_event = spanish_africa.4
+			}
+			else = {
+				add_modifier = {
+					name = successful_equatorial_campaign_modifier
+					days = normal_modifier_time
+				}
+				trigger_event = spanish_africa.9
+			}
 		}
 	}
 
@@ -297,40 +356,17 @@ je_guinean_conquest = { #3rd in chain, equatorial africa
 		}
 	}
 
-	on_complete = {
-		if = {
-			limit = {
-				OR = {
-					NOT = {
-						c:MOR ?= {
-							is_subject_of = ROOT
-						}
-					}
-					NOT = {
-						AND = {
-							country_or_subject_owns_entire_state_region = STATE_AL_RIF
-							country_or_subject_owns_entire_state_region = STATE_FEZ
-							country_or_subject_owns_entire_state_region = STATE_INNER_MOROCCO
-							country_or_subject_owns_entire_state_region = STATE_MARRAKECH
-						}
-					}
-				}
-			}
-			trigger_event = spanish_africa.4
-		}
-		else = {
-			add_modifier = {
-				name = successful_equatorial_campaign_modifier
-				days = normal_modifier_time
-			}
-			trigger_event = spanish_africa.9
-		}
-	}
 
 	timeout = 3650
 
-	on_timeout = {
-		trigger_event = spanish_africa.10
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			trigger_event = spanish_africa.10
+		}
 	}
 }
 
@@ -354,43 +390,55 @@ je_moroccan_conquest = { #4th in chain, whole of morocco
 		}
 	}
 
-	complete = {
-		OR = {
-			c:MOR ?= {
-				is_subject_of = ROOT
+	outcome = {
+		header = je_standard_completion_header
+		effect_header = je_standard_on_completion_header
+		color = "gold_positive"
+		conclusion_desc = je_standard_completion_conclusion_desc
+		trigger = {
+			OR = {
+				c:MOR ?= {
+					is_subject_of = ROOT
+				}
+				AND = {
+					country_or_subject_owns_entire_state_region = STATE_AL_RIF
+					country_or_subject_owns_entire_state_region = STATE_FEZ
+					country_or_subject_owns_entire_state_region = STATE_INNER_MOROCCO
+					country_or_subject_owns_entire_state_region = STATE_MARRAKECH
+				}
 			}
-			AND = {
-				country_or_subject_owns_entire_state_region = STATE_AL_RIF
-				country_or_subject_owns_entire_state_region = STATE_FEZ
-				country_or_subject_owns_entire_state_region = STATE_INNER_MOROCCO
-				country_or_subject_owns_entire_state_region = STATE_MARRAKECH
+		}
+		effect = {
+			trigger_event = spanish_africa.9
+			add_modifier = {
+				name = spanish_morocco_modifier
+				days = normal_modifier_time
 			}
 		}
 	}
 
-	on_complete = {
-		trigger_event = spanish_africa.9
-		add_modifier = {
-			name = spanish_morocco_modifier
-			days = normal_modifier_time
-		}
-	}
 
 	timeout = 3650
 
-	on_timeout = {
-		trigger_event = spanish_africa.10
-		s:STATE_AL_RIF = {
-			remove_claim = root
-		}
-		s:STATE_FEZ = {
-			remove_claim = root
-		}
-		s:STATE_INNER_MOROCCO = {
-			remove_claim = root
-		}
-		s:STATE_MARRAKECH = {
-			remove_claim = root
+	outcome = {
+		header = JOURNAL_ENTRY_TIMEOUT
+		effect_header = JOURNAL_ENTRY_ON_TIMEOUT
+		conclusion_desc = JOURNAL_ENTRY_TIMEOUT_CONCLUSION_DESC
+		flags = { timeout }
+		effect = {
+			trigger_event = spanish_africa.10
+			s:STATE_AL_RIF = {
+				remove_claim = root
+			}
+			s:STATE_FEZ = {
+				remove_claim = root
+			}
+			s:STATE_INNER_MOROCCO = {
+				remove_claim = root
+			}
+			s:STATE_MARRAKECH = {
+				remove_claim = root
+			}
 		}
 	}
 }
