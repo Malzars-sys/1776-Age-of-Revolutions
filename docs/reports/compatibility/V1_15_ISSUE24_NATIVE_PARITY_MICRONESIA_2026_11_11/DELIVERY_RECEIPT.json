@@ -1,0 +1,41 @@
+{
+  "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+  "game_executable_version": "1.15.0",
+  "static_validation": {
+    "passed": 27,
+    "total": 27,
+    "result": "FINAL_VALIDATION_R2.json",
+    "prior_failed_result_preserved": "FINAL_VALIDATION.json"
+  },
+  "changed_existing_runtime_files": [
+    "common/history/states/00_states.txt"
+  ],
+  "added_runtime_files": [
+    "common/country_definitions/1776_v115_russian_civil_war.txt",
+    "common/flag_definitions/1776_v115_russian_civil_war.txt",
+    "common/dynamic_country_names/1776_v115_russian_civil_war.txt"
+  ],
+  "review_report": "REPORT.md",
+  "runtime_protocol": "RUNTIME_PROTOCOL.md",
+  "engine_tested": false,
+  "journal39_accepted": false,
+  "parent19_closed": false,
+  "git_write": false,
+  "native_write": false,
+  "publication": false,
+  "tool_hashes": {
+    "tools/compatibility/issue24_native_parity_audit.py": "5d80fd3c2be7604fc032dd0cb888d92ea59ff715e11dec31fe9fb810d3301001",
+    "docs\\reports\\compatibility\\V1_15_ISSUE24_NATIVE_PARITY_MICRONESIA_2026_11_11\\validate_delivery.py": "22696d36a2f2169d80678f1e6fbb22cdf754a52f170940a32d4ff06a19df350c"
+  },
+  "commands_executed": [
+    "issue24_native_parity_audit.py --output PRE_INSTALL_QUALIFICATION.json",
+    "issue24_map_dlc_audit.py --output POST_INSTALL_MAP.json",
+    "issue24_map_dlc_audit.py --native --output NATIVE_CONTROL.json",
+    "issue24_native_parity_audit.py --output POST_INSTALL_QUALIFICATION.json",
+    "issue39_dependency_audit.py --output CURRENT_JOURNAL_DEPENDENCIES.json",
+    "issue24_map_dlc_audit.py --output FINAL_MAP.json",
+    "issue24_native_parity_audit.py --output FINAL_QUALIFICATION.json",
+    "validate_delivery.py --output FINAL_VALIDATION.json",
+    "validate_delivery.py --output FINAL_VALIDATION_R2.json"
+  ]
+}

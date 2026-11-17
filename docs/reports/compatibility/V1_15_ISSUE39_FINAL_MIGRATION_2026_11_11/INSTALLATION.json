@@ -1,0 +1,49 @@
+{
+  "status": "IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION",
+  "files": [
+    {
+      "path": "localization/french/replace/1776_v115_journal_preview_links_l_french.yml",
+      "sha256": "b21b4da883978c1515dde421e2abf9a70acfd7a152a01abdab5df2b936d8dafd",
+      "new_file": true
+    },
+    {
+      "path": "localization/english/replace/1776_v115_journal_preview_links_l_english.yml",
+      "sha256": "e195ca09fb9c105425e90c1187c7a15c5061c96174f4132015c3bb9682a925a4",
+      "new_file": true
+    }
+  ],
+  "native_localization_repairs": [
+    {
+      "key": "event_effects_utilitarian.1_tt",
+      "native_source": "C:\\Games\\Victoria 3\\game\\localization\\english\\event_effects_l_english.yml",
+      "native_sha256": "cc215f8b9c377f9af7f26de9ba5eb266acc95ac7bc85af0b917c05f7530bd3fa",
+      "before": "• [ROOT.GetCountry.GetName] gets #tooltippable;tooltip:[GetPlayer.GetTooltipTag],utilitarian_bonus_tt $utilitarian_bonus$#!\\n• [SCOPE.gsInterestGroup('industrialists_ig').GetName] loses the [GetIdeology('ideology_malthusian').GetName] [concept_ideology], and gains the [GetIdeology('ideology_utilitarian_millian').GetName] $ideology$\\n• Every [concept_interest_group] with a [GetIdeology('ideology_utilitarian_leader').GetName] [concept_leader] or [concept_agitator] gets #tooltippable;tooltip:[GetPlayer.GetTooltipTag],util_colonial_admin_success_tt $util_colonial_admin_success$#!",
+      "after": "• [ROOT.GetCountry.GetName] gets #tooltippable;tooltip:[GetPlayer.GetTooltipTag],utilitarian_bonus_tt $utilitarian_bonus$#!\\n• [SCOPE.gsInterestGroup('industrialists_ig').GetName] loses the [GetIdeology('ideology_malthusian').GetName] [concept_ideology], and gains the [GetIdeology('ideology_utilitarian_millian').GetName] $concept_ideology$\\n• Every [concept_interest_group] with a [GetIdeology('ideology_utilitarian_leader').GetName] [concept_leader] or [concept_agitator] gets #tooltippable;tooltip:[GetPlayer.GetTooltipTag],util_colonial_admin_success_tt $util_colonial_admin_success$#!",
+      "replaced": "$ideology$",
+      "with": "$concept_ideology$"
+    },
+    {
+      "key": "je_sol_invalid_desc",
+      "native_source": "C:\\Games\\Victoria 3\\game\\localization\\english\\content_104_l_english.yml",
+      "native_sha256": "407aa93b960a9a72e16db8c4f6f3a2517995ce038b1aff899a3d6d0d4d059890",
+      "before": "Has dismissed the poverty protests in the $Signs of the Times$ event.",
+      "after": "Has dismissed the poverty protests in the $sol_events.1.t$ event.",
+      "replaced": "$Signs of the Times$",
+      "with": "$sol_events.1.t$"
+    },
+    {
+      "key": "grand_exhibition_complete_tt",
+      "native_source": "C:\\Games\\Victoria 3\\game\\localization\\english\\content_104_l_english.yml",
+      "native_sha256": "407aa93b960a9a72e16db8c4f6f3a2517995ce038b1aff899a3d6d0d4d059890",
+      "before": "Increase your $Exhibition Points$ by gathering treasures on expeditions, researching technologies and increasing your country rank.\\nLose points by increasing your infamy.",
+      "after": "Increase your exhibition points by gathering treasures on expeditions, researching technologies and increasing your country rank.\\nLose points by increasing your infamy.",
+      "replaced": "$Exhibition Points$",
+      "with": "exhibition points"
+    }
+  ],
+  "red_summer_alias": "$on_liberal_victory_tt$\\n$event_effects_peoples_springtime.71_tt$\\n\\n$on_radical_victory_tt$\\n$event_effects_peoples_springtime.7_tt$",
+  "changed_existing_runtime_files": [],
+  "native_written": false,
+  "git_written": false,
+  "engine_tested": false
+}

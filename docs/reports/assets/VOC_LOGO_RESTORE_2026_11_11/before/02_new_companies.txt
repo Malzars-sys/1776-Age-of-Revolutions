@@ -1,0 +1,118 @@
+﻿#Vereenigde Oostindische Compagnie
+company_dutch_east_india_company = {
+	icon = "gfx/interface/icons/company_icons/historical_company_icons/nl_voc_medallion_1776.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_plantation.dds"
+
+	flavored_company = yes
+	
+	category = aristocrat_owned
+
+	building_types = {
+		building_tea_plantation
+		building_spice_plantation
+		building_tobacco_plantation
+		building_coffee_plantation
+	}
+
+	extension_building_types = {
+		building_silk_plantation
+		building_sugar_plantation
+	}
+
+	possible_prestige_goods = {
+		prestige_good_fine_batavian_spices
+	}
+
+	potential = {
+		c:NET ?= this
+	}
+
+	possible = {
+		c:NET ?= this
+		OR = {
+			has_law = law_type:law_mercantilism
+			has_law = law_type:law_protectionism
+		}
+		any_scope_state = {
+			OR = {
+				region = sr:region_north_india
+				region = sr:region_south_india
+			}
+			any_scope_building = {
+				OR = {
+					is_building_type = building_tea_plantation
+					is_building_type = building_tobacco_plantation
+					is_building_type = building_opium_plantation
+					is_building_type = building_spice_plantation
+				}
+				level >= 5
+			}
+			count >= 3
+		}
+	}
+
+	prosperity_modifier = {
+		country_ship_group_supply_ships_construction_efficiency_add = 0.2
+	}
+
+	ai_will_do = {
+		c:NET ?= this
+		OR = {
+			has_law = law_type:law_mercantilism
+			has_law = law_type:law_protectionism
+		}
+		any_scope_state = {
+			OR = {
+				region = sr:region_north_india
+				region = sr:region_south_india
+				region = sr:region_indonesia
+			}
+		}
+	}
+
+	ai_construction_targets = {
+		building_tea_plantation = {
+			level = 5
+			state_trigger = {
+				OR = {
+					region = sr:region_north_india
+					region = sr:region_south_india
+					region = sr:region_indonesia
+				}
+			}
+		}
+		building_tobacco_plantation = {
+			level = 5
+			state_trigger = {
+				OR = {
+					region = sr:region_north_india
+					region = sr:region_south_india
+					region = sr:region_indonesia
+				}
+			}
+		}
+		building_opium_plantation = {
+			level = 5
+			state_trigger = {
+				OR = {
+					region = sr:region_north_india
+					region = sr:region_south_india
+				}
+			}
+		}
+		building_spice_plantation = {
+			level = 5
+			state_trigger = {
+				OR = {
+					region = sr:region_north_india
+					region = sr:region_south_india
+					region = sr:region_indonesia
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 3 # Higher base value for flavored companies
+	}
+}

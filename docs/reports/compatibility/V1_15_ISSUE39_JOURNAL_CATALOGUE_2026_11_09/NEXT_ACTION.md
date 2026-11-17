@@ -1,3 +1,21 @@
+# #39 — Migration technique terminée, 11 novembre 2026
+
+**IMPLEMENTED_READY_FOR_RUNTIME_VALIDATION — In review.** Les 494 journaux
+ont été revérifiés, avec 1 045 outcomes ; les trois hubs/dummy sans conclusion
+restent des exceptions explicites. Aucune nouvelle migration de contrat n'est
+laissée en attente dans le catalogue effectif.
+
+Lire désormais `../V1_15_ISSUE39_FINAL_MIGRATION_2026_11_11/REPORT.md`,
+`FINAL_VALIDATION.json`, `CATALOGUE_MIGRE.csv` et `TESTS_MOTEUR.md`.
+Le prochain pas est la validation moteur groupée de la livraison locale
+identifiée par son manifeste. Aucun nouveau reçu humain n'est acquis ; la
+mission n'est pas close. Préserver les travaux concurrents et le candidat
+antérieur de 25. Aucune écriture Git ou du vanilla.
+
+---
+
+## État antérieur conservé
+
 # #39 — Reprise après migration locale
 
 **État courant du 9 novembre 2026 :** `MIGRATION_R4` est installé et prêt pour une revue moteur. Les 400 contrats legacy ont été migrés ; le catalogue final compte 493 identifiants et aucun ancien champ direct. Lire `MIGRATION_R4/REPORT.md`, `INSTALLATION.json`, les validations et `RUNTIME_PROTOCOL.md` avant toute autre passe.

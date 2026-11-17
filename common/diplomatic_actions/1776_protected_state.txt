@@ -1,11 +1,11 @@
-# Voluntary protected-state agreement; no country-specific whitelist.
+# Voluntary client-state agreement for unrecognized overlords and Russia.
 aor1776_protected_state = {
  groups = { general }
  texture = "gfx/interface/icons/diplomatic_action_icons/aor1776_protected_state.dds"
  requires_approval = yes
  show_in_lens = yes
  potential = {
-  is_country_type = unrecognized
+  OR = { is_country_type = unrecognized c:RUS ?= this }
   scope:target_country = {
    is_subject = no
    OR = { is_country_type = recognized is_country_type = unrecognized is_country_type = colonial }

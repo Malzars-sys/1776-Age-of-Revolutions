@@ -1,0 +1,83 @@
+{
+  "status": "UNRESOLVED_SCOPE_TARGET_CONFIRMED_STATIC",
+  "missing_journal": "je_paris_commune",
+  "optional_scopes": 39,
+  "affected_buttons": {
+    "je_the_paris_commune_france_button_a": [
+      "je_the_paris_commune_france"
+    ],
+    "je_the_paris_commune_france_button_b": [
+      "je_the_paris_commune_france"
+    ]
+  },
+  "journal_invocation": [
+    "je_the_paris_commune_france.on_monthly_pulse -> paris_commune_automated_opposition_paris/versailles"
+  ],
+  "helper_call_paths": [
+    [
+      "paris_commune_automated_opposition_versailles",
+      "paris_commune_automation_pulse_5"
+    ],
+    [
+      "paris_commune_automated_opposition_versailles",
+      "paris_commune_automation_pulse_7"
+    ],
+    [
+      "paris_commune_automated_opposition_versailles",
+      "paris_commune_automation_pulse_10"
+    ],
+    [
+      "paris_commune_automated_opposition_versailles",
+      "paris_commune_automation_pulse_8"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_9"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_11"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_12"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_2"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_15"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_3"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_4"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_6"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_1"
+    ],
+    [
+      "paris_commune_automated_opposition_paris",
+      "paris_commune_automation_pulse_16"
+    ]
+  ],
+  "reachable_bad_helper_count": 14,
+  "bad_helper_count": 14,
+  "retained_family_counter": "global_var:paris_commune_progress_var",
+  "native_target_counter": "je:je_paris_commune / je_paris_commune_progress_bar",
+  "engine_tested": false,
+  "limits": [
+    "Source graph establishes a callable path, not that its conditions become true in a tested game.",
+    "The optional target absence means those add_progress bodies have no resolved entry; it is not a reproduced crash or proof the whole chain cannot progress."
+  ]
+}

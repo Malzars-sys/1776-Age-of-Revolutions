@@ -1,0 +1,178 @@
+{
+  "status": "FINDINGS_STATIC_ONLY",
+  "passed": 23,
+  "total": 25,
+  "checks": [
+    {
+      "check": "normal_captured_mod_playsets_settings_index_preserved",
+      "passed": false,
+      "captured_inputs": 3781,
+      "changed": [
+        "C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\launcher-v2.sqlite",
+        "C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\pdx_settings.json"
+      ]
+    },
+    {
+      "check": "same_executable_pinned",
+      "passed": true
+    },
+    {
+      "check": "A_current_file_set",
+      "passed": true,
+      "files": 3776
+    },
+    {
+      "check": "A_current_only_intended_changes",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "check": "B_vanilla_gui_file_set",
+      "passed": true,
+      "files": 3775
+    },
+    {
+      "check": "B_vanilla_gui_only_intended_changes",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "check": "C_simplified_gui_file_set",
+      "passed": true,
+      "files": 3776
+    },
+    {
+      "check": "C_simplified_gui_only_intended_changes",
+      "passed": true,
+      "differences": [
+        "gui/tech_tree.gui"
+      ]
+    },
+    {
+      "check": "edge_static_truth_table",
+      "passed": true,
+      "cases": 584
+    },
+    {
+      "check": "edge_technology_targets_exist",
+      "passed": true
+    },
+    {
+      "check": "edge_wrong_alias_detected",
+      "passed": true
+    },
+    {
+      "check": "card_static_truth_table",
+      "passed": true,
+      "cases": 584
+    },
+    {
+      "check": "card_technology_targets_exist",
+      "passed": true
+    },
+    {
+      "check": "card_wrong_alias_detected",
+      "passed": true
+    },
+    {
+      "check": "diagnostic_only_two_exact_expression_spans",
+      "passed": true
+    },
+    {
+      "check": "diagnostic_gui_braces_parse",
+      "passed": true
+    },
+    {
+      "check": "A1_correct_isolated_mod",
+      "passed": true
+    },
+    {
+      "check": "B1_correct_isolated_mod",
+      "passed": true
+    },
+    {
+      "check": "B2_correct_isolated_mod",
+      "passed": true
+    },
+    {
+      "check": "A2_correct_isolated_mod",
+      "passed": true
+    },
+    {
+      "check": "profile_settings_currently_identical",
+      "passed": false,
+      "profiles": [
+        {
+          "trial": "A1",
+          "settings_sha256": "60e9b15601915e68bdddbd7ecfecb1cb97875a97b6b957d9f7e5077c8f78e6ea",
+          "settings_match_prepared": false
+        },
+        {
+          "trial": "B1",
+          "settings_sha256": "c39acfe87c3614a0887633db917dd37c88442107e72fa5e75b2f45ac1b0b2803",
+          "settings_match_prepared": true
+        },
+        {
+          "trial": "B2",
+          "settings_sha256": "c39acfe87c3614a0887633db917dd37c88442107e72fa5e75b2f45ac1b0b2803",
+          "settings_match_prepared": true
+        },
+        {
+          "trial": "A2",
+          "settings_sha256": "c39acfe87c3614a0887633db917dd37c88442107e72fa5e75b2f45ac1b0b2803",
+          "settings_match_prepared": true
+        }
+      ]
+    },
+    {
+      "check": "all_measurements_honestly_unmeasured",
+      "passed": true
+    },
+    {
+      "check": "user_stop_recorded_without_ui_input_or_startup_sampling",
+      "passed": true
+    },
+    {
+      "check": "manual_launcher_copy_matches",
+      "passed": true
+    },
+    {
+      "check": "manual_sampler_copy_matches",
+      "passed": true
+    }
+  ],
+  "visibility_comparison": [
+    {
+      "kind": "edge",
+      "cases_compared": 584,
+      "semantic_failures": [],
+      "before_characters": 3713,
+      "after_characters": 3521,
+      "before_gettechnology_tokens": 42,
+      "after_gettechnology_tokens": 40,
+      "before_max_parenthesis_depth": 44,
+      "after_max_parenthesis_depth": 9
+    },
+    {
+      "kind": "card",
+      "cases_compared": 584,
+      "semantic_failures": [],
+      "before_characters": 3158,
+      "after_characters": 3078,
+      "before_gettechnology_tokens": 43,
+      "after_gettechnology_tokens": 42,
+      "before_max_parenthesis_depth": 45,
+      "after_max_parenthesis_depth": 11
+    }
+  ],
+  "benchmark_results": null,
+  "fps_measured": false,
+  "frame_timings_measured": false,
+  "startup_cpu_benchmarks": 0,
+  "root_cause_established": false,
+  "performance_fix_verified": false,
+  "limits": [
+    "Static truth tables assume distinct valid technology identities; no engine binding or evaluation-cost proof.",
+    "No interactive measurement or input was completed before the user stopped the attempt."
+  ]
+}

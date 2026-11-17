@@ -1,0 +1,49 @@
+﻿REPLACE_OR_CREATE:je_the_paris_commune_france_button_a = {
+	name = "je_the_paris_commune_repress_communard_sympathizers"
+	desc = "je_the_paris_commune_repress_communard_sympathizers_desc"
+
+	visible = { has_variable = paris_commune_fra_perspective }
+
+	cooldown = { days = 90 }
+
+	effect = {
+        custom_tooltip = cooldown_three_months_tt
+        add_radicals = {
+            value = small_radicals
+            strata = lower
+        }
+        custom_tooltip = commune_progress_subtract_10
+        if = {
+        	limit = { has_global_variable = paris_commune_progress_var }
+        	change_global_variable = {
+        		name = paris_commune_progress_var
+        		add = -10
+        	}
+        }
+	}
+}
+
+REPLACE_OR_CREATE:je_the_paris_commune_france_button_b = {
+	name = "je_the_paris_commune_concessions_to_communards"
+	desc = "je_the_paris_commune_concessions_to_communards_desc"
+
+	visible = { has_variable = paris_commune_prc_perspective }
+
+	cooldown = { days = 90 }
+
+	effect = {
+		custom_tooltip = cooldown_three_months_tt
+		add_loyalists = {
+			value = small_radicals
+			strata = lower
+        }
+        custom_tooltip = commune_progress_add_10
+        if = {
+        	limit = { has_global_variable = paris_commune_progress_var }
+        	change_global_variable = {
+        		name = paris_commune_progress_var
+        		add = 10
+        	}
+        }
+	}
+}
