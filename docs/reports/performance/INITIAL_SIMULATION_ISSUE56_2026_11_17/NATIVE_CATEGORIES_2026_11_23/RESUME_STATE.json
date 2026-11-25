@@ -1,0 +1,81 @@
+{
+  "utc": "2026-11-23T19:24:27.959Z",
+  "status": "BLOCKED_EXECUTION_ENVIRONMENT_INTERRUPTED_DURING_STARTUP",
+  "run": "C:/Users/simeo/AppData/Local/Temp/aor56_native_20261123/runs/NPC1_20261123T191722377Z",
+  "trial": "NPC1",
+  "last_observer_utc": "2026-11-23T19:21:23.8158569Z",
+  "last_status_utc": "2026-11-23T19:21:23.7752089Z",
+  "simulated_DAY_markers": 0,
+  "completed_new_benchmarks": 0,
+  "exit_receipt_present": false,
+  "crash_exception_dump_directories_empty": true,
+  "stop_requests": [],
+  "closure_cause": "Unconfirmed. Game closure reported by user; collector and execution sessions lost concurrently with environment reconfiguration. No native crash or exit receipt. Not a measured mod crash.",
+  "execution_blocker": "failed to prepare process sandbox: invalid sandbox permission path: 'file:///workspace' is invalid on 'windows'",
+  "version": "1.15.2",
+  "executable_sha256": "57c4950e9f1046d61729e8faeedbbdbb7aa30ff2a45788217285eb735491ad36",
+  "prior_version": "1.15.1",
+  "old_results_not_pooled": true,
+  "secondary_screen_verified": {
+    "client_x": -1760,
+    "client_y": 336,
+    "width": 1600,
+    "height": 900
+  },
+  "profiles": [
+    {
+      "trial": "NPC1",
+      "source_integrity": true,
+      "settings_integrity": false,
+      "define_integrity": true,
+      "native_disabled_define": null,
+      "simulation_completed": false,
+      "runtime_treatment_verified": false
+    },
+    {
+      "trial": "NPU1",
+      "source_integrity": true,
+      "settings_integrity": true,
+      "define_integrity": true,
+      "native_disabled_define": "PRODUCTION_BUILDING_CONSTRUCTION_ENABLED",
+      "simulation_completed": false,
+      "runtime_treatment_verified": false
+    },
+    {
+      "trial": "NPV1",
+      "source_integrity": true,
+      "settings_integrity": true,
+      "define_integrity": true,
+      "native_disabled_define": "AUTONOMOUS_INVESTMENT_CONSTRUCTION_ENABLED",
+      "simulation_completed": false,
+      "runtime_treatment_verified": false
+    },
+    {
+      "trial": "NGM1",
+      "source_integrity": true,
+      "settings_integrity": true,
+      "define_integrity": true,
+      "native_disabled_define": "GOVERNMENT_MONEY_SPENDING_ENABLED",
+      "simulation_completed": false,
+      "runtime_treatment_verified": false
+    },
+    {
+      "trial": "NPC2",
+      "source_integrity": true,
+      "settings_integrity": true,
+      "define_integrity": true,
+      "native_disabled_define": null,
+      "simulation_completed": false,
+      "runtime_treatment_verified": false
+    }
+  ],
+  "additional_readiness_issue": {
+    "new_GUI_errors_compared_to_ECNC2": [
+      "GetNavalMissionData",
+      "OnEditMissionSeaRegionsClicked",
+      "CanEditSeaRegionsForSelectedFleets"
+    ],
+    "crash_causation_not_established": true
+  },
+  "next_action": "Restore a working Windows execution environment and authorized GUI control; inspect new 1.15.2 GUI API errors. Preserve NPC1 as interrupted startup, create a fresh normal trial. Verify native define values before and after, run normal/treatments/contemporary repeats with native DAY stamps and POST autosaves. No production fix or completed test claimed."
+}

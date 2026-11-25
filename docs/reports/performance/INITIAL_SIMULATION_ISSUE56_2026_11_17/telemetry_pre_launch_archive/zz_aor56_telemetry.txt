@@ -1,0 +1,17 @@
+﻿on_game_started_after_lobby = { on_actions = { aor56_telemetry_start } }
+aor56_telemetry_start = { effect = {
+ debug_log = "SIM56|INIT|date=[TimeKeeper.GetCurrentDate.GetString]"
+ every_country = { debug_log = "SIM56|COUNTRY|name=[THIS.GetCountry.GetNameNoFormatting]" }
+ c:FRA ?= {
+  trigger_event = { id = aor56.1 days = 1 }
+  trigger_event = { id = aor56.2 days = 15 }
+  trigger_event = { id = aor56.3 days = 31 }
+  trigger_event = { id = aor56.4 days = 45 }
+  trigger_event = { id = aor56.5 days = 91 }
+  trigger_event = { id = aor56.6 days = 105 }
+  trigger_event = { id = aor56.7 days = 182 }
+  trigger_event = { id = aor56.8 days = 196 }
+  trigger_event = { id = aor56.9 days = 366 }
+  trigger_event = { id = aor56.10 days = 380 }
+ }
+} }

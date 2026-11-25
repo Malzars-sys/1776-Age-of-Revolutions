@@ -1,0 +1,15 @@
+# Reprise après l’interruption de la session Windows
+
+Le 23 novembre à 20 h 28, une nouvelle commande PowerShell a réussi dans le même dépôt. La configuration de session avait rétabli des chemins Windows. Aucune configuration de l’ordinateur n’a dû être modifiée pour relancer l’essai.
+
+Le profil `NPC2` a atteint le menu de Victoria 3 1.15.2 sur le deuxième écran à 20 h 34. La demande de placement du curseur a été refusée par Windows, code 5. Le collecteur a fermé cette instance proprement après déclenchement de son arrêt, au menu et avec zéro jour simulé.
+
+Le profil `NPA0` a confirmé le démarrage par l’interface du jeu. Sur le même deuxième écran et à partir de la sauvegarde vérifiée, il a chargé la France au 1er janvier 1776. Le script d’interface a sélectionné la vitesse 5 et repris la simulation après 45 secondes. Le journal a enregistré le 2 janvier à 20 h 42 min 10 s. L’utilisateur a ensuite signalé la mise en pause. La capture et le dernier statut concordent sur le 14 janvier. Le test a été fermé proprement à 20 h 44. On retient cette prise comme preuve du fonctionnement du démarrage automatique.
+
+Le pilote a affiché 10 162 erreurs avant la reprise et 97 328 au dernier constat. Le détail des journaux signale des appels sans contexte `MapListPanel` et des fonctions d’interface navale absentes. Plusieurs fichiers ont tourné pendant la simulation et la pause, au point de perdre les premières lignes `DAY`. Ces chiffres décrivent l’interface et l’activité du journal. La durée du pilote ne permet aucune conclusion sur le coût de l’IA.
+
+Le lot suivant utilise, dans chacun de ses profils, les copies Steam 1.15.2 de `map_list_panel.gui` et `right_click_menu.gui`. La copie du mod figée, la sauvegarde de départ, l’exécutable et l’instrumentation du calendrier restent communs. La copie de chaque réglage `NAI` ne diffère de celle du témoin que par l’interrupteur étudié. Le rapport initial et son reçu restent la preuve de l’interruption précédente.
+
+Le premier essai avec ces deux fichiers, `NAC1`, ne reproduit pas les erreurs sans contexte du panneau `MapListPanel`. Il a enregistré 112, 146 et 194 secondes sur 14, 28 et 56 jours. Les horodatages du 8 et du 9 janvier sont espacés de 75 secondes. L’utilisateur a confirmé avoir choisi une option de l’événement « Atteindre Londres par-delà l’océan » puis relancé le temps, pensant que l’événement avait mis le jeu en pause. Les trois durées comprennent cette interruption et sont écartées de la comparaison causale. La copie native du 1er avril reste vérifiée. Elle compte 646 contrôleurs actifs, 1 224 ordres dans les files publiques et 22 dans les files privées. Les deux files étaient vides dans la sauvegarde initiale.
+
+Lors du passage `NAU1`, la date a avancé du 9 au 31 janvier avec la fenêtre du même événement toujours ouverte. Les sauvegardes d’avril du témoin interrompu et des trois passages suivants ont été contrôlées pour les variables `aor1776_french_approach_resolved` et `aor1776_french_support_invitation`. Les deux variables apparaissent dans `NAC1`. Elles sont absentes de `NAU1`, `NAC2` et `NAV1`.

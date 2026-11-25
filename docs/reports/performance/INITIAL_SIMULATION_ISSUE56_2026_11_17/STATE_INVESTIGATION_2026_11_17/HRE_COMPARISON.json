@@ -1,0 +1,75 @@
+{
+  "sequence": [
+    {
+      "trial": "HMC1",
+      "seconds": {
+        "14": 35.0,
+        "28": 68.0,
+        "56": 122.0
+      },
+      "cpu_56": 20.09855557513091,
+      "working_set_mib_56": 10662.645182291666,
+      "consecutive": true,
+      "days": 112,
+      "bypass_dates": []
+    },
+    {
+      "trial": "HMM1",
+      "seconds": {
+        "14": 36.0,
+        "28": 69.0,
+        "56": 122.0
+      },
+      "cpu_56": 21.382678362565198,
+      "working_set_mib_56": 16431.597754726892,
+      "consecutive": true,
+      "days": 107,
+      "bypass_dates": [
+        "avril 1, 1776",
+        "février 1, 1776",
+        "mars 1, 1776"
+      ]
+    },
+    {
+      "trial": "HMM2R",
+      "seconds": {
+        "14": 37.0,
+        "28": 71.0,
+        "56": 125.0
+      },
+      "cpu_56": 21.264493848807533,
+      "working_set_mib_56": 16792.59448642418,
+      "consecutive": true,
+      "days": 107,
+      "bypass_dates": [
+        "avril 1, 1776",
+        "février 1, 1776",
+        "mars 1, 1776"
+      ]
+    },
+    {
+      "trial": "HMC2",
+      "seconds": {
+        "14": 37.0,
+        "28": 71.0,
+        "56": 125.0
+      },
+      "cpu_56": 21.104788642784932,
+      "working_set_mib_56": 16799.61438588627,
+      "consecutive": true,
+      "days": 112,
+      "bypass_dates": []
+    }
+  ],
+  "conclusion": "No substantial net improvement in this configuration. Same 56-day times in both successful pairs. Small costs not statistically excluded.",
+  "aborted_ui_attempt": "HMM2: paused before simulation, no benchmark; retained.",
+  "variant": {
+    "changed_files": [
+      "common/on_actions/1776_imperial_constitution.txt"
+    ],
+    "source_sha256": "686907a54bae899bcebe454ec949f9c4abac882f2d669f018fc71dbe8ff32123",
+    "diagnostic_sha256": "dbc95401eee41e5a106929a412d77eed6cdac1454d7f997c507995f96ffd6b1b",
+    "scope": "Only monthly HRE hook body bypassed. Daily HRE and regional AI files intact. Daily guard scheduling by this monthly hook necessarily absent; other daily schedules unchanged. Gameplay-changing diagnostic, not optimization."
+  },
+  "method": "Native timestamps, first complete day onward; same initial save/exe/settings/telemetry; no profiling overhead in HRE series."
+}

@@ -1,0 +1,58 @@
+{
+  "utc": "2026-11-17T19:38:58.587585+00:00",
+  "status": "INVESTIGATION_OPEN_NO_VALIDATED_PRODUCTION_OPTIMIZATION",
+  "lab": "C:\\Users\\simeo\\AppData\\Local\\Temp\\aor56_state_20261117",
+  "report": "C:\\Users\\simeo\\Documents\\Paradox Interactive\\Victoria 3\\mod\\1776_Age_of_Revolutions_fork\\docs\\reports\\performance\\INITIAL_SIMULATION_ISSUE56_2026_11_17\\STATE_INVESTIGATION_2026_11_17\\REPORT_FR.md",
+  "issue": "https://github.com/Malzars-sys/1776-Age-of-Revolutions/issues/56",
+  "publication_verified": true,
+  "monthly_hre": {
+    "order": [
+      "HMC1",
+      "HMM1",
+      "HMM2R",
+      "HMC2"
+    ],
+    "seconds_56": [
+      122,
+      122,
+      125,
+      125
+    ],
+    "conclusion": "No substantial net gain"
+  },
+  "ai_ablation": {
+    "control_seconds_56": 149,
+    "off_seconds_56": 29,
+    "verified_disabled_controllers": 646,
+    "pair_count": 1,
+    "conclusion": "Strong AI-associated signal; not a specific function or gameplay-preserving optimization"
+  },
+  "same_process_profiled": {
+    "initial_56": 148,
+    "july_56": 39,
+    "july_save": "profiles/PROF_INIT/save games/royaume de france_1776_07_01.v3"
+  },
+  "profiling": {
+    "script_vm": "obtained",
+    "per_thread_cpu": "obtained, unnamed threads",
+    "native_cpu_stacks": "not obtained, WPR 0xc5585011",
+    "windows_admin_elevation": "not attested"
+  },
+  "preservation": {
+    "runtime": "2996/2996 unchanged",
+    "normal_profile": "79/80 byte-identical, SQLite delta investigated",
+    "playset_links": "11 mod and 51 DLC links identical to historical reference",
+    "launcher_selection": "left as found",
+    "russia_kazakh": "3/3 unchanged",
+    "git_writes": false
+  },
+  "active_trial": null,
+  "next_experiment": "Reverse AI-off/normal pair, then a separate one-variable decentralized AI cohort diagnostic; neither executed yet",
+  "warnings": [
+    "Do not benchmark arrival WINDOW JSON files",
+    "Exclude intervals crossing setup pauses",
+    "Initializers already applied in S0 are not removed by post-load ablations",
+    "Do not restore the normal launcher from a historical database",
+    "Keep the 1.15.0+DLC installation separate"
+  ]
+}

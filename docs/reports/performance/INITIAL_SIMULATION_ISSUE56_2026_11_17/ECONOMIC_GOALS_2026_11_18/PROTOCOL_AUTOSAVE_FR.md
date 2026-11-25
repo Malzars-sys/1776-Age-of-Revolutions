@@ -1,0 +1,17 @@
+# Référence vanilla avec sauvegarde native automatique — 18 novembre
+
+Le passage VAN_ON3 a atteint visuellement mars, mais les captures figées ont empêché sa sauvegarde POST. L'arrêt possédé à 19:03:21 UTC n'a conservé que 55 bornes DAY complètes, jusqu'au 25 février : aucune durée de 56 jours ni validation POST ne sera inventée. VAN_ON2 est une préparation abandonnée ; VAN_OFF3 n'a pas été lancé.
+
+La paire VAN_ONQ1/VAN_OFFQ1 utilise une nouvelle méthode commune. Elle conserve l'exécutable Steam 1.15.1, le contenu DLC, les graphismes et la télémétrie natifs précédents. La sauvegarde source 1836 est intacte ; deux nouvelles copies ne diffèrent entre elles que par les 449 flags `enabled` des contrôleurs. La vitesse sérialisée est réglée à 4 (choix 5 de l'interface) dans les deux copies, avant chargement.
+
+Deux préférences de ces seuls nouveaux profils sont explicites : `game.autosave=quarteryear` et `game.save_to_cloud=false`. Le nom interne `quarteryear` et son libellé « Every three months » sont présents dans l'exécutable et les localisations installés. La cadence réellement observée reste à vérifier en jeu. La paire a une empreinte de réglages commune `718eb8e11996500326bb3753c59f66b8513983bb8fc86e19eb2b782b8caafeaa`.
+
+Les 14/28/56 jours restent les intervalles natifs du 2 janvier aux 16 janvier, 30 janvier et 27 février. Le passage continue ensuite sans pause jusqu'à une sauvegarde automatique native et au vidage suffisant du journal. Le témoin de sauvegarde doit être postérieur au 27 février ; toute sauvegarde automatique observée entre le 2 janvier et cette borne invalide la comparaison stricte de 56 jours. Une sauvegarde éventuelle du 1er janvier appartient à la journée partielle exclue.
+
+Un observateur commun relève les fichiers autosave chaque seconde, sans modifier le jeu. Il ne copie un fichier stable qu'à partir du 1er mars, ou après la fermeture du jeu. Les copies volumineuses et leur vérification se font donc après les fenêtres mesurées. Les empreintes source/copie et les dates natives sont conservées hors dépôt, dans `autosave_witnesses/<essai>/` du laboratoire. Un save binaire ou illisible ne sera pas traité comme preuve textuelle validée.
+
+Il n'y a pas de sauvegarde PRE native manuelle supplémentaire dans cette paire. La preuve initiale est la copie de S0 vérifiée, dont les seules modifications sont la vitesse commune et, dans le diagnostic, les flags des 449 contrôleurs. La sauvegarde automatique POST devra confirmer les identités, les flags, le nombre de contrôleurs et la vitesse. Cette différence de méthode sera conservée dans le rapport ; elle n'est pas présentée comme une PRE native effectuée dans l'interface.
+
+Le lanceur existant garde les mêmes observateurs CPU/RAM et threads. La limite de sécurité est portée à une heure, et l'arrêt prévu intervient après réception de 100 DAY complets. Les heures d'arrivée ne serviront jamais au chronométrage. Une fermeture forcée ne rend pas valide un marqueur encore absent du journal. Les essais ne seront acceptés qu'après lecture des horodatages natifs complets et validation des témoins de sauvegarde.
+
+Les profils normaux, le lanceur habituel, les playsets et le mod principal restent hors de cette méthode. Le changement de préférence de sauvegarde est commun aux deux références et doit n'avoir aucun événement de sauvegarde dans les fenêtres retenues ; il ne justifie pas de comparer directement cette paire à d'anciennes séries absolues du mod.
