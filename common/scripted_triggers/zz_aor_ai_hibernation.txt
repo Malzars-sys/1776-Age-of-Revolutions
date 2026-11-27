@@ -1,0 +1,392 @@
+﻿aor_ai_running = {
+    NOT = { has_global_variable = aor_ai_suspended }
+}
+
+aor_ai_recovery_required = {
+    aor_ai_registered = yes
+    OR = {
+        has_variable = aor_ai_restore_target
+        AND = {
+            aor_ai_running = yes
+            aor_ai_active_requirement = yes
+        }
+    }
+}
+
+aor_ai_wake_required = {
+    OR = {
+        has_variable = aor_ai_restore_target
+        AND = {
+            aor_ai_running = yes
+            OR = {
+                aor_ai_active_requirement = yes
+                AND = {
+                    NOT = { has_variable = aor_ai_recovery_window }
+                    has_variable = aor_ai_watched
+                }
+            }
+        }
+    }
+}
+
+aor_ai_registered = {
+    has_global_variable = aor_ai_initialized
+    has_variable = aor_ai_member
+    is_country_alive = yes
+}
+
+aor_ai_country_is_eligible_for_hibernation = {
+    aor_ai_registered = yes
+    NOT = { has_variable = aor_ai_promoted }
+}
+
+# A start-of-campaign integration may commit a lock once the start hook has armed the system.
+aor_ai_can_record_lock = {
+    aor_ai_running = yes
+    is_country_alive = yes
+    OR = {
+        aor_ai_country_is_eligible_for_hibernation = yes
+        AND = {
+            has_global_variable = aor_ai_armed
+            NOT = { has_global_variable = aor_ai_initialized }
+        }
+    }
+}
+
+# Last dispatch attempt, not a read of the native controller.
+aor_ai_country_ai_is_hibernating = {
+    aor_ai_country_is_eligible_for_hibernation = yes
+    has_variable = aor_ai_sleep_sent
+    NOT = { has_variable = aor_ai_wake_pending }
+    is_player = no
+}
+
+aor_ai_player_conflict = {
+    OR = {
+        any_enemy_in_diplo_play = { is_player = yes }
+        any_cobelligerent_in_diplo_play = { is_player = yes }
+    }
+}
+
+aor_ai_own_conflict = {
+    OR = {
+        is_at_war = yes
+        is_diplomatic_play_committed_participant = yes
+    }
+}
+
+aor_ai_active_requirement = {
+    OR = {
+        is_player = yes
+        overlord ?= { is_player = yes }
+        has_variable = aor_ai_promoted
+        has_variable = aor_ai_conflict_grace
+        AND = {
+            has_variable_map = aor_ai_gameplay_locks
+            variable_map_size = { name = aor_ai_gameplay_locks value > 0 }
+        }
+        aor_ai_player_conflict = yes
+        AND = {
+            aor_ai_own_conflict = yes
+            OR = {
+                has_variable = aor_ai_watched
+                NOT = { has_variable = aor_ai_sleep_sent }
+            }
+        }
+    }
+}
+
+aor_ai_can_dispatch_sleep = {
+    aor_ai_running = yes
+    aor_ai_country_is_eligible_for_hibernation = yes
+    is_player = no
+    NOT = { has_variable = aor_ai_watched }
+    NOT = { has_variable = aor_ai_wake_pending }
+    NOT = { aor_ai_active_requirement = yes }
+    NOT = { aor_ai_own_conflict = yes }
+}
+
+aor_ai_wake_dispatchable = {
+    aor_ai_registered = yes
+    aor_ai_wake_required = yes
+    has_variable = aor_ai_pending
+    has_variable = aor_ai_wake_pending
+    NOT = { has_variable = aor_ai_packet_sleep }
+}
+
+aor_ai_sleep_dispatchable = {
+    aor_ai_registered = yes
+    has_variable = aor_ai_pending
+    aor_ai_can_dispatch_sleep = yes
+}
+
+aor_ai_candidate_tag = {
+    OR = {
+        c:A91 ?= this
+        c:ABD ?= this
+        c:ABG ?= this
+        c:ABK ?= this
+        c:ACE ?= this
+        c:AGC ?= this
+        c:AHI ?= this
+        c:AIT ?= this
+        c:AKT ?= this
+        c:ALK ?= this
+        c:ANH ?= this
+        c:ANK ?= this
+        c:ANS ?= this
+        c:ARB ?= this
+        c:ARK ?= this
+        c:ARM ?= this
+        c:ASK ?= this
+        c:ATF ?= this
+        c:ATK ?= this
+        c:ATM ?= this
+        c:AVR ?= this
+        c:AWS ?= this
+        c:AZB ?= this
+        c:AZR ?= this
+        c:BAO ?= this
+        c:BGE ?= this
+        c:BGI ?= this
+        c:BGT ?= this
+        c:BHA ?= this
+        c:BHK ?= this
+        c:BHN ?= this
+        c:BHS ?= this
+        c:BHU ?= this
+        c:BHW ?= this
+        c:BIE ?= this
+        c:BIL ?= this
+        c:BLG ?= this
+        c:BMB ?= this
+        c:BND ?= this
+        c:BNJ ?= this
+        c:BNY ?= this
+        c:BOI ?= this
+        c:BRA ?= this
+        c:BRD ?= this
+        c:BRE ?= this
+        c:BRG ?= this
+        c:BRX ?= this
+        c:BTN ?= this
+        c:BUG ?= this
+        c:C81 ?= this
+        c:CAY ?= this
+        c:CHC ?= this
+        c:CHP ?= this
+        c:COB ?= this
+        c:COO ?= this
+        c:D2B ?= this
+        c:D2C ?= this
+        c:D2J ?= this
+        c:D2K ?= this
+        c:D2M ?= this
+        c:D2S ?= this
+        c:D2U ?= this
+        c:D3G ?= this
+        c:D3S ?= this
+        c:DAH ?= this
+        c:DAU ?= this
+        c:DLS ?= this
+        c:DNG ?= this
+        c:EZO ?= this
+        c:FBM ?= this
+        c:FRM ?= this
+        c:FSI ?= this
+        c:FTJ ?= this
+        c:FTR ?= this
+        c:FUL ?= this
+        c:GAO ?= this
+        c:GAR ?= this
+        c:GEO ?= this
+        c:GJA ?= this
+        c:GJM ?= this
+        c:GLD ?= this
+        c:GOT ?= this
+        c:GR5 ?= this
+        c:GSK ?= this
+        c:HAM ?= this
+        c:HAR ?= this
+        c:HAU ?= this
+        c:HAW ?= this
+        c:HEK ?= this
+        c:HIL ?= this
+        c:HLB ?= this
+        c:HMA ?= this
+        c:HOH ?= this
+        c:HOL ?= this
+        c:HSG ?= this
+        c:IKO ?= this
+        c:IMR ?= this
+        c:ISD ?= this
+        c:ISQ ?= this
+        c:JEY ?= this
+        c:JLF ?= this
+        c:JMB ?= this
+        c:JOH ?= this
+        c:KAL ?= this
+        c:KAU ?= this
+        c:KBA ?= this
+        c:KBU ?= this
+        c:KEB ?= this
+        c:KFA ?= this
+        c:KHR ?= this
+        c:KIZ ?= this
+        c:KKG ?= this
+        c:KLB ?= this
+        c:KND ?= this
+        c:KNY ?= this
+        c:KOK ?= this
+        c:KOT ?= this
+        c:KRB ?= this
+        c:KRG ?= this
+        c:KRT ?= this
+        c:KSN ?= this
+        c:KTI ?= this
+        c:KTS ?= this
+        c:KYM ?= this
+        c:KZM ?= this
+        c:LAD ?= this
+        c:LAH ?= this
+        c:LAN ?= this
+        c:LBL ?= this
+        c:LDU ?= this
+        c:LIP ?= this
+        c:LLG ?= this
+        c:LNG ?= this
+        c:LUA ?= this
+        c:LUB ?= this
+        c:LUC ?= this
+        c:MAD ?= this
+        c:MAK ?= this
+        c:MBL ?= this
+        c:MBS ?= this
+        c:MCA ?= this
+        c:MDN ?= this
+        c:MDR ?= this
+        c:MEB ?= this
+        c:MEC ?= this
+        c:MEI ?= this
+        c:MGD ?= this
+        c:MGL ?= this
+        c:MJT ?= this
+        c:MKT ?= this
+        c:MLD ?= this
+        c:MLT ?= this
+        c:MNC ?= this
+        c:MOD ?= this
+        c:MOL ?= this
+        c:MON ?= this
+        c:MRV ?= this
+        c:MSB ?= this
+        c:MSN ?= this
+        c:MSR ?= this
+        c:MST ?= this
+        c:MTM ?= this
+        c:MTP ?= this
+        c:NAK ?= this
+        c:NAS ?= this
+        c:NEJ ?= this
+        c:NGD ?= this
+        c:NGY ?= this
+        c:NOU ?= this
+        c:NSB ?= this
+        c:NUB ?= this
+        c:NUP ?= this
+        c:NUR ?= this
+        c:NWB ?= this
+        c:OLD ?= this
+        c:ORT ?= this
+        c:PAR ?= this
+        c:PAS ?= this
+        c:PCO ?= this
+        c:PLY ?= this
+        c:PON ?= this
+        c:PRK ?= this
+        c:PUD ?= this
+        c:QTG ?= this
+        c:RAG ?= this
+        c:RBI ?= this
+        c:RCI ?= this
+        c:REB ?= this
+        c:RGE ?= this
+        c:RGZ ?= this
+        c:RLO ?= this
+        c:RND ?= this
+        c:RSL ?= this
+        c:RWD ?= this
+        c:RYU ?= this
+        c:SAC ?= this
+        c:SAG ?= this
+        c:SAK ?= this
+        c:SBI ?= this
+        c:SCH ?= this
+        c:SCM ?= this
+        c:SCW ?= this
+        c:SEL ?= this
+        c:SEW ?= this
+        c:SFU ?= this
+        c:SHG ?= this
+        c:SHK ?= this
+        c:SHQ ?= this
+        c:SHW ?= this
+        c:SIK ?= this
+        c:SIL ?= this
+        c:SKC ?= this
+        c:SKE ?= this
+        c:SKI ?= this
+        c:SLM ?= this
+        c:SLQ ?= this
+        c:SLU ?= this
+        c:SLZ ?= this
+        c:SMB ?= this
+        c:SMM ?= this
+        c:SNR ?= this
+        c:SRK ?= this
+        c:SRQ ?= this
+        c:SRR ?= this
+        c:SRT ?= this
+        c:SRV ?= this
+        c:SSO ?= this
+        c:STG ?= this
+        c:STM ?= this
+        c:SUL ?= this
+        c:SUU ?= this
+        c:SWF ?= this
+        c:SWG ?= this
+        c:SWW ?= this
+        c:SWX ?= this
+        c:SWY ?= this
+        c:SWZ ?= this
+        c:SYO ?= this
+        c:TAL ?= this
+        c:TDM ?= this
+        c:TGI ?= this
+        c:TKE ?= this
+        c:TMB ?= this
+        c:TMP ?= this
+        c:TQL ?= this
+        c:TRT ?= this
+        c:TSH ?= this
+        c:UDI ?= this
+        c:URT ?= this
+        c:UTV ?= this
+        c:VIE ?= this
+        c:WAA ?= this
+        c:WAL ?= this
+        c:WEI ?= this
+        c:WLD ?= this
+        c:WLT ?= this
+        c:WPD ?= this
+        c:WPM ?= this
+        c:WPO ?= this
+        c:WSG ?= this
+        c:WTU ?= this
+        c:WZB ?= this
+        c:YJR ?= this
+        c:YOG ?= this
+        c:YUN ?= this
+        c:ZAM ?= this
+    }
+}

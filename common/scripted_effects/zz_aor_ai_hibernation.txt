@@ -1,0 +1,418 @@
+﻿# Public API. Run in the country whose AI is needed.
+aor_wake_country_ai = {
+    if = {
+        limit = { aor_ai_can_record_lock = yes }
+        aor_ai_remove_gameplay_reason = { REASON = $REASON$ }
+        add_to_variable_map = {
+            name = aor_ai_gameplay_locks
+            key = flag:$REASON$
+            value = yes
+            days = $DAYS$
+        }
+        aor_ai_refresh = yes
+    }
+}
+
+aor_extend_ai_activity = {
+    aor_wake_country_ai = { REASON = $REASON$ DAYS = $DAYS$ }
+}
+
+aor_lock_country_ai_active = {
+    if = {
+        limit = { aor_ai_can_record_lock = yes }
+        aor_ai_remove_gameplay_reason = { REASON = $REASON$ }
+        add_to_variable_map = {
+            name = aor_ai_gameplay_locks
+            key = flag:$REASON$
+            value = yes
+        }
+        aor_ai_refresh = yes
+    }
+}
+
+aor_release_country_ai_lock = {
+    if = {
+        limit = { aor_ai_can_record_lock = yes }
+        aor_ai_remove_gameplay_reason = { REASON = $REASON$ }
+        aor_ai_refresh = yes
+    }
+}
+
+# The normal safety conditions and cooldown still apply.
+aor_request_country_ai_sleep = {
+    if = {
+        limit = { aor_ai_country_is_eligible_for_hibernation = yes }
+        aor_ai_refresh = yes
+    }
+}
+
+# Internal state machine.
+# The engine keeps an existing map entry's original expiry when adding its key again.
+aor_ai_remove_gameplay_reason = {
+    if = {
+        limit = {
+            has_variable_map = aor_ai_gameplay_locks
+            is_key_in_variable_map = { name = aor_ai_gameplay_locks target = flag:$REASON$ }
+        }
+        remove_from_variable_map = { name = aor_ai_gameplay_locks key = flag:$REASON$ }
+    }
+}
+
+aor_ai_add_pending = {
+    if = {
+        limit = { NOT = { has_variable = aor_ai_pending } }
+        set_variable = aor_ai_pending
+        add_to_global_variable_list = { name = aor_ai_pending_countries target = this }
+    }
+}
+
+aor_ai_clear_pending = {
+    if = {
+        limit = { has_variable = aor_ai_pending }
+        remove_variable = aor_ai_pending
+        remove_list_global_variable = { name = aor_ai_pending_countries target = this }
+    }
+    if = {
+        limit = { has_variable = aor_ai_wake_pending }
+        remove_variable = aor_ai_wake_pending
+    }
+    if = {
+        limit = { has_variable = aor_ai_wake_attempts }
+        remove_variable = aor_ai_wake_attempts
+    }
+    if = {
+        limit = { has_variable = aor_ai_recovery_window }
+        remove_variable = aor_ai_recovery_window
+    }
+}
+
+aor_ai_watch = {
+    if = {
+        limit = {
+            aor_ai_country_is_eligible_for_hibernation = yes
+            NOT = { has_variable = aor_ai_watched }
+        }
+        set_variable = aor_ai_watched
+        add_to_global_variable_list = { name = aor_ai_watched_countries target = this }
+    }
+}
+
+aor_ai_unwatch = {
+    if = {
+        limit = { has_variable = aor_ai_watched }
+        remove_variable = aor_ai_watched
+        remove_list_global_variable = { name = aor_ai_watched_countries target = this }
+    }
+}
+
+aor_ai_request_active = {
+    if = {
+        limit = {
+            has_variable = aor_ai_recovery_window
+            NOT = { aor_ai_active_requirement = yes }
+        }
+        aor_ai_clear_pending = yes
+    }
+    else_if = {
+        limit = {
+            OR = {
+                has_variable = aor_ai_sleep_sent
+                has_variable = aor_ai_packet_sleep
+                has_variable = aor_ai_wake_pending
+            }
+        }
+        set_variable = aor_ai_wake_pending
+        aor_ai_add_pending = yes
+    }
+    else = {
+        aor_ai_clear_pending = yes
+        if = {
+            limit = { has_variable = aor_ai_wake_dispatched }
+            aor_ai_schedule_recovery = yes
+        }
+    }
+}
+
+aor_ai_end_cooldown = {
+    if = {
+        limit = { has_variable = aor_ai_cooling }
+        remove_variable = aor_ai_cooling
+        if = {
+            limit = { has_variable = aor_ai_cooldown }
+            remove_variable = aor_ai_cooldown
+        }
+    }
+}
+
+aor_ai_refresh = {
+    if = {
+        limit = { aor_ai_running = yes aor_ai_registered = yes }
+        if = {
+            limit = { aor_ai_active_requirement = yes }
+            aor_ai_end_cooldown = yes
+            aor_ai_watch = yes
+            aor_ai_request_active = yes
+        }
+        else_if = {
+            limit = {
+                has_variable = aor_ai_watched
+                NOT = { has_variable = aor_ai_cooling }
+            }
+            set_variable = aor_ai_cooling
+            set_variable = { name = aor_ai_cooldown months = 12 }
+            trigger_event = { id = aor_ai_hibernation.2 months = 12 }
+            aor_ai_request_active = yes
+        }
+        else_if = {
+            limit = { has_variable = aor_ai_cooldown }
+            aor_ai_request_active = yes
+        }
+        else_if = {
+            limit = { NOT = { aor_ai_own_conflict = yes } }
+            aor_ai_end_cooldown = yes
+            aor_ai_unwatch = yes
+            if = {
+                limit = {
+                    NOT = { has_variable = aor_ai_sleep_sent }
+                    NOT = { has_variable = aor_ai_packet_sleep }
+                }
+                aor_ai_add_pending = yes
+            }
+            else = { aor_ai_clear_pending = yes }
+        }
+    }
+}
+
+aor_ai_note_player_conflict = {
+    if = {
+        limit = { aor_ai_country_is_eligible_for_hibernation = yes }
+        set_variable = { name = aor_ai_conflict_grace days = 2 }
+        aor_ai_refresh = yes
+    }
+}
+
+aor_ai_schedule_end_check = {
+    if = {
+        limit = {
+            has_variable = aor_ai_watched
+            NOT = { has_variable = aor_ai_end_check_pending }
+        }
+        set_variable = aor_ai_end_check_pending
+        trigger_event = { id = aor_ai_hibernation.1 days = 1 }
+    }
+}
+
+# GUI calls are void. These counters measure attempts, never controller feedback.
+aor_ai_record_sleep_attempt = {
+    if = {
+        limit = { has_variable = aor_ai_packet_sleep }
+        remove_variable = aor_ai_packet_sleep
+        if = {
+            limit = { is_country_alive = yes }
+            if = {
+                limit = { aor_ai_own_conflict = yes }
+                aor_ai_watch = yes
+            }
+            if = {
+                limit = { NOT = { has_variable = aor_ai_wake_pending } }
+                aor_ai_clear_pending = yes
+            }
+            if = {
+                limit = { has_variable = aor_ai_wake_dispatched }
+                remove_variable = aor_ai_wake_dispatched
+            }
+            set_variable = aor_ai_sleep_sent
+            set_variable = aor_ai_sleep_history
+            if = {
+                limit = { has_variable = aor_ai_reinforced }
+                remove_variable = aor_ai_reinforced
+            }
+            aor_ai_refresh = yes
+        }
+        else = { aor_ai_forget_dead = yes }
+    }
+}
+
+aor_ai_schedule_recovery = {
+    if = {
+        limit = {
+            aor_ai_recovery_required = yes
+            NOT = { has_variable = aor_ai_recovery_scheduled }
+        }
+        set_variable = aor_ai_recovery_scheduled
+        if = {
+            limit = { has_variable = aor_ai_reinforced }
+            trigger_event = { id = aor_ai_hibernation.3 days = 30 }
+        }
+        else = {
+            trigger_event = { id = aor_ai_hibernation.3 days = 7 }
+        }
+    }
+}
+
+aor_ai_begin_recovery_window = {
+    remove_variable = aor_ai_recovery_scheduled
+    if = {
+        limit = {
+            aor_ai_recovery_required = yes
+            NOT = { has_variable = aor_ai_wake_pending }
+        }
+        set_variable = aor_ai_recovery_window
+        set_variable = aor_ai_reinforced
+        set_variable = aor_ai_wake_pending
+        if = {
+            limit = { has_variable = aor_ai_restore_target }
+            change_variable = { name = aor_ai_restore_windows add = 1 }
+            change_global_variable = { name = aor_ai_restore_retries add = 1 }
+        }
+        aor_ai_add_pending = yes
+    }
+}
+
+aor_ai_record_wake_attempt = {
+    if = {
+        limit = { aor_ai_wake_dispatchable = yes }
+        if = {
+            limit = { has_variable = aor_ai_wake_attempts }
+            change_variable = { name = aor_ai_wake_attempts add = 1 }
+        }
+        else = { set_variable = { name = aor_ai_wake_attempts value = 1 } }
+        if = {
+            limit = { has_variable = aor_ai_restore_target }
+            change_global_variable = { name = aor_ai_restore_dispatches add = 1 }
+        }
+        if = {
+            limit = {
+                OR = {
+                    has_variable = aor_ai_recovery_window
+                    var:aor_ai_wake_attempts >= 3
+                }
+            }
+            # The size of the completed dispatch window is a receipt, not an acknowledgement.
+            set_variable = { name = aor_ai_wake_dispatched value = var:aor_ai_wake_attempts }
+            aor_ai_clear_pending = yes
+            if = {
+                limit = { has_variable = aor_ai_sleep_sent }
+                remove_variable = aor_ai_sleep_sent
+                set_variable = aor_ai_sleep_history
+            }
+            if = {
+                limit = {
+                    has_variable = aor_ai_restore_target
+                    var:aor_ai_restore_windows >= 3
+                }
+                aor_ai_complete_restore_target = yes
+            }
+            else = { aor_ai_schedule_recovery = yes }
+        }
+    }
+    else_if = {
+        limit = { is_country_alive = no }
+        aor_ai_forget_dead = yes
+    }
+    else_if = {
+        limit = { NOT = { aor_ai_wake_required = yes } }
+        aor_ai_clear_pending = yes
+    }
+}
+
+aor_ai_complete_restore_target = {
+    if = {
+        limit = { has_variable = aor_ai_restore_target }
+        remove_variable = aor_ai_restore_target
+        remove_list_global_variable = { name = aor_ai_restore_countries target = this }
+        change_global_variable = { name = aor_ai_restore_remaining subtract = 1 }
+    }
+}
+
+aor_ai_begin_emergency_restore = {
+    set_global_variable = aor_ai_suspended
+    if = {
+        limit = { has_global_variable = aor_ai_armed }
+        remove_global_variable = aor_ai_armed
+    }
+    set_global_variable = { name = aor_ai_restore_targeted value = 0 }
+    set_global_variable = { name = aor_ai_restore_remaining value = 0 }
+    set_global_variable = { name = aor_ai_restore_dispatches value = 0 }
+    set_global_variable = { name = aor_ai_restore_retries value = 0 }
+    clear_global_variable_list = aor_ai_pending_countries
+    clear_global_variable_list = aor_ai_restore_countries
+    every_country = {
+        limit = { aor_ai_registered = yes }
+        if = {
+            limit = {
+                OR = {
+                    has_variable = aor_ai_sleep_history
+                    has_variable = aor_ai_sleep_sent
+                    has_variable = aor_ai_wake_dispatched
+                    has_variable = aor_ai_packet_sleep
+                }
+            }
+            set_variable = aor_ai_restore_target
+            add_to_global_variable_list = { name = aor_ai_restore_countries target = this }
+            set_variable = { name = aor_ai_restore_windows value = 0 }
+            if = {
+                limit = { has_variable = aor_ai_reinforced }
+                remove_variable = aor_ai_reinforced
+            }
+            change_global_variable = { name = aor_ai_restore_targeted add = 1 }
+            change_global_variable = { name = aor_ai_restore_remaining add = 1 }
+        }
+        aor_ai_clear_pending = yes
+        if = {
+            limit = { has_variable = aor_ai_packet_sleep }
+            remove_variable = aor_ai_packet_sleep
+        }
+        if = {
+            limit = { has_variable = aor_ai_restore_target }
+            set_variable = aor_ai_wake_pending
+            aor_ai_add_pending = yes
+        }
+    }
+    debug_log = "AOR_P42|RESTORE_REQUESTED"
+}
+
+aor_ai_forget_dead = {
+    aor_ai_complete_restore_target = yes
+    aor_ai_unwatch = yes
+    aor_ai_clear_pending = yes
+    aor_ai_end_cooldown = yes
+    if = {
+        limit = { has_variable_map = aor_ai_gameplay_locks }
+        clear_variable_map = aor_ai_gameplay_locks
+    }
+    if = {
+        limit = { has_variable = aor_ai_sleep_sent }
+        remove_variable = aor_ai_sleep_sent
+    }
+    if = {
+        limit = { has_variable = aor_ai_wake_dispatched }
+        remove_variable = aor_ai_wake_dispatched
+    }
+}
+
+# A revived tag gets a fresh conservative wake budget even if its native flag survived.
+aor_ai_restore_candidate = {
+    set_variable = aor_ai_member
+    set_variable = aor_ai_sleep_sent
+    set_variable = { name = aor_ai_conflict_grace days = 2 }
+    aor_ai_refresh = yes
+}
+
+
+# An annexed object can become unreachable to the iterator while its saved list
+# entry remains. Rebuild from live entries after the normal per-country refresh.
+aor_ai_compact_live_countries = {
+    clear_global_variable_list = aor_ai_live_countries_sweep
+    every_in_global_list = {
+        variable = $TRACKED_LIST$
+        limit = { is_country_alive = yes }
+        add_to_global_variable_list = { name = aor_ai_live_countries_sweep target = this }
+    }
+    clear_global_variable_list = $TRACKED_LIST$
+    every_in_global_list = {
+        variable = aor_ai_live_countries_sweep
+        add_to_global_variable_list = { name = $TRACKED_LIST$ target = this }
+    }
+    clear_global_variable_list = aor_ai_live_countries_sweep
+}

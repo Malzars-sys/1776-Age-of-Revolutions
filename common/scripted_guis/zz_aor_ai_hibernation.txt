@@ -1,0 +1,1634 @@
+﻿aor_ai_debug_restore = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_game_rule = aor_ai_hibernation_on
+        OR = { has_global_variable = aor_ai_armed has_global_variable = aor_ai_initialized }
+        OR = { NOT = { has_global_variable = aor_ai_restore_remaining } global_var:aor_ai_restore_remaining <= 0 }
+    }
+    effect = {
+        aor_ai_begin_emergency_restore = yes
+        if = { limit = { has_global_variable = aor_ai_slot_0 } remove_global_variable = aor_ai_slot_0 }
+        if = { limit = { has_global_variable = aor_ai_slot_1 } remove_global_variable = aor_ai_slot_1 }
+        if = { limit = { has_global_variable = aor_ai_slot_2 } remove_global_variable = aor_ai_slot_2 }
+        if = { limit = { has_global_variable = aor_ai_slot_3 } remove_global_variable = aor_ai_slot_3 }
+        if = { limit = { has_global_variable = aor_ai_slot_4 } remove_global_variable = aor_ai_slot_4 }
+        if = { limit = { has_global_variable = aor_ai_slot_5 } remove_global_variable = aor_ai_slot_5 }
+        if = { limit = { has_global_variable = aor_ai_slot_6 } remove_global_variable = aor_ai_slot_6 }
+        if = { limit = { has_global_variable = aor_ai_slot_7 } remove_global_variable = aor_ai_slot_7 }
+        if = { limit = { has_global_variable = aor_ai_slot_8 } remove_global_variable = aor_ai_slot_8 }
+        if = { limit = { has_global_variable = aor_ai_slot_9 } remove_global_variable = aor_ai_slot_9 }
+        if = { limit = { has_global_variable = aor_ai_slot_10 } remove_global_variable = aor_ai_slot_10 }
+        if = { limit = { has_global_variable = aor_ai_slot_11 } remove_global_variable = aor_ai_slot_11 }
+        if = { limit = { has_global_variable = aor_ai_slot_12 } remove_global_variable = aor_ai_slot_12 }
+        if = { limit = { has_global_variable = aor_ai_slot_13 } remove_global_variable = aor_ai_slot_13 }
+        if = { limit = { has_global_variable = aor_ai_slot_14 } remove_global_variable = aor_ai_slot_14 }
+        if = { limit = { has_global_variable = aor_ai_slot_15 } remove_global_variable = aor_ai_slot_15 }
+        if = { limit = { has_global_variable = aor_ai_slot_16 } remove_global_variable = aor_ai_slot_16 }
+        if = { limit = { has_global_variable = aor_ai_slot_17 } remove_global_variable = aor_ai_slot_17 }
+        if = { limit = { has_global_variable = aor_ai_slot_18 } remove_global_variable = aor_ai_slot_18 }
+        if = { limit = { has_global_variable = aor_ai_slot_19 } remove_global_variable = aor_ai_slot_19 }
+        if = { limit = { has_global_variable = aor_ai_slot_20 } remove_global_variable = aor_ai_slot_20 }
+        if = { limit = { has_global_variable = aor_ai_slot_21 } remove_global_variable = aor_ai_slot_21 }
+        if = { limit = { has_global_variable = aor_ai_slot_22 } remove_global_variable = aor_ai_slot_22 }
+        if = { limit = { has_global_variable = aor_ai_slot_23 } remove_global_variable = aor_ai_slot_23 }
+        if = { limit = { has_global_variable = aor_ai_wake_slot } remove_global_variable = aor_ai_wake_slot }
+    }
+}
+
+aor_ai_relay_can_start_sleep = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_global_variable = aor_ai_initialized
+        aor_ai_running = yes
+        has_global_variable = aor_ai_slot_0
+        OR = { NOT = { any_in_global_list = { variable = aor_ai_pending_countries aor_ai_wake_dispatchable = yes } } AND = { NOT = { any_in_global_list = { variable = aor_ai_pending_countries aor_ai_wake_dispatchable = yes NOT = { has_variable = aor_ai_recovery_window } } } global_var:aor_ai_wakes_since_sleep >= 4 } }
+        NOT = { has_global_variable = aor_ai_wake_slot }
+    }
+}
+
+aor_ai_relay_initialize = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_game_rule = aor_ai_hibernation_on
+        has_global_variable = aor_ai_armed
+        aor_ai_running = yes
+        NOT = { has_global_variable = aor_ai_initialized }
+    }
+    effect = {
+        set_global_variable = aor_ai_initialized
+        remove_global_variable = aor_ai_armed
+        set_global_variable = { name = aor_ai_wakes_since_sleep value = 0 }
+        set_global_variable = { name = aor_ai_last_player value = this }
+        c:A91 ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ABD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ABG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ABK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ACE ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:AGC ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:AHI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:AIT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:AKT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ALK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ANH ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ANK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ANS ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ARB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ARK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ARM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ASK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ATF ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ATK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ATM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:AVR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:AWS ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:AZB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:AZR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BAO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BGE ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BGI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BGT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BHA ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BHK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BHN ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BHS ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BHU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BHW ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BIE ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BIL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BLG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BMB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BND ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BNJ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BNY ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BOI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BRA ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BRD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BRE ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BRG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BRX ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BTN ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:BUG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:C81 ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:CAY ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:CHC ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:CHP ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:COB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:COO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:D2B ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:D2C ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:D2J ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:D2K ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:D2M ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:D2S ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:D2U ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:D3G ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:D3S ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:DAH ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:DAU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:DLS ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:DNG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:EZO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:FBM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:FRM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:FSI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:FTJ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:FTR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:FUL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:GAO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:GAR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:GEO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:GJA ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:GJM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:GLD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:GOT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:GR5 ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:GSK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HAM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HAR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HAU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HAW ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HEK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HIL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HLB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HMA ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HOH ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HOL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:HSG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:IKO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:IMR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ISD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ISQ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:JEY ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:JLF ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:JMB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:JOH ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KAL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KAU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KBA ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KBU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KEB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KFA ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KHR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KIZ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KKG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KLB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KND ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KNY ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KOK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KOT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KRB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KRG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KRT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KSN ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KTI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KTS ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KYM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:KZM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LAD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LAH ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LAN ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LBL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LDU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LIP ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LLG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LNG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LUA ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LUB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:LUC ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MAD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MAK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MBL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MBS ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MCA ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MDN ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MDR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MEB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MEC ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MEI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MGD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MGL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MJT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MKT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MLD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MLT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MNC ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MOD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MOL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MON ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MRV ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MSB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MSN ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MSR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MST ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MTM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:MTP ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NAK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NAS ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NEJ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NGD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NGY ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NOU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NSB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NUB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NUP ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NUR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:NWB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:OLD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ORT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:PAR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:PAS ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:PCO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:PLY ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:PON ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:PRK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:PUD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:QTG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RAG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RBI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RCI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:REB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RGE ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RGZ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RLO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RND ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RSL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RWD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:RYU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SAC ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SAG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SAK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SBI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SCH ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SCM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SCW ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SEL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SEW ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SFU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SHG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SHK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SHQ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SHW ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SIK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SIL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SKC ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SKE ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SKI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SLM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SLQ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SLU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SLZ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SMB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SMM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SNR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SRK ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SRQ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SRR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SRT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SRV ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SSO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:STG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:STM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SUL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SUU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SWF ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SWG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SWW ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SWX ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SWY ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SWZ ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:SYO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:TAL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:TDM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:TGI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:TKE ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:TMB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:TMP ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:TQL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:TRT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:TSH ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:UDI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:URT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:UTV ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:VIE ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WAA ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WAL ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WEI ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WLD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WLT ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WPD ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WPM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WPO ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WSG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WTU ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:WZB ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:YJR ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:YOG ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:YUN ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+        c:ZAM ?= {
+            set_variable = aor_ai_member
+            aor_ai_refresh = yes
+        }
+    }
+}
+
+aor_ai_relay_prepare = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_global_variable = aor_ai_initialized
+        aor_ai_running = yes
+        NOT = { has_global_variable = aor_ai_slot_0 }
+        NOT = { has_global_variable = aor_ai_wake_slot }
+        OR = { NOT = { any_in_global_list = { variable = aor_ai_pending_countries aor_ai_wake_dispatchable = yes } } AND = { NOT = { any_in_global_list = { variable = aor_ai_pending_countries aor_ai_wake_dispatchable = yes NOT = { has_variable = aor_ai_recovery_window } } } global_var:aor_ai_wakes_since_sleep >= 4 } }
+        any_in_global_list = { variable = aor_ai_pending_countries aor_ai_sleep_dispatchable = yes }
+    }
+    effect = {
+        ordered_in_global_list = {
+            variable = aor_ai_pending_countries
+            limit = { aor_ai_sleep_dispatchable = yes }
+            order_by = { value = 0 }
+            max = 24
+            check_range_bounds = no
+            set_variable = aor_ai_packet_sleep
+            if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_0 } }
+                set_global_variable = { name = aor_ai_slot_0 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_1 } }
+                set_global_variable = { name = aor_ai_slot_1 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_2 } }
+                set_global_variable = { name = aor_ai_slot_2 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_3 } }
+                set_global_variable = { name = aor_ai_slot_3 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_4 } }
+                set_global_variable = { name = aor_ai_slot_4 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_5 } }
+                set_global_variable = { name = aor_ai_slot_5 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_6 } }
+                set_global_variable = { name = aor_ai_slot_6 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_7 } }
+                set_global_variable = { name = aor_ai_slot_7 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_8 } }
+                set_global_variable = { name = aor_ai_slot_8 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_9 } }
+                set_global_variable = { name = aor_ai_slot_9 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_10 } }
+                set_global_variable = { name = aor_ai_slot_10 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_11 } }
+                set_global_variable = { name = aor_ai_slot_11 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_12 } }
+                set_global_variable = { name = aor_ai_slot_12 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_13 } }
+                set_global_variable = { name = aor_ai_slot_13 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_14 } }
+                set_global_variable = { name = aor_ai_slot_14 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_15 } }
+                set_global_variable = { name = aor_ai_slot_15 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_16 } }
+                set_global_variable = { name = aor_ai_slot_16 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_17 } }
+                set_global_variable = { name = aor_ai_slot_17 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_18 } }
+                set_global_variable = { name = aor_ai_slot_18 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_19 } }
+                set_global_variable = { name = aor_ai_slot_19 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_20 } }
+                set_global_variable = { name = aor_ai_slot_20 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_21 } }
+                set_global_variable = { name = aor_ai_slot_21 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_22 } }
+                set_global_variable = { name = aor_ai_slot_22 value = this }
+            }
+            else_if = {
+                limit = { NOT = { has_global_variable = aor_ai_slot_23 } }
+                set_global_variable = { name = aor_ai_slot_23 value = this }
+            }
+        }
+    }
+}
+
+aor_ai_relay_has_packet = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_global_variable = aor_ai_initialized
+        has_global_variable = aor_ai_slot_0
+    }
+}
+
+aor_ai_relay_finish = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_global_variable = aor_ai_initialized
+        has_global_variable = aor_ai_slot_0
+    }
+    effect = {
+        set_global_variable = { name = aor_ai_wakes_since_sleep value = 0 }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_0 }
+            global_var:aor_ai_slot_0 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_0
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_1 }
+            global_var:aor_ai_slot_1 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_1
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_2 }
+            global_var:aor_ai_slot_2 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_2
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_3 }
+            global_var:aor_ai_slot_3 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_3
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_4 }
+            global_var:aor_ai_slot_4 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_4
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_5 }
+            global_var:aor_ai_slot_5 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_5
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_6 }
+            global_var:aor_ai_slot_6 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_6
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_7 }
+            global_var:aor_ai_slot_7 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_7
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_8 }
+            global_var:aor_ai_slot_8 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_8
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_9 }
+            global_var:aor_ai_slot_9 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_9
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_10 }
+            global_var:aor_ai_slot_10 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_10
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_11 }
+            global_var:aor_ai_slot_11 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_11
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_12 }
+            global_var:aor_ai_slot_12 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_12
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_13 }
+            global_var:aor_ai_slot_13 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_13
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_14 }
+            global_var:aor_ai_slot_14 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_14
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_15 }
+            global_var:aor_ai_slot_15 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_15
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_16 }
+            global_var:aor_ai_slot_16 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_16
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_17 }
+            global_var:aor_ai_slot_17 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_17
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_18 }
+            global_var:aor_ai_slot_18 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_18
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_19 }
+            global_var:aor_ai_slot_19 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_19
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_20 }
+            global_var:aor_ai_slot_20 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_20
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_21 }
+            global_var:aor_ai_slot_21 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_21
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_22 }
+            global_var:aor_ai_slot_22 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_22
+        }
+        if = {
+            limit = { has_global_variable = aor_ai_slot_23 }
+            global_var:aor_ai_slot_23 ?= { aor_ai_record_sleep_attempt = yes }
+            remove_global_variable = aor_ai_slot_23
+        }
+    }
+}
+
+aor_ai_relay_prepare_wake = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_global_variable = aor_ai_initialized
+        NOT = { has_global_variable = aor_ai_wake_slot }
+        any_in_global_list = { variable = aor_ai_pending_countries aor_ai_wake_dispatchable = yes }
+        NOT = { AND = { OR = { NOT = { any_in_global_list = { variable = aor_ai_pending_countries aor_ai_wake_dispatchable = yes } } AND = { NOT = { any_in_global_list = { variable = aor_ai_pending_countries aor_ai_wake_dispatchable = yes NOT = { has_variable = aor_ai_recovery_window } } } global_var:aor_ai_wakes_since_sleep >= 4 } } OR = { any_in_global_list = { variable = aor_ai_pending_countries aor_ai_sleep_dispatchable = yes } has_global_variable = aor_ai_slot_0 } } }
+    }
+    effect = {
+        ordered_in_global_list = {
+            variable = aor_ai_pending_countries
+            limit = { aor_ai_wake_dispatchable = yes }
+            order_by = {
+                value = 0
+                if = { limit = { NOT = { has_variable = aor_ai_wake_attempts } } add = 1 }
+                if = { limit = { NOT = { has_variable = aor_ai_recovery_window } } add = 10 }
+            }
+            max = 1
+            check_range_bounds = no
+            set_global_variable = { name = aor_ai_wake_slot value = this }
+        }
+    }
+}
+
+aor_ai_relay_has_wake_packet = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_global_variable = aor_ai_initialized
+        has_global_variable = aor_ai_wake_slot
+    }
+}
+
+aor_ai_relay_can_send_wake = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_global_variable = aor_ai_initialized
+        global_var:aor_ai_wake_slot ?= { aor_ai_wake_dispatchable = yes }
+    }
+}
+
+aor_ai_relay_finish_wake = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_global_variable = aor_ai_initialized
+        has_global_variable = aor_ai_wake_slot
+    }
+    effect = {
+        if = { limit = { NOT = { has_global_variable = aor_ai_wakes_since_sleep } } set_global_variable = { name = aor_ai_wakes_since_sleep value = 0 } }
+        if = { limit = { global_var:aor_ai_wakes_since_sleep < 4 } change_global_variable = { name = aor_ai_wakes_since_sleep add = 1 } }
+        global_var:aor_ai_wake_slot ?= { aor_ai_record_wake_attempt = yes }
+        remove_global_variable = aor_ai_wake_slot
+    }
+}
+
+aor_ai_relay_observe_player = {
+    scope = country
+    is_valid = {
+        is_player = yes
+        has_global_variable = aor_ai_initialized
+        aor_ai_running = yes
+        NOT = { global_var:aor_ai_last_player ?= this }
+    }
+    effect = {
+        global_var:aor_ai_last_player ?= { aor_ai_refresh = yes }
+        set_global_variable = { name = aor_ai_last_player value = this }
+        aor_ai_refresh = yes
+        every_direct_subject = { aor_ai_refresh = yes }
+        every_enemy_in_diplo_play = { aor_ai_note_player_conflict = yes }
+        every_cobelligerent_in_diplo_play = { aor_ai_note_player_conflict = yes }
+    }
+}
+
+aor_ai_slot_0_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_0 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_1_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_1 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_2_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_2 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_3_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_3 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_4_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_4 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_5_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_5 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_6_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_6 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_7_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_7 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_8_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_8 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_9_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_9 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_10_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_10 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_11_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_11 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_12_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_12 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_13_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_13 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_14_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_14 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_15_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_15 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_16_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_16 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_17_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_17 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_18_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_18 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_19_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_19 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_20_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_20 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_21_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_21 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_22_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_22 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}
+
+aor_ai_slot_23_sleep = {
+    scope = country
+    is_valid = {
+        global_var:aor_ai_slot_23 ?= { has_variable = aor_ai_packet_sleep aor_ai_can_dispatch_sleep = yes }
+    }
+}

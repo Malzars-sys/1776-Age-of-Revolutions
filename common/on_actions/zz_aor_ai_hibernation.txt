@@ -1,0 +1,132 @@
+﻿on_game_started = { on_actions = { aor_ai_note_fresh_bookmark } }
+on_game_started_after_lobby = { on_actions = { aor_ai_arm } }
+on_diplo_play_start = { on_actions = { aor_ai_play_changed } }
+on_diplo_play_join_side = { on_actions = { aor_ai_play_changed } }
+on_diplo_play_war_start = { on_actions = { aor_ai_play_changed } }
+on_diplo_play_overlord_protects_subject = { on_actions = { aor_ai_play_changed } }
+on_diplo_play_switch_sides = { on_actions = { aor_ai_play_changed } }
+on_diplo_play_abandon_side = { on_actions = { aor_ai_play_ended } }
+on_diplo_play_back_down = { on_actions = { aor_ai_play_ended } }
+on_diplo_play_back_down_involved = { on_actions = { aor_ai_play_ended } }
+on_war_end = { on_actions = { aor_ai_play_ended } }
+on_peace_agreement_signed_war_participant = { on_actions = { aor_ai_check_country_later } }
+on_capitulation = { on_actions = { aor_ai_check_country_later } }
+on_become_independent = { on_actions = { aor_ai_check_country_later } }
+on_become_subject = { on_actions = { aor_ai_subject_changed } }
+on_country_formed = { on_actions = { aor_ai_country_promoted } }
+on_country_released_as_independent = { on_actions = { aor_ai_country_restored } }
+on_country_released_as_own_subject = { on_actions = { aor_ai_country_restored } }
+on_country_released_as_company_subject = { on_actions = { aor_ai_country_restored } }
+on_country_released_as_overlord_subject = { on_actions = { aor_ai_country_restored } }
+on_monthly_pulse = { on_actions = { aor_ai_monthly_watch } }
+
+# The engine fires on_game_started for bookmark construction, before the lobby exits.
+# A pre-existing save has no bookmark marker from this overlay.
+aor_ai_note_fresh_bookmark = {
+    trigger = { game_date = 1776.1.1 }
+    effect = { set_global_variable = aor_ai_fresh_bookmark }
+}
+
+aor_ai_arm = {
+    trigger = { has_global_variable = aor_ai_fresh_bookmark }
+    effect = {
+        remove_global_variable = aor_ai_fresh_bookmark
+        if = {
+            limit = {
+                aor_ai_running = yes
+                has_game_rule = aor_ai_hibernation_on
+                NOT = { has_global_variable = aor_ai_initialized }
+            }
+            set_global_variable = aor_ai_armed
+        }
+    }
+}
+
+aor_ai_play_changed = {
+    trigger = {
+        aor_ai_running = yes
+        has_global_variable = aor_ai_initialized
+        OR = {
+            initiator ?= { is_player = yes }
+            target ?= { is_player = yes }
+            any_scope_initiator_ally = { is_player = yes }
+            any_scope_target_ally = { is_player = yes }
+        }
+    }
+    effect = {
+        initiator ?= { aor_ai_note_player_conflict = yes }
+        target ?= { aor_ai_note_player_conflict = yes }
+        every_scope_initiator_ally = { aor_ai_note_player_conflict = yes }
+        every_scope_target_ally = { aor_ai_note_player_conflict = yes }
+    }
+}
+
+aor_ai_play_ended = {
+    trigger = { aor_ai_running = yes has_global_variable = aor_ai_initialized }
+    effect = {
+        initiator ?= { aor_ai_schedule_end_check = yes }
+        target ?= { aor_ai_schedule_end_check = yes }
+        scope:actor ?= { aor_ai_schedule_end_check = yes }
+        scope:target ?= { aor_ai_schedule_end_check = yes }
+        every_scope_initiator_ally = { aor_ai_schedule_end_check = yes }
+        every_scope_target_ally = { aor_ai_schedule_end_check = yes }
+    }
+}
+
+aor_ai_check_country_later = {
+    trigger = { aor_ai_running = yes has_global_variable = aor_ai_initialized }
+    effect = { aor_ai_schedule_end_check = yes }
+}
+
+aor_ai_subject_changed = {
+    trigger = { aor_ai_country_is_eligible_for_hibernation = yes }
+    effect = { aor_ai_refresh = yes }
+}
+
+aor_ai_country_promoted = {
+    trigger = { aor_ai_running = yes has_global_variable = aor_ai_initialized is_country_alive = yes }
+    effect = {
+        set_variable = aor_ai_promoted
+        aor_ai_unwatch = yes
+        aor_ai_refresh = yes
+    }
+}
+
+aor_ai_country_restored = {
+    trigger = { aor_ai_running = yes has_global_variable = aor_ai_initialized }
+    effect = {
+        scope:target ?= {
+            if = {
+                limit = { is_country_alive = yes aor_ai_candidate_tag = yes }
+                aor_ai_restore_candidate = yes
+            }
+        }
+    }
+}
+
+aor_ai_monthly_watch = {
+    trigger = { has_global_variable = aor_ai_initialized }
+    effect = {
+        every_in_global_list = {
+            variable = aor_ai_watched_countries
+            aor_ai_refresh = yes
+            if = { limit = { is_country_alive = no } aor_ai_forget_dead = yes }
+        }
+        every_in_global_list = {
+            variable = aor_ai_pending_countries
+            limit = { is_country_alive = no }
+            aor_ai_forget_dead = yes
+        }
+        aor_ai_compact_live_countries = { TRACKED_LIST = aor_ai_watched_countries }
+        aor_ai_compact_live_countries = { TRACKED_LIST = aor_ai_pending_countries }
+        if = {
+            limit = { has_global_variable = aor_ai_suspended }
+            aor_ai_compact_live_countries = { TRACKED_LIST = aor_ai_restore_countries }
+            set_global_variable = { name = aor_ai_restore_remaining value = 0 }
+            every_in_global_list = {
+                variable = aor_ai_restore_countries
+                change_global_variable = { name = aor_ai_restore_remaining add = 1 }
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+﻿namespace = aor_ai_hibernation
+
+aor_ai_hibernation.1 = {
+    type = country_event
+    hidden = yes
+    immediate = {
+        remove_variable = aor_ai_end_check_pending
+        aor_ai_refresh = yes
+    }
+}
+
+aor_ai_hibernation.2 = {
+    type = country_event
+    hidden = yes
+    trigger = { has_variable = aor_ai_cooling }
+    immediate = { aor_ai_refresh = yes }
+}
+
+aor_ai_hibernation.3 = {
+    type = country_event
+    hidden = yes
+    trigger = { has_variable = aor_ai_recovery_scheduled }
+    immediate = { aor_ai_begin_recovery_window = yes }
+}
